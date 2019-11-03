@@ -1,0 +1,25 @@
+run:
+  skip-files:
+    - pkg/get/.*_.*.go
+
+linters:
+  enable-all: false
+  enable:
+    - deadcode
+    - errcheck
+    - goconst
+    - gofmt
+    - golint
+    - gosec
+    - govet
+    - ineffassign
+    - interfacer
+    - misspell
+    - nakedret
+    - structcheck
+    - unconvert
+    - varcheck
+  disable:
+    - lll
+    - staticcheck
+    - megacheck

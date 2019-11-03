@@ -1,0 +1,3 @@
+name: cfn-single-instance-vpc-sdk
+runtime: nodejs
+description: A minimal TypeScript Pulumi program
