@@ -76,7 +76,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        "CFN.CheckConfig.news",
 		KeepUnknowns: true,
-		SkipNulls:    true,
 	})
 	if err != nil {
 		return nil, err
@@ -121,7 +120,6 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 	olds, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.olds", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 	})
 	if err != nil {
 		return nil, err
@@ -129,7 +127,6 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.news", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		RejectAssets: true,
 	})
 	if err != nil {
@@ -208,7 +205,6 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 		res, err := plugin.MarshalProperties(result.ObjectValue(), plugin.MarshalOptions{
 			Label:        fmt.Sprintf("CFN.Invoke.result"),
 			KeepUnknowns: true,
-			SkipNulls:    true,
 			KeepSecrets:  true,
 		})
 		if err != nil {
@@ -221,50 +217,97 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	}
 }
 
+// filterNullValues removes nested null values from the given property value. If all nested values in the property
+// value are null, the property value itself is considered null. This allows for easier integration with CloudFormation
+// templates, which use `AWS::NoValue` to remove values from lists, maps, etc. We use `null` to the same effect.
+func filterNullValues(v resource.PropertyValue) resource.PropertyValue {
+	switch {
+	case v.IsArray():
+		if len(v.ArrayValue()) == 0 {
+			return v
+		}
+
+		var result []resource.PropertyValue
+		for _, e := range v.ArrayValue() {
+			if !e.IsNull() {
+				result = append(result, e)
+			}
+		}
+		return resource.NewArrayProperty(result)
+	case v.IsObject():
+		return resource.NewObjectProperty(filterNullProperties(v.ObjectValue()))
+	default:
+		return v
+	}
+}
+
+// filterNullValues removes nested null values from the given property map. If all nested values in the property
+// map are null, the property map itself is considered null. This allows for easier integration with CloudFormation
+// templates, which use `AWS::NoValue` to remove values from lists, maps, etc. We use `null` to the same effect.
+func filterNullProperties(m resource.PropertyMap) resource.PropertyMap {
+	if len(m) == 0 {
+		return m
+	}
+
+	result := resource.PropertyMap{}
+	for k, v := range m {
+		e := filterNullValues(v)
+		if !e.IsNull() {
+			result[k] = e
+		}
+	}
+	if len(result) == 0 {
+		return nil
+	}
+	return result
+}
+
 func validateInputs(sch schema.CloudFormationSchema, resourceType string, inputs resource.PropertyMap) ([]*pulumirpc.CheckFailure, error) {
 	var checkFailures []*pulumirpc.CheckFailure
 
 	if metadataV, ok := inputs["metadata"]; ok {
-		if !metadataV.IsObject() {
+		if !metadataV.IsObject() && !metadataV.IsComputed() {
 			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "metadata", Reason: "metadata must be an object"})
 		}
 	}
 	if creationPolicyV, ok := inputs["creationPolicy"]; ok {
-		if !creationPolicyV.IsObject() {
+		if !creationPolicyV.IsObject() && !creationPolicyV.IsComputed() {
 			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "creationPolicy", Reason: "creationPolicy must be an object"})
 		}
 	}
 	if deletionPolicyV, ok := inputs["deletionPolicy"]; ok {
-		if !deletionPolicyV.IsObject() {
+		if !deletionPolicyV.IsObject() && !deletionPolicyV.IsComputed() {
 			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "deletionPolicy", Reason: "deletionPolicy must be an object"})
 		}
 	}
 	if updatePolicyV, ok := inputs["updatePolicy"]; ok {
-		if !updatePolicyV.IsObject() {
+		if !updatePolicyV.IsObject() && !updatePolicyV.IsComputed() {
 			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "updatePolicy", Reason: "updatePolicy must be an object"})
 		}
 	}
 	if updateReplacePolicyV, ok := inputs["updateReplacePolicy"]; ok {
-		if !updateReplacePolicyV.IsObject() {
+		if !updateReplacePolicyV.IsObject() && !updateReplacePolicyV.IsComputed() {
 			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "updateReplacePolicy", Reason: "updateReplacePolicy must be an object"})
 		}
 	}
 
-	var properties resource.PropertyMap
 	if propertiesV, ok := inputs["properties"]; ok {
-		if !propertiesV.IsObject() {
+		switch {
+		case propertiesV.IsObject():
+			failures, err := schema.ValidateResource(sch, resourceType, propertiesV.ObjectValue())
+			if err != nil {
+				return nil, err
+			}
+			for _, f := range failures {
+				checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: f.Path, Reason: f.Reason})
+			}
+		case propertiesV.IsComputed():
+			// Nothing we can do here.
+		default:
 			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "properties", Reason: "properties must be an object"})
 		}
-		properties = propertiesV.ObjectValue()
 	}
 
-	failures, err := schema.ValidateResource(sch, resourceType, properties)
-	if err != nil {
-		return nil, err
-	}
-	for _, f := range failures {
-		checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: f.Path, Reason: f.Reason})
-	}
 	return checkFailures, nil
 }
 
@@ -282,7 +325,6 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		RejectAssets: true,
 		KeepSecrets:  true,
 	})
@@ -290,13 +332,24 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 		return nil, err
 	}
 
+	// Filter null properties from the inputs.
+	newInputs = filterNullProperties(newInputs)
+
 	failures, err := validateInputs(p.schema, resourceType, newInputs)
 	if err != nil {
 		return nil, err
 	}
 
 	if len(failures) == 0 {
-		return &pulumirpc.CheckResponse{Inputs: req.GetNews()}, nil
+		inputs, err := plugin.MarshalProperties(newInputs, plugin.MarshalOptions{
+			Label:        fmt.Sprintf("%s.inputs", label),
+			KeepUnknowns: true,
+			KeepSecrets:  true,
+		})
+		if err != nil {
+			return nil, err
+		}
+		return &pulumirpc.CheckResponse{Inputs: inputs}, nil
 	}
 	return &pulumirpc.CheckResponse{Failures: failures}, nil
 }
@@ -325,7 +378,6 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		RejectAssets: true,
 		KeepSecrets:  true,
 	})
@@ -338,7 +390,6 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		RejectAssets: true,
 		KeepSecrets:  true,
 	})
@@ -372,7 +423,6 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	newInputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		RejectAssets: true,
 		KeepSecrets:  true,
 	})
@@ -422,7 +472,6 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	state, err := plugin.MarshalProperties(newInputs, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		KeepSecrets:  true,
 	})
 	if err != nil {
@@ -483,7 +532,6 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	state, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		KeepSecrets:  true,
 	})
 	if err != nil {
@@ -494,7 +542,6 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	inputs, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		KeepSecrets:  true,
 	})
 	if err != nil {
@@ -517,7 +564,6 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		RejectAssets: true,
 		KeepSecrets:  true,
 	})
@@ -568,7 +614,6 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	state, err := plugin.MarshalProperties(newInputs, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
 		KeepUnknowns: true,
-		SkipNulls:    true,
 		KeepSecrets:  true,
 	})
 	if err != nil {
