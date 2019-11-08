@@ -309,6 +309,15 @@ func generateResourceGetter(outdir string, serviceClients map[string]types.Type,
 	if err != nil {
 		return "", errors.Wrapf(err, "could not parse resource type %v", resourceType)
 	}
+	resourceName := serviceName + typeName
+
+	fileName := fmt.Sprintf("%s_%s.go", strings.ToLower(serviceName), strings.ToLower(typeName))
+	filePath := path.Join(outdir, fileName)
+	getter := fmt.Sprintf("get%sAttributes", resourceName)
+	if _, err = os.Lstat(filePath); err == nil {
+		// This file already exists. Do not overwrite it.
+		return getter, nil
+	}
 
 	serviceSDKPackageName, ok := serviceSDKPackageNames[serviceName]
 	if !ok {
@@ -317,17 +326,12 @@ func generateResourceGetter(outdir string, serviceClients map[string]types.Type,
 
 	getFunc, getInputType, hasGetFunc := discoverGetAPI(serviceClients[serviceName], typeName)
 
-	resourceName := serviceName + typeName
-
-	fileName := fmt.Sprintf("%s_%s.go", strings.ToLower(serviceName), strings.ToLower(typeName))
-	filePath := path.Join(outdir, fileName)
 	file, err := os.Create(filePath)
 	if err != nil {
 		return "", errors.Wrapf(err, "could not create output file %v", filePath)
 	}
 	defer file.Close()
 
-	getter := fmt.Sprintf("get%sAttributes", resourceName)
 	return getter, resourceGetterTemplate.Execute(file, map[string]interface{}{
 		"SDKPackage":   serviceSDKPackageName,
 		"GetFunc":      getFunc,
