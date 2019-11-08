@@ -8,15 +8,11 @@ const region = cloudformation.region!;
 const stack = cloudformation.stack!;
 const stackId = cloudformation.getStackId();
 
-function containsOutputs(val: any): boolean {
-    if (val === null || typeof val !== "object") {
-        return false;
-    } else if (val instanceof Promise || pulumi.Output.isInstance(val)) {
-        return true;
-    } else if (val instanceof Array) {
-        return val.some(e => containsOutputs(e));
+async function apply<T, U>(output: pulumi.Output<T>, fn: (t: T) => U): Promise<pulumi.Input<U>> {
+    if (await (<any>output).isKnown) {
+        return fn(<T>(await (<any>output).promise()));
     }
-    return Object.keys(val).some(k => containsOutputs(val[k]));
+    return output.apply(fn);
 }
 
 // Generic CloudFormation resource to avoid mapping from CloudFormation type -> Pulumi type.
@@ -52,12 +48,10 @@ const functions = new Set<string>([
 interface EvalContext {
     // The name of the context. Used in error messages.
     name: string;
-    // True if we are in a context where `pulumi.Output.apply` can be used.
-    apply: boolean;
     // The set of mappings for the stack.
     mappings: any;
     // The evaluated conditions for the stack.
-    conditions: Record<string, boolean>;
+    conditions: Record<string, pulumi.Input<boolean>>;
     // The evaluated parameter values for the stack.
     parameterValues: Record<string, any>;
     // The evaluated resources for the stack.
@@ -68,7 +62,7 @@ interface EvalContext {
 const subPattern = /\${([^}]*)}/;
 
 // evalSub evaluates a call to `Fn::Sub` by replacing all interpolations as appropriate.
-function evalSub(args: any[], context: EvalContext): any {
+async function evalSub(args: any[], context: EvalContext): Promise<any> {
     let [template, vars] = args;
 
     // Find all interpolations in the template.
@@ -96,9 +90,9 @@ function evalSub(args: any[], context: EvalContext): any {
             // Resource reference or attribute, depending on whether or not a '.' is present.
             const args = interpolation.split(".", 2);
             if (args.length === 1) {
-                result.push(evalExpr({ "Ref": args }, context, false));
+                result.push(await evalExpr({ "Ref": args }, context, false));
             } else {
-                result.push(evalExpr({ "Fn::GetAtt": args }, context, false));
+                result.push(await evalExpr({ "Fn::GetAtt": args }, context, false));
             }
         }
 
@@ -110,12 +104,7 @@ function evalSub(args: any[], context: EvalContext): any {
         result.push(template);
     }
 
-    // If we're inside a context where we can apply, do so to ensure that all of our inputs are resolved before
-    // evaluating the result. Otherwise, just evaluate the result as-is.
-    if (context.apply) {
-        return pulumi.all(result).apply(strs => strs.join(""));
-    }
-    return result.join("");
+    return apply(pulumi.all(result), arr => arr.join(""));
 }
 
 // findSubDeps finds all resource references inside of the template string in a call to `Fn::Sub`.
@@ -161,7 +150,7 @@ function evalEquals(a: any, b: any): boolean {
 }
 
 // evalFn evaluates a CloudFormation intrinsic function.
-function evalFn(fn: string, args: any[], context: EvalContext): any {
+async function evalFn(fn: string, args: any[], context: EvalContext): Promise<any> {
     switch (fn) {
         case "Condition": {
             const [cond] = args;
@@ -198,12 +187,12 @@ function evalFn(fn: string, args: any[], context: EvalContext): any {
                 // references to unknown resources.
                 return undefined;
             }
-            return resource.attributes.apply((attrs: any) => attrs[attributeName]);
+            return apply(resource.attributes, (attrs: any) => attrs[attributeName]);
         }
 
         case "Fn::If": {
             const [cond, ifv, elsev] = args;
-            return context.conditions[cond] ? ifv : elsev;
+            return apply(pulumi.output(context.conditions[cond]), v => v ? ifv : elsev);
         }
 
         case "Fn::ImportValue":
@@ -263,7 +252,7 @@ function evalFn(fn: string, args: any[], context: EvalContext): any {
 }
 
 // evalExpr evaluates a CloudFormation expression.
-function evalExpr(expr: any, context: EvalContext, inCondition: boolean): any {
+async function evalExpr(expr: any, context: EvalContext, inCondition: boolean): Promise<any> {
     // If this is a primitive or null, leave it be.
     if (expr === null || typeof expr !== "object") {
         return expr;
@@ -274,10 +263,9 @@ function evalExpr(expr: any, context: EvalContext, inCondition: boolean): any {
         return expr.map(e => evalExpr(e, context, inCondition));
     }
 
-    // If this is an output and we are in a context where we can apply, evaluate the eventual result. Otherwise, return
-    // undefined.
+    // If this is an output, evaluate the eventual result. If the value is known promptly, evaluate it now.
     if (pulumi.Output.isInstance(expr)) {
-        return context.apply ? expr.apply(v => evalExpr(v, context, inCondition)) : undefined;
+        return apply(expr, v => evalExpr(v, context, inCondition));
     }
 
     // Otherwise, check for a function call.
@@ -294,14 +282,8 @@ function evalExpr(expr: any, context: EvalContext, inCondition: boolean): any {
             fnArgs = [fnArgs];
         }
 
-        const args = <any[]>fnArgs.map((arg: any) => evalExpr(arg, context, inCondition));
-
-        // If we're inside a context where we can apply, do so to ensure that all of our inputs are resolved before
-        // evaluating the result. Otherwise, just evaluate the result as-is.
-        if (context.apply && containsOutputs(args)) {
-            return pulumi.all(args).apply(args => evalFn(fn, args, context));
-        }
-        return evalFn(fn, args, context);
+        const args = pulumi.all(<any[]>fnArgs.map((arg: any) => evalExpr(arg, context, inCondition)));
+        return apply(args, args => evalFn(fn, args, context));
     }
 
     // Otherwise, this is a normal object. Evaluate the value of each of its properties.
@@ -418,7 +400,7 @@ function getUrlSuffix(region: string): string {
 }
 
 // load loads and evaluates the JSON CloudFormation template at the given path using the specified parameters.
-export function load(path: string, parameters: any): any {
+export async function load(path: string, parameters: any): Promise<any> {
     // Load the template as JSON
     const templateObj = JSON.parse(fs.readFileSync(path, "utf8"));
 
@@ -430,7 +412,7 @@ export function load(path: string, parameters: any): any {
     const outputDefs = templateObj["Outputs"] || {};
 
     // Set up the containers we'll use to hold our evaluated state.
-    const conditions: Record<string, boolean> = {};
+    const conditions: Record<string, pulumi.Input<boolean>> = {};
     const resources: Record<string, CloudFormationResource | null> = {};
     const outputs: Record<string, any> = {};
 
@@ -453,12 +435,12 @@ export function load(path: string, parameters: any): any {
 
     // Set up our evaluation context and evaluation function.
     const evalContext = {conditions, parameterValues, mappings, resources};
-    const evaluate = (name: string, e: any, inCondition?: boolean) => evalExpr(e, { ...evalContext, name, apply: !inCondition }, !!inCondition);
+    const evaluate = (name: string, e: any, inCondition?: boolean) => evalExpr(e, { ...evalContext, name }, !!inCondition);
 
     // Evaluate conditions in topological order.
     const conditionOrder = topologicalSort(conditionDefs, parameterValues, true);
     for (const k of conditionOrder) {
-        conditions[k] = !!evaluate(k, conditionDefs[k], true);
+        conditions[k] = await apply(pulumi.output(evaluate(k, conditionDefs[k], true)), v => !!v);
     }
 
     // Create resources in topological order.
@@ -469,6 +451,8 @@ export function load(path: string, parameters: any): any {
         // If this is a resource that we're not going to create because its condition is false, record the fact that we
         // are not going to create it. This simplifies the evaluator, as it can evaluate both branches of a `Fn::If`
         // without needing to worry about references to unknown resources.
+        //
+        // Note that if the condition is not promptly known, we will consider it to be true.
         if (resourceDef.Condition && !conditions[<string>resourceDef.Condition]) {
             resources[resourceName] = null;
             continue;
@@ -488,7 +472,7 @@ export function load(path: string, parameters: any): any {
 
     // Evaluate and return the stack's outputs.
     for (const k of Object.keys(outputDefs)) {
-        outputs[k] = evaluate(k, outputDefs[k].Value);
+        outputs[k] = await evaluate(k, outputDefs[k].Value);
     }
     return outputs;
 }
