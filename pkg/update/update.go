@@ -152,6 +152,8 @@ func (su *StackUpdate) waitForStack(ctx context.Context) error {
 			return errors.New("failed to describe stack")
 		}
 
+		// TODO: look through stack events for status reasons.
+
 		status := aws.StringValue(describeResp.Stacks[0].StackStatus)
 		switch status {
 		case "CREATE_COMPLETE", "UPDATE_COMPLETE":

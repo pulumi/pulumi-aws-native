@@ -3,20 +3,24 @@ package get
 import (
 	"context"
 
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/service/cloudfront"
 )
 
 func (g *Getter) getCloudFrontDistributionAttributes(ctx context.Context, physicalResourceID string) (map[string]interface{}, error) {
 	resp, err := g.cloudfront.GetDistributionWithContext(ctx, &cloudfront.GetDistributionInput{
-		// Add params here
+		Id: aws.String(physicalResourceID),
 	})
-	_ = resp
 	if err != nil {
+		if awsErr, ok := err.(awserr.Error); ok && awsErr.Code() == "NoSuchDistribution" {
+			return nil, NewNotFoundError(err)
+		}
 		return nil, err
 	}
 
 	attrs := map[string]interface{}{
-		"DomainName": nil,
+		"DomainName": aws.StringValue(resp.Distribution.DomainName),
 	}
 	return attrs, nil
 }

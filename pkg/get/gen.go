@@ -351,6 +351,8 @@ import (
 	{{- end}}
 )
 
+const timestampFormat = "2006-01-02T15:04:05.999Z07:00"
+
 type NotFoundError struct {
 	cause error
 }

@@ -1,10 +1,8 @@
 package schema
 
 import (
-	"encoding/json"
 	"fmt"
 	"math"
-	"strings"
 	"time"
 
 	"github.com/pkg/errors"
@@ -47,15 +45,8 @@ func validatePrimitive(primitiveType string, path string, property resource.Prop
 		if !property.IsBool() {
 			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a bool", path)}}, nil
 		}
-	case "JSON":
-		if !property.IsString() {
-			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be valid JSON", path)}}, nil
-		}
-
-		var v interface{}
-		if err := json.NewDecoder(strings.NewReader(property.StringValue())).Decode(&v); err != nil {
-			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be valid JSON (%v)", err, path)}}, nil
-		}
+	case "Json":
+		// Nothing to do here.
 	case "Timestamp":
 		if !property.IsString() {
 			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a valid Timestamp", path)}}, nil
