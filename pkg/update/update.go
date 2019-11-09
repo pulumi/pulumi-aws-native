@@ -12,7 +12,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/cloudformation"
 	"github.com/pkg/errors"
 	"github.com/sanathkr/yaml"
-	"github.com/satori/go.uuid"
+	uuid "github.com/satori/go.uuid"
 
 	"github.com/pulumi/pulumi-cloudformation/pkg/get"
 )
@@ -166,6 +166,8 @@ func (su *StackUpdate) waitForStack(ctx context.Context) error {
 	}
 }
 
+var allCapabilities = []*string{aws.String("CAPABILITY_IAM"), aws.String("CAPABILITY_NAMED_IAM"), aws.String("CAPABILITY_AUTO_EXPAND")}
+
 func (su *StackUpdate) updateStack(ctx context.Context, requests []resourceRequest) error {
 	// Fetch the ground state for the stack's resources.
 	existingStates := make(map[string]*cloudformation.StackResourceSummary)
@@ -303,6 +305,7 @@ func (su *StackUpdate) updateStack(ctx context.Context, requests []resourceReque
 			ClientRequestToken: aws.String(token),
 			StackName:          aws.String(su.stackName),
 			TemplateBody:       aws.String(body),
+			Capabilities:       allCapabilities,
 		})
 		if err != nil {
 			// We may have failed because there's nothing to do. Ignore this failure and skip fetching new resource states.
@@ -410,6 +413,7 @@ func (su *StackUpdate) startUpdate(ctx context.Context) (string, error) {
 		createResp, err := su.client.CreateStackWithContext(ctx, &cloudformation.CreateStackInput{
 			StackName:    aws.String(su.stackName),
 			TemplateBody: aws.String(emptyStackBody),
+			Capabilities: allCapabilities,
 		})
 		if err != nil {
 			return "", errors.Wrap(err, "failed to create stack")

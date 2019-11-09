@@ -23,6 +23,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/sts"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
@@ -55,6 +56,7 @@ type cfnProvider struct {
 	configured bool
 	version    string
 	stackName  string
+	accountID  string
 	region     string
 	schema     schema.CloudFormationSchema
 
@@ -169,7 +171,12 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 		return nil, errors.Errorf("could not create AWS session: %v", err)
 	}
 
-	// TODO(pdg): get the CFN schema for the region
+	callerIdentityResp, err := sts.New(sess).GetCallerIdentity(&sts.GetCallerIdentityInput{})
+	if err != nil {
+		return nil, errors.Errorf("could not get AWS account ID: %v", err)
+	}
+	p.accountID = aws.StringValue(callerIdentityResp.Account)
+
 	schema, err := getCloudFormationSchema(p.canceler.context, region)
 	if err != nil {
 		return nil, errors.Errorf("could not fetch CloudFormation schema: %v", err)
@@ -197,24 +204,30 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	tok := req.GetTok()
 
 	// Process Invoke call.
+	var result resource.PropertyMap
 	switch tok {
+	case "cloudformation:index:getAccountId":
+		result = resource.NewPropertyMapFromMap(map[string]interface{}{
+			"accountId": p.accountID,
+		})
+
 	case "cloudformation:index:getStackId":
-		result := resource.NewPropertyValue(map[string]interface{}{
+		result = resource.NewPropertyMapFromMap(map[string]interface{}{
 			"stackId": p.update.StackID(),
 		})
-		res, err := plugin.MarshalProperties(result.ObjectValue(), plugin.MarshalOptions{
-			Label:        fmt.Sprintf("CFN.Invoke.result"),
-			KeepUnknowns: true,
-			KeepSecrets:  true,
-		})
-		if err != nil {
-			return nil, err
-		}
-		return &pulumirpc.InvokeResponse{Return: res}, nil
-
 	default:
 		return nil, fmt.Errorf("Unknown Invoke type '%s'", tok)
 	}
+
+	res, err := plugin.MarshalProperties(result, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("CFN.Invoke.result"),
+		KeepUnknowns: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &pulumirpc.InvokeResponse{Return: res}, nil
 }
 
 // filterNullValues removes nested null values from the given property value. If all nested values in the property
@@ -229,6 +242,7 @@ func filterNullValues(v resource.PropertyValue) resource.PropertyValue {
 
 		var result []resource.PropertyValue
 		for _, e := range v.ArrayValue() {
+			e = filterNullValues(e)
 			if !e.IsNull() {
 				result = append(result, e)
 			}
@@ -276,8 +290,8 @@ func validateInputs(sch schema.CloudFormationSchema, resourceType string, inputs
 		}
 	}
 	if deletionPolicyV, ok := inputs["deletionPolicy"]; ok {
-		if !deletionPolicyV.IsObject() && !deletionPolicyV.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "deletionPolicy", Reason: "deletionPolicy must be an object"})
+		if !deletionPolicyV.IsString() && !deletionPolicyV.IsComputed() {
+			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "deletionPolicy", Reason: "deletionPolicy must be a string"})
 		}
 	}
 	if updatePolicyV, ok := inputs["updatePolicy"]; ok {
@@ -286,8 +300,8 @@ func validateInputs(sch schema.CloudFormationSchema, resourceType string, inputs
 		}
 	}
 	if updateReplacePolicyV, ok := inputs["updateReplacePolicy"]; ok {
-		if !updateReplacePolicyV.IsObject() && !updateReplacePolicyV.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "updateReplacePolicy", Reason: "updateReplacePolicy must be an object"})
+		if !updateReplacePolicyV.IsString() && !updateReplacePolicyV.IsComputed() {
+			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "updateReplacePolicy", Reason: "updateReplacePolicy must be a string"})
 		}
 	}
 

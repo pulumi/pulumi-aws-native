@@ -20,6 +20,10 @@ export class Stack extends pulumi.ProviderResource {
     }
 }
 
+export function getAccountId(opts?: pulumi.InvokeOptions): Promise<string> {
+    return pulumi.runtime.invoke("cloudformation:index:getAccountId", {}, opts).then((id: any) => id.accountId);
+}
+
 export function getStackId(opts?: pulumi.InvokeOptions): Promise<string> {
     return pulumi.runtime.invoke("cloudformation:index:getStackId", {}, opts).then((id: any) => id.stackId);
 }

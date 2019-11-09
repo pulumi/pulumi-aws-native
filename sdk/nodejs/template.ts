@@ -6,6 +6,7 @@ import * as fs from "fs";
 
 const region = cloudformation.region!;
 const stack = cloudformation.stack!;
+const accountId = cloudformation.getAccountId();
 const stackId = cloudformation.getStackId();
 
 async function apply<T, U>(output: pulumi.Output<T>, fn: (t: T) => U): Promise<pulumi.Input<U>> {
@@ -13,6 +14,13 @@ async function apply<T, U>(output: pulumi.Output<T>, fn: (t: T) => U): Promise<p
         return fn(<T>(await (<any>output).promise()));
     }
     return output.apply(fn);
+}
+
+// Generic container for resources.
+class Component extends pulumi.ComponentResource {
+    constructor(name: string, opts?: pulumi.ComponentResourceOptions) {
+        super("cloudformation:template:component", name, {}, opts);
+    }
 }
 
 // Generic CloudFormation resource to avoid mapping from CloudFormation type -> Pulumi type.
@@ -388,41 +396,64 @@ function topologicalSort(defs: any, parameterValues: Record<string, any>, isCond
     return order;
 }
 
-// getUrlSuffix returns the URL suffix for the given region.
-function getUrlSuffix(region: string): string {
+
+interface RegionInfo {
+    partition: string;
+    urlSuffix: string;
+}
+
+// getRegionInfo returns the partition and URL suffix for the given region.
+function getRegionInfo(region: string): RegionInfo {
     switch (region) {
         case "cn-north-1":
         case "cn-northwest-1":
-            return "amazonaws.com.cn";
+            return {partition: "aws-cn", urlSuffix: "amazonaws.com.cn"};
         default:
-            return "amazonaws.com";
+            return {partition: "aws", urlSuffix: "amazonaws.com"};
     }
 }
 
-// load loads and evaluates the JSON CloudFormation template at the given path using the specified parameters.
-export async function load(path: string, parameters: any): Promise<any> {
-    // Load the template as JSON
-    const templateObj = JSON.parse(fs.readFileSync(path, "utf8"));
+// Tree records the logical structure of a CloudFormation template.
+export interface Tree {
+    root: any;
+    parents: Record<string, string>;
+}
 
+function createTree(path: string, node: any, mapping: Record<string, Component>, parent?: Component) {
+    const component = new Component(path, { parent });
+    mapping[path] = component;
+
+    for (const child of Object.keys(node)) {
+        createTree(`${path}/${child}`, node[child], mapping, component);
+    }
+}
+
+// load loads the given CloudFormation template using the specified parameters.
+export async function load(template: any, parameters: any, tree?: Tree): Promise<any> {
     // Pull the pieces we need out of the template.
-    const parameterDefs = templateObj["Parameters"] || {};
-    const mappings = templateObj["Mappings"] || {};
-    const conditionDefs = templateObj["Conditions"] || {};
-    const resourceDefs = templateObj["Resources"] || {};
-    const outputDefs = templateObj["Outputs"] || {};
+    const parameterDefs = template["Parameters"] || {};
+    const mappings = template["Mappings"] || {};
+    const conditionDefs = template["Conditions"] || {};
+    const resourceDefs = template["Resources"] || {};
+    const outputDefs = template["Outputs"] || {};
 
     // Set up the containers we'll use to hold our evaluated state.
     const conditions: Record<string, pulumi.Input<boolean>> = {};
     const resources: Record<string, CloudFormationResource | null> = {};
     const outputs: Record<string, any> = {};
 
+    // Get the region info.
+    const regionInfo = getRegionInfo(region);
+
     // Evaluate parameter values.
     const parameterValues: Record<string, any> = {
         "AWS::NoValue": null,
+        "AWS::AccountId": accountId,
+        "AWS::Partition": regionInfo.partition,
         "AWS::Region": region,
         "AWS::StackName": stack,
         "AWS::StackId": stackId,
-        "AWS::URLSuffix": getUrlSuffix(region),
+        "AWS::URLSuffix": regionInfo.urlSuffix,
     };
     for (const k of Object.keys(parameterDefs)) {
         const def = parameterDefs[k];
@@ -443,6 +474,13 @@ export async function load(path: string, parameters: any): Promise<any> {
         conditions[k] = await apply(pulumi.output(evaluate(k, conditionDefs[k], true)), v => !!v);
     }
 
+    // If we were passed a tree, create its container nodes.
+    tree = tree || {root: {}, parents: {}};
+    const componentMap: Record<string, Component> = {};
+    for (const k of Object.keys(tree.root)) {
+        createTree(k, tree.root[k], componentMap);
+    }
+
     // Create resources in topological order.
     const resourceOrder = topologicalSort(resourceDefs, parameterValues, false);
     for (const resourceName of resourceOrder) {
@@ -458,6 +496,17 @@ export async function load(path: string, parameters: any): Promise<any> {
             continue;
         }
 
+        const parent = componentMap[tree.parents[resourceName]];
+
+        const dependsOnDef = resourceDef.DependsOn;
+        const dependsOnNames = [];
+        if (typeof dependsOnDef === "string") {
+            dependsOnNames.push(dependsOnDef);
+        } else if (dependsOnDef instanceof Array) {
+            dependsOnNames.push(...dependsOnDef);
+        }
+        const dependsOn = <pulumi.Resource[]>dependsOnNames.map(n => resources[n]).filter(r => r !== null);
+
         let [_, resourceModule, resourceType] = resourceDef.Type.split("::");
         resources[resourceName] = new CloudFormationResource(`cloudformation:${resourceModule}:${resourceType}`, resourceName, {
             metadata: evaluate(resourceName, resourceDef.Metadata),
@@ -467,7 +516,7 @@ export async function load(path: string, parameters: any): Promise<any> {
             updateReplacePolicy: evaluate(resourceName, resourceDef.UpdateReplacePolicy),
             properties: evaluate(resourceName, resourceDef.Properties),
             attributes: undefined,
-        });
+        }, { parent, dependsOn });
     }
 
     // Evaluate and return the stack's outputs.
@@ -475,4 +524,9 @@ export async function load(path: string, parameters: any): Promise<any> {
         outputs[k] = await evaluate(k, outputDefs[k].Value);
     }
     return outputs;
+}
+
+// loadJSON loads and evaluates the JSON CloudFormation template at the given path using the specified parameters.
+export function loadJSON(path: string, parameters: any): Promise<any> {
+    return load(JSON.parse(fs.readFileSync(path, "utf8")), parameters);
 }
