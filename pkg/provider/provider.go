@@ -304,6 +304,12 @@ func filterNullProperties(m resource.PropertyMap) resource.PropertyMap {
 func validateInputs(sch schema.CloudFormationSchema, resourceType string, inputs resource.PropertyMap) ([]*pulumirpc.CheckFailure, error) {
 	var checkFailures []*pulumirpc.CheckFailure
 
+	if logicalID, ok := inputs["logicalId"]; ok {
+		if !logicalID.IsString() && !logicalID.IsComputed() {
+			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "logicalId", Reason: "logicalId must be a string"})
+		}
+	}
+
 	if metadataV, ok := inputs["metadata"]; ok {
 		if !metadataV.IsObject() && !metadataV.IsComputed() {
 			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "metadata", Reason: "metadata must be an object"})
@@ -475,6 +481,9 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	if err != nil {
 		return nil, err
 	}
+	if inputID, ok := inputs["logicalId"]; ok {
+		logicalID = inputID.(string)
+	}
 
 	properties, _ := inputs["properties"].(map[string]interface{})
 
@@ -488,7 +497,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		options = append(options, update.CreationPolicy(creationPolicy))
 	}
 	if deletionPolicyV, ok := inputs["deletionPolicy"]; ok {
-		deletionPolicy, _ := deletionPolicyV.(map[string]interface{})
+		deletionPolicy, _ := deletionPolicyV.(string)
 		options = append(options, update.DeletionPolicy(deletionPolicy))
 	}
 	if updatePolicyV, ok := inputs["updatePolicy"]; ok {
@@ -496,7 +505,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		options = append(options, update.UpdatePolicy(updatePolicy))
 	}
 	if updateReplacePolicyV, ok := inputs["updateReplacePolicy"]; ok {
-		updateReplacePolicy, _ := updateReplacePolicyV.(map[string]interface{})
+		updateReplacePolicy, _ := updateReplacePolicyV.(string)
 		options = append(options, update.UpdateReplacePolicy(updateReplacePolicy))
 	}
 
@@ -533,6 +542,22 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		return nil, err
 	}
 
+	// Parse old state
+	oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.properties", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	// If the resource has an explicit logical ID in the state, use it.
+	if stateID, ok := oldState["logicalId"]; ok {
+		logicalID = stateID.StringValue()
+	}
+
 	data, err := p.update.ReadResource(p.canceler.context, logicalID, physicalResourceID, resourceType)
 	if err != nil {
 		return nil, err
@@ -544,6 +569,9 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	}
 
 	stateMap := map[string]interface{}{}
+	if _, ok := oldState["logicalId"]; ok {
+		stateMap["logicalId"] = logicalID
+	}
 	if data.Metadata != nil {
 		stateMap["metadata"] = data.Metadata
 	}
@@ -553,15 +581,11 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if data.CreationPolicy != nil {
 		stateMap["creationPolicy"] = data.CreationPolicy
 	}
-	if data.DeletionPolicy != nil {
-		stateMap["deletionPolicy"] = data.DeletionPolicy
-	}
+	stateMap["deletionPolicy"] = data.DeletionPolicy
 	if data.UpdatePolicy != nil {
 		stateMap["updatePolicy"] = data.UpdatePolicy
 	}
-	if data.UpdateReplacePolicy != nil {
-		stateMap["updateReplacePolicy"] = data.UpdateReplacePolicy
-	}
+	stateMap["updateReplacePolicy"] = data.UpdateReplacePolicy
 	stateMap["attributes"] = data.Attributes
 
 	// TODO: annotate secrets
@@ -615,6 +639,9 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	if err != nil {
 		return nil, err
 	}
+	if inputID, ok := inputs["logicalId"]; ok {
+		logicalID = inputID.(string)
+	}
 
 	properties, _ := inputs["properties"].(map[string]interface{})
 
@@ -628,7 +655,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		options = append(options, update.CreationPolicy(creationPolicy))
 	}
 	if deletionPolicyV, ok := inputs["deletionPolicy"]; ok {
-		deletionPolicy, _ := deletionPolicyV.(map[string]interface{})
+		deletionPolicy, _ := deletionPolicyV.(string)
 		options = append(options, update.DeletionPolicy(deletionPolicy))
 	}
 	if updatePolicyV, ok := inputs["updatePolicy"]; ok {
@@ -636,7 +663,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		options = append(options, update.UpdatePolicy(updatePolicy))
 	}
 	if updateReplacePolicyV, ok := inputs["updateReplacePolicy"]; ok {
-		updateReplacePolicy, _ := updateReplacePolicyV.(map[string]interface{})
+		updateReplacePolicy, _ := updateReplacePolicyV.(string)
 		options = append(options, update.UpdateReplacePolicy(updateReplacePolicy))
 	}
 
@@ -664,9 +691,23 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	label := fmt.Sprintf("CFN.Delete(%s)", urn)
 	glog.V(9).Infof("%s executing", label)
 
+	// Parse state
+	state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.properties", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
 	logicalID, _, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
+	}
+	if stateID, ok := state["logicalId"]; ok {
+		logicalID = stateID.StringValue()
 	}
 
 	physicalResourceID := req.GetId()

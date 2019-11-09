@@ -31,7 +31,7 @@ func CreationPolicy(policy map[string]interface{}) ResourceOption {
 	}
 }
 
-func DeletionPolicy(policy map[string]interface{}) ResourceOption {
+func DeletionPolicy(policy string) ResourceOption {
 	return func(r *ResourceData) {
 		r.DeletionPolicy = policy
 	}
@@ -45,7 +45,7 @@ func UpdatePolicy(policy map[string]interface{}) ResourceOption {
 }
 
 // nolint: golint
-func UpdateReplacePolicy(policy map[string]interface{}) ResourceOption {
+func UpdateReplacePolicy(policy string) ResourceOption {
 	return func(r *ResourceData) {
 		r.UpdateReplacePolicy = policy
 	}
@@ -58,9 +58,9 @@ type ResourceData struct {
 	Metadata            map[string]interface{}
 	Properties          map[string]interface{}
 	CreationPolicy      map[string]interface{}
-	DeletionPolicy      map[string]interface{}
+	DeletionPolicy      string
 	UpdatePolicy        map[string]interface{}
-	UpdateReplacePolicy map[string]interface{}
+	UpdateReplacePolicy string
 	Attributes          map[string]interface{}
 }
 
@@ -236,9 +236,9 @@ func (su *StackUpdate) updateStack(ctx context.Context, requests []resourceReque
 			r.resource.Metadata, _ = definition["Metadata"].(map[string]interface{})
 			r.resource.Properties, _ = definition["Properties"].(map[string]interface{})
 			r.resource.CreationPolicy, _ = definition["CreationPolicy"].(map[string]interface{})
-			r.resource.DeletionPolicy, _ = definition["DeletionPolicy"].(map[string]interface{})
+			r.resource.DeletionPolicy, _ = definition["DeletionPolicy"].(string)
 			r.resource.UpdatePolicy, _ = definition["UpdatePolicy"].(map[string]interface{})
-			r.resource.UpdateReplacePolicy, _ = definition["UpdateReplacePolicy"].(map[string]interface{})
+			r.resource.UpdateReplacePolicy, _ = definition["UpdateReplacePolicy"].(string)
 			continue
 		}
 
@@ -271,13 +271,13 @@ func (su *StackUpdate) updateStack(ctx context.Context, requests []resourceReque
 		if r.resource.CreationPolicy != nil {
 			resource["CreationPolicy"] = r.resource.CreationPolicy
 		}
-		if r.resource.DeletionPolicy != nil {
+		if r.resource.DeletionPolicy != "" {
 			resource["DeletionPolicy"] = r.resource.DeletionPolicy
 		}
 		if r.resource.UpdatePolicy != nil {
 			resource["UpdatePolicy"] = r.resource.UpdatePolicy
 		}
-		if r.resource.UpdateReplacePolicy != nil {
+		if r.resource.UpdateReplacePolicy != "" {
 			resource["UpdateReplacePolicy"] = r.resource.UpdateReplacePolicy
 		}
 

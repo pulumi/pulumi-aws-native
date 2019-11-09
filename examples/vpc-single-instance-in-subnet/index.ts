@@ -239,6 +239,7 @@ yum update -y aws-cfn-bootstrap
 `
 
 const webServerOptions = {
+    logicalId: "webServerInstance",
     metadata: {
         Comment: "Install a simple application",
         "AWS::CloudFormation::Init": {

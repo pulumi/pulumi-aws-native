@@ -33,6 +33,7 @@ export function getStackId(opts?: pulumi.InvokeOptions): Promise<string> {
 }
 
 export interface ResourceOptions {
+    logicalId?: pulumi.Input<string>;
     metadata?: pulumi.Inputs;
     creationPolicy?: pulumi.Inputs;
     deletionPolicy?: pulumi.Inputs;

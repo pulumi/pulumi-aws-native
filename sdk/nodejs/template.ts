@@ -515,6 +515,7 @@ export async function load(template: any, parameters: any, tree?: Tree): Promise
 
         let [_, resourceModule, resourceType] = resourceDef.Type.split("::");
         resources[resourceName] = new CloudFormationResource(`cloudformation:${resourceModule}:${resourceType}`, resourceName, {
+            logicalId: resourceName,
             metadata: evaluate(resourceName, resourceDef.Metadata),
             creationPolicy: evaluate(resourceName, resourceDef.CreationPolicy),
             deletionPolicy: evaluate(resourceName, resourceDef.DeletionPolicy),
