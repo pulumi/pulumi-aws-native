@@ -3,20 +3,33 @@ package get
 import (
 	"context"
 
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/cloudwatchlogs"
+	"github.com/pkg/errors"
 )
 
 func (g *Getter) getLogsLogGroupAttributes(ctx context.Context, physicalResourceID string) (map[string]interface{}, error) {
-	resp, err := g.cloudwatchlogs.DescribeLogGroupsWithContext(ctx, &cloudwatchlogs.DescribeLogGroupsInput{
-		// Add params here
+	var arn string
+	err := g.cloudwatchlogs.DescribeLogGroupsPagesWithContext(ctx, &cloudwatchlogs.DescribeLogGroupsInput{
+		LogGroupNamePrefix: aws.String(physicalResourceID),
+	}, func(resp *cloudwatchlogs.DescribeLogGroupsOutput, _ bool) bool {
+		for _, lg := range resp.LogGroups {
+			if aws.StringValue(lg.LogGroupName) == physicalResourceID {
+				arn = aws.StringValue(lg.Arn)
+				return false
+			}
+		}
+		return true
 	})
-	_ = resp
 	if err != nil {
 		return nil, err
 	}
+	if arn == "" {
+		return nil, NewNotFoundError(errors.Errorf("could not find log group %v", physicalResourceID))
+	}
 
 	attrs := map[string]interface{}{
-		"Arn": nil,
+		"Arn": arn,
 	}
 	return attrs, nil
 }

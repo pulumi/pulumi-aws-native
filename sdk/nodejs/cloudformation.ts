@@ -21,11 +21,15 @@ export class Stack extends pulumi.ProviderResource {
 }
 
 export function getAccountId(opts?: pulumi.InvokeOptions): Promise<string> {
-    return pulumi.runtime.invoke("cloudformation:index:getAccountId", {}, opts).then((id: any) => id.accountId);
+    return pulumi.runtime.invoke("cloudformation:index:getAccountId", {}, opts).then((res: any) => res.accountId);
+}
+
+export function getAzs(opts?: pulumi.InvokeOptions): Promise<string[]> {
+    return pulumi.runtime.invoke("cloudformation:index:getAzs", {}, opts).then((res: any) => res.azs);
 }
 
 export function getStackId(opts?: pulumi.InvokeOptions): Promise<string> {
-    return pulumi.runtime.invoke("cloudformation:index:getStackId", {}, opts).then((id: any) => id.stackId);
+    return pulumi.runtime.invoke("cloudformation:index:getStackId", {}, opts).then((res: any) => res.stackId);
 }
 
 export interface ResourceOptions {

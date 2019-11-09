@@ -40,6 +40,7 @@ const functions = new Set<string>([
     "Fn::Equals",
     "Fn::FindInMap",
     "Fn::GetAtt",
+    "Fn::GetAZs",
     "Fn::If",
     "Fn::ImportValue",
     "Fn::Join",
@@ -196,6 +197,11 @@ async function evalFn(fn: string, args: any[], context: EvalContext): Promise<an
                 return undefined;
             }
             return apply(resource.attributes, (attrs: any) => attrs[attributeName]);
+        }
+
+        case "Fn::GetAZs": {
+            const [azRegion] = args;
+            return cloudformation.getAzs(azRegion || region);
         }
 
         case "Fn::If": {

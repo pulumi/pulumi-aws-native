@@ -12,10 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// nolint: gosec
 package provider
 
 import (
 	"context"
+	"crypto/sha1"
+	"encoding/base32"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -23,6 +26,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/aws/aws-sdk-go/service/sts"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -60,6 +64,7 @@ type cfnProvider struct {
 	region     string
 	schema     schema.CloudFormationSchema
 
+	ec2    *ec2.EC2
 	update *update.StackUpdate
 }
 
@@ -170,6 +175,7 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 	if err != nil {
 		return nil, errors.Errorf("could not create AWS session: %v", err)
 	}
+	p.ec2 = ec2.New(sess)
 
 	callerIdentityResp, err := sts.New(sess).GetCallerIdentity(&sts.GetCallerIdentityInput{})
 	if err != nil {
@@ -209,6 +215,25 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	case "cloudformation:index:getAccountId":
 		result = resource.NewPropertyMapFromMap(map[string]interface{}{
 			"accountId": p.accountID,
+		})
+
+	case "cloudformation:index:getAzs":
+		resp, err := p.ec2.DescribeAvailabilityZonesWithContext(ctx, &ec2.DescribeAvailabilityZonesInput{
+			Filters: []*ec2.Filter{{
+				Name:   aws.String("region-name"),
+				Values: []*string{aws.String(p.region)},
+			}},
+		})
+		if err != nil {
+			return nil, err
+		}
+
+		azs := make([]interface{}, len(resp.AvailabilityZones))
+		for i, az := range resp.AvailabilityZones {
+			azs[i] = aws.StringValue(az.ZoneName)
+		}
+		result = resource.NewPropertyMapFromMap(map[string]interface{}{
+			"azs": azs,
 		})
 
 	case "cloudformation:index:getStackId":
@@ -330,7 +355,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	label := fmt.Sprintf("CFN.Check(%s)", urn)
 	glog.V(9).Infof("%s executing", label)
 
-	resourceType, err := resourceTypeFromURN(urn)
+	_, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -384,7 +409,7 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	label := fmt.Sprintf("CFN.Diff(%s)", urn)
 	glog.V(9).Infof("%s executing", label)
 
-	resourceType, err := resourceTypeFromURN(urn)
+	_, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -446,8 +471,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	inputs := newInputs.MapRepl(nil, mapReplStripSecrets)
 
-	logicalID := string(urn.Name())
-	resourceType, err := resourceTypeFromURN(urn)
+	logicalID, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -503,9 +527,8 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	label := fmt.Sprintf("CFN.Read(%s)", urn)
 	glog.V(9).Infof("%s executing", label)
 
-	logicalID := string(urn.Name())
 	physicalResourceID := req.GetId()
-	resourceType, err := resourceTypeFromURN(urn)
+	logicalID, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -587,9 +610,8 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 	inputs := newInputs.MapRepl(nil, mapReplStripSecrets)
 
-	logicalID := string(urn.Name())
 	physicalResourceID := req.GetId()
-	resourceType, err := resourceTypeFromURN(urn)
+	logicalID, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -642,7 +664,11 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	label := fmt.Sprintf("CFN.Delete(%s)", urn)
 	glog.V(9).Infof("%s executing", label)
 
-	logicalID := string(urn.Name())
+	logicalID, _, err := resourceInfoFromURN(urn)
+	if err != nil {
+		return nil, err
+	}
+
 	physicalResourceID := req.GetId()
 	if err := p.update.DeleteResource(p.canceler.context, logicalID, physicalResourceID); err != nil {
 		return nil, err
@@ -668,7 +694,8 @@ func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, e
 	return &pbempty.Empty{}, nil
 }
 
-func resourceTypeFromURN(urn resource.URN) (string, error) {
+func resourceInfoFromURN(urn resource.URN) (string, string, error) {
+	// Transform the URN's type into its CloudFormation type.
 	ns, service := "AWS", ""
 
 	nsService := strings.Split(string(urn.Type().Module().Name()), "/")
@@ -678,10 +705,27 @@ func resourceTypeFromURN(urn resource.URN) (string, error) {
 	case 2:
 		ns, service = nsService[1], nsService[2]
 	default:
-		return "", errors.Errorf("malformed module in type %v", urn.Type())
+		return "", "", errors.Errorf("malformed module in type %v", urn.Type())
 	}
 
-	return strings.Join([]string{ns, service, string(urn.Type().Name())}, "::"), nil
+	typ := strings.Join([]string{ns, service, string(urn.Type().Name())}, "::")
+
+	// Now build the resource's logical ID from the first 223 characters of its name and the base32-encoded SHA-1 hash of
+	// its URN. The latter is necessary to accurately map the Pulumi URN identity model onto the CF logical ID identity
+	// model. We use the aforementioned lengths because the length of a CF logical ID is limited to a 255 characters.
+
+	sum := sha1.Sum([]byte(urn))
+	hash := base32.StdEncoding.EncodeToString(sum[:])
+	contract.Assert(len(hash) == 32)
+
+	const maxNameLen = 255 - 32
+
+	name := string(urn.Name())
+	if len(name) >= maxNameLen {
+		name = name[:maxNameLen]
+	}
+
+	return name + hash, typ, nil
 }
 
 func mapReplStripSecrets(v resource.PropertyValue) (interface{}, bool) {
