@@ -1,8 +1,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as cloudformation from "@pulumi/cloudformation";
 
-const region = cloudformation.region!;
-const stack = cloudformation.stack!;
+const region = cloudformation.config.region!;
+const stack = cloudformation.config.stack!;
 
 const config = new pulumi.Config();
 const instanceType = config.get("instanceType") || "t3.small";
@@ -110,48 +110,64 @@ const awsRegionArch2AMI: any = {
 	"cn-northwest-1": {"HVM64": "ami-0f7937761741dc640", "HVMG2": "NOT_SUPPORTED"},
 }
 
-const tags = [{Key: "Application", Value: cloudformation.getStackId()}];
+const tags = [{Key: "Application", Value: cloudformation.getStackId().then(s => s.stackId)}];
 
 const vpc = new cloudformation.ec2.VPC("vpc", {
-    CidrBlock: "10.0.0.0/16",
-    EnableDnsHostnames: true,
-    Tags: tags,
+    properties: {
+        CidrBlock: "10.0.0.0/16",
+        EnableDnsHostnames: true,
+        Tags: tags,
+    },
 });
 
 const subnet = new cloudformation.ec2.Subnet("subnet", {
-    VpcId: vpc.id,
-    CidrBlock: "10.0.0.0/24",
-    Tags: tags,
+    properties: {
+        VpcId: vpc.id,
+        CidrBlock: "10.0.0.0/24",
+        Tags: tags,
+    },
 });
 
 const internetGateway = new cloudformation.ec2.InternetGateway("internetGateway", {
-    Tags: tags,
+    properties: {
+        Tags: tags,
+    },
 });
 
 const attachGateway = new cloudformation.ec2.VPCGatewayAttachment("attachGateway", {
-    VpcId: vpc.id,
-    InternetGatewayId: internetGateway.id,
+    properties: {
+        VpcId: vpc.id,
+        InternetGatewayId: internetGateway.id,
+    },
 });
 
 const routeTable = new cloudformation.ec2.RouteTable("routeTable", {
-    VpcId: vpc.id,
-    Tags: tags,
+    properties: {
+        VpcId: vpc.id,
+        Tags: tags,
+    },
 });
 
 const route = new cloudformation.ec2.Route("route", {
-    RouteTableId: routeTable.id,
-    DestinationCidrBlock: "0.0.0.0/0",
-    GatewayId: internetGateway.id,
+    properties: {
+        RouteTableId: routeTable.id,
+        DestinationCidrBlock: "0.0.0.0/0",
+        GatewayId: internetGateway.id,
+    },
 });
 
 const subnetRouteTableAssociation = new cloudformation.ec2.SubnetRouteTableAssociation("subnetRouteTableAssociation", {
-    SubnetId: subnet.id,
-    RouteTableId: routeTable.id,
+    properties: {
+        SubnetId: subnet.id,
+        RouteTableId: routeTable.id,
+    },
 });
 
 const networkAcl = new cloudformation.ec2.NetworkAcl("networkAcl", {
-    VpcId: vpc.id,
-    Tags: tags,
+    properties: {
+        VpcId: vpc.id,
+        Tags: tags,
+    },
 });
 
 const commonAclEntryProperties = {
@@ -162,59 +178,75 @@ const commonAclEntryProperties = {
 }
 
 const inboundHTTPNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inboundHTTPNetworkAclEntry", {
-    ...commonAclEntryProperties,
-    RuleNumber: 100,
-    Egress: false,
-    PortRange: {From: 80, To: 80},
+    properties: {
+        ...commonAclEntryProperties,
+        RuleNumber: 100,
+        Egress: false,
+        PortRange: {From: 80, To: 80},
+    },
 })
 
 const inboundSSHNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inboundSSHNetworkAclEntry", {
-    ...commonAclEntryProperties,
-    RuleNumber: 101,
-    Egress: false,
-    PortRange: {From: 22, To: 22},
+    properties: {
+        ...commonAclEntryProperties,
+        RuleNumber: 101,
+        Egress: false,
+        PortRange: {From: 22, To: 22},
+    },
 })
 
 const inboundResponsePortsNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inboundResponsePortsNetworkAclEntry", {
-    ...commonAclEntryProperties,
-    RuleNumber: 102,
-    Egress: false,
-    PortRange: {From: 1024, To: 65535},
+    properties: {
+        ...commonAclEntryProperties,
+        RuleNumber: 102,
+        Egress: false,
+        PortRange: {From: 1024, To: 65535},
+    },
 })
 
 const outBoundHTTPNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("outBoundHTTPNetworkAclEntry", {
-    ...commonAclEntryProperties,
-    RuleNumber: 100,
-    Egress: true,
-    PortRange: {From: 80, To: 80},
+    properties: {
+        ...commonAclEntryProperties,
+        RuleNumber: 100,
+        Egress: true,
+        PortRange: {From: 80, To: 80},
+    },
 })
 
 const outBoundHTTPSNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("outBoundHTTPSNetworkAclEntry", {
-    ...commonAclEntryProperties,
-    RuleNumber: 101,
-    Egress: true,
-    PortRange: {From: 443, To: 443},
+    properties: {
+        ...commonAclEntryProperties,
+        RuleNumber: 101,
+        Egress: true,
+        PortRange: {From: 443, To: 443},
+    },
 })
 
 const outBoundResponsePortsNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("outBoundResponsePortsNetworkAclEntry", {
-    ...commonAclEntryProperties,
-    RuleNumber: 102,
-    Egress: true,
-    PortRange: {From: 1024, To: 65535},
+    properties: {
+        ...commonAclEntryProperties,
+        RuleNumber: 102,
+        Egress: true,
+        PortRange: {From: 1024, To: 65535},
+    },
 })
 
 const subnetNetworkAclAssociation = new cloudformation.ec2.SubnetNetworkAclAssociation("subnetNetworkAclAssociation", {
-    SubnetId: subnet.id,
-    NetworkAclId: networkAcl.id,
+    properties: {
+        SubnetId: subnet.id,
+        NetworkAclId: networkAcl.id,
+    },
 });
 
 const instanceSecurityGroup = new cloudformation.ec2.SecurityGroup("instanceSecurityGroup", {
-    VpcId: vpc.id,
-    GroupDescription: "Enable SSH access via port 22",
-    SecurityGroupIngress: [
-        {IpProtocol: "tcp", FromPort: 22, ToPort: 22, CidrIp: "0.0.0.0/0"},
-        {IpProtocol: "tcp", FromPort: 80, ToPort: 80, CidrIp: "0.0.0.0/0"},
-    ],
+    properties: {
+        VpcId: vpc.id,
+        GroupDescription: "Enable SSH access via port 22",
+        SecurityGroupIngress: [
+            {IpProtocol: "tcp", FromPort: 22, ToPort: 22, CidrIp: "0.0.0.0/0"},
+            {IpProtocol: "tcp", FromPort: 80, ToPort: 80, CidrIp: "0.0.0.0/0"},
+        ],
+    },
 });
 
 const indexHtml = `<img src="${region2Examples[region]}/cloudformation_graphic.png" alt="AWS CloudFormation Logo"/>
@@ -293,23 +325,28 @@ const webServerOptions = {
 };
 
 const webServerInstance = new cloudformation.ec2.Instance("webServerInstance", {
-    ImageId: awsRegionArch2AMI[region][awsInstanceType2Arch[instanceType]],
-    InstanceType: instanceType,
-    KeyName: keyName,
-    Tags: tags,
-    NetworkInterfaces: [{
-        GroupSet: [instanceSecurityGroup.id],
-        AssociatePublicIpAddress: true,
-        DeviceIndex: "0",
-        DeleteOnTermination: true,
-        SubnetId: subnet.id,
-    }],
-    UserData: new Buffer(userData).toString("base64"),
-}, webServerOptions);
+    ...webServerOptions,
+    properties: {
+        ImageId: awsRegionArch2AMI[region][awsInstanceType2Arch[instanceType]],
+        InstanceType: instanceType,
+        KeyName: keyName,
+        Tags: tags,
+        NetworkInterfaces: [{
+            GroupSet: [instanceSecurityGroup.id],
+            AssociatePublicIpAddress: true,
+            DeviceIndex: "0",
+            DeleteOnTermination: true,
+            SubnetId: subnet.id,
+        }],
+        UserData: new Buffer(userData).toString("base64"),
+    },
+});
 
 const ipAddress = new cloudformation.ec2.EIP("ipAddress", {
-    Domain: "vpc",
-    InstanceId: webServerInstance.id,
+    properties: {
+        Domain: "vpc",
+        InstanceId: webServerInstance.id,
+    },
 });
 
 export const url = pulumi.interpolate`http://${webServerInstance.attributes.PublicDnsName}`;

@@ -1,6 +1,7 @@
 run:
   skip-files:
     - pkg/get/.*_.*.go
+    - cmd/pulumi-resource-cloudformation/schema.go
 
 linters:
   enable-all: false

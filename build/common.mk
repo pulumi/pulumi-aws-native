@@ -103,10 +103,10 @@ endif
 
 PULUMI_BIN          := $(PULUMI_ROOT)/bin
 PULUMI_NODE_MODULES := $(PULUMI_ROOT)/node_modules
+PULUMI_NUGET        := $(PULUMI_ROOT)/nuget
 
 GO_TEST_FAST = go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
 GO_TEST = go test -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
-GOPROXY = 'https://proxy.golang.org'
 
 .PHONY: default all ensure only_build only_test build lint install test_all core
 
@@ -142,13 +142,14 @@ all:: build install lint test_all
 
 ensure::
 	$(call STEP_MESSAGE)
-ifeq ($(NOPROXY), true)
-	@echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
-	@echo "GO111MODULE=on go mod vendor"; GO111MODULE=on go mod vendor
-else
-	@echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
-	@echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
-endif
+	@echo "cd provider && GO111MODULE=on go mod tidy"; cd provider && GO111MODULE=on go mod tidy
+	@echo "cd provider && GO111MODULE=on go mod download"; cd provider && GO111MODULE=on go mod download
+	@echo "cd sdk && GO111MODULE=on go mod tidy"; cd sdk && GO111MODULE=on go mod tidy
+	@echo "cd sdk && GO111MODULE=on go mod download"; cd sdk && GO111MODULE=on go mod download
+	@echo "cd scripts && GO111MODULE=on go mod tidy"; cd scripts && GO111MODULE=on go mod tidy
+	@echo "cd scripts && GO111MODULE=on go mod download"; cd scripts && GO111MODULE=on go mod download
+	@echo "cd examples && GO111MODULE=on go mod tidy"; cd examples && GO111MODULE=on go mod tidy
+	@echo "cd examples && GO111MODULE=on go mod download"; cd examples && GO111MODULE=on go mod download
 	@if [ -e 'package.json' ]; then echo "yarn install"; yarn install; fi
 
 build::

@@ -1,6 +1,10 @@
 /vendor/
 **/bin/
+**/obj/
 **/node_modules/
 .pulumi
 Pulumi.*.yaml
 yarn.lock
+/provider/cmd/pulumi-gen-cloudformation/cfn-spec-*.json
+/provider/cmd/pulumi-resource-cloudformation/schema.go
+/provider/cmd/pulumi-resource-cloudformation/schema.json

@@ -1,24 +1,31 @@
 {
     "name": "@pulumi/cloudformation",
     "version": "${VERSION}",
-    "description": "A Pulumi package for creating and managing cloudformation resources.",
-    "license": "Apache-2.0",
     "keywords": [
         "pulumi",
+        "aws",
         "cloudformation"
     ],
     "homepage": "https://pulumi.io",
     "repository": "https://github.com/pulumi/pulumi-cloudformation",
+    "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^1.0.0"
+        "@pulumi/pulumi": "^2.0.0",
+        "@types/glob": "^5.0.35",
+        "@types/node-fetch": "^2.1.4",
+        "@types/tmp": "^0.0.33",
+        "glob": "^7.1.2",
+        "node-fetch": "^2.3.0",
+        "shell-quote": "^1.6.1",
+        "tmp": "^0.0.33"
     },
     "devDependencies": {
-        "mocha": "^5.2.0",
         "@types/mocha": "^5.2.5",
-        "typescript": "^3.0.0"
+        "@types/shell-quote": "^1.6.0",
+        "mocha": "^5.2.0"
     },
     "pulumi": {
         "resource": true
