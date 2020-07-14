@@ -10,10 +10,10 @@ from . import utilities, tables
 
 
 class CidrResult:
-    def __init__(__self__, cidr=None):
-        if cidr and not isinstance(cidr, list):
-            raise TypeError("Expected argument 'cidr' to be a list")
-        __self__.cidr = cidr
+    def __init__(__self__, subnets=None):
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        __self__.subnets = subnets
 
 
 class AwaitableCidrResult(CidrResult):
@@ -22,7 +22,7 @@ class AwaitableCidrResult(CidrResult):
         if False:
             yield self
         return CidrResult(
-            cidr=self.cidr)
+            subnets=self.subnets)
 
 
 def cidr(cidr_bits=None, count=None, ip_block=None, opts=None):
@@ -40,4 +40,4 @@ def cidr(cidr_bits=None, count=None, ip_block=None, opts=None):
     __ret__ = pulumi.runtime.invoke('cloudformation:index:cidr', __args__, opts=opts).value
 
     return AwaitableCidrResult(
-        cidr=__ret__.get('cidr'))
+        subnets=__ret__.get('subnets'))

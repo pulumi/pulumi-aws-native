@@ -3,6 +3,7 @@ module github.com/pulumi/pulumi-cloudformation/provider
 go 1.14
 
 require (
+	github.com/apparentlymart/go-cidr v1.1.0
 	github.com/aws/aws-sdk-go v1.33.5
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.4.2

@@ -348,6 +348,8 @@
         "getAzs.ts",
         "getPartition.ts",
         "getRegion.ts",
+        "getSsmParameterList.ts",
+        "getSsmParameterString.ts",
         "getStackId.ts",
         "getStackName.ts",
         "getUrlSuffix.ts",

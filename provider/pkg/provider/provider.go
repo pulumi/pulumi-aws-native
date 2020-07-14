@@ -26,7 +26,9 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/cloudformation"
 	"github.com/aws/aws-sdk-go/service/ec2"
+	"github.com/aws/aws-sdk-go/service/ssm"
 	"github.com/aws/aws-sdk-go/service/sts"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -65,7 +67,9 @@ type cfnProvider struct {
 	schema       schema.CloudFormationSchema
 	pulumiSchema []byte
 
+	cfn    *cloudformation.CloudFormation
 	ec2    *ec2.EC2
+	ssm    *ssm.SSM
 	update *update.StackUpdate
 }
 
@@ -185,7 +189,7 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 	if err != nil {
 		return nil, errors.Errorf("could not create AWS session: %v", err)
 	}
-	p.ec2 = ec2.New(sess)
+	p.cfn, p.ec2, p.ssm = cloudformation.New(sess), ec2.New(sess), ssm.New(sess)
 
 	callerIdentityResp, err := sts.New(sess).GetCallerIdentity(&sts.GetCallerIdentityInput{})
 	if err != nil {
@@ -212,6 +216,20 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 	}, nil
 }
 
+var functions = map[string]func(*cfnProvider, context.Context, resource.PropertyMap) (resource.PropertyMap, error){
+	"cloudformation:index:getAccountId":          (*cfnProvider).getAccountID,
+	"cloudformation:index:getAzs":                (*cfnProvider).getAZs,
+	"cloudformation:index:getPartition":          (*cfnProvider).getPartition,
+	"cloudformation:index:getRegion":             (*cfnProvider).getRegion,
+	"cloudformation:index:getStackId":            (*cfnProvider).getStackID,
+	"cloudformation:index:getStackName":          (*cfnProvider).getStackName,
+	"cloudformation:index:getUrlSuffix":          (*cfnProvider).getURLSuffix,
+	"cloudformation:index:cidr":                  (*cfnProvider).cidr,
+	"cloudformation:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
+	"cloudformation:index:getSsmParameterList":   (*cfnProvider).getSSMParameterList,
+	"cloudformation:index:importValue":           (*cfnProvider).importValue,
+}
+
 // Invoke dynamically executes a built-in function in the provider.
 func (p *cfnProvider) Invoke(ctx context.Context,
 	req *pulumirpc.InvokeRequest) (*pulumirpc.InvokeResponse, error) {
@@ -219,43 +237,27 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	// Unmarshal arguments.
 	tok := req.GetTok()
 
+	inputs, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("CFN.Invoke(%s).inputs", tok),
+		KeepUnknowns: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
 	// Process Invoke call.
-	var result resource.PropertyMap
-	switch tok {
-	case "cloudformation:index:getAccountId":
-		result = resource.NewPropertyMapFromMap(map[string]interface{}{
-			"accountId": p.accountID,
-		})
-
-	case "cloudformation:index:getAzs":
-		resp, err := p.ec2.DescribeAvailabilityZonesWithContext(ctx, &ec2.DescribeAvailabilityZonesInput{
-			Filters: []*ec2.Filter{{
-				Name:   aws.String("region-name"),
-				Values: []*string{aws.String(p.region)},
-			}},
-		})
-		if err != nil {
-			return nil, err
-		}
-
-		azs := make([]interface{}, len(resp.AvailabilityZones))
-		for i, az := range resp.AvailabilityZones {
-			azs[i] = aws.StringValue(az.ZoneName)
-		}
-		result = resource.NewPropertyMapFromMap(map[string]interface{}{
-			"azs": azs,
-		})
-
-	case "cloudformation:index:getStackId":
-		result = resource.NewPropertyMapFromMap(map[string]interface{}{
-			"stackId": p.update.StackID(),
-		})
-	default:
-		return nil, fmt.Errorf("Unknown Invoke type '%s'", tok)
+	fn, ok := functions[tok]
+	if !ok {
+		return nil, fmt.Errorf("unknown function '%s'", tok)
+	}
+	result, err := fn(p, ctx, inputs)
+	if err != nil {
+		return nil, err
 	}
 
 	res, err := plugin.MarshalProperties(result, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("CFN.Invoke.result"),
+		Label:        fmt.Sprintf("CFN.Invoke(%s).outputs", tok),
 		KeepUnknowns: true,
 		KeepSecrets:  true,
 	})
@@ -759,9 +761,6 @@ func resourceInfoFromURN(urn resource.URN) (string, string, error) {
 	ns, service := "AWS", ""
 
 	module := string(urn.Type().Module().Name())
-	//	if mapped, ok := moduleMap[module]; ok {
-	//		module = mapped
-	//	}
 
 	nsService := strings.Split(module, "/")
 	switch len(nsService) {

@@ -395,14 +395,47 @@ func gatherPackage(schema schema.CloudFormationSchema) pschema.PackageSpec {
 		},
 		Outputs: &pschema.ObjectTypeSpec{
 			Properties: map[string]pschema.PropertySpec{
-				"cidr": {
+				"subnets": {
 					TypeSpec: pschema.TypeSpec{
 						Type:  "array",
 						Items: &pschema.TypeSpec{Type: "string"},
 					},
 				},
 			},
-			Required: []string{"cidr"},
+			Required: []string{"subnets"},
+		},
+	}
+	p.Functions[packageName+":index:getSsmParameterString"] = pschema.FunctionSpec{
+		Inputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"name": {TypeSpec: primitiveTypeSpec("String")},
+			},
+			Required: []string{"name"},
+		},
+		Outputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"value": {TypeSpec: primitiveTypeSpec("String")},
+			},
+			Required: []string{"value"},
+		},
+	}
+	p.Functions[packageName+":index:getSsmParameterList"] = pschema.FunctionSpec{
+		Inputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"name": {TypeSpec: primitiveTypeSpec("String")},
+			},
+			Required: []string{"name"},
+		},
+		Outputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"value": {
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+			Required: []string{"value"},
 		},
 	}
 	p.Functions[packageName+":index:importValue"] = pschema.FunctionSpec{

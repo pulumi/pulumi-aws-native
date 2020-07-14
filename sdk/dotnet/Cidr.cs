@@ -36,12 +36,12 @@ namespace Pulumi.Cloudformation
     [OutputType]
     public sealed class CidrResult
     {
-        public readonly ImmutableArray<string> Cidr;
+        public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]
-        private CidrResult(ImmutableArray<string> cidr)
+        private CidrResult(ImmutableArray<string> subnets)
         {
-            Cidr = cidr;
+            Subnets = subnets;
         }
     }
 }

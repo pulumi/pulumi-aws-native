@@ -7,6 +7,8 @@ export * from "./getAccountId";
 export * from "./getAzs";
 export * from "./getPartition";
 export * from "./getRegion";
+export * from "./getSsmParameterList";
+export * from "./getSsmParameterString";
 export * from "./getStackId";
 export * from "./getStackName";
 export * from "./getUrlSuffix";
