@@ -43,6 +43,9 @@ NOPROXY := false
 $(CFN_SCHEMA_FILE)::
 	test -f $(CFN_SCHEMA_FILE) || $(CURL) -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
 
+cf2pulumi::
+	cd provider && $(GO) install $(PROJECT)/provider/cmd/cf2pulumi
+
 cfngen::
 	cd provider && $(GO) install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 

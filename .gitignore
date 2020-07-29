@@ -8,3 +8,4 @@ yarn.lock
 /provider/cmd/pulumi-gen-cloudformation/cfn-spec-*.json
 /provider/cmd/pulumi-resource-cloudformation/schema.go
 /provider/cmd/pulumi-resource-cloudformation/schema.json
+/sdk/dotnet/version.txt
