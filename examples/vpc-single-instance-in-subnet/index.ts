@@ -338,7 +338,7 @@ const webServerInstance = new cloudformation.ec2.Instance("webServerInstance", {
             DeleteOnTermination: true,
             SubnetId: subnet.id,
         }],
-        UserData: new Buffer(userData).toString("base64"),
+        UserData: Buffer.from(userData).toString("base64"),
     },
 });
 
