@@ -19,3 +19,58 @@ from .resource_definition import *
 from .resource_definition_version import *
 from .subscription_definition import *
 from .subscription_definition_version import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:Greengrass:ConnectorDefinition":
+                return ConnectorDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:ConnectorDefinitionVersion":
+                return ConnectorDefinitionVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:CoreDefinition":
+                return CoreDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:CoreDefinitionVersion":
+                return CoreDefinitionVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:DeviceDefinition":
+                return DeviceDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:DeviceDefinitionVersion":
+                return DeviceDefinitionVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:FunctionDefinition":
+                return FunctionDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:FunctionDefinitionVersion":
+                return FunctionDefinitionVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:Group":
+                return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:GroupVersion":
+                return GroupVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:LoggerDefinition":
+                return LoggerDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:LoggerDefinitionVersion":
+                return LoggerDefinitionVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:ResourceDefinition":
+                return ResourceDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:ResourceDefinitionVersion":
+                return ResourceDefinitionVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:SubscriptionDefinition":
+                return SubscriptionDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Greengrass:SubscriptionDefinitionVersion":
+                return SubscriptionDefinitionVersion(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "Greengrass", _module_instance)
+
+_register_module()

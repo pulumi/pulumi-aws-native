@@ -4,5 +4,40 @@
 
 # Export this package's modules as members:
 from .resolver_endpoint import *
+from .resolver_query_logging_config import *
+from .resolver_query_logging_config_association import *
 from .resolver_rule import *
 from .resolver_rule_association import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:Route53Resolver:ResolverEndpoint":
+                return ResolverEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Route53Resolver:ResolverQueryLoggingConfig":
+                return ResolverQueryLoggingConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Route53Resolver:ResolverQueryLoggingConfigAssociation":
+                return ResolverQueryLoggingConfigAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Route53Resolver:ResolverRule":
+                return ResolverRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Route53Resolver:ResolverRuleAssociation":
+                return ResolverRuleAssociation(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "Route53Resolver", _module_instance)
+
+_register_module()

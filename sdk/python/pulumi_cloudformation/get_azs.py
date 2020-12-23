@@ -5,15 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetAzsResult',
+    'AwaitableGetAzsResult',
+    'get_azs',
+]
 
+@pulumi.output_type
 class GetAzsResult:
     def __init__(__self__, azs=None):
         if azs and not isinstance(azs, list):
             raise TypeError("Expected argument 'azs' to be a list")
-        __self__.azs = azs
+        pulumi.set(__self__, "azs", azs)
+
+    @property
+    @pulumi.getter
+    def azs(self) -> Sequence[str]:
+        return pulumi.get(self, "azs")
 
 
 class AwaitableGetAzsResult(GetAzsResult):
@@ -25,7 +36,8 @@ class AwaitableGetAzsResult(GetAzsResult):
             azs=self.azs)
 
 
-def get_azs(region=None, opts=None):
+def get_azs(region: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzsResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -34,8 +46,8 @@ def get_azs(region=None, opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('cloudformation:index:getAzs', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('cloudformation:index:getAzs', __args__, opts=opts, typ=GetAzsResult).value
 
     return AwaitableGetAzsResult(
-        azs=__ret__.get('azs'))
+        azs=__ret__.azs)

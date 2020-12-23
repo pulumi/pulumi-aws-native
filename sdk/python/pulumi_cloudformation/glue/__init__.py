@@ -12,7 +12,68 @@ from .dev_endpoint import *
 from .job import *
 from .ml_transform import *
 from .partition import *
+from .registry import *
+from .schema import *
+from .schema_version import *
+from .schema_version_metadata import *
 from .security_configuration import *
 from .table import *
 from .trigger import *
 from .workflow import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:Glue:Classifier":
+                return Classifier(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Connection":
+                return Connection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Crawler":
+                return Crawler(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:DataCatalogEncryptionSettings":
+                return DataCatalogEncryptionSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Database":
+                return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:DevEndpoint":
+                return DevEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Job":
+                return Job(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:MLTransform":
+                return MLTransform(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Partition":
+                return Partition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Registry":
+                return Registry(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Schema":
+                return Schema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:SchemaVersion":
+                return SchemaVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:SchemaVersionMetadata":
+                return SchemaVersionMetadata(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:SecurityConfiguration":
+                return SecurityConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Table":
+                return Table(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Trigger":
+                return Trigger(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Glue:Workflow":
+                return Workflow(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "Glue", _module_instance)
+
+_register_module()

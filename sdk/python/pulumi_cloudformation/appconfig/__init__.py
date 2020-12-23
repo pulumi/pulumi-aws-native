@@ -9,3 +9,38 @@ from .deployment import *
 from .deployment_strategy import *
 from .environment import *
 from .hosted_configuration_version import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:AppConfig:Application":
+                return Application(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppConfig:ConfigurationProfile":
+                return ConfigurationProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppConfig:Deployment":
+                return Deployment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppConfig:DeploymentStrategy":
+                return DeploymentStrategy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppConfig:Environment":
+                return Environment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppConfig:HostedConfigurationVersion":
+                return HostedConfigurationVersion(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "AppConfig", _module_instance)
+
+_register_module()

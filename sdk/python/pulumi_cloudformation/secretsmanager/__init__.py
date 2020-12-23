@@ -7,3 +7,34 @@ from .resource_policy import *
 from .rotation_schedule import *
 from .secret import *
 from .secret_target_attachment import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:SecretsManager:ResourcePolicy":
+                return ResourcePolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:SecretsManager:RotationSchedule":
+                return RotationSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:SecretsManager:Secret":
+                return Secret(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:SecretsManager:SecretTargetAttachment":
+                return SecretTargetAttachment(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "SecretsManager", _module_instance)
+
+_register_module()

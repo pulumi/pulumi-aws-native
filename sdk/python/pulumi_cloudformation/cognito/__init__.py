@@ -15,3 +15,50 @@ from .user_pool_risk_configuration_attachment import *
 from .user_pool_ui_customization_attachment import *
 from .user_pool_user import *
 from .user_pool_user_to_group_attachment import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:Cognito:IdentityPool":
+                return IdentityPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:IdentityPoolRoleAttachment":
+                return IdentityPoolRoleAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPool":
+                return UserPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolClient":
+                return UserPoolClient(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolDomain":
+                return UserPoolDomain(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolGroup":
+                return UserPoolGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolIdentityProvider":
+                return UserPoolIdentityProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolResourceServer":
+                return UserPoolResourceServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolRiskConfigurationAttachment":
+                return UserPoolRiskConfigurationAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolUICustomizationAttachment":
+                return UserPoolUICustomizationAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolUser":
+                return UserPoolUser(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Cognito:UserPoolUserToGroupAttachment":
+                return UserPoolUserToGroupAttachment(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "Cognito", _module_instance)
+
+_register_module()

@@ -5,15 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetStackIdResult',
+    'AwaitableGetStackIdResult',
+    'get_stack_id',
+]
 
+@pulumi.output_type
 class GetStackIdResult:
     def __init__(__self__, stack_id=None):
         if stack_id and not isinstance(stack_id, str):
             raise TypeError("Expected argument 'stack_id' to be a str")
-        __self__.stack_id = stack_id
+        pulumi.set(__self__, "stack_id", stack_id)
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> str:
+        return pulumi.get(self, "stack_id")
 
 
 class AwaitableGetStackIdResult(GetStackIdResult):
@@ -25,7 +36,7 @@ class AwaitableGetStackIdResult(GetStackIdResult):
             stack_id=self.stack_id)
 
 
-def get_stack_id(opts=None):
+def get_stack_id(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStackIdResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -33,8 +44,8 @@ def get_stack_id(opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('cloudformation:index:getStackId', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('cloudformation:index:getStackId', __args__, opts=opts, typ=GetStackIdResult).value
 
     return AwaitableGetStackIdResult(
-        stack_id=__ret__.get('stackId'))
+        stack_id=__ret__.stack_id)

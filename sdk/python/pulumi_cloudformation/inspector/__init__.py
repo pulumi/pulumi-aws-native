@@ -6,3 +6,32 @@
 from .assessment_target import *
 from .assessment_template import *
 from .resource_group import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:Inspector:AssessmentTarget":
+                return AssessmentTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Inspector:AssessmentTemplate":
+                return AssessmentTemplate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Inspector:ResourceGroup":
+                return ResourceGroup(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "Inspector", _module_instance)
+
+_register_module()

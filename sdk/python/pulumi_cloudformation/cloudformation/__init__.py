@@ -5,6 +5,48 @@
 # Export this package's modules as members:
 from .custom_resource import *
 from .macro import *
+from .module_default_version import *
+from .module_version import *
 from .stack import *
+from .stack_set import *
 from .wait_condition import *
 from .wait_condition_handle import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:CloudFormation:CustomResource":
+                return CustomResource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:CloudFormation:Macro":
+                return Macro(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:CloudFormation:ModuleDefaultVersion":
+                return ModuleDefaultVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:CloudFormation:ModuleVersion":
+                return ModuleVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:CloudFormation:Stack":
+                return Stack(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:CloudFormation:StackSet":
+                return StackSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:CloudFormation:WaitCondition":
+                return WaitCondition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:CloudFormation:WaitConditionHandle":
+                return WaitConditionHandle(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "CloudFormation", _module_instance)
+
+_register_module()

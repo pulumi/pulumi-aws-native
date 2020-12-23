@@ -6,7 +6,47 @@
 from .alias import *
 from .build import *
 from .fleet import *
+from .game_server_group import *
 from .game_session_queue import *
 from .matchmaking_configuration import *
 from .matchmaking_rule_set import *
 from .script import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:GameLift:Alias":
+                return Alias(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:GameLift:Build":
+                return Build(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:GameLift:Fleet":
+                return Fleet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:GameLift:GameServerGroup":
+                return GameServerGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:GameLift:GameSessionQueue":
+                return GameSessionQueue(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:GameLift:MatchmakingConfiguration":
+                return MatchmakingConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:GameLift:MatchmakingRuleSet":
+                return MatchmakingRuleSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:GameLift:Script":
+                return Script(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "GameLift", _module_instance)
+
+_register_module()

@@ -10,3 +10,40 @@ from .function_configuration import *
 from .graph_ql_api import *
 from .graph_ql_schema import *
 from .resolver import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:AppSync:ApiCache":
+                return ApiCache(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppSync:ApiKey":
+                return ApiKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppSync:DataSource":
+                return DataSource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppSync:FunctionConfiguration":
+                return FunctionConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppSync:GraphQLApi":
+                return GraphQLApi(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppSync:GraphQLSchema":
+                return GraphQLSchema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AppSync:Resolver":
+                return Resolver(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "AppSync", _module_instance)
+
+_register_module()

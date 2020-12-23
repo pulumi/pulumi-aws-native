@@ -10,3 +10,40 @@ from .link import *
 from .link_association import *
 from .site import *
 from .transit_gateway_registration import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:NetworkManager:CustomerGatewayAssociation":
+                return CustomerGatewayAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:NetworkManager:Device":
+                return Device(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:NetworkManager:GlobalNetwork":
+                return GlobalNetwork(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:NetworkManager:Link":
+                return Link(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:NetworkManager:LinkAssociation":
+                return LinkAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:NetworkManager:Site":
+                return Site(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:NetworkManager:TransitGatewayRegistration":
+                return TransitGatewayRegistration(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "NetworkManager", _module_instance)
+
+_register_module()

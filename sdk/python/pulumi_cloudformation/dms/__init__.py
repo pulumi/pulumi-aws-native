@@ -9,3 +9,38 @@ from .event_subscription import *
 from .replication_instance import *
 from .replication_subnet_group import *
 from .replication_task import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:DMS:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:DMS:Endpoint":
+                return Endpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:DMS:EventSubscription":
+                return EventSubscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:DMS:ReplicationInstance":
+                return ReplicationInstance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:DMS:ReplicationSubnetGroup":
+                return ReplicationSubnetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:DMS:ReplicationTask":
+                return ReplicationTask(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "DMS", _module_instance)
+
+_register_module()

@@ -8,3 +8,36 @@ from .instance_fleet_config import *
 from .instance_group_config import *
 from .security_configuration import *
 from .step import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:EMR:Cluster":
+                return Cluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EMR:InstanceFleetConfig":
+                return InstanceFleetConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EMR:InstanceGroupConfig":
+                return InstanceGroupConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EMR:SecurityConfiguration":
+                return SecurityConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EMR:Step":
+                return Step(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "EMR", _module_instance)
+
+_register_module()

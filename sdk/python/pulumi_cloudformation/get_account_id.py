@@ -5,15 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetAccountIdResult',
+    'AwaitableGetAccountIdResult',
+    'get_account_id',
+]
 
+@pulumi.output_type
 class GetAccountIdResult:
     def __init__(__self__, account_id=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
-        __self__.account_id = account_id
+        pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        return pulumi.get(self, "account_id")
 
 
 class AwaitableGetAccountIdResult(GetAccountIdResult):
@@ -25,7 +36,7 @@ class AwaitableGetAccountIdResult(GetAccountIdResult):
             account_id=self.account_id)
 
 
-def get_account_id(opts=None):
+def get_account_id(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountIdResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -33,8 +44,8 @@ def get_account_id(opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('cloudformation:index:getAccountId', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('cloudformation:index:getAccountId', __args__, opts=opts, typ=GetAccountIdResult).value
 
     return AwaitableGetAccountIdResult(
-        account_id=__ret__.get('accountId'))
+        account_id=__ret__.account_id)

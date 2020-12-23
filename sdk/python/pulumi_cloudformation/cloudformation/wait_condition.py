@@ -5,104 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from .. import _utilities, _tables
+from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
+from ._inputs import *
+
+__all__ = ['WaitCondition']
 
 
 class WaitCondition(pulumi.CustomResource):
-    attributes: pulumi.Output[dict]
-    """
-    The attributes associated with the resource
-      * `data` (`dict`)
-    """
-    creation_policy: pulumi.Output[dict]
-    """
-    The creation policy associated with the resource
-      * `auto_scaling_creation_policy` (`dict`) - For an Auto Scaling group replacement update, specifies how many instances must
-        signal success for the update to succeed.
-        * `min_successful_instances_percent` (`float`) - Specifies the percentage of instances in an Auto Scaling replacement update that must
-          signal success for the update to succeed. You can specify a value from 0 to 100. AWS
-          CloudFormation rounds to the nearest tenth of a percent. For example, if you update five
-          instances with a minimum successful percentage of 50, three instances must signal success. If
-          an instance doesn't send a signal within the time specified by the Timeout property, AWS
-          CloudFormation assumes that the instance wasn't created.
-
-      * `resource_signal` (`dict`) - When AWS CloudFormation creates the associated resource, configures the number of
-        required success signals and the length of time that AWS CloudFormation waits for those signals.
-        * `count` (`float`) - The number of success signals AWS CloudFormation must receive before it sets the
-          resource status as CREATE_COMPLETE. If the resource receives a failure signal or doesn't
-          receive the specified number of signals before the timeout period expires, the resource
-          creation fails and AWS CloudFormation rolls the stack back.
-        * `timeout` (`str`) - The length of time that AWS CloudFormation waits for the number of signals that was
-          specified in the Count property. The timeout period starts after AWS CloudFormation starts
-          creating the resource, and the timeout expires no sooner than the time you specify but can
-          occur shortly thereafter. The maximum time that you can specify is 12 hours.
-          
-          The value must be in ISO8601 duration format, in the form: "PT#H#M#S", where each # is the
-          number of hours, minutes, and seconds, respectively. For best results, specify a period of
-          time that gives your instances plenty of time to get up and running. A shorter timeout can
-          cause a rollback.
-    """
-    logical_id: pulumi.Output[str]
-    """
-    An explicit logical ID for the resource
-    """
-    metadata: pulumi.Output[dict]
-    """
-    Arbitrary structured data associated with the resource
-    """
-    properties: pulumi.Output[dict]
-    """
-    The input properties associated with the resource
-      * `count` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
-      * `handle` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
-      * `timeout` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
-    """
-    def __init__(__self__, resource_name, opts=None, creation_policy=None, deletion_policy=None, logical_id=None, metadata=None, properties=None, update_replace_policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 creation_policy: Optional[pulumi.Input[pulumi.InputType['_root_inputs.CreationPolicyArgs']]] = None,
+                 deletion_policy: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['WaitConditionPropertiesArgs']]] = None,
+                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] creation_policy: The creation policy associated with the resource
+        :param pulumi.Input[pulumi.InputType['_root_inputs.CreationPolicyArgs']] creation_policy: The creation policy associated with the resource
         :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
         :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[dict] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[dict] properties: The input properties associated with the resource
+        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
+        :param pulumi.Input[pulumi.InputType['WaitConditionPropertiesArgs']] properties: The input properties associated with the resource
         :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-
-        The **creation_policy** object supports the following:
-
-          * `auto_scaling_creation_policy` (`pulumi.Input[dict]`) - For an Auto Scaling group replacement update, specifies how many instances must
-            signal success for the update to succeed.
-            * `min_successful_instances_percent` (`pulumi.Input[float]`) - Specifies the percentage of instances in an Auto Scaling replacement update that must
-              signal success for the update to succeed. You can specify a value from 0 to 100. AWS
-              CloudFormation rounds to the nearest tenth of a percent. For example, if you update five
-              instances with a minimum successful percentage of 50, three instances must signal success. If
-              an instance doesn't send a signal within the time specified by the Timeout property, AWS
-              CloudFormation assumes that the instance wasn't created.
-
-          * `resource_signal` (`pulumi.Input[dict]`) - When AWS CloudFormation creates the associated resource, configures the number of
-            required success signals and the length of time that AWS CloudFormation waits for those signals.
-            * `count` (`pulumi.Input[float]`) - The number of success signals AWS CloudFormation must receive before it sets the
-              resource status as CREATE_COMPLETE. If the resource receives a failure signal or doesn't
-              receive the specified number of signals before the timeout period expires, the resource
-              creation fails and AWS CloudFormation rolls the stack back.
-            * `timeout` (`pulumi.Input[str]`) - The length of time that AWS CloudFormation waits for the number of signals that was
-              specified in the Count property. The timeout period starts after AWS CloudFormation starts
-              creating the resource, and the timeout expires no sooner than the time you specify but can
-              occur shortly thereafter. The maximum time that you can specify is 12 hours.
-              
-              The value must be in ISO8601 duration format, in the form: "PT#H#M#S", where each # is the
-              number of hours, minutes, and seconds, respectively. For best results, specify a period of
-              time that gives your instances plenty of time to get up and running. A shorter timeout can
-              cause a rollback.
-
-        The **properties** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
-          * `handle` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
-          * `timeout` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -115,7 +51,7 @@ class WaitCondition(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -125,7 +61,7 @@ class WaitCondition(pulumi.CustomResource):
             __props__['deletion_policy'] = deletion_policy
             __props__['logical_id'] = logical_id
             __props__['metadata'] = metadata
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['update_replace_policy'] = update_replace_policy
@@ -137,13 +73,15 @@ class WaitCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WaitCondition':
         """
         Get an existing WaitCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -152,8 +90,49 @@ class WaitCondition(pulumi.CustomResource):
 
         return WaitCondition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Output['outputs.WaitConditionAttributes']:
+        """
+        The attributes associated with the resource
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="creationPolicy")
+    def creation_policy(self) -> pulumi.Output[Optional['_root_outputs.CreationPolicy']]:
+        """
+        The creation policy associated with the resource
+        """
+        return pulumi.get(self, "creation_policy")
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        An explicit logical ID for the resource
+        """
+        return pulumi.get(self, "logical_id")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional[str]]:
+        """
+        Arbitrary structured data associated with the resource
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.WaitConditionProperties']:
+        """
+        The input properties associated with the resource
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

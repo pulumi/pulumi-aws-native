@@ -13,4 +13,52 @@ from .db_security_group import *
 from .db_security_group_ingress import *
 from .db_subnet_group import *
 from .event_subscription import *
+from .global_cluster import *
 from .option_group import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:RDS:DBCluster":
+                return DBCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBClusterParameterGroup":
+                return DBClusterParameterGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBInstance":
+                return DBInstance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBParameterGroup":
+                return DBParameterGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBProxy":
+                return DBProxy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBProxyTargetGroup":
+                return DBProxyTargetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBSecurityGroup":
+                return DBSecurityGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBSecurityGroupIngress":
+                return DBSecurityGroupIngress(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:DBSubnetGroup":
+                return DBSubnetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:EventSubscription":
+                return EventSubscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:GlobalCluster":
+                return GlobalCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:RDS:OptionGroup":
+                return OptionGroup(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "RDS", _module_instance)
+
+_register_module()

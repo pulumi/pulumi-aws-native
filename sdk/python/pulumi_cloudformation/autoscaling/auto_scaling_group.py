@@ -5,429 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from .. import _utilities, _tables
+from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
+from ._inputs import *
+
+__all__ = ['AutoScalingGroup']
 
 
 class AutoScalingGroup(pulumi.CustomResource):
-    attributes: pulumi.Output[dict]
-    """
-    The attributes associated with the resource
-    """
-    creation_policy: pulumi.Output[dict]
-    """
-    The creation policy associated with the resource
-      * `auto_scaling_creation_policy` (`dict`) - For an Auto Scaling group replacement update, specifies how many instances must
-        signal success for the update to succeed.
-        * `min_successful_instances_percent` (`float`) - Specifies the percentage of instances in an Auto Scaling replacement update that must
-          signal success for the update to succeed. You can specify a value from 0 to 100. AWS
-          CloudFormation rounds to the nearest tenth of a percent. For example, if you update five
-          instances with a minimum successful percentage of 50, three instances must signal success. If
-          an instance doesn't send a signal within the time specified by the Timeout property, AWS
-          CloudFormation assumes that the instance wasn't created.
-
-      * `resource_signal` (`dict`) - When AWS CloudFormation creates the associated resource, configures the number of
-        required success signals and the length of time that AWS CloudFormation waits for those signals.
-        * `count` (`float`) - The number of success signals AWS CloudFormation must receive before it sets the
-          resource status as CREATE_COMPLETE. If the resource receives a failure signal or doesn't
-          receive the specified number of signals before the timeout period expires, the resource
-          creation fails and AWS CloudFormation rolls the stack back.
-        * `timeout` (`str`) - The length of time that AWS CloudFormation waits for the number of signals that was
-          specified in the Count property. The timeout period starts after AWS CloudFormation starts
-          creating the resource, and the timeout expires no sooner than the time you specify but can
-          occur shortly thereafter. The maximum time that you can specify is 12 hours.
-          
-          The value must be in ISO8601 duration format, in the form: "PT#H#M#S", where each # is the
-          number of hours, minutes, and seconds, respectively. For best results, specify a period of
-          time that gives your instances plenty of time to get up and running. A shorter timeout can
-          cause a rollback.
-    """
-    logical_id: pulumi.Output[str]
-    """
-    An explicit logical ID for the resource
-    """
-    metadata: pulumi.Output[dict]
-    """
-    Arbitrary structured data associated with the resource
-    """
-    properties: pulumi.Output[dict]
-    """
-    The input properties associated with the resource
-      * `auto_scaling_group_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname
-      * `availability_zones` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
-      * `cooldown` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
-      * `desired_capacity` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
-      * `health_check_grace_period` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod
-      * `health_check_type` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthchecktype
-      * `instance_id` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-instanceid
-      * `launch_configuration_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchconfigurationname
-      * `launch_template` (`dict`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchtemplate
-        * `launch_template_id` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplateid
-        * `launch_template_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplatename
-        * `version` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-version
-
-      * `lifecycle_hook_specification_list` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist
-        * `default_result` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-defaultresult
-        * `heartbeat_timeout` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-heartbeattimeout
-        * `lifecycle_hook_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-lifecyclehookname
-        * `lifecycle_transition` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-lifecycletransition
-        * `notification_metadata` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-notificationmetadata
-        * `notification_target_arn` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-notificationtargetarn
-        * `role_arn` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-rolearn
-
-      * `load_balancer_names` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
-      * `max_instance_lifetime` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxinstancelifetime
-      * `max_size` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize
-      * `metrics_collection` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-metricscollection
-        * `granularity` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-granularity
-        * `metrics` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-metrics
-
-      * `min_size` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-minsize
-      * `mixed_instances_policy` (`dict`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy
-        * `instances_distribution` (`dict`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html#cfn-as-mixedinstancespolicy-instancesdistribution
-          * `on_demand_allocation_strategy` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandallocationstrategy
-          * `on_demand_base_capacity` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandbasecapacity
-          * `on_demand_percentage_above_base_capacity` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandpercentageabovebasecapacity
-          * `spot_allocation_strategy` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotallocationstrategy
-          * `spot_instance_pools` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotinstancepools
-          * `spot_max_price` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotmaxprice
-
-        * `launch_template` (`dict`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html#cfn-as-mixedinstancespolicy-launchtemplate
-          * `launch_template_specification` (`dict`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-group-launchtemplate
-          * `overrides` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-mixedinstancespolicy-overrides
-            * `instance_type` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype
-            * `weighted_capacity` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity
-
-      * `notification_configurations` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
-        * `notification_types` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-notificationtypes
-        * `topic_arn` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn
-
-      * `placement_group` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
-      * `service_linked_role_arn` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn
-      * `tags` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-        * `key` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-Key
-        * `propagate_at_launch` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-PropagateAtLaunch
-        * `value` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-Value
-
-      * `target_group_ar_ns` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
-      * `termination_policies` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-termpolicy
-      * `vpc_zone_identifier` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
-    """
-    update_policy: pulumi.Output[dict]
-    """
-    The update policy associated with the resource
-      * `auto_scaling_replacing_update` (`dict`) - To specify how AWS CloudFormation handles replacement updates for an Auto Scaling
-        group, use the AutoScalingReplacingUpdate policy. This policy enables you to specify whether
-        AWS CloudFormation replaces an Auto Scaling group with a new one or replaces only the
-        instances in the Auto Scaling group.
-        * `will_replace` (`bool`) - Specifies whether an Auto Scaling group and the instances it contains are replaced
-          during an update. During replacement, AWS CloudFormation retains the old group until it
-          finishes creating the new one. If the update fails, AWS CloudFormation can roll back to the
-          old Auto Scaling group and delete the new Auto Scaling group.
-          
-          While AWS CloudFormation creates the new group, it doesn't detach or attach any instances.
-          After successfully creating the new Auto Scaling group, AWS CloudFormation deletes the old
-          Auto Scaling group during the cleanup process.
-          
-          When you set the WillReplace parameter, remember to specify a matching CreationPolicy. If the
-          minimum number of instances (specified by the MinSuccessfulInstancesPercent property) don't
-          signal success within the Timeout period (specified in the CreationPolicy policy), the
-          replacement update fails and AWS CloudFormation rolls back to the old Auto Scaling group.
-
-      * `auto_scaling_rolling_update` (`dict`) - To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group,
-        use the AutoScalingRollingUpdate policy. Rolling updates enable you to specify whether AWS
-        CloudFormation updates instances that are in an Auto Scaling group in batches or all at once.
-        
-        *Important*: During a rolling update, some Auto Scaling processes might make changes to the
-        Auto Scaling group before AWS CloudFormation completes the rolling update. These changes might
-        cause the rolling update to fail. To prevent Auto Scaling from running processes during a
-        rolling update, use the SuspendProcesses property. For more information, see
-        [What are some recommended best practices for performing Auto Scaling group rolling updates?](https://aws.amazon.com/premiumsupport/knowledge-center/auto-scaling-group-rolling-updates/)
-        
-        Be aware that, during stack update rollback operations, CloudFormation uses the UpdatePolicy
-        configuration specified in the template before the current stack update operation. For
-        example, suppose you have updated the MaxBatchSize in your stack template's UpdatePolicy from
-        1 to 10. You then perform a stack update, and that update fails and CloudFormation initiates
-        an update rollback operation. In such a case, CloudFormation will use 1 as the maximum batch
-        size, rather than 10. For this reason, we recommend you make changes to the UpdatePolicy
-        configuration in a stack update separate from, and prior to, any updates to the
-        AutoScalingGroup resource that are likely to trigger rolling updates.
-        * `max_batch_size` (`float`) - Specifies the maximum number of instances that AWS CloudFormation updates.
-        * `min_instances_in_service` (`float`) - Specifies the minimum number of instances that must be in service within the Auto
-          Scaling group while AWS CloudFormation updates old instances. This value must be less than the
-          MaxSize of the Auto Scaling group.
-        * `min_successful_instances_percent` (`float`) - Specifies the percentage of instances in an Auto Scaling rolling update that must
-          signal success for an update to succeed. You can specify a value from 0 to 100. AWS
-          CloudFormation rounds to the nearest tenth of a percent. For example, if you update five
-          instances with a minimum successful percentage of 50, three instances must signal success.
-          
-          If an instance doesn't send a signal within the time specified in the PauseTime property, AWS
-          CloudFormation assumes that the instance wasn't updated.
-          
-          If you specify this property, you must also enable the WaitOnResourceSignals and PauseTime
-          properties.
-          
-          The MinSuccessfulInstancesPercent parameter applies only to instances only for signaling
-          purpose. To specify the number of instances in your autoscaling group, see the MinSize,
-          MaxSize, and DesiredCapacity properties fo the AWS::AutoScaling::AutoScalingGroup resource.
-        * `pause_time` (`str`) - The amount of time that AWS CloudFormation pauses after making a change to a batch of
-          instances to give those instances time to start software applications. For example, you might
-          need to specify PauseTime when scaling up the number of instances in an Auto Scaling group.
-          
-          If you enable the WaitOnResourceSignals property, PauseTime is the amount of time that AWS
-          CloudFormation should wait for the Auto Scaling group to receive the required number of valid
-          signals from added or replaced instances. If the PauseTime is exceeded before the Auto Scaling
-          group receives the required number of signals, the update fails. For best results, specify a
-          time period that gives your applications sufficient time to get started. If the update needs
-          to be rolled back, a short PauseTime can cause the rollback to fail.
-          
-          Specify PauseTime in the ISO8601 duration format (in the format PT#H#M#S, where each # is the
-          number of hours, minutes, and seconds, respectively). The maximum PauseTime is one hour (PT1H).
-        * `suspend_processes` (`list`) - Specifies the Auto Scaling processes to suspend during a stack update. Suspending
-          processes prevents Auto Scaling from interfering with a stack update. For example, you can
-          suspend alarming so that Amazon EC2 Auto Scaling doesn't execute scaling policies associated
-          with an alarm. For valid values, see the ScalingProcesses.member.N parameter for the
-          SuspendProcesses action in the Amazon EC2 Auto Scaling API Reference.
-        * `wait_on_resource_signals` (`bool`) - Specifies whether the Auto Scaling group waits on signals from new instances during
-          an update. Use this property to ensure that instances have completed installing and
-          configuring applications before the Auto Scaling group update proceeds. AWS CloudFormation
-          suspends the update of an Auto Scaling group after new EC2 instances are launched into the
-          group. AWS CloudFormation must receive a signal from each new instance within the specified
-          PauseTime before continuing the update. To signal the Auto Scaling group, use the cfn-signal
-          helper script or SignalResource API.
-          
-          To have instances wait for an Elastic Load Balancing health check before they signal success,
-          add a health-check verification by using the cfn-init helper script. For an example, see the
-          verify_instance_health command in the Auto Scaling rolling updates sample template.
-
-      * `auto_scaling_scheduled_action` (`dict`) - To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and
-        DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an
-        associated scheduled action, use the AutoScalingScheduledAction policy.
-        
-        With scheduled actions, the group size properties of an Auto Scaling group can change at any
-        time. When you update a stack with an Auto Scaling group and scheduled action, AWS
-        CloudFormation always sets the group size property values of your Auto Scaling group to the
-        values that are defined in the AWS::AutoScaling::AutoScalingGroup resource of your template,
-        even if a scheduled action is in effect.
-        
-        If you do not want AWS CloudFormation to change any of the group size property values when you
-        have a scheduled action in effect, use the AutoScalingScheduledAction update policy and set
-        IgnoreUnmodifiedGroupSizeProperties to true to prevent AWS CloudFormation from changing the
-        MinSize, MaxSize, or DesiredCapacity properties unless you have modified these values in your
-        template.
-        * `ignore_unmodified_group_size_properties` (`bool`) - If true, AWS CloudFormation ignores differences in group size properties between your
-          current Auto Scaling group and the Auto Scaling group described in the	AWS::AutoScaling::AutoScalingGroup resource of your template during a stack update. If you
-          modify any of the group size property values in your template, AWS CloudFormation uses the
-          modified values and updates your Auto Scaling group.
-    """
-    def __init__(__self__, resource_name, opts=None, creation_policy=None, deletion_policy=None, logical_id=None, metadata=None, properties=None, update_policy=None, update_replace_policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 creation_policy: Optional[pulumi.Input[pulumi.InputType['_root_inputs.CreationPolicyArgs']]] = None,
+                 deletion_policy: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupPropertiesArgs']]] = None,
+                 update_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupUpdatePolicyArgs']]] = None,
+                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] creation_policy: The creation policy associated with the resource
+        :param pulumi.Input[pulumi.InputType['_root_inputs.CreationPolicyArgs']] creation_policy: The creation policy associated with the resource
         :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
         :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[dict] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[dict] properties: The input properties associated with the resource
-        :param pulumi.Input[dict] update_policy: The update policy associated with the resource
+        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
+        :param pulumi.Input[pulumi.InputType['AutoScalingGroupPropertiesArgs']] properties: The input properties associated with the resource
+        :param pulumi.Input[pulumi.InputType['AutoScalingGroupUpdatePolicyArgs']] update_policy: The update policy associated with the resource
         :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-
-        The **creation_policy** object supports the following:
-
-          * `auto_scaling_creation_policy` (`pulumi.Input[dict]`) - For an Auto Scaling group replacement update, specifies how many instances must
-            signal success for the update to succeed.
-            * `min_successful_instances_percent` (`pulumi.Input[float]`) - Specifies the percentage of instances in an Auto Scaling replacement update that must
-              signal success for the update to succeed. You can specify a value from 0 to 100. AWS
-              CloudFormation rounds to the nearest tenth of a percent. For example, if you update five
-              instances with a minimum successful percentage of 50, three instances must signal success. If
-              an instance doesn't send a signal within the time specified by the Timeout property, AWS
-              CloudFormation assumes that the instance wasn't created.
-
-          * `resource_signal` (`pulumi.Input[dict]`) - When AWS CloudFormation creates the associated resource, configures the number of
-            required success signals and the length of time that AWS CloudFormation waits for those signals.
-            * `count` (`pulumi.Input[float]`) - The number of success signals AWS CloudFormation must receive before it sets the
-              resource status as CREATE_COMPLETE. If the resource receives a failure signal or doesn't
-              receive the specified number of signals before the timeout period expires, the resource
-              creation fails and AWS CloudFormation rolls the stack back.
-            * `timeout` (`pulumi.Input[str]`) - The length of time that AWS CloudFormation waits for the number of signals that was
-              specified in the Count property. The timeout period starts after AWS CloudFormation starts
-              creating the resource, and the timeout expires no sooner than the time you specify but can
-              occur shortly thereafter. The maximum time that you can specify is 12 hours.
-              
-              The value must be in ISO8601 duration format, in the form: "PT#H#M#S", where each # is the
-              number of hours, minutes, and seconds, respectively. For best results, specify a period of
-              time that gives your instances plenty of time to get up and running. A shorter timeout can
-              cause a rollback.
-
-        The **properties** object supports the following:
-
-          * `auto_scaling_group_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname
-          * `availability_zones` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
-          * `cooldown` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
-          * `desired_capacity` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
-          * `health_check_grace_period` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod
-          * `health_check_type` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthchecktype
-          * `instance_id` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-instanceid
-          * `launch_configuration_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchconfigurationname
-          * `launch_template` (`pulumi.Input[dict]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchtemplate
-            * `launch_template_id` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplateid
-            * `launch_template_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplatename
-            * `version` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-version
-
-          * `lifecycle_hook_specification_list` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist
-            * `default_result` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-defaultresult
-            * `heartbeat_timeout` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-heartbeattimeout
-            * `lifecycle_hook_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-lifecyclehookname
-            * `lifecycle_transition` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-lifecycletransition
-            * `notification_metadata` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-notificationmetadata
-            * `notification_target_arn` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-notificationtargetarn
-            * `role_arn` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-rolearn
-
-          * `load_balancer_names` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
-          * `max_instance_lifetime` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxinstancelifetime
-          * `max_size` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize
-          * `metrics_collection` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-metricscollection
-            * `granularity` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-granularity
-            * `metrics` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-metrics
-
-          * `min_size` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-minsize
-          * `mixed_instances_policy` (`pulumi.Input[dict]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy
-            * `instances_distribution` (`pulumi.Input[dict]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html#cfn-as-mixedinstancespolicy-instancesdistribution
-              * `on_demand_allocation_strategy` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandallocationstrategy
-              * `on_demand_base_capacity` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandbasecapacity
-              * `on_demand_percentage_above_base_capacity` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandpercentageabovebasecapacity
-              * `spot_allocation_strategy` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotallocationstrategy
-              * `spot_instance_pools` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotinstancepools
-              * `spot_max_price` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotmaxprice
-
-            * `launch_template` (`pulumi.Input[dict]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html#cfn-as-mixedinstancespolicy-launchtemplate
-              * `launch_template_specification` (`pulumi.Input[dict]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-group-launchtemplate
-              * `overrides` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-mixedinstancespolicy-overrides
-                * `instance_type` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype
-                * `weighted_capacity` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity
-
-          * `notification_configurations` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
-            * `notification_types` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-notificationtypes
-            * `topic_arn` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn
-
-          * `placement_group` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
-          * `service_linked_role_arn` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn
-          * `tags` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-            * `key` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-Key
-            * `propagate_at_launch` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-PropagateAtLaunch
-            * `value` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-Value
-
-          * `target_group_ar_ns` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
-          * `termination_policies` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-termpolicy
-          * `vpc_zone_identifier` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
-
-        The **update_policy** object supports the following:
-
-          * `auto_scaling_replacing_update` (`pulumi.Input[dict]`) - To specify how AWS CloudFormation handles replacement updates for an Auto Scaling
-            group, use the AutoScalingReplacingUpdate policy. This policy enables you to specify whether
-            AWS CloudFormation replaces an Auto Scaling group with a new one or replaces only the
-            instances in the Auto Scaling group.
-            * `will_replace` (`pulumi.Input[bool]`) - Specifies whether an Auto Scaling group and the instances it contains are replaced
-              during an update. During replacement, AWS CloudFormation retains the old group until it
-              finishes creating the new one. If the update fails, AWS CloudFormation can roll back to the
-              old Auto Scaling group and delete the new Auto Scaling group.
-              
-              While AWS CloudFormation creates the new group, it doesn't detach or attach any instances.
-              After successfully creating the new Auto Scaling group, AWS CloudFormation deletes the old
-              Auto Scaling group during the cleanup process.
-              
-              When you set the WillReplace parameter, remember to specify a matching CreationPolicy. If the
-              minimum number of instances (specified by the MinSuccessfulInstancesPercent property) don't
-              signal success within the Timeout period (specified in the CreationPolicy policy), the
-              replacement update fails and AWS CloudFormation rolls back to the old Auto Scaling group.
-
-          * `auto_scaling_rolling_update` (`pulumi.Input[dict]`) - To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group,
-            use the AutoScalingRollingUpdate policy. Rolling updates enable you to specify whether AWS
-            CloudFormation updates instances that are in an Auto Scaling group in batches or all at once.
-            
-            *Important*: During a rolling update, some Auto Scaling processes might make changes to the
-            Auto Scaling group before AWS CloudFormation completes the rolling update. These changes might
-            cause the rolling update to fail. To prevent Auto Scaling from running processes during a
-            rolling update, use the SuspendProcesses property. For more information, see
-            [What are some recommended best practices for performing Auto Scaling group rolling updates?](https://aws.amazon.com/premiumsupport/knowledge-center/auto-scaling-group-rolling-updates/)
-            
-            Be aware that, during stack update rollback operations, CloudFormation uses the UpdatePolicy
-            configuration specified in the template before the current stack update operation. For
-            example, suppose you have updated the MaxBatchSize in your stack template's UpdatePolicy from
-            1 to 10. You then perform a stack update, and that update fails and CloudFormation initiates
-            an update rollback operation. In such a case, CloudFormation will use 1 as the maximum batch
-            size, rather than 10. For this reason, we recommend you make changes to the UpdatePolicy
-            configuration in a stack update separate from, and prior to, any updates to the
-            AutoScalingGroup resource that are likely to trigger rolling updates.
-            * `max_batch_size` (`pulumi.Input[float]`) - Specifies the maximum number of instances that AWS CloudFormation updates.
-            * `min_instances_in_service` (`pulumi.Input[float]`) - Specifies the minimum number of instances that must be in service within the Auto
-              Scaling group while AWS CloudFormation updates old instances. This value must be less than the
-              MaxSize of the Auto Scaling group.
-            * `min_successful_instances_percent` (`pulumi.Input[float]`) - Specifies the percentage of instances in an Auto Scaling rolling update that must
-              signal success for an update to succeed. You can specify a value from 0 to 100. AWS
-              CloudFormation rounds to the nearest tenth of a percent. For example, if you update five
-              instances with a minimum successful percentage of 50, three instances must signal success.
-              
-              If an instance doesn't send a signal within the time specified in the PauseTime property, AWS
-              CloudFormation assumes that the instance wasn't updated.
-              
-              If you specify this property, you must also enable the WaitOnResourceSignals and PauseTime
-              properties.
-              
-              The MinSuccessfulInstancesPercent parameter applies only to instances only for signaling
-              purpose. To specify the number of instances in your autoscaling group, see the MinSize,
-              MaxSize, and DesiredCapacity properties fo the AWS::AutoScaling::AutoScalingGroup resource.
-            * `pause_time` (`pulumi.Input[str]`) - The amount of time that AWS CloudFormation pauses after making a change to a batch of
-              instances to give those instances time to start software applications. For example, you might
-              need to specify PauseTime when scaling up the number of instances in an Auto Scaling group.
-              
-              If you enable the WaitOnResourceSignals property, PauseTime is the amount of time that AWS
-              CloudFormation should wait for the Auto Scaling group to receive the required number of valid
-              signals from added or replaced instances. If the PauseTime is exceeded before the Auto Scaling
-              group receives the required number of signals, the update fails. For best results, specify a
-              time period that gives your applications sufficient time to get started. If the update needs
-              to be rolled back, a short PauseTime can cause the rollback to fail.
-              
-              Specify PauseTime in the ISO8601 duration format (in the format PT#H#M#S, where each # is the
-              number of hours, minutes, and seconds, respectively). The maximum PauseTime is one hour (PT1H).
-            * `suspend_processes` (`pulumi.Input[list]`) - Specifies the Auto Scaling processes to suspend during a stack update. Suspending
-              processes prevents Auto Scaling from interfering with a stack update. For example, you can
-              suspend alarming so that Amazon EC2 Auto Scaling doesn't execute scaling policies associated
-              with an alarm. For valid values, see the ScalingProcesses.member.N parameter for the
-              SuspendProcesses action in the Amazon EC2 Auto Scaling API Reference.
-            * `wait_on_resource_signals` (`pulumi.Input[bool]`) - Specifies whether the Auto Scaling group waits on signals from new instances during
-              an update. Use this property to ensure that instances have completed installing and
-              configuring applications before the Auto Scaling group update proceeds. AWS CloudFormation
-              suspends the update of an Auto Scaling group after new EC2 instances are launched into the
-              group. AWS CloudFormation must receive a signal from each new instance within the specified
-              PauseTime before continuing the update. To signal the Auto Scaling group, use the cfn-signal
-              helper script or SignalResource API.
-              
-              To have instances wait for an Elastic Load Balancing health check before they signal success,
-              add a health-check verification by using the cfn-init helper script. For an example, see the
-              verify_instance_health command in the Auto Scaling rolling updates sample template.
-
-          * `auto_scaling_scheduled_action` (`pulumi.Input[dict]`) - To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and
-            DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an
-            associated scheduled action, use the AutoScalingScheduledAction policy.
-            
-            With scheduled actions, the group size properties of an Auto Scaling group can change at any
-            time. When you update a stack with an Auto Scaling group and scheduled action, AWS
-            CloudFormation always sets the group size property values of your Auto Scaling group to the
-            values that are defined in the AWS::AutoScaling::AutoScalingGroup resource of your template,
-            even if a scheduled action is in effect.
-            
-            If you do not want AWS CloudFormation to change any of the group size property values when you
-            have a scheduled action in effect, use the AutoScalingScheduledAction update policy and set
-            IgnoreUnmodifiedGroupSizeProperties to true to prevent AWS CloudFormation from changing the
-            MinSize, MaxSize, or DesiredCapacity properties unless you have modified these values in your
-            template.
-            * `ignore_unmodified_group_size_properties` (`pulumi.Input[bool]`) - If true, AWS CloudFormation ignores differences in group size properties between your
-              current Auto Scaling group and the Auto Scaling group described in the	AWS::AutoScaling::AutoScalingGroup resource of your template during a stack update. If you
-              modify any of the group size property values in your template, AWS CloudFormation uses the
-              modified values and updates your Auto Scaling group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -440,7 +53,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -450,7 +63,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__['deletion_policy'] = deletion_policy
             __props__['logical_id'] = logical_id
             __props__['metadata'] = metadata
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['update_policy'] = update_policy
@@ -463,13 +76,15 @@ class AutoScalingGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AutoScalingGroup':
         """
         Get an existing AutoScalingGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -478,8 +93,57 @@ class AutoScalingGroup(pulumi.CustomResource):
 
         return AutoScalingGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Output['outputs.AutoScalingGroupAttributes']:
+        """
+        The attributes associated with the resource
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="creationPolicy")
+    def creation_policy(self) -> pulumi.Output[Optional['_root_outputs.CreationPolicy']]:
+        """
+        The creation policy associated with the resource
+        """
+        return pulumi.get(self, "creation_policy")
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        An explicit logical ID for the resource
+        """
+        return pulumi.get(self, "logical_id")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional[str]]:
+        """
+        Arbitrary structured data associated with the resource
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.AutoScalingGroupProperties']:
+        """
+        The input properties associated with the resource
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="updatePolicy")
+    def update_policy(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupUpdatePolicy']]:
+        """
+        The update policy associated with the resource
+        """
+        return pulumi.get(self, "update_policy")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
