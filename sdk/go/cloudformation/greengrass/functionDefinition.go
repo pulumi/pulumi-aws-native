@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type FunctionDefinition struct {
 // NewFunctionDefinition registers a new resource with the given unique name, arguments, and options.
 func NewFunctionDefinition(ctx *pulumi.Context,
 	name string, args *FunctionDefinitionArgs, opts ...pulumi.ResourceOption) (*FunctionDefinition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FunctionDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource FunctionDefinition
 	err := ctx.RegisterResource("cloudformation:Greengrass:FunctionDefinition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FunctionDefinitionArgs struct {
 
 func (FunctionDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionDefinitionArgs)(nil)).Elem()
+}
+
+type FunctionDefinitionInput interface {
+	pulumi.Input
+
+	ToFunctionDefinitionOutput() FunctionDefinitionOutput
+	ToFunctionDefinitionOutputWithContext(ctx context.Context) FunctionDefinitionOutput
+}
+
+func (*FunctionDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDefinition)(nil))
+}
+
+func (i *FunctionDefinition) ToFunctionDefinitionOutput() FunctionDefinitionOutput {
+	return i.ToFunctionDefinitionOutputWithContext(context.Background())
+}
+
+func (i *FunctionDefinition) ToFunctionDefinitionOutputWithContext(ctx context.Context) FunctionDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionOutput)
+}
+
+type FunctionDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDefinition)(nil))
+}
+
+func (o FunctionDefinitionOutput) ToFunctionDefinitionOutput() FunctionDefinitionOutput {
+	return o
+}
+
+func (o FunctionDefinitionOutput) ToFunctionDefinitionOutputWithContext(ctx context.Context) FunctionDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionDefinitionOutput{})
 }

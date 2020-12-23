@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NetworkInterfaceAttachment struct {
 // NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceAttachment(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceAttachmentArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NetworkInterfaceAttachment
 	err := ctx.RegisterResource("cloudformation:EC2:NetworkInterfaceAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NetworkInterfaceAttachmentArgs struct {
 
 func (NetworkInterfaceAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceAttachmentArgs)(nil)).Elem()
+}
+
+type NetworkInterfaceAttachmentInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput
+	ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput
+}
+
+func (*NetworkInterfaceAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil))
+}
+
+func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {
+	return i.ToNetworkInterfaceAttachmentOutputWithContext(context.Background())
+}
+
+func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentOutput)
+}
+
+type NetworkInterfaceAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfaceAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil))
+}
+
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentOutput{})
 }

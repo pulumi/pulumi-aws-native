@@ -4,6 +4,7 @@
 package synthetics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Canary struct {
 // NewCanary registers a new resource with the given unique name, arguments, and options.
 func NewCanary(ctx *pulumi.Context,
 	name string, args *CanaryArgs, opts ...pulumi.ResourceOption) (*Canary, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CanaryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Canary
 	err := ctx.RegisterResource("cloudformation:Synthetics:Canary", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CanaryArgs struct {
 
 func (CanaryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*canaryArgs)(nil)).Elem()
+}
+
+type CanaryInput interface {
+	pulumi.Input
+
+	ToCanaryOutput() CanaryOutput
+	ToCanaryOutputWithContext(ctx context.Context) CanaryOutput
+}
+
+func (*Canary) ElementType() reflect.Type {
+	return reflect.TypeOf((*Canary)(nil))
+}
+
+func (i *Canary) ToCanaryOutput() CanaryOutput {
+	return i.ToCanaryOutputWithContext(context.Background())
+}
+
+func (i *Canary) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryOutput)
+}
+
+type CanaryOutput struct {
+	*pulumi.OutputState
+}
+
+func (CanaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Canary)(nil))
+}
+
+func (o CanaryOutput) ToCanaryOutput() CanaryOutput {
+	return o
+}
+
+func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CanaryOutput{})
 }

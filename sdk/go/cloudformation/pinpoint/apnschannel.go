@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type APNSChannel struct {
 // NewAPNSChannel registers a new resource with the given unique name, arguments, and options.
 func NewAPNSChannel(ctx *pulumi.Context,
 	name string, args *APNSChannelArgs, opts ...pulumi.ResourceOption) (*APNSChannel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &APNSChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource APNSChannel
 	err := ctx.RegisterResource("cloudformation:Pinpoint:APNSChannel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type APNSChannelArgs struct {
 
 func (APNSChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnschannelArgs)(nil)).Elem()
+}
+
+type APNSChannelInput interface {
+	pulumi.Input
+
+	ToAPNSChannelOutput() APNSChannelOutput
+	ToAPNSChannelOutputWithContext(ctx context.Context) APNSChannelOutput
+}
+
+func (*APNSChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*APNSChannel)(nil))
+}
+
+func (i *APNSChannel) ToAPNSChannelOutput() APNSChannelOutput {
+	return i.ToAPNSChannelOutputWithContext(context.Background())
+}
+
+func (i *APNSChannel) ToAPNSChannelOutputWithContext(ctx context.Context) APNSChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APNSChannelOutput)
+}
+
+type APNSChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (APNSChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*APNSChannel)(nil))
+}
+
+func (o APNSChannelOutput) ToAPNSChannelOutput() APNSChannelOutput {
+	return o
+}
+
+func (o APNSChannelOutput) ToAPNSChannelOutputWithContext(ctx context.Context) APNSChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(APNSChannelOutput{})
 }

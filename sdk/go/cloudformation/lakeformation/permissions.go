@@ -4,6 +4,7 @@
 package lakeformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Permissions struct {
 // NewPermissions registers a new resource with the given unique name, arguments, and options.
 func NewPermissions(ctx *pulumi.Context,
 	name string, args *PermissionsArgs, opts ...pulumi.ResourceOption) (*Permissions, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PermissionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Permissions
 	err := ctx.RegisterResource("cloudformation:LakeFormation:Permissions", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PermissionsArgs struct {
 
 func (PermissionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionsArgs)(nil)).Elem()
+}
+
+type PermissionsInput interface {
+	pulumi.Input
+
+	ToPermissionsOutput() PermissionsOutput
+	ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput
+}
+
+func (*Permissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*Permissions)(nil))
+}
+
+func (i *Permissions) ToPermissionsOutput() PermissionsOutput {
+	return i.ToPermissionsOutputWithContext(context.Background())
+}
+
+func (i *Permissions) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsOutput)
+}
+
+type PermissionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (PermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Permissions)(nil))
+}
+
+func (o PermissionsOutput) ToPermissionsOutput() PermissionsOutput {
+	return o
+}
+
+func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PermissionsOutput{})
 }

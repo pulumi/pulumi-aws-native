@@ -4,6 +4,7 @@
 package directoryservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MicrosoftAD struct {
 // NewMicrosoftAD registers a new resource with the given unique name, arguments, and options.
 func NewMicrosoftAD(ctx *pulumi.Context,
 	name string, args *MicrosoftADArgs, opts ...pulumi.ResourceOption) (*MicrosoftAD, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MicrosoftADArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MicrosoftAD
 	err := ctx.RegisterResource("cloudformation:DirectoryService:MicrosoftAD", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MicrosoftADArgs struct {
 
 func (MicrosoftADArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*microsoftADArgs)(nil)).Elem()
+}
+
+type MicrosoftADInput interface {
+	pulumi.Input
+
+	ToMicrosoftADOutput() MicrosoftADOutput
+	ToMicrosoftADOutputWithContext(ctx context.Context) MicrosoftADOutput
+}
+
+func (*MicrosoftAD) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrosoftAD)(nil))
+}
+
+func (i *MicrosoftAD) ToMicrosoftADOutput() MicrosoftADOutput {
+	return i.ToMicrosoftADOutputWithContext(context.Background())
+}
+
+func (i *MicrosoftAD) ToMicrosoftADOutputWithContext(ctx context.Context) MicrosoftADOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftADOutput)
+}
+
+type MicrosoftADOutput struct {
+	*pulumi.OutputState
+}
+
+func (MicrosoftADOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrosoftAD)(nil))
+}
+
+func (o MicrosoftADOutput) ToMicrosoftADOutput() MicrosoftADOutput {
+	return o
+}
+
+func (o MicrosoftADOutput) ToMicrosoftADOutputWithContext(ctx context.Context) MicrosoftADOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MicrosoftADOutput{})
 }

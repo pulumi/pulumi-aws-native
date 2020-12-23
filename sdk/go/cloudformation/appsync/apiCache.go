@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApiCache struct {
 // NewApiCache registers a new resource with the given unique name, arguments, and options.
 func NewApiCache(ctx *pulumi.Context,
 	name string, args *ApiCacheArgs, opts ...pulumi.ResourceOption) (*ApiCache, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApiCacheArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApiCache
 	err := ctx.RegisterResource("cloudformation:AppSync:ApiCache", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApiCacheArgs struct {
 
 func (ApiCacheArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiCacheArgs)(nil)).Elem()
+}
+
+type ApiCacheInput interface {
+	pulumi.Input
+
+	ToApiCacheOutput() ApiCacheOutput
+	ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutput
+}
+
+func (*ApiCache) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiCache)(nil))
+}
+
+func (i *ApiCache) ToApiCacheOutput() ApiCacheOutput {
+	return i.ToApiCacheOutputWithContext(context.Background())
+}
+
+func (i *ApiCache) ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiCacheOutput)
+}
+
+type ApiCacheOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiCache)(nil))
+}
+
+func (o ApiCacheOutput) ToApiCacheOutput() ApiCacheOutput {
+	return o
+}
+
+func (o ApiCacheOutput) ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiCacheOutput{})
 }

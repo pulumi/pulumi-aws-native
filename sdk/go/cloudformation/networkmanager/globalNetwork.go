@@ -4,6 +4,7 @@
 package networkmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GlobalNetwork struct {
 // NewGlobalNetwork registers a new resource with the given unique name, arguments, and options.
 func NewGlobalNetwork(ctx *pulumi.Context,
 	name string, args *GlobalNetworkArgs, opts ...pulumi.ResourceOption) (*GlobalNetwork, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GlobalNetworkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GlobalNetwork
 	err := ctx.RegisterResource("cloudformation:NetworkManager:GlobalNetwork", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GlobalNetworkArgs struct {
 
 func (GlobalNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalNetworkArgs)(nil)).Elem()
+}
+
+type GlobalNetworkInput interface {
+	pulumi.Input
+
+	ToGlobalNetworkOutput() GlobalNetworkOutput
+	ToGlobalNetworkOutputWithContext(ctx context.Context) GlobalNetworkOutput
+}
+
+func (*GlobalNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalNetwork)(nil))
+}
+
+func (i *GlobalNetwork) ToGlobalNetworkOutput() GlobalNetworkOutput {
+	return i.ToGlobalNetworkOutputWithContext(context.Background())
+}
+
+func (i *GlobalNetwork) ToGlobalNetworkOutputWithContext(ctx context.Context) GlobalNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkOutput)
+}
+
+type GlobalNetworkOutput struct {
+	*pulumi.OutputState
+}
+
+func (GlobalNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalNetwork)(nil))
+}
+
+func (o GlobalNetworkOutput) ToGlobalNetworkOutput() GlobalNetworkOutput {
+	return o
+}
+
+func (o GlobalNetworkOutput) ToGlobalNetworkOutputWithContext(ctx context.Context) GlobalNetworkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GlobalNetworkOutput{})
 }

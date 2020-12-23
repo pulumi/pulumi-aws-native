@@ -4,6 +4,7 @@
 package codestar
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GitHubRepository struct {
 // NewGitHubRepository registers a new resource with the given unique name, arguments, and options.
 func NewGitHubRepository(ctx *pulumi.Context,
 	name string, args *GitHubRepositoryArgs, opts ...pulumi.ResourceOption) (*GitHubRepository, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GitHubRepositoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GitHubRepository
 	err := ctx.RegisterResource("cloudformation:CodeStar:GitHubRepository", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GitHubRepositoryArgs struct {
 
 func (GitHubRepositoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitHubRepositoryArgs)(nil)).Elem()
+}
+
+type GitHubRepositoryInput interface {
+	pulumi.Input
+
+	ToGitHubRepositoryOutput() GitHubRepositoryOutput
+	ToGitHubRepositoryOutputWithContext(ctx context.Context) GitHubRepositoryOutput
+}
+
+func (*GitHubRepository) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubRepository)(nil))
+}
+
+func (i *GitHubRepository) ToGitHubRepositoryOutput() GitHubRepositoryOutput {
+	return i.ToGitHubRepositoryOutputWithContext(context.Background())
+}
+
+func (i *GitHubRepository) ToGitHubRepositoryOutputWithContext(ctx context.Context) GitHubRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubRepositoryOutput)
+}
+
+type GitHubRepositoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (GitHubRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubRepository)(nil))
+}
+
+func (o GitHubRepositoryOutput) ToGitHubRepositoryOutput() GitHubRepositoryOutput {
+	return o
+}
+
+func (o GitHubRepositoryOutput) ToGitHubRepositoryOutputWithContext(ctx context.Context) GitHubRepositoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GitHubRepositoryOutput{})
 }

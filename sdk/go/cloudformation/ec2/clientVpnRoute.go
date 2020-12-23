@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClientVpnRoute struct {
 // NewClientVpnRoute registers a new resource with the given unique name, arguments, and options.
 func NewClientVpnRoute(ctx *pulumi.Context,
 	name string, args *ClientVpnRouteArgs, opts ...pulumi.ResourceOption) (*ClientVpnRoute, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClientVpnRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClientVpnRoute
 	err := ctx.RegisterResource("cloudformation:EC2:ClientVpnRoute", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClientVpnRouteArgs struct {
 
 func (ClientVpnRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientVpnRouteArgs)(nil)).Elem()
+}
+
+type ClientVpnRouteInput interface {
+	pulumi.Input
+
+	ToClientVpnRouteOutput() ClientVpnRouteOutput
+	ToClientVpnRouteOutputWithContext(ctx context.Context) ClientVpnRouteOutput
+}
+
+func (*ClientVpnRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnRoute)(nil))
+}
+
+func (i *ClientVpnRoute) ToClientVpnRouteOutput() ClientVpnRouteOutput {
+	return i.ToClientVpnRouteOutputWithContext(context.Background())
+}
+
+func (i *ClientVpnRoute) ToClientVpnRouteOutputWithContext(ctx context.Context) ClientVpnRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnRouteOutput)
+}
+
+type ClientVpnRouteOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClientVpnRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnRoute)(nil))
+}
+
+func (o ClientVpnRouteOutput) ToClientVpnRouteOutput() ClientVpnRouteOutput {
+	return o
+}
+
+func (o ClientVpnRouteOutput) ToClientVpnRouteOutputWithContext(ctx context.Context) ClientVpnRouteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClientVpnRouteOutput{})
 }

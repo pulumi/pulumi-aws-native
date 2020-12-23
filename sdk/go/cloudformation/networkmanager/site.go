@@ -4,6 +4,7 @@
 package networkmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Site struct {
 // NewSite registers a new resource with the given unique name, arguments, and options.
 func NewSite(ctx *pulumi.Context,
 	name string, args *SiteArgs, opts ...pulumi.ResourceOption) (*Site, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SiteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Site
 	err := ctx.RegisterResource("cloudformation:NetworkManager:Site", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SiteArgs struct {
 
 func (SiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteArgs)(nil)).Elem()
+}
+
+type SiteInput interface {
+	pulumi.Input
+
+	ToSiteOutput() SiteOutput
+	ToSiteOutputWithContext(ctx context.Context) SiteOutput
+}
+
+func (*Site) ElementType() reflect.Type {
+	return reflect.TypeOf((*Site)(nil))
+}
+
+func (i *Site) ToSiteOutput() SiteOutput {
+	return i.ToSiteOutputWithContext(context.Background())
+}
+
+func (i *Site) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteOutput)
+}
+
+type SiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Site)(nil))
+}
+
+func (o SiteOutput) ToSiteOutput() SiteOutput {
+	return o
+}
+
+func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteOutput{})
 }

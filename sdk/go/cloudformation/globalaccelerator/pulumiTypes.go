@@ -606,6 +606,115 @@ func (o EndpointGroupEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	}).(EndpointGroupEndpointConfigurationOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
+type EndpointGroupPortOverride struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
+	EndpointPort int `pulumi:"EndpointPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
+	ListenerPort int `pulumi:"ListenerPort"`
+}
+
+// EndpointGroupPortOverrideInput is an input type that accepts EndpointGroupPortOverrideArgs and EndpointGroupPortOverrideOutput values.
+// You can construct a concrete instance of `EndpointGroupPortOverrideInput` via:
+//
+//          EndpointGroupPortOverrideArgs{...}
+type EndpointGroupPortOverrideInput interface {
+	pulumi.Input
+
+	ToEndpointGroupPortOverrideOutput() EndpointGroupPortOverrideOutput
+	ToEndpointGroupPortOverrideOutputWithContext(context.Context) EndpointGroupPortOverrideOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
+type EndpointGroupPortOverrideArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
+	EndpointPort pulumi.IntInput `pulumi:"EndpointPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
+	ListenerPort pulumi.IntInput `pulumi:"ListenerPort"`
+}
+
+func (EndpointGroupPortOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGroupPortOverride)(nil)).Elem()
+}
+
+func (i EndpointGroupPortOverrideArgs) ToEndpointGroupPortOverrideOutput() EndpointGroupPortOverrideOutput {
+	return i.ToEndpointGroupPortOverrideOutputWithContext(context.Background())
+}
+
+func (i EndpointGroupPortOverrideArgs) ToEndpointGroupPortOverrideOutputWithContext(ctx context.Context) EndpointGroupPortOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPortOverrideOutput)
+}
+
+// EndpointGroupPortOverrideArrayInput is an input type that accepts EndpointGroupPortOverrideArray and EndpointGroupPortOverrideArrayOutput values.
+// You can construct a concrete instance of `EndpointGroupPortOverrideArrayInput` via:
+//
+//          EndpointGroupPortOverrideArray{ EndpointGroupPortOverrideArgs{...} }
+type EndpointGroupPortOverrideArrayInput interface {
+	pulumi.Input
+
+	ToEndpointGroupPortOverrideArrayOutput() EndpointGroupPortOverrideArrayOutput
+	ToEndpointGroupPortOverrideArrayOutputWithContext(context.Context) EndpointGroupPortOverrideArrayOutput
+}
+
+type EndpointGroupPortOverrideArray []EndpointGroupPortOverrideInput
+
+func (EndpointGroupPortOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointGroupPortOverride)(nil)).Elem()
+}
+
+func (i EndpointGroupPortOverrideArray) ToEndpointGroupPortOverrideArrayOutput() EndpointGroupPortOverrideArrayOutput {
+	return i.ToEndpointGroupPortOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointGroupPortOverrideArray) ToEndpointGroupPortOverrideArrayOutputWithContext(ctx context.Context) EndpointGroupPortOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPortOverrideArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
+type EndpointGroupPortOverrideOutput struct{ *pulumi.OutputState }
+
+func (EndpointGroupPortOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGroupPortOverride)(nil)).Elem()
+}
+
+func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutput() EndpointGroupPortOverrideOutput {
+	return o
+}
+
+func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutputWithContext(ctx context.Context) EndpointGroupPortOverrideOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
+func (o EndpointGroupPortOverrideOutput) EndpointPort() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.EndpointPort }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
+func (o EndpointGroupPortOverrideOutput) ListenerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.ListenerPort }).(pulumi.IntOutput)
+}
+
+type EndpointGroupPortOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointGroupPortOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointGroupPortOverride)(nil)).Elem()
+}
+
+func (o EndpointGroupPortOverrideArrayOutput) ToEndpointGroupPortOverrideArrayOutput() EndpointGroupPortOverrideArrayOutput {
+	return o
+}
+
+func (o EndpointGroupPortOverrideArrayOutput) ToEndpointGroupPortOverrideArrayOutputWithContext(ctx context.Context) EndpointGroupPortOverrideArrayOutput {
+	return o
+}
+
+func (o EndpointGroupPortOverrideArrayOutput) Index(i pulumi.IntInput) EndpointGroupPortOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointGroupPortOverride {
+		return vs[0].([]EndpointGroupPortOverride)[vs[1].(int)]
+	}).(EndpointGroupPortOverrideOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
 type EndpointGroupProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
@@ -622,6 +731,8 @@ type EndpointGroupProperties struct {
 	HealthCheckProtocol *string `pulumi:"HealthCheckProtocol"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
 	ListenerArn string `pulumi:"ListenerArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+	PortOverrides []EndpointGroupPortOverride `pulumi:"PortOverrides"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
 	ThresholdCount *int `pulumi:"ThresholdCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
@@ -655,6 +766,8 @@ type EndpointGroupPropertiesArgs struct {
 	HealthCheckProtocol pulumi.StringPtrInput `pulumi:"HealthCheckProtocol"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
 	ListenerArn pulumi.StringInput `pulumi:"ListenerArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+	PortOverrides EndpointGroupPortOverrideArrayInput `pulumi:"PortOverrides"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
 	ThresholdCount pulumi.IntPtrInput `pulumi:"ThresholdCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
@@ -774,6 +887,11 @@ func (o EndpointGroupPropertiesOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointGroupProperties) string { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+func (o EndpointGroupPropertiesOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
+	return o.ApplyT(func(v EndpointGroupProperties) []EndpointGroupPortOverride { return v.PortOverrides }).(EndpointGroupPortOverrideArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
 func (o EndpointGroupPropertiesOutput) ThresholdCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointGroupProperties) *int { return v.ThresholdCount }).(pulumi.IntPtrOutput)
@@ -870,6 +988,16 @@ func (o EndpointGroupPropertiesPtrOutput) ListenerArn() pulumi.StringPtrOutput {
 		}
 		return &v.ListenerArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+func (o EndpointGroupPropertiesPtrOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
+	return o.ApplyT(func(v *EndpointGroupProperties) []EndpointGroupPortOverride {
+		if v == nil {
+			return nil
+		}
+		return v.PortOverrides
+	}).(EndpointGroupPortOverrideArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
@@ -1327,6 +1455,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointGroupAttributesPtrOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(EndpointGroupPortOverrideOutput{})
+	pulumi.RegisterOutputType(EndpointGroupPortOverrideArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupPropertiesOutput{})
 	pulumi.RegisterOutputType(EndpointGroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ListenerAttributesOutput{})

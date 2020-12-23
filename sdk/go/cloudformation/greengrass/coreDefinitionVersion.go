@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CoreDefinitionVersion struct {
 // NewCoreDefinitionVersion registers a new resource with the given unique name, arguments, and options.
 func NewCoreDefinitionVersion(ctx *pulumi.Context,
 	name string, args *CoreDefinitionVersionArgs, opts ...pulumi.ResourceOption) (*CoreDefinitionVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CoreDefinitionVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CoreDefinitionVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:CoreDefinitionVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CoreDefinitionVersionArgs struct {
 
 func (CoreDefinitionVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*coreDefinitionVersionArgs)(nil)).Elem()
+}
+
+type CoreDefinitionVersionInput interface {
+	pulumi.Input
+
+	ToCoreDefinitionVersionOutput() CoreDefinitionVersionOutput
+	ToCoreDefinitionVersionOutputWithContext(ctx context.Context) CoreDefinitionVersionOutput
+}
+
+func (*CoreDefinitionVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreDefinitionVersion)(nil))
+}
+
+func (i *CoreDefinitionVersion) ToCoreDefinitionVersionOutput() CoreDefinitionVersionOutput {
+	return i.ToCoreDefinitionVersionOutputWithContext(context.Background())
+}
+
+func (i *CoreDefinitionVersion) ToCoreDefinitionVersionOutputWithContext(ctx context.Context) CoreDefinitionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionOutput)
+}
+
+type CoreDefinitionVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (CoreDefinitionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreDefinitionVersion)(nil))
+}
+
+func (o CoreDefinitionVersionOutput) ToCoreDefinitionVersionOutput() CoreDefinitionVersionOutput {
+	return o
+}
+
+func (o CoreDefinitionVersionOutput) ToCoreDefinitionVersionOutputWithContext(ctx context.Context) CoreDefinitionVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CoreDefinitionVersionOutput{})
 }

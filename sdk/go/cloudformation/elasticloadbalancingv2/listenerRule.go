@@ -4,6 +4,7 @@
 package elasticloadbalancingv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ListenerRule struct {
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
 func NewListenerRule(ctx *pulumi.Context,
 	name string, args *ListenerRuleArgs, opts ...pulumi.ResourceOption) (*ListenerRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ListenerRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ListenerRule
 	err := ctx.RegisterResource("cloudformation:ElasticLoadBalancingV2:ListenerRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ListenerRuleArgs struct {
 
 func (ListenerRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerRuleArgs)(nil)).Elem()
+}
+
+type ListenerRuleInput interface {
+	pulumi.Input
+
+	ToListenerRuleOutput() ListenerRuleOutput
+	ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput
+}
+
+func (*ListenerRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRule)(nil))
+}
+
+func (i *ListenerRule) ToListenerRuleOutput() ListenerRuleOutput {
+	return i.ToListenerRuleOutputWithContext(context.Background())
+}
+
+func (i *ListenerRule) ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleOutput)
+}
+
+type ListenerRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRule)(nil))
+}
+
+func (o ListenerRuleOutput) ToListenerRuleOutput() ListenerRuleOutput {
+	return o
+}
+
+func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListenerRuleOutput{})
 }

@@ -4,6 +4,7 @@
 package autoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LifecycleHook struct {
 // NewLifecycleHook registers a new resource with the given unique name, arguments, and options.
 func NewLifecycleHook(ctx *pulumi.Context,
 	name string, args *LifecycleHookArgs, opts ...pulumi.ResourceOption) (*LifecycleHook, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LifecycleHookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LifecycleHook
 	err := ctx.RegisterResource("cloudformation:AutoScaling:LifecycleHook", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LifecycleHookArgs struct {
 
 func (LifecycleHookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecycleHookArgs)(nil)).Elem()
+}
+
+type LifecycleHookInput interface {
+	pulumi.Input
+
+	ToLifecycleHookOutput() LifecycleHookOutput
+	ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput
+}
+
+func (*LifecycleHook) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecycleHook)(nil))
+}
+
+func (i *LifecycleHook) ToLifecycleHookOutput() LifecycleHookOutput {
+	return i.ToLifecycleHookOutputWithContext(context.Background())
+}
+
+func (i *LifecycleHook) ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookOutput)
+}
+
+type LifecycleHookOutput struct {
+	*pulumi.OutputState
+}
+
+func (LifecycleHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecycleHook)(nil))
+}
+
+func (o LifecycleHookOutput) ToLifecycleHookOutput() LifecycleHookOutput {
+	return o
+}
+
+func (o LifecycleHookOutput) ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LifecycleHookOutput{})
 }

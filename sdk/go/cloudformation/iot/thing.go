@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Thing struct {
 // NewThing registers a new resource with the given unique name, arguments, and options.
 func NewThing(ctx *pulumi.Context,
 	name string, args *ThingArgs, opts ...pulumi.ResourceOption) (*Thing, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ThingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Thing
 	err := ctx.RegisterResource("cloudformation:IoT:Thing", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ThingArgs struct {
 
 func (ThingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingArgs)(nil)).Elem()
+}
+
+type ThingInput interface {
+	pulumi.Input
+
+	ToThingOutput() ThingOutput
+	ToThingOutputWithContext(ctx context.Context) ThingOutput
+}
+
+func (*Thing) ElementType() reflect.Type {
+	return reflect.TypeOf((*Thing)(nil))
+}
+
+func (i *Thing) ToThingOutput() ThingOutput {
+	return i.ToThingOutputWithContext(context.Background())
+}
+
+func (i *Thing) ToThingOutputWithContext(ctx context.Context) ThingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingOutput)
+}
+
+type ThingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Thing)(nil))
+}
+
+func (o ThingOutput) ToThingOutput() ThingOutput {
+	return o
+}
+
+func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ThingOutput{})
 }

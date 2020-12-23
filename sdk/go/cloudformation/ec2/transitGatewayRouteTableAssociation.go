@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TransitGatewayRouteTableAssociation struct {
 // NewTransitGatewayRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewTransitGatewayRouteTableAssociation(ctx *pulumi.Context,
 	name string, args *TransitGatewayRouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*TransitGatewayRouteTableAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TransitGatewayRouteTableAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TransitGatewayRouteTableAssociation
 	err := ctx.RegisterResource("cloudformation:EC2:TransitGatewayRouteTableAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TransitGatewayRouteTableAssociationArgs struct {
 
 func (TransitGatewayRouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRouteTableAssociationArgs)(nil)).Elem()
+}
+
+type TransitGatewayRouteTableAssociationInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableAssociationOutput() TransitGatewayRouteTableAssociationOutput
+	ToTransitGatewayRouteTableAssociationOutputWithContext(ctx context.Context) TransitGatewayRouteTableAssociationOutput
+}
+
+func (*TransitGatewayRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableAssociation)(nil))
+}
+
+func (i *TransitGatewayRouteTableAssociation) ToTransitGatewayRouteTableAssociationOutput() TransitGatewayRouteTableAssociationOutput {
+	return i.ToTransitGatewayRouteTableAssociationOutputWithContext(context.Background())
+}
+
+func (i *TransitGatewayRouteTableAssociation) ToTransitGatewayRouteTableAssociationOutputWithContext(ctx context.Context) TransitGatewayRouteTableAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAssociationOutput)
+}
+
+type TransitGatewayRouteTableAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayRouteTableAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableAssociation)(nil))
+}
+
+func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAssociationOutput() TransitGatewayRouteTableAssociationOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAssociationOutputWithContext(ctx context.Context) TransitGatewayRouteTableAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitGatewayRouteTableAssociationOutput{})
 }

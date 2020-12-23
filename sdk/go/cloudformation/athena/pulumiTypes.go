@@ -11,6 +11,462 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type DataCatalogAttributes struct {
+}
+
+// DataCatalogAttributesInput is an input type that accepts DataCatalogAttributesArgs and DataCatalogAttributesOutput values.
+// You can construct a concrete instance of `DataCatalogAttributesInput` via:
+//
+//          DataCatalogAttributesArgs{...}
+type DataCatalogAttributesInput interface {
+	pulumi.Input
+
+	ToDataCatalogAttributesOutput() DataCatalogAttributesOutput
+	ToDataCatalogAttributesOutputWithContext(context.Context) DataCatalogAttributesOutput
+}
+
+type DataCatalogAttributesArgs struct {
+}
+
+func (DataCatalogAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogAttributes)(nil)).Elem()
+}
+
+func (i DataCatalogAttributesArgs) ToDataCatalogAttributesOutput() DataCatalogAttributesOutput {
+	return i.ToDataCatalogAttributesOutputWithContext(context.Background())
+}
+
+func (i DataCatalogAttributesArgs) ToDataCatalogAttributesOutputWithContext(ctx context.Context) DataCatalogAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogAttributesOutput)
+}
+
+func (i DataCatalogAttributesArgs) ToDataCatalogAttributesPtrOutput() DataCatalogAttributesPtrOutput {
+	return i.ToDataCatalogAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogAttributesArgs) ToDataCatalogAttributesPtrOutputWithContext(ctx context.Context) DataCatalogAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogAttributesOutput).ToDataCatalogAttributesPtrOutputWithContext(ctx)
+}
+
+// DataCatalogAttributesPtrInput is an input type that accepts DataCatalogAttributesArgs, DataCatalogAttributesPtr and DataCatalogAttributesPtrOutput values.
+// You can construct a concrete instance of `DataCatalogAttributesPtrInput` via:
+//
+//          DataCatalogAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogAttributesPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogAttributesPtrOutput() DataCatalogAttributesPtrOutput
+	ToDataCatalogAttributesPtrOutputWithContext(context.Context) DataCatalogAttributesPtrOutput
+}
+
+type dataCatalogAttributesPtrType DataCatalogAttributesArgs
+
+func DataCatalogAttributesPtr(v *DataCatalogAttributesArgs) DataCatalogAttributesPtrInput {
+	return (*dataCatalogAttributesPtrType)(v)
+}
+
+func (*dataCatalogAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogAttributes)(nil)).Elem()
+}
+
+func (i *dataCatalogAttributesPtrType) ToDataCatalogAttributesPtrOutput() DataCatalogAttributesPtrOutput {
+	return i.ToDataCatalogAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogAttributesPtrType) ToDataCatalogAttributesPtrOutputWithContext(ctx context.Context) DataCatalogAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogAttributesPtrOutput)
+}
+
+type DataCatalogAttributesOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogAttributes)(nil)).Elem()
+}
+
+func (o DataCatalogAttributesOutput) ToDataCatalogAttributesOutput() DataCatalogAttributesOutput {
+	return o
+}
+
+func (o DataCatalogAttributesOutput) ToDataCatalogAttributesOutputWithContext(ctx context.Context) DataCatalogAttributesOutput {
+	return o
+}
+
+func (o DataCatalogAttributesOutput) ToDataCatalogAttributesPtrOutput() DataCatalogAttributesPtrOutput {
+	return o.ToDataCatalogAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogAttributesOutput) ToDataCatalogAttributesPtrOutputWithContext(ctx context.Context) DataCatalogAttributesPtrOutput {
+	return o.ApplyT(func(v DataCatalogAttributes) *DataCatalogAttributes {
+		return &v
+	}).(DataCatalogAttributesPtrOutput)
+}
+
+type DataCatalogAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogAttributes)(nil)).Elem()
+}
+
+func (o DataCatalogAttributesPtrOutput) ToDataCatalogAttributesPtrOutput() DataCatalogAttributesPtrOutput {
+	return o
+}
+
+func (o DataCatalogAttributesPtrOutput) ToDataCatalogAttributesPtrOutputWithContext(ctx context.Context) DataCatalogAttributesPtrOutput {
+	return o
+}
+
+func (o DataCatalogAttributesPtrOutput) Elem() DataCatalogAttributesOutput {
+	return o.ApplyT(func(v *DataCatalogAttributes) DataCatalogAttributes { return *v }).(DataCatalogAttributesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
+type DataCatalogProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
+	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
+	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
+	Parameters map[string]string `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
+	Tags *DataCatalogTags `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+	Type string `pulumi:"Type"`
+}
+
+// DataCatalogPropertiesInput is an input type that accepts DataCatalogPropertiesArgs and DataCatalogPropertiesOutput values.
+// You can construct a concrete instance of `DataCatalogPropertiesInput` via:
+//
+//          DataCatalogPropertiesArgs{...}
+type DataCatalogPropertiesInput interface {
+	pulumi.Input
+
+	ToDataCatalogPropertiesOutput() DataCatalogPropertiesOutput
+	ToDataCatalogPropertiesOutputWithContext(context.Context) DataCatalogPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
+type DataCatalogPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
+	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
+	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
+	Parameters pulumi.StringMapInput `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
+	Tags DataCatalogTagsPtrInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+	Type pulumi.StringInput `pulumi:"Type"`
+}
+
+func (DataCatalogPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogProperties)(nil)).Elem()
+}
+
+func (i DataCatalogPropertiesArgs) ToDataCatalogPropertiesOutput() DataCatalogPropertiesOutput {
+	return i.ToDataCatalogPropertiesOutputWithContext(context.Background())
+}
+
+func (i DataCatalogPropertiesArgs) ToDataCatalogPropertiesOutputWithContext(ctx context.Context) DataCatalogPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogPropertiesOutput)
+}
+
+func (i DataCatalogPropertiesArgs) ToDataCatalogPropertiesPtrOutput() DataCatalogPropertiesPtrOutput {
+	return i.ToDataCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogPropertiesArgs) ToDataCatalogPropertiesPtrOutputWithContext(ctx context.Context) DataCatalogPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogPropertiesOutput).ToDataCatalogPropertiesPtrOutputWithContext(ctx)
+}
+
+// DataCatalogPropertiesPtrInput is an input type that accepts DataCatalogPropertiesArgs, DataCatalogPropertiesPtr and DataCatalogPropertiesPtrOutput values.
+// You can construct a concrete instance of `DataCatalogPropertiesPtrInput` via:
+//
+//          DataCatalogPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogPropertiesPtrOutput() DataCatalogPropertiesPtrOutput
+	ToDataCatalogPropertiesPtrOutputWithContext(context.Context) DataCatalogPropertiesPtrOutput
+}
+
+type dataCatalogPropertiesPtrType DataCatalogPropertiesArgs
+
+func DataCatalogPropertiesPtr(v *DataCatalogPropertiesArgs) DataCatalogPropertiesPtrInput {
+	return (*dataCatalogPropertiesPtrType)(v)
+}
+
+func (*dataCatalogPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogProperties)(nil)).Elem()
+}
+
+func (i *dataCatalogPropertiesPtrType) ToDataCatalogPropertiesPtrOutput() DataCatalogPropertiesPtrOutput {
+	return i.ToDataCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogPropertiesPtrType) ToDataCatalogPropertiesPtrOutputWithContext(ctx context.Context) DataCatalogPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
+type DataCatalogPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogProperties)(nil)).Elem()
+}
+
+func (o DataCatalogPropertiesOutput) ToDataCatalogPropertiesOutput() DataCatalogPropertiesOutput {
+	return o
+}
+
+func (o DataCatalogPropertiesOutput) ToDataCatalogPropertiesOutputWithContext(ctx context.Context) DataCatalogPropertiesOutput {
+	return o
+}
+
+func (o DataCatalogPropertiesOutput) ToDataCatalogPropertiesPtrOutput() DataCatalogPropertiesPtrOutput {
+	return o.ToDataCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogPropertiesOutput) ToDataCatalogPropertiesPtrOutputWithContext(ctx context.Context) DataCatalogPropertiesPtrOutput {
+	return o.ApplyT(func(v DataCatalogProperties) *DataCatalogProperties {
+		return &v
+	}).(DataCatalogPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
+func (o DataCatalogPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
+func (o DataCatalogPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCatalogProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
+func (o DataCatalogPropertiesOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataCatalogProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
+func (o DataCatalogPropertiesOutput) Tags() DataCatalogTagsPtrOutput {
+	return o.ApplyT(func(v DataCatalogProperties) *DataCatalogTags { return v.Tags }).(DataCatalogTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+func (o DataCatalogPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCatalogProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataCatalogPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogProperties)(nil)).Elem()
+}
+
+func (o DataCatalogPropertiesPtrOutput) ToDataCatalogPropertiesPtrOutput() DataCatalogPropertiesPtrOutput {
+	return o
+}
+
+func (o DataCatalogPropertiesPtrOutput) ToDataCatalogPropertiesPtrOutputWithContext(ctx context.Context) DataCatalogPropertiesPtrOutput {
+	return o
+}
+
+func (o DataCatalogPropertiesPtrOutput) Elem() DataCatalogPropertiesOutput {
+	return o.ApplyT(func(v *DataCatalogProperties) DataCatalogProperties { return *v }).(DataCatalogPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
+func (o DataCatalogPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
+func (o DataCatalogPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
+func (o DataCatalogPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataCatalogProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
+func (o DataCatalogPropertiesPtrOutput) Tags() DataCatalogTagsPtrOutput {
+	return o.ApplyT(func(v *DataCatalogProperties) *DataCatalogTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(DataCatalogTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+func (o DataCatalogPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
+type DataCatalogTags struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// DataCatalogTagsInput is an input type that accepts DataCatalogTagsArgs and DataCatalogTagsOutput values.
+// You can construct a concrete instance of `DataCatalogTagsInput` via:
+//
+//          DataCatalogTagsArgs{...}
+type DataCatalogTagsInput interface {
+	pulumi.Input
+
+	ToDataCatalogTagsOutput() DataCatalogTagsOutput
+	ToDataCatalogTagsOutputWithContext(context.Context) DataCatalogTagsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
+type DataCatalogTagsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (DataCatalogTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogTags)(nil)).Elem()
+}
+
+func (i DataCatalogTagsArgs) ToDataCatalogTagsOutput() DataCatalogTagsOutput {
+	return i.ToDataCatalogTagsOutputWithContext(context.Background())
+}
+
+func (i DataCatalogTagsArgs) ToDataCatalogTagsOutputWithContext(ctx context.Context) DataCatalogTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagsOutput)
+}
+
+func (i DataCatalogTagsArgs) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
+	return i.ToDataCatalogTagsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogTagsArgs) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagsOutput).ToDataCatalogTagsPtrOutputWithContext(ctx)
+}
+
+// DataCatalogTagsPtrInput is an input type that accepts DataCatalogTagsArgs, DataCatalogTagsPtr and DataCatalogTagsPtrOutput values.
+// You can construct a concrete instance of `DataCatalogTagsPtrInput` via:
+//
+//          DataCatalogTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogTagsPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput
+	ToDataCatalogTagsPtrOutputWithContext(context.Context) DataCatalogTagsPtrOutput
+}
+
+type dataCatalogTagsPtrType DataCatalogTagsArgs
+
+func DataCatalogTagsPtr(v *DataCatalogTagsArgs) DataCatalogTagsPtrInput {
+	return (*dataCatalogTagsPtrType)(v)
+}
+
+func (*dataCatalogTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogTags)(nil)).Elem()
+}
+
+func (i *dataCatalogTagsPtrType) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
+	return i.ToDataCatalogTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogTagsPtrType) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
+type DataCatalogTagsOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogTags)(nil)).Elem()
+}
+
+func (o DataCatalogTagsOutput) ToDataCatalogTagsOutput() DataCatalogTagsOutput {
+	return o
+}
+
+func (o DataCatalogTagsOutput) ToDataCatalogTagsOutputWithContext(ctx context.Context) DataCatalogTagsOutput {
+	return o
+}
+
+func (o DataCatalogTagsOutput) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
+	return o.ToDataCatalogTagsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogTagsOutput) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
+	return o.ApplyT(func(v DataCatalogTags) *DataCatalogTags {
+		return &v
+	}).(DataCatalogTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
+func (o DataCatalogTagsOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v DataCatalogTags) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type DataCatalogTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogTags)(nil)).Elem()
+}
+
+func (o DataCatalogTagsPtrOutput) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
+	return o
+}
+
+func (o DataCatalogTagsPtrOutput) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
+	return o
+}
+
+func (o DataCatalogTagsPtrOutput) Elem() DataCatalogTagsOutput {
+	return o.ApplyT(func(v *DataCatalogTags) DataCatalogTags { return *v }).(DataCatalogTagsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
+func (o DataCatalogTagsPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *DataCatalogTags) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 type NamedQueryAttributes struct {
 	NamedQueryId string `pulumi:"NamedQueryId"`
 }
@@ -147,6 +603,8 @@ type NamedQueryProperties struct {
 	Name *string `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
 	QueryString string `pulumi:"QueryString"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+	WorkGroup *string `pulumi:"WorkGroup"`
 }
 
 // NamedQueryPropertiesInput is an input type that accepts NamedQueryPropertiesArgs and NamedQueryPropertiesOutput values.
@@ -170,6 +628,8 @@ type NamedQueryPropertiesArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
 	QueryString pulumi.StringInput `pulumi:"QueryString"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+	WorkGroup pulumi.StringPtrInput `pulumi:"WorkGroup"`
 }
 
 func (NamedQueryPropertiesArgs) ElementType() reflect.Type {
@@ -270,6 +730,11 @@ func (o NamedQueryPropertiesOutput) QueryString() pulumi.StringOutput {
 	return o.ApplyT(func(v NamedQueryProperties) string { return v.QueryString }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+func (o NamedQueryPropertiesOutput) WorkGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamedQueryProperties) *string { return v.WorkGroup }).(pulumi.StringPtrOutput)
+}
+
 type NamedQueryPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (NamedQueryPropertiesPtrOutput) ElementType() reflect.Type {
@@ -325,6 +790,16 @@ func (o NamedQueryPropertiesPtrOutput) QueryString() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+func (o NamedQueryPropertiesPtrOutput) WorkGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamedQueryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkGroup
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1781,6 +2256,12 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ResultConfigurationUpda
 }
 
 func init() {
+	pulumi.RegisterOutputType(DataCatalogAttributesOutput{})
+	pulumi.RegisterOutputType(DataCatalogAttributesPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogPropertiesOutput{})
+	pulumi.RegisterOutputType(DataCatalogPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogTagsOutput{})
+	pulumi.RegisterOutputType(DataCatalogTagsPtrOutput{})
 	pulumi.RegisterOutputType(NamedQueryAttributesOutput{})
 	pulumi.RegisterOutputType(NamedQueryAttributesPtrOutput{})
 	pulumi.RegisterOutputType(NamedQueryPropertiesOutput{})

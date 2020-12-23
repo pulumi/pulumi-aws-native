@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PortfolioShare struct {
 // NewPortfolioShare registers a new resource with the given unique name, arguments, and options.
 func NewPortfolioShare(ctx *pulumi.Context,
 	name string, args *PortfolioShareArgs, opts ...pulumi.ResourceOption) (*PortfolioShare, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PortfolioShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PortfolioShare
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:PortfolioShare", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PortfolioShareArgs struct {
 
 func (PortfolioShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioShareArgs)(nil)).Elem()
+}
+
+type PortfolioShareInput interface {
+	pulumi.Input
+
+	ToPortfolioShareOutput() PortfolioShareOutput
+	ToPortfolioShareOutputWithContext(ctx context.Context) PortfolioShareOutput
+}
+
+func (*PortfolioShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortfolioShare)(nil))
+}
+
+func (i *PortfolioShare) ToPortfolioShareOutput() PortfolioShareOutput {
+	return i.ToPortfolioShareOutputWithContext(context.Background())
+}
+
+func (i *PortfolioShare) ToPortfolioShareOutputWithContext(ctx context.Context) PortfolioShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioShareOutput)
+}
+
+type PortfolioShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (PortfolioShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortfolioShare)(nil))
+}
+
+func (o PortfolioShareOutput) ToPortfolioShareOutput() PortfolioShareOutput {
+	return o
+}
+
+func (o PortfolioShareOutput) ToPortfolioShareOutputWithContext(ctx context.Context) PortfolioShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PortfolioShareOutput{})
 }

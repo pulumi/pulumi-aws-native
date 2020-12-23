@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClientVpnAuthorizationRule struct {
 // NewClientVpnAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewClientVpnAuthorizationRule(ctx *pulumi.Context,
 	name string, args *ClientVpnAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*ClientVpnAuthorizationRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClientVpnAuthorizationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClientVpnAuthorizationRule
 	err := ctx.RegisterResource("cloudformation:EC2:ClientVpnAuthorizationRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClientVpnAuthorizationRuleArgs struct {
 
 func (ClientVpnAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientVpnAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type ClientVpnAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToClientVpnAuthorizationRuleOutput() ClientVpnAuthorizationRuleOutput
+	ToClientVpnAuthorizationRuleOutputWithContext(ctx context.Context) ClientVpnAuthorizationRuleOutput
+}
+
+func (*ClientVpnAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnAuthorizationRule)(nil))
+}
+
+func (i *ClientVpnAuthorizationRule) ToClientVpnAuthorizationRuleOutput() ClientVpnAuthorizationRuleOutput {
+	return i.ToClientVpnAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i *ClientVpnAuthorizationRule) ToClientVpnAuthorizationRuleOutputWithContext(ctx context.Context) ClientVpnAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnAuthorizationRuleOutput)
+}
+
+type ClientVpnAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClientVpnAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnAuthorizationRule)(nil))
+}
+
+func (o ClientVpnAuthorizationRuleOutput) ToClientVpnAuthorizationRuleOutput() ClientVpnAuthorizationRuleOutput {
+	return o
+}
+
+func (o ClientVpnAuthorizationRuleOutput) ToClientVpnAuthorizationRuleOutputWithContext(ctx context.Context) ClientVpnAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClientVpnAuthorizationRuleOutput{})
 }

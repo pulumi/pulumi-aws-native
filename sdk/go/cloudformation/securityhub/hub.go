@@ -4,6 +4,7 @@
 package securityhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Hub struct {
 // NewHub registers a new resource with the given unique name, arguments, and options.
 func NewHub(ctx *pulumi.Context,
 	name string, args *HubArgs, opts ...pulumi.ResourceOption) (*Hub, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &HubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Hub
 	err := ctx.RegisterResource("cloudformation:SecurityHub:Hub", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type HubArgs struct {
 
 func (HubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubArgs)(nil)).Elem()
+}
+
+type HubInput interface {
+	pulumi.Input
+
+	ToHubOutput() HubOutput
+	ToHubOutputWithContext(ctx context.Context) HubOutput
+}
+
+func (*Hub) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hub)(nil))
+}
+
+func (i *Hub) ToHubOutput() HubOutput {
+	return i.ToHubOutputWithContext(context.Background())
+}
+
+func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
+}
+
+type HubOutput struct {
+	*pulumi.OutputState
+}
+
+func (HubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hub)(nil))
+}
+
+func (o HubOutput) ToHubOutput() HubOutput {
+	return o
+}
+
+func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HubOutput{})
 }

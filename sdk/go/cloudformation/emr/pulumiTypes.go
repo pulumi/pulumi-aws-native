@@ -655,6 +655,216 @@ func (o ClusterCloudWatchAlarmDefinitionOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html
+type ClusterComputeLimits struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcapacityunits
+	MaximumCapacityUnits int `pulumi:"MaximumCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcorecapacityunits
+	MaximumCoreCapacityUnits *int `pulumi:"MaximumCoreCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumondemandcapacityunits
+	MaximumOnDemandCapacityUnits *int `pulumi:"MaximumOnDemandCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-minimumcapacityunits
+	MinimumCapacityUnits int `pulumi:"MinimumCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-unittype
+	UnitType string `pulumi:"UnitType"`
+}
+
+// ClusterComputeLimitsInput is an input type that accepts ClusterComputeLimitsArgs and ClusterComputeLimitsOutput values.
+// You can construct a concrete instance of `ClusterComputeLimitsInput` via:
+//
+//          ClusterComputeLimitsArgs{...}
+type ClusterComputeLimitsInput interface {
+	pulumi.Input
+
+	ToClusterComputeLimitsOutput() ClusterComputeLimitsOutput
+	ToClusterComputeLimitsOutputWithContext(context.Context) ClusterComputeLimitsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html
+type ClusterComputeLimitsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcapacityunits
+	MaximumCapacityUnits pulumi.IntInput `pulumi:"MaximumCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcorecapacityunits
+	MaximumCoreCapacityUnits pulumi.IntPtrInput `pulumi:"MaximumCoreCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumondemandcapacityunits
+	MaximumOnDemandCapacityUnits pulumi.IntPtrInput `pulumi:"MaximumOnDemandCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-minimumcapacityunits
+	MinimumCapacityUnits pulumi.IntInput `pulumi:"MinimumCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-unittype
+	UnitType pulumi.StringInput `pulumi:"UnitType"`
+}
+
+func (ClusterComputeLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeLimits)(nil)).Elem()
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsOutput() ClusterComputeLimitsOutput {
+	return i.ToClusterComputeLimitsOutputWithContext(context.Background())
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsOutputWithContext(ctx context.Context) ClusterComputeLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeLimitsOutput)
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return i.ToClusterComputeLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeLimitsOutput).ToClusterComputeLimitsPtrOutputWithContext(ctx)
+}
+
+// ClusterComputeLimitsPtrInput is an input type that accepts ClusterComputeLimitsArgs, ClusterComputeLimitsPtr and ClusterComputeLimitsPtrOutput values.
+// You can construct a concrete instance of `ClusterComputeLimitsPtrInput` via:
+//
+//          ClusterComputeLimitsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterComputeLimitsPtrInput interface {
+	pulumi.Input
+
+	ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput
+	ToClusterComputeLimitsPtrOutputWithContext(context.Context) ClusterComputeLimitsPtrOutput
+}
+
+type clusterComputeLimitsPtrType ClusterComputeLimitsArgs
+
+func ClusterComputeLimitsPtr(v *ClusterComputeLimitsArgs) ClusterComputeLimitsPtrInput {
+	return (*clusterComputeLimitsPtrType)(v)
+}
+
+func (*clusterComputeLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterComputeLimits)(nil)).Elem()
+}
+
+func (i *clusterComputeLimitsPtrType) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return i.ToClusterComputeLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterComputeLimitsPtrType) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeLimitsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html
+type ClusterComputeLimitsOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeLimits)(nil)).Elem()
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsOutput() ClusterComputeLimitsOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsOutputWithContext(ctx context.Context) ClusterComputeLimitsOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return o.ToClusterComputeLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) *ClusterComputeLimits {
+		return &v
+	}).(ClusterComputeLimitsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcapacityunits
+func (o ClusterComputeLimitsOutput) MaximumCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) int { return v.MaximumCapacityUnits }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcorecapacityunits
+func (o ClusterComputeLimitsOutput) MaximumCoreCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) *int { return v.MaximumCoreCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumondemandcapacityunits
+func (o ClusterComputeLimitsOutput) MaximumOnDemandCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) *int { return v.MaximumOnDemandCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-minimumcapacityunits
+func (o ClusterComputeLimitsOutput) MinimumCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) int { return v.MinimumCapacityUnits }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-unittype
+func (o ClusterComputeLimitsOutput) UnitType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) string { return v.UnitType }).(pulumi.StringOutput)
+}
+
+type ClusterComputeLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterComputeLimits)(nil)).Elem()
+}
+
+func (o ClusterComputeLimitsPtrOutput) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsPtrOutput) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsPtrOutput) Elem() ClusterComputeLimitsOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) ClusterComputeLimits { return *v }).(ClusterComputeLimitsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcapacityunits
+func (o ClusterComputeLimitsPtrOutput) MaximumCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumcorecapacityunits
+func (o ClusterComputeLimitsPtrOutput) MaximumCoreCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumCoreCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-maximumondemandcapacityunits
+func (o ClusterComputeLimitsPtrOutput) MaximumOnDemandCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumOnDemandCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-minimumcapacityunits
+func (o ClusterComputeLimitsPtrOutput) MinimumCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html#cfn-elasticmapreduce-cluster-computelimits-unittype
+func (o ClusterComputeLimitsPtrOutput) UnitType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitType
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html
 type ClusterConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html#cfn-elasticmapreduce-cluster-configuration-classification
@@ -1331,8 +1541,10 @@ func (o ClusterInstanceFleetConfigPtrOutput) TargetSpotCapacity() pulumi.IntPtrO
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html
 type ClusterInstanceFleetProvisioningSpecifications struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-ondemandspecification
+	OnDemandSpecification *ClusterOnDemandProvisioningSpecification `pulumi:"OnDemandSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
-	SpotSpecification ClusterSpotProvisioningSpecification `pulumi:"SpotSpecification"`
+	SpotSpecification *ClusterSpotProvisioningSpecification `pulumi:"SpotSpecification"`
 }
 
 // ClusterInstanceFleetProvisioningSpecificationsInput is an input type that accepts ClusterInstanceFleetProvisioningSpecificationsArgs and ClusterInstanceFleetProvisioningSpecificationsOutput values.
@@ -1348,8 +1560,10 @@ type ClusterInstanceFleetProvisioningSpecificationsInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html
 type ClusterInstanceFleetProvisioningSpecificationsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-ondemandspecification
+	OnDemandSpecification ClusterOnDemandProvisioningSpecificationPtrInput `pulumi:"OnDemandSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
-	SpotSpecification ClusterSpotProvisioningSpecificationInput `pulumi:"SpotSpecification"`
+	SpotSpecification ClusterSpotProvisioningSpecificationPtrInput `pulumi:"SpotSpecification"`
 }
 
 func (ClusterInstanceFleetProvisioningSpecificationsArgs) ElementType() reflect.Type {
@@ -1430,11 +1644,18 @@ func (o ClusterInstanceFleetProvisioningSpecificationsOutput) ToClusterInstanceF
 	}).(ClusterInstanceFleetProvisioningSpecificationsPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-ondemandspecification
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) OnDemandSpecification() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetProvisioningSpecifications) *ClusterOnDemandProvisioningSpecification {
+		return v.OnDemandSpecification
+	}).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
-func (o ClusterInstanceFleetProvisioningSpecificationsOutput) SpotSpecification() ClusterSpotProvisioningSpecificationOutput {
-	return o.ApplyT(func(v ClusterInstanceFleetProvisioningSpecifications) ClusterSpotProvisioningSpecification {
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) SpotSpecification() ClusterSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetProvisioningSpecifications) *ClusterSpotProvisioningSpecification {
 		return v.SpotSpecification
-	}).(ClusterSpotProvisioningSpecificationOutput)
+	}).(ClusterSpotProvisioningSpecificationPtrOutput)
 }
 
 type ClusterInstanceFleetProvisioningSpecificationsPtrOutput struct{ *pulumi.OutputState }
@@ -1457,13 +1678,23 @@ func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) Elem() ClusterI
 	}).(ClusterInstanceFleetProvisioningSpecificationsOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-ondemandspecification
+func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) OnDemandSpecification() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetProvisioningSpecifications) *ClusterOnDemandProvisioningSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandSpecification
+	}).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
 func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) SpotSpecification() ClusterSpotProvisioningSpecificationPtrOutput {
 	return o.ApplyT(func(v *ClusterInstanceFleetProvisioningSpecifications) *ClusterSpotProvisioningSpecification {
 		if v == nil {
 			return nil
 		}
-		return &v.SpotSpecification
+		return v.SpotSpecification
 	}).(ClusterSpotProvisioningSpecificationPtrOutput)
 }
 
@@ -2617,6 +2848,140 @@ func (o ClusterKeyValueArrayOutput) Index(i pulumi.IntInput) ClusterKeyValueOutp
 	}).(ClusterKeyValueOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html
+type ClusterManagedScalingPolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html#cfn-elasticmapreduce-cluster-managedscalingpolicy-computelimits
+	ComputeLimits *ClusterComputeLimits `pulumi:"ComputeLimits"`
+}
+
+// ClusterManagedScalingPolicyInput is an input type that accepts ClusterManagedScalingPolicyArgs and ClusterManagedScalingPolicyOutput values.
+// You can construct a concrete instance of `ClusterManagedScalingPolicyInput` via:
+//
+//          ClusterManagedScalingPolicyArgs{...}
+type ClusterManagedScalingPolicyInput interface {
+	pulumi.Input
+
+	ToClusterManagedScalingPolicyOutput() ClusterManagedScalingPolicyOutput
+	ToClusterManagedScalingPolicyOutputWithContext(context.Context) ClusterManagedScalingPolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html
+type ClusterManagedScalingPolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html#cfn-elasticmapreduce-cluster-managedscalingpolicy-computelimits
+	ComputeLimits ClusterComputeLimitsPtrInput `pulumi:"ComputeLimits"`
+}
+
+func (ClusterManagedScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyOutput() ClusterManagedScalingPolicyOutput {
+	return i.ToClusterManagedScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedScalingPolicyOutput)
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return i.ToClusterManagedScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedScalingPolicyOutput).ToClusterManagedScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterManagedScalingPolicyPtrInput is an input type that accepts ClusterManagedScalingPolicyArgs, ClusterManagedScalingPolicyPtr and ClusterManagedScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterManagedScalingPolicyPtrInput` via:
+//
+//          ClusterManagedScalingPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterManagedScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput
+	ToClusterManagedScalingPolicyPtrOutputWithContext(context.Context) ClusterManagedScalingPolicyPtrOutput
+}
+
+type clusterManagedScalingPolicyPtrType ClusterManagedScalingPolicyArgs
+
+func ClusterManagedScalingPolicyPtr(v *ClusterManagedScalingPolicyArgs) ClusterManagedScalingPolicyPtrInput {
+	return (*clusterManagedScalingPolicyPtrType)(v)
+}
+
+func (*clusterManagedScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (i *clusterManagedScalingPolicyPtrType) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return i.ToClusterManagedScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterManagedScalingPolicyPtrType) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedScalingPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html
+type ClusterManagedScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterManagedScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyOutput() ClusterManagedScalingPolicyOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return o.ToClusterManagedScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return o.ApplyT(func(v ClusterManagedScalingPolicy) *ClusterManagedScalingPolicy {
+		return &v
+	}).(ClusterManagedScalingPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html#cfn-elasticmapreduce-cluster-managedscalingpolicy-computelimits
+func (o ClusterManagedScalingPolicyOutput) ComputeLimits() ClusterComputeLimitsPtrOutput {
+	return o.ApplyT(func(v ClusterManagedScalingPolicy) *ClusterComputeLimits { return v.ComputeLimits }).(ClusterComputeLimitsPtrOutput)
+}
+
+type ClusterManagedScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterManagedScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (o ClusterManagedScalingPolicyPtrOutput) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyPtrOutput) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyPtrOutput) Elem() ClusterManagedScalingPolicyOutput {
+	return o.ApplyT(func(v *ClusterManagedScalingPolicy) ClusterManagedScalingPolicy { return *v }).(ClusterManagedScalingPolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html#cfn-elasticmapreduce-cluster-managedscalingpolicy-computelimits
+func (o ClusterManagedScalingPolicyPtrOutput) ComputeLimits() ClusterComputeLimitsPtrOutput {
+	return o.ApplyT(func(v *ClusterManagedScalingPolicy) *ClusterComputeLimits {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeLimits
+	}).(ClusterComputeLimitsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-metricdimension.html
 type ClusterMetricDimension struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-metricdimension.html#cfn-elasticmapreduce-cluster-metricdimension-key
@@ -2724,6 +3089,140 @@ func (o ClusterMetricDimensionArrayOutput) Index(i pulumi.IntInput) ClusterMetri
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMetricDimension {
 		return vs[0].([]ClusterMetricDimension)[vs[1].(int)]
 	}).(ClusterMetricDimensionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html
+type ClusterOnDemandProvisioningSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-allocationstrategy
+	AllocationStrategy string `pulumi:"AllocationStrategy"`
+}
+
+// ClusterOnDemandProvisioningSpecificationInput is an input type that accepts ClusterOnDemandProvisioningSpecificationArgs and ClusterOnDemandProvisioningSpecificationOutput values.
+// You can construct a concrete instance of `ClusterOnDemandProvisioningSpecificationInput` via:
+//
+//          ClusterOnDemandProvisioningSpecificationArgs{...}
+type ClusterOnDemandProvisioningSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandProvisioningSpecificationOutput() ClusterOnDemandProvisioningSpecificationOutput
+	ToClusterOnDemandProvisioningSpecificationOutputWithContext(context.Context) ClusterOnDemandProvisioningSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html
+type ClusterOnDemandProvisioningSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-allocationstrategy
+	AllocationStrategy pulumi.StringInput `pulumi:"AllocationStrategy"`
+}
+
+func (ClusterOnDemandProvisioningSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationOutput() ClusterOnDemandProvisioningSpecificationOutput {
+	return i.ToClusterOnDemandProvisioningSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandProvisioningSpecificationOutput)
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandProvisioningSpecificationOutput).ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx)
+}
+
+// ClusterOnDemandProvisioningSpecificationPtrInput is an input type that accepts ClusterOnDemandProvisioningSpecificationArgs, ClusterOnDemandProvisioningSpecificationPtr and ClusterOnDemandProvisioningSpecificationPtrOutput values.
+// You can construct a concrete instance of `ClusterOnDemandProvisioningSpecificationPtrInput` via:
+//
+//          ClusterOnDemandProvisioningSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterOnDemandProvisioningSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput
+	ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput
+}
+
+type clusterOnDemandProvisioningSpecificationPtrType ClusterOnDemandProvisioningSpecificationArgs
+
+func ClusterOnDemandProvisioningSpecificationPtr(v *ClusterOnDemandProvisioningSpecificationArgs) ClusterOnDemandProvisioningSpecificationPtrInput {
+	return (*clusterOnDemandProvisioningSpecificationPtrType)(v)
+}
+
+func (*clusterOnDemandProvisioningSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i *clusterOnDemandProvisioningSpecificationPtrType) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOnDemandProvisioningSpecificationPtrType) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html
+type ClusterOnDemandProvisioningSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandProvisioningSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationOutput() ClusterOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandProvisioningSpecification) *ClusterOnDemandProvisioningSpecification {
+		return &v
+	}).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-allocationstrategy
+func (o ClusterOnDemandProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterOnDemandProvisioningSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+type ClusterOnDemandProvisioningSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandProvisioningSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) Elem() ClusterOnDemandProvisioningSpecificationOutput {
+	return o.ApplyT(func(v *ClusterOnDemandProvisioningSpecification) ClusterOnDemandProvisioningSpecification { return *v }).(ClusterOnDemandProvisioningSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ondemandprovisioningspecification.html#cfn-elasticmapreduce-cluster-ondemandprovisioningspecification-allocationstrategy
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementtype.html
@@ -2882,8 +3381,12 @@ type ClusterProperties struct {
 	JobFlowRole string `pulumi:"JobFlowRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-kerberosattributes
 	KerberosAttributes *ClusterKerberosAttributes `pulumi:"KerberosAttributes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+	LogEncryptionKmsKeyId *string `pulumi:"LogEncryptionKmsKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
 	LogUri *string `pulumi:"LogUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+	ManagedScalingPolicy *ClusterManagedScalingPolicy `pulumi:"ManagedScalingPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
 	Name string `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-releaselabel
@@ -2894,6 +3397,8 @@ type ClusterProperties struct {
 	SecurityConfiguration *string `pulumi:"SecurityConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
 	ServiceRole string `pulumi:"ServiceRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+	StepConcurrencyLevel *int `pulumi:"StepConcurrencyLevel"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
 	Steps []ClusterStepConfig `pulumi:"Steps"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-tags
@@ -2935,8 +3440,12 @@ type ClusterPropertiesArgs struct {
 	JobFlowRole pulumi.StringInput `pulumi:"JobFlowRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-kerberosattributes
 	KerberosAttributes ClusterKerberosAttributesPtrInput `pulumi:"KerberosAttributes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+	LogEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"LogEncryptionKmsKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
 	LogUri pulumi.StringPtrInput `pulumi:"LogUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+	ManagedScalingPolicy ClusterManagedScalingPolicyPtrInput `pulumi:"ManagedScalingPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
 	Name pulumi.StringInput `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-releaselabel
@@ -2947,6 +3456,8 @@ type ClusterPropertiesArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput `pulumi:"SecurityConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
 	ServiceRole pulumi.StringInput `pulumi:"ServiceRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+	StepConcurrencyLevel pulumi.IntPtrInput `pulumi:"StepConcurrencyLevel"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
 	Steps ClusterStepConfigArrayInput `pulumi:"Steps"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-tags
@@ -3083,9 +3594,19 @@ func (o ClusterPropertiesOutput) KerberosAttributes() ClusterKerberosAttributesP
 	return o.ApplyT(func(v ClusterProperties) *ClusterKerberosAttributes { return v.KerberosAttributes }).(ClusterKerberosAttributesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+func (o ClusterPropertiesOutput) LogEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProperties) *string { return v.LogEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
 func (o ClusterPropertiesOutput) LogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProperties) *string { return v.LogUri }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+func (o ClusterPropertiesOutput) ManagedScalingPolicy() ClusterManagedScalingPolicyPtrOutput {
+	return o.ApplyT(func(v ClusterProperties) *ClusterManagedScalingPolicy { return v.ManagedScalingPolicy }).(ClusterManagedScalingPolicyPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
@@ -3111,6 +3632,11 @@ func (o ClusterPropertiesOutput) SecurityConfiguration() pulumi.StringPtrOutput 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
 func (o ClusterPropertiesOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterProperties) string { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+func (o ClusterPropertiesOutput) StepConcurrencyLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterProperties) *int { return v.StepConcurrencyLevel }).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
@@ -3246,6 +3772,16 @@ func (o ClusterPropertiesPtrOutput) KerberosAttributes() ClusterKerberosAttribut
 	}).(ClusterKerberosAttributesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+func (o ClusterPropertiesPtrOutput) LogEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogEncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
 func (o ClusterPropertiesPtrOutput) LogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProperties) *string {
@@ -3254,6 +3790,16 @@ func (o ClusterPropertiesPtrOutput) LogUri() pulumi.StringPtrOutput {
 		}
 		return v.LogUri
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+func (o ClusterPropertiesPtrOutput) ManagedScalingPolicy() ClusterManagedScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *ClusterProperties) *ClusterManagedScalingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedScalingPolicy
+	}).(ClusterManagedScalingPolicyPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
@@ -3304,6 +3850,16 @@ func (o ClusterPropertiesPtrOutput) ServiceRole() pulumi.StringPtrOutput {
 		}
 		return &v.ServiceRole
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+func (o ClusterPropertiesPtrOutput) StepConcurrencyLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StepConcurrencyLevel
+	}).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
@@ -3876,6 +4432,8 @@ func (o ClusterSimpleScalingPolicyConfigurationOutput) ScalingAdjustment() pulum
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html
 type ClusterSpotProvisioningSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-allocationstrategy
+	AllocationStrategy *string `pulumi:"AllocationStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes
 	BlockDurationMinutes *int `pulumi:"BlockDurationMinutes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutaction
@@ -3897,6 +4455,8 @@ type ClusterSpotProvisioningSpecificationInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html
 type ClusterSpotProvisioningSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-allocationstrategy
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"AllocationStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"BlockDurationMinutes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutaction
@@ -3983,6 +4543,11 @@ func (o ClusterSpotProvisioningSpecificationOutput) ToClusterSpotProvisioningSpe
 	}).(ClusterSpotProvisioningSpecificationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-allocationstrategy
+func (o ClusterSpotProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSpotProvisioningSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes
 func (o ClusterSpotProvisioningSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterSpotProvisioningSpecification) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
@@ -4014,6 +4579,16 @@ func (o ClusterSpotProvisioningSpecificationPtrOutput) ToClusterSpotProvisioning
 
 func (o ClusterSpotProvisioningSpecificationPtrOutput) Elem() ClusterSpotProvisioningSpecificationOutput {
 	return o.ApplyT(func(v *ClusterSpotProvisioningSpecification) ClusterSpotProvisioningSpecification { return *v }).(ClusterSpotProvisioningSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-allocationstrategy
+func (o ClusterSpotProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSpotProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes
@@ -4735,8 +5310,10 @@ func (o InstanceFleetConfigEbsConfigurationPtrOutput) EbsOptimized() pulumi.Bool
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html
 type InstanceFleetConfigInstanceFleetProvisioningSpecifications struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-ondemandspecification
+	OnDemandSpecification *InstanceFleetConfigOnDemandProvisioningSpecification `pulumi:"OnDemandSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
-	SpotSpecification InstanceFleetConfigSpotProvisioningSpecification `pulumi:"SpotSpecification"`
+	SpotSpecification *InstanceFleetConfigSpotProvisioningSpecification `pulumi:"SpotSpecification"`
 }
 
 // InstanceFleetConfigInstanceFleetProvisioningSpecificationsInput is an input type that accepts InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs and InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput values.
@@ -4752,8 +5329,10 @@ type InstanceFleetConfigInstanceFleetProvisioningSpecificationsInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html
 type InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-ondemandspecification
+	OnDemandSpecification InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput `pulumi:"OnDemandSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
-	SpotSpecification InstanceFleetConfigSpotProvisioningSpecificationInput `pulumi:"SpotSpecification"`
+	SpotSpecification InstanceFleetConfigSpotProvisioningSpecificationPtrInput `pulumi:"SpotSpecification"`
 }
 
 func (InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs) ElementType() reflect.Type {
@@ -4834,11 +5413,18 @@ func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) ToInst
 	}).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-ondemandspecification
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) OnDemandSpecification() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigOnDemandProvisioningSpecification {
+		return v.OnDemandSpecification
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
-func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) SpotSpecification() InstanceFleetConfigSpotProvisioningSpecificationOutput {
-	return o.ApplyT(func(v InstanceFleetConfigInstanceFleetProvisioningSpecifications) InstanceFleetConfigSpotProvisioningSpecification {
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) SpotSpecification() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigSpotProvisioningSpecification {
 		return v.SpotSpecification
-	}).(InstanceFleetConfigSpotProvisioningSpecificationOutput)
+	}).(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput)
 }
 
 type InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput struct{ *pulumi.OutputState }
@@ -4861,13 +5447,23 @@ func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) Ele
 	}).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-ondemandspecification
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) OnDemandSpecification() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigOnDemandProvisioningSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandSpecification
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
 func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) SpotSpecification() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
 	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigSpotProvisioningSpecification {
 		if v == nil {
 			return nil
 		}
-		return &v.SpotSpecification
+		return v.SpotSpecification
 	}).(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput)
 }
 
@@ -5018,6 +5614,142 @@ func (o InstanceFleetConfigInstanceTypeConfigArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetConfigInstanceTypeConfig {
 		return vs[0].([]InstanceFleetConfigInstanceTypeConfig)[vs[1].(int)]
 	}).(InstanceFleetConfigInstanceTypeConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html
+type InstanceFleetConfigOnDemandProvisioningSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy
+	AllocationStrategy string `pulumi:"AllocationStrategy"`
+}
+
+// InstanceFleetConfigOnDemandProvisioningSpecificationInput is an input type that accepts InstanceFleetConfigOnDemandProvisioningSpecificationArgs and InstanceFleetConfigOnDemandProvisioningSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandProvisioningSpecificationInput` via:
+//
+//          InstanceFleetConfigOnDemandProvisioningSpecificationArgs{...}
+type InstanceFleetConfigOnDemandProvisioningSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationOutput() InstanceFleetConfigOnDemandProvisioningSpecificationOutput
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html
+type InstanceFleetConfigOnDemandProvisioningSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy
+	AllocationStrategy pulumi.StringInput `pulumi:"AllocationStrategy"`
+}
+
+func (InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutput() InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return i.ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandProvisioningSpecificationOutput)
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandProvisioningSpecificationOutput).ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput is an input type that accepts InstanceFleetConfigOnDemandProvisioningSpecificationArgs, InstanceFleetConfigOnDemandProvisioningSpecificationPtr and InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput` via:
+//
+//          InstanceFleetConfigOnDemandProvisioningSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput
+}
+
+type instanceFleetConfigOnDemandProvisioningSpecificationPtrType InstanceFleetConfigOnDemandProvisioningSpecificationArgs
+
+func InstanceFleetConfigOnDemandProvisioningSpecificationPtr(v *InstanceFleetConfigOnDemandProvisioningSpecificationArgs) InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput {
+	return (*instanceFleetConfigOnDemandProvisioningSpecificationPtrType)(v)
+}
+
+func (*instanceFleetConfigOnDemandProvisioningSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigOnDemandProvisioningSpecificationPtrType) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigOnDemandProvisioningSpecificationPtrType) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html
+type InstanceFleetConfigOnDemandProvisioningSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutput() InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandProvisioningSpecification) *InstanceFleetConfigOnDemandProvisioningSpecification {
+		return &v
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandProvisioningSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+type InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) Elem() InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandProvisioningSpecification) InstanceFleetConfigOnDemandProvisioningSpecification {
+		return *v
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
@@ -5274,6 +6006,8 @@ func (o InstanceFleetConfigPropertiesPtrOutput) TargetSpotCapacity() pulumi.IntP
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html
 type InstanceFleetConfigSpotProvisioningSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-allocationstrategy
+	AllocationStrategy *string `pulumi:"AllocationStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-blockdurationminutes
 	BlockDurationMinutes *int `pulumi:"BlockDurationMinutes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-timeoutaction
@@ -5295,6 +6029,8 @@ type InstanceFleetConfigSpotProvisioningSpecificationInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html
 type InstanceFleetConfigSpotProvisioningSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-allocationstrategy
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"AllocationStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-blockdurationminutes
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"BlockDurationMinutes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-timeoutaction
@@ -5381,6 +6117,11 @@ func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) ToInstanceFleetC
 	}).(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-allocationstrategy
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigSpotProvisioningSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-blockdurationminutes
 func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFleetConfigSpotProvisioningSpecification) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
@@ -5414,6 +6155,16 @@ func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) Elem() Instan
 	return o.ApplyT(func(v *InstanceFleetConfigSpotProvisioningSpecification) InstanceFleetConfigSpotProvisioningSpecification {
 		return *v
 	}).(InstanceFleetConfigSpotProvisioningSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-allocationstrategy
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-blockdurationminutes
@@ -8142,6 +8893,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterBootstrapActionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionOutput{})
+	pulumi.RegisterOutputType(ClusterComputeLimitsOutput{})
+	pulumi.RegisterOutputType(ClusterComputeLimitsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEbsBlockDeviceConfigOutput{})
@@ -8163,8 +8916,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKerberosAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKeyValueOutput{})
 	pulumi.RegisterOutputType(ClusterKeyValueArrayOutput{})
+	pulumi.RegisterOutputType(ClusterManagedScalingPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterManagedScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterMetricDimensionOutput{})
 	pulumi.RegisterOutputType(ClusterMetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandProvisioningSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandProvisioningSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPlacementTypeOutput{})
 	pulumi.RegisterOutputType(ClusterPlacementTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesOutput{})
@@ -8194,6 +8951,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigInstanceTypeConfigOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigInstanceTypeConfigArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandProvisioningSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigSpotProvisioningSpecificationOutput{})

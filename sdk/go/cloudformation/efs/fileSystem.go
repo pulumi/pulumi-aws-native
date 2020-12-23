@@ -4,6 +4,7 @@
 package efs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type FileSystem struct {
 // NewFileSystem registers a new resource with the given unique name, arguments, and options.
 func NewFileSystem(ctx *pulumi.Context,
 	name string, args *FileSystemArgs, opts ...pulumi.ResourceOption) (*FileSystem, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FileSystemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource FileSystem
 	err := ctx.RegisterResource("cloudformation:EFS:FileSystem", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FileSystemArgs struct {
 
 func (FileSystemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemArgs)(nil)).Elem()
+}
+
+type FileSystemInput interface {
+	pulumi.Input
+
+	ToFileSystemOutput() FileSystemOutput
+	ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput
+}
+
+func (*FileSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystem)(nil))
+}
+
+func (i *FileSystem) ToFileSystemOutput() FileSystemOutput {
+	return i.ToFileSystemOutputWithContext(context.Background())
+}
+
+func (i *FileSystem) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOutput)
+}
+
+type FileSystemOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystem)(nil))
+}
+
+func (o FileSystemOutput) ToFileSystemOutput() FileSystemOutput {
+	return o
+}
+
+func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileSystemOutput{})
 }

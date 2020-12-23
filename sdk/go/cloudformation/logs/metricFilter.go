@@ -4,6 +4,7 @@
 package logs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MetricFilter struct {
 // NewMetricFilter registers a new resource with the given unique name, arguments, and options.
 func NewMetricFilter(ctx *pulumi.Context,
 	name string, args *MetricFilterArgs, opts ...pulumi.ResourceOption) (*MetricFilter, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MetricFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MetricFilter
 	err := ctx.RegisterResource("cloudformation:Logs:MetricFilter", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MetricFilterArgs struct {
 
 func (MetricFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricFilterArgs)(nil)).Elem()
+}
+
+type MetricFilterInput interface {
+	pulumi.Input
+
+	ToMetricFilterOutput() MetricFilterOutput
+	ToMetricFilterOutputWithContext(ctx context.Context) MetricFilterOutput
+}
+
+func (*MetricFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilter)(nil))
+}
+
+func (i *MetricFilter) ToMetricFilterOutput() MetricFilterOutput {
+	return i.ToMetricFilterOutputWithContext(context.Background())
+}
+
+func (i *MetricFilter) ToMetricFilterOutputWithContext(ctx context.Context) MetricFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterOutput)
+}
+
+type MetricFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (MetricFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilter)(nil))
+}
+
+func (o MetricFilterOutput) ToMetricFilterOutput() MetricFilterOutput {
+	return o
+}
+
+func (o MetricFilterOutput) ToMetricFilterOutputWithContext(ctx context.Context) MetricFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MetricFilterOutput{})
 }

@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UsagePlanKey struct {
 // NewUsagePlanKey registers a new resource with the given unique name, arguments, and options.
 func NewUsagePlanKey(ctx *pulumi.Context,
 	name string, args *UsagePlanKeyArgs, opts ...pulumi.ResourceOption) (*UsagePlanKey, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UsagePlanKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UsagePlanKey
 	err := ctx.RegisterResource("cloudformation:ApiGateway:UsagePlanKey", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UsagePlanKeyArgs struct {
 
 func (UsagePlanKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*usagePlanKeyArgs)(nil)).Elem()
+}
+
+type UsagePlanKeyInput interface {
+	pulumi.Input
+
+	ToUsagePlanKeyOutput() UsagePlanKeyOutput
+	ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput
+}
+
+func (*UsagePlanKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanKey)(nil))
+}
+
+func (i *UsagePlanKey) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
+	return i.ToUsagePlanKeyOutputWithContext(context.Background())
+}
+
+func (i *UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyOutput)
+}
+
+type UsagePlanKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (UsagePlanKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanKey)(nil))
+}
+
+func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
+	return o
+}
+
+func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UsagePlanKeyOutput{})
 }

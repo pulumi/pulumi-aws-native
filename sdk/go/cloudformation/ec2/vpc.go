@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPC struct {
 // NewVPC registers a new resource with the given unique name, arguments, and options.
 func NewVPC(ctx *pulumi.Context,
 	name string, args *VPCArgs, opts ...pulumi.ResourceOption) (*VPC, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPC
 	err := ctx.RegisterResource("cloudformation:EC2:VPC", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCArgs struct {
 
 func (VPCArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcArgs)(nil)).Elem()
+}
+
+type VPCInput interface {
+	pulumi.Input
+
+	ToVPCOutput() VPCOutput
+	ToVPCOutputWithContext(ctx context.Context) VPCOutput
+}
+
+func (*VPC) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPC)(nil))
+}
+
+func (i *VPC) ToVPCOutput() VPCOutput {
+	return i.ToVPCOutputWithContext(context.Background())
+}
+
+func (i *VPC) ToVPCOutputWithContext(ctx context.Context) VPCOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCOutput)
+}
+
+type VPCOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPC)(nil))
+}
+
+func (o VPCOutput) ToVPCOutput() VPCOutput {
+	return o
+}
+
+func (o VPCOutput) ToVPCOutputWithContext(ctx context.Context) VPCOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCOutput{})
 }

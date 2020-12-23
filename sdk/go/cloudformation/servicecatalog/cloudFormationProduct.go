@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CloudFormationProduct struct {
 // NewCloudFormationProduct registers a new resource with the given unique name, arguments, and options.
 func NewCloudFormationProduct(ctx *pulumi.Context,
 	name string, args *CloudFormationProductArgs, opts ...pulumi.ResourceOption) (*CloudFormationProduct, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CloudFormationProductArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CloudFormationProduct
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:CloudFormationProduct", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CloudFormationProductArgs struct {
 
 func (CloudFormationProductArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFormationProductArgs)(nil)).Elem()
+}
+
+type CloudFormationProductInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductOutput() CloudFormationProductOutput
+	ToCloudFormationProductOutputWithContext(ctx context.Context) CloudFormationProductOutput
+}
+
+func (*CloudFormationProduct) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProduct)(nil))
+}
+
+func (i *CloudFormationProduct) ToCloudFormationProductOutput() CloudFormationProductOutput {
+	return i.ToCloudFormationProductOutputWithContext(context.Background())
+}
+
+func (i *CloudFormationProduct) ToCloudFormationProductOutputWithContext(ctx context.Context) CloudFormationProductOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductOutput)
+}
+
+type CloudFormationProductOutput struct {
+	*pulumi.OutputState
+}
+
+func (CloudFormationProductOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProduct)(nil))
+}
+
+func (o CloudFormationProductOutput) ToCloudFormationProductOutput() CloudFormationProductOutput {
+	return o
+}
+
+func (o CloudFormationProductOutput) ToCloudFormationProductOutputWithContext(ctx context.Context) CloudFormationProductOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CloudFormationProductOutput{})
 }

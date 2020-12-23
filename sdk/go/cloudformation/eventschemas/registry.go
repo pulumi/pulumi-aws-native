@@ -4,6 +4,7 @@
 package eventschemas
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Registry struct {
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
 func NewRegistry(ctx *pulumi.Context,
 	name string, args *RegistryArgs, opts ...pulumi.ResourceOption) (*Registry, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RegistryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Registry
 	err := ctx.RegisterResource("cloudformation:EventSchemas:Registry", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RegistryArgs struct {
 
 func (RegistryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryArgs)(nil)).Elem()
+}
+
+type RegistryInput interface {
+	pulumi.Input
+
+	ToRegistryOutput() RegistryOutput
+	ToRegistryOutputWithContext(ctx context.Context) RegistryOutput
+}
+
+func (*Registry) ElementType() reflect.Type {
+	return reflect.TypeOf((*Registry)(nil))
+}
+
+func (i *Registry) ToRegistryOutput() RegistryOutput {
+	return i.ToRegistryOutputWithContext(context.Background())
+}
+
+func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryOutput)
+}
+
+type RegistryOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Registry)(nil))
+}
+
+func (o RegistryOutput) ToRegistryOutput() RegistryOutput {
+	return o
+}
+
+func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) RegistryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegistryOutput{})
 }

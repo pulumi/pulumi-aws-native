@@ -4,6 +4,7 @@
 package medialive
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Input struct {
 // NewInput registers a new resource with the given unique name, arguments, and options.
 func NewInput(ctx *pulumi.Context,
 	name string, args *InputArgs, opts ...pulumi.ResourceOption) (*Input, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InputArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Input
 	err := ctx.RegisterResource("cloudformation:MediaLive:Input", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InputArgs struct {
 
 func (InputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*inputArgs)(nil)).Elem()
+}
+
+type InputInput interface {
+	pulumi.Input
+
+	ToInputOutput() InputOutput
+	ToInputOutputWithContext(ctx context.Context) InputOutput
+}
+
+func (*Input) ElementType() reflect.Type {
+	return reflect.TypeOf((*Input)(nil))
+}
+
+func (i *Input) ToInputOutput() InputOutput {
+	return i.ToInputOutputWithContext(context.Background())
+}
+
+func (i *Input) ToInputOutputWithContext(ctx context.Context) InputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputOutput)
+}
+
+type InputOutput struct {
+	*pulumi.OutputState
+}
+
+func (InputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Input)(nil))
+}
+
+func (o InputOutput) ToInputOutput() InputOutput {
+	return o
+}
+
+func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InputOutput{})
 }

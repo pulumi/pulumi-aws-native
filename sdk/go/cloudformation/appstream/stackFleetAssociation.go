@@ -4,6 +4,7 @@
 package appstream
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type StackFleetAssociation struct {
 // NewStackFleetAssociation registers a new resource with the given unique name, arguments, and options.
 func NewStackFleetAssociation(ctx *pulumi.Context,
 	name string, args *StackFleetAssociationArgs, opts ...pulumi.ResourceOption) (*StackFleetAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StackFleetAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource StackFleetAssociation
 	err := ctx.RegisterResource("cloudformation:AppStream:StackFleetAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StackFleetAssociationArgs struct {
 
 func (StackFleetAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackFleetAssociationArgs)(nil)).Elem()
+}
+
+type StackFleetAssociationInput interface {
+	pulumi.Input
+
+	ToStackFleetAssociationOutput() StackFleetAssociationOutput
+	ToStackFleetAssociationOutputWithContext(ctx context.Context) StackFleetAssociationOutput
+}
+
+func (*StackFleetAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFleetAssociation)(nil))
+}
+
+func (i *StackFleetAssociation) ToStackFleetAssociationOutput() StackFleetAssociationOutput {
+	return i.ToStackFleetAssociationOutputWithContext(context.Background())
+}
+
+func (i *StackFleetAssociation) ToStackFleetAssociationOutputWithContext(ctx context.Context) StackFleetAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFleetAssociationOutput)
+}
+
+type StackFleetAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackFleetAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFleetAssociation)(nil))
+}
+
+func (o StackFleetAssociationOutput) ToStackFleetAssociationOutput() StackFleetAssociationOutput {
+	return o
+}
+
+func (o StackFleetAssociationOutput) ToStackFleetAssociationOutputWithContext(ctx context.Context) StackFleetAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackFleetAssociationOutput{})
 }

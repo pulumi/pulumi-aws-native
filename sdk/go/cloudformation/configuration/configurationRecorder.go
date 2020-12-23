@@ -4,6 +4,7 @@
 package configuration
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConfigurationRecorder struct {
 // NewConfigurationRecorder registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationRecorder(ctx *pulumi.Context,
 	name string, args *ConfigurationRecorderArgs, opts ...pulumi.ResourceOption) (*ConfigurationRecorder, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConfigurationRecorderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConfigurationRecorder
 	err := ctx.RegisterResource("cloudformation:Configuration:ConfigurationRecorder", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConfigurationRecorderArgs struct {
 
 func (ConfigurationRecorderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationRecorderArgs)(nil)).Elem()
+}
+
+type ConfigurationRecorderInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderOutput() ConfigurationRecorderOutput
+	ToConfigurationRecorderOutputWithContext(ctx context.Context) ConfigurationRecorderOutput
+}
+
+func (*ConfigurationRecorder) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorder)(nil))
+}
+
+func (i *ConfigurationRecorder) ToConfigurationRecorderOutput() ConfigurationRecorderOutput {
+	return i.ToConfigurationRecorderOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationRecorder) ToConfigurationRecorderOutputWithContext(ctx context.Context) ConfigurationRecorderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderOutput)
+}
+
+type ConfigurationRecorderOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationRecorderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorder)(nil))
+}
+
+func (o ConfigurationRecorderOutput) ToConfigurationRecorderOutput() ConfigurationRecorderOutput {
+	return o
+}
+
+func (o ConfigurationRecorderOutput) ToConfigurationRecorderOutputWithContext(ctx context.Context) ConfigurationRecorderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationRecorderOutput{})
 }

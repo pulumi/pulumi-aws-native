@@ -273,8 +273,110 @@ func (o AssociationInstanceAssociationOutputLocationPtrOutput) S3Location() Asso
 	}).(AssociationS3OutputLocationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
+type AssociationParameterValues struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
+	ParameterValues []string `pulumi:"ParameterValues"`
+}
+
+// AssociationParameterValuesInput is an input type that accepts AssociationParameterValuesArgs and AssociationParameterValuesOutput values.
+// You can construct a concrete instance of `AssociationParameterValuesInput` via:
+//
+//          AssociationParameterValuesArgs{...}
+type AssociationParameterValuesInput interface {
+	pulumi.Input
+
+	ToAssociationParameterValuesOutput() AssociationParameterValuesOutput
+	ToAssociationParameterValuesOutputWithContext(context.Context) AssociationParameterValuesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
+type AssociationParameterValuesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
+	ParameterValues pulumi.StringArrayInput `pulumi:"ParameterValues"`
+}
+
+func (AssociationParameterValuesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationParameterValues)(nil)).Elem()
+}
+
+func (i AssociationParameterValuesArgs) ToAssociationParameterValuesOutput() AssociationParameterValuesOutput {
+	return i.ToAssociationParameterValuesOutputWithContext(context.Background())
+}
+
+func (i AssociationParameterValuesArgs) ToAssociationParameterValuesOutputWithContext(ctx context.Context) AssociationParameterValuesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationParameterValuesOutput)
+}
+
+// AssociationParameterValuesMapInput is an input type that accepts AssociationParameterValuesMap and AssociationParameterValuesMapOutput values.
+// You can construct a concrete instance of `AssociationParameterValuesMapInput` via:
+//
+//          AssociationParameterValuesMap{ "key": AssociationParameterValuesArgs{...} }
+type AssociationParameterValuesMapInput interface {
+	pulumi.Input
+
+	ToAssociationParameterValuesMapOutput() AssociationParameterValuesMapOutput
+	ToAssociationParameterValuesMapOutputWithContext(context.Context) AssociationParameterValuesMapOutput
+}
+
+type AssociationParameterValuesMap map[string]AssociationParameterValuesInput
+
+func (AssociationParameterValuesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssociationParameterValues)(nil)).Elem()
+}
+
+func (i AssociationParameterValuesMap) ToAssociationParameterValuesMapOutput() AssociationParameterValuesMapOutput {
+	return i.ToAssociationParameterValuesMapOutputWithContext(context.Background())
+}
+
+func (i AssociationParameterValuesMap) ToAssociationParameterValuesMapOutputWithContext(ctx context.Context) AssociationParameterValuesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationParameterValuesMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
+type AssociationParameterValuesOutput struct{ *pulumi.OutputState }
+
+func (AssociationParameterValuesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationParameterValues)(nil)).Elem()
+}
+
+func (o AssociationParameterValuesOutput) ToAssociationParameterValuesOutput() AssociationParameterValuesOutput {
+	return o
+}
+
+func (o AssociationParameterValuesOutput) ToAssociationParameterValuesOutputWithContext(ctx context.Context) AssociationParameterValuesOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
+func (o AssociationParameterValuesOutput) ParameterValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationParameterValues) []string { return v.ParameterValues }).(pulumi.StringArrayOutput)
+}
+
+type AssociationParameterValuesMapOutput struct{ *pulumi.OutputState }
+
+func (AssociationParameterValuesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssociationParameterValues)(nil)).Elem()
+}
+
+func (o AssociationParameterValuesMapOutput) ToAssociationParameterValuesMapOutput() AssociationParameterValuesMapOutput {
+	return o
+}
+
+func (o AssociationParameterValuesMapOutput) ToAssociationParameterValuesMapOutputWithContext(ctx context.Context) AssociationParameterValuesMapOutput {
+	return o
+}
+
+func (o AssociationParameterValuesMapOutput) MapIndex(k pulumi.StringInput) AssociationParameterValuesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssociationParameterValues {
+		return vs[0].(map[string]AssociationParameterValues)[vs[1].(string)]
+	}).(AssociationParameterValuesOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
 type AssociationProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
+	ApplyOnlyAtCronInterval *bool `pulumi:"ApplyOnlyAtCronInterval"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 	AssociationName *string `pulumi:"AssociationName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
@@ -294,7 +396,7 @@ type AssociationProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
 	OutputLocation *AssociationInstanceAssociationOutputLocation `pulumi:"OutputLocation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters map[string]interface{} `pulumi:"Parameters"`
+	Parameters map[string]AssociationParameterValues `pulumi:"Parameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
 	ScheduleExpression *string `pulumi:"ScheduleExpression"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
@@ -318,6 +420,8 @@ type AssociationPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
 type AssociationPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
+	ApplyOnlyAtCronInterval pulumi.BoolPtrInput `pulumi:"ApplyOnlyAtCronInterval"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 	AssociationName pulumi.StringPtrInput `pulumi:"AssociationName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
@@ -337,7 +441,7 @@ type AssociationPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrInput `pulumi:"OutputLocation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters pulumi.MapInput `pulumi:"Parameters"`
+	Parameters AssociationParameterValuesMapInput `pulumi:"Parameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
 	ScheduleExpression pulumi.StringPtrInput `pulumi:"ScheduleExpression"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
@@ -426,6 +530,11 @@ func (o AssociationPropertiesOutput) ToAssociationPropertiesPtrOutputWithContext
 	}).(AssociationPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
+func (o AssociationPropertiesOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationProperties) *bool { return v.ApplyOnlyAtCronInterval }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 func (o AssociationPropertiesOutput) AssociationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationProperties) *string { return v.AssociationName }).(pulumi.StringPtrOutput)
@@ -472,8 +581,8 @@ func (o AssociationPropertiesOutput) OutputLocation() AssociationInstanceAssocia
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-func (o AssociationPropertiesOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v AssociationProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+func (o AssociationPropertiesOutput) Parameters() AssociationParameterValuesMapOutput {
+	return o.ApplyT(func(v AssociationProperties) map[string]AssociationParameterValues { return v.Parameters }).(AssociationParameterValuesMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
@@ -512,6 +621,16 @@ func (o AssociationPropertiesPtrOutput) ToAssociationPropertiesPtrOutputWithCont
 
 func (o AssociationPropertiesPtrOutput) Elem() AssociationPropertiesOutput {
 	return o.ApplyT(func(v *AssociationProperties) AssociationProperties { return *v }).(AssociationPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
+func (o AssociationPropertiesPtrOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ApplyOnlyAtCronInterval
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
@@ -605,13 +724,13 @@ func (o AssociationPropertiesPtrOutput) OutputLocation() AssociationInstanceAsso
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-func (o AssociationPropertiesPtrOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v *AssociationProperties) map[string]interface{} {
+func (o AssociationPropertiesPtrOutput) Parameters() AssociationParameterValuesMapOutput {
+	return o.ApplyT(func(v *AssociationProperties) map[string]AssociationParameterValues {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.MapOutput)
+	}).(AssociationParameterValuesMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
@@ -6633,6 +6752,8 @@ func init() {
 	pulumi.RegisterOutputType(AssociationAttributesPtrOutput{})
 	pulumi.RegisterOutputType(AssociationInstanceAssociationOutputLocationOutput{})
 	pulumi.RegisterOutputType(AssociationInstanceAssociationOutputLocationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationParameterValuesOutput{})
+	pulumi.RegisterOutputType(AssociationParameterValuesMapOutput{})
 	pulumi.RegisterOutputType(AssociationPropertiesOutput{})
 	pulumi.RegisterOutputType(AssociationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AssociationS3OutputLocationOutput{})

@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RequestValidator struct {
 // NewRequestValidator registers a new resource with the given unique name, arguments, and options.
 func NewRequestValidator(ctx *pulumi.Context,
 	name string, args *RequestValidatorArgs, opts ...pulumi.ResourceOption) (*RequestValidator, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RequestValidatorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RequestValidator
 	err := ctx.RegisterResource("cloudformation:ApiGateway:RequestValidator", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RequestValidatorArgs struct {
 
 func (RequestValidatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestValidatorArgs)(nil)).Elem()
+}
+
+type RequestValidatorInput interface {
+	pulumi.Input
+
+	ToRequestValidatorOutput() RequestValidatorOutput
+	ToRequestValidatorOutputWithContext(ctx context.Context) RequestValidatorOutput
+}
+
+func (*RequestValidator) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestValidator)(nil))
+}
+
+func (i *RequestValidator) ToRequestValidatorOutput() RequestValidatorOutput {
+	return i.ToRequestValidatorOutputWithContext(context.Background())
+}
+
+func (i *RequestValidator) ToRequestValidatorOutputWithContext(ctx context.Context) RequestValidatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorOutput)
+}
+
+type RequestValidatorOutput struct {
+	*pulumi.OutputState
+}
+
+func (RequestValidatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestValidator)(nil))
+}
+
+func (o RequestValidatorOutput) ToRequestValidatorOutput() RequestValidatorOutput {
+	return o
+}
+
+func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.Context) RequestValidatorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RequestValidatorOutput{})
 }

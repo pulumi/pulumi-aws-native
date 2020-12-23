@@ -4,6 +4,7 @@
 package ecs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TaskSet struct {
 // NewTaskSet registers a new resource with the given unique name, arguments, and options.
 func NewTaskSet(ctx *pulumi.Context,
 	name string, args *TaskSetArgs, opts ...pulumi.ResourceOption) (*TaskSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TaskSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TaskSet
 	err := ctx.RegisterResource("cloudformation:ECS:TaskSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TaskSetArgs struct {
 
 func (TaskSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskSetArgs)(nil)).Elem()
+}
+
+type TaskSetInput interface {
+	pulumi.Input
+
+	ToTaskSetOutput() TaskSetOutput
+	ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput
+}
+
+func (*TaskSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSet)(nil))
+}
+
+func (i *TaskSet) ToTaskSetOutput() TaskSetOutput {
+	return i.ToTaskSetOutputWithContext(context.Background())
+}
+
+func (i *TaskSet) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetOutput)
+}
+
+type TaskSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (TaskSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSet)(nil))
+}
+
+func (o TaskSetOutput) ToTaskSetOutput() TaskSetOutput {
+	return o
+}
+
+func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TaskSetOutput{})
 }

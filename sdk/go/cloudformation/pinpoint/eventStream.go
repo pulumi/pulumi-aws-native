@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EventStream struct {
 // NewEventStream registers a new resource with the given unique name, arguments, and options.
 func NewEventStream(ctx *pulumi.Context,
 	name string, args *EventStreamArgs, opts ...pulumi.ResourceOption) (*EventStream, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EventStreamArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EventStream
 	err := ctx.RegisterResource("cloudformation:Pinpoint:EventStream", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EventStreamArgs struct {
 
 func (EventStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventStreamArgs)(nil)).Elem()
+}
+
+type EventStreamInput interface {
+	pulumi.Input
+
+	ToEventStreamOutput() EventStreamOutput
+	ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput
+}
+
+func (*EventStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventStream)(nil))
+}
+
+func (i *EventStream) ToEventStreamOutput() EventStreamOutput {
+	return i.ToEventStreamOutputWithContext(context.Background())
+}
+
+func (i *EventStream) ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventStreamOutput)
+}
+
+type EventStreamOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventStream)(nil))
+}
+
+func (o EventStreamOutput) ToEventStreamOutput() EventStreamOutput {
+	return o
+}
+
+func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventStreamOutput{})
 }

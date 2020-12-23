@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VolumeAttachment struct {
 // NewVolumeAttachment registers a new resource with the given unique name, arguments, and options.
 func NewVolumeAttachment(ctx *pulumi.Context,
 	name string, args *VolumeAttachmentArgs, opts ...pulumi.ResourceOption) (*VolumeAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VolumeAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VolumeAttachment
 	err := ctx.RegisterResource("cloudformation:EC2:VolumeAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VolumeAttachmentArgs struct {
 
 func (VolumeAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeAttachmentArgs)(nil)).Elem()
+}
+
+type VolumeAttachmentInput interface {
+	pulumi.Input
+
+	ToVolumeAttachmentOutput() VolumeAttachmentOutput
+	ToVolumeAttachmentOutputWithContext(ctx context.Context) VolumeAttachmentOutput
+}
+
+func (*VolumeAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAttachment)(nil))
+}
+
+func (i *VolumeAttachment) ToVolumeAttachmentOutput() VolumeAttachmentOutput {
+	return i.ToVolumeAttachmentOutputWithContext(context.Background())
+}
+
+func (i *VolumeAttachment) ToVolumeAttachmentOutputWithContext(ctx context.Context) VolumeAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentOutput)
+}
+
+type VolumeAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (VolumeAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAttachment)(nil))
+}
+
+func (o VolumeAttachmentOutput) ToVolumeAttachmentOutput() VolumeAttachmentOutput {
+	return o
+}
+
+func (o VolumeAttachmentOutput) ToVolumeAttachmentOutputWithContext(ctx context.Context) VolumeAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VolumeAttachmentOutput{})
 }

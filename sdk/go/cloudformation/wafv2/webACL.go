@@ -4,6 +4,7 @@
 package wafv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type WebACL struct {
 // NewWebACL registers a new resource with the given unique name, arguments, and options.
 func NewWebACL(ctx *pulumi.Context,
 	name string, args *WebACLArgs, opts ...pulumi.ResourceOption) (*WebACL, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &WebACLArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource WebACL
 	err := ctx.RegisterResource("cloudformation:WAFv2:WebACL", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type WebACLArgs struct {
 
 func (WebACLArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webACLArgs)(nil)).Elem()
+}
+
+type WebACLInput interface {
+	pulumi.Input
+
+	ToWebACLOutput() WebACLOutput
+	ToWebACLOutputWithContext(ctx context.Context) WebACLOutput
+}
+
+func (*WebACL) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACL)(nil))
+}
+
+func (i *WebACL) ToWebACLOutput() WebACLOutput {
+	return i.ToWebACLOutputWithContext(context.Background())
+}
+
+func (i *WebACL) ToWebACLOutputWithContext(ctx context.Context) WebACLOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLOutput)
+}
+
+type WebACLOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebACLOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACL)(nil))
+}
+
+func (o WebACLOutput) ToWebACLOutput() WebACLOutput {
+	return o
+}
+
+func (o WebACLOutput) ToWebACLOutputWithContext(ctx context.Context) WebACLOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebACLOutput{})
 }

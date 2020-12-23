@@ -632,6 +632,449 @@ func (o CapacityReservationTagSpecificationArrayOutput) Index(i pulumi.IntInput)
 	}).(CapacityReservationTagSpecificationOutput)
 }
 
+type CarrierGatewayAttributes struct {
+	CarrierGatewayId string `pulumi:"CarrierGatewayId"`
+	OwnerId          string `pulumi:"OwnerId"`
+	State            string `pulumi:"State"`
+}
+
+// CarrierGatewayAttributesInput is an input type that accepts CarrierGatewayAttributesArgs and CarrierGatewayAttributesOutput values.
+// You can construct a concrete instance of `CarrierGatewayAttributesInput` via:
+//
+//          CarrierGatewayAttributesArgs{...}
+type CarrierGatewayAttributesInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayAttributesOutput() CarrierGatewayAttributesOutput
+	ToCarrierGatewayAttributesOutputWithContext(context.Context) CarrierGatewayAttributesOutput
+}
+
+type CarrierGatewayAttributesArgs struct {
+	CarrierGatewayId pulumi.StringInput `pulumi:"CarrierGatewayId"`
+	OwnerId          pulumi.StringInput `pulumi:"OwnerId"`
+	State            pulumi.StringInput `pulumi:"State"`
+}
+
+func (CarrierGatewayAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CarrierGatewayAttributes)(nil)).Elem()
+}
+
+func (i CarrierGatewayAttributesArgs) ToCarrierGatewayAttributesOutput() CarrierGatewayAttributesOutput {
+	return i.ToCarrierGatewayAttributesOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayAttributesArgs) ToCarrierGatewayAttributesOutputWithContext(ctx context.Context) CarrierGatewayAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayAttributesOutput)
+}
+
+func (i CarrierGatewayAttributesArgs) ToCarrierGatewayAttributesPtrOutput() CarrierGatewayAttributesPtrOutput {
+	return i.ToCarrierGatewayAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayAttributesArgs) ToCarrierGatewayAttributesPtrOutputWithContext(ctx context.Context) CarrierGatewayAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayAttributesOutput).ToCarrierGatewayAttributesPtrOutputWithContext(ctx)
+}
+
+// CarrierGatewayAttributesPtrInput is an input type that accepts CarrierGatewayAttributesArgs, CarrierGatewayAttributesPtr and CarrierGatewayAttributesPtrOutput values.
+// You can construct a concrete instance of `CarrierGatewayAttributesPtrInput` via:
+//
+//          CarrierGatewayAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type CarrierGatewayAttributesPtrInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayAttributesPtrOutput() CarrierGatewayAttributesPtrOutput
+	ToCarrierGatewayAttributesPtrOutputWithContext(context.Context) CarrierGatewayAttributesPtrOutput
+}
+
+type carrierGatewayAttributesPtrType CarrierGatewayAttributesArgs
+
+func CarrierGatewayAttributesPtr(v *CarrierGatewayAttributesArgs) CarrierGatewayAttributesPtrInput {
+	return (*carrierGatewayAttributesPtrType)(v)
+}
+
+func (*carrierGatewayAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGatewayAttributes)(nil)).Elem()
+}
+
+func (i *carrierGatewayAttributesPtrType) ToCarrierGatewayAttributesPtrOutput() CarrierGatewayAttributesPtrOutput {
+	return i.ToCarrierGatewayAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *carrierGatewayAttributesPtrType) ToCarrierGatewayAttributesPtrOutputWithContext(ctx context.Context) CarrierGatewayAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayAttributesPtrOutput)
+}
+
+type CarrierGatewayAttributesOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CarrierGatewayAttributes)(nil)).Elem()
+}
+
+func (o CarrierGatewayAttributesOutput) ToCarrierGatewayAttributesOutput() CarrierGatewayAttributesOutput {
+	return o
+}
+
+func (o CarrierGatewayAttributesOutput) ToCarrierGatewayAttributesOutputWithContext(ctx context.Context) CarrierGatewayAttributesOutput {
+	return o
+}
+
+func (o CarrierGatewayAttributesOutput) ToCarrierGatewayAttributesPtrOutput() CarrierGatewayAttributesPtrOutput {
+	return o.ToCarrierGatewayAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o CarrierGatewayAttributesOutput) ToCarrierGatewayAttributesPtrOutputWithContext(ctx context.Context) CarrierGatewayAttributesPtrOutput {
+	return o.ApplyT(func(v CarrierGatewayAttributes) *CarrierGatewayAttributes {
+		return &v
+	}).(CarrierGatewayAttributesPtrOutput)
+}
+func (o CarrierGatewayAttributesOutput) CarrierGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v CarrierGatewayAttributes) string { return v.CarrierGatewayId }).(pulumi.StringOutput)
+}
+
+func (o CarrierGatewayAttributesOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v CarrierGatewayAttributes) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o CarrierGatewayAttributesOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v CarrierGatewayAttributes) string { return v.State }).(pulumi.StringOutput)
+}
+
+type CarrierGatewayAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGatewayAttributes)(nil)).Elem()
+}
+
+func (o CarrierGatewayAttributesPtrOutput) ToCarrierGatewayAttributesPtrOutput() CarrierGatewayAttributesPtrOutput {
+	return o
+}
+
+func (o CarrierGatewayAttributesPtrOutput) ToCarrierGatewayAttributesPtrOutputWithContext(ctx context.Context) CarrierGatewayAttributesPtrOutput {
+	return o
+}
+
+func (o CarrierGatewayAttributesPtrOutput) Elem() CarrierGatewayAttributesOutput {
+	return o.ApplyT(func(v *CarrierGatewayAttributes) CarrierGatewayAttributes { return *v }).(CarrierGatewayAttributesOutput)
+}
+
+func (o CarrierGatewayAttributesPtrOutput) CarrierGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CarrierGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CarrierGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CarrierGatewayAttributesPtrOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CarrierGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CarrierGatewayAttributesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CarrierGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
+type CarrierGatewayProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
+	Tags *CarrierGatewayTags `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+	VpcId string `pulumi:"VpcId"`
+}
+
+// CarrierGatewayPropertiesInput is an input type that accepts CarrierGatewayPropertiesArgs and CarrierGatewayPropertiesOutput values.
+// You can construct a concrete instance of `CarrierGatewayPropertiesInput` via:
+//
+//          CarrierGatewayPropertiesArgs{...}
+type CarrierGatewayPropertiesInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayPropertiesOutput() CarrierGatewayPropertiesOutput
+	ToCarrierGatewayPropertiesOutputWithContext(context.Context) CarrierGatewayPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
+type CarrierGatewayPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
+	Tags CarrierGatewayTagsPtrInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+	VpcId pulumi.StringInput `pulumi:"VpcId"`
+}
+
+func (CarrierGatewayPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CarrierGatewayProperties)(nil)).Elem()
+}
+
+func (i CarrierGatewayPropertiesArgs) ToCarrierGatewayPropertiesOutput() CarrierGatewayPropertiesOutput {
+	return i.ToCarrierGatewayPropertiesOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayPropertiesArgs) ToCarrierGatewayPropertiesOutputWithContext(ctx context.Context) CarrierGatewayPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayPropertiesOutput)
+}
+
+func (i CarrierGatewayPropertiesArgs) ToCarrierGatewayPropertiesPtrOutput() CarrierGatewayPropertiesPtrOutput {
+	return i.ToCarrierGatewayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayPropertiesArgs) ToCarrierGatewayPropertiesPtrOutputWithContext(ctx context.Context) CarrierGatewayPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayPropertiesOutput).ToCarrierGatewayPropertiesPtrOutputWithContext(ctx)
+}
+
+// CarrierGatewayPropertiesPtrInput is an input type that accepts CarrierGatewayPropertiesArgs, CarrierGatewayPropertiesPtr and CarrierGatewayPropertiesPtrOutput values.
+// You can construct a concrete instance of `CarrierGatewayPropertiesPtrInput` via:
+//
+//          CarrierGatewayPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type CarrierGatewayPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayPropertiesPtrOutput() CarrierGatewayPropertiesPtrOutput
+	ToCarrierGatewayPropertiesPtrOutputWithContext(context.Context) CarrierGatewayPropertiesPtrOutput
+}
+
+type carrierGatewayPropertiesPtrType CarrierGatewayPropertiesArgs
+
+func CarrierGatewayPropertiesPtr(v *CarrierGatewayPropertiesArgs) CarrierGatewayPropertiesPtrInput {
+	return (*carrierGatewayPropertiesPtrType)(v)
+}
+
+func (*carrierGatewayPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGatewayProperties)(nil)).Elem()
+}
+
+func (i *carrierGatewayPropertiesPtrType) ToCarrierGatewayPropertiesPtrOutput() CarrierGatewayPropertiesPtrOutput {
+	return i.ToCarrierGatewayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *carrierGatewayPropertiesPtrType) ToCarrierGatewayPropertiesPtrOutputWithContext(ctx context.Context) CarrierGatewayPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
+type CarrierGatewayPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CarrierGatewayProperties)(nil)).Elem()
+}
+
+func (o CarrierGatewayPropertiesOutput) ToCarrierGatewayPropertiesOutput() CarrierGatewayPropertiesOutput {
+	return o
+}
+
+func (o CarrierGatewayPropertiesOutput) ToCarrierGatewayPropertiesOutputWithContext(ctx context.Context) CarrierGatewayPropertiesOutput {
+	return o
+}
+
+func (o CarrierGatewayPropertiesOutput) ToCarrierGatewayPropertiesPtrOutput() CarrierGatewayPropertiesPtrOutput {
+	return o.ToCarrierGatewayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CarrierGatewayPropertiesOutput) ToCarrierGatewayPropertiesPtrOutputWithContext(ctx context.Context) CarrierGatewayPropertiesPtrOutput {
+	return o.ApplyT(func(v CarrierGatewayProperties) *CarrierGatewayProperties {
+		return &v
+	}).(CarrierGatewayPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
+func (o CarrierGatewayPropertiesOutput) Tags() CarrierGatewayTagsPtrOutput {
+	return o.ApplyT(func(v CarrierGatewayProperties) *CarrierGatewayTags { return v.Tags }).(CarrierGatewayTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+func (o CarrierGatewayPropertiesOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v CarrierGatewayProperties) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type CarrierGatewayPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGatewayProperties)(nil)).Elem()
+}
+
+func (o CarrierGatewayPropertiesPtrOutput) ToCarrierGatewayPropertiesPtrOutput() CarrierGatewayPropertiesPtrOutput {
+	return o
+}
+
+func (o CarrierGatewayPropertiesPtrOutput) ToCarrierGatewayPropertiesPtrOutputWithContext(ctx context.Context) CarrierGatewayPropertiesPtrOutput {
+	return o
+}
+
+func (o CarrierGatewayPropertiesPtrOutput) Elem() CarrierGatewayPropertiesOutput {
+	return o.ApplyT(func(v *CarrierGatewayProperties) CarrierGatewayProperties { return *v }).(CarrierGatewayPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
+func (o CarrierGatewayPropertiesPtrOutput) Tags() CarrierGatewayTagsPtrOutput {
+	return o.ApplyT(func(v *CarrierGatewayProperties) *CarrierGatewayTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(CarrierGatewayTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+func (o CarrierGatewayPropertiesPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CarrierGatewayProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
+type CarrierGatewayTags struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// CarrierGatewayTagsInput is an input type that accepts CarrierGatewayTagsArgs and CarrierGatewayTagsOutput values.
+// You can construct a concrete instance of `CarrierGatewayTagsInput` via:
+//
+//          CarrierGatewayTagsArgs{...}
+type CarrierGatewayTagsInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayTagsOutput() CarrierGatewayTagsOutput
+	ToCarrierGatewayTagsOutputWithContext(context.Context) CarrierGatewayTagsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
+type CarrierGatewayTagsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (CarrierGatewayTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CarrierGatewayTags)(nil)).Elem()
+}
+
+func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsOutput() CarrierGatewayTagsOutput {
+	return i.ToCarrierGatewayTagsOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsOutputWithContext(ctx context.Context) CarrierGatewayTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayTagsOutput)
+}
+
+func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
+	return i.ToCarrierGatewayTagsPtrOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayTagsOutput).ToCarrierGatewayTagsPtrOutputWithContext(ctx)
+}
+
+// CarrierGatewayTagsPtrInput is an input type that accepts CarrierGatewayTagsArgs, CarrierGatewayTagsPtr and CarrierGatewayTagsPtrOutput values.
+// You can construct a concrete instance of `CarrierGatewayTagsPtrInput` via:
+//
+//          CarrierGatewayTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type CarrierGatewayTagsPtrInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput
+	ToCarrierGatewayTagsPtrOutputWithContext(context.Context) CarrierGatewayTagsPtrOutput
+}
+
+type carrierGatewayTagsPtrType CarrierGatewayTagsArgs
+
+func CarrierGatewayTagsPtr(v *CarrierGatewayTagsArgs) CarrierGatewayTagsPtrInput {
+	return (*carrierGatewayTagsPtrType)(v)
+}
+
+func (*carrierGatewayTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGatewayTags)(nil)).Elem()
+}
+
+func (i *carrierGatewayTagsPtrType) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
+	return i.ToCarrierGatewayTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *carrierGatewayTagsPtrType) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
+type CarrierGatewayTagsOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CarrierGatewayTags)(nil)).Elem()
+}
+
+func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsOutput() CarrierGatewayTagsOutput {
+	return o
+}
+
+func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsOutputWithContext(ctx context.Context) CarrierGatewayTagsOutput {
+	return o
+}
+
+func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
+	return o.ToCarrierGatewayTagsPtrOutputWithContext(context.Background())
+}
+
+func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
+	return o.ApplyT(func(v CarrierGatewayTags) *CarrierGatewayTags {
+		return &v
+	}).(CarrierGatewayTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
+func (o CarrierGatewayTagsOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v CarrierGatewayTags) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type CarrierGatewayTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGatewayTags)(nil)).Elem()
+}
+
+func (o CarrierGatewayTagsPtrOutput) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
+	return o
+}
+
+func (o CarrierGatewayTagsPtrOutput) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
+	return o
+}
+
+func (o CarrierGatewayTagsPtrOutput) Elem() CarrierGatewayTagsOutput {
+	return o.ApplyT(func(v *CarrierGatewayTags) CarrierGatewayTags { return *v }).(CarrierGatewayTagsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
+func (o CarrierGatewayTagsPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *CarrierGatewayTags) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 type ClientVpnAuthorizationRuleAttributes struct {
 }
 
@@ -1337,6 +1780,159 @@ func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) Index(i pulumi.
 	}).(ClientVpnEndpointClientAuthenticationRequestOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html
+type ClientVpnEndpointClientConnectOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+	Enabled bool `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+	LambdaFunctionArn *string `pulumi:"LambdaFunctionArn"`
+}
+
+// ClientVpnEndpointClientConnectOptionsInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs and ClientVpnEndpointClientConnectOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsInput` via:
+//
+//          ClientVpnEndpointClientConnectOptionsArgs{...}
+type ClientVpnEndpointClientConnectOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput
+	ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html
+type ClientVpnEndpointClientConnectOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+	Enabled pulumi.BoolInput `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"LambdaFunctionArn"`
+}
+
+func (ClientVpnEndpointClientConnectOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput).ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientConnectOptionsPtrInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs, ClientVpnEndpointClientConnectOptionsPtr and ClientVpnEndpointClientConnectOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsPtrInput` via:
+//
+//          ClientVpnEndpointClientConnectOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointClientConnectOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput
+	ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput
+}
+
+type clientVpnEndpointClientConnectOptionsPtrType ClientVpnEndpointClientConnectOptionsArgs
+
+func ClientVpnEndpointClientConnectOptionsPtr(v *ClientVpnEndpointClientConnectOptionsArgs) ClientVpnEndpointClientConnectOptionsPtrInput {
+	return (*clientVpnEndpointClientConnectOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientConnectOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html
+type ClientVpnEndpointClientConnectOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) *ClientVpnEndpointClientConnectOptions {
+		return &v
+	}).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+func (o ClientVpnEndpointClientConnectOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+func (o ClientVpnEndpointClientConnectOptionsOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointClientConnectOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Elem() ClientVpnEndpointClientConnectOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) ClientVpnEndpointClientConnectOptions { return *v }).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html
 type ClientVpnEndpointConnectionLogOptions struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup
@@ -1649,6 +2245,8 @@ func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) Directo
 type ClientVpnEndpointFederatedAuthenticationRequest struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
 	SAMLProviderArn string `pulumi:"SAMLProviderArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+	SelfServiceSAMLProviderArn *string `pulumi:"SelfServiceSAMLProviderArn"`
 }
 
 // ClientVpnEndpointFederatedAuthenticationRequestInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs and ClientVpnEndpointFederatedAuthenticationRequestOutput values.
@@ -1666,6 +2264,8 @@ type ClientVpnEndpointFederatedAuthenticationRequestInput interface {
 type ClientVpnEndpointFederatedAuthenticationRequestArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
 	SAMLProviderArn pulumi.StringInput `pulumi:"SAMLProviderArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+	SelfServiceSAMLProviderArn pulumi.StringPtrInput `pulumi:"SelfServiceSAMLProviderArn"`
 }
 
 func (ClientVpnEndpointFederatedAuthenticationRequestArgs) ElementType() reflect.Type {
@@ -1751,6 +2351,11 @@ func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SAMLProviderArn()
 	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) string { return v.SAMLProviderArn }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) *string { return v.SelfServiceSAMLProviderArn }).(pulumi.StringPtrOutput)
+}
+
 type ClientVpnEndpointFederatedAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ElementType() reflect.Type {
@@ -1781,12 +2386,24 @@ func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SAMLProviderAr
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServiceSAMLProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html
 type ClientVpnEndpointProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-authenticationoptions
 	AuthenticationOptions []ClientVpnEndpointClientAuthenticationRequest `pulumi:"AuthenticationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientcidrblock
 	ClientCidrBlock string `pulumi:"ClientCidrBlock"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
+	ClientConnectOptions *ClientVpnEndpointClientConnectOptions `pulumi:"ClientConnectOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
 	ConnectionLogOptions ClientVpnEndpointConnectionLogOptions `pulumi:"ConnectionLogOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-description
@@ -1795,6 +2412,8 @@ type ClientVpnEndpointProperties struct {
 	DnsServers []string `pulumi:"DnsServers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
 	SecurityGroupIds []string `pulumi:"SecurityGroupIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
+	SelfServicePortal *string `pulumi:"SelfServicePortal"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
 	ServerCertificateArn string `pulumi:"ServerCertificateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-splittunnel
@@ -1826,6 +2445,8 @@ type ClientVpnEndpointPropertiesArgs struct {
 	AuthenticationOptions ClientVpnEndpointClientAuthenticationRequestArrayInput `pulumi:"AuthenticationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientcidrblock
 	ClientCidrBlock pulumi.StringInput `pulumi:"ClientCidrBlock"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
+	ClientConnectOptions ClientVpnEndpointClientConnectOptionsPtrInput `pulumi:"ClientConnectOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
 	ConnectionLogOptions ClientVpnEndpointConnectionLogOptionsInput `pulumi:"ConnectionLogOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-description
@@ -1834,6 +2455,8 @@ type ClientVpnEndpointPropertiesArgs struct {
 	DnsServers pulumi.StringArrayInput `pulumi:"DnsServers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"SecurityGroupIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
+	SelfServicePortal pulumi.StringPtrInput `pulumi:"SelfServicePortal"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
 	ServerCertificateArn pulumi.StringInput `pulumi:"ServerCertificateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-splittunnel
@@ -1938,6 +2561,13 @@ func (o ClientVpnEndpointPropertiesOutput) ClientCidrBlock() pulumi.StringOutput
 	return o.ApplyT(func(v ClientVpnEndpointProperties) string { return v.ClientCidrBlock }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
+func (o ClientVpnEndpointPropertiesOutput) ClientConnectOptions() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointProperties) *ClientVpnEndpointClientConnectOptions {
+		return v.ClientConnectOptions
+	}).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
 func (o ClientVpnEndpointPropertiesOutput) ConnectionLogOptions() ClientVpnEndpointConnectionLogOptionsOutput {
 	return o.ApplyT(func(v ClientVpnEndpointProperties) ClientVpnEndpointConnectionLogOptions {
@@ -1958,6 +2588,11 @@ func (o ClientVpnEndpointPropertiesOutput) DnsServers() pulumi.StringArrayOutput
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
 func (o ClientVpnEndpointPropertiesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClientVpnEndpointProperties) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
+func (o ClientVpnEndpointPropertiesOutput) SelfServicePortal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointProperties) *string { return v.SelfServicePortal }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
@@ -2028,6 +2663,16 @@ func (o ClientVpnEndpointPropertiesPtrOutput) ClientCidrBlock() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
+func (o ClientVpnEndpointPropertiesPtrOutput) ClientConnectOptions() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointProperties) *ClientVpnEndpointClientConnectOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ClientConnectOptions
+	}).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
 func (o ClientVpnEndpointPropertiesPtrOutput) ConnectionLogOptions() ClientVpnEndpointConnectionLogOptionsPtrOutput {
 	return o.ApplyT(func(v *ClientVpnEndpointProperties) *ClientVpnEndpointConnectionLogOptions {
@@ -2066,6 +2711,16 @@ func (o ClientVpnEndpointPropertiesPtrOutput) SecurityGroupIds() pulumi.StringAr
 		}
 		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
+func (o ClientVpnEndpointPropertiesPtrOutput) SelfServicePortal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServicePortal
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
@@ -6535,12 +7190,18 @@ type FlowLogProperties struct {
 	LogDestination *string `pulumi:"LogDestination"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
 	LogDestinationType *string `pulumi:"LogDestinationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+	LogFormat *string `pulumi:"LogFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
 	LogGroupName *string `pulumi:"LogGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+	MaxAggregationInterval *int `pulumi:"MaxAggregationInterval"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
 	ResourceId string `pulumi:"ResourceId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
 	ResourceType string `pulumi:"ResourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
 	TrafficType string `pulumi:"TrafficType"`
 }
@@ -6564,12 +7225,18 @@ type FlowLogPropertiesArgs struct {
 	LogDestination pulumi.StringPtrInput `pulumi:"LogDestination"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
 	LogDestinationType pulumi.StringPtrInput `pulumi:"LogDestinationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+	LogFormat pulumi.StringPtrInput `pulumi:"LogFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
 	LogGroupName pulumi.StringPtrInput `pulumi:"LogGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+	MaxAggregationInterval pulumi.IntPtrInput `pulumi:"MaxAggregationInterval"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
 	ResourceId pulumi.StringInput `pulumi:"ResourceId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
 	ResourceType pulumi.StringInput `pulumi:"ResourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
 	TrafficType pulumi.StringInput `pulumi:"TrafficType"`
 }
@@ -6667,9 +7334,19 @@ func (o FlowLogPropertiesOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowLogProperties) *string { return v.LogDestinationType }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+func (o FlowLogPropertiesOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowLogProperties) *string { return v.LogFormat }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
 func (o FlowLogPropertiesOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowLogProperties) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+func (o FlowLogPropertiesOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowLogProperties) *int { return v.MaxAggregationInterval }).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
@@ -6680,6 +7357,11 @@ func (o FlowLogPropertiesOutput) ResourceId() pulumi.StringOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
 func (o FlowLogPropertiesOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowLogProperties) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+func (o FlowLogPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v FlowLogProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
@@ -6735,6 +7417,16 @@ func (o FlowLogPropertiesPtrOutput) LogDestinationType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+func (o FlowLogPropertiesPtrOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLogProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogFormat
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
 func (o FlowLogPropertiesPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLogProperties) *string {
@@ -6743,6 +7435,16 @@ func (o FlowLogPropertiesPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 		}
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+func (o FlowLogPropertiesPtrOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowLogProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAggregationInterval
+	}).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
@@ -6763,6 +7465,16 @@ func (o FlowLogPropertiesPtrOutput) ResourceType() pulumi.StringPtrOutput {
 		}
 		return &v.ResourceType
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+func (o FlowLogPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *FlowLogProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
@@ -8523,6 +9235,140 @@ func (o InstanceElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput)
 	}).(InstanceElasticInferenceAcceleratorOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html
+type InstanceEnclaveOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+	Enabled *bool `pulumi:"Enabled"`
+}
+
+// InstanceEnclaveOptionsInput is an input type that accepts InstanceEnclaveOptionsArgs and InstanceEnclaveOptionsOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+type InstanceEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput
+	ToInstanceEnclaveOptionsOutputWithContext(context.Context) InstanceEnclaveOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html
+type InstanceEnclaveOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"Enabled"`
+}
+
+func (InstanceEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return i.ToInstanceEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput)
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput).ToInstanceEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceEnclaveOptionsPtrInput is an input type that accepts InstanceEnclaveOptionsArgs, InstanceEnclaveOptionsPtr and InstanceEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsPtrInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput
+	ToInstanceEnclaveOptionsPtrOutputWithContext(context.Context) InstanceEnclaveOptionsPtrOutput
+}
+
+type instanceEnclaveOptionsPtrType InstanceEnclaveOptionsArgs
+
+func InstanceEnclaveOptionsPtr(v *InstanceEnclaveOptionsArgs) InstanceEnclaveOptionsPtrInput {
+	return (*instanceEnclaveOptionsPtrType)(v)
+}
+
+func (*instanceEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html
+type InstanceEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceEnclaveOptions) *InstanceEnclaveOptions {
+		return &v
+	}).(InstanceEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+func (o InstanceEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) Elem() InstanceEnclaveOptionsOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions { return *v }).(InstanceEnclaveOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+func (o InstanceEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html
 type InstanceHibernationOptions struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
@@ -9474,6 +10320,8 @@ type InstanceProperties struct {
 	ElasticGpuSpecifications []InstanceElasticGpuSpecification `pulumi:"ElasticGpuSpecifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
 	ElasticInferenceAccelerators []InstanceElasticInferenceAccelerator `pulumi:"ElasticInferenceAccelerators"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+	EnclaveOptions *InstanceEnclaveOptions `pulumi:"EnclaveOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
 	HibernationOptions *InstanceHibernationOptions `pulumi:"HibernationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid
@@ -9563,6 +10411,8 @@ type InstancePropertiesArgs struct {
 	ElasticGpuSpecifications InstanceElasticGpuSpecificationArrayInput `pulumi:"ElasticGpuSpecifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
 	ElasticInferenceAccelerators InstanceElasticInferenceAcceleratorArrayInput `pulumi:"ElasticInferenceAccelerators"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+	EnclaveOptions InstanceEnclaveOptionsPtrInput `pulumi:"EnclaveOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
 	HibernationOptions InstanceHibernationOptionsPtrInput `pulumi:"HibernationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid
@@ -9747,6 +10597,11 @@ func (o InstancePropertiesOutput) ElasticInferenceAccelerators() InstanceElastic
 	return o.ApplyT(func(v InstanceProperties) []InstanceElasticInferenceAccelerator {
 		return v.ElasticInferenceAccelerators
 	}).(InstanceElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+func (o InstancePropertiesOutput) EnclaveOptions() InstanceEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceProperties) *InstanceEnclaveOptions { return v.EnclaveOptions }).(InstanceEnclaveOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
@@ -10000,6 +10855,16 @@ func (o InstancePropertiesPtrOutput) ElasticInferenceAccelerators() InstanceElas
 		}
 		return v.ElasticInferenceAccelerators
 	}).(InstanceElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+func (o InstancePropertiesPtrOutput) EnclaveOptions() InstanceEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v *InstanceProperties) *InstanceEnclaveOptions {
+		if v == nil {
+			return nil
+		}
+		return v.EnclaveOptions
+	}).(InstanceEnclaveOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
@@ -11165,6 +12030,8 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReserva
 type LaunchTemplateCapacityReservationTarget struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
 	CapacityReservationId *string `pulumi:"CapacityReservationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+	CapacityReservationResourceGroupArn *string `pulumi:"CapacityReservationResourceGroupArn"`
 }
 
 // LaunchTemplateCapacityReservationTargetInput is an input type that accepts LaunchTemplateCapacityReservationTargetArgs and LaunchTemplateCapacityReservationTargetOutput values.
@@ -11182,6 +12049,8 @@ type LaunchTemplateCapacityReservationTargetInput interface {
 type LaunchTemplateCapacityReservationTargetArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
 	CapacityReservationId pulumi.StringPtrInput `pulumi:"CapacityReservationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"CapacityReservationResourceGroupArn"`
 }
 
 func (LaunchTemplateCapacityReservationTargetArgs) ElementType() reflect.Type {
@@ -11267,6 +12136,11 @@ func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationId() p
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationId }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
 type LaunchTemplateCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
@@ -11292,6 +12166,16 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationId(
 			return nil
 		}
 		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11930,6 +12814,140 @@ func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchTemplateElasticGpuSpecificationOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html
+type LaunchTemplateEnclaveOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+	Enabled *bool `pulumi:"Enabled"`
+}
+
+// LaunchTemplateEnclaveOptionsInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs and LaunchTemplateEnclaveOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+type LaunchTemplateEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput
+	ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html
+type LaunchTemplateEnclaveOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"Enabled"`
+}
+
+func (LaunchTemplateEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return i.ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput).ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEnclaveOptionsPtrInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs, LaunchTemplateEnclaveOptionsPtr and LaunchTemplateEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsPtrInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput
+	ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsPtrOutput
+}
+
+type launchTemplateEnclaveOptionsPtrType LaunchTemplateEnclaveOptionsArgs
+
+func LaunchTemplateEnclaveOptionsPtr(v *LaunchTemplateEnclaveOptionsArgs) LaunchTemplateEnclaveOptionsPtrInput {
+	return (*launchTemplateEnclaveOptionsPtrType)(v)
+}
+
+func (*launchTemplateEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html
+type LaunchTemplateEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *LaunchTemplateEnclaveOptions {
+		return &v
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+func (o LaunchTemplateEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Elem() LaunchTemplateEnclaveOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) LaunchTemplateEnclaveOptions { return *v }).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html
 type LaunchTemplateHibernationOptions struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions-configured
@@ -12488,6 +13506,8 @@ type LaunchTemplateLaunchTemplateData struct {
 	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"ElasticGpuSpecifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
 	ElasticInferenceAccelerators []LaunchTemplateLaunchTemplateElasticInferenceAccelerator `pulumi:"ElasticInferenceAccelerators"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"EnclaveOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
 	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"HibernationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile
@@ -12555,6 +13575,8 @@ type LaunchTemplateLaunchTemplateDataArgs struct {
 	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput `pulumi:"ElasticGpuSpecifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
 	ElasticInferenceAccelerators LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"ElasticInferenceAccelerators"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput `pulumi:"EnclaveOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
 	HibernationOptions LaunchTemplateHibernationOptionsPtrInput `pulumi:"HibernationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile
@@ -12719,6 +13741,11 @@ func (o LaunchTemplateLaunchTemplateDataOutput) ElasticInferenceAccelerators() L
 	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
 		return v.ElasticInferenceAccelerators
 	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+func (o LaunchTemplateLaunchTemplateDataOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
@@ -12915,6 +13942,16 @@ func (o LaunchTemplateLaunchTemplateDataPtrOutput) ElasticInferenceAccelerators(
 		}
 		return v.ElasticInferenceAccelerators
 	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions {
+		if v == nil {
+			return nil
+		}
+		return v.EnclaveOptions
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
@@ -13614,6 +14651,8 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html
 type LaunchTemplateNetworkInterface struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+	AssociateCarrierIpAddress *bool `pulumi:"AssociateCarrierIpAddress"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
 	AssociatePublicIpAddress *bool `pulumi:"AssociatePublicIpAddress"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination
@@ -13630,6 +14669,8 @@ type LaunchTemplateNetworkInterface struct {
 	Ipv6AddressCount *int `pulumi:"Ipv6AddressCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
 	Ipv6Addresses []LaunchTemplateIpv6Add `pulumi:"Ipv6Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+	NetworkCardIndex *int `pulumi:"NetworkCardIndex"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
 	NetworkInterfaceId *string `pulumi:"NetworkInterfaceId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddress
@@ -13655,6 +14696,8 @@ type LaunchTemplateNetworkInterfaceInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html
 type LaunchTemplateNetworkInterfaceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+	AssociateCarrierIpAddress pulumi.BoolPtrInput `pulumi:"AssociateCarrierIpAddress"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
 	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"AssociatePublicIpAddress"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination
@@ -13671,6 +14714,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"Ipv6AddressCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
 	Ipv6Addresses LaunchTemplateIpv6AddArrayInput `pulumi:"Ipv6Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"NetworkCardIndex"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"NetworkInterfaceId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddress
@@ -13735,6 +14780,11 @@ func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOu
 	return o
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociateCarrierIpAddress }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
@@ -13773,6 +14823,11 @@ func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOu
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() LaunchTemplateIpv6AddArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6Add { return v.Ipv6Addresses }).(LaunchTemplateIpv6AddArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
@@ -16704,6 +17759,3447 @@ func (o NetworkAclPropertiesPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html
+type NetworkInsightsAnalysisAlternatePathHint struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentarn
+	ComponentArn *string `pulumi:"ComponentArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentid
+	ComponentId *string `pulumi:"ComponentId"`
+}
+
+// NetworkInsightsAnalysisAlternatePathHintInput is an input type that accepts NetworkInsightsAnalysisAlternatePathHintArgs and NetworkInsightsAnalysisAlternatePathHintOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAlternatePathHintInput` via:
+//
+//          NetworkInsightsAnalysisAlternatePathHintArgs{...}
+type NetworkInsightsAnalysisAlternatePathHintInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAlternatePathHintOutput() NetworkInsightsAnalysisAlternatePathHintOutput
+	ToNetworkInsightsAnalysisAlternatePathHintOutputWithContext(context.Context) NetworkInsightsAnalysisAlternatePathHintOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html
+type NetworkInsightsAnalysisAlternatePathHintArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentarn
+	ComponentArn pulumi.StringPtrInput `pulumi:"ComponentArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentid
+	ComponentId pulumi.StringPtrInput `pulumi:"ComponentId"`
+}
+
+func (NetworkInsightsAnalysisAlternatePathHintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAlternatePathHint)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAlternatePathHintArgs) ToNetworkInsightsAnalysisAlternatePathHintOutput() NetworkInsightsAnalysisAlternatePathHintOutput {
+	return i.ToNetworkInsightsAnalysisAlternatePathHintOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAlternatePathHintArgs) ToNetworkInsightsAnalysisAlternatePathHintOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAlternatePathHintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAlternatePathHintOutput)
+}
+
+// NetworkInsightsAnalysisAlternatePathHintArrayInput is an input type that accepts NetworkInsightsAnalysisAlternatePathHintArray and NetworkInsightsAnalysisAlternatePathHintArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAlternatePathHintArrayInput` via:
+//
+//          NetworkInsightsAnalysisAlternatePathHintArray{ NetworkInsightsAnalysisAlternatePathHintArgs{...} }
+type NetworkInsightsAnalysisAlternatePathHintArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAlternatePathHintArrayOutput() NetworkInsightsAnalysisAlternatePathHintArrayOutput
+	ToNetworkInsightsAnalysisAlternatePathHintArrayOutputWithContext(context.Context) NetworkInsightsAnalysisAlternatePathHintArrayOutput
+}
+
+type NetworkInsightsAnalysisAlternatePathHintArray []NetworkInsightsAnalysisAlternatePathHintInput
+
+func (NetworkInsightsAnalysisAlternatePathHintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisAlternatePathHint)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAlternatePathHintArray) ToNetworkInsightsAnalysisAlternatePathHintArrayOutput() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+	return i.ToNetworkInsightsAnalysisAlternatePathHintArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAlternatePathHintArray) ToNetworkInsightsAnalysisAlternatePathHintArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAlternatePathHintArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html
+type NetworkInsightsAnalysisAlternatePathHintOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAlternatePathHintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAlternatePathHint)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAlternatePathHintOutput) ToNetworkInsightsAnalysisAlternatePathHintOutput() NetworkInsightsAnalysisAlternatePathHintOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAlternatePathHintOutput) ToNetworkInsightsAnalysisAlternatePathHintOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAlternatePathHintOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentarn
+func (o NetworkInsightsAnalysisAlternatePathHintOutput) ComponentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAlternatePathHint) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentid
+func (o NetworkInsightsAnalysisAlternatePathHintOutput) ComponentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAlternatePathHint) *string { return v.ComponentId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisAlternatePathHintArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAlternatePathHintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisAlternatePathHint)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAlternatePathHintArrayOutput) ToNetworkInsightsAnalysisAlternatePathHintArrayOutput() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAlternatePathHintArrayOutput) ToNetworkInsightsAnalysisAlternatePathHintArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAlternatePathHintArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAnalysisAlternatePathHintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAnalysisAlternatePathHint {
+		return vs[0].([]NetworkInsightsAnalysisAlternatePathHint)[vs[1].(int)]
+	}).(NetworkInsightsAnalysisAlternatePathHintOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html
+type NetworkInsightsAnalysisAnalysisAclRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr
+	Cidr *string `pulumi:"Cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress
+	Egress *bool `pulumi:"Egress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange
+	PortRange *NetworkInsightsAnalysisPortRange `pulumi:"PortRange"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol
+	Protocol *string `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction
+	RuleAction *string `pulumi:"RuleAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber
+	RuleNumber *int `pulumi:"RuleNumber"`
+}
+
+// NetworkInsightsAnalysisAnalysisAclRuleInput is an input type that accepts NetworkInsightsAnalysisAnalysisAclRuleArgs and NetworkInsightsAnalysisAnalysisAclRuleOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisAclRuleInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisAclRuleArgs{...}
+type NetworkInsightsAnalysisAnalysisAclRuleInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisAclRuleOutput() NetworkInsightsAnalysisAnalysisAclRuleOutput
+	ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisAclRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html
+type NetworkInsightsAnalysisAnalysisAclRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr
+	Cidr pulumi.StringPtrInput `pulumi:"Cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress
+	Egress pulumi.BoolPtrInput `pulumi:"Egress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange
+	PortRange NetworkInsightsAnalysisPortRangePtrInput `pulumi:"PortRange"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol
+	Protocol pulumi.StringPtrInput `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction
+	RuleAction pulumi.StringPtrInput `pulumi:"RuleAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber
+	RuleNumber pulumi.IntPtrInput `pulumi:"RuleNumber"`
+}
+
+func (NetworkInsightsAnalysisAnalysisAclRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisAclRule)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRuleOutput() NetworkInsightsAnalysisAnalysisAclRuleOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisAclRuleOutput)
+}
+
+func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisAclRuleOutput).ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAnalysisAclRulePtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisAclRuleArgs, NetworkInsightsAnalysisAnalysisAclRulePtr and NetworkInsightsAnalysisAnalysisAclRulePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisAclRulePtrInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisAclRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAnalysisAclRulePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput
+	ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput
+}
+
+type networkInsightsAnalysisAnalysisAclRulePtrType NetworkInsightsAnalysisAnalysisAclRuleArgs
+
+func NetworkInsightsAnalysisAnalysisAclRulePtr(v *NetworkInsightsAnalysisAnalysisAclRuleArgs) NetworkInsightsAnalysisAnalysisAclRulePtrInput {
+	return (*networkInsightsAnalysisAnalysisAclRulePtrType)(v)
+}
+
+func (*networkInsightsAnalysisAnalysisAclRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisAclRule)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAnalysisAclRulePtrType) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAnalysisAclRulePtrType) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html
+type NetworkInsightsAnalysisAnalysisAclRuleOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisAclRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisAclRule)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisAnalysisAclRuleOutput() NetworkInsightsAnalysisAnalysisAclRuleOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRuleOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return o.ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *NetworkInsightsAnalysisAnalysisAclRule {
+		return &v
+	}).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) Egress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *bool { return v.Egress }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *NetworkInsightsAnalysisPortRange { return v.PortRange }).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) RuleAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *string { return v.RuleAction }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber
+func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) RuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisAclRule) *int { return v.RuleNumber }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisAclRulePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisAclRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisAclRule)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Elem() NetworkInsightsAnalysisAnalysisAclRuleOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) NetworkInsightsAnalysisAnalysisAclRule { return *v }).(NetworkInsightsAnalysisAnalysisAclRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cidr
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Egress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Egress
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *NetworkInsightsAnalysisPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.PortRange
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) RuleAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuleAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber
+func (o NetworkInsightsAnalysisAnalysisAclRulePtrOutput) RuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisAclRule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html
+type NetworkInsightsAnalysisAnalysisComponent struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-arn
+	Arn *string `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-id
+	Id *string `pulumi:"Id"`
+}
+
+// NetworkInsightsAnalysisAnalysisComponentInput is an input type that accepts NetworkInsightsAnalysisAnalysisComponentArgs and NetworkInsightsAnalysisAnalysisComponentOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisComponentInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisComponentArgs{...}
+type NetworkInsightsAnalysisAnalysisComponentInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisComponentOutput() NetworkInsightsAnalysisAnalysisComponentOutput
+	ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisComponentOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html
+type NetworkInsightsAnalysisAnalysisComponentArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-arn
+	Arn pulumi.StringPtrInput `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-id
+	Id pulumi.StringPtrInput `pulumi:"Id"`
+}
+
+func (NetworkInsightsAnalysisAnalysisComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentOutput() NetworkInsightsAnalysisAnalysisComponentOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentOutput)
+}
+
+func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentOutput).ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAnalysisComponentPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisComponentArgs, NetworkInsightsAnalysisAnalysisComponentPtr and NetworkInsightsAnalysisAnalysisComponentPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisComponentPtrInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisComponentArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAnalysisComponentPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput
+	ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput
+}
+
+type networkInsightsAnalysisAnalysisComponentPtrType NetworkInsightsAnalysisAnalysisComponentArgs
+
+func NetworkInsightsAnalysisAnalysisComponentPtr(v *NetworkInsightsAnalysisAnalysisComponentArgs) NetworkInsightsAnalysisAnalysisComponentPtrInput {
+	return (*networkInsightsAnalysisAnalysisComponentPtrType)(v)
+}
+
+func (*networkInsightsAnalysisAnalysisComponentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAnalysisComponentPtrType) ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAnalysisComponentPtrType) ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// NetworkInsightsAnalysisAnalysisComponentArrayInput is an input type that accepts NetworkInsightsAnalysisAnalysisComponentArray and NetworkInsightsAnalysisAnalysisComponentArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisComponentArrayInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisComponentArray{ NetworkInsightsAnalysisAnalysisComponentArgs{...} }
+type NetworkInsightsAnalysisAnalysisComponentArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisComponentArrayOutput() NetworkInsightsAnalysisAnalysisComponentArrayOutput
+	ToNetworkInsightsAnalysisAnalysisComponentArrayOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisComponentArrayOutput
+}
+
+type NetworkInsightsAnalysisAnalysisComponentArray []NetworkInsightsAnalysisAnalysisComponentInput
+
+func (NetworkInsightsAnalysisAnalysisComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisComponentArray) ToNetworkInsightsAnalysisAnalysisComponentArrayOutput() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisComponentArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisComponentArray) ToNetworkInsightsAnalysisAnalysisComponentArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html
+type NetworkInsightsAnalysisAnalysisComponentOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysisAnalysisComponentOutput() NetworkInsightsAnalysisAnalysisComponentOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisComponent) *NetworkInsightsAnalysisAnalysisComponent {
+		return &v
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-arn
+func (o NetworkInsightsAnalysisAnalysisComponentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisComponent) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-id
+func (o NetworkInsightsAnalysisAnalysisComponentOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisComponent) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisComponentPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisComponentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) Elem() NetworkInsightsAnalysisAnalysisComponentOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisComponent) NetworkInsightsAnalysisAnalysisComponent { return *v }).(NetworkInsightsAnalysisAnalysisComponentOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-arn
+func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisComponent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-id
+func (o NetworkInsightsAnalysisAnalysisComponentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisComponent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentArrayOutput) ToNetworkInsightsAnalysisAnalysisComponentArrayOutput() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentArrayOutput) ToNetworkInsightsAnalysisAnalysisComponentArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisComponentArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAnalysisAnalysisComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAnalysisAnalysisComponent {
+		return vs[0].([]NetworkInsightsAnalysisAnalysisComponent)[vs[1].(int)]
+	}).(NetworkInsightsAnalysisAnalysisComponentOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html
+type NetworkInsightsAnalysisAnalysisLoadBalancerListener struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-instanceport
+	InstancePort *int `pulumi:"InstancePort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-loadbalancerport
+	LoadBalancerPort *int `pulumi:"LoadBalancerPort"`
+}
+
+// NetworkInsightsAnalysisAnalysisLoadBalancerListenerInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs and NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerListenerInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs{...}
+type NetworkInsightsAnalysisAnalysisLoadBalancerListenerInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html
+type NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-instanceport
+	InstancePort pulumi.IntPtrInput `pulumi:"InstancePort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-loadbalancerport
+	LoadBalancerPort pulumi.IntPtrInput `pulumi:"LoadBalancerPort"`
+}
+
+func (NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerListener)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput)
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput).ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs, NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtr and NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput
+}
+
+type networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs
+
+func NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtr(v *NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput {
+	return (*networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType)(v)
+}
+
+func (*networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisLoadBalancerListener)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html
+type NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerListener)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return o.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerListener) *NetworkInsightsAnalysisAnalysisLoadBalancerListener {
+		return &v
+	}).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-instanceport
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) InstancePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int { return v.InstancePort }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-loadbalancerport
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) LoadBalancerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int { return v.LoadBalancerPort }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisLoadBalancerListener)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) Elem() NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerListener) NetworkInsightsAnalysisAnalysisLoadBalancerListener {
+		return *v
+	}).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-instanceport
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) InstancePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePort
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-loadbalancerport
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput) LoadBalancerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerListener) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html
+type NetworkInsightsAnalysisAnalysisLoadBalancerTarget struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-address
+	Address *string `pulumi:"Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-availabilityzone
+	AvailabilityZone *string `pulumi:"AvailabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-instance
+	Instance *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Instance"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-port
+	Port *int `pulumi:"Port"`
+}
+
+// NetworkInsightsAnalysisAnalysisLoadBalancerTargetInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs and NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerTargetInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs{...}
+type NetworkInsightsAnalysisAnalysisLoadBalancerTargetInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html
+type NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-address
+	Address pulumi.StringPtrInput `pulumi:"Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-availabilityzone
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"AvailabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-instance
+	Instance NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Instance"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-port
+	Port pulumi.IntPtrInput `pulumi:"Port"`
+}
+
+func (NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerTarget)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput)
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput).ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs, NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtr and NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput
+	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput
+}
+
+type networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs
+
+func NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtr(v *NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput {
+	return (*networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType)(v)
+}
+
+func (*networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisLoadBalancerTarget)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html
+type NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerTarget)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return o.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *NetworkInsightsAnalysisAnalysisLoadBalancerTarget {
+		return &v
+	}).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-address
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-availabilityzone
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-instance
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) Instance() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.Instance
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-port
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisLoadBalancerTarget)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Elem() NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) NetworkInsightsAnalysisAnalysisLoadBalancerTarget {
+		return *v
+	}).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-address
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-availabilityzone
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-instance
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Instance() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *NetworkInsightsAnalysisAnalysisComponent {
+		if v == nil {
+			return nil
+		}
+		return v.Instance
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-port
+func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html
+type NetworkInsightsAnalysisAnalysisPacketHeader struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
+	DestinationAddresses []string `pulumi:"DestinationAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
+	DestinationPortRanges []NetworkInsightsAnalysisPortRange `pulumi:"DestinationPortRanges"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
+	Protocol *string `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
+	SourceAddresses []string `pulumi:"SourceAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
+	SourcePortRanges []NetworkInsightsAnalysisPortRange `pulumi:"SourcePortRanges"`
+}
+
+// NetworkInsightsAnalysisAnalysisPacketHeaderInput is an input type that accepts NetworkInsightsAnalysisAnalysisPacketHeaderArgs and NetworkInsightsAnalysisAnalysisPacketHeaderOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisPacketHeaderInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisPacketHeaderArgs{...}
+type NetworkInsightsAnalysisAnalysisPacketHeaderInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisPacketHeaderOutput() NetworkInsightsAnalysisAnalysisPacketHeaderOutput
+	ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html
+type NetworkInsightsAnalysisAnalysisPacketHeaderArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"DestinationAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
+	DestinationPortRanges NetworkInsightsAnalysisPortRangeArrayInput `pulumi:"DestinationPortRanges"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
+	Protocol pulumi.StringPtrInput `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
+	SourceAddresses pulumi.StringArrayInput `pulumi:"SourceAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
+	SourcePortRanges NetworkInsightsAnalysisPortRangeArrayInput `pulumi:"SourcePortRanges"`
+}
+
+func (NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisPacketHeader)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderOutput() NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisPacketHeaderOutput)
+}
+
+func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisPacketHeaderOutput).ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisPacketHeaderArgs, NetworkInsightsAnalysisAnalysisPacketHeaderPtr and NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisPacketHeaderArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput
+	ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput
+}
+
+type networkInsightsAnalysisAnalysisPacketHeaderPtrType NetworkInsightsAnalysisAnalysisPacketHeaderArgs
+
+func NetworkInsightsAnalysisAnalysisPacketHeaderPtr(v *NetworkInsightsAnalysisAnalysisPacketHeaderArgs) NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput {
+	return (*networkInsightsAnalysisAnalysisPacketHeaderPtrType)(v)
+}
+
+func (*networkInsightsAnalysisAnalysisPacketHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisPacketHeader)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAnalysisPacketHeaderPtrType) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAnalysisPacketHeaderPtrType) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html
+type NetworkInsightsAnalysisAnalysisPacketHeaderOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisPacketHeader)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderOutput() NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return o.ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) *NetworkInsightsAnalysisAnalysisPacketHeader {
+		return &v
+	}).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) DestinationPortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
+		return v.DestinationPortRanges
+	}).(NetworkInsightsAnalysisPortRangeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) SourcePortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
+		return v.SourcePortRanges
+	}).(NetworkInsightsAnalysisPortRangeArrayOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisPacketHeader)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) Elem() NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) NetworkInsightsAnalysisAnalysisPacketHeader {
+		return *v
+	}).(NetworkInsightsAnalysisAnalysisPacketHeaderOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) DestinationPortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortRanges
+	}).(NetworkInsightsAnalysisPortRangeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
+func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourcePortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisPacketHeader) []NetworkInsightsAnalysisPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePortRanges
+	}).(NetworkInsightsAnalysisPortRangeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html
+type NetworkInsightsAnalysisAnalysisRouteTableRoute struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
+	NatGatewayId *string `pulumi:"NatGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
+	NetworkInterfaceId *string `pulumi:"NetworkInterfaceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
+	Origin *string `pulumi:"Origin"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
+	TransitGatewayId *string `pulumi:"TransitGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
+	VpcPeeringConnectionId *string `pulumi:"VpcPeeringConnectionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationcidr
+	DestinationCidr *string `pulumi:"destinationCidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationprefixlistid
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-egressonlyinternetgatewayid
+	EgressOnlyInternetGatewayId *string `pulumi:"egressOnlyInternetGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-gatewayid
+	GatewayId *string `pulumi:"gatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-instanceid
+	InstanceId *string `pulumi:"instanceId"`
+}
+
+// NetworkInsightsAnalysisAnalysisRouteTableRouteInput is an input type that accepts NetworkInsightsAnalysisAnalysisRouteTableRouteArgs and NetworkInsightsAnalysisAnalysisRouteTableRouteOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisRouteTableRouteInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisRouteTableRouteArgs{...}
+type NetworkInsightsAnalysisAnalysisRouteTableRouteInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutput() NetworkInsightsAnalysisAnalysisRouteTableRouteOutput
+	ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisRouteTableRouteOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html
+type NetworkInsightsAnalysisAnalysisRouteTableRouteArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
+	NatGatewayId pulumi.StringPtrInput `pulumi:"NatGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"NetworkInterfaceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
+	Origin pulumi.StringPtrInput `pulumi:"Origin"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
+	TransitGatewayId pulumi.StringPtrInput `pulumi:"TransitGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
+	VpcPeeringConnectionId pulumi.StringPtrInput `pulumi:"VpcPeeringConnectionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationcidr
+	DestinationCidr pulumi.StringPtrInput `pulumi:"destinationCidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationprefixlistid
+	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-egressonlyinternetgatewayid
+	EgressOnlyInternetGatewayId pulumi.StringPtrInput `pulumi:"egressOnlyInternetGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-gatewayid
+	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-instanceid
+	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+}
+
+func (NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisRouteTableRoute)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutput() NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisRouteTableRouteOutput)
+}
+
+func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisRouteTableRouteOutput).ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisRouteTableRouteArgs, NetworkInsightsAnalysisAnalysisRouteTableRoutePtr and NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisRouteTableRouteArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput
+	ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput
+}
+
+type networkInsightsAnalysisAnalysisRouteTableRoutePtrType NetworkInsightsAnalysisAnalysisRouteTableRouteArgs
+
+func NetworkInsightsAnalysisAnalysisRouteTableRoutePtr(v *NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput {
+	return (*networkInsightsAnalysisAnalysisRouteTableRoutePtrType)(v)
+}
+
+func (*networkInsightsAnalysisAnalysisRouteTableRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisRouteTableRoute)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAnalysisRouteTableRoutePtrType) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAnalysisRouteTableRoutePtrType) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html
+type NetworkInsightsAnalysisAnalysisRouteTableRouteOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisRouteTableRoute)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutput() NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return o.ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *NetworkInsightsAnalysisAnalysisRouteTableRoute {
+		return &v
+	}).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) NatGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.Origin }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.VpcPeeringConnectionId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationcidr
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationCidr }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationprefixlistid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-egressonlyinternetgatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) EgressOnlyInternetGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.EgressOnlyInternetGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-gatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-instanceid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisRouteTableRoute)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) Elem() NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) NetworkInsightsAnalysisAnalysisRouteTableRoute {
+		return *v
+	}).(NetworkInsightsAnalysisAnalysisRouteTableRouteOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) NatGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NatGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Origin
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcPeeringConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationcidr
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationCidr
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationprefixlistid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPrefixListId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-egressonlyinternetgatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) EgressOnlyInternetGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EgressOnlyInternetGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-gatewayid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-instanceid
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html
+type NetworkInsightsAnalysisAnalysisSecurityGroupRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-cidr
+	Cidr *string `pulumi:"Cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-direction
+	Direction *string `pulumi:"Direction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange
+	PortRange *NetworkInsightsAnalysisPortRange `pulumi:"PortRange"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-prefixlistid
+	PrefixListId *string `pulumi:"PrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-protocol
+	Protocol *string `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid
+	SecurityGroupId *string `pulumi:"SecurityGroupId"`
+}
+
+// NetworkInsightsAnalysisAnalysisSecurityGroupRuleInput is an input type that accepts NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs and NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisSecurityGroupRuleInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs{...}
+type NetworkInsightsAnalysisAnalysisSecurityGroupRuleInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput
+	ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html
+type NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-cidr
+	Cidr pulumi.StringPtrInput `pulumi:"Cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-direction
+	Direction pulumi.StringPtrInput `pulumi:"Direction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange
+	PortRange NetworkInsightsAnalysisPortRangePtrInput `pulumi:"PortRange"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-prefixlistid
+	PrefixListId pulumi.StringPtrInput `pulumi:"PrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-protocol
+	Protocol pulumi.StringPtrInput `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid
+	SecurityGroupId pulumi.StringPtrInput `pulumi:"SecurityGroupId"`
+}
+
+func (NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisSecurityGroupRule)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput)
+}
+
+func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput).ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs, NetworkInsightsAnalysisAnalysisSecurityGroupRulePtr and NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput` via:
+//
+//          NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput
+	ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput
+}
+
+type networkInsightsAnalysisAnalysisSecurityGroupRulePtrType NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs
+
+func NetworkInsightsAnalysisAnalysisSecurityGroupRulePtr(v *NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput {
+	return (*networkInsightsAnalysisAnalysisSecurityGroupRulePtrType)(v)
+}
+
+func (*networkInsightsAnalysisAnalysisSecurityGroupRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisSecurityGroupRule)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAnalysisSecurityGroupRulePtrType) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return i.ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAnalysisSecurityGroupRulePtrType) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html
+type NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisSecurityGroupRule)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return o.ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *NetworkInsightsAnalysisAnalysisSecurityGroupRule {
+		return &v
+	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-cidr
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-direction
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *NetworkInsightsAnalysisPortRange {
+		return v.PortRange
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-prefixlistid
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-protocol
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisSecurityGroupRule)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Elem() NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) NetworkInsightsAnalysisAnalysisSecurityGroupRule {
+		return *v
+	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-cidr
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cidr
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-direction
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) PortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *NetworkInsightsAnalysisPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.PortRange
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-prefixlistid
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixListId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-protocol
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid
+func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisSecurityGroupRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisAttributes struct {
+	AlternatePathHints         []NetworkInsightsAnalysisAlternatePathHint `pulumi:"AlternatePathHints"`
+	Explanations               []NetworkInsightsAnalysisExplanation       `pulumi:"Explanations"`
+	ForwardPathComponents      []NetworkInsightsAnalysisPathComponent     `pulumi:"ForwardPathComponents"`
+	NetworkInsightsAnalysisArn string                                     `pulumi:"NetworkInsightsAnalysisArn"`
+	NetworkInsightsAnalysisId  string                                     `pulumi:"NetworkInsightsAnalysisId"`
+	NetworkPathFound           bool                                       `pulumi:"NetworkPathFound"`
+	ReturnPathComponents       []NetworkInsightsAnalysisPathComponent     `pulumi:"ReturnPathComponents"`
+	StartDate                  string                                     `pulumi:"StartDate"`
+	Status                     string                                     `pulumi:"Status"`
+}
+
+// NetworkInsightsAnalysisAttributesInput is an input type that accepts NetworkInsightsAnalysisAttributesArgs and NetworkInsightsAnalysisAttributesOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAttributesInput` via:
+//
+//          NetworkInsightsAnalysisAttributesArgs{...}
+type NetworkInsightsAnalysisAttributesInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAttributesOutput() NetworkInsightsAnalysisAttributesOutput
+	ToNetworkInsightsAnalysisAttributesOutputWithContext(context.Context) NetworkInsightsAnalysisAttributesOutput
+}
+
+type NetworkInsightsAnalysisAttributesArgs struct {
+	AlternatePathHints         NetworkInsightsAnalysisAlternatePathHintArrayInput `pulumi:"AlternatePathHints"`
+	Explanations               NetworkInsightsAnalysisExplanationArrayInput       `pulumi:"Explanations"`
+	ForwardPathComponents      NetworkInsightsAnalysisPathComponentArrayInput     `pulumi:"ForwardPathComponents"`
+	NetworkInsightsAnalysisArn pulumi.StringInput                                 `pulumi:"NetworkInsightsAnalysisArn"`
+	NetworkInsightsAnalysisId  pulumi.StringInput                                 `pulumi:"NetworkInsightsAnalysisId"`
+	NetworkPathFound           pulumi.BoolInput                                   `pulumi:"NetworkPathFound"`
+	ReturnPathComponents       NetworkInsightsAnalysisPathComponentArrayInput     `pulumi:"ReturnPathComponents"`
+	StartDate                  pulumi.StringInput                                 `pulumi:"StartDate"`
+	Status                     pulumi.StringInput                                 `pulumi:"Status"`
+}
+
+func (NetworkInsightsAnalysisAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAttributes)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisAttributesArgs) ToNetworkInsightsAnalysisAttributesOutput() NetworkInsightsAnalysisAttributesOutput {
+	return i.ToNetworkInsightsAnalysisAttributesOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAttributesArgs) ToNetworkInsightsAnalysisAttributesOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAttributesOutput)
+}
+
+func (i NetworkInsightsAnalysisAttributesArgs) ToNetworkInsightsAnalysisAttributesPtrOutput() NetworkInsightsAnalysisAttributesPtrOutput {
+	return i.ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisAttributesArgs) ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAttributesOutput).ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisAttributesPtrInput is an input type that accepts NetworkInsightsAnalysisAttributesArgs, NetworkInsightsAnalysisAttributesPtr and NetworkInsightsAnalysisAttributesPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisAttributesPtrInput` via:
+//
+//          NetworkInsightsAnalysisAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisAttributesPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisAttributesPtrOutput() NetworkInsightsAnalysisAttributesPtrOutput
+	ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAttributesPtrOutput
+}
+
+type networkInsightsAnalysisAttributesPtrType NetworkInsightsAnalysisAttributesArgs
+
+func NetworkInsightsAnalysisAttributesPtr(v *NetworkInsightsAnalysisAttributesArgs) NetworkInsightsAnalysisAttributesPtrInput {
+	return (*networkInsightsAnalysisAttributesPtrType)(v)
+}
+
+func (*networkInsightsAnalysisAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAttributes)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisAttributesPtrType) ToNetworkInsightsAnalysisAttributesPtrOutput() NetworkInsightsAnalysisAttributesPtrOutput {
+	return i.ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisAttributesPtrType) ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAttributesPtrOutput)
+}
+
+type NetworkInsightsAnalysisAttributesOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAttributes)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) ToNetworkInsightsAnalysisAttributesOutput() NetworkInsightsAnalysisAttributesOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) ToNetworkInsightsAnalysisAttributesOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAttributesOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) ToNetworkInsightsAnalysisAttributesPtrOutput() NetworkInsightsAnalysisAttributesPtrOutput {
+	return o.ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAttributesPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) *NetworkInsightsAnalysisAttributes {
+		return &v
+	}).(NetworkInsightsAnalysisAttributesPtrOutput)
+}
+func (o NetworkInsightsAnalysisAttributesOutput) AlternatePathHints() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisAlternatePathHint {
+		return v.AlternatePathHints
+	}).(NetworkInsightsAnalysisAlternatePathHintArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) Explanations() NetworkInsightsAnalysisExplanationArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisExplanation { return v.Explanations }).(NetworkInsightsAnalysisExplanationArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) ForwardPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisPathComponent {
+		return v.ForwardPathComponents
+	}).(NetworkInsightsAnalysisPathComponentArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) NetworkInsightsAnalysisArn() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) string { return v.NetworkInsightsAnalysisArn }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) NetworkInsightsAnalysisId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) string { return v.NetworkInsightsAnalysisId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) NetworkPathFound() pulumi.BoolOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) bool { return v.NetworkPathFound }).(pulumi.BoolOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) ReturnPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisPathComponent {
+		return v.ReturnPathComponents
+	}).(NetworkInsightsAnalysisPathComponentArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAttributes) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type NetworkInsightsAnalysisAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAttributes)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) ToNetworkInsightsAnalysisAttributesPtrOutput() NetworkInsightsAnalysisAttributesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) ToNetworkInsightsAnalysisAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAttributesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) Elem() NetworkInsightsAnalysisAttributesOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) NetworkInsightsAnalysisAttributes { return *v }).(NetworkInsightsAnalysisAttributesOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) AlternatePathHints() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisAlternatePathHint {
+		if v == nil {
+			return nil
+		}
+		return v.AlternatePathHints
+	}).(NetworkInsightsAnalysisAlternatePathHintArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) Explanations() NetworkInsightsAnalysisExplanationArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisExplanation {
+		if v == nil {
+			return nil
+		}
+		return v.Explanations
+	}).(NetworkInsightsAnalysisExplanationArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) ForwardPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisPathComponent {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardPathComponents
+	}).(NetworkInsightsAnalysisPathComponentArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) NetworkInsightsAnalysisArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkInsightsAnalysisArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) NetworkInsightsAnalysisId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkInsightsAnalysisId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) NetworkPathFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkPathFound
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) ReturnPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) []NetworkInsightsAnalysisPathComponent {
+		if v == nil {
+			return nil
+		}
+		return v.ReturnPathComponents
+	}).(NetworkInsightsAnalysisPathComponentArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAttributesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html
+type NetworkInsightsAnalysisExplanation struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-acl
+	Acl *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Acl"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-aclrule
+	AclRule *NetworkInsightsAnalysisAnalysisAclRule `pulumi:"AclRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-address
+	Address *string `pulumi:"Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-addresses
+	Addresses []string `pulumi:"Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-attachedto
+	AttachedTo *NetworkInsightsAnalysisAnalysisComponent `pulumi:"AttachedTo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-availabilityzones
+	AvailabilityZones []string `pulumi:"AvailabilityZones"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-cidrs
+	Cidrs []string `pulumi:"Cidrs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-classicloadbalancerlistener
+	ClassicLoadBalancerListener *NetworkInsightsAnalysisAnalysisLoadBalancerListener `pulumi:"ClassicLoadBalancerListener"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-component
+	Component *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Component"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-customergateway
+	CustomerGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"CustomerGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destination
+	Destination *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destinationvpc
+	DestinationVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"DestinationVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-direction
+	Direction *string `pulumi:"Direction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-elasticloadbalancerlistener
+	ElasticLoadBalancerListener *NetworkInsightsAnalysisAnalysisComponent `pulumi:"ElasticLoadBalancerListener"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-explanationcode
+	ExplanationCode *string `pulumi:"ExplanationCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-ingressroutetable
+	IngressRouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"IngressRouteTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-internetgateway
+	InternetGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"InternetGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerarn
+	LoadBalancerArn *string `pulumi:"LoadBalancerArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerlistenerport
+	LoadBalancerListenerPort *int `pulumi:"LoadBalancerListenerPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertarget
+	LoadBalancerTarget *NetworkInsightsAnalysisAnalysisLoadBalancerTarget `pulumi:"LoadBalancerTarget"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroup
+	LoadBalancerTargetGroup *NetworkInsightsAnalysisAnalysisComponent `pulumi:"LoadBalancerTargetGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroups
+	LoadBalancerTargetGroups []NetworkInsightsAnalysisAnalysisComponent `pulumi:"LoadBalancerTargetGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetport
+	LoadBalancerTargetPort *int `pulumi:"LoadBalancerTargetPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-missingcomponent
+	MissingComponent *string `pulumi:"MissingComponent"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-natgateway
+	NatGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"NatGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-networkinterface
+	NetworkInterface *NetworkInsightsAnalysisAnalysisComponent `pulumi:"NetworkInterface"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-packetfield
+	PacketField *string `pulumi:"PacketField"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-port
+	Port *int `pulumi:"Port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-portranges
+	PortRanges []NetworkInsightsAnalysisPortRange `pulumi:"PortRanges"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-prefixlist
+	PrefixList *NetworkInsightsAnalysisAnalysisComponent `pulumi:"PrefixList"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-protocols
+	Protocols []string `pulumi:"Protocols"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetable
+	RouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"RouteTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetableroute
+	RouteTableRoute *NetworkInsightsAnalysisAnalysisRouteTableRoute `pulumi:"RouteTableRoute"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroup
+	SecurityGroup *NetworkInsightsAnalysisAnalysisComponent `pulumi:"SecurityGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygrouprule
+	SecurityGroupRule *NetworkInsightsAnalysisAnalysisSecurityGroupRule `pulumi:"SecurityGroupRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroups
+	SecurityGroups []NetworkInsightsAnalysisAnalysisComponent `pulumi:"SecurityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-sourcevpc
+	SourceVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"SourceVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-state
+	State *string `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnet
+	Subnet *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Subnet"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnetroutetable
+	SubnetRouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"SubnetRouteTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpc
+	Vpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Vpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
+	VpcPeeringConnection *NetworkInsightsAnalysisAnalysisComponent `pulumi:"VpcPeeringConnection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
+	VpnConnection *NetworkInsightsAnalysisAnalysisComponent `pulumi:"VpnConnection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
+	VpnGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"VpnGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
+	VpcEndpoint *NetworkInsightsAnalysisAnalysisComponent `pulumi:"vpcEndpoint"`
+}
+
+// NetworkInsightsAnalysisExplanationInput is an input type that accepts NetworkInsightsAnalysisExplanationArgs and NetworkInsightsAnalysisExplanationOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisExplanationInput` via:
+//
+//          NetworkInsightsAnalysisExplanationArgs{...}
+type NetworkInsightsAnalysisExplanationInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisExplanationOutput() NetworkInsightsAnalysisExplanationOutput
+	ToNetworkInsightsAnalysisExplanationOutputWithContext(context.Context) NetworkInsightsAnalysisExplanationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html
+type NetworkInsightsAnalysisExplanationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-acl
+	Acl NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Acl"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-aclrule
+	AclRule NetworkInsightsAnalysisAnalysisAclRulePtrInput `pulumi:"AclRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-address
+	Address pulumi.StringPtrInput `pulumi:"Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-addresses
+	Addresses pulumi.StringArrayInput `pulumi:"Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-attachedto
+	AttachedTo NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"AttachedTo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-availabilityzones
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"AvailabilityZones"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-cidrs
+	Cidrs pulumi.StringArrayInput `pulumi:"Cidrs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-classicloadbalancerlistener
+	ClassicLoadBalancerListener NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput `pulumi:"ClassicLoadBalancerListener"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-component
+	Component NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Component"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-customergateway
+	CustomerGateway NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"CustomerGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destination
+	Destination NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destinationvpc
+	DestinationVpc NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"DestinationVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-direction
+	Direction pulumi.StringPtrInput `pulumi:"Direction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-elasticloadbalancerlistener
+	ElasticLoadBalancerListener NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"ElasticLoadBalancerListener"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-explanationcode
+	ExplanationCode pulumi.StringPtrInput `pulumi:"ExplanationCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-ingressroutetable
+	IngressRouteTable NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"IngressRouteTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-internetgateway
+	InternetGateway NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"InternetGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerarn
+	LoadBalancerArn pulumi.StringPtrInput `pulumi:"LoadBalancerArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerlistenerport
+	LoadBalancerListenerPort pulumi.IntPtrInput `pulumi:"LoadBalancerListenerPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertarget
+	LoadBalancerTarget NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput `pulumi:"LoadBalancerTarget"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroup
+	LoadBalancerTargetGroup NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"LoadBalancerTargetGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroups
+	LoadBalancerTargetGroups NetworkInsightsAnalysisAnalysisComponentArrayInput `pulumi:"LoadBalancerTargetGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetport
+	LoadBalancerTargetPort pulumi.IntPtrInput `pulumi:"LoadBalancerTargetPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-missingcomponent
+	MissingComponent pulumi.StringPtrInput `pulumi:"MissingComponent"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-natgateway
+	NatGateway NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"NatGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-networkinterface
+	NetworkInterface NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"NetworkInterface"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-packetfield
+	PacketField pulumi.StringPtrInput `pulumi:"PacketField"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-port
+	Port pulumi.IntPtrInput `pulumi:"Port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-portranges
+	PortRanges NetworkInsightsAnalysisPortRangeArrayInput `pulumi:"PortRanges"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-prefixlist
+	PrefixList NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"PrefixList"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-protocols
+	Protocols pulumi.StringArrayInput `pulumi:"Protocols"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetable
+	RouteTable NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"RouteTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetableroute
+	RouteTableRoute NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput `pulumi:"RouteTableRoute"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroup
+	SecurityGroup NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"SecurityGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygrouprule
+	SecurityGroupRule NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput `pulumi:"SecurityGroupRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroups
+	SecurityGroups NetworkInsightsAnalysisAnalysisComponentArrayInput `pulumi:"SecurityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-sourcevpc
+	SourceVpc NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"SourceVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-state
+	State pulumi.StringPtrInput `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnet
+	Subnet NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Subnet"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnetroutetable
+	SubnetRouteTable NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"SubnetRouteTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpc
+	Vpc NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Vpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
+	VpcPeeringConnection NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"VpcPeeringConnection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
+	VpnConnection NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"VpnConnection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
+	VpnGateway NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"VpnGateway"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
+	VpcEndpoint NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"vpcEndpoint"`
+}
+
+func (NetworkInsightsAnalysisExplanationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisExplanation)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisExplanationArgs) ToNetworkInsightsAnalysisExplanationOutput() NetworkInsightsAnalysisExplanationOutput {
+	return i.ToNetworkInsightsAnalysisExplanationOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisExplanationArgs) ToNetworkInsightsAnalysisExplanationOutputWithContext(ctx context.Context) NetworkInsightsAnalysisExplanationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisExplanationOutput)
+}
+
+// NetworkInsightsAnalysisExplanationArrayInput is an input type that accepts NetworkInsightsAnalysisExplanationArray and NetworkInsightsAnalysisExplanationArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisExplanationArrayInput` via:
+//
+//          NetworkInsightsAnalysisExplanationArray{ NetworkInsightsAnalysisExplanationArgs{...} }
+type NetworkInsightsAnalysisExplanationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisExplanationArrayOutput() NetworkInsightsAnalysisExplanationArrayOutput
+	ToNetworkInsightsAnalysisExplanationArrayOutputWithContext(context.Context) NetworkInsightsAnalysisExplanationArrayOutput
+}
+
+type NetworkInsightsAnalysisExplanationArray []NetworkInsightsAnalysisExplanationInput
+
+func (NetworkInsightsAnalysisExplanationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisExplanation)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisExplanationArray) ToNetworkInsightsAnalysisExplanationArrayOutput() NetworkInsightsAnalysisExplanationArrayOutput {
+	return i.ToNetworkInsightsAnalysisExplanationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisExplanationArray) ToNetworkInsightsAnalysisExplanationArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisExplanationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisExplanationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html
+type NetworkInsightsAnalysisExplanationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisExplanationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisExplanation)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) ToNetworkInsightsAnalysisExplanationOutput() NetworkInsightsAnalysisExplanationOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) ToNetworkInsightsAnalysisExplanationOutputWithContext(ctx context.Context) NetworkInsightsAnalysisExplanationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-acl
+func (o NetworkInsightsAnalysisExplanationOutput) Acl() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent { return v.Acl }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-aclrule
+func (o NetworkInsightsAnalysisExplanationOutput) AclRule() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisAclRule { return v.AclRule }).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-address
+func (o NetworkInsightsAnalysisExplanationOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-addresses
+func (o NetworkInsightsAnalysisExplanationOutput) Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.Addresses }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-attachedto
+func (o NetworkInsightsAnalysisExplanationOutput) AttachedTo() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.AttachedTo
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-availabilityzones
+func (o NetworkInsightsAnalysisExplanationOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-cidrs
+func (o NetworkInsightsAnalysisExplanationOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-classicloadbalancerlistener
+func (o NetworkInsightsAnalysisExplanationOutput) ClassicLoadBalancerListener() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisLoadBalancerListener {
+		return v.ClassicLoadBalancerListener
+	}).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-component
+func (o NetworkInsightsAnalysisExplanationOutput) Component() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.Component
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-customergateway
+func (o NetworkInsightsAnalysisExplanationOutput) CustomerGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.CustomerGateway
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destination
+func (o NetworkInsightsAnalysisExplanationOutput) Destination() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.Destination
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destinationvpc
+func (o NetworkInsightsAnalysisExplanationOutput) DestinationVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.DestinationVpc
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-direction
+func (o NetworkInsightsAnalysisExplanationOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-elasticloadbalancerlistener
+func (o NetworkInsightsAnalysisExplanationOutput) ElasticLoadBalancerListener() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.ElasticLoadBalancerListener
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-explanationcode
+func (o NetworkInsightsAnalysisExplanationOutput) ExplanationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.ExplanationCode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-ingressroutetable
+func (o NetworkInsightsAnalysisExplanationOutput) IngressRouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.IngressRouteTable
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-internetgateway
+func (o NetworkInsightsAnalysisExplanationOutput) InternetGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.InternetGateway
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerarn
+func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerlistenerport
+func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerListenerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *int { return v.LoadBalancerListenerPort }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertarget
+func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTarget() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisLoadBalancerTarget {
+		return v.LoadBalancerTarget
+	}).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroup
+func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroup() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.LoadBalancerTargetGroup
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroups
+func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroups() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisAnalysisComponent {
+		return v.LoadBalancerTargetGroups
+	}).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetport
+func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *int { return v.LoadBalancerTargetPort }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-missingcomponent
+func (o NetworkInsightsAnalysisExplanationOutput) MissingComponent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.MissingComponent }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-natgateway
+func (o NetworkInsightsAnalysisExplanationOutput) NatGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.NatGateway
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-networkinterface
+func (o NetworkInsightsAnalysisExplanationOutput) NetworkInterface() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.NetworkInterface
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-packetfield
+func (o NetworkInsightsAnalysisExplanationOutput) PacketField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.PacketField }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-port
+func (o NetworkInsightsAnalysisExplanationOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-portranges
+func (o NetworkInsightsAnalysisExplanationOutput) PortRanges() NetworkInsightsAnalysisPortRangeArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisPortRange { return v.PortRanges }).(NetworkInsightsAnalysisPortRangeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-prefixlist
+func (o NetworkInsightsAnalysisExplanationOutput) PrefixList() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.PrefixList
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-protocols
+func (o NetworkInsightsAnalysisExplanationOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetable
+func (o NetworkInsightsAnalysisExplanationOutput) RouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.RouteTable
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetableroute
+func (o NetworkInsightsAnalysisExplanationOutput) RouteTableRoute() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisRouteTableRoute {
+		return v.RouteTableRoute
+	}).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroup
+func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroup() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.SecurityGroup
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygrouprule
+func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroupRule() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisSecurityGroupRule {
+		return v.SecurityGroupRule
+	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroups
+func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroups() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisAnalysisComponent {
+		return v.SecurityGroups
+	}).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-sourcevpc
+func (o NetworkInsightsAnalysisExplanationOutput) SourceVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.SourceVpc
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-state
+func (o NetworkInsightsAnalysisExplanationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnet
+func (o NetworkInsightsAnalysisExplanationOutput) Subnet() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent { return v.Subnet }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnetroutetable
+func (o NetworkInsightsAnalysisExplanationOutput) SubnetRouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.SubnetRouteTable
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpc
+func (o NetworkInsightsAnalysisExplanationOutput) Vpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent { return v.Vpc }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
+func (o NetworkInsightsAnalysisExplanationOutput) VpcPeeringConnection() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.VpcPeeringConnection
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
+func (o NetworkInsightsAnalysisExplanationOutput) VpnConnection() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.VpnConnection
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
+func (o NetworkInsightsAnalysisExplanationOutput) VpnGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.VpnGateway
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
+func (o NetworkInsightsAnalysisExplanationOutput) VpcEndpoint() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.VpcEndpoint
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+type NetworkInsightsAnalysisExplanationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisExplanationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisExplanation)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisExplanationArrayOutput) ToNetworkInsightsAnalysisExplanationArrayOutput() NetworkInsightsAnalysisExplanationArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisExplanationArrayOutput) ToNetworkInsightsAnalysisExplanationArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisExplanationArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisExplanationArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAnalysisExplanationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAnalysisExplanation {
+		return vs[0].([]NetworkInsightsAnalysisExplanation)[vs[1].(int)]
+	}).(NetworkInsightsAnalysisExplanationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html
+type NetworkInsightsAnalysisPathComponent struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-aclrule
+	AclRule *NetworkInsightsAnalysisAnalysisAclRule `pulumi:"AclRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-component
+	Component *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Component"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-destinationvpc
+	DestinationVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"DestinationVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-inboundheader
+	InboundHeader *NetworkInsightsAnalysisAnalysisPacketHeader `pulumi:"InboundHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-outboundheader
+	OutboundHeader *NetworkInsightsAnalysisAnalysisPacketHeader `pulumi:"OutboundHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-routetableroute
+	RouteTableRoute *NetworkInsightsAnalysisAnalysisRouteTableRoute `pulumi:"RouteTableRoute"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-securitygrouprule
+	SecurityGroupRule *NetworkInsightsAnalysisAnalysisSecurityGroupRule `pulumi:"SecurityGroupRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sequencenumber
+	SequenceNumber *int `pulumi:"SequenceNumber"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sourcevpc
+	SourceVpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"SourceVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet
+	Subnet *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Subnet"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc
+	Vpc *NetworkInsightsAnalysisAnalysisComponent `pulumi:"Vpc"`
+}
+
+// NetworkInsightsAnalysisPathComponentInput is an input type that accepts NetworkInsightsAnalysisPathComponentArgs and NetworkInsightsAnalysisPathComponentOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisPathComponentInput` via:
+//
+//          NetworkInsightsAnalysisPathComponentArgs{...}
+type NetworkInsightsAnalysisPathComponentInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisPathComponentOutput() NetworkInsightsAnalysisPathComponentOutput
+	ToNetworkInsightsAnalysisPathComponentOutputWithContext(context.Context) NetworkInsightsAnalysisPathComponentOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html
+type NetworkInsightsAnalysisPathComponentArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-aclrule
+	AclRule NetworkInsightsAnalysisAnalysisAclRulePtrInput `pulumi:"AclRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-component
+	Component NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Component"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-destinationvpc
+	DestinationVpc NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"DestinationVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-inboundheader
+	InboundHeader NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput `pulumi:"InboundHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-outboundheader
+	OutboundHeader NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput `pulumi:"OutboundHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-routetableroute
+	RouteTableRoute NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput `pulumi:"RouteTableRoute"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-securitygrouprule
+	SecurityGroupRule NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput `pulumi:"SecurityGroupRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sequencenumber
+	SequenceNumber pulumi.IntPtrInput `pulumi:"SequenceNumber"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sourcevpc
+	SourceVpc NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"SourceVpc"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet
+	Subnet NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Subnet"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc
+	Vpc NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"Vpc"`
+}
+
+func (NetworkInsightsAnalysisPathComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisPathComponent)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisPathComponentArgs) ToNetworkInsightsAnalysisPathComponentOutput() NetworkInsightsAnalysisPathComponentOutput {
+	return i.ToNetworkInsightsAnalysisPathComponentOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisPathComponentArgs) ToNetworkInsightsAnalysisPathComponentOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPathComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPathComponentOutput)
+}
+
+// NetworkInsightsAnalysisPathComponentArrayInput is an input type that accepts NetworkInsightsAnalysisPathComponentArray and NetworkInsightsAnalysisPathComponentArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisPathComponentArrayInput` via:
+//
+//          NetworkInsightsAnalysisPathComponentArray{ NetworkInsightsAnalysisPathComponentArgs{...} }
+type NetworkInsightsAnalysisPathComponentArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisPathComponentArrayOutput() NetworkInsightsAnalysisPathComponentArrayOutput
+	ToNetworkInsightsAnalysisPathComponentArrayOutputWithContext(context.Context) NetworkInsightsAnalysisPathComponentArrayOutput
+}
+
+type NetworkInsightsAnalysisPathComponentArray []NetworkInsightsAnalysisPathComponentInput
+
+func (NetworkInsightsAnalysisPathComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisPathComponent)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisPathComponentArray) ToNetworkInsightsAnalysisPathComponentArrayOutput() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return i.ToNetworkInsightsAnalysisPathComponentArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisPathComponentArray) ToNetworkInsightsAnalysisPathComponentArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPathComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPathComponentArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html
+type NetworkInsightsAnalysisPathComponentOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisPathComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisPathComponent)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) ToNetworkInsightsAnalysisPathComponentOutput() NetworkInsightsAnalysisPathComponentOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) ToNetworkInsightsAnalysisPathComponentOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPathComponentOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-aclrule
+func (o NetworkInsightsAnalysisPathComponentOutput) AclRule() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisAclRule { return v.AclRule }).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-component
+func (o NetworkInsightsAnalysisPathComponentOutput) Component() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.Component
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-destinationvpc
+func (o NetworkInsightsAnalysisPathComponentOutput) DestinationVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.DestinationVpc
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-inboundheader
+func (o NetworkInsightsAnalysisPathComponentOutput) InboundHeader() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisPacketHeader {
+		return v.InboundHeader
+	}).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-outboundheader
+func (o NetworkInsightsAnalysisPathComponentOutput) OutboundHeader() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisPacketHeader {
+		return v.OutboundHeader
+	}).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-routetableroute
+func (o NetworkInsightsAnalysisPathComponentOutput) RouteTableRoute() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisRouteTableRoute {
+		return v.RouteTableRoute
+	}).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-securitygrouprule
+func (o NetworkInsightsAnalysisPathComponentOutput) SecurityGroupRule() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisSecurityGroupRule {
+		return v.SecurityGroupRule
+	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sequencenumber
+func (o NetworkInsightsAnalysisPathComponentOutput) SequenceNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *int { return v.SequenceNumber }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sourcevpc
+func (o NetworkInsightsAnalysisPathComponentOutput) SourceVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.SourceVpc
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet
+func (o NetworkInsightsAnalysisPathComponentOutput) Subnet() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.Subnet
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc
+func (o NetworkInsightsAnalysisPathComponentOutput) Vpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent { return v.Vpc }).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+type NetworkInsightsAnalysisPathComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisPathComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisPathComponent)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisPathComponentArrayOutput) ToNetworkInsightsAnalysisPathComponentArrayOutput() NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPathComponentArrayOutput) ToNetworkInsightsAnalysisPathComponentArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPathComponentArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPathComponentArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAnalysisPathComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAnalysisPathComponent {
+		return vs[0].([]NetworkInsightsAnalysisPathComponent)[vs[1].(int)]
+	}).(NetworkInsightsAnalysisPathComponentOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html
+type NetworkInsightsAnalysisPortRange struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-from
+	From *int `pulumi:"From"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
+	To *int `pulumi:"To"`
+}
+
+// NetworkInsightsAnalysisPortRangeInput is an input type that accepts NetworkInsightsAnalysisPortRangeArgs and NetworkInsightsAnalysisPortRangeOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisPortRangeInput` via:
+//
+//          NetworkInsightsAnalysisPortRangeArgs{...}
+type NetworkInsightsAnalysisPortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisPortRangeOutput() NetworkInsightsAnalysisPortRangeOutput
+	ToNetworkInsightsAnalysisPortRangeOutputWithContext(context.Context) NetworkInsightsAnalysisPortRangeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html
+type NetworkInsightsAnalysisPortRangeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-from
+	From pulumi.IntPtrInput `pulumi:"From"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
+	To pulumi.IntPtrInput `pulumi:"To"`
+}
+
+func (NetworkInsightsAnalysisPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisPortRange)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangeOutput() NetworkInsightsAnalysisPortRangeOutput {
+	return i.ToNetworkInsightsAnalysisPortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangeOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangeOutput)
+}
+
+func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput {
+	return i.ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangeOutput).ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisPortRangePtrInput is an input type that accepts NetworkInsightsAnalysisPortRangeArgs, NetworkInsightsAnalysisPortRangePtr and NetworkInsightsAnalysisPortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisPortRangePtrInput` via:
+//
+//          NetworkInsightsAnalysisPortRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisPortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput
+	ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Context) NetworkInsightsAnalysisPortRangePtrOutput
+}
+
+type networkInsightsAnalysisPortRangePtrType NetworkInsightsAnalysisPortRangeArgs
+
+func NetworkInsightsAnalysisPortRangePtr(v *NetworkInsightsAnalysisPortRangeArgs) NetworkInsightsAnalysisPortRangePtrInput {
+	return (*networkInsightsAnalysisPortRangePtrType)(v)
+}
+
+func (*networkInsightsAnalysisPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisPortRange)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisPortRangePtrType) ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput {
+	return i.ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisPortRangePtrType) ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+// NetworkInsightsAnalysisPortRangeArrayInput is an input type that accepts NetworkInsightsAnalysisPortRangeArray and NetworkInsightsAnalysisPortRangeArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisPortRangeArrayInput` via:
+//
+//          NetworkInsightsAnalysisPortRangeArray{ NetworkInsightsAnalysisPortRangeArgs{...} }
+type NetworkInsightsAnalysisPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisPortRangeArrayOutput() NetworkInsightsAnalysisPortRangeArrayOutput
+	ToNetworkInsightsAnalysisPortRangeArrayOutputWithContext(context.Context) NetworkInsightsAnalysisPortRangeArrayOutput
+}
+
+type NetworkInsightsAnalysisPortRangeArray []NetworkInsightsAnalysisPortRangeInput
+
+func (NetworkInsightsAnalysisPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisPortRange)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisPortRangeArray) ToNetworkInsightsAnalysisPortRangeArrayOutput() NetworkInsightsAnalysisPortRangeArrayOutput {
+	return i.ToNetworkInsightsAnalysisPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisPortRangeArray) ToNetworkInsightsAnalysisPortRangeArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html
+type NetworkInsightsAnalysisPortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRangeOutput() NetworkInsightsAnalysisPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRangeOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPortRange) *NetworkInsightsAnalysisPortRange {
+		return &v
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-from
+func (o NetworkInsightsAnalysisPortRangeOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPortRange) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
+func (o NetworkInsightsAnalysisPortRangeOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPortRange) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsAnalysisPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisPortRangePtrOutput) ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPortRangePtrOutput) ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPortRangePtrOutput) Elem() NetworkInsightsAnalysisPortRangeOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisPortRange) NetworkInsightsAnalysisPortRange { return *v }).(NetworkInsightsAnalysisPortRangeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-from
+func (o NetworkInsightsAnalysisPortRangePtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
+func (o NetworkInsightsAnalysisPortRangePtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsAnalysisPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisPortRangeArrayOutput) ToNetworkInsightsAnalysisPortRangeArrayOutput() NetworkInsightsAnalysisPortRangeArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPortRangeArrayOutput) ToNetworkInsightsAnalysisPortRangeArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangeArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPortRangeArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAnalysisPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAnalysisPortRange {
+		return vs[0].([]NetworkInsightsAnalysisPortRange)[vs[1].(int)]
+	}).(NetworkInsightsAnalysisPortRangeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
+type NetworkInsightsAnalysisProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
+	FilterInArns []string `pulumi:"FilterInArns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
+	NetworkInsightsPathId string `pulumi:"NetworkInsightsPathId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
+	StatusMessage *string `pulumi:"StatusMessage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// NetworkInsightsAnalysisPropertiesInput is an input type that accepts NetworkInsightsAnalysisPropertiesArgs and NetworkInsightsAnalysisPropertiesOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisPropertiesInput` via:
+//
+//          NetworkInsightsAnalysisPropertiesArgs{...}
+type NetworkInsightsAnalysisPropertiesInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisPropertiesOutput() NetworkInsightsAnalysisPropertiesOutput
+	ToNetworkInsightsAnalysisPropertiesOutputWithContext(context.Context) NetworkInsightsAnalysisPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
+type NetworkInsightsAnalysisPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
+	FilterInArns pulumi.StringArrayInput `pulumi:"FilterInArns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
+	NetworkInsightsPathId pulumi.StringInput `pulumi:"NetworkInsightsPathId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
+	StatusMessage pulumi.StringPtrInput `pulumi:"StatusMessage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (NetworkInsightsAnalysisPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisProperties)(nil)).Elem()
+}
+
+func (i NetworkInsightsAnalysisPropertiesArgs) ToNetworkInsightsAnalysisPropertiesOutput() NetworkInsightsAnalysisPropertiesOutput {
+	return i.ToNetworkInsightsAnalysisPropertiesOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisPropertiesArgs) ToNetworkInsightsAnalysisPropertiesOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPropertiesOutput)
+}
+
+func (i NetworkInsightsAnalysisPropertiesArgs) ToNetworkInsightsAnalysisPropertiesPtrOutput() NetworkInsightsAnalysisPropertiesPtrOutput {
+	return i.ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAnalysisPropertiesArgs) ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPropertiesOutput).ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAnalysisPropertiesPtrInput is an input type that accepts NetworkInsightsAnalysisPropertiesArgs, NetworkInsightsAnalysisPropertiesPtr and NetworkInsightsAnalysisPropertiesPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAnalysisPropertiesPtrInput` via:
+//
+//          NetworkInsightsAnalysisPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAnalysisPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAnalysisPropertiesPtrOutput() NetworkInsightsAnalysisPropertiesPtrOutput
+	ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(context.Context) NetworkInsightsAnalysisPropertiesPtrOutput
+}
+
+type networkInsightsAnalysisPropertiesPtrType NetworkInsightsAnalysisPropertiesArgs
+
+func NetworkInsightsAnalysisPropertiesPtr(v *NetworkInsightsAnalysisPropertiesArgs) NetworkInsightsAnalysisPropertiesPtrInput {
+	return (*networkInsightsAnalysisPropertiesPtrType)(v)
+}
+
+func (*networkInsightsAnalysisPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisProperties)(nil)).Elem()
+}
+
+func (i *networkInsightsAnalysisPropertiesPtrType) ToNetworkInsightsAnalysisPropertiesPtrOutput() NetworkInsightsAnalysisPropertiesPtrOutput {
+	return i.ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAnalysisPropertiesPtrType) ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
+type NetworkInsightsAnalysisPropertiesOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisProperties)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisPropertiesOutput) ToNetworkInsightsAnalysisPropertiesOutput() NetworkInsightsAnalysisPropertiesOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPropertiesOutput) ToNetworkInsightsAnalysisPropertiesOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPropertiesOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPropertiesOutput) ToNetworkInsightsAnalysisPropertiesPtrOutput() NetworkInsightsAnalysisPropertiesPtrOutput {
+	return o.ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAnalysisPropertiesOutput) ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPropertiesPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisProperties) *NetworkInsightsAnalysisProperties {
+		return &v
+	}).(NetworkInsightsAnalysisPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
+func (o NetworkInsightsAnalysisPropertiesOutput) FilterInArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisProperties) []string { return v.FilterInArns }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
+func (o NetworkInsightsAnalysisPropertiesOutput) NetworkInsightsPathId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisProperties) string { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
+func (o NetworkInsightsAnalysisPropertiesOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisProperties) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
+func (o NetworkInsightsAnalysisPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type NetworkInsightsAnalysisPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisProperties)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisPropertiesPtrOutput) ToNetworkInsightsAnalysisPropertiesPtrOutput() NetworkInsightsAnalysisPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPropertiesPtrOutput) ToNetworkInsightsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisPropertiesPtrOutput) Elem() NetworkInsightsAnalysisPropertiesOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisProperties) NetworkInsightsAnalysisProperties { return *v }).(NetworkInsightsAnalysisPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
+func (o NetworkInsightsAnalysisPropertiesPtrOutput) FilterInArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterInArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
+func (o NetworkInsightsAnalysisPropertiesPtrOutput) NetworkInsightsPathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkInsightsPathId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
+func (o NetworkInsightsAnalysisPropertiesPtrOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
+func (o NetworkInsightsAnalysisPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+type NetworkInsightsPathAttributes struct {
+	CreatedDate            string `pulumi:"CreatedDate"`
+	NetworkInsightsPathArn string `pulumi:"NetworkInsightsPathArn"`
+	NetworkInsightsPathId  string `pulumi:"NetworkInsightsPathId"`
+}
+
+// NetworkInsightsPathAttributesInput is an input type that accepts NetworkInsightsPathAttributesArgs and NetworkInsightsPathAttributesOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathAttributesInput` via:
+//
+//          NetworkInsightsPathAttributesArgs{...}
+type NetworkInsightsPathAttributesInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathAttributesOutput() NetworkInsightsPathAttributesOutput
+	ToNetworkInsightsPathAttributesOutputWithContext(context.Context) NetworkInsightsPathAttributesOutput
+}
+
+type NetworkInsightsPathAttributesArgs struct {
+	CreatedDate            pulumi.StringInput `pulumi:"CreatedDate"`
+	NetworkInsightsPathArn pulumi.StringInput `pulumi:"NetworkInsightsPathArn"`
+	NetworkInsightsPathId  pulumi.StringInput `pulumi:"NetworkInsightsPathId"`
+}
+
+func (NetworkInsightsPathAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathAttributes)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathAttributesArgs) ToNetworkInsightsPathAttributesOutput() NetworkInsightsPathAttributesOutput {
+	return i.ToNetworkInsightsPathAttributesOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathAttributesArgs) ToNetworkInsightsPathAttributesOutputWithContext(ctx context.Context) NetworkInsightsPathAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathAttributesOutput)
+}
+
+func (i NetworkInsightsPathAttributesArgs) ToNetworkInsightsPathAttributesPtrOutput() NetworkInsightsPathAttributesPtrOutput {
+	return i.ToNetworkInsightsPathAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathAttributesArgs) ToNetworkInsightsPathAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathAttributesOutput).ToNetworkInsightsPathAttributesPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathAttributesPtrInput is an input type that accepts NetworkInsightsPathAttributesArgs, NetworkInsightsPathAttributesPtr and NetworkInsightsPathAttributesPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathAttributesPtrInput` via:
+//
+//          NetworkInsightsPathAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsPathAttributesPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathAttributesPtrOutput() NetworkInsightsPathAttributesPtrOutput
+	ToNetworkInsightsPathAttributesPtrOutputWithContext(context.Context) NetworkInsightsPathAttributesPtrOutput
+}
+
+type networkInsightsPathAttributesPtrType NetworkInsightsPathAttributesArgs
+
+func NetworkInsightsPathAttributesPtr(v *NetworkInsightsPathAttributesArgs) NetworkInsightsPathAttributesPtrInput {
+	return (*networkInsightsPathAttributesPtrType)(v)
+}
+
+func (*networkInsightsPathAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathAttributes)(nil)).Elem()
+}
+
+func (i *networkInsightsPathAttributesPtrType) ToNetworkInsightsPathAttributesPtrOutput() NetworkInsightsPathAttributesPtrOutput {
+	return i.ToNetworkInsightsPathAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathAttributesPtrType) ToNetworkInsightsPathAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathAttributesPtrOutput)
+}
+
+type NetworkInsightsPathAttributesOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathAttributes)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathAttributesOutput) ToNetworkInsightsPathAttributesOutput() NetworkInsightsPathAttributesOutput {
+	return o
+}
+
+func (o NetworkInsightsPathAttributesOutput) ToNetworkInsightsPathAttributesOutputWithContext(ctx context.Context) NetworkInsightsPathAttributesOutput {
+	return o
+}
+
+func (o NetworkInsightsPathAttributesOutput) ToNetworkInsightsPathAttributesPtrOutput() NetworkInsightsPathAttributesPtrOutput {
+	return o.ToNetworkInsightsPathAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathAttributesOutput) ToNetworkInsightsPathAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathAttributesPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathAttributes) *NetworkInsightsPathAttributes {
+		return &v
+	}).(NetworkInsightsPathAttributesPtrOutput)
+}
+func (o NetworkInsightsPathAttributesOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsPathAttributes) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathAttributesOutput) NetworkInsightsPathArn() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsPathAttributes) string { return v.NetworkInsightsPathArn }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathAttributesOutput) NetworkInsightsPathId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsPathAttributes) string { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
+}
+
+type NetworkInsightsPathAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathAttributes)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathAttributesPtrOutput) ToNetworkInsightsPathAttributesPtrOutput() NetworkInsightsPathAttributesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathAttributesPtrOutput) ToNetworkInsightsPathAttributesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathAttributesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathAttributesPtrOutput) Elem() NetworkInsightsPathAttributesOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathAttributes) NetworkInsightsPathAttributes { return *v }).(NetworkInsightsPathAttributesOutput)
+}
+
+func (o NetworkInsightsPathAttributesPtrOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathAttributesPtrOutput) NetworkInsightsPathArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkInsightsPathArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathAttributesPtrOutput) NetworkInsightsPathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkInsightsPathId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+type NetworkInsightsPathProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
+	Destination string `pulumi:"Destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
+	DestinationIp *string `pulumi:"DestinationIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
+	DestinationPort *int `pulumi:"DestinationPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
+	Protocol string `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
+	Source string `pulumi:"Source"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
+	SourceIp *string `pulumi:"SourceIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// NetworkInsightsPathPropertiesInput is an input type that accepts NetworkInsightsPathPropertiesArgs and NetworkInsightsPathPropertiesOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathPropertiesInput` via:
+//
+//          NetworkInsightsPathPropertiesArgs{...}
+type NetworkInsightsPathPropertiesInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathPropertiesOutput() NetworkInsightsPathPropertiesOutput
+	ToNetworkInsightsPathPropertiesOutputWithContext(context.Context) NetworkInsightsPathPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+type NetworkInsightsPathPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
+	Destination pulumi.StringInput `pulumi:"Destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
+	DestinationIp pulumi.StringPtrInput `pulumi:"DestinationIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
+	DestinationPort pulumi.IntPtrInput `pulumi:"DestinationPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
+	Protocol pulumi.StringInput `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
+	Source pulumi.StringInput `pulumi:"Source"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
+	SourceIp pulumi.StringPtrInput `pulumi:"SourceIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (NetworkInsightsPathPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathProperties)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathPropertiesArgs) ToNetworkInsightsPathPropertiesOutput() NetworkInsightsPathPropertiesOutput {
+	return i.ToNetworkInsightsPathPropertiesOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathPropertiesArgs) ToNetworkInsightsPathPropertiesOutputWithContext(ctx context.Context) NetworkInsightsPathPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathPropertiesOutput)
+}
+
+func (i NetworkInsightsPathPropertiesArgs) ToNetworkInsightsPathPropertiesPtrOutput() NetworkInsightsPathPropertiesPtrOutput {
+	return i.ToNetworkInsightsPathPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathPropertiesArgs) ToNetworkInsightsPathPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathPropertiesOutput).ToNetworkInsightsPathPropertiesPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathPropertiesPtrInput is an input type that accepts NetworkInsightsPathPropertiesArgs, NetworkInsightsPathPropertiesPtr and NetworkInsightsPathPropertiesPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathPropertiesPtrInput` via:
+//
+//          NetworkInsightsPathPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsPathPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathPropertiesPtrOutput() NetworkInsightsPathPropertiesPtrOutput
+	ToNetworkInsightsPathPropertiesPtrOutputWithContext(context.Context) NetworkInsightsPathPropertiesPtrOutput
+}
+
+type networkInsightsPathPropertiesPtrType NetworkInsightsPathPropertiesArgs
+
+func NetworkInsightsPathPropertiesPtr(v *NetworkInsightsPathPropertiesArgs) NetworkInsightsPathPropertiesPtrInput {
+	return (*networkInsightsPathPropertiesPtrType)(v)
+}
+
+func (*networkInsightsPathPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathProperties)(nil)).Elem()
+}
+
+func (i *networkInsightsPathPropertiesPtrType) ToNetworkInsightsPathPropertiesPtrOutput() NetworkInsightsPathPropertiesPtrOutput {
+	return i.ToNetworkInsightsPathPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathPropertiesPtrType) ToNetworkInsightsPathPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+type NetworkInsightsPathPropertiesOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathProperties)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathPropertiesOutput) ToNetworkInsightsPathPropertiesOutput() NetworkInsightsPathPropertiesOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPropertiesOutput) ToNetworkInsightsPathPropertiesOutputWithContext(ctx context.Context) NetworkInsightsPathPropertiesOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPropertiesOutput) ToNetworkInsightsPathPropertiesPtrOutput() NetworkInsightsPathPropertiesPtrOutput {
+	return o.ToNetworkInsightsPathPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathPropertiesOutput) ToNetworkInsightsPathPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPropertiesPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) *NetworkInsightsPathProperties {
+		return &v
+	}).(NetworkInsightsPathPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
+func (o NetworkInsightsPathPropertiesOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
+func (o NetworkInsightsPathPropertiesOutput) DestinationIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) *string { return v.DestinationIp }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
+func (o NetworkInsightsPathPropertiesOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) *int { return v.DestinationPort }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
+func (o NetworkInsightsPathPropertiesOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
+func (o NetworkInsightsPathPropertiesOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
+func (o NetworkInsightsPathPropertiesOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) *string { return v.SourceIp }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
+func (o NetworkInsightsPathPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsPathProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type NetworkInsightsPathPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathProperties)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathPropertiesPtrOutput) ToNetworkInsightsPathPropertiesPtrOutput() NetworkInsightsPathPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPropertiesPtrOutput) ToNetworkInsightsPathPropertiesPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPropertiesPtrOutput) Elem() NetworkInsightsPathPropertiesOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) NetworkInsightsPathProperties { return *v }).(NetworkInsightsPathPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
+func (o NetworkInsightsPathPropertiesPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
+func (o NetworkInsightsPathPropertiesPtrOutput) DestinationIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
+func (o NetworkInsightsPathPropertiesPtrOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
+func (o NetworkInsightsPathPropertiesPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
+func (o NetworkInsightsPathPropertiesPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
+func (o NetworkInsightsPathPropertiesPtrOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
+func (o NetworkInsightsPathPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 type NetworkInterfaceAttachmentAttributes struct {
 }
 
@@ -17183,45 +21679,29 @@ func (i NetworkInterfaceInstanceIpv6AddressArgs) ToNetworkInterfaceInstanceIpv6A
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressOutput)
 }
 
-func (i NetworkInterfaceInstanceIpv6AddressArgs) ToNetworkInterfaceInstanceIpv6AddressPtrOutput() NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return i.ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceInstanceIpv6AddressArgs) ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressOutput).ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(ctx)
-}
-
-// NetworkInterfaceInstanceIpv6AddressPtrInput is an input type that accepts NetworkInterfaceInstanceIpv6AddressArgs, NetworkInterfaceInstanceIpv6AddressPtr and NetworkInterfaceInstanceIpv6AddressPtrOutput values.
-// You can construct a concrete instance of `NetworkInterfaceInstanceIpv6AddressPtrInput` via:
+// NetworkInterfaceInstanceIpv6AddressArrayInput is an input type that accepts NetworkInterfaceInstanceIpv6AddressArray and NetworkInterfaceInstanceIpv6AddressArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInstanceIpv6AddressArrayInput` via:
 //
-//          NetworkInterfaceInstanceIpv6AddressArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInterfaceInstanceIpv6AddressPtrInput interface {
+//          NetworkInterfaceInstanceIpv6AddressArray{ NetworkInterfaceInstanceIpv6AddressArgs{...} }
+type NetworkInterfaceInstanceIpv6AddressArrayInput interface {
 	pulumi.Input
 
-	ToNetworkInterfaceInstanceIpv6AddressPtrOutput() NetworkInterfaceInstanceIpv6AddressPtrOutput
-	ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(context.Context) NetworkInterfaceInstanceIpv6AddressPtrOutput
+	ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput
+	ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput
 }
 
-type networkInterfaceInstanceIpv6AddressPtrType NetworkInterfaceInstanceIpv6AddressArgs
+type NetworkInterfaceInstanceIpv6AddressArray []NetworkInterfaceInstanceIpv6AddressInput
 
-func NetworkInterfaceInstanceIpv6AddressPtr(v *NetworkInterfaceInstanceIpv6AddressArgs) NetworkInterfaceInstanceIpv6AddressPtrInput {
-	return (*networkInterfaceInstanceIpv6AddressPtrType)(v)
+func (NetworkInterfaceInstanceIpv6AddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
 }
 
-func (*networkInterfaceInstanceIpv6AddressPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+func (i NetworkInterfaceInstanceIpv6AddressArray) ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return i.ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(context.Background())
 }
 
-func (i *networkInterfaceInstanceIpv6AddressPtrType) ToNetworkInterfaceInstanceIpv6AddressPtrOutput() NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return i.ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(context.Background())
-}
-
-func (i *networkInterfaceInstanceIpv6AddressPtrType) ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressPtrOutput)
+func (i NetworkInterfaceInstanceIpv6AddressArray) ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html
@@ -17239,47 +21719,29 @@ func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv
 	return o
 }
 
-func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv6AddressPtrOutput() NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return o.ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceInstanceIpv6Address) *NetworkInterfaceInstanceIpv6Address {
-		return &v
-	}).(NetworkInterfaceInstanceIpv6AddressPtrOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html#cfn-ec2-networkinterface-instanceipv6address-ipv6address
 func (o NetworkInterfaceInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
 }
 
-type NetworkInterfaceInstanceIpv6AddressPtrOutput struct{ *pulumi.OutputState }
+type NetworkInterfaceInstanceIpv6AddressArrayOutput struct{ *pulumi.OutputState }
 
-func (NetworkInterfaceInstanceIpv6AddressPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+func (NetworkInterfaceInstanceIpv6AddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
 }
 
-func (o NetworkInterfaceInstanceIpv6AddressPtrOutput) ToNetworkInterfaceInstanceIpv6AddressPtrOutput() NetworkInterfaceInstanceIpv6AddressPtrOutput {
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput {
 	return o
 }
 
-func (o NetworkInterfaceInstanceIpv6AddressPtrOutput) ToNetworkInterfaceInstanceIpv6AddressPtrOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressPtrOutput {
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput {
 	return o
 }
 
-func (o NetworkInterfaceInstanceIpv6AddressPtrOutput) Elem() NetworkInterfaceInstanceIpv6AddressOutput {
-	return o.ApplyT(func(v *NetworkInterfaceInstanceIpv6Address) NetworkInterfaceInstanceIpv6Address { return *v }).(NetworkInterfaceInstanceIpv6AddressOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html#cfn-ec2-networkinterface-instanceipv6address-ipv6address
-func (o NetworkInterfaceInstanceIpv6AddressPtrOutput) Ipv6Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkInterfaceInstanceIpv6Address) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Ipv6Address
-	}).(pulumi.StringPtrOutput)
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceInstanceIpv6AddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceInstanceIpv6Address {
+		return vs[0].([]NetworkInterfaceInstanceIpv6Address)[vs[1].(int)]
+	}).(NetworkInterfaceInstanceIpv6AddressOutput)
 }
 
 type NetworkInterfacePermissionAttributes struct {
@@ -17686,7 +22148,7 @@ type NetworkInterfaceProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresscount
 	Ipv6AddressCount *int `pulumi:"Ipv6AddressCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
-	Ipv6Addresses *NetworkInterfaceInstanceIpv6Address `pulumi:"Ipv6Addresses"`
+	Ipv6Addresses []NetworkInterfaceInstanceIpv6Address `pulumi:"Ipv6Addresses"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
 	PrivateIpAddress *string `pulumi:"PrivateIpAddress"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddresses
@@ -17723,7 +22185,7 @@ type NetworkInterfacePropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresscount
 	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"Ipv6AddressCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
-	Ipv6Addresses NetworkInterfaceInstanceIpv6AddressPtrInput `pulumi:"Ipv6Addresses"`
+	Ipv6Addresses NetworkInterfaceInstanceIpv6AddressArrayInput `pulumi:"Ipv6Addresses"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"PrivateIpAddress"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddresses
@@ -17837,8 +22299,8 @@ func (o NetworkInterfacePropertiesOutput) Ipv6AddressCount() pulumi.IntPtrOutput
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
-func (o NetworkInterfacePropertiesOutput) Ipv6Addresses() NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceProperties) *NetworkInterfaceInstanceIpv6Address { return v.Ipv6Addresses }).(NetworkInterfaceInstanceIpv6AddressPtrOutput)
+func (o NetworkInterfacePropertiesOutput) Ipv6Addresses() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return o.ApplyT(func(v NetworkInterfaceProperties) []NetworkInterfaceInstanceIpv6Address { return v.Ipv6Addresses }).(NetworkInterfaceInstanceIpv6AddressArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
@@ -17932,13 +22394,13 @@ func (o NetworkInterfacePropertiesPtrOutput) Ipv6AddressCount() pulumi.IntPtrOut
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
-func (o NetworkInterfacePropertiesPtrOutput) Ipv6Addresses() NetworkInterfaceInstanceIpv6AddressPtrOutput {
-	return o.ApplyT(func(v *NetworkInterfaceProperties) *NetworkInterfaceInstanceIpv6Address {
+func (o NetworkInterfacePropertiesPtrOutput) Ipv6Addresses() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return o.ApplyT(func(v *NetworkInterfaceProperties) []NetworkInterfaceInstanceIpv6Address {
 		if v == nil {
 			return nil
 		}
 		return v.Ipv6Addresses
-	}).(NetworkInterfaceInstanceIpv6AddressPtrOutput)
+	}).(NetworkInterfaceInstanceIpv6AddressArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
@@ -18247,6 +22709,496 @@ func (o PlacementGroupPropertiesPtrOutput) Strategy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrefixListAttributes struct {
+	Arn          string `pulumi:"Arn"`
+	OwnerId      string `pulumi:"OwnerId"`
+	PrefixListId string `pulumi:"PrefixListId"`
+	Version      int    `pulumi:"Version"`
+}
+
+// PrefixListAttributesInput is an input type that accepts PrefixListAttributesArgs and PrefixListAttributesOutput values.
+// You can construct a concrete instance of `PrefixListAttributesInput` via:
+//
+//          PrefixListAttributesArgs{...}
+type PrefixListAttributesInput interface {
+	pulumi.Input
+
+	ToPrefixListAttributesOutput() PrefixListAttributesOutput
+	ToPrefixListAttributesOutputWithContext(context.Context) PrefixListAttributesOutput
+}
+
+type PrefixListAttributesArgs struct {
+	Arn          pulumi.StringInput `pulumi:"Arn"`
+	OwnerId      pulumi.StringInput `pulumi:"OwnerId"`
+	PrefixListId pulumi.StringInput `pulumi:"PrefixListId"`
+	Version      pulumi.IntInput    `pulumi:"Version"`
+}
+
+func (PrefixListAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListAttributes)(nil)).Elem()
+}
+
+func (i PrefixListAttributesArgs) ToPrefixListAttributesOutput() PrefixListAttributesOutput {
+	return i.ToPrefixListAttributesOutputWithContext(context.Background())
+}
+
+func (i PrefixListAttributesArgs) ToPrefixListAttributesOutputWithContext(ctx context.Context) PrefixListAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListAttributesOutput)
+}
+
+func (i PrefixListAttributesArgs) ToPrefixListAttributesPtrOutput() PrefixListAttributesPtrOutput {
+	return i.ToPrefixListAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i PrefixListAttributesArgs) ToPrefixListAttributesPtrOutputWithContext(ctx context.Context) PrefixListAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListAttributesOutput).ToPrefixListAttributesPtrOutputWithContext(ctx)
+}
+
+// PrefixListAttributesPtrInput is an input type that accepts PrefixListAttributesArgs, PrefixListAttributesPtr and PrefixListAttributesPtrOutput values.
+// You can construct a concrete instance of `PrefixListAttributesPtrInput` via:
+//
+//          PrefixListAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type PrefixListAttributesPtrInput interface {
+	pulumi.Input
+
+	ToPrefixListAttributesPtrOutput() PrefixListAttributesPtrOutput
+	ToPrefixListAttributesPtrOutputWithContext(context.Context) PrefixListAttributesPtrOutput
+}
+
+type prefixListAttributesPtrType PrefixListAttributesArgs
+
+func PrefixListAttributesPtr(v *PrefixListAttributesArgs) PrefixListAttributesPtrInput {
+	return (*prefixListAttributesPtrType)(v)
+}
+
+func (*prefixListAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefixListAttributes)(nil)).Elem()
+}
+
+func (i *prefixListAttributesPtrType) ToPrefixListAttributesPtrOutput() PrefixListAttributesPtrOutput {
+	return i.ToPrefixListAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *prefixListAttributesPtrType) ToPrefixListAttributesPtrOutputWithContext(ctx context.Context) PrefixListAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListAttributesPtrOutput)
+}
+
+type PrefixListAttributesOutput struct{ *pulumi.OutputState }
+
+func (PrefixListAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListAttributes)(nil)).Elem()
+}
+
+func (o PrefixListAttributesOutput) ToPrefixListAttributesOutput() PrefixListAttributesOutput {
+	return o
+}
+
+func (o PrefixListAttributesOutput) ToPrefixListAttributesOutputWithContext(ctx context.Context) PrefixListAttributesOutput {
+	return o
+}
+
+func (o PrefixListAttributesOutput) ToPrefixListAttributesPtrOutput() PrefixListAttributesPtrOutput {
+	return o.ToPrefixListAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o PrefixListAttributesOutput) ToPrefixListAttributesPtrOutputWithContext(ctx context.Context) PrefixListAttributesPtrOutput {
+	return o.ApplyT(func(v PrefixListAttributes) *PrefixListAttributes {
+		return &v
+	}).(PrefixListAttributesPtrOutput)
+}
+func (o PrefixListAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixListAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PrefixListAttributesOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixListAttributes) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o PrefixListAttributesOutput) PrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixListAttributes) string { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+func (o PrefixListAttributesOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v PrefixListAttributes) int { return v.Version }).(pulumi.IntOutput)
+}
+
+type PrefixListAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (PrefixListAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefixListAttributes)(nil)).Elem()
+}
+
+func (o PrefixListAttributesPtrOutput) ToPrefixListAttributesPtrOutput() PrefixListAttributesPtrOutput {
+	return o
+}
+
+func (o PrefixListAttributesPtrOutput) ToPrefixListAttributesPtrOutputWithContext(ctx context.Context) PrefixListAttributesPtrOutput {
+	return o
+}
+
+func (o PrefixListAttributesPtrOutput) Elem() PrefixListAttributesOutput {
+	return o.ApplyT(func(v *PrefixListAttributes) PrefixListAttributes { return *v }).(PrefixListAttributesOutput)
+}
+
+func (o PrefixListAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrefixListAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrefixListAttributesPtrOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrefixListAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrefixListAttributesPtrOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrefixListAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrefixListId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrefixListAttributesPtrOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PrefixListAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html
+type PrefixListEntry struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr
+	Cidr string `pulumi:"Cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description
+	Description *string `pulumi:"Description"`
+}
+
+// PrefixListEntryInput is an input type that accepts PrefixListEntryArgs and PrefixListEntryOutput values.
+// You can construct a concrete instance of `PrefixListEntryInput` via:
+//
+//          PrefixListEntryArgs{...}
+type PrefixListEntryInput interface {
+	pulumi.Input
+
+	ToPrefixListEntryOutput() PrefixListEntryOutput
+	ToPrefixListEntryOutputWithContext(context.Context) PrefixListEntryOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html
+type PrefixListEntryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr
+	Cidr pulumi.StringInput `pulumi:"Cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description
+	Description pulumi.StringPtrInput `pulumi:"Description"`
+}
+
+func (PrefixListEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListEntry)(nil)).Elem()
+}
+
+func (i PrefixListEntryArgs) ToPrefixListEntryOutput() PrefixListEntryOutput {
+	return i.ToPrefixListEntryOutputWithContext(context.Background())
+}
+
+func (i PrefixListEntryArgs) ToPrefixListEntryOutputWithContext(ctx context.Context) PrefixListEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListEntryOutput)
+}
+
+// PrefixListEntryArrayInput is an input type that accepts PrefixListEntryArray and PrefixListEntryArrayOutput values.
+// You can construct a concrete instance of `PrefixListEntryArrayInput` via:
+//
+//          PrefixListEntryArray{ PrefixListEntryArgs{...} }
+type PrefixListEntryArrayInput interface {
+	pulumi.Input
+
+	ToPrefixListEntryArrayOutput() PrefixListEntryArrayOutput
+	ToPrefixListEntryArrayOutputWithContext(context.Context) PrefixListEntryArrayOutput
+}
+
+type PrefixListEntryArray []PrefixListEntryInput
+
+func (PrefixListEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListEntry)(nil)).Elem()
+}
+
+func (i PrefixListEntryArray) ToPrefixListEntryArrayOutput() PrefixListEntryArrayOutput {
+	return i.ToPrefixListEntryArrayOutputWithContext(context.Background())
+}
+
+func (i PrefixListEntryArray) ToPrefixListEntryArrayOutputWithContext(ctx context.Context) PrefixListEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListEntryArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html
+type PrefixListEntryOutput struct{ *pulumi.OutputState }
+
+func (PrefixListEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListEntry)(nil)).Elem()
+}
+
+func (o PrefixListEntryOutput) ToPrefixListEntryOutput() PrefixListEntryOutput {
+	return o
+}
+
+func (o PrefixListEntryOutput) ToPrefixListEntryOutputWithContext(ctx context.Context) PrefixListEntryOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr
+func (o PrefixListEntryOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description
+func (o PrefixListEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type PrefixListEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (PrefixListEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListEntry)(nil)).Elem()
+}
+
+func (o PrefixListEntryArrayOutput) ToPrefixListEntryArrayOutput() PrefixListEntryArrayOutput {
+	return o
+}
+
+func (o PrefixListEntryArrayOutput) ToPrefixListEntryArrayOutputWithContext(ctx context.Context) PrefixListEntryArrayOutput {
+	return o
+}
+
+func (o PrefixListEntryArrayOutput) Index(i pulumi.IntInput) PrefixListEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListEntry {
+		return vs[0].([]PrefixListEntry)[vs[1].(int)]
+	}).(PrefixListEntryOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
+type PrefixListProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+	AddressFamily string `pulumi:"AddressFamily"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+	Entries []PrefixListEntry `pulumi:"Entries"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+	MaxEntries int `pulumi:"MaxEntries"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+	PrefixListName string `pulumi:"PrefixListName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// PrefixListPropertiesInput is an input type that accepts PrefixListPropertiesArgs and PrefixListPropertiesOutput values.
+// You can construct a concrete instance of `PrefixListPropertiesInput` via:
+//
+//          PrefixListPropertiesArgs{...}
+type PrefixListPropertiesInput interface {
+	pulumi.Input
+
+	ToPrefixListPropertiesOutput() PrefixListPropertiesOutput
+	ToPrefixListPropertiesOutputWithContext(context.Context) PrefixListPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
+type PrefixListPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+	AddressFamily pulumi.StringInput `pulumi:"AddressFamily"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+	Entries PrefixListEntryArrayInput `pulumi:"Entries"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+	MaxEntries pulumi.IntInput `pulumi:"MaxEntries"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+	PrefixListName pulumi.StringInput `pulumi:"PrefixListName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (PrefixListPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListProperties)(nil)).Elem()
+}
+
+func (i PrefixListPropertiesArgs) ToPrefixListPropertiesOutput() PrefixListPropertiesOutput {
+	return i.ToPrefixListPropertiesOutputWithContext(context.Background())
+}
+
+func (i PrefixListPropertiesArgs) ToPrefixListPropertiesOutputWithContext(ctx context.Context) PrefixListPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListPropertiesOutput)
+}
+
+func (i PrefixListPropertiesArgs) ToPrefixListPropertiesPtrOutput() PrefixListPropertiesPtrOutput {
+	return i.ToPrefixListPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PrefixListPropertiesArgs) ToPrefixListPropertiesPtrOutputWithContext(ctx context.Context) PrefixListPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListPropertiesOutput).ToPrefixListPropertiesPtrOutputWithContext(ctx)
+}
+
+// PrefixListPropertiesPtrInput is an input type that accepts PrefixListPropertiesArgs, PrefixListPropertiesPtr and PrefixListPropertiesPtrOutput values.
+// You can construct a concrete instance of `PrefixListPropertiesPtrInput` via:
+//
+//          PrefixListPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PrefixListPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPrefixListPropertiesPtrOutput() PrefixListPropertiesPtrOutput
+	ToPrefixListPropertiesPtrOutputWithContext(context.Context) PrefixListPropertiesPtrOutput
+}
+
+type prefixListPropertiesPtrType PrefixListPropertiesArgs
+
+func PrefixListPropertiesPtr(v *PrefixListPropertiesArgs) PrefixListPropertiesPtrInput {
+	return (*prefixListPropertiesPtrType)(v)
+}
+
+func (*prefixListPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefixListProperties)(nil)).Elem()
+}
+
+func (i *prefixListPropertiesPtrType) ToPrefixListPropertiesPtrOutput() PrefixListPropertiesPtrOutput {
+	return i.ToPrefixListPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *prefixListPropertiesPtrType) ToPrefixListPropertiesPtrOutputWithContext(ctx context.Context) PrefixListPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
+type PrefixListPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PrefixListPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListProperties)(nil)).Elem()
+}
+
+func (o PrefixListPropertiesOutput) ToPrefixListPropertiesOutput() PrefixListPropertiesOutput {
+	return o
+}
+
+func (o PrefixListPropertiesOutput) ToPrefixListPropertiesOutputWithContext(ctx context.Context) PrefixListPropertiesOutput {
+	return o
+}
+
+func (o PrefixListPropertiesOutput) ToPrefixListPropertiesPtrOutput() PrefixListPropertiesPtrOutput {
+	return o.ToPrefixListPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PrefixListPropertiesOutput) ToPrefixListPropertiesPtrOutputWithContext(ctx context.Context) PrefixListPropertiesPtrOutput {
+	return o.ApplyT(func(v PrefixListProperties) *PrefixListProperties {
+		return &v
+	}).(PrefixListPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+func (o PrefixListPropertiesOutput) AddressFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixListProperties) string { return v.AddressFamily }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+func (o PrefixListPropertiesOutput) Entries() PrefixListEntryArrayOutput {
+	return o.ApplyT(func(v PrefixListProperties) []PrefixListEntry { return v.Entries }).(PrefixListEntryArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+func (o PrefixListPropertiesOutput) MaxEntries() pulumi.IntOutput {
+	return o.ApplyT(func(v PrefixListProperties) int { return v.MaxEntries }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+func (o PrefixListPropertiesOutput) PrefixListName() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixListProperties) string { return v.PrefixListName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+func (o PrefixListPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v PrefixListProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type PrefixListPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PrefixListPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefixListProperties)(nil)).Elem()
+}
+
+func (o PrefixListPropertiesPtrOutput) ToPrefixListPropertiesPtrOutput() PrefixListPropertiesPtrOutput {
+	return o
+}
+
+func (o PrefixListPropertiesPtrOutput) ToPrefixListPropertiesPtrOutputWithContext(ctx context.Context) PrefixListPropertiesPtrOutput {
+	return o
+}
+
+func (o PrefixListPropertiesPtrOutput) Elem() PrefixListPropertiesOutput {
+	return o.ApplyT(func(v *PrefixListProperties) PrefixListProperties { return *v }).(PrefixListPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+func (o PrefixListPropertiesPtrOutput) AddressFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrefixListProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AddressFamily
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+func (o PrefixListPropertiesPtrOutput) Entries() PrefixListEntryArrayOutput {
+	return o.ApplyT(func(v *PrefixListProperties) []PrefixListEntry {
+		if v == nil {
+			return nil
+		}
+		return v.Entries
+	}).(PrefixListEntryArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+func (o PrefixListPropertiesPtrOutput) MaxEntries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PrefixListProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxEntries
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+func (o PrefixListPropertiesPtrOutput) PrefixListName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrefixListProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrefixListName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+func (o PrefixListPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *PrefixListProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 type RouteAttributes struct {
 }
 
@@ -18361,6 +23313,8 @@ func (o RouteAttributesPtrOutput) Elem() RouteAttributesOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
 type RouteProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
+	CarrierGatewayId *string `pulumi:"CarrierGatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
 	DestinationCidrBlock *string `pulumi:"DestinationCidrBlock"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock
@@ -18371,6 +23325,8 @@ type RouteProperties struct {
 	GatewayId *string `pulumi:"GatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-instanceid
 	InstanceId *string `pulumi:"InstanceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
+	LocalGatewayId *string `pulumi:"LocalGatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
 	NatGatewayId *string `pulumi:"NatGatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid
@@ -18379,6 +23335,8 @@ type RouteProperties struct {
 	RouteTableId string `pulumi:"RouteTableId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid
 	TransitGatewayId *string `pulumi:"TransitGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
+	VpcEndpointId *string `pulumi:"VpcEndpointId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid
 	VpcPeeringConnectionId *string `pulumi:"VpcPeeringConnectionId"`
 }
@@ -18396,6 +23354,8 @@ type RoutePropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
 type RoutePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
+	CarrierGatewayId pulumi.StringPtrInput `pulumi:"CarrierGatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
 	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"DestinationCidrBlock"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock
@@ -18406,6 +23366,8 @@ type RoutePropertiesArgs struct {
 	GatewayId pulumi.StringPtrInput `pulumi:"GatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-instanceid
 	InstanceId pulumi.StringPtrInput `pulumi:"InstanceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
+	LocalGatewayId pulumi.StringPtrInput `pulumi:"LocalGatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
 	NatGatewayId pulumi.StringPtrInput `pulumi:"NatGatewayId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid
@@ -18414,6 +23376,8 @@ type RoutePropertiesArgs struct {
 	RouteTableId pulumi.StringInput `pulumi:"RouteTableId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"TransitGatewayId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"VpcEndpointId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid
 	VpcPeeringConnectionId pulumi.StringPtrInput `pulumi:"VpcPeeringConnectionId"`
 }
@@ -18496,6 +23460,11 @@ func (o RoutePropertiesOutput) ToRoutePropertiesPtrOutputWithContext(ctx context
 	}).(RoutePropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
+func (o RoutePropertiesOutput) CarrierGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteProperties) *string { return v.CarrierGatewayId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
 func (o RoutePropertiesOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteProperties) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
@@ -18521,6 +23490,11 @@ func (o RoutePropertiesOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteProperties) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
+func (o RoutePropertiesOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteProperties) *string { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
 func (o RoutePropertiesOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteProperties) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
@@ -18539,6 +23513,11 @@ func (o RoutePropertiesOutput) RouteTableId() pulumi.StringOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid
 func (o RoutePropertiesOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteProperties) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
+func (o RoutePropertiesOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteProperties) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid
@@ -18562,6 +23541,16 @@ func (o RoutePropertiesPtrOutput) ToRoutePropertiesPtrOutputWithContext(ctx cont
 
 func (o RoutePropertiesPtrOutput) Elem() RoutePropertiesOutput {
 	return o.ApplyT(func(v *RouteProperties) RouteProperties { return *v }).(RoutePropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
+func (o RoutePropertiesPtrOutput) CarrierGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CarrierGatewayId
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
@@ -18614,6 +23603,16 @@ func (o RoutePropertiesPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
+func (o RoutePropertiesPtrOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
 func (o RoutePropertiesPtrOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteProperties) *string {
@@ -18651,6 +23650,16 @@ func (o RoutePropertiesPtrOutput) TransitGatewayId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.TransitGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
+func (o RoutePropertiesPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22019,6 +27028,8 @@ type SpotFleetLaunchTemplateOverrides struct {
 	AvailabilityZone *string `pulumi:"AvailabilityZone"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
 	InstanceType *string `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
+	Priority *float64 `pulumi:"Priority"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
 	SpotPrice *string `pulumi:"SpotPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-subnetid
@@ -22044,6 +27055,8 @@ type SpotFleetLaunchTemplateOverridesArgs struct {
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"AvailabilityZone"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
 	InstanceType pulumi.StringPtrInput `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
+	Priority pulumi.Float64PtrInput `pulumi:"Priority"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
 	SpotPrice pulumi.StringPtrInput `pulumi:"SpotPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-subnetid
@@ -22112,6 +27125,11 @@ func (o SpotFleetLaunchTemplateOverridesOutput) AvailabilityZone() pulumi.String
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
 func (o SpotFleetLaunchTemplateOverridesOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
+func (o SpotFleetLaunchTemplateOverridesOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
@@ -22547,6 +27565,140 @@ func (o SpotFleetPropertiesPtrOutput) SpotFleetRequestConfigData() SpotFleetSpot
 	}).(SpotFleetSpotFleetRequestConfigDataPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html
+type SpotFleetSpotCapacityRebalance struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html#cfn-ec2-spotfleet-spotcapacityrebalance-replacementstrategy
+	ReplacementStrategy *string `pulumi:"ReplacementStrategy"`
+}
+
+// SpotFleetSpotCapacityRebalanceInput is an input type that accepts SpotFleetSpotCapacityRebalanceArgs and SpotFleetSpotCapacityRebalanceOutput values.
+// You can construct a concrete instance of `SpotFleetSpotCapacityRebalanceInput` via:
+//
+//          SpotFleetSpotCapacityRebalanceArgs{...}
+type SpotFleetSpotCapacityRebalanceInput interface {
+	pulumi.Input
+
+	ToSpotFleetSpotCapacityRebalanceOutput() SpotFleetSpotCapacityRebalanceOutput
+	ToSpotFleetSpotCapacityRebalanceOutputWithContext(context.Context) SpotFleetSpotCapacityRebalanceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html
+type SpotFleetSpotCapacityRebalanceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html#cfn-ec2-spotfleet-spotcapacityrebalance-replacementstrategy
+	ReplacementStrategy pulumi.StringPtrInput `pulumi:"ReplacementStrategy"`
+}
+
+func (SpotFleetSpotCapacityRebalanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetSpotCapacityRebalance)(nil)).Elem()
+}
+
+func (i SpotFleetSpotCapacityRebalanceArgs) ToSpotFleetSpotCapacityRebalanceOutput() SpotFleetSpotCapacityRebalanceOutput {
+	return i.ToSpotFleetSpotCapacityRebalanceOutputWithContext(context.Background())
+}
+
+func (i SpotFleetSpotCapacityRebalanceArgs) ToSpotFleetSpotCapacityRebalanceOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotCapacityRebalanceOutput)
+}
+
+func (i SpotFleetSpotCapacityRebalanceArgs) ToSpotFleetSpotCapacityRebalancePtrOutput() SpotFleetSpotCapacityRebalancePtrOutput {
+	return i.ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetSpotCapacityRebalanceArgs) ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotCapacityRebalanceOutput).ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(ctx)
+}
+
+// SpotFleetSpotCapacityRebalancePtrInput is an input type that accepts SpotFleetSpotCapacityRebalanceArgs, SpotFleetSpotCapacityRebalancePtr and SpotFleetSpotCapacityRebalancePtrOutput values.
+// You can construct a concrete instance of `SpotFleetSpotCapacityRebalancePtrInput` via:
+//
+//          SpotFleetSpotCapacityRebalanceArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetSpotCapacityRebalancePtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetSpotCapacityRebalancePtrOutput() SpotFleetSpotCapacityRebalancePtrOutput
+	ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(context.Context) SpotFleetSpotCapacityRebalancePtrOutput
+}
+
+type spotFleetSpotCapacityRebalancePtrType SpotFleetSpotCapacityRebalanceArgs
+
+func SpotFleetSpotCapacityRebalancePtr(v *SpotFleetSpotCapacityRebalanceArgs) SpotFleetSpotCapacityRebalancePtrInput {
+	return (*spotFleetSpotCapacityRebalancePtrType)(v)
+}
+
+func (*spotFleetSpotCapacityRebalancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetSpotCapacityRebalance)(nil)).Elem()
+}
+
+func (i *spotFleetSpotCapacityRebalancePtrType) ToSpotFleetSpotCapacityRebalancePtrOutput() SpotFleetSpotCapacityRebalancePtrOutput {
+	return i.ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetSpotCapacityRebalancePtrType) ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotCapacityRebalancePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html
+type SpotFleetSpotCapacityRebalanceOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetSpotCapacityRebalanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetSpotCapacityRebalance)(nil)).Elem()
+}
+
+func (o SpotFleetSpotCapacityRebalanceOutput) ToSpotFleetSpotCapacityRebalanceOutput() SpotFleetSpotCapacityRebalanceOutput {
+	return o
+}
+
+func (o SpotFleetSpotCapacityRebalanceOutput) ToSpotFleetSpotCapacityRebalanceOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalanceOutput {
+	return o
+}
+
+func (o SpotFleetSpotCapacityRebalanceOutput) ToSpotFleetSpotCapacityRebalancePtrOutput() SpotFleetSpotCapacityRebalancePtrOutput {
+	return o.ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetSpotCapacityRebalanceOutput) ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalancePtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotCapacityRebalance) *SpotFleetSpotCapacityRebalance {
+		return &v
+	}).(SpotFleetSpotCapacityRebalancePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html#cfn-ec2-spotfleet-spotcapacityrebalance-replacementstrategy
+func (o SpotFleetSpotCapacityRebalanceOutput) ReplacementStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotCapacityRebalance) *string { return v.ReplacementStrategy }).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetSpotCapacityRebalancePtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetSpotCapacityRebalancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetSpotCapacityRebalance)(nil)).Elem()
+}
+
+func (o SpotFleetSpotCapacityRebalancePtrOutput) ToSpotFleetSpotCapacityRebalancePtrOutput() SpotFleetSpotCapacityRebalancePtrOutput {
+	return o
+}
+
+func (o SpotFleetSpotCapacityRebalancePtrOutput) ToSpotFleetSpotCapacityRebalancePtrOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalancePtrOutput {
+	return o
+}
+
+func (o SpotFleetSpotCapacityRebalancePtrOutput) Elem() SpotFleetSpotCapacityRebalanceOutput {
+	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalance) SpotFleetSpotCapacityRebalance { return *v }).(SpotFleetSpotCapacityRebalanceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html#cfn-ec2-spotfleet-spotcapacityrebalance-replacementstrategy
+func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalance) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplacementStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
 type SpotFleetSpotFleetLaunchSpecification struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
@@ -22943,14 +28095,26 @@ type SpotFleetSpotFleetRequestConfigData struct {
 	IamFleetRole string `pulumi:"IamFleetRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instanceinterruptionbehavior
 	InstanceInterruptionBehavior *string `pulumi:"InstanceInterruptionBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+	InstancePoolsToUseCount *int `pulumi:"InstancePoolsToUseCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
 	LaunchSpecifications []SpotFleetSpotFleetLaunchSpecification `pulumi:"LaunchSpecifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchtemplateconfigs
 	LaunchTemplateConfigs []SpotFleetLaunchTemplateConfig `pulumi:"LaunchTemplateConfigs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-loadbalancersconfig
 	LoadBalancersConfig *SpotFleetLoadBalancersConfig `pulumi:"LoadBalancersConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+	OnDemandAllocationStrategy *string `pulumi:"OnDemandAllocationStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+	OnDemandMaxTotalPrice *string `pulumi:"OnDemandMaxTotalPrice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+	OnDemandTargetCapacity *int `pulumi:"OnDemandTargetCapacity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
 	ReplaceUnhealthyInstances *bool `pulumi:"ReplaceUnhealthyInstances"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+	SpotMaintenanceStrategies *SpotFleetSpotMaintenanceStrategies `pulumi:"SpotMaintenanceStrategies"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+	SpotMaxTotalPrice *string `pulumi:"SpotMaxTotalPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
 	SpotPrice *string `pulumi:"SpotPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-targetcapacity
@@ -22986,14 +28150,26 @@ type SpotFleetSpotFleetRequestConfigDataArgs struct {
 	IamFleetRole pulumi.StringInput `pulumi:"IamFleetRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instanceinterruptionbehavior
 	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"InstanceInterruptionBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+	InstancePoolsToUseCount pulumi.IntPtrInput `pulumi:"InstancePoolsToUseCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
 	LaunchSpecifications SpotFleetSpotFleetLaunchSpecificationArrayInput `pulumi:"LaunchSpecifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchtemplateconfigs
 	LaunchTemplateConfigs SpotFleetLaunchTemplateConfigArrayInput `pulumi:"LaunchTemplateConfigs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-loadbalancersconfig
 	LoadBalancersConfig SpotFleetLoadBalancersConfigPtrInput `pulumi:"LoadBalancersConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+	OnDemandAllocationStrategy pulumi.StringPtrInput `pulumi:"OnDemandAllocationStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+	OnDemandMaxTotalPrice pulumi.StringPtrInput `pulumi:"OnDemandMaxTotalPrice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+	OnDemandTargetCapacity pulumi.IntPtrInput `pulumi:"OnDemandTargetCapacity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput `pulumi:"ReplaceUnhealthyInstances"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+	SpotMaintenanceStrategies SpotFleetSpotMaintenanceStrategiesPtrInput `pulumi:"SpotMaintenanceStrategies"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+	SpotMaxTotalPrice pulumi.StringPtrInput `pulumi:"SpotMaxTotalPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
 	SpotPrice pulumi.StringPtrInput `pulumi:"SpotPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-targetcapacity
@@ -23106,6 +28282,11 @@ func (o SpotFleetSpotFleetRequestConfigDataOutput) InstanceInterruptionBehavior(
 	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+func (o SpotFleetSpotFleetRequestConfigDataOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
 func (o SpotFleetSpotFleetRequestConfigDataOutput) LaunchSpecifications() SpotFleetSpotFleetLaunchSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) []SpotFleetSpotFleetLaunchSpecification {
@@ -23127,9 +28308,36 @@ func (o SpotFleetSpotFleetRequestConfigDataOutput) LoadBalancersConfig() SpotFle
 	}).(SpotFleetLoadBalancersConfigPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+func (o SpotFleetSpotFleetRequestConfigDataOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.OnDemandAllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+func (o SpotFleetSpotFleetRequestConfigDataOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.OnDemandMaxTotalPrice }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+func (o SpotFleetSpotFleetRequestConfigDataOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
 func (o SpotFleetSpotFleetRequestConfigDataOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *bool { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+func (o SpotFleetSpotFleetRequestConfigDataOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
+		return v.SpotMaintenanceStrategies
+	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+func (o SpotFleetSpotFleetRequestConfigDataOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.SpotMaxTotalPrice }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
@@ -23220,6 +28428,16 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavi
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePoolsToUseCount
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
 func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) LaunchSpecifications() SpotFleetSpotFleetLaunchSpecificationArrayOutput {
 	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) []SpotFleetSpotFleetLaunchSpecification {
@@ -23250,6 +28468,36 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) LoadBalancersConfig() Spot
 	}).(SpotFleetLoadBalancersConfigPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandAllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxTotalPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
 func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *bool {
@@ -23258,6 +28506,26 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances(
 		}
 		return v.ReplaceUnhealthyInstances
 	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaintenanceStrategies
+	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxTotalPrice
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
@@ -23427,6 +28695,140 @@ func (o SpotFleetSpotFleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetSpotFleetTagSpecification {
 		return vs[0].([]SpotFleetSpotFleetTagSpecification)[vs[1].(int)]
 	}).(SpotFleetSpotFleetTagSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html
+type SpotFleetSpotMaintenanceStrategies struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html#cfn-ec2-spotfleet-spotmaintenancestrategies-capacityrebalance
+	CapacityRebalance *SpotFleetSpotCapacityRebalance `pulumi:"CapacityRebalance"`
+}
+
+// SpotFleetSpotMaintenanceStrategiesInput is an input type that accepts SpotFleetSpotMaintenanceStrategiesArgs and SpotFleetSpotMaintenanceStrategiesOutput values.
+// You can construct a concrete instance of `SpotFleetSpotMaintenanceStrategiesInput` via:
+//
+//          SpotFleetSpotMaintenanceStrategiesArgs{...}
+type SpotFleetSpotMaintenanceStrategiesInput interface {
+	pulumi.Input
+
+	ToSpotFleetSpotMaintenanceStrategiesOutput() SpotFleetSpotMaintenanceStrategiesOutput
+	ToSpotFleetSpotMaintenanceStrategiesOutputWithContext(context.Context) SpotFleetSpotMaintenanceStrategiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html
+type SpotFleetSpotMaintenanceStrategiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html#cfn-ec2-spotfleet-spotmaintenancestrategies-capacityrebalance
+	CapacityRebalance SpotFleetSpotCapacityRebalancePtrInput `pulumi:"CapacityRebalance"`
+}
+
+func (SpotFleetSpotMaintenanceStrategiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetSpotMaintenanceStrategies)(nil)).Elem()
+}
+
+func (i SpotFleetSpotMaintenanceStrategiesArgs) ToSpotFleetSpotMaintenanceStrategiesOutput() SpotFleetSpotMaintenanceStrategiesOutput {
+	return i.ToSpotFleetSpotMaintenanceStrategiesOutputWithContext(context.Background())
+}
+
+func (i SpotFleetSpotMaintenanceStrategiesArgs) ToSpotFleetSpotMaintenanceStrategiesOutputWithContext(ctx context.Context) SpotFleetSpotMaintenanceStrategiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotMaintenanceStrategiesOutput)
+}
+
+func (i SpotFleetSpotMaintenanceStrategiesArgs) ToSpotFleetSpotMaintenanceStrategiesPtrOutput() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return i.ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetSpotMaintenanceStrategiesArgs) ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotMaintenanceStrategiesOutput).ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(ctx)
+}
+
+// SpotFleetSpotMaintenanceStrategiesPtrInput is an input type that accepts SpotFleetSpotMaintenanceStrategiesArgs, SpotFleetSpotMaintenanceStrategiesPtr and SpotFleetSpotMaintenanceStrategiesPtrOutput values.
+// You can construct a concrete instance of `SpotFleetSpotMaintenanceStrategiesPtrInput` via:
+//
+//          SpotFleetSpotMaintenanceStrategiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetSpotMaintenanceStrategiesPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetSpotMaintenanceStrategiesPtrOutput() SpotFleetSpotMaintenanceStrategiesPtrOutput
+	ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(context.Context) SpotFleetSpotMaintenanceStrategiesPtrOutput
+}
+
+type spotFleetSpotMaintenanceStrategiesPtrType SpotFleetSpotMaintenanceStrategiesArgs
+
+func SpotFleetSpotMaintenanceStrategiesPtr(v *SpotFleetSpotMaintenanceStrategiesArgs) SpotFleetSpotMaintenanceStrategiesPtrInput {
+	return (*spotFleetSpotMaintenanceStrategiesPtrType)(v)
+}
+
+func (*spotFleetSpotMaintenanceStrategiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetSpotMaintenanceStrategies)(nil)).Elem()
+}
+
+func (i *spotFleetSpotMaintenanceStrategiesPtrType) ToSpotFleetSpotMaintenanceStrategiesPtrOutput() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return i.ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetSpotMaintenanceStrategiesPtrType) ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html
+type SpotFleetSpotMaintenanceStrategiesOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetSpotMaintenanceStrategiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetSpotMaintenanceStrategies)(nil)).Elem()
+}
+
+func (o SpotFleetSpotMaintenanceStrategiesOutput) ToSpotFleetSpotMaintenanceStrategiesOutput() SpotFleetSpotMaintenanceStrategiesOutput {
+	return o
+}
+
+func (o SpotFleetSpotMaintenanceStrategiesOutput) ToSpotFleetSpotMaintenanceStrategiesOutputWithContext(ctx context.Context) SpotFleetSpotMaintenanceStrategiesOutput {
+	return o
+}
+
+func (o SpotFleetSpotMaintenanceStrategiesOutput) ToSpotFleetSpotMaintenanceStrategiesPtrOutput() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o.ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetSpotMaintenanceStrategiesOutput) ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotMaintenanceStrategies) *SpotFleetSpotMaintenanceStrategies {
+		return &v
+	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html#cfn-ec2-spotfleet-spotmaintenancestrategies-capacityrebalance
+func (o SpotFleetSpotMaintenanceStrategiesOutput) CapacityRebalance() SpotFleetSpotCapacityRebalancePtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotMaintenanceStrategies) *SpotFleetSpotCapacityRebalance { return v.CapacityRebalance }).(SpotFleetSpotCapacityRebalancePtrOutput)
+}
+
+type SpotFleetSpotMaintenanceStrategiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetSpotMaintenanceStrategiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetSpotMaintenanceStrategies)(nil)).Elem()
+}
+
+func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) ToSpotFleetSpotMaintenanceStrategiesPtrOutput() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o
+}
+
+func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) ToSpotFleetSpotMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o
+}
+
+func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) Elem() SpotFleetSpotMaintenanceStrategiesOutput {
+	return o.ApplyT(func(v *SpotFleetSpotMaintenanceStrategies) SpotFleetSpotMaintenanceStrategies { return *v }).(SpotFleetSpotMaintenanceStrategiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html#cfn-ec2-spotfleet-spotmaintenancestrategies-capacityrebalance
+func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) CapacityRebalance() SpotFleetSpotCapacityRebalancePtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotMaintenanceStrategies) *SpotFleetSpotCapacityRebalance {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityRebalance
+	}).(SpotFleetSpotCapacityRebalancePtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html
@@ -23839,6 +29241,7 @@ type SubnetAttributes struct {
 	AvailabilityZone        string   `pulumi:"AvailabilityZone"`
 	Ipv6CidrBlocks          []string `pulumi:"Ipv6CidrBlocks"`
 	NetworkAclAssociationId string   `pulumi:"NetworkAclAssociationId"`
+	OutpostArn              string   `pulumi:"OutpostArn"`
 	VpcId                   string   `pulumi:"VpcId"`
 }
 
@@ -23857,6 +29260,7 @@ type SubnetAttributesArgs struct {
 	AvailabilityZone        pulumi.StringInput      `pulumi:"AvailabilityZone"`
 	Ipv6CidrBlocks          pulumi.StringArrayInput `pulumi:"Ipv6CidrBlocks"`
 	NetworkAclAssociationId pulumi.StringInput      `pulumi:"NetworkAclAssociationId"`
+	OutpostArn              pulumi.StringInput      `pulumi:"OutpostArn"`
 	VpcId                   pulumi.StringInput      `pulumi:"VpcId"`
 }
 
@@ -23948,6 +29352,10 @@ func (o SubnetAttributesOutput) NetworkAclAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetAttributes) string { return v.NetworkAclAssociationId }).(pulumi.StringOutput)
 }
 
+func (o SubnetAttributesOutput) OutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetAttributes) string { return v.OutpostArn }).(pulumi.StringOutput)
+}
+
 func (o SubnetAttributesOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetAttributes) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -23994,6 +29402,15 @@ func (o SubnetAttributesPtrOutput) NetworkAclAssociationId() pulumi.StringPtrOut
 			return nil
 		}
 		return &v.NetworkAclAssociationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetAttributesPtrOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutpostArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24562,6 +29979,8 @@ type SubnetProperties struct {
 	Ipv6CidrBlock *string `pulumi:"Ipv6CidrBlock"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-mappubliciponlaunch
 	MapPublicIpOnLaunch *bool `pulumi:"MapPublicIpOnLaunch"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-outpostarn
+	OutpostArn *string `pulumi:"OutpostArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
 	Tags []cloudformation.Tag `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-awsec2subnet-prop-vpcid
@@ -24591,6 +30010,8 @@ type SubnetPropertiesArgs struct {
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"Ipv6CidrBlock"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-mappubliciponlaunch
 	MapPublicIpOnLaunch pulumi.BoolPtrInput `pulumi:"MapPublicIpOnLaunch"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-outpostarn
+	OutpostArn pulumi.StringPtrInput `pulumi:"OutpostArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
 	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-awsec2subnet-prop-vpcid
@@ -24700,6 +30121,11 @@ func (o SubnetPropertiesOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SubnetProperties) *bool { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-outpostarn
+func (o SubnetPropertiesOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetProperties) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
 func (o SubnetPropertiesOutput) Tags() cloudformation.TagArrayOutput {
 	return o.ApplyT(func(v SubnetProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
@@ -24776,6 +30202,16 @@ func (o SubnetPropertiesPtrOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 		}
 		return v.MapPublicIpOnLaunch
 	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-outpostarn
+func (o SubnetPropertiesPtrOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutpostArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
@@ -27034,6 +32470,8 @@ type TransitGatewayProperties struct {
 	Description *string `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
 	DnsSupport *string `pulumi:"DnsSupport"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+	MulticastSupport *string `pulumi:"MulticastSupport"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
 	Tags []cloudformation.Tag `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
@@ -27065,6 +32503,8 @@ type TransitGatewayPropertiesArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
 	DnsSupport pulumi.StringPtrInput `pulumi:"DnsSupport"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+	MulticastSupport pulumi.StringPtrInput `pulumi:"MulticastSupport"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
 	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
@@ -27179,6 +32619,11 @@ func (o TransitGatewayPropertiesOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransitGatewayProperties) *string { return v.DnsSupport }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+func (o TransitGatewayPropertiesOutput) MulticastSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayProperties) *string { return v.MulticastSupport }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
 func (o TransitGatewayPropertiesOutput) Tags() cloudformation.TagArrayOutput {
 	return o.ApplyT(func(v TransitGatewayProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
@@ -27264,6 +32709,16 @@ func (o TransitGatewayPropertiesPtrOutput) DnsSupport() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.DnsSupport
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+func (o TransitGatewayPropertiesPtrOutput) MulticastSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MulticastSupport
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -29932,6 +35387,8 @@ func (o VPCEndpointServicePermissionsPropertiesPtrOutput) ServiceId() pulumi.Str
 type VPCEndpointServiceProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
 	AcceptanceRequired *bool `pulumi:"AcceptanceRequired"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
+	GatewayLoadBalancerArns []string `pulumi:"GatewayLoadBalancerArns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
 	NetworkLoadBalancerArns []string `pulumi:"NetworkLoadBalancerArns"`
 }
@@ -29951,6 +35408,8 @@ type VPCEndpointServicePropertiesInput interface {
 type VPCEndpointServicePropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired
 	AcceptanceRequired pulumi.BoolPtrInput `pulumi:"AcceptanceRequired"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
+	GatewayLoadBalancerArns pulumi.StringArrayInput `pulumi:"GatewayLoadBalancerArns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
 	NetworkLoadBalancerArns pulumi.StringArrayInput `pulumi:"NetworkLoadBalancerArns"`
 }
@@ -30038,6 +35497,11 @@ func (o VPCEndpointServicePropertiesOutput) AcceptanceRequired() pulumi.BoolPtrO
 	return o.ApplyT(func(v VPCEndpointServiceProperties) *bool { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
+func (o VPCEndpointServicePropertiesOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VPCEndpointServiceProperties) []string { return v.GatewayLoadBalancerArns }).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
 func (o VPCEndpointServicePropertiesOutput) NetworkLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VPCEndpointServiceProperties) []string { return v.NetworkLoadBalancerArns }).(pulumi.StringArrayOutput)
@@ -30069,6 +35533,16 @@ func (o VPCEndpointServicePropertiesPtrOutput) AcceptanceRequired() pulumi.BoolP
 		}
 		return v.AcceptanceRequired
 	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
+func (o VPCEndpointServicePropertiesPtrOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VPCEndpointServiceProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayLoadBalancerArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
@@ -32619,6 +38093,8 @@ type VolumeProperties struct {
 	SnapshotId *string `pulumi:"SnapshotId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-tags
 	Tags []cloudformation.Tag `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
+	Throughput *int `pulumi:"Throughput"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
 	VolumeType *string `pulumi:"VolumeType"`
 }
@@ -32656,6 +38132,8 @@ type VolumePropertiesArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"SnapshotId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-tags
 	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
+	Throughput pulumi.IntPtrInput `pulumi:"Throughput"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
 	VolumeType pulumi.StringPtrInput `pulumi:"VolumeType"`
 }
@@ -32788,6 +38266,11 @@ func (o VolumePropertiesOutput) Tags() cloudformation.TagArrayOutput {
 	return o.ApplyT(func(v VolumeProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
+func (o VolumePropertiesOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeProperties) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
 func (o VolumePropertiesOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeProperties) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
@@ -32911,6 +38394,16 @@ func (o VolumePropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
 	}).(cloudformation.TagArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
+func (o VolumePropertiesPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
 func (o VolumePropertiesPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProperties) *string {
@@ -32928,6 +38421,12 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayAttributesOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayAttributesPtrOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayPropertiesOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayTagsOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayTagsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnAuthorizationRuleAttributesOutput{})
 	pulumi.RegisterOutputType(ClientVpnAuthorizationRuleAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnAuthorizationRulePropertiesOutput{})
@@ -32938,6 +38437,8 @@ func init() {
 	pulumi.RegisterOutputType(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})
@@ -33026,6 +38527,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorOutput{})
 	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceHibernationOptionsOutput{})
 	pulumi.RegisterOutputType(InstanceHibernationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceInstanceIpv6AddressOutput{})
@@ -33066,6 +38569,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateEbsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfileOutput{})
@@ -33122,6 +38627,38 @@ func init() {
 	pulumi.RegisterOutputType(NetworkAclEntryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkAclPropertiesOutput{})
 	pulumi.RegisterOutputType(NetworkAclPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisAclRuleOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisAclRulePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisComponentOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisComponentPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisComponentArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisPacketHeaderOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisRouteTableRouteOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAttributesOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAttributesPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisExplanationOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisExplanationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisPathComponentOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisPathComponentArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisPortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisPortRangePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisPropertiesOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathAttributesOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathAttributesPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathPropertiesOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentAttributesOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentAttributesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentPropertiesOutput{})
@@ -33129,7 +38666,7 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfaceAttributesOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttributesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionAttributesOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionAttributesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionPropertiesOutput{})
@@ -33142,6 +38679,12 @@ func init() {
 	pulumi.RegisterOutputType(PlacementGroupAttributesPtrOutput{})
 	pulumi.RegisterOutputType(PlacementGroupPropertiesOutput{})
 	pulumi.RegisterOutputType(PlacementGroupPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PrefixListAttributesOutput{})
+	pulumi.RegisterOutputType(PrefixListAttributesPtrOutput{})
+	pulumi.RegisterOutputType(PrefixListEntryOutput{})
+	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
+	pulumi.RegisterOutputType(PrefixListPropertiesOutput{})
+	pulumi.RegisterOutputType(PrefixListPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouteAttributesOutput{})
 	pulumi.RegisterOutputType(RouteAttributesPtrOutput{})
 	pulumi.RegisterOutputType(RoutePropertiesOutput{})
@@ -33196,6 +38739,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetPropertiesOutput{})
 	pulumi.RegisterOutputType(SpotFleetPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalanceOutput{})
+	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotFleetLaunchSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotFleetLaunchSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotFleetMonitoringOutput{})
@@ -33204,6 +38749,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotFleetTagSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotFleetTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetSpotMaintenanceStrategiesOutput{})
+	pulumi.RegisterOutputType(SpotFleetSpotMaintenanceStrategiesPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupOutput{})

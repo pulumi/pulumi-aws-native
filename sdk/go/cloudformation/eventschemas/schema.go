@@ -4,6 +4,7 @@
 package eventschemas
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Schema struct {
 // NewSchema registers a new resource with the given unique name, arguments, and options.
 func NewSchema(ctx *pulumi.Context,
 	name string, args *SchemaArgs, opts ...pulumi.ResourceOption) (*Schema, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Schema
 	err := ctx.RegisterResource("cloudformation:EventSchemas:Schema", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SchemaArgs struct {
 
 func (SchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaArgs)(nil)).Elem()
+}
+
+type SchemaInput interface {
+	pulumi.Input
+
+	ToSchemaOutput() SchemaOutput
+	ToSchemaOutputWithContext(ctx context.Context) SchemaOutput
+}
+
+func (*Schema) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schema)(nil))
+}
+
+func (i *Schema) ToSchemaOutput() SchemaOutput {
+	return i.ToSchemaOutputWithContext(context.Background())
+}
+
+func (i *Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaOutput)
+}
+
+type SchemaOutput struct {
+	*pulumi.OutputState
+}
+
+func (SchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schema)(nil))
+}
+
+func (o SchemaOutput) ToSchemaOutput() SchemaOutput {
+	return o
+}
+
+func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SchemaOutput{})
 }

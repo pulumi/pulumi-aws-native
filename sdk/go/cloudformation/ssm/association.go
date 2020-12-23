@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Association struct {
 // NewAssociation registers a new resource with the given unique name, arguments, and options.
 func NewAssociation(ctx *pulumi.Context,
 	name string, args *AssociationArgs, opts ...pulumi.ResourceOption) (*Association, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Association
 	err := ctx.RegisterResource("cloudformation:SSM:Association", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AssociationArgs struct {
 
 func (AssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationArgs)(nil)).Elem()
+}
+
+type AssociationInput interface {
+	pulumi.Input
+
+	ToAssociationOutput() AssociationOutput
+	ToAssociationOutputWithContext(ctx context.Context) AssociationOutput
+}
+
+func (*Association) ElementType() reflect.Type {
+	return reflect.TypeOf((*Association)(nil))
+}
+
+func (i *Association) ToAssociationOutput() AssociationOutput {
+	return i.ToAssociationOutputWithContext(context.Background())
+}
+
+func (i *Association) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
+}
+
+type AssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Association)(nil))
+}
+
+func (o AssociationOutput) ToAssociationOutput() AssociationOutput {
+	return o
+}
+
+func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssociationOutput{})
 }

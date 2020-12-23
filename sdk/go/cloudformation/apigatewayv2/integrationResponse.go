@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type IntegrationResponse struct {
 // NewIntegrationResponse registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationResponse(ctx *pulumi.Context,
 	name string, args *IntegrationResponseArgs, opts ...pulumi.ResourceOption) (*IntegrationResponse, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &IntegrationResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource IntegrationResponse
 	err := ctx.RegisterResource("cloudformation:ApiGatewayV2:IntegrationResponse", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type IntegrationResponseArgs struct {
 
 func (IntegrationResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationResponseArgs)(nil)).Elem()
+}
+
+type IntegrationResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationResponseOutput() IntegrationResponseOutput
+	ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput
+}
+
+func (*IntegrationResponse) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationResponse)(nil))
+}
+
+func (i *IntegrationResponse) ToIntegrationResponseOutput() IntegrationResponseOutput {
+	return i.ToIntegrationResponseOutputWithContext(context.Background())
+}
+
+func (i *IntegrationResponse) ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseOutput)
+}
+
+type IntegrationResponseOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationResponse)(nil))
+}
+
+func (o IntegrationResponseOutput) ToIntegrationResponseOutput() IntegrationResponseOutput {
+	return o
+}
+
+func (o IntegrationResponseOutput) ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationResponseOutput{})
 }

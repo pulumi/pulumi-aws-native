@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Workteam struct {
 // NewWorkteam registers a new resource with the given unique name, arguments, and options.
 func NewWorkteam(ctx *pulumi.Context,
 	name string, args *WorkteamArgs, opts ...pulumi.ResourceOption) (*Workteam, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &WorkteamArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Workteam
 	err := ctx.RegisterResource("cloudformation:SageMaker:Workteam", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type WorkteamArgs struct {
 
 func (WorkteamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workteamArgs)(nil)).Elem()
+}
+
+type WorkteamInput interface {
+	pulumi.Input
+
+	ToWorkteamOutput() WorkteamOutput
+	ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutput
+}
+
+func (*Workteam) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workteam)(nil))
+}
+
+func (i *Workteam) ToWorkteamOutput() WorkteamOutput {
+	return i.ToWorkteamOutputWithContext(context.Background())
+}
+
+func (i *Workteam) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamOutput)
+}
+
+type WorkteamOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkteamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workteam)(nil))
+}
+
+func (o WorkteamOutput) ToWorkteamOutput() WorkteamOutput {
+	return o
+}
+
+func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkteamOutput{})
 }

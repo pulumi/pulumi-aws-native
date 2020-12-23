@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolUICustomizationAttachment struct {
 // NewUserPoolUICustomizationAttachment registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolUICustomizationAttachment(ctx *pulumi.Context,
 	name string, args *UserPoolUICustomizationAttachmentArgs, opts ...pulumi.ResourceOption) (*UserPoolUICustomizationAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolUICustomizationAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolUICustomizationAttachment
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolUICustomizationAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolUICustomizationAttachmentArgs struct {
 
 func (UserPoolUICustomizationAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolUICustomizationAttachmentArgs)(nil)).Elem()
+}
+
+type UserPoolUICustomizationAttachmentInput interface {
+	pulumi.Input
+
+	ToUserPoolUICustomizationAttachmentOutput() UserPoolUICustomizationAttachmentOutput
+	ToUserPoolUICustomizationAttachmentOutputWithContext(ctx context.Context) UserPoolUICustomizationAttachmentOutput
+}
+
+func (*UserPoolUICustomizationAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUICustomizationAttachment)(nil))
+}
+
+func (i *UserPoolUICustomizationAttachment) ToUserPoolUICustomizationAttachmentOutput() UserPoolUICustomizationAttachmentOutput {
+	return i.ToUserPoolUICustomizationAttachmentOutputWithContext(context.Background())
+}
+
+func (i *UserPoolUICustomizationAttachment) ToUserPoolUICustomizationAttachmentOutputWithContext(ctx context.Context) UserPoolUICustomizationAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationAttachmentOutput)
+}
+
+type UserPoolUICustomizationAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolUICustomizationAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUICustomizationAttachment)(nil))
+}
+
+func (o UserPoolUICustomizationAttachmentOutput) ToUserPoolUICustomizationAttachmentOutput() UserPoolUICustomizationAttachmentOutput {
+	return o
+}
+
+func (o UserPoolUICustomizationAttachmentOutput) ToUserPoolUICustomizationAttachmentOutputWithContext(ctx context.Context) UserPoolUICustomizationAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolUICustomizationAttachmentOutput{})
 }

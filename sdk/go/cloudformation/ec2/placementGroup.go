@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PlacementGroup struct {
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
 func NewPlacementGroup(ctx *pulumi.Context,
 	name string, args *PlacementGroupArgs, opts ...pulumi.ResourceOption) (*PlacementGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PlacementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PlacementGroup
 	err := ctx.RegisterResource("cloudformation:EC2:PlacementGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PlacementGroupArgs struct {
 
 func (PlacementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupArgs)(nil)).Elem()
+}
+
+type PlacementGroupInput interface {
+	pulumi.Input
+
+	ToPlacementGroupOutput() PlacementGroupOutput
+	ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput
+}
+
+func (*PlacementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroup)(nil))
+}
+
+func (i *PlacementGroup) ToPlacementGroupOutput() PlacementGroupOutput {
+	return i.ToPlacementGroupOutputWithContext(context.Background())
+}
+
+func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupOutput)
+}
+
+type PlacementGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (PlacementGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroup)(nil))
+}
+
+func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {
+	return o
+}
+
+func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PlacementGroupOutput{})
 }

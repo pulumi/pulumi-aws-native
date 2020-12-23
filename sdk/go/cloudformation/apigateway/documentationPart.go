@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DocumentationPart struct {
 // NewDocumentationPart registers a new resource with the given unique name, arguments, and options.
 func NewDocumentationPart(ctx *pulumi.Context,
 	name string, args *DocumentationPartArgs, opts ...pulumi.ResourceOption) (*DocumentationPart, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DocumentationPartArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DocumentationPart
 	err := ctx.RegisterResource("cloudformation:ApiGateway:DocumentationPart", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DocumentationPartArgs struct {
 
 func (DocumentationPartArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentationPartArgs)(nil)).Elem()
+}
+
+type DocumentationPartInput interface {
+	pulumi.Input
+
+	ToDocumentationPartOutput() DocumentationPartOutput
+	ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput
+}
+
+func (*DocumentationPart) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPart)(nil))
+}
+
+func (i *DocumentationPart) ToDocumentationPartOutput() DocumentationPartOutput {
+	return i.ToDocumentationPartOutputWithContext(context.Background())
+}
+
+func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartOutput)
+}
+
+type DocumentationPartOutput struct {
+	*pulumi.OutputState
+}
+
+func (DocumentationPartOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPart)(nil))
+}
+
+func (o DocumentationPartOutput) ToDocumentationPartOutput() DocumentationPartOutput {
+	return o
+}
+
+func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DocumentationPartOutput{})
 }

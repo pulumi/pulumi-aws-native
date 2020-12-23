@@ -2334,6 +2334,8 @@ func (o UserPoolClientAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html
 type UserPoolClientProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+	AccessTokenValidity *int `pulumi:"AccessTokenValidity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflows
 	AllowedOAuthFlows []string `pulumi:"AllowedOAuthFlows"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflowsuserpoolclient
@@ -2352,6 +2354,8 @@ type UserPoolClientProperties struct {
 	ExplicitAuthFlows []string `pulumi:"ExplicitAuthFlows"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-generatesecret
 	GenerateSecret *bool `pulumi:"GenerateSecret"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+	IdTokenValidity *int `pulumi:"IdTokenValidity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
 	LogoutURLs []string `pulumi:"LogoutURLs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-preventuserexistenceerrors
@@ -2362,6 +2366,8 @@ type UserPoolClientProperties struct {
 	RefreshTokenValidity *int `pulumi:"RefreshTokenValidity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-supportedidentityproviders
 	SupportedIdentityProviders []string `pulumi:"SupportedIdentityProviders"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"TokenValidityUnits"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
 	UserPoolId string `pulumi:"UserPoolId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-writeattributes
@@ -2381,6 +2387,8 @@ type UserPoolClientPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html
 type UserPoolClientPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+	AccessTokenValidity pulumi.IntPtrInput `pulumi:"AccessTokenValidity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflows
 	AllowedOAuthFlows pulumi.StringArrayInput `pulumi:"AllowedOAuthFlows"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflowsuserpoolclient
@@ -2399,6 +2407,8 @@ type UserPoolClientPropertiesArgs struct {
 	ExplicitAuthFlows pulumi.StringArrayInput `pulumi:"ExplicitAuthFlows"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-generatesecret
 	GenerateSecret pulumi.BoolPtrInput `pulumi:"GenerateSecret"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+	IdTokenValidity pulumi.IntPtrInput `pulumi:"IdTokenValidity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
 	LogoutURLs pulumi.StringArrayInput `pulumi:"LogoutURLs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-preventuserexistenceerrors
@@ -2409,6 +2419,8 @@ type UserPoolClientPropertiesArgs struct {
 	RefreshTokenValidity pulumi.IntPtrInput `pulumi:"RefreshTokenValidity"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-supportedidentityproviders
 	SupportedIdentityProviders pulumi.StringArrayInput `pulumi:"SupportedIdentityProviders"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+	TokenValidityUnits UserPoolClientTokenValidityUnitsPtrInput `pulumi:"TokenValidityUnits"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
 	UserPoolId pulumi.StringInput `pulumi:"UserPoolId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-writeattributes
@@ -2493,6 +2505,11 @@ func (o UserPoolClientPropertiesOutput) ToUserPoolClientPropertiesPtrOutputWithC
 	}).(UserPoolClientPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+func (o UserPoolClientPropertiesOutput) AccessTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPoolClientProperties) *int { return v.AccessTokenValidity }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflows
 func (o UserPoolClientPropertiesOutput) AllowedOAuthFlows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolClientProperties) []string { return v.AllowedOAuthFlows }).(pulumi.StringArrayOutput)
@@ -2540,6 +2557,11 @@ func (o UserPoolClientPropertiesOutput) GenerateSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolClientProperties) *bool { return v.GenerateSecret }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+func (o UserPoolClientPropertiesOutput) IdTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPoolClientProperties) *int { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
 func (o UserPoolClientPropertiesOutput) LogoutURLs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolClientProperties) []string { return v.LogoutURLs }).(pulumi.StringArrayOutput)
@@ -2563,6 +2585,11 @@ func (o UserPoolClientPropertiesOutput) RefreshTokenValidity() pulumi.IntPtrOutp
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-supportedidentityproviders
 func (o UserPoolClientPropertiesOutput) SupportedIdentityProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolClientProperties) []string { return v.SupportedIdentityProviders }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+func (o UserPoolClientPropertiesOutput) TokenValidityUnits() UserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ApplyT(func(v UserPoolClientProperties) *UserPoolClientTokenValidityUnits { return v.TokenValidityUnits }).(UserPoolClientTokenValidityUnitsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
@@ -2591,6 +2618,16 @@ func (o UserPoolClientPropertiesPtrOutput) ToUserPoolClientPropertiesPtrOutputWi
 
 func (o UserPoolClientPropertiesPtrOutput) Elem() UserPoolClientPropertiesOutput {
 	return o.ApplyT(func(v *UserPoolClientProperties) UserPoolClientProperties { return *v }).(UserPoolClientPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+func (o UserPoolClientPropertiesPtrOutput) AccessTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AccessTokenValidity
+	}).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflows
@@ -2683,6 +2720,16 @@ func (o UserPoolClientPropertiesPtrOutput) GenerateSecret() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+func (o UserPoolClientPropertiesPtrOutput) IdTokenValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdTokenValidity
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
 func (o UserPoolClientPropertiesPtrOutput) LogoutURLs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolClientProperties) []string {
@@ -2733,6 +2780,16 @@ func (o UserPoolClientPropertiesPtrOutput) SupportedIdentityProviders() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+func (o UserPoolClientPropertiesPtrOutput) TokenValidityUnits() UserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientProperties) *UserPoolClientTokenValidityUnits {
+		if v == nil {
+			return nil
+		}
+		return v.TokenValidityUnits
+	}).(UserPoolClientTokenValidityUnitsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
 func (o UserPoolClientPropertiesPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientProperties) *string {
@@ -2751,6 +2808,484 @@ func (o UserPoolClientPropertiesPtrOutput) WriteAttributes() pulumi.StringArrayO
 		}
 		return v.WriteAttributes
 	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html
+type UserPoolClientTokenValidityUnits struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-accesstoken
+	AccessToken *string `pulumi:"AccessToken"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-idtoken
+	IdToken *string `pulumi:"IdToken"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-refreshtoken
+	RefreshToken *string `pulumi:"RefreshToken"`
+}
+
+// UserPoolClientTokenValidityUnitsInput is an input type that accepts UserPoolClientTokenValidityUnitsArgs and UserPoolClientTokenValidityUnitsOutput values.
+// You can construct a concrete instance of `UserPoolClientTokenValidityUnitsInput` via:
+//
+//          UserPoolClientTokenValidityUnitsArgs{...}
+type UserPoolClientTokenValidityUnitsInput interface {
+	pulumi.Input
+
+	ToUserPoolClientTokenValidityUnitsOutput() UserPoolClientTokenValidityUnitsOutput
+	ToUserPoolClientTokenValidityUnitsOutputWithContext(context.Context) UserPoolClientTokenValidityUnitsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html
+type UserPoolClientTokenValidityUnitsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-accesstoken
+	AccessToken pulumi.StringPtrInput `pulumi:"AccessToken"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-idtoken
+	IdToken pulumi.StringPtrInput `pulumi:"IdToken"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-refreshtoken
+	RefreshToken pulumi.StringPtrInput `pulumi:"RefreshToken"`
+}
+
+func (UserPoolClientTokenValidityUnitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsOutput() UserPoolClientTokenValidityUnitsOutput {
+	return i.ToUserPoolClientTokenValidityUnitsOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsOutput)
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return i.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsOutput).ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx)
+}
+
+// UserPoolClientTokenValidityUnitsPtrInput is an input type that accepts UserPoolClientTokenValidityUnitsArgs, UserPoolClientTokenValidityUnitsPtr and UserPoolClientTokenValidityUnitsPtrOutput values.
+// You can construct a concrete instance of `UserPoolClientTokenValidityUnitsPtrInput` via:
+//
+//          UserPoolClientTokenValidityUnitsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolClientTokenValidityUnitsPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput
+	ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Context) UserPoolClientTokenValidityUnitsPtrOutput
+}
+
+type userPoolClientTokenValidityUnitsPtrType UserPoolClientTokenValidityUnitsArgs
+
+func UserPoolClientTokenValidityUnitsPtr(v *UserPoolClientTokenValidityUnitsArgs) UserPoolClientTokenValidityUnitsPtrInput {
+	return (*userPoolClientTokenValidityUnitsPtrType)(v)
+}
+
+func (*userPoolClientTokenValidityUnitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (i *userPoolClientTokenValidityUnitsPtrType) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return i.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolClientTokenValidityUnitsPtrType) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html
+type UserPoolClientTokenValidityUnitsOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientTokenValidityUnitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsOutput() UserPoolClientTokenValidityUnitsOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *UserPoolClientTokenValidityUnits {
+		return &v
+	}).(UserPoolClientTokenValidityUnitsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-accesstoken
+func (o UserPoolClientTokenValidityUnitsOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-idtoken
+func (o UserPoolClientTokenValidityUnitsOutput) IdToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.IdToken }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-refreshtoken
+func (o UserPoolClientTokenValidityUnitsOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolClientTokenValidityUnitsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientTokenValidityUnitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (o UserPoolClientTokenValidityUnitsPtrOutput) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsPtrOutput) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsPtrOutput) Elem() UserPoolClientTokenValidityUnitsOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) UserPoolClientTokenValidityUnits { return *v }).(UserPoolClientTokenValidityUnitsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-accesstoken
+func (o UserPoolClientTokenValidityUnitsPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-idtoken
+func (o UserPoolClientTokenValidityUnitsPtrOutput) IdToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html#cfn-cognito-userpoolclient-tokenvalidityunits-refreshtoken
+func (o UserPoolClientTokenValidityUnitsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html
+type UserPoolCustomEmailSender struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaarn
+	LambdaArn *string `pulumi:"LambdaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaversion
+	LambdaVersion *string `pulumi:"LambdaVersion"`
+}
+
+// UserPoolCustomEmailSenderInput is an input type that accepts UserPoolCustomEmailSenderArgs and UserPoolCustomEmailSenderOutput values.
+// You can construct a concrete instance of `UserPoolCustomEmailSenderInput` via:
+//
+//          UserPoolCustomEmailSenderArgs{...}
+type UserPoolCustomEmailSenderInput interface {
+	pulumi.Input
+
+	ToUserPoolCustomEmailSenderOutput() UserPoolCustomEmailSenderOutput
+	ToUserPoolCustomEmailSenderOutputWithContext(context.Context) UserPoolCustomEmailSenderOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html
+type UserPoolCustomEmailSenderArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaarn
+	LambdaArn pulumi.StringPtrInput `pulumi:"LambdaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaversion
+	LambdaVersion pulumi.StringPtrInput `pulumi:"LambdaVersion"`
+}
+
+func (UserPoolCustomEmailSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolCustomEmailSender)(nil)).Elem()
+}
+
+func (i UserPoolCustomEmailSenderArgs) ToUserPoolCustomEmailSenderOutput() UserPoolCustomEmailSenderOutput {
+	return i.ToUserPoolCustomEmailSenderOutputWithContext(context.Background())
+}
+
+func (i UserPoolCustomEmailSenderArgs) ToUserPoolCustomEmailSenderOutputWithContext(ctx context.Context) UserPoolCustomEmailSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomEmailSenderOutput)
+}
+
+func (i UserPoolCustomEmailSenderArgs) ToUserPoolCustomEmailSenderPtrOutput() UserPoolCustomEmailSenderPtrOutput {
+	return i.ToUserPoolCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolCustomEmailSenderArgs) ToUserPoolCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomEmailSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomEmailSenderOutput).ToUserPoolCustomEmailSenderPtrOutputWithContext(ctx)
+}
+
+// UserPoolCustomEmailSenderPtrInput is an input type that accepts UserPoolCustomEmailSenderArgs, UserPoolCustomEmailSenderPtr and UserPoolCustomEmailSenderPtrOutput values.
+// You can construct a concrete instance of `UserPoolCustomEmailSenderPtrInput` via:
+//
+//          UserPoolCustomEmailSenderArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolCustomEmailSenderPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolCustomEmailSenderPtrOutput() UserPoolCustomEmailSenderPtrOutput
+	ToUserPoolCustomEmailSenderPtrOutputWithContext(context.Context) UserPoolCustomEmailSenderPtrOutput
+}
+
+type userPoolCustomEmailSenderPtrType UserPoolCustomEmailSenderArgs
+
+func UserPoolCustomEmailSenderPtr(v *UserPoolCustomEmailSenderArgs) UserPoolCustomEmailSenderPtrInput {
+	return (*userPoolCustomEmailSenderPtrType)(v)
+}
+
+func (*userPoolCustomEmailSenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolCustomEmailSender)(nil)).Elem()
+}
+
+func (i *userPoolCustomEmailSenderPtrType) ToUserPoolCustomEmailSenderPtrOutput() UserPoolCustomEmailSenderPtrOutput {
+	return i.ToUserPoolCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolCustomEmailSenderPtrType) ToUserPoolCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomEmailSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomEmailSenderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html
+type UserPoolCustomEmailSenderOutput struct{ *pulumi.OutputState }
+
+func (UserPoolCustomEmailSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolCustomEmailSender)(nil)).Elem()
+}
+
+func (o UserPoolCustomEmailSenderOutput) ToUserPoolCustomEmailSenderOutput() UserPoolCustomEmailSenderOutput {
+	return o
+}
+
+func (o UserPoolCustomEmailSenderOutput) ToUserPoolCustomEmailSenderOutputWithContext(ctx context.Context) UserPoolCustomEmailSenderOutput {
+	return o
+}
+
+func (o UserPoolCustomEmailSenderOutput) ToUserPoolCustomEmailSenderPtrOutput() UserPoolCustomEmailSenderPtrOutput {
+	return o.ToUserPoolCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolCustomEmailSenderOutput) ToUserPoolCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomEmailSender) *UserPoolCustomEmailSender {
+		return &v
+	}).(UserPoolCustomEmailSenderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaarn
+func (o UserPoolCustomEmailSenderOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomEmailSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaversion
+func (o UserPoolCustomEmailSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomEmailSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolCustomEmailSenderPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolCustomEmailSenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolCustomEmailSender)(nil)).Elem()
+}
+
+func (o UserPoolCustomEmailSenderPtrOutput) ToUserPoolCustomEmailSenderPtrOutput() UserPoolCustomEmailSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolCustomEmailSenderPtrOutput) ToUserPoolCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomEmailSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolCustomEmailSenderPtrOutput) Elem() UserPoolCustomEmailSenderOutput {
+	return o.ApplyT(func(v *UserPoolCustomEmailSender) UserPoolCustomEmailSender { return *v }).(UserPoolCustomEmailSenderOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaarn
+func (o UserPoolCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolCustomEmailSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html#cfn-cognito-userpool-customemailsender-lambdaversion
+func (o UserPoolCustomEmailSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolCustomEmailSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html
+type UserPoolCustomSMSSender struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaarn
+	LambdaArn *string `pulumi:"LambdaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaversion
+	LambdaVersion *string `pulumi:"LambdaVersion"`
+}
+
+// UserPoolCustomSMSSenderInput is an input type that accepts UserPoolCustomSMSSenderArgs and UserPoolCustomSMSSenderOutput values.
+// You can construct a concrete instance of `UserPoolCustomSMSSenderInput` via:
+//
+//          UserPoolCustomSMSSenderArgs{...}
+type UserPoolCustomSMSSenderInput interface {
+	pulumi.Input
+
+	ToUserPoolCustomSMSSenderOutput() UserPoolCustomSMSSenderOutput
+	ToUserPoolCustomSMSSenderOutputWithContext(context.Context) UserPoolCustomSMSSenderOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html
+type UserPoolCustomSMSSenderArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaarn
+	LambdaArn pulumi.StringPtrInput `pulumi:"LambdaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaversion
+	LambdaVersion pulumi.StringPtrInput `pulumi:"LambdaVersion"`
+}
+
+func (UserPoolCustomSMSSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolCustomSMSSender)(nil)).Elem()
+}
+
+func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderOutput() UserPoolCustomSMSSenderOutput {
+	return i.ToUserPoolCustomSMSSenderOutputWithContext(context.Background())
+}
+
+func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSMSSenderOutput)
+}
+
+func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
+	return i.ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolCustomSMSSenderArgs) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSMSSenderOutput).ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx)
+}
+
+// UserPoolCustomSMSSenderPtrInput is an input type that accepts UserPoolCustomSMSSenderArgs, UserPoolCustomSMSSenderPtr and UserPoolCustomSMSSenderPtrOutput values.
+// You can construct a concrete instance of `UserPoolCustomSMSSenderPtrInput` via:
+//
+//          UserPoolCustomSMSSenderArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolCustomSMSSenderPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput
+	ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Context) UserPoolCustomSMSSenderPtrOutput
+}
+
+type userPoolCustomSMSSenderPtrType UserPoolCustomSMSSenderArgs
+
+func UserPoolCustomSMSSenderPtr(v *UserPoolCustomSMSSenderArgs) UserPoolCustomSMSSenderPtrInput {
+	return (*userPoolCustomSMSSenderPtrType)(v)
+}
+
+func (*userPoolCustomSMSSenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolCustomSMSSender)(nil)).Elem()
+}
+
+func (i *userPoolCustomSMSSenderPtrType) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
+	return i.ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolCustomSMSSenderPtrType) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSMSSenderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html
+type UserPoolCustomSMSSenderOutput struct{ *pulumi.OutputState }
+
+func (UserPoolCustomSMSSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolCustomSMSSender)(nil)).Elem()
+}
+
+func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderOutput() UserPoolCustomSMSSenderOutput {
+	return o
+}
+
+func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderOutput {
+	return o
+}
+
+func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
+	return o.ToUserPoolCustomSMSSenderPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolCustomSMSSenderOutput) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomSMSSender) *UserPoolCustomSMSSender {
+		return &v
+	}).(UserPoolCustomSMSSenderPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaarn
+func (o UserPoolCustomSMSSenderOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomSMSSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaversion
+func (o UserPoolCustomSMSSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolCustomSMSSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolCustomSMSSenderPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolCustomSMSSenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolCustomSMSSender)(nil)).Elem()
+}
+
+func (o UserPoolCustomSMSSenderPtrOutput) ToUserPoolCustomSMSSenderPtrOutput() UserPoolCustomSMSSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolCustomSMSSenderPtrOutput) ToUserPoolCustomSMSSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSMSSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolCustomSMSSenderPtrOutput) Elem() UserPoolCustomSMSSenderOutput {
+	return o.ApplyT(func(v *UserPoolCustomSMSSender) UserPoolCustomSMSSender { return *v }).(UserPoolCustomSMSSenderOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaarn
+func (o UserPoolCustomSMSSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolCustomSMSSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaversion
+func (o UserPoolCustomSMSSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolCustomSMSSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html
@@ -4373,10 +4908,16 @@ func (o UserPoolInviteMessageTemplatePtrOutput) SMSMessage() pulumi.StringPtrOut
 type UserPoolLambdaConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-createauthchallenge
 	CreateAuthChallenge *string `pulumi:"CreateAuthChallenge"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
+	CustomEmailSender *UserPoolCustomEmailSender `pulumi:"CustomEmailSender"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
 	CustomMessage *string `pulumi:"CustomMessage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
+	CustomSMSSender *UserPoolCustomSMSSender `pulumi:"CustomSMSSender"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
 	DefineAuthChallenge *string `pulumi:"DefineAuthChallenge"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
+	KMSKeyID *string `pulumi:"KMSKeyID"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postauthentication
 	PostAuthentication *string `pulumi:"PostAuthentication"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postconfirmation
@@ -4408,10 +4949,16 @@ type UserPoolLambdaConfigInput interface {
 type UserPoolLambdaConfigArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-createauthchallenge
 	CreateAuthChallenge pulumi.StringPtrInput `pulumi:"CreateAuthChallenge"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
+	CustomEmailSender UserPoolCustomEmailSenderPtrInput `pulumi:"CustomEmailSender"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
 	CustomMessage pulumi.StringPtrInput `pulumi:"CustomMessage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
+	CustomSMSSender UserPoolCustomSMSSenderPtrInput `pulumi:"CustomSMSSender"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
 	DefineAuthChallenge pulumi.StringPtrInput `pulumi:"DefineAuthChallenge"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
+	KMSKeyID pulumi.StringPtrInput `pulumi:"KMSKeyID"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postauthentication
 	PostAuthentication pulumi.StringPtrInput `pulumi:"PostAuthentication"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postconfirmation
@@ -4511,14 +5058,29 @@ func (o UserPoolLambdaConfigOutput) CreateAuthChallenge() pulumi.StringPtrOutput
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CreateAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
+func (o UserPoolLambdaConfigOutput) CustomEmailSender() UserPoolCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomEmailSender { return v.CustomEmailSender }).(UserPoolCustomEmailSenderPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
 func (o UserPoolLambdaConfigOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CustomMessage }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
+func (o UserPoolLambdaConfigOutput) CustomSMSSender() UserPoolCustomSMSSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomSMSSender { return v.CustomSMSSender }).(UserPoolCustomSMSSenderPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
 func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
+func (o UserPoolLambdaConfigOutput) KMSKeyID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.KMSKeyID }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postauthentication
@@ -4584,6 +5146,16 @@ func (o UserPoolLambdaConfigPtrOutput) CreateAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
+func (o UserPoolLambdaConfigPtrOutput) CustomEmailSender() UserPoolCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolCustomEmailSender {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEmailSender
+	}).(UserPoolCustomEmailSenderPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
 func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
@@ -4594,6 +5166,16 @@ func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
+func (o UserPoolLambdaConfigPtrOutput) CustomSMSSender() UserPoolCustomSMSSenderPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolCustomSMSSender {
+		if v == nil {
+			return nil
+		}
+		return v.CustomSMSSender
+	}).(UserPoolCustomSMSSenderPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
 func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
@@ -4601,6 +5183,16 @@ func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOut
 			return nil
 		}
 		return v.DefineAuthChallenge
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
+func (o UserPoolLambdaConfigPtrOutput) KMSKeyID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KMSKeyID
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9992,6 +10584,12 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolClientAttributesPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientPropertiesOutput{})
 	pulumi.RegisterOutputType(UserPoolClientPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsOutput{})
+	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolCustomEmailSenderOutput{})
+	pulumi.RegisterOutputType(UserPoolCustomEmailSenderPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolCustomSMSSenderOutput{})
+	pulumi.RegisterOutputType(UserPoolCustomSMSSenderPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainAttributesOutput{})

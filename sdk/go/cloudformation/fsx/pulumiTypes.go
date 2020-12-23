@@ -139,8 +139,18 @@ func (o FileSystemAttributesPtrOutput) LustreMountName() pulumi.StringPtrOutput 
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
 type FileSystemLustreConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+	AutoImportPolicy *string `pulumi:"AutoImportPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+	AutomaticBackupRetentionDays *int `pulumi:"AutomaticBackupRetentionDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+	CopyTagsToBackups *bool `pulumi:"CopyTagsToBackups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+	DailyAutomaticBackupStartTime *string `pulumi:"DailyAutomaticBackupStartTime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
 	DeploymentType *string `pulumi:"DeploymentType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+	DriveCacheType *string `pulumi:"DriveCacheType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
 	ExportPath *string `pulumi:"ExportPath"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importpath
@@ -166,8 +176,18 @@ type FileSystemLustreConfigurationInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
 type FileSystemLustreConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+	AutoImportPolicy pulumi.StringPtrInput `pulumi:"AutoImportPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+	AutomaticBackupRetentionDays pulumi.IntPtrInput `pulumi:"AutomaticBackupRetentionDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+	CopyTagsToBackups pulumi.BoolPtrInput `pulumi:"CopyTagsToBackups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+	DailyAutomaticBackupStartTime pulumi.StringPtrInput `pulumi:"DailyAutomaticBackupStartTime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
 	DeploymentType pulumi.StringPtrInput `pulumi:"DeploymentType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+	DriveCacheType pulumi.StringPtrInput `pulumi:"DriveCacheType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
 	ExportPath pulumi.StringPtrInput `pulumi:"ExportPath"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importpath
@@ -258,9 +278,34 @@ func (o FileSystemLustreConfigurationOutput) ToFileSystemLustreConfigurationPtrO
 	}).(FileSystemLustreConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+func (o FileSystemLustreConfigurationOutput) AutoImportPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLustreConfiguration) *string { return v.AutoImportPolicy }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+func (o FileSystemLustreConfigurationOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemLustreConfiguration) *int { return v.AutomaticBackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+func (o FileSystemLustreConfigurationOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemLustreConfiguration) *bool { return v.CopyTagsToBackups }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+func (o FileSystemLustreConfigurationOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLustreConfiguration) *string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
 func (o FileSystemLustreConfigurationOutput) DeploymentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLustreConfiguration) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+func (o FileSystemLustreConfigurationOutput) DriveCacheType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLustreConfiguration) *string { return v.DriveCacheType }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
@@ -306,6 +351,46 @@ func (o FileSystemLustreConfigurationPtrOutput) Elem() FileSystemLustreConfigura
 	return o.ApplyT(func(v *FileSystemLustreConfiguration) FileSystemLustreConfiguration { return *v }).(FileSystemLustreConfigurationOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+func (o FileSystemLustreConfigurationPtrOutput) AutoImportPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemLustreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoImportPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+func (o FileSystemLustreConfigurationPtrOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemLustreConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticBackupRetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+func (o FileSystemLustreConfigurationPtrOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemLustreConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToBackups
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+func (o FileSystemLustreConfigurationPtrOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemLustreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DailyAutomaticBackupStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
 func (o FileSystemLustreConfigurationPtrOutput) DeploymentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemLustreConfiguration) *string {
@@ -313,6 +398,16 @@ func (o FileSystemLustreConfigurationPtrOutput) DeploymentType() pulumi.StringPt
 			return nil
 		}
 		return v.DeploymentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+func (o FileSystemLustreConfigurationPtrOutput) DriveCacheType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemLustreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DriveCacheType
 	}).(pulumi.StringPtrOutput)
 }
 

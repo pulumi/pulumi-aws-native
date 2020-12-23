@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResourceDefinition struct {
 // NewResourceDefinition registers a new resource with the given unique name, arguments, and options.
 func NewResourceDefinition(ctx *pulumi.Context,
 	name string, args *ResourceDefinitionArgs, opts ...pulumi.ResourceOption) (*ResourceDefinition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResourceDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResourceDefinition
 	err := ctx.RegisterResource("cloudformation:Greengrass:ResourceDefinition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResourceDefinitionArgs struct {
 
 func (ResourceDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDefinitionArgs)(nil)).Elem()
+}
+
+type ResourceDefinitionInput interface {
+	pulumi.Input
+
+	ToResourceDefinitionOutput() ResourceDefinitionOutput
+	ToResourceDefinitionOutputWithContext(ctx context.Context) ResourceDefinitionOutput
+}
+
+func (*ResourceDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDefinition)(nil))
+}
+
+func (i *ResourceDefinition) ToResourceDefinitionOutput() ResourceDefinitionOutput {
+	return i.ToResourceDefinitionOutputWithContext(context.Background())
+}
+
+func (i *ResourceDefinition) ToResourceDefinitionOutputWithContext(ctx context.Context) ResourceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionOutput)
+}
+
+type ResourceDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDefinition)(nil))
+}
+
+func (o ResourceDefinitionOutput) ToResourceDefinitionOutput() ResourceDefinitionOutput {
+	return o
+}
+
+func (o ResourceDefinitionOutput) ToResourceDefinitionOutputWithContext(ctx context.Context) ResourceDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceDefinitionOutput{})
 }

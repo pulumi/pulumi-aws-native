@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TagOptionAssociation struct {
 // NewTagOptionAssociation registers a new resource with the given unique name, arguments, and options.
 func NewTagOptionAssociation(ctx *pulumi.Context,
 	name string, args *TagOptionAssociationArgs, opts ...pulumi.ResourceOption) (*TagOptionAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TagOptionAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TagOptionAssociation
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:TagOptionAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TagOptionAssociationArgs struct {
 
 func (TagOptionAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagOptionAssociationArgs)(nil)).Elem()
+}
+
+type TagOptionAssociationInput interface {
+	pulumi.Input
+
+	ToTagOptionAssociationOutput() TagOptionAssociationOutput
+	ToTagOptionAssociationOutputWithContext(ctx context.Context) TagOptionAssociationOutput
+}
+
+func (*TagOptionAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagOptionAssociation)(nil))
+}
+
+func (i *TagOptionAssociation) ToTagOptionAssociationOutput() TagOptionAssociationOutput {
+	return i.ToTagOptionAssociationOutputWithContext(context.Background())
+}
+
+func (i *TagOptionAssociation) ToTagOptionAssociationOutputWithContext(ctx context.Context) TagOptionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagOptionAssociationOutput)
+}
+
+type TagOptionAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (TagOptionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagOptionAssociation)(nil))
+}
+
+func (o TagOptionAssociationOutput) ToTagOptionAssociationOutput() TagOptionAssociationOutput {
+	return o
+}
+
+func (o TagOptionAssociationOutput) ToTagOptionAssociationOutputWithContext(ctx context.Context) TagOptionAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TagOptionAssociationOutput{})
 }

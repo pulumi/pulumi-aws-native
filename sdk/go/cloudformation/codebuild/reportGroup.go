@@ -4,6 +4,7 @@
 package codebuild
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ReportGroup struct {
 // NewReportGroup registers a new resource with the given unique name, arguments, and options.
 func NewReportGroup(ctx *pulumi.Context,
 	name string, args *ReportGroupArgs, opts ...pulumi.ResourceOption) (*ReportGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ReportGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ReportGroup
 	err := ctx.RegisterResource("cloudformation:CodeBuild:ReportGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ReportGroupArgs struct {
 
 func (ReportGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportGroupArgs)(nil)).Elem()
+}
+
+type ReportGroupInput interface {
+	pulumi.Input
+
+	ToReportGroupOutput() ReportGroupOutput
+	ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput
+}
+
+func (*ReportGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroup)(nil))
+}
+
+func (i *ReportGroup) ToReportGroupOutput() ReportGroupOutput {
+	return i.ToReportGroupOutputWithContext(context.Background())
+}
+
+func (i *ReportGroup) ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupOutput)
+}
+
+type ReportGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroup)(nil))
+}
+
+func (o ReportGroupOutput) ToReportGroupOutput() ReportGroupOutput {
+	return o
+}
+
+func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportGroupOutput{})
 }

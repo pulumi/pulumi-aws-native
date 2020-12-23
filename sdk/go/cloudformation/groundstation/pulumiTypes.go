@@ -499,8 +499,12 @@ func (o DataflowEndpointGroupAttributesPtrOutput) Status() pulumi.StringPtrOutpu
 type DataflowEndpointGroupDataflowEndpoint struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
 	Address *DataflowEndpointGroupSocketAddress `pulumi:"Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
+	Mtu *int `pulumi:"Mtu"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
 	Name *string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
+	Status *string `pulumi:"Status"`
 }
 
 // DataflowEndpointGroupDataflowEndpointInput is an input type that accepts DataflowEndpointGroupDataflowEndpointArgs and DataflowEndpointGroupDataflowEndpointOutput values.
@@ -518,8 +522,12 @@ type DataflowEndpointGroupDataflowEndpointInput interface {
 type DataflowEndpointGroupDataflowEndpointArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
 	Address DataflowEndpointGroupSocketAddressPtrInput `pulumi:"Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
+	Mtu pulumi.IntPtrInput `pulumi:"Mtu"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
 	Name pulumi.StringPtrInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
+	Status pulumi.StringPtrInput `pulumi:"Status"`
 }
 
 func (DataflowEndpointGroupDataflowEndpointArgs) ElementType() reflect.Type {
@@ -605,9 +613,19 @@ func (o DataflowEndpointGroupDataflowEndpointOutput) Address() DataflowEndpointG
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *DataflowEndpointGroupSocketAddress { return v.Address }).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
+func (o DataflowEndpointGroupDataflowEndpointOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
 func (o DataflowEndpointGroupDataflowEndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
+func (o DataflowEndpointGroupDataflowEndpointOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type DataflowEndpointGroupDataflowEndpointPtrOutput struct{ *pulumi.OutputState }
@@ -638,6 +656,16 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Address() DataflowEndpoi
 	}).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
+func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Mtu
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
 func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *string {
@@ -645,6 +673,16 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrO
 			return nil
 		}
 		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
+func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 

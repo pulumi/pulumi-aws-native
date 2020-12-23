@@ -4,6 +4,7 @@
 package batch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type JobQueue struct {
 // NewJobQueue registers a new resource with the given unique name, arguments, and options.
 func NewJobQueue(ctx *pulumi.Context,
 	name string, args *JobQueueArgs, opts ...pulumi.ResourceOption) (*JobQueue, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &JobQueueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource JobQueue
 	err := ctx.RegisterResource("cloudformation:Batch:JobQueue", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type JobQueueArgs struct {
 
 func (JobQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobQueueArgs)(nil)).Elem()
+}
+
+type JobQueueInput interface {
+	pulumi.Input
+
+	ToJobQueueOutput() JobQueueOutput
+	ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput
+}
+
+func (*JobQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueue)(nil))
+}
+
+func (i *JobQueue) ToJobQueueOutput() JobQueueOutput {
+	return i.ToJobQueueOutputWithContext(context.Background())
+}
+
+func (i *JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueOutput)
+}
+
+type JobQueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobQueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueue)(nil))
+}
+
+func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {
+	return o
+}
+
+func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobQueueOutput{})
 }

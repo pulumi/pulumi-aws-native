@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Layer struct {
 // NewLayer registers a new resource with the given unique name, arguments, and options.
 func NewLayer(ctx *pulumi.Context,
 	name string, args *LayerArgs, opts ...pulumi.ResourceOption) (*Layer, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LayerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Layer
 	err := ctx.RegisterResource("cloudformation:OpsWorks:Layer", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LayerArgs struct {
 
 func (LayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerArgs)(nil)).Elem()
+}
+
+type LayerInput interface {
+	pulumi.Input
+
+	ToLayerOutput() LayerOutput
+	ToLayerOutputWithContext(ctx context.Context) LayerOutput
+}
+
+func (*Layer) ElementType() reflect.Type {
+	return reflect.TypeOf((*Layer)(nil))
+}
+
+func (i *Layer) ToLayerOutput() LayerOutput {
+	return i.ToLayerOutputWithContext(context.Background())
+}
+
+func (i *Layer) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerOutput)
+}
+
+type LayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Layer)(nil))
+}
+
+func (o LayerOutput) ToLayerOutput() LayerOutput {
+	return o
+}
+
+func (o LayerOutput) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LayerOutput{})
 }

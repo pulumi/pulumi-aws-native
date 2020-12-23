@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ServiceLinkedRole struct {
 // NewServiceLinkedRole registers a new resource with the given unique name, arguments, and options.
 func NewServiceLinkedRole(ctx *pulumi.Context,
 	name string, args *ServiceLinkedRoleArgs, opts ...pulumi.ResourceOption) (*ServiceLinkedRole, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ServiceLinkedRoleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ServiceLinkedRole
 	err := ctx.RegisterResource("cloudformation:IAM:ServiceLinkedRole", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ServiceLinkedRoleArgs struct {
 
 func (ServiceLinkedRoleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLinkedRoleArgs)(nil)).Elem()
+}
+
+type ServiceLinkedRoleInput interface {
+	pulumi.Input
+
+	ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput
+	ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput
+}
+
+func (*ServiceLinkedRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLinkedRole)(nil))
+}
+
+func (i *ServiceLinkedRole) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {
+	return i.ToServiceLinkedRoleOutputWithContext(context.Background())
+}
+
+func (i *ServiceLinkedRole) ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRoleOutput)
+}
+
+type ServiceLinkedRoleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceLinkedRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLinkedRole)(nil))
+}
+
+func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {
+	return o
+}
+
+func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceLinkedRoleOutput{})
 }

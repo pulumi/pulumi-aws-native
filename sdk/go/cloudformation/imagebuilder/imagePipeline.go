@@ -4,6 +4,7 @@
 package imagebuilder
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ImagePipeline struct {
 // NewImagePipeline registers a new resource with the given unique name, arguments, and options.
 func NewImagePipeline(ctx *pulumi.Context,
 	name string, args *ImagePipelineArgs, opts ...pulumi.ResourceOption) (*ImagePipeline, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ImagePipelineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ImagePipeline
 	err := ctx.RegisterResource("cloudformation:ImageBuilder:ImagePipeline", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ImagePipelineArgs struct {
 
 func (ImagePipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*imagePipelineArgs)(nil)).Elem()
+}
+
+type ImagePipelineInput interface {
+	pulumi.Input
+
+	ToImagePipelineOutput() ImagePipelineOutput
+	ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput
+}
+
+func (*ImagePipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipeline)(nil))
+}
+
+func (i *ImagePipeline) ToImagePipelineOutput() ImagePipelineOutput {
+	return i.ToImagePipelineOutputWithContext(context.Background())
+}
+
+func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineOutput)
+}
+
+type ImagePipelineOutput struct {
+	*pulumi.OutputState
+}
+
+func (ImagePipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipeline)(nil))
+}
+
+func (o ImagePipelineOutput) ToImagePipelineOutput() ImagePipelineOutput {
+	return o
+}
+
+func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ImagePipelineOutput{})
 }

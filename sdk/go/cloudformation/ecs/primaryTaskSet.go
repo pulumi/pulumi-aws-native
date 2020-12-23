@@ -4,6 +4,7 @@
 package ecs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PrimaryTaskSet struct {
 // NewPrimaryTaskSet registers a new resource with the given unique name, arguments, and options.
 func NewPrimaryTaskSet(ctx *pulumi.Context,
 	name string, args *PrimaryTaskSetArgs, opts ...pulumi.ResourceOption) (*PrimaryTaskSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PrimaryTaskSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PrimaryTaskSet
 	err := ctx.RegisterResource("cloudformation:ECS:PrimaryTaskSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PrimaryTaskSetArgs struct {
 
 func (PrimaryTaskSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*primaryTaskSetArgs)(nil)).Elem()
+}
+
+type PrimaryTaskSetInput interface {
+	pulumi.Input
+
+	ToPrimaryTaskSetOutput() PrimaryTaskSetOutput
+	ToPrimaryTaskSetOutputWithContext(ctx context.Context) PrimaryTaskSetOutput
+}
+
+func (*PrimaryTaskSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrimaryTaskSet)(nil))
+}
+
+func (i *PrimaryTaskSet) ToPrimaryTaskSetOutput() PrimaryTaskSetOutput {
+	return i.ToPrimaryTaskSetOutputWithContext(context.Background())
+}
+
+func (i *PrimaryTaskSet) ToPrimaryTaskSetOutputWithContext(ctx context.Context) PrimaryTaskSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrimaryTaskSetOutput)
+}
+
+type PrimaryTaskSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrimaryTaskSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrimaryTaskSet)(nil))
+}
+
+func (o PrimaryTaskSetOutput) ToPrimaryTaskSetOutput() PrimaryTaskSetOutput {
+	return o
+}
+
+func (o PrimaryTaskSetOutput) ToPrimaryTaskSetOutputWithContext(ctx context.Context) PrimaryTaskSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrimaryTaskSetOutput{})
 }

@@ -292,6 +292,10 @@ func (o RepositoryLifecyclePolicyPtrOutput) RegistryId() pulumi.StringPtrOutput 
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 type RepositoryProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+	ImageScanningConfiguration interface{} `pulumi:"ImageScanningConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+	ImageTagMutability *string `pulumi:"ImageTagMutability"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
 	LifecyclePolicy *RepositoryLifecyclePolicy `pulumi:"LifecyclePolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
@@ -315,6 +319,10 @@ type RepositoryPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 type RepositoryPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+	ImageScanningConfiguration pulumi.Input `pulumi:"ImageScanningConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+	ImageTagMutability pulumi.StringPtrInput `pulumi:"ImageTagMutability"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
 	LifecyclePolicy RepositoryLifecyclePolicyPtrInput `pulumi:"LifecyclePolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
@@ -403,6 +411,16 @@ func (o RepositoryPropertiesOutput) ToRepositoryPropertiesPtrOutputWithContext(c
 	}).(RepositoryPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+func (o RepositoryPropertiesOutput) ImageScanningConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v RepositoryProperties) interface{} { return v.ImageScanningConfiguration }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+func (o RepositoryPropertiesOutput) ImageTagMutability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryProperties) *string { return v.ImageTagMutability }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
 func (o RepositoryPropertiesOutput) LifecyclePolicy() RepositoryLifecyclePolicyPtrOutput {
 	return o.ApplyT(func(v RepositoryProperties) *RepositoryLifecyclePolicy { return v.LifecyclePolicy }).(RepositoryLifecyclePolicyPtrOutput)
@@ -439,6 +457,26 @@ func (o RepositoryPropertiesPtrOutput) ToRepositoryPropertiesPtrOutputWithContex
 
 func (o RepositoryPropertiesPtrOutput) Elem() RepositoryPropertiesOutput {
 	return o.ApplyT(func(v *RepositoryProperties) RepositoryProperties { return *v }).(RepositoryPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+func (o RepositoryPropertiesPtrOutput) ImageScanningConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RepositoryProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanningConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+func (o RepositoryPropertiesPtrOutput) ImageTagMutability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageTagMutability
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy

@@ -4,6 +4,7 @@
 package globalaccelerator
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EndpointGroup struct {
 // NewEndpointGroup registers a new resource with the given unique name, arguments, and options.
 func NewEndpointGroup(ctx *pulumi.Context,
 	name string, args *EndpointGroupArgs, opts ...pulumi.ResourceOption) (*EndpointGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EndpointGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EndpointGroup
 	err := ctx.RegisterResource("cloudformation:GlobalAccelerator:EndpointGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EndpointGroupArgs struct {
 
 func (EndpointGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointGroupArgs)(nil)).Elem()
+}
+
+type EndpointGroupInput interface {
+	pulumi.Input
+
+	ToEndpointGroupOutput() EndpointGroupOutput
+	ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput
+}
+
+func (*EndpointGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGroup)(nil))
+}
+
+func (i *EndpointGroup) ToEndpointGroupOutput() EndpointGroupOutput {
+	return i.ToEndpointGroupOutputWithContext(context.Background())
+}
+
+func (i *EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupOutput)
+}
+
+type EndpointGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGroup)(nil))
+}
+
+func (o EndpointGroupOutput) ToEndpointGroupOutput() EndpointGroupOutput {
+	return o
+}
+
+func (o EndpointGroupOutput) ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointGroupOutput{})
 }

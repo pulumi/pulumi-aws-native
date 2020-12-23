@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type StackSetConstraint struct {
 // NewStackSetConstraint registers a new resource with the given unique name, arguments, and options.
 func NewStackSetConstraint(ctx *pulumi.Context,
 	name string, args *StackSetConstraintArgs, opts ...pulumi.ResourceOption) (*StackSetConstraint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StackSetConstraintArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource StackSetConstraint
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:StackSetConstraint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StackSetConstraintArgs struct {
 
 func (StackSetConstraintArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetConstraintArgs)(nil)).Elem()
+}
+
+type StackSetConstraintInput interface {
+	pulumi.Input
+
+	ToStackSetConstraintOutput() StackSetConstraintOutput
+	ToStackSetConstraintOutputWithContext(ctx context.Context) StackSetConstraintOutput
+}
+
+func (*StackSetConstraint) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetConstraint)(nil))
+}
+
+func (i *StackSetConstraint) ToStackSetConstraintOutput() StackSetConstraintOutput {
+	return i.ToStackSetConstraintOutputWithContext(context.Background())
+}
+
+func (i *StackSetConstraint) ToStackSetConstraintOutputWithContext(ctx context.Context) StackSetConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetConstraintOutput)
+}
+
+type StackSetConstraintOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackSetConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetConstraint)(nil))
+}
+
+func (o StackSetConstraintOutput) ToStackSetConstraintOutput() StackSetConstraintOutput {
+	return o
+}
+
+func (o StackSetConstraintOutput) ToStackSetConstraintOutputWithContext(ctx context.Context) StackSetConstraintOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackSetConstraintOutput{})
 }

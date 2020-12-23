@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResourceDefinitionVersion struct {
 // NewResourceDefinitionVersion registers a new resource with the given unique name, arguments, and options.
 func NewResourceDefinitionVersion(ctx *pulumi.Context,
 	name string, args *ResourceDefinitionVersionArgs, opts ...pulumi.ResourceOption) (*ResourceDefinitionVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResourceDefinitionVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResourceDefinitionVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:ResourceDefinitionVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResourceDefinitionVersionArgs struct {
 
 func (ResourceDefinitionVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDefinitionVersionArgs)(nil)).Elem()
+}
+
+type ResourceDefinitionVersionInput interface {
+	pulumi.Input
+
+	ToResourceDefinitionVersionOutput() ResourceDefinitionVersionOutput
+	ToResourceDefinitionVersionOutputWithContext(ctx context.Context) ResourceDefinitionVersionOutput
+}
+
+func (*ResourceDefinitionVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDefinitionVersion)(nil))
+}
+
+func (i *ResourceDefinitionVersion) ToResourceDefinitionVersionOutput() ResourceDefinitionVersionOutput {
+	return i.ToResourceDefinitionVersionOutputWithContext(context.Background())
+}
+
+func (i *ResourceDefinitionVersion) ToResourceDefinitionVersionOutputWithContext(ctx context.Context) ResourceDefinitionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionOutput)
+}
+
+type ResourceDefinitionVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceDefinitionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDefinitionVersion)(nil))
+}
+
+func (o ResourceDefinitionVersionOutput) ToResourceDefinitionVersionOutput() ResourceDefinitionVersionOutput {
+	return o
+}
+
+func (o ResourceDefinitionVersionOutput) ToResourceDefinitionVersionOutputWithContext(ctx context.Context) ResourceDefinitionVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceDefinitionVersionOutput{})
 }

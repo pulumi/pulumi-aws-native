@@ -4,6 +4,7 @@
 package configuration
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type AggregationAuthorization struct {
 // NewAggregationAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewAggregationAuthorization(ctx *pulumi.Context,
 	name string, args *AggregationAuthorizationArgs, opts ...pulumi.ResourceOption) (*AggregationAuthorization, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AggregationAuthorizationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource AggregationAuthorization
 	err := ctx.RegisterResource("cloudformation:Configuration:AggregationAuthorization", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AggregationAuthorizationArgs struct {
 
 func (AggregationAuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*aggregationAuthorizationArgs)(nil)).Elem()
+}
+
+type AggregationAuthorizationInput interface {
+	pulumi.Input
+
+	ToAggregationAuthorizationOutput() AggregationAuthorizationOutput
+	ToAggregationAuthorizationOutputWithContext(ctx context.Context) AggregationAuthorizationOutput
+}
+
+func (*AggregationAuthorization) ElementType() reflect.Type {
+	return reflect.TypeOf((*AggregationAuthorization)(nil))
+}
+
+func (i *AggregationAuthorization) ToAggregationAuthorizationOutput() AggregationAuthorizationOutput {
+	return i.ToAggregationAuthorizationOutputWithContext(context.Background())
+}
+
+func (i *AggregationAuthorization) ToAggregationAuthorizationOutputWithContext(ctx context.Context) AggregationAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AggregationAuthorizationOutput)
+}
+
+type AggregationAuthorizationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AggregationAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AggregationAuthorization)(nil))
+}
+
+func (o AggregationAuthorizationOutput) ToAggregationAuthorizationOutput() AggregationAuthorizationOutput {
+	return o
+}
+
+func (o AggregationAuthorizationOutput) ToAggregationAuthorizationOutputWithContext(ctx context.Context) AggregationAuthorizationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AggregationAuthorizationOutput{})
 }

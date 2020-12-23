@@ -1066,6 +1066,8 @@ type CloudFormationProvisionedProductProperties struct {
 	NotificationArns []string `pulumi:"NotificationArns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
 	PathId *string `pulumi:"PathId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+	PathName *string `pulumi:"PathName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
 	ProductId *string `pulumi:"ProductId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
@@ -1103,6 +1105,8 @@ type CloudFormationProvisionedProductPropertiesArgs struct {
 	NotificationArns pulumi.StringArrayInput `pulumi:"NotificationArns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
 	PathId pulumi.StringPtrInput `pulumi:"PathId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+	PathName pulumi.StringPtrInput `pulumi:"PathName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
 	ProductId pulumi.StringPtrInput `pulumi:"ProductId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
@@ -1214,6 +1218,11 @@ func (o CloudFormationProvisionedProductPropertiesOutput) PathId() pulumi.String
 	return o.ApplyT(func(v CloudFormationProvisionedProductProperties) *string { return v.PathId }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+func (o CloudFormationProvisionedProductPropertiesOutput) PathName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudFormationProvisionedProductProperties) *string { return v.PathName }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
 func (o CloudFormationProvisionedProductPropertiesOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProperties) *string { return v.ProductId }).(pulumi.StringPtrOutput)
@@ -1305,6 +1314,16 @@ func (o CloudFormationProvisionedProductPropertiesPtrOutput) PathId() pulumi.Str
 			return nil
 		}
 		return v.PathId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+func (o CloudFormationProvisionedProductPropertiesPtrOutput) PathName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProductProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathName
 	}).(pulumi.StringPtrOutput)
 }
 

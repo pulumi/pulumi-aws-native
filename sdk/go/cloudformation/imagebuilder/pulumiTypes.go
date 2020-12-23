@@ -180,6 +180,8 @@ type ComponentProperties struct {
 	Name string `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
 	Platform string `pulumi:"Platform"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+	SupportedOsVersions []string `pulumi:"SupportedOsVersions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
 	Tags map[string]string `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
@@ -213,6 +215,8 @@ type ComponentPropertiesArgs struct {
 	Name pulumi.StringInput `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
 	Platform pulumi.StringInput `pulumi:"Platform"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+	SupportedOsVersions pulumi.StringArrayInput `pulumi:"SupportedOsVersions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
 	Tags pulumi.StringMapInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
@@ -329,6 +333,11 @@ func (o ComponentPropertiesOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentProperties) string { return v.Platform }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+func (o ComponentPropertiesOutput) SupportedOsVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComponentProperties) []string { return v.SupportedOsVersions }).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
 func (o ComponentPropertiesOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ComponentProperties) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -420,6 +429,16 @@ func (o ComponentPropertiesPtrOutput) Platform() pulumi.StringPtrOutput {
 		}
 		return &v.Platform
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+func (o ComponentPropertiesPtrOutput) SupportedOsVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ComponentProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedOsVersions
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
@@ -892,6 +911,7 @@ func (o DistributionConfigurationPropertiesPtrOutput) Tags() pulumi.StringMapOut
 type ImageAttributes struct {
 	Arn     string `pulumi:"Arn"`
 	ImageId string `pulumi:"ImageId"`
+	Name    string `pulumi:"Name"`
 }
 
 // ImageAttributesInput is an input type that accepts ImageAttributesArgs and ImageAttributesOutput values.
@@ -908,6 +928,7 @@ type ImageAttributesInput interface {
 type ImageAttributesArgs struct {
 	Arn     pulumi.StringInput `pulumi:"Arn"`
 	ImageId pulumi.StringInput `pulumi:"ImageId"`
+	Name    pulumi.StringInput `pulumi:"Name"`
 }
 
 func (ImageAttributesArgs) ElementType() reflect.Type {
@@ -994,6 +1015,10 @@ func (o ImageAttributesOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageAttributes) string { return v.ImageId }).(pulumi.StringOutput)
 }
 
+func (o ImageAttributesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageAttributes) string { return v.Name }).(pulumi.StringOutput)
+}
+
 type ImageAttributesPtrOutput struct{ *pulumi.OutputState }
 
 func (ImageAttributesPtrOutput) ElementType() reflect.Type {
@@ -1027,6 +1052,15 @@ func (o ImageAttributesPtrOutput) ImageId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.ImageId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ImageAttributesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1468,6 +1502,8 @@ type ImagePipelineProperties struct {
 	Description *string `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
 	DistributionConfigurationArn *string `pulumi:"DistributionConfigurationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+	EnhancedImageMetadataEnabled *bool `pulumi:"EnhancedImageMetadataEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
 	ImageRecipeArn string `pulumi:"ImageRecipeArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
@@ -1501,6 +1537,8 @@ type ImagePipelinePropertiesArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
 	DistributionConfigurationArn pulumi.StringPtrInput `pulumi:"DistributionConfigurationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+	EnhancedImageMetadataEnabled pulumi.BoolPtrInput `pulumi:"EnhancedImageMetadataEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
 	ImageRecipeArn pulumi.StringInput `pulumi:"ImageRecipeArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
@@ -1605,6 +1643,11 @@ func (o ImagePipelinePropertiesOutput) DistributionConfigurationArn() pulumi.Str
 	return o.ApplyT(func(v ImagePipelineProperties) *string { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+func (o ImagePipelinePropertiesOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImagePipelineProperties) *bool { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
 func (o ImagePipelinePropertiesOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ImagePipelineProperties) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
@@ -1678,6 +1721,16 @@ func (o ImagePipelinePropertiesPtrOutput) DistributionConfigurationArn() pulumi.
 		}
 		return v.DistributionConfigurationArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+func (o ImagePipelinePropertiesPtrOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedImageMetadataEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
@@ -1907,6 +1960,8 @@ func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOut
 type ImageProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
 	DistributionConfigurationArn *string `pulumi:"DistributionConfigurationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+	EnhancedImageMetadataEnabled *bool `pulumi:"EnhancedImageMetadataEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	ImageRecipeArn string `pulumi:"ImageRecipeArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
@@ -1932,6 +1987,8 @@ type ImagePropertiesInput interface {
 type ImagePropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
 	DistributionConfigurationArn pulumi.StringPtrInput `pulumi:"DistributionConfigurationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+	EnhancedImageMetadataEnabled pulumi.BoolPtrInput `pulumi:"EnhancedImageMetadataEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	ImageRecipeArn pulumi.StringInput `pulumi:"ImageRecipeArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
@@ -2025,6 +2082,11 @@ func (o ImagePropertiesOutput) DistributionConfigurationArn() pulumi.StringPtrOu
 	return o.ApplyT(func(v ImageProperties) *string { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+func (o ImagePropertiesOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageProperties) *bool { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 func (o ImagePropertiesOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageProperties) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
@@ -2071,6 +2133,16 @@ func (o ImagePropertiesPtrOutput) DistributionConfigurationArn() pulumi.StringPt
 		}
 		return v.DistributionConfigurationArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+func (o ImagePropertiesPtrOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedImageMetadataEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
@@ -2734,6 +2806,8 @@ type ImageRecipeProperties struct {
 	Tags map[string]string `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
 	Version string `pulumi:"Version"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+	WorkingDirectory *string `pulumi:"WorkingDirectory"`
 }
 
 // ImageRecipePropertiesInput is an input type that accepts ImageRecipePropertiesArgs and ImageRecipePropertiesOutput values.
@@ -2763,6 +2837,8 @@ type ImageRecipePropertiesArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
 	Version pulumi.StringInput `pulumi:"Version"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+	WorkingDirectory pulumi.StringPtrInput `pulumi:"WorkingDirectory"`
 }
 
 func (ImageRecipePropertiesArgs) ElementType() reflect.Type {
@@ -2878,6 +2954,11 @@ func (o ImageRecipePropertiesOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRecipeProperties) string { return v.Version }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+func (o ImageRecipePropertiesOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeProperties) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
 type ImageRecipePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipePropertiesPtrOutput) ElementType() reflect.Type {
@@ -2963,6 +3044,16 @@ func (o ImageRecipePropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+func (o ImageRecipePropertiesPtrOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkingDirectory
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3161,6 +3252,8 @@ type InfrastructureConfigurationProperties struct {
 	Logging interface{} `pulumi:"Logging"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
 	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+	ResourceTags map[string]string `pulumi:"ResourceTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
 	SecurityGroupIds []string `pulumi:"SecurityGroupIds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
@@ -3198,6 +3291,8 @@ type InfrastructureConfigurationPropertiesArgs struct {
 	Logging pulumi.Input `pulumi:"Logging"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
 	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+	ResourceTags pulumi.StringMapInput `pulumi:"ResourceTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"SecurityGroupIds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
@@ -3318,6 +3413,11 @@ func (o InfrastructureConfigurationPropertiesOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v InfrastructureConfigurationProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+func (o InfrastructureConfigurationPropertiesOutput) ResourceTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationProperties) map[string]string { return v.ResourceTags }).(pulumi.StringMapOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
 func (o InfrastructureConfigurationPropertiesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationProperties) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -3419,6 +3519,16 @@ func (o InfrastructureConfigurationPropertiesPtrOutput) Name() pulumi.StringPtrO
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+func (o InfrastructureConfigurationPropertiesPtrOutput) ResourceTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTags
+	}).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids

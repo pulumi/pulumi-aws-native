@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DomainName struct {
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
 func NewDomainName(ctx *pulumi.Context,
 	name string, args *DomainNameArgs, opts ...pulumi.ResourceOption) (*DomainName, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DomainNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DomainName
 	err := ctx.RegisterResource("cloudformation:ApiGateway:DomainName", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DomainNameArgs struct {
 
 func (DomainNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameArgs)(nil)).Elem()
+}
+
+type DomainNameInput interface {
+	pulumi.Input
+
+	ToDomainNameOutput() DomainNameOutput
+	ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput
+}
+
+func (*DomainName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainName)(nil))
+}
+
+func (i *DomainName) ToDomainNameOutput() DomainNameOutput {
+	return i.ToDomainNameOutputWithContext(context.Background())
+}
+
+func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameOutput)
+}
+
+type DomainNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainName)(nil))
+}
+
+func (o DomainNameOutput) ToDomainNameOutput() DomainNameOutput {
+	return o
+}
+
+func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainNameOutput{})
 }

@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolIdentityProvider struct {
 // NewUserPoolIdentityProvider registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolIdentityProvider(ctx *pulumi.Context,
 	name string, args *UserPoolIdentityProviderArgs, opts ...pulumi.ResourceOption) (*UserPoolIdentityProvider, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolIdentityProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolIdentityProvider
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolIdentityProvider", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolIdentityProviderArgs struct {
 
 func (UserPoolIdentityProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolIdentityProviderArgs)(nil)).Elem()
+}
+
+type UserPoolIdentityProviderInput interface {
+	pulumi.Input
+
+	ToUserPoolIdentityProviderOutput() UserPoolIdentityProviderOutput
+	ToUserPoolIdentityProviderOutputWithContext(ctx context.Context) UserPoolIdentityProviderOutput
+}
+
+func (*UserPoolIdentityProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolIdentityProvider)(nil))
+}
+
+func (i *UserPoolIdentityProvider) ToUserPoolIdentityProviderOutput() UserPoolIdentityProviderOutput {
+	return i.ToUserPoolIdentityProviderOutputWithContext(context.Background())
+}
+
+func (i *UserPoolIdentityProvider) ToUserPoolIdentityProviderOutputWithContext(ctx context.Context) UserPoolIdentityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolIdentityProviderOutput)
+}
+
+type UserPoolIdentityProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolIdentityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolIdentityProvider)(nil))
+}
+
+func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutput() UserPoolIdentityProviderOutput {
+	return o
+}
+
+func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutputWithContext(ctx context.Context) UserPoolIdentityProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolIdentityProviderOutput{})
 }

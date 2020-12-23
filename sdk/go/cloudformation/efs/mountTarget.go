@@ -4,6 +4,7 @@
 package efs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MountTarget struct {
 // NewMountTarget registers a new resource with the given unique name, arguments, and options.
 func NewMountTarget(ctx *pulumi.Context,
 	name string, args *MountTargetArgs, opts ...pulumi.ResourceOption) (*MountTarget, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MountTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MountTarget
 	err := ctx.RegisterResource("cloudformation:EFS:MountTarget", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MountTargetArgs struct {
 
 func (MountTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mountTargetArgs)(nil)).Elem()
+}
+
+type MountTargetInput interface {
+	pulumi.Input
+
+	ToMountTargetOutput() MountTargetOutput
+	ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput
+}
+
+func (*MountTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTarget)(nil))
+}
+
+func (i *MountTarget) ToMountTargetOutput() MountTargetOutput {
+	return i.ToMountTargetOutputWithContext(context.Background())
+}
+
+func (i *MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MountTargetOutput)
+}
+
+type MountTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (MountTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTarget)(nil))
+}
+
+func (o MountTargetOutput) ToMountTargetOutput() MountTargetOutput {
+	return o
+}
+
+func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MountTargetOutput{})
 }

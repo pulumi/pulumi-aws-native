@@ -531,6 +531,733 @@ func (o ResolverEndpointPropertiesPtrOutput) Tags() cloudformation.TagArrayOutpu
 	}).(cloudformation.TagArrayOutput)
 }
 
+type ResolverQueryLoggingConfigAssociationAttributes struct {
+	CreationTime string `pulumi:"CreationTime"`
+	Error        string `pulumi:"Error"`
+	ErrorMessage string `pulumi:"ErrorMessage"`
+	Id           string `pulumi:"Id"`
+	Status       string `pulumi:"Status"`
+}
+
+// ResolverQueryLoggingConfigAssociationAttributesInput is an input type that accepts ResolverQueryLoggingConfigAssociationAttributesArgs and ResolverQueryLoggingConfigAssociationAttributesOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigAssociationAttributesInput` via:
+//
+//          ResolverQueryLoggingConfigAssociationAttributesArgs{...}
+type ResolverQueryLoggingConfigAssociationAttributesInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigAssociationAttributesOutput() ResolverQueryLoggingConfigAssociationAttributesOutput
+	ToResolverQueryLoggingConfigAssociationAttributesOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationAttributesOutput
+}
+
+type ResolverQueryLoggingConfigAssociationAttributesArgs struct {
+	CreationTime pulumi.StringInput `pulumi:"CreationTime"`
+	Error        pulumi.StringInput `pulumi:"Error"`
+	ErrorMessage pulumi.StringInput `pulumi:"ErrorMessage"`
+	Id           pulumi.StringInput `pulumi:"Id"`
+	Status       pulumi.StringInput `pulumi:"Status"`
+}
+
+func (ResolverQueryLoggingConfigAssociationAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociationAttributes)(nil)).Elem()
+}
+
+func (i ResolverQueryLoggingConfigAssociationAttributesArgs) ToResolverQueryLoggingConfigAssociationAttributesOutput() ResolverQueryLoggingConfigAssociationAttributesOutput {
+	return i.ToResolverQueryLoggingConfigAssociationAttributesOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigAssociationAttributesArgs) ToResolverQueryLoggingConfigAssociationAttributesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAssociationAttributesOutput)
+}
+
+func (i ResolverQueryLoggingConfigAssociationAttributesArgs) ToResolverQueryLoggingConfigAssociationAttributesPtrOutput() ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return i.ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigAssociationAttributesArgs) ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAssociationAttributesOutput).ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(ctx)
+}
+
+// ResolverQueryLoggingConfigAssociationAttributesPtrInput is an input type that accepts ResolverQueryLoggingConfigAssociationAttributesArgs, ResolverQueryLoggingConfigAssociationAttributesPtr and ResolverQueryLoggingConfigAssociationAttributesPtrOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigAssociationAttributesPtrInput` via:
+//
+//          ResolverQueryLoggingConfigAssociationAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type ResolverQueryLoggingConfigAssociationAttributesPtrInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigAssociationAttributesPtrOutput() ResolverQueryLoggingConfigAssociationAttributesPtrOutput
+	ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationAttributesPtrOutput
+}
+
+type resolverQueryLoggingConfigAssociationAttributesPtrType ResolverQueryLoggingConfigAssociationAttributesArgs
+
+func ResolverQueryLoggingConfigAssociationAttributesPtr(v *ResolverQueryLoggingConfigAssociationAttributesArgs) ResolverQueryLoggingConfigAssociationAttributesPtrInput {
+	return (*resolverQueryLoggingConfigAssociationAttributesPtrType)(v)
+}
+
+func (*resolverQueryLoggingConfigAssociationAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAssociationAttributes)(nil)).Elem()
+}
+
+func (i *resolverQueryLoggingConfigAssociationAttributesPtrType) ToResolverQueryLoggingConfigAssociationAttributesPtrOutput() ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return i.ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *resolverQueryLoggingConfigAssociationAttributesPtrType) ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAssociationAttributesPtrOutput)
+}
+
+type ResolverQueryLoggingConfigAssociationAttributesOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigAssociationAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociationAttributes)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) ToResolverQueryLoggingConfigAssociationAttributesOutput() ResolverQueryLoggingConfigAssociationAttributesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) ToResolverQueryLoggingConfigAssociationAttributesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationAttributesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) ToResolverQueryLoggingConfigAssociationAttributesPtrOutput() ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return o.ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationAttributes) *ResolverQueryLoggingConfigAssociationAttributes {
+		return &v
+	}).(ResolverQueryLoggingConfigAssociationAttributesPtrOutput)
+}
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationAttributes) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) Error() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationAttributes) string { return v.Error }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationAttributes) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationAttributes) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ResolverQueryLoggingConfigAssociationAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigAssociationAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAssociationAttributes)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) ToResolverQueryLoggingConfigAssociationAttributesPtrOutput() ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) ToResolverQueryLoggingConfigAssociationAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationAttributesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) Elem() ResolverQueryLoggingConfigAssociationAttributesOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationAttributes) ResolverQueryLoggingConfigAssociationAttributes {
+		return *v
+	}).(ResolverQueryLoggingConfigAssociationAttributesOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) Error() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Error
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAssociationAttributesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+type ResolverQueryLoggingConfigAssociationProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+	ResolverQueryLogConfigId *string `pulumi:"ResolverQueryLogConfigId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+	ResourceId *string `pulumi:"ResourceId"`
+}
+
+// ResolverQueryLoggingConfigAssociationPropertiesInput is an input type that accepts ResolverQueryLoggingConfigAssociationPropertiesArgs and ResolverQueryLoggingConfigAssociationPropertiesOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigAssociationPropertiesInput` via:
+//
+//          ResolverQueryLoggingConfigAssociationPropertiesArgs{...}
+type ResolverQueryLoggingConfigAssociationPropertiesInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigAssociationPropertiesOutput() ResolverQueryLoggingConfigAssociationPropertiesOutput
+	ToResolverQueryLoggingConfigAssociationPropertiesOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+type ResolverQueryLoggingConfigAssociationPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+	ResolverQueryLogConfigId pulumi.StringPtrInput `pulumi:"ResolverQueryLogConfigId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+	ResourceId pulumi.StringPtrInput `pulumi:"ResourceId"`
+}
+
+func (ResolverQueryLoggingConfigAssociationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociationProperties)(nil)).Elem()
+}
+
+func (i ResolverQueryLoggingConfigAssociationPropertiesArgs) ToResolverQueryLoggingConfigAssociationPropertiesOutput() ResolverQueryLoggingConfigAssociationPropertiesOutput {
+	return i.ToResolverQueryLoggingConfigAssociationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigAssociationPropertiesArgs) ToResolverQueryLoggingConfigAssociationPropertiesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAssociationPropertiesOutput)
+}
+
+func (i ResolverQueryLoggingConfigAssociationPropertiesArgs) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutput() ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return i.ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigAssociationPropertiesArgs) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAssociationPropertiesOutput).ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ResolverQueryLoggingConfigAssociationPropertiesPtrInput is an input type that accepts ResolverQueryLoggingConfigAssociationPropertiesArgs, ResolverQueryLoggingConfigAssociationPropertiesPtr and ResolverQueryLoggingConfigAssociationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigAssociationPropertiesPtrInput` via:
+//
+//          ResolverQueryLoggingConfigAssociationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ResolverQueryLoggingConfigAssociationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigAssociationPropertiesPtrOutput() ResolverQueryLoggingConfigAssociationPropertiesPtrOutput
+	ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationPropertiesPtrOutput
+}
+
+type resolverQueryLoggingConfigAssociationPropertiesPtrType ResolverQueryLoggingConfigAssociationPropertiesArgs
+
+func ResolverQueryLoggingConfigAssociationPropertiesPtr(v *ResolverQueryLoggingConfigAssociationPropertiesArgs) ResolverQueryLoggingConfigAssociationPropertiesPtrInput {
+	return (*resolverQueryLoggingConfigAssociationPropertiesPtrType)(v)
+}
+
+func (*resolverQueryLoggingConfigAssociationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAssociationProperties)(nil)).Elem()
+}
+
+func (i *resolverQueryLoggingConfigAssociationPropertiesPtrType) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutput() ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return i.ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *resolverQueryLoggingConfigAssociationPropertiesPtrType) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAssociationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+type ResolverQueryLoggingConfigAssociationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigAssociationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociationProperties)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigAssociationPropertiesOutput) ToResolverQueryLoggingConfigAssociationPropertiesOutput() ResolverQueryLoggingConfigAssociationPropertiesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationPropertiesOutput) ToResolverQueryLoggingConfigAssociationPropertiesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationPropertiesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationPropertiesOutput) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutput() ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return o.ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverQueryLoggingConfigAssociationPropertiesOutput) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationProperties) *ResolverQueryLoggingConfigAssociationProperties {
+		return &v
+	}).(ResolverQueryLoggingConfigAssociationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+func (o ResolverQueryLoggingConfigAssociationPropertiesOutput) ResolverQueryLogConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationProperties) *string { return v.ResolverQueryLogConfigId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+func (o ResolverQueryLoggingConfigAssociationPropertiesOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAssociationProperties) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ResolverQueryLoggingConfigAssociationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigAssociationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAssociationProperties)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigAssociationPropertiesPtrOutput) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutput() ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationPropertiesPtrOutput) ToResolverQueryLoggingConfigAssociationPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationPropertiesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationPropertiesPtrOutput) Elem() ResolverQueryLoggingConfigAssociationPropertiesOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationProperties) ResolverQueryLoggingConfigAssociationProperties {
+		return *v
+	}).(ResolverQueryLoggingConfigAssociationPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+func (o ResolverQueryLoggingConfigAssociationPropertiesPtrOutput) ResolverQueryLogConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResolverQueryLogConfigId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+func (o ResolverQueryLoggingConfigAssociationPropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverQueryLoggingConfigAttributes struct {
+	Arn              string `pulumi:"Arn"`
+	AssociationCount int    `pulumi:"AssociationCount"`
+	CreationTime     string `pulumi:"CreationTime"`
+	CreatorRequestId string `pulumi:"CreatorRequestId"`
+	Id               string `pulumi:"Id"`
+	OwnerId          string `pulumi:"OwnerId"`
+	ShareStatus      string `pulumi:"ShareStatus"`
+	Status           string `pulumi:"Status"`
+}
+
+// ResolverQueryLoggingConfigAttributesInput is an input type that accepts ResolverQueryLoggingConfigAttributesArgs and ResolverQueryLoggingConfigAttributesOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigAttributesInput` via:
+//
+//          ResolverQueryLoggingConfigAttributesArgs{...}
+type ResolverQueryLoggingConfigAttributesInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigAttributesOutput() ResolverQueryLoggingConfigAttributesOutput
+	ToResolverQueryLoggingConfigAttributesOutputWithContext(context.Context) ResolverQueryLoggingConfigAttributesOutput
+}
+
+type ResolverQueryLoggingConfigAttributesArgs struct {
+	Arn              pulumi.StringInput `pulumi:"Arn"`
+	AssociationCount pulumi.IntInput    `pulumi:"AssociationCount"`
+	CreationTime     pulumi.StringInput `pulumi:"CreationTime"`
+	CreatorRequestId pulumi.StringInput `pulumi:"CreatorRequestId"`
+	Id               pulumi.StringInput `pulumi:"Id"`
+	OwnerId          pulumi.StringInput `pulumi:"OwnerId"`
+	ShareStatus      pulumi.StringInput `pulumi:"ShareStatus"`
+	Status           pulumi.StringInput `pulumi:"Status"`
+}
+
+func (ResolverQueryLoggingConfigAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigAttributes)(nil)).Elem()
+}
+
+func (i ResolverQueryLoggingConfigAttributesArgs) ToResolverQueryLoggingConfigAttributesOutput() ResolverQueryLoggingConfigAttributesOutput {
+	return i.ToResolverQueryLoggingConfigAttributesOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigAttributesArgs) ToResolverQueryLoggingConfigAttributesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAttributesOutput)
+}
+
+func (i ResolverQueryLoggingConfigAttributesArgs) ToResolverQueryLoggingConfigAttributesPtrOutput() ResolverQueryLoggingConfigAttributesPtrOutput {
+	return i.ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigAttributesArgs) ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAttributesOutput).ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(ctx)
+}
+
+// ResolverQueryLoggingConfigAttributesPtrInput is an input type that accepts ResolverQueryLoggingConfigAttributesArgs, ResolverQueryLoggingConfigAttributesPtr and ResolverQueryLoggingConfigAttributesPtrOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigAttributesPtrInput` via:
+//
+//          ResolverQueryLoggingConfigAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type ResolverQueryLoggingConfigAttributesPtrInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigAttributesPtrOutput() ResolverQueryLoggingConfigAttributesPtrOutput
+	ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigAttributesPtrOutput
+}
+
+type resolverQueryLoggingConfigAttributesPtrType ResolverQueryLoggingConfigAttributesArgs
+
+func ResolverQueryLoggingConfigAttributesPtr(v *ResolverQueryLoggingConfigAttributesArgs) ResolverQueryLoggingConfigAttributesPtrInput {
+	return (*resolverQueryLoggingConfigAttributesPtrType)(v)
+}
+
+func (*resolverQueryLoggingConfigAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAttributes)(nil)).Elem()
+}
+
+func (i *resolverQueryLoggingConfigAttributesPtrType) ToResolverQueryLoggingConfigAttributesPtrOutput() ResolverQueryLoggingConfigAttributesPtrOutput {
+	return i.ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *resolverQueryLoggingConfigAttributesPtrType) ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAttributesPtrOutput)
+}
+
+type ResolverQueryLoggingConfigAttributesOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigAttributes)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) ToResolverQueryLoggingConfigAttributesOutput() ResolverQueryLoggingConfigAttributesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) ToResolverQueryLoggingConfigAttributesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAttributesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) ToResolverQueryLoggingConfigAttributesPtrOutput() ResolverQueryLoggingConfigAttributesPtrOutput {
+	return o.ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAttributesPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) *ResolverQueryLoggingConfigAttributes {
+		return &v
+	}).(ResolverQueryLoggingConfigAttributesPtrOutput)
+}
+func (o ResolverQueryLoggingConfigAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) AssociationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) int { return v.AssociationCount }).(pulumi.IntOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) CreatorRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) string { return v.CreatorRequestId }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) ShareStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) string { return v.ShareStatus }).(pulumi.StringOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigAttributes) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ResolverQueryLoggingConfigAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAttributes)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) ToResolverQueryLoggingConfigAttributesPtrOutput() ResolverQueryLoggingConfigAttributesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) ToResolverQueryLoggingConfigAttributesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAttributesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) Elem() ResolverQueryLoggingConfigAttributesOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) ResolverQueryLoggingConfigAttributes { return *v }).(ResolverQueryLoggingConfigAttributesOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) AssociationCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AssociationCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) CreatorRequestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatorRequestId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) ShareStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ShareStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverQueryLoggingConfigAttributesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+type ResolverQueryLoggingConfigProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+	DestinationArn *string `pulumi:"DestinationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+	Name *string `pulumi:"Name"`
+}
+
+// ResolverQueryLoggingConfigPropertiesInput is an input type that accepts ResolverQueryLoggingConfigPropertiesArgs and ResolverQueryLoggingConfigPropertiesOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigPropertiesInput` via:
+//
+//          ResolverQueryLoggingConfigPropertiesArgs{...}
+type ResolverQueryLoggingConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigPropertiesOutput() ResolverQueryLoggingConfigPropertiesOutput
+	ToResolverQueryLoggingConfigPropertiesOutputWithContext(context.Context) ResolverQueryLoggingConfigPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+type ResolverQueryLoggingConfigPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+	DestinationArn pulumi.StringPtrInput `pulumi:"DestinationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+	Name pulumi.StringPtrInput `pulumi:"Name"`
+}
+
+func (ResolverQueryLoggingConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigProperties)(nil)).Elem()
+}
+
+func (i ResolverQueryLoggingConfigPropertiesArgs) ToResolverQueryLoggingConfigPropertiesOutput() ResolverQueryLoggingConfigPropertiesOutput {
+	return i.ToResolverQueryLoggingConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigPropertiesArgs) ToResolverQueryLoggingConfigPropertiesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigPropertiesOutput)
+}
+
+func (i ResolverQueryLoggingConfigPropertiesArgs) ToResolverQueryLoggingConfigPropertiesPtrOutput() ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return i.ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLoggingConfigPropertiesArgs) ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigPropertiesOutput).ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// ResolverQueryLoggingConfigPropertiesPtrInput is an input type that accepts ResolverQueryLoggingConfigPropertiesArgs, ResolverQueryLoggingConfigPropertiesPtr and ResolverQueryLoggingConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `ResolverQueryLoggingConfigPropertiesPtrInput` via:
+//
+//          ResolverQueryLoggingConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ResolverQueryLoggingConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToResolverQueryLoggingConfigPropertiesPtrOutput() ResolverQueryLoggingConfigPropertiesPtrOutput
+	ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigPropertiesPtrOutput
+}
+
+type resolverQueryLoggingConfigPropertiesPtrType ResolverQueryLoggingConfigPropertiesArgs
+
+func ResolverQueryLoggingConfigPropertiesPtr(v *ResolverQueryLoggingConfigPropertiesArgs) ResolverQueryLoggingConfigPropertiesPtrInput {
+	return (*resolverQueryLoggingConfigPropertiesPtrType)(v)
+}
+
+func (*resolverQueryLoggingConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigProperties)(nil)).Elem()
+}
+
+func (i *resolverQueryLoggingConfigPropertiesPtrType) ToResolverQueryLoggingConfigPropertiesPtrOutput() ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return i.ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *resolverQueryLoggingConfigPropertiesPtrType) ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+type ResolverQueryLoggingConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLoggingConfigProperties)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigPropertiesOutput) ToResolverQueryLoggingConfigPropertiesOutput() ResolverQueryLoggingConfigPropertiesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigPropertiesOutput) ToResolverQueryLoggingConfigPropertiesOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigPropertiesOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigPropertiesOutput) ToResolverQueryLoggingConfigPropertiesPtrOutput() ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return o.ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverQueryLoggingConfigPropertiesOutput) ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigProperties) *ResolverQueryLoggingConfigProperties {
+		return &v
+	}).(ResolverQueryLoggingConfigPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+func (o ResolverQueryLoggingConfigPropertiesOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigProperties) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+func (o ResolverQueryLoggingConfigPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLoggingConfigProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ResolverQueryLoggingConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLoggingConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLoggingConfigProperties)(nil)).Elem()
+}
+
+func (o ResolverQueryLoggingConfigPropertiesPtrOutput) ToResolverQueryLoggingConfigPropertiesPtrOutput() ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigPropertiesPtrOutput) ToResolverQueryLoggingConfigPropertiesPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLoggingConfigPropertiesPtrOutput) Elem() ResolverQueryLoggingConfigPropertiesOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigProperties) ResolverQueryLoggingConfigProperties { return *v }).(ResolverQueryLoggingConfigPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+func (o ResolverQueryLoggingConfigPropertiesPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+func (o ResolverQueryLoggingConfigPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResolverRuleAssociationAttributes struct {
 	Name                      string `pulumi:"Name"`
 	ResolverRuleAssociationId string `pulumi:"ResolverRuleAssociationId"`
@@ -1420,6 +2147,14 @@ func init() {
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestArrayOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationAttributesOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationPropertiesOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAttributesOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLoggingConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationAttributesOutput{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationPropertiesOutput{})

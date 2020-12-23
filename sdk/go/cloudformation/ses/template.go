@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Template struct {
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
 func NewTemplate(ctx *pulumi.Context,
 	name string, args *TemplateArgs, opts ...pulumi.ResourceOption) (*Template, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Template
 	err := ctx.RegisterResource("cloudformation:SES:Template", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TemplateArgs struct {
 
 func (TemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateArgs)(nil)).Elem()
+}
+
+type TemplateInput interface {
+	pulumi.Input
+
+	ToTemplateOutput() TemplateOutput
+	ToTemplateOutputWithContext(ctx context.Context) TemplateOutput
+}
+
+func (*Template) ElementType() reflect.Type {
+	return reflect.TypeOf((*Template)(nil))
+}
+
+func (i *Template) ToTemplateOutput() TemplateOutput {
+	return i.ToTemplateOutputWithContext(context.Background())
+}
+
+func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateOutput)
+}
+
+type TemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (TemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Template)(nil))
+}
+
+func (o TemplateOutput) ToTemplateOutput() TemplateOutput {
+	return o
+}
+
+func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TemplateOutput{})
 }

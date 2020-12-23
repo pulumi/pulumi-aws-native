@@ -4,6 +4,7 @@
 package gamelift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MatchmakingRuleSet struct {
 // NewMatchmakingRuleSet registers a new resource with the given unique name, arguments, and options.
 func NewMatchmakingRuleSet(ctx *pulumi.Context,
 	name string, args *MatchmakingRuleSetArgs, opts ...pulumi.ResourceOption) (*MatchmakingRuleSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MatchmakingRuleSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MatchmakingRuleSet
 	err := ctx.RegisterResource("cloudformation:GameLift:MatchmakingRuleSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MatchmakingRuleSetArgs struct {
 
 func (MatchmakingRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*matchmakingRuleSetArgs)(nil)).Elem()
+}
+
+type MatchmakingRuleSetInput interface {
+	pulumi.Input
+
+	ToMatchmakingRuleSetOutput() MatchmakingRuleSetOutput
+	ToMatchmakingRuleSetOutputWithContext(ctx context.Context) MatchmakingRuleSetOutput
+}
+
+func (*MatchmakingRuleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingRuleSet)(nil))
+}
+
+func (i *MatchmakingRuleSet) ToMatchmakingRuleSetOutput() MatchmakingRuleSetOutput {
+	return i.ToMatchmakingRuleSetOutputWithContext(context.Background())
+}
+
+func (i *MatchmakingRuleSet) ToMatchmakingRuleSetOutputWithContext(ctx context.Context) MatchmakingRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetOutput)
+}
+
+type MatchmakingRuleSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (MatchmakingRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingRuleSet)(nil))
+}
+
+func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutput() MatchmakingRuleSetOutput {
+	return o
+}
+
+func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutputWithContext(ctx context.Context) MatchmakingRuleSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MatchmakingRuleSetOutput{})
 }

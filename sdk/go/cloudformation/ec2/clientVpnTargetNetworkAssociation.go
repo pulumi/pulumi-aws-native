@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClientVpnTargetNetworkAssociation struct {
 // NewClientVpnTargetNetworkAssociation registers a new resource with the given unique name, arguments, and options.
 func NewClientVpnTargetNetworkAssociation(ctx *pulumi.Context,
 	name string, args *ClientVpnTargetNetworkAssociationArgs, opts ...pulumi.ResourceOption) (*ClientVpnTargetNetworkAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClientVpnTargetNetworkAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClientVpnTargetNetworkAssociation
 	err := ctx.RegisterResource("cloudformation:EC2:ClientVpnTargetNetworkAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClientVpnTargetNetworkAssociationArgs struct {
 
 func (ClientVpnTargetNetworkAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientVpnTargetNetworkAssociationArgs)(nil)).Elem()
+}
+
+type ClientVpnTargetNetworkAssociationInput interface {
+	pulumi.Input
+
+	ToClientVpnTargetNetworkAssociationOutput() ClientVpnTargetNetworkAssociationOutput
+	ToClientVpnTargetNetworkAssociationOutputWithContext(ctx context.Context) ClientVpnTargetNetworkAssociationOutput
+}
+
+func (*ClientVpnTargetNetworkAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnTargetNetworkAssociation)(nil))
+}
+
+func (i *ClientVpnTargetNetworkAssociation) ToClientVpnTargetNetworkAssociationOutput() ClientVpnTargetNetworkAssociationOutput {
+	return i.ToClientVpnTargetNetworkAssociationOutputWithContext(context.Background())
+}
+
+func (i *ClientVpnTargetNetworkAssociation) ToClientVpnTargetNetworkAssociationOutputWithContext(ctx context.Context) ClientVpnTargetNetworkAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnTargetNetworkAssociationOutput)
+}
+
+type ClientVpnTargetNetworkAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClientVpnTargetNetworkAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnTargetNetworkAssociation)(nil))
+}
+
+func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssociationOutput() ClientVpnTargetNetworkAssociationOutput {
+	return o
+}
+
+func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssociationOutputWithContext(ctx context.Context) ClientVpnTargetNetworkAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClientVpnTargetNetworkAssociationOutput{})
 }

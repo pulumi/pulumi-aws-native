@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Crawler struct {
 // NewCrawler registers a new resource with the given unique name, arguments, and options.
 func NewCrawler(ctx *pulumi.Context,
 	name string, args *CrawlerArgs, opts ...pulumi.ResourceOption) (*Crawler, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CrawlerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Crawler
 	err := ctx.RegisterResource("cloudformation:Glue:Crawler", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CrawlerArgs struct {
 
 func (CrawlerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*crawlerArgs)(nil)).Elem()
+}
+
+type CrawlerInput interface {
+	pulumi.Input
+
+	ToCrawlerOutput() CrawlerOutput
+	ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput
+}
+
+func (*Crawler) ElementType() reflect.Type {
+	return reflect.TypeOf((*Crawler)(nil))
+}
+
+func (i *Crawler) ToCrawlerOutput() CrawlerOutput {
+	return i.ToCrawlerOutputWithContext(context.Background())
+}
+
+func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerOutput)
+}
+
+type CrawlerOutput struct {
+	*pulumi.OutputState
+}
+
+func (CrawlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Crawler)(nil))
+}
+
+func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {
+	return o
+}
+
+func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CrawlerOutput{})
 }

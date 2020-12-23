@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserProfile struct {
 // NewUserProfile registers a new resource with the given unique name, arguments, and options.
 func NewUserProfile(ctx *pulumi.Context,
 	name string, args *UserProfileArgs, opts ...pulumi.ResourceOption) (*UserProfile, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserProfile
 	err := ctx.RegisterResource("cloudformation:OpsWorks:UserProfile", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserProfileArgs struct {
 
 func (UserProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userProfileArgs)(nil)).Elem()
+}
+
+type UserProfileInput interface {
+	pulumi.Input
+
+	ToUserProfileOutput() UserProfileOutput
+	ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput
+}
+
+func (*UserProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfile)(nil))
+}
+
+func (i *UserProfile) ToUserProfileOutput() UserProfileOutput {
+	return i.ToUserProfileOutputWithContext(context.Background())
+}
+
+func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileOutput)
+}
+
+type UserProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfile)(nil))
+}
+
+func (o UserProfileOutput) ToUserProfileOutput() UserProfileOutput {
+	return o
+}
+
+func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserProfileOutput{})
 }

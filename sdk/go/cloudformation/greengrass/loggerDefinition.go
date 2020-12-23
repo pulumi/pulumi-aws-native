@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LoggerDefinition struct {
 // NewLoggerDefinition registers a new resource with the given unique name, arguments, and options.
 func NewLoggerDefinition(ctx *pulumi.Context,
 	name string, args *LoggerDefinitionArgs, opts ...pulumi.ResourceOption) (*LoggerDefinition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LoggerDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LoggerDefinition
 	err := ctx.RegisterResource("cloudformation:Greengrass:LoggerDefinition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LoggerDefinitionArgs struct {
 
 func (LoggerDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggerDefinitionArgs)(nil)).Elem()
+}
+
+type LoggerDefinitionInput interface {
+	pulumi.Input
+
+	ToLoggerDefinitionOutput() LoggerDefinitionOutput
+	ToLoggerDefinitionOutputWithContext(ctx context.Context) LoggerDefinitionOutput
+}
+
+func (*LoggerDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerDefinition)(nil))
+}
+
+func (i *LoggerDefinition) ToLoggerDefinitionOutput() LoggerDefinitionOutput {
+	return i.ToLoggerDefinitionOutputWithContext(context.Background())
+}
+
+func (i *LoggerDefinition) ToLoggerDefinitionOutputWithContext(ctx context.Context) LoggerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionOutput)
+}
+
+type LoggerDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoggerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerDefinition)(nil))
+}
+
+func (o LoggerDefinitionOutput) ToLoggerDefinitionOutput() LoggerDefinitionOutput {
+	return o
+}
+
+func (o LoggerDefinitionOutput) ToLoggerDefinitionOutputWithContext(ctx context.Context) LoggerDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoggerDefinitionOutput{})
 }

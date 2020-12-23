@@ -4,6 +4,7 @@
 package autoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LaunchConfiguration struct {
 // NewLaunchConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewLaunchConfiguration(ctx *pulumi.Context,
 	name string, args *LaunchConfigurationArgs, opts ...pulumi.ResourceOption) (*LaunchConfiguration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LaunchConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LaunchConfiguration
 	err := ctx.RegisterResource("cloudformation:AutoScaling:LaunchConfiguration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LaunchConfigurationArgs struct {
 
 func (LaunchConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchConfigurationArgs)(nil)).Elem()
+}
+
+type LaunchConfigurationInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationOutput() LaunchConfigurationOutput
+	ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput
+}
+
+func (*LaunchConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfiguration)(nil))
+}
+
+func (i *LaunchConfiguration) ToLaunchConfigurationOutput() LaunchConfigurationOutput {
+	return i.ToLaunchConfigurationOutputWithContext(context.Background())
+}
+
+func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationOutput)
+}
+
+type LaunchConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfiguration)(nil))
+}
+
+func (o LaunchConfigurationOutput) ToLaunchConfigurationOutput() LaunchConfigurationOutput {
+	return o
+}
+
+func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LaunchConfigurationOutput{})
 }

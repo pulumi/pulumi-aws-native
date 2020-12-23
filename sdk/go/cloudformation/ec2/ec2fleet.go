@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EC2Fleet struct {
 // NewEC2Fleet registers a new resource with the given unique name, arguments, and options.
 func NewEC2Fleet(ctx *pulumi.Context,
 	name string, args *EC2FleetArgs, opts ...pulumi.ResourceOption) (*EC2Fleet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EC2FleetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EC2Fleet
 	err := ctx.RegisterResource("cloudformation:EC2:EC2Fleet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EC2FleetArgs struct {
 
 func (EC2FleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ec2fleetArgs)(nil)).Elem()
+}
+
+type EC2FleetInput interface {
+	pulumi.Input
+
+	ToEC2FleetOutput() EC2FleetOutput
+	ToEC2FleetOutputWithContext(ctx context.Context) EC2FleetOutput
+}
+
+func (*EC2Fleet) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2Fleet)(nil))
+}
+
+func (i *EC2Fleet) ToEC2FleetOutput() EC2FleetOutput {
+	return i.ToEC2FleetOutputWithContext(context.Background())
+}
+
+func (i *EC2Fleet) ToEC2FleetOutputWithContext(ctx context.Context) EC2FleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetOutput)
+}
+
+type EC2FleetOutput struct {
+	*pulumi.OutputState
+}
+
+func (EC2FleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2Fleet)(nil))
+}
+
+func (o EC2FleetOutput) ToEC2FleetOutput() EC2FleetOutput {
+	return o
+}
+
+func (o EC2FleetOutput) ToEC2FleetOutputWithContext(ctx context.Context) EC2FleetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EC2FleetOutput{})
 }

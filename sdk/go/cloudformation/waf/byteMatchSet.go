@@ -4,6 +4,7 @@
 package waf
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ByteMatchSet struct {
 // NewByteMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewByteMatchSet(ctx *pulumi.Context,
 	name string, args *ByteMatchSetArgs, opts ...pulumi.ResourceOption) (*ByteMatchSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ByteMatchSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ByteMatchSet
 	err := ctx.RegisterResource("cloudformation:WAF:ByteMatchSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ByteMatchSetArgs struct {
 
 func (ByteMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*byteMatchSetArgs)(nil)).Elem()
+}
+
+type ByteMatchSetInput interface {
+	pulumi.Input
+
+	ToByteMatchSetOutput() ByteMatchSetOutput
+	ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput
+}
+
+func (*ByteMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByteMatchSet)(nil))
+}
+
+func (i *ByteMatchSet) ToByteMatchSetOutput() ByteMatchSetOutput {
+	return i.ToByteMatchSetOutputWithContext(context.Background())
+}
+
+func (i *ByteMatchSet) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetOutput)
+}
+
+type ByteMatchSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ByteMatchSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByteMatchSet)(nil))
+}
+
+func (o ByteMatchSetOutput) ToByteMatchSetOutput() ByteMatchSetOutput {
+	return o
+}
+
+func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ByteMatchSetOutput{})
 }

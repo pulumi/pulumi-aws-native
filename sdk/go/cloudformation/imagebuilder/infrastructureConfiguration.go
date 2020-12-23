@@ -4,6 +4,7 @@
 package imagebuilder
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type InfrastructureConfiguration struct {
 // NewInfrastructureConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewInfrastructureConfiguration(ctx *pulumi.Context,
 	name string, args *InfrastructureConfigurationArgs, opts ...pulumi.ResourceOption) (*InfrastructureConfiguration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InfrastructureConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource InfrastructureConfiguration
 	err := ctx.RegisterResource("cloudformation:ImageBuilder:InfrastructureConfiguration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InfrastructureConfigurationArgs struct {
 
 func (InfrastructureConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*infrastructureConfigurationArgs)(nil)).Elem()
+}
+
+type InfrastructureConfigurationInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationOutput() InfrastructureConfigurationOutput
+	ToInfrastructureConfigurationOutputWithContext(ctx context.Context) InfrastructureConfigurationOutput
+}
+
+func (*InfrastructureConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfiguration)(nil))
+}
+
+func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutput() InfrastructureConfigurationOutput {
+	return i.ToInfrastructureConfigurationOutputWithContext(context.Background())
+}
+
+func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutputWithContext(ctx context.Context) InfrastructureConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationOutput)
+}
+
+type InfrastructureConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (InfrastructureConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfiguration)(nil))
+}
+
+func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutput() InfrastructureConfigurationOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWithContext(ctx context.Context) InfrastructureConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InfrastructureConfigurationOutput{})
 }

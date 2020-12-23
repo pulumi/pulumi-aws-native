@@ -4,6 +4,7 @@
 package detective
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MemberInvitation struct {
 // NewMemberInvitation registers a new resource with the given unique name, arguments, and options.
 func NewMemberInvitation(ctx *pulumi.Context,
 	name string, args *MemberInvitationArgs, opts ...pulumi.ResourceOption) (*MemberInvitation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MemberInvitationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MemberInvitation
 	err := ctx.RegisterResource("cloudformation:Detective:MemberInvitation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MemberInvitationArgs struct {
 
 func (MemberInvitationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberInvitationArgs)(nil)).Elem()
+}
+
+type MemberInvitationInput interface {
+	pulumi.Input
+
+	ToMemberInvitationOutput() MemberInvitationOutput
+	ToMemberInvitationOutputWithContext(ctx context.Context) MemberInvitationOutput
+}
+
+func (*MemberInvitation) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberInvitation)(nil))
+}
+
+func (i *MemberInvitation) ToMemberInvitationOutput() MemberInvitationOutput {
+	return i.ToMemberInvitationOutputWithContext(context.Background())
+}
+
+func (i *MemberInvitation) ToMemberInvitationOutputWithContext(ctx context.Context) MemberInvitationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberInvitationOutput)
+}
+
+type MemberInvitationOutput struct {
+	*pulumi.OutputState
+}
+
+func (MemberInvitationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberInvitation)(nil))
+}
+
+func (o MemberInvitationOutput) ToMemberInvitationOutput() MemberInvitationOutput {
+	return o
+}
+
+func (o MemberInvitationOutput) ToMemberInvitationOutputWithContext(ctx context.Context) MemberInvitationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MemberInvitationOutput{})
 }

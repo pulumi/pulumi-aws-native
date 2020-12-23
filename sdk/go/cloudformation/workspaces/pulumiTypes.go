@@ -11,6 +11,442 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ConnectionAliasAttributes struct {
+	AliasId              string                                      `pulumi:"AliasId"`
+	Associations         []ConnectionAliasConnectionAliasAssociation `pulumi:"Associations"`
+	ConnectionAliasState string                                      `pulumi:"ConnectionAliasState"`
+}
+
+// ConnectionAliasAttributesInput is an input type that accepts ConnectionAliasAttributesArgs and ConnectionAliasAttributesOutput values.
+// You can construct a concrete instance of `ConnectionAliasAttributesInput` via:
+//
+//          ConnectionAliasAttributesArgs{...}
+type ConnectionAliasAttributesInput interface {
+	pulumi.Input
+
+	ToConnectionAliasAttributesOutput() ConnectionAliasAttributesOutput
+	ToConnectionAliasAttributesOutputWithContext(context.Context) ConnectionAliasAttributesOutput
+}
+
+type ConnectionAliasAttributesArgs struct {
+	AliasId              pulumi.StringInput                                  `pulumi:"AliasId"`
+	Associations         ConnectionAliasConnectionAliasAssociationArrayInput `pulumi:"Associations"`
+	ConnectionAliasState pulumi.StringInput                                  `pulumi:"ConnectionAliasState"`
+}
+
+func (ConnectionAliasAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasAttributes)(nil)).Elem()
+}
+
+func (i ConnectionAliasAttributesArgs) ToConnectionAliasAttributesOutput() ConnectionAliasAttributesOutput {
+	return i.ToConnectionAliasAttributesOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasAttributesArgs) ToConnectionAliasAttributesOutputWithContext(ctx context.Context) ConnectionAliasAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasAttributesOutput)
+}
+
+func (i ConnectionAliasAttributesArgs) ToConnectionAliasAttributesPtrOutput() ConnectionAliasAttributesPtrOutput {
+	return i.ToConnectionAliasAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasAttributesArgs) ToConnectionAliasAttributesPtrOutputWithContext(ctx context.Context) ConnectionAliasAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasAttributesOutput).ToConnectionAliasAttributesPtrOutputWithContext(ctx)
+}
+
+// ConnectionAliasAttributesPtrInput is an input type that accepts ConnectionAliasAttributesArgs, ConnectionAliasAttributesPtr and ConnectionAliasAttributesPtrOutput values.
+// You can construct a concrete instance of `ConnectionAliasAttributesPtrInput` via:
+//
+//          ConnectionAliasAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionAliasAttributesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAliasAttributesPtrOutput() ConnectionAliasAttributesPtrOutput
+	ToConnectionAliasAttributesPtrOutputWithContext(context.Context) ConnectionAliasAttributesPtrOutput
+}
+
+type connectionAliasAttributesPtrType ConnectionAliasAttributesArgs
+
+func ConnectionAliasAttributesPtr(v *ConnectionAliasAttributesArgs) ConnectionAliasAttributesPtrInput {
+	return (*connectionAliasAttributesPtrType)(v)
+}
+
+func (*connectionAliasAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasAttributes)(nil)).Elem()
+}
+
+func (i *connectionAliasAttributesPtrType) ToConnectionAliasAttributesPtrOutput() ConnectionAliasAttributesPtrOutput {
+	return i.ToConnectionAliasAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAliasAttributesPtrType) ToConnectionAliasAttributesPtrOutputWithContext(ctx context.Context) ConnectionAliasAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasAttributesPtrOutput)
+}
+
+type ConnectionAliasAttributesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasAttributes)(nil)).Elem()
+}
+
+func (o ConnectionAliasAttributesOutput) ToConnectionAliasAttributesOutput() ConnectionAliasAttributesOutput {
+	return o
+}
+
+func (o ConnectionAliasAttributesOutput) ToConnectionAliasAttributesOutputWithContext(ctx context.Context) ConnectionAliasAttributesOutput {
+	return o
+}
+
+func (o ConnectionAliasAttributesOutput) ToConnectionAliasAttributesPtrOutput() ConnectionAliasAttributesPtrOutput {
+	return o.ToConnectionAliasAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAliasAttributesOutput) ToConnectionAliasAttributesPtrOutputWithContext(ctx context.Context) ConnectionAliasAttributesPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasAttributes) *ConnectionAliasAttributes {
+		return &v
+	}).(ConnectionAliasAttributesPtrOutput)
+}
+func (o ConnectionAliasAttributesOutput) AliasId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAliasAttributes) string { return v.AliasId }).(pulumi.StringOutput)
+}
+
+func (o ConnectionAliasAttributesOutput) Associations() ConnectionAliasConnectionAliasAssociationArrayOutput {
+	return o.ApplyT(func(v ConnectionAliasAttributes) []ConnectionAliasConnectionAliasAssociation { return v.Associations }).(ConnectionAliasConnectionAliasAssociationArrayOutput)
+}
+
+func (o ConnectionAliasAttributesOutput) ConnectionAliasState() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAliasAttributes) string { return v.ConnectionAliasState }).(pulumi.StringOutput)
+}
+
+type ConnectionAliasAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasAttributes)(nil)).Elem()
+}
+
+func (o ConnectionAliasAttributesPtrOutput) ToConnectionAliasAttributesPtrOutput() ConnectionAliasAttributesPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasAttributesPtrOutput) ToConnectionAliasAttributesPtrOutputWithContext(ctx context.Context) ConnectionAliasAttributesPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasAttributesPtrOutput) Elem() ConnectionAliasAttributesOutput {
+	return o.ApplyT(func(v *ConnectionAliasAttributes) ConnectionAliasAttributes { return *v }).(ConnectionAliasAttributesOutput)
+}
+
+func (o ConnectionAliasAttributesPtrOutput) AliasId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AliasId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasAttributesPtrOutput) Associations() ConnectionAliasConnectionAliasAssociationArrayOutput {
+	return o.ApplyT(func(v *ConnectionAliasAttributes) []ConnectionAliasConnectionAliasAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.Associations
+	}).(ConnectionAliasConnectionAliasAssociationArrayOutput)
+}
+
+func (o ConnectionAliasAttributesPtrOutput) ConnectionAliasState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionAliasState
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
+type ConnectionAliasConnectionAliasAssociation struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associatedaccountid
+	AssociatedAccountId *string `pulumi:"AssociatedAccountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associationstatus
+	AssociationStatus *string `pulumi:"AssociationStatus"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-connectionidentifier
+	ConnectionIdentifier *string `pulumi:"ConnectionIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
+	ResourceId *string `pulumi:"ResourceId"`
+}
+
+// ConnectionAliasConnectionAliasAssociationInput is an input type that accepts ConnectionAliasConnectionAliasAssociationArgs and ConnectionAliasConnectionAliasAssociationOutput values.
+// You can construct a concrete instance of `ConnectionAliasConnectionAliasAssociationInput` via:
+//
+//          ConnectionAliasConnectionAliasAssociationArgs{...}
+type ConnectionAliasConnectionAliasAssociationInput interface {
+	pulumi.Input
+
+	ToConnectionAliasConnectionAliasAssociationOutput() ConnectionAliasConnectionAliasAssociationOutput
+	ToConnectionAliasConnectionAliasAssociationOutputWithContext(context.Context) ConnectionAliasConnectionAliasAssociationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
+type ConnectionAliasConnectionAliasAssociationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associatedaccountid
+	AssociatedAccountId pulumi.StringPtrInput `pulumi:"AssociatedAccountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associationstatus
+	AssociationStatus pulumi.StringPtrInput `pulumi:"AssociationStatus"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-connectionidentifier
+	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"ConnectionIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
+	ResourceId pulumi.StringPtrInput `pulumi:"ResourceId"`
+}
+
+func (ConnectionAliasConnectionAliasAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+}
+
+func (i ConnectionAliasConnectionAliasAssociationArgs) ToConnectionAliasConnectionAliasAssociationOutput() ConnectionAliasConnectionAliasAssociationOutput {
+	return i.ToConnectionAliasConnectionAliasAssociationOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasConnectionAliasAssociationArgs) ToConnectionAliasConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasConnectionAliasAssociationOutput)
+}
+
+// ConnectionAliasConnectionAliasAssociationArrayInput is an input type that accepts ConnectionAliasConnectionAliasAssociationArray and ConnectionAliasConnectionAliasAssociationArrayOutput values.
+// You can construct a concrete instance of `ConnectionAliasConnectionAliasAssociationArrayInput` via:
+//
+//          ConnectionAliasConnectionAliasAssociationArray{ ConnectionAliasConnectionAliasAssociationArgs{...} }
+type ConnectionAliasConnectionAliasAssociationArrayInput interface {
+	pulumi.Input
+
+	ToConnectionAliasConnectionAliasAssociationArrayOutput() ConnectionAliasConnectionAliasAssociationArrayOutput
+	ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(context.Context) ConnectionAliasConnectionAliasAssociationArrayOutput
+}
+
+type ConnectionAliasConnectionAliasAssociationArray []ConnectionAliasConnectionAliasAssociationInput
+
+func (ConnectionAliasConnectionAliasAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+}
+
+func (i ConnectionAliasConnectionAliasAssociationArray) ToConnectionAliasConnectionAliasAssociationArrayOutput() ConnectionAliasConnectionAliasAssociationArrayOutput {
+	return i.ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasConnectionAliasAssociationArray) ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasConnectionAliasAssociationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
+type ConnectionAliasConnectionAliasAssociationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasConnectionAliasAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+}
+
+func (o ConnectionAliasConnectionAliasAssociationOutput) ToConnectionAliasConnectionAliasAssociationOutput() ConnectionAliasConnectionAliasAssociationOutput {
+	return o
+}
+
+func (o ConnectionAliasConnectionAliasAssociationOutput) ToConnectionAliasConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associatedaccountid
+func (o ConnectionAliasConnectionAliasAssociationOutput) AssociatedAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.AssociatedAccountId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associationstatus
+func (o ConnectionAliasConnectionAliasAssociationOutput) AssociationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.AssociationStatus }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-connectionidentifier
+func (o ConnectionAliasConnectionAliasAssociationOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
+func (o ConnectionAliasConnectionAliasAssociationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAliasConnectionAliasAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasConnectionAliasAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+}
+
+func (o ConnectionAliasConnectionAliasAssociationArrayOutput) ToConnectionAliasConnectionAliasAssociationArrayOutput() ConnectionAliasConnectionAliasAssociationArrayOutput {
+	return o
+}
+
+func (o ConnectionAliasConnectionAliasAssociationArrayOutput) ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationArrayOutput {
+	return o
+}
+
+func (o ConnectionAliasConnectionAliasAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionAliasConnectionAliasAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionAliasConnectionAliasAssociation {
+		return vs[0].([]ConnectionAliasConnectionAliasAssociation)[vs[1].(int)]
+	}).(ConnectionAliasConnectionAliasAssociationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
+type ConnectionAliasProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
+	ConnectionString string `pulumi:"ConnectionString"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// ConnectionAliasPropertiesInput is an input type that accepts ConnectionAliasPropertiesArgs and ConnectionAliasPropertiesOutput values.
+// You can construct a concrete instance of `ConnectionAliasPropertiesInput` via:
+//
+//          ConnectionAliasPropertiesArgs{...}
+type ConnectionAliasPropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionAliasPropertiesOutput() ConnectionAliasPropertiesOutput
+	ToConnectionAliasPropertiesOutputWithContext(context.Context) ConnectionAliasPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
+type ConnectionAliasPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
+	ConnectionString pulumi.StringInput `pulumi:"ConnectionString"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (ConnectionAliasPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasProperties)(nil)).Elem()
+}
+
+func (i ConnectionAliasPropertiesArgs) ToConnectionAliasPropertiesOutput() ConnectionAliasPropertiesOutput {
+	return i.ToConnectionAliasPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasPropertiesArgs) ToConnectionAliasPropertiesOutputWithContext(ctx context.Context) ConnectionAliasPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasPropertiesOutput)
+}
+
+func (i ConnectionAliasPropertiesArgs) ToConnectionAliasPropertiesPtrOutput() ConnectionAliasPropertiesPtrOutput {
+	return i.ToConnectionAliasPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasPropertiesArgs) ToConnectionAliasPropertiesPtrOutputWithContext(ctx context.Context) ConnectionAliasPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasPropertiesOutput).ToConnectionAliasPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionAliasPropertiesPtrInput is an input type that accepts ConnectionAliasPropertiesArgs, ConnectionAliasPropertiesPtr and ConnectionAliasPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionAliasPropertiesPtrInput` via:
+//
+//          ConnectionAliasPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionAliasPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAliasPropertiesPtrOutput() ConnectionAliasPropertiesPtrOutput
+	ToConnectionAliasPropertiesPtrOutputWithContext(context.Context) ConnectionAliasPropertiesPtrOutput
+}
+
+type connectionAliasPropertiesPtrType ConnectionAliasPropertiesArgs
+
+func ConnectionAliasPropertiesPtr(v *ConnectionAliasPropertiesArgs) ConnectionAliasPropertiesPtrInput {
+	return (*connectionAliasPropertiesPtrType)(v)
+}
+
+func (*connectionAliasPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasProperties)(nil)).Elem()
+}
+
+func (i *connectionAliasPropertiesPtrType) ToConnectionAliasPropertiesPtrOutput() ConnectionAliasPropertiesPtrOutput {
+	return i.ToConnectionAliasPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAliasPropertiesPtrType) ToConnectionAliasPropertiesPtrOutputWithContext(ctx context.Context) ConnectionAliasPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
+type ConnectionAliasPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasProperties)(nil)).Elem()
+}
+
+func (o ConnectionAliasPropertiesOutput) ToConnectionAliasPropertiesOutput() ConnectionAliasPropertiesOutput {
+	return o
+}
+
+func (o ConnectionAliasPropertiesOutput) ToConnectionAliasPropertiesOutputWithContext(ctx context.Context) ConnectionAliasPropertiesOutput {
+	return o
+}
+
+func (o ConnectionAliasPropertiesOutput) ToConnectionAliasPropertiesPtrOutput() ConnectionAliasPropertiesPtrOutput {
+	return o.ToConnectionAliasPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAliasPropertiesOutput) ToConnectionAliasPropertiesPtrOutputWithContext(ctx context.Context) ConnectionAliasPropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasProperties) *ConnectionAliasProperties {
+		return &v
+	}).(ConnectionAliasPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
+func (o ConnectionAliasPropertiesOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAliasProperties) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
+func (o ConnectionAliasPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v ConnectionAliasProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type ConnectionAliasPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasProperties)(nil)).Elem()
+}
+
+func (o ConnectionAliasPropertiesPtrOutput) ToConnectionAliasPropertiesPtrOutput() ConnectionAliasPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasPropertiesPtrOutput) ToConnectionAliasPropertiesPtrOutputWithContext(ctx context.Context) ConnectionAliasPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasPropertiesPtrOutput) Elem() ConnectionAliasPropertiesOutput {
+	return o.ApplyT(func(v *ConnectionAliasProperties) ConnectionAliasProperties { return *v }).(ConnectionAliasPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
+func (o ConnectionAliasPropertiesPtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
+func (o ConnectionAliasPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *ConnectionAliasProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 type WorkspaceAttributes struct {
 }
 
@@ -601,6 +1037,12 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtr
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConnectionAliasAttributesOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasPropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAttributesOutput{})
 	pulumi.RegisterOutputType(WorkspaceAttributesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})

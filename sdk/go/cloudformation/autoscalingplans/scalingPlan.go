@@ -4,6 +4,7 @@
 package autoscalingplans
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ScalingPlan struct {
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
 func NewScalingPlan(ctx *pulumi.Context,
 	name string, args *ScalingPlanArgs, opts ...pulumi.ResourceOption) (*ScalingPlan, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ScalingPlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ScalingPlan
 	err := ctx.RegisterResource("cloudformation:AutoScalingPlans:ScalingPlan", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ScalingPlanArgs struct {
 
 func (ScalingPlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPlanArgs)(nil)).Elem()
+}
+
+type ScalingPlanInput interface {
+	pulumi.Input
+
+	ToScalingPlanOutput() ScalingPlanOutput
+	ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput
+}
+
+func (*ScalingPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlan)(nil))
+}
+
+func (i *ScalingPlan) ToScalingPlanOutput() ScalingPlanOutput {
+	return i.ToScalingPlanOutputWithContext(context.Background())
+}
+
+func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
+}
+
+type ScalingPlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScalingPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlan)(nil))
+}
+
+func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {
+	return o
+}
+
+func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScalingPlanOutput{})
 }

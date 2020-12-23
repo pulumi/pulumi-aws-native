@@ -2444,7 +2444,7 @@ type ConformancePackProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
 	ConformancePackName string `pulumi:"ConformancePackName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-	DeliveryS3Bucket string `pulumi:"DeliveryS3Bucket"`
+	DeliveryS3Bucket *string `pulumi:"DeliveryS3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
 	DeliveryS3KeyPrefix *string `pulumi:"DeliveryS3KeyPrefix"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
@@ -2471,7 +2471,7 @@ type ConformancePackPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
 	ConformancePackName pulumi.StringInput `pulumi:"ConformancePackName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-	DeliveryS3Bucket pulumi.StringInput `pulumi:"DeliveryS3Bucket"`
+	DeliveryS3Bucket pulumi.StringPtrInput `pulumi:"DeliveryS3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
 	DeliveryS3KeyPrefix pulumi.StringPtrInput `pulumi:"DeliveryS3KeyPrefix"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
@@ -2571,8 +2571,8 @@ func (o ConformancePackPropertiesOutput) ConformancePackName() pulumi.StringOutp
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-func (o ConformancePackPropertiesOutput) DeliveryS3Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v ConformancePackProperties) string { return v.DeliveryS3Bucket }).(pulumi.StringOutput)
+func (o ConformancePackPropertiesOutput) DeliveryS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConformancePackProperties) *string { return v.DeliveryS3Bucket }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
@@ -2634,7 +2634,7 @@ func (o ConformancePackPropertiesPtrOutput) DeliveryS3Bucket() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.DeliveryS3Bucket
+		return v.DeliveryS3Bucket
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4224,7 +4224,7 @@ type OrganizationConformancePackProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
 	ConformancePackInputParameters []OrganizationConformancePackConformancePackInputParameter `pulumi:"ConformancePackInputParameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-	DeliveryS3Bucket string `pulumi:"DeliveryS3Bucket"`
+	DeliveryS3Bucket *string `pulumi:"DeliveryS3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
 	DeliveryS3KeyPrefix *string `pulumi:"DeliveryS3KeyPrefix"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
@@ -4253,7 +4253,7 @@ type OrganizationConformancePackPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
 	ConformancePackInputParameters OrganizationConformancePackConformancePackInputParameterArrayInput `pulumi:"ConformancePackInputParameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-	DeliveryS3Bucket pulumi.StringInput `pulumi:"DeliveryS3Bucket"`
+	DeliveryS3Bucket pulumi.StringPtrInput `pulumi:"DeliveryS3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
 	DeliveryS3KeyPrefix pulumi.StringPtrInput `pulumi:"DeliveryS3KeyPrefix"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
@@ -4352,8 +4352,8 @@ func (o OrganizationConformancePackPropertiesOutput) ConformancePackInputParamet
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-func (o OrganizationConformancePackPropertiesOutput) DeliveryS3Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v OrganizationConformancePackProperties) string { return v.DeliveryS3Bucket }).(pulumi.StringOutput)
+func (o OrganizationConformancePackPropertiesOutput) DeliveryS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConformancePackProperties) *string { return v.DeliveryS3Bucket }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
@@ -4415,7 +4415,7 @@ func (o OrganizationConformancePackPropertiesPtrOutput) DeliveryS3Bucket() pulum
 		if v == nil {
 			return nil
 		}
-		return &v.DeliveryS3Bucket
+		return v.DeliveryS3Bucket
 	}).(pulumi.StringPtrOutput)
 }
 

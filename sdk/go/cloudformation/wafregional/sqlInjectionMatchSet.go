@@ -4,6 +4,7 @@
 package wafregional
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SqlInjectionMatchSet struct {
 // NewSqlInjectionMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewSqlInjectionMatchSet(ctx *pulumi.Context,
 	name string, args *SqlInjectionMatchSetArgs, opts ...pulumi.ResourceOption) (*SqlInjectionMatchSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SqlInjectionMatchSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SqlInjectionMatchSet
 	err := ctx.RegisterResource("cloudformation:WAFRegional:SqlInjectionMatchSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SqlInjectionMatchSetArgs struct {
 
 func (SqlInjectionMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlInjectionMatchSetArgs)(nil)).Elem()
+}
+
+type SqlInjectionMatchSetInput interface {
+	pulumi.Input
+
+	ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput
+	ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput
+}
+
+func (*SqlInjectionMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlInjectionMatchSet)(nil))
+}
+
+func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput {
+	return i.ToSqlInjectionMatchSetOutputWithContext(context.Background())
+}
+
+func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetOutput)
+}
+
+type SqlInjectionMatchSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlInjectionMatchSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlInjectionMatchSet)(nil))
+}
+
+func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlInjectionMatchSetOutput{})
 }

@@ -11,6 +11,11 @@ import (
 )
 
 type AutoScalingGroupAttributes struct {
+	LaunchConfigurationName     string `pulumi:"LaunchConfigurationName"`
+	LaunchTemplateSpecification string `pulumi:"LaunchTemplateSpecification"`
+	MixedInstancesPolicy        string `pulumi:"MixedInstancesPolicy"`
+	PlacementGroup              string `pulumi:"PlacementGroup"`
+	VPCZoneIdentifier           string `pulumi:"VPCZoneIdentifier"`
 }
 
 // AutoScalingGroupAttributesInput is an input type that accepts AutoScalingGroupAttributesArgs and AutoScalingGroupAttributesOutput values.
@@ -25,6 +30,11 @@ type AutoScalingGroupAttributesInput interface {
 }
 
 type AutoScalingGroupAttributesArgs struct {
+	LaunchConfigurationName     pulumi.StringInput `pulumi:"LaunchConfigurationName"`
+	LaunchTemplateSpecification pulumi.StringInput `pulumi:"LaunchTemplateSpecification"`
+	MixedInstancesPolicy        pulumi.StringInput `pulumi:"MixedInstancesPolicy"`
+	PlacementGroup              pulumi.StringInput `pulumi:"PlacementGroup"`
+	VPCZoneIdentifier           pulumi.StringInput `pulumi:"VPCZoneIdentifier"`
 }
 
 func (AutoScalingGroupAttributesArgs) ElementType() reflect.Type {
@@ -103,6 +113,25 @@ func (o AutoScalingGroupAttributesOutput) ToAutoScalingGroupAttributesPtrOutputW
 		return &v
 	}).(AutoScalingGroupAttributesPtrOutput)
 }
+func (o AutoScalingGroupAttributesOutput) LaunchConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupAttributes) string { return v.LaunchConfigurationName }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupAttributesOutput) LaunchTemplateSpecification() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupAttributes) string { return v.LaunchTemplateSpecification }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupAttributesOutput) MixedInstancesPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupAttributes) string { return v.MixedInstancesPolicy }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupAttributesOutput) PlacementGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupAttributes) string { return v.PlacementGroup }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupAttributesOutput) VPCZoneIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupAttributes) string { return v.VPCZoneIdentifier }).(pulumi.StringOutput)
+}
 
 type AutoScalingGroupAttributesPtrOutput struct{ *pulumi.OutputState }
 
@@ -120,6 +149,51 @@ func (o AutoScalingGroupAttributesPtrOutput) ToAutoScalingGroupAttributesPtrOutp
 
 func (o AutoScalingGroupAttributesPtrOutput) Elem() AutoScalingGroupAttributesOutput {
 	return o.ApplyT(func(v *AutoScalingGroupAttributes) AutoScalingGroupAttributes { return *v }).(AutoScalingGroupAttributesOutput)
+}
+
+func (o AutoScalingGroupAttributesPtrOutput) LaunchConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LaunchConfigurationName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupAttributesPtrOutput) LaunchTemplateSpecification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LaunchTemplateSpecification
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupAttributesPtrOutput) MixedInstancesPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MixedInstancesPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupAttributesPtrOutput) PlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PlacementGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupAttributesPtrOutput) VPCZoneIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VPCZoneIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html
@@ -510,6 +584,8 @@ func (o AutoScalingGroupLaunchTemplatePtrOutput) Overrides() AutoScalingGroupLau
 type AutoScalingGroupLaunchTemplateOverrides struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype
 	InstanceType *string `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification
+	LaunchTemplateSpecification *AutoScalingGroupLaunchTemplateSpecification `pulumi:"LaunchTemplateSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity
 	WeightedCapacity *string `pulumi:"WeightedCapacity"`
 }
@@ -529,6 +605,8 @@ type AutoScalingGroupLaunchTemplateOverridesInput interface {
 type AutoScalingGroupLaunchTemplateOverridesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype
 	InstanceType pulumi.StringPtrInput `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification
+	LaunchTemplateSpecification AutoScalingGroupLaunchTemplateSpecificationPtrInput `pulumi:"LaunchTemplateSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity
 	WeightedCapacity pulumi.StringPtrInput `pulumi:"WeightedCapacity"`
 }
@@ -588,6 +666,13 @@ func (o AutoScalingGroupLaunchTemplateOverridesOutput) ToAutoScalingGroupLaunchT
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype
 func (o AutoScalingGroupLaunchTemplateOverridesOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupLaunchTemplateOverrides) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification
+func (o AutoScalingGroupLaunchTemplateOverridesOutput) LaunchTemplateSpecification() AutoScalingGroupLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupLaunchTemplateOverrides) *AutoScalingGroupLaunchTemplateSpecification {
+		return v.LaunchTemplateSpecification
+	}).(AutoScalingGroupLaunchTemplateSpecificationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity
@@ -1322,6 +1407,8 @@ type AutoScalingGroupProperties struct {
 	AutoScalingGroupName *string `pulumi:"AutoScalingGroupName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
 	AvailabilityZones []string `pulumi:"AvailabilityZones"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-capacityrebalance
+	CapacityRebalance *bool `pulumi:"CapacityRebalance"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
 	Cooldown *string `pulumi:"Cooldown"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
@@ -1350,6 +1437,8 @@ type AutoScalingGroupProperties struct {
 	MinSize string `pulumi:"MinSize"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy
 	MixedInstancesPolicy *AutoScalingGroupMixedInstancesPolicy `pulumi:"MixedInstancesPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein
+	NewInstancesProtectedFromScaleIn *bool `pulumi:"NewInstancesProtectedFromScaleIn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	NotificationConfigurations []AutoScalingGroupNotificationConfiguration `pulumi:"NotificationConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
@@ -1383,6 +1472,8 @@ type AutoScalingGroupPropertiesArgs struct {
 	AutoScalingGroupName pulumi.StringPtrInput `pulumi:"AutoScalingGroupName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"AvailabilityZones"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-capacityrebalance
+	CapacityRebalance pulumi.BoolPtrInput `pulumi:"CapacityRebalance"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
 	Cooldown pulumi.StringPtrInput `pulumi:"Cooldown"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
@@ -1411,6 +1502,8 @@ type AutoScalingGroupPropertiesArgs struct {
 	MinSize pulumi.StringInput `pulumi:"MinSize"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy
 	MixedInstancesPolicy AutoScalingGroupMixedInstancesPolicyPtrInput `pulumi:"MixedInstancesPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein
+	NewInstancesProtectedFromScaleIn pulumi.BoolPtrInput `pulumi:"NewInstancesProtectedFromScaleIn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	NotificationConfigurations AutoScalingGroupNotificationConfigurationArrayInput `pulumi:"NotificationConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
@@ -1515,6 +1608,11 @@ func (o AutoScalingGroupPropertiesOutput) AvailabilityZones() pulumi.StringArray
 	return o.ApplyT(func(v AutoScalingGroupProperties) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-capacityrebalance
+func (o AutoScalingGroupPropertiesOutput) CapacityRebalance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupProperties) *bool { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
 func (o AutoScalingGroupPropertiesOutput) Cooldown() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupProperties) *string { return v.Cooldown }).(pulumi.StringPtrOutput)
@@ -1591,6 +1689,11 @@ func (o AutoScalingGroupPropertiesOutput) MixedInstancesPolicy() AutoScalingGrou
 	}).(AutoScalingGroupMixedInstancesPolicyPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein
+func (o AutoScalingGroupPropertiesOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupProperties) *bool { return v.NewInstancesProtectedFromScaleIn }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 func (o AutoScalingGroupPropertiesOutput) NotificationConfigurations() AutoScalingGroupNotificationConfigurationArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupProperties) []AutoScalingGroupNotificationConfiguration {
@@ -1664,6 +1767,16 @@ func (o AutoScalingGroupPropertiesPtrOutput) AvailabilityZones() pulumi.StringAr
 		}
 		return v.AvailabilityZones
 	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-capacityrebalance
+func (o AutoScalingGroupPropertiesPtrOutput) CapacityRebalance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityRebalance
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
@@ -1804,6 +1917,16 @@ func (o AutoScalingGroupPropertiesPtrOutput) MixedInstancesPolicy() AutoScalingG
 		}
 		return v.MixedInstancesPolicy
 	}).(AutoScalingGroupMixedInstancesPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein
+func (o AutoScalingGroupPropertiesPtrOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NewInstancesProtectedFromScaleIn
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
@@ -3486,6 +3609,178 @@ func (o LaunchConfigurationBlockDeviceMappingArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchConfigurationBlockDeviceMappingOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html
+type LaunchConfigurationMetadataOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpendpoint
+	HttpEndpoint *string `pulumi:"HttpEndpoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpputresponsehoplimit
+	HttpPutResponseHopLimit *int `pulumi:"HttpPutResponseHopLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httptokens
+	HttpTokens *string `pulumi:"HttpTokens"`
+}
+
+// LaunchConfigurationMetadataOptionsInput is an input type that accepts LaunchConfigurationMetadataOptionsArgs and LaunchConfigurationMetadataOptionsOutput values.
+// You can construct a concrete instance of `LaunchConfigurationMetadataOptionsInput` via:
+//
+//          LaunchConfigurationMetadataOptionsArgs{...}
+type LaunchConfigurationMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationMetadataOptionsOutput() LaunchConfigurationMetadataOptionsOutput
+	ToLaunchConfigurationMetadataOptionsOutputWithContext(context.Context) LaunchConfigurationMetadataOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html
+type LaunchConfigurationMetadataOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpendpoint
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"HttpEndpoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpputresponsehoplimit
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"HttpPutResponseHopLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httptokens
+	HttpTokens pulumi.StringPtrInput `pulumi:"HttpTokens"`
+}
+
+func (LaunchConfigurationMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsOutput() LaunchConfigurationMetadataOptionsOutput {
+	return i.ToLaunchConfigurationMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsOutput)
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return i.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsOutput).ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchConfigurationMetadataOptionsPtrInput is an input type that accepts LaunchConfigurationMetadataOptionsArgs, LaunchConfigurationMetadataOptionsPtr and LaunchConfigurationMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchConfigurationMetadataOptionsPtrInput` via:
+//
+//          LaunchConfigurationMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchConfigurationMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput
+	ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Context) LaunchConfigurationMetadataOptionsPtrOutput
+}
+
+type launchConfigurationMetadataOptionsPtrType LaunchConfigurationMetadataOptionsArgs
+
+func LaunchConfigurationMetadataOptionsPtr(v *LaunchConfigurationMetadataOptionsArgs) LaunchConfigurationMetadataOptionsPtrInput {
+	return (*launchConfigurationMetadataOptionsPtrType)(v)
+}
+
+func (*launchConfigurationMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (i *launchConfigurationMetadataOptionsPtrType) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return i.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchConfigurationMetadataOptionsPtrType) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html
+type LaunchConfigurationMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsOutput() LaunchConfigurationMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *LaunchConfigurationMetadataOptions {
+		return &v
+	}).(LaunchConfigurationMetadataOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpendpoint
+func (o LaunchConfigurationMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpputresponsehoplimit
+func (o LaunchConfigurationMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httptokens
+func (o LaunchConfigurationMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type LaunchConfigurationMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchConfigurationMetadataOptionsPtrOutput) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsPtrOutput) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationMetadataOptionsPtrOutput) Elem() LaunchConfigurationMetadataOptionsOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) LaunchConfigurationMetadataOptions { return *v }).(LaunchConfigurationMetadataOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpendpoint
+func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httpputresponsehoplimit
+func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html#cfn-autoscaling-launchconfig-metadataoptions-httptokens
+func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
 type LaunchConfigurationProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cf-as-launchconfig-associatepubip
@@ -3514,6 +3809,8 @@ type LaunchConfigurationProperties struct {
 	KeyName *string `pulumi:"KeyName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-launchconfigurationname
 	LaunchConfigurationName *string `pulumi:"LaunchConfigurationName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-metadataoptions
+	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"MetadataOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
 	PlacementTenancy *string `pulumi:"PlacementTenancy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ramdiskid
@@ -3565,6 +3862,8 @@ type LaunchConfigurationPropertiesArgs struct {
 	KeyName pulumi.StringPtrInput `pulumi:"KeyName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-launchconfigurationname
 	LaunchConfigurationName pulumi.StringPtrInput `pulumi:"LaunchConfigurationName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-metadataoptions
+	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput `pulumi:"MetadataOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
 	PlacementTenancy pulumi.StringPtrInput `pulumi:"PlacementTenancy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ramdiskid
@@ -3720,6 +4019,11 @@ func (o LaunchConfigurationPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-launchconfigurationname
 func (o LaunchConfigurationPropertiesOutput) LaunchConfigurationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationProperties) *string { return v.LaunchConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-metadataoptions
+func (o LaunchConfigurationPropertiesOutput) MetadataOptions() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationProperties) *LaunchConfigurationMetadataOptions { return v.MetadataOptions }).(LaunchConfigurationMetadataOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
@@ -3893,6 +4197,16 @@ func (o LaunchConfigurationPropertiesPtrOutput) LaunchConfigurationName() pulumi
 		}
 		return v.LaunchConfigurationName
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-metadataoptions
+func (o LaunchConfigurationPropertiesPtrOutput) MetadataOptions() LaunchConfigurationMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationProperties) *LaunchConfigurationMetadataOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataOptions
+	}).(LaunchConfigurationMetadataOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
@@ -5929,6 +6243,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchConfigurationBlockDevicePtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LifecycleHookAttributesOutput{})

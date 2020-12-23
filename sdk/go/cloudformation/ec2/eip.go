@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EIP struct {
 // NewEIP registers a new resource with the given unique name, arguments, and options.
 func NewEIP(ctx *pulumi.Context,
 	name string, args *EIPArgs, opts ...pulumi.ResourceOption) (*EIP, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EIPArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EIP
 	err := ctx.RegisterResource("cloudformation:EC2:EIP", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EIPArgs struct {
 
 func (EIPArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipArgs)(nil)).Elem()
+}
+
+type EIPInput interface {
+	pulumi.Input
+
+	ToEIPOutput() EIPOutput
+	ToEIPOutputWithContext(ctx context.Context) EIPOutput
+}
+
+func (*EIP) ElementType() reflect.Type {
+	return reflect.TypeOf((*EIP)(nil))
+}
+
+func (i *EIP) ToEIPOutput() EIPOutput {
+	return i.ToEIPOutputWithContext(context.Background())
+}
+
+func (i *EIP) ToEIPOutputWithContext(ctx context.Context) EIPOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EIPOutput)
+}
+
+type EIPOutput struct {
+	*pulumi.OutputState
+}
+
+func (EIPOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EIP)(nil))
+}
+
+func (o EIPOutput) ToEIPOutput() EIPOutput {
+	return o
+}
+
+func (o EIPOutput) ToEIPOutputWithContext(ctx context.Context) EIPOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EIPOutput{})
 }

@@ -4,6 +4,7 @@
 package iotanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Channel struct {
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Channel
 	err := ctx.RegisterResource("cloudformation:IoTAnalytics:Channel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ChannelArgs struct {
 
 func (ChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelArgs)(nil)).Elem()
+}
+
+type ChannelInput interface {
+	pulumi.Input
+
+	ToChannelOutput() ChannelOutput
+	ToChannelOutputWithContext(ctx context.Context) ChannelOutput
+}
+
+func (*Channel) ElementType() reflect.Type {
+	return reflect.TypeOf((*Channel)(nil))
+}
+
+func (i *Channel) ToChannelOutput() ChannelOutput {
+	return i.ToChannelOutputWithContext(context.Background())
+}
+
+func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
+}
+
+type ChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Channel)(nil))
+}
+
+func (o ChannelOutput) ToChannelOutput() ChannelOutput {
+	return o
+}
+
+func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ChannelOutput{})
 }

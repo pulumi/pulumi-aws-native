@@ -11,6 +11,1733 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type GatewayRouteAttributes struct {
+	Arn                string `pulumi:"Arn"`
+	GatewayRouteName   string `pulumi:"GatewayRouteName"`
+	MeshName           string `pulumi:"MeshName"`
+	MeshOwner          string `pulumi:"MeshOwner"`
+	ResourceOwner      string `pulumi:"ResourceOwner"`
+	Uid                string `pulumi:"Uid"`
+	VirtualGatewayName string `pulumi:"VirtualGatewayName"`
+}
+
+// GatewayRouteAttributesInput is an input type that accepts GatewayRouteAttributesArgs and GatewayRouteAttributesOutput values.
+// You can construct a concrete instance of `GatewayRouteAttributesInput` via:
+//
+//          GatewayRouteAttributesArgs{...}
+type GatewayRouteAttributesInput interface {
+	pulumi.Input
+
+	ToGatewayRouteAttributesOutput() GatewayRouteAttributesOutput
+	ToGatewayRouteAttributesOutputWithContext(context.Context) GatewayRouteAttributesOutput
+}
+
+type GatewayRouteAttributesArgs struct {
+	Arn                pulumi.StringInput `pulumi:"Arn"`
+	GatewayRouteName   pulumi.StringInput `pulumi:"GatewayRouteName"`
+	MeshName           pulumi.StringInput `pulumi:"MeshName"`
+	MeshOwner          pulumi.StringInput `pulumi:"MeshOwner"`
+	ResourceOwner      pulumi.StringInput `pulumi:"ResourceOwner"`
+	Uid                pulumi.StringInput `pulumi:"Uid"`
+	VirtualGatewayName pulumi.StringInput `pulumi:"VirtualGatewayName"`
+}
+
+func (GatewayRouteAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteAttributes)(nil)).Elem()
+}
+
+func (i GatewayRouteAttributesArgs) ToGatewayRouteAttributesOutput() GatewayRouteAttributesOutput {
+	return i.ToGatewayRouteAttributesOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteAttributesArgs) ToGatewayRouteAttributesOutputWithContext(ctx context.Context) GatewayRouteAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteAttributesOutput)
+}
+
+func (i GatewayRouteAttributesArgs) ToGatewayRouteAttributesPtrOutput() GatewayRouteAttributesPtrOutput {
+	return i.ToGatewayRouteAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteAttributesArgs) ToGatewayRouteAttributesPtrOutputWithContext(ctx context.Context) GatewayRouteAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteAttributesOutput).ToGatewayRouteAttributesPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteAttributesPtrInput is an input type that accepts GatewayRouteAttributesArgs, GatewayRouteAttributesPtr and GatewayRouteAttributesPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteAttributesPtrInput` via:
+//
+//          GatewayRouteAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteAttributesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteAttributesPtrOutput() GatewayRouteAttributesPtrOutput
+	ToGatewayRouteAttributesPtrOutputWithContext(context.Context) GatewayRouteAttributesPtrOutput
+}
+
+type gatewayRouteAttributesPtrType GatewayRouteAttributesArgs
+
+func GatewayRouteAttributesPtr(v *GatewayRouteAttributesArgs) GatewayRouteAttributesPtrInput {
+	return (*gatewayRouteAttributesPtrType)(v)
+}
+
+func (*gatewayRouteAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteAttributes)(nil)).Elem()
+}
+
+func (i *gatewayRouteAttributesPtrType) ToGatewayRouteAttributesPtrOutput() GatewayRouteAttributesPtrOutput {
+	return i.ToGatewayRouteAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteAttributesPtrType) ToGatewayRouteAttributesPtrOutputWithContext(ctx context.Context) GatewayRouteAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteAttributesPtrOutput)
+}
+
+type GatewayRouteAttributesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteAttributes)(nil)).Elem()
+}
+
+func (o GatewayRouteAttributesOutput) ToGatewayRouteAttributesOutput() GatewayRouteAttributesOutput {
+	return o
+}
+
+func (o GatewayRouteAttributesOutput) ToGatewayRouteAttributesOutputWithContext(ctx context.Context) GatewayRouteAttributesOutput {
+	return o
+}
+
+func (o GatewayRouteAttributesOutput) ToGatewayRouteAttributesPtrOutput() GatewayRouteAttributesPtrOutput {
+	return o.ToGatewayRouteAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteAttributesOutput) ToGatewayRouteAttributesPtrOutputWithContext(ctx context.Context) GatewayRouteAttributesPtrOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) *GatewayRouteAttributes {
+		return &v
+	}).(GatewayRouteAttributesPtrOutput)
+}
+func (o GatewayRouteAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteAttributesOutput) GatewayRouteName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) string { return v.GatewayRouteName }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteAttributesOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) string { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteAttributesOutput) MeshOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) string { return v.MeshOwner }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteAttributesOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) string { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteAttributesOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) string { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteAttributesOutput) VirtualGatewayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteAttributes) string { return v.VirtualGatewayName }).(pulumi.StringOutput)
+}
+
+type GatewayRouteAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteAttributes)(nil)).Elem()
+}
+
+func (o GatewayRouteAttributesPtrOutput) ToGatewayRouteAttributesPtrOutput() GatewayRouteAttributesPtrOutput {
+	return o
+}
+
+func (o GatewayRouteAttributesPtrOutput) ToGatewayRouteAttributesPtrOutputWithContext(ctx context.Context) GatewayRouteAttributesPtrOutput {
+	return o
+}
+
+func (o GatewayRouteAttributesPtrOutput) Elem() GatewayRouteAttributesOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) GatewayRouteAttributes { return *v }).(GatewayRouteAttributesOutput)
+}
+
+func (o GatewayRouteAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteAttributesPtrOutput) GatewayRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GatewayRouteName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteAttributesPtrOutput) MeshName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MeshName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteAttributesPtrOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MeshOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteAttributesPtrOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteAttributesPtrOutput) Uid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteAttributesPtrOutput) VirtualGatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualGatewayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html
+type GatewayRouteGatewayRouteSpec struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-grpcroute
+	GrpcRoute *GatewayRouteGrpcGatewayRoute `pulumi:"GrpcRoute"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-http2route
+	Http2Route *GatewayRouteHttpGatewayRoute `pulumi:"Http2Route"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-httproute
+	HttpRoute *GatewayRouteHttpGatewayRoute `pulumi:"HttpRoute"`
+}
+
+// GatewayRouteGatewayRouteSpecInput is an input type that accepts GatewayRouteGatewayRouteSpecArgs and GatewayRouteGatewayRouteSpecOutput values.
+// You can construct a concrete instance of `GatewayRouteGatewayRouteSpecInput` via:
+//
+//          GatewayRouteGatewayRouteSpecArgs{...}
+type GatewayRouteGatewayRouteSpecInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGatewayRouteSpecOutput() GatewayRouteGatewayRouteSpecOutput
+	ToGatewayRouteGatewayRouteSpecOutputWithContext(context.Context) GatewayRouteGatewayRouteSpecOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html
+type GatewayRouteGatewayRouteSpecArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-grpcroute
+	GrpcRoute GatewayRouteGrpcGatewayRoutePtrInput `pulumi:"GrpcRoute"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-http2route
+	Http2Route GatewayRouteHttpGatewayRoutePtrInput `pulumi:"Http2Route"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-httproute
+	HttpRoute GatewayRouteHttpGatewayRoutePtrInput `pulumi:"HttpRoute"`
+}
+
+func (GatewayRouteGatewayRouteSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGatewayRouteSpec)(nil)).Elem()
+}
+
+func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecOutput() GatewayRouteGatewayRouteSpecOutput {
+	return i.ToGatewayRouteGatewayRouteSpecOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteSpecOutput)
+}
+
+func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
+	return i.ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteSpecOutput).ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteGatewayRouteSpecPtrInput is an input type that accepts GatewayRouteGatewayRouteSpecArgs, GatewayRouteGatewayRouteSpecPtr and GatewayRouteGatewayRouteSpecPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteGatewayRouteSpecPtrInput` via:
+//
+//          GatewayRouteGatewayRouteSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteGatewayRouteSpecPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput
+	ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Context) GatewayRouteGatewayRouteSpecPtrOutput
+}
+
+type gatewayRouteGatewayRouteSpecPtrType GatewayRouteGatewayRouteSpecArgs
+
+func GatewayRouteGatewayRouteSpecPtr(v *GatewayRouteGatewayRouteSpecArgs) GatewayRouteGatewayRouteSpecPtrInput {
+	return (*gatewayRouteGatewayRouteSpecPtrType)(v)
+}
+
+func (*gatewayRouteGatewayRouteSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGatewayRouteSpec)(nil)).Elem()
+}
+
+func (i *gatewayRouteGatewayRouteSpecPtrType) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
+	return i.ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteGatewayRouteSpecPtrType) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html
+type GatewayRouteGatewayRouteSpecOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGatewayRouteSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGatewayRouteSpec)(nil)).Elem()
+}
+
+func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecOutput() GatewayRouteGatewayRouteSpecOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
+	return o.ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteSpec) *GatewayRouteGatewayRouteSpec {
+		return &v
+	}).(GatewayRouteGatewayRouteSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-grpcroute
+func (o GatewayRouteGatewayRouteSpecOutput) GrpcRoute() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteSpec) *GatewayRouteGrpcGatewayRoute { return v.GrpcRoute }).(GatewayRouteGrpcGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-http2route
+func (o GatewayRouteGatewayRouteSpecOutput) Http2Route() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute { return v.Http2Route }).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-httproute
+func (o GatewayRouteGatewayRouteSpecOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute { return v.HttpRoute }).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+type GatewayRouteGatewayRouteSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGatewayRouteSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGatewayRouteSpec)(nil)).Elem()
+}
+
+func (o GatewayRouteGatewayRouteSpecPtrOutput) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteSpecPtrOutput) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteSpecPtrOutput) Elem() GatewayRouteGatewayRouteSpecOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) GatewayRouteGatewayRouteSpec { return *v }).(GatewayRouteGatewayRouteSpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-grpcroute
+func (o GatewayRouteGatewayRouteSpecPtrOutput) GrpcRoute() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) *GatewayRouteGrpcGatewayRoute {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcRoute
+	}).(GatewayRouteGrpcGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-http2route
+func (o GatewayRouteGatewayRouteSpecPtrOutput) Http2Route() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute {
+		if v == nil {
+			return nil
+		}
+		return v.Http2Route
+	}).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html#cfn-appmesh-gatewayroute-gatewayroutespec-httproute
+func (o GatewayRouteGatewayRouteSpecPtrOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute {
+		if v == nil {
+			return nil
+		}
+		return v.HttpRoute
+	}).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html
+type GatewayRouteGatewayRouteTarget struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
+	VirtualService GatewayRouteGatewayRouteVirtualService `pulumi:"VirtualService"`
+}
+
+// GatewayRouteGatewayRouteTargetInput is an input type that accepts GatewayRouteGatewayRouteTargetArgs and GatewayRouteGatewayRouteTargetOutput values.
+// You can construct a concrete instance of `GatewayRouteGatewayRouteTargetInput` via:
+//
+//          GatewayRouteGatewayRouteTargetArgs{...}
+type GatewayRouteGatewayRouteTargetInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGatewayRouteTargetOutput() GatewayRouteGatewayRouteTargetOutput
+	ToGatewayRouteGatewayRouteTargetOutputWithContext(context.Context) GatewayRouteGatewayRouteTargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html
+type GatewayRouteGatewayRouteTargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
+	VirtualService GatewayRouteGatewayRouteVirtualServiceInput `pulumi:"VirtualService"`
+}
+
+func (GatewayRouteGatewayRouteTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGatewayRouteTarget)(nil)).Elem()
+}
+
+func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetOutput() GatewayRouteGatewayRouteTargetOutput {
+	return i.ToGatewayRouteGatewayRouteTargetOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteTargetOutput)
+}
+
+func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
+	return i.ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteTargetOutput).ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteGatewayRouteTargetPtrInput is an input type that accepts GatewayRouteGatewayRouteTargetArgs, GatewayRouteGatewayRouteTargetPtr and GatewayRouteGatewayRouteTargetPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteGatewayRouteTargetPtrInput` via:
+//
+//          GatewayRouteGatewayRouteTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteGatewayRouteTargetPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput
+	ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Context) GatewayRouteGatewayRouteTargetPtrOutput
+}
+
+type gatewayRouteGatewayRouteTargetPtrType GatewayRouteGatewayRouteTargetArgs
+
+func GatewayRouteGatewayRouteTargetPtr(v *GatewayRouteGatewayRouteTargetArgs) GatewayRouteGatewayRouteTargetPtrInput {
+	return (*gatewayRouteGatewayRouteTargetPtrType)(v)
+}
+
+func (*gatewayRouteGatewayRouteTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGatewayRouteTarget)(nil)).Elem()
+}
+
+func (i *gatewayRouteGatewayRouteTargetPtrType) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
+	return i.ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteGatewayRouteTargetPtrType) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html
+type GatewayRouteGatewayRouteTargetOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGatewayRouteTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGatewayRouteTarget)(nil)).Elem()
+}
+
+func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetOutput() GatewayRouteGatewayRouteTargetOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
+	return o.ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteTarget) *GatewayRouteGatewayRouteTarget {
+		return &v
+	}).(GatewayRouteGatewayRouteTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
+func (o GatewayRouteGatewayRouteTargetOutput) VirtualService() GatewayRouteGatewayRouteVirtualServiceOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteTarget) GatewayRouteGatewayRouteVirtualService { return v.VirtualService }).(GatewayRouteGatewayRouteVirtualServiceOutput)
+}
+
+type GatewayRouteGatewayRouteTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGatewayRouteTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGatewayRouteTarget)(nil)).Elem()
+}
+
+func (o GatewayRouteGatewayRouteTargetPtrOutput) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteTargetPtrOutput) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteTargetPtrOutput) Elem() GatewayRouteGatewayRouteTargetOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteTarget) GatewayRouteGatewayRouteTarget { return *v }).(GatewayRouteGatewayRouteTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html#cfn-appmesh-gatewayroute-gatewayroutetarget-virtualservice
+func (o GatewayRouteGatewayRouteTargetPtrOutput) VirtualService() GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteTarget) *GatewayRouteGatewayRouteVirtualService {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualService
+	}).(GatewayRouteGatewayRouteVirtualServicePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html
+type GatewayRouteGatewayRouteVirtualService struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html#cfn-appmesh-gatewayroute-gatewayroutevirtualservice-virtualservicename
+	VirtualServiceName string `pulumi:"VirtualServiceName"`
+}
+
+// GatewayRouteGatewayRouteVirtualServiceInput is an input type that accepts GatewayRouteGatewayRouteVirtualServiceArgs and GatewayRouteGatewayRouteVirtualServiceOutput values.
+// You can construct a concrete instance of `GatewayRouteGatewayRouteVirtualServiceInput` via:
+//
+//          GatewayRouteGatewayRouteVirtualServiceArgs{...}
+type GatewayRouteGatewayRouteVirtualServiceInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGatewayRouteVirtualServiceOutput() GatewayRouteGatewayRouteVirtualServiceOutput
+	ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(context.Context) GatewayRouteGatewayRouteVirtualServiceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html
+type GatewayRouteGatewayRouteVirtualServiceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html#cfn-appmesh-gatewayroute-gatewayroutevirtualservice-virtualservicename
+	VirtualServiceName pulumi.StringInput `pulumi:"VirtualServiceName"`
+}
+
+func (GatewayRouteGatewayRouteVirtualServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServiceOutput() GatewayRouteGatewayRouteVirtualServiceOutput {
+	return i.ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteVirtualServiceOutput)
+}
+
+func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return i.ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteVirtualServiceOutput).ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteGatewayRouteVirtualServicePtrInput is an input type that accepts GatewayRouteGatewayRouteVirtualServiceArgs, GatewayRouteGatewayRouteVirtualServicePtr and GatewayRouteGatewayRouteVirtualServicePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteGatewayRouteVirtualServicePtrInput` via:
+//
+//          GatewayRouteGatewayRouteVirtualServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteGatewayRouteVirtualServicePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput
+	ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput
+}
+
+type gatewayRouteGatewayRouteVirtualServicePtrType GatewayRouteGatewayRouteVirtualServiceArgs
+
+func GatewayRouteGatewayRouteVirtualServicePtr(v *GatewayRouteGatewayRouteVirtualServiceArgs) GatewayRouteGatewayRouteVirtualServicePtrInput {
+	return (*gatewayRouteGatewayRouteVirtualServicePtrType)(v)
+}
+
+func (*gatewayRouteGatewayRouteVirtualServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (i *gatewayRouteGatewayRouteVirtualServicePtrType) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return i.ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteGatewayRouteVirtualServicePtrType) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteVirtualServicePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html
+type GatewayRouteGatewayRouteVirtualServiceOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGatewayRouteVirtualServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServiceOutput() GatewayRouteGatewayRouteVirtualServiceOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServiceOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return o.ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteVirtualService) *GatewayRouteGatewayRouteVirtualService {
+		return &v
+	}).(GatewayRouteGatewayRouteVirtualServicePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html#cfn-appmesh-gatewayroute-gatewayroutevirtualservice-virtualservicename
+func (o GatewayRouteGatewayRouteVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteGatewayRouteVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+}
+
+type GatewayRouteGatewayRouteVirtualServicePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGatewayRouteVirtualServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
+	return o
+}
+
+func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) Elem() GatewayRouteGatewayRouteVirtualServiceOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteVirtualService) GatewayRouteGatewayRouteVirtualService { return *v }).(GatewayRouteGatewayRouteVirtualServiceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html#cfn-appmesh-gatewayroute-gatewayroutevirtualservice-virtualservicename
+func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGatewayRouteVirtualService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html
+type GatewayRouteGrpcGatewayRoute struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-action
+	Action GatewayRouteGrpcGatewayRouteAction `pulumi:"Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-match
+	Match GatewayRouteGrpcGatewayRouteMatch `pulumi:"Match"`
+}
+
+// GatewayRouteGrpcGatewayRouteInput is an input type that accepts GatewayRouteGrpcGatewayRouteArgs and GatewayRouteGrpcGatewayRouteOutput values.
+// You can construct a concrete instance of `GatewayRouteGrpcGatewayRouteInput` via:
+//
+//          GatewayRouteGrpcGatewayRouteArgs{...}
+type GatewayRouteGrpcGatewayRouteInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGrpcGatewayRouteOutput() GatewayRouteGrpcGatewayRouteOutput
+	ToGatewayRouteGrpcGatewayRouteOutputWithContext(context.Context) GatewayRouteGrpcGatewayRouteOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html
+type GatewayRouteGrpcGatewayRouteArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-action
+	Action GatewayRouteGrpcGatewayRouteActionInput `pulumi:"Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-match
+	Match GatewayRouteGrpcGatewayRouteMatchInput `pulumi:"Match"`
+}
+
+func (GatewayRouteGrpcGatewayRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGrpcGatewayRoute)(nil)).Elem()
+}
+
+func (i GatewayRouteGrpcGatewayRouteArgs) ToGatewayRouteGrpcGatewayRouteOutput() GatewayRouteGrpcGatewayRouteOutput {
+	return i.ToGatewayRouteGrpcGatewayRouteOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGrpcGatewayRouteArgs) ToGatewayRouteGrpcGatewayRouteOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteOutput)
+}
+
+func (i GatewayRouteGrpcGatewayRouteArgs) ToGatewayRouteGrpcGatewayRoutePtrOutput() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return i.ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGrpcGatewayRouteArgs) ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteOutput).ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteGrpcGatewayRoutePtrInput is an input type that accepts GatewayRouteGrpcGatewayRouteArgs, GatewayRouteGrpcGatewayRoutePtr and GatewayRouteGrpcGatewayRoutePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteGrpcGatewayRoutePtrInput` via:
+//
+//          GatewayRouteGrpcGatewayRouteArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteGrpcGatewayRoutePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGrpcGatewayRoutePtrOutput() GatewayRouteGrpcGatewayRoutePtrOutput
+	ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(context.Context) GatewayRouteGrpcGatewayRoutePtrOutput
+}
+
+type gatewayRouteGrpcGatewayRoutePtrType GatewayRouteGrpcGatewayRouteArgs
+
+func GatewayRouteGrpcGatewayRoutePtr(v *GatewayRouteGrpcGatewayRouteArgs) GatewayRouteGrpcGatewayRoutePtrInput {
+	return (*gatewayRouteGrpcGatewayRoutePtrType)(v)
+}
+
+func (*gatewayRouteGrpcGatewayRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGrpcGatewayRoute)(nil)).Elem()
+}
+
+func (i *gatewayRouteGrpcGatewayRoutePtrType) ToGatewayRouteGrpcGatewayRoutePtrOutput() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return i.ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteGrpcGatewayRoutePtrType) ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html
+type GatewayRouteGrpcGatewayRouteOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGrpcGatewayRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGrpcGatewayRoute)(nil)).Elem()
+}
+
+func (o GatewayRouteGrpcGatewayRouteOutput) ToGatewayRouteGrpcGatewayRouteOutput() GatewayRouteGrpcGatewayRouteOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteOutput) ToGatewayRouteGrpcGatewayRouteOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteOutput) ToGatewayRouteGrpcGatewayRoutePtrOutput() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o.ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteGrpcGatewayRouteOutput) ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRoute) *GatewayRouteGrpcGatewayRoute {
+		return &v
+	}).(GatewayRouteGrpcGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-action
+func (o GatewayRouteGrpcGatewayRouteOutput) Action() GatewayRouteGrpcGatewayRouteActionOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRoute) GatewayRouteGrpcGatewayRouteAction { return v.Action }).(GatewayRouteGrpcGatewayRouteActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-match
+func (o GatewayRouteGrpcGatewayRouteOutput) Match() GatewayRouteGrpcGatewayRouteMatchOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRoute) GatewayRouteGrpcGatewayRouteMatch { return v.Match }).(GatewayRouteGrpcGatewayRouteMatchOutput)
+}
+
+type GatewayRouteGrpcGatewayRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGrpcGatewayRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGrpcGatewayRoute)(nil)).Elem()
+}
+
+func (o GatewayRouteGrpcGatewayRoutePtrOutput) ToGatewayRouteGrpcGatewayRoutePtrOutput() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRoutePtrOutput) ToGatewayRouteGrpcGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRoutePtrOutput) Elem() GatewayRouteGrpcGatewayRouteOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRoute) GatewayRouteGrpcGatewayRoute { return *v }).(GatewayRouteGrpcGatewayRouteOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-action
+func (o GatewayRouteGrpcGatewayRoutePtrOutput) Action() GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRoute) *GatewayRouteGrpcGatewayRouteAction {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(GatewayRouteGrpcGatewayRouteActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html#cfn-appmesh-gatewayroute-grpcgatewayroute-match
+func (o GatewayRouteGrpcGatewayRoutePtrOutput) Match() GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRoute) *GatewayRouteGrpcGatewayRouteMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(GatewayRouteGrpcGatewayRouteMatchPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html
+type GatewayRouteGrpcGatewayRouteAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-target
+	Target GatewayRouteGatewayRouteTarget `pulumi:"Target"`
+}
+
+// GatewayRouteGrpcGatewayRouteActionInput is an input type that accepts GatewayRouteGrpcGatewayRouteActionArgs and GatewayRouteGrpcGatewayRouteActionOutput values.
+// You can construct a concrete instance of `GatewayRouteGrpcGatewayRouteActionInput` via:
+//
+//          GatewayRouteGrpcGatewayRouteActionArgs{...}
+type GatewayRouteGrpcGatewayRouteActionInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGrpcGatewayRouteActionOutput() GatewayRouteGrpcGatewayRouteActionOutput
+	ToGatewayRouteGrpcGatewayRouteActionOutputWithContext(context.Context) GatewayRouteGrpcGatewayRouteActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html
+type GatewayRouteGrpcGatewayRouteActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-target
+	Target GatewayRouteGatewayRouteTargetInput `pulumi:"Target"`
+}
+
+func (GatewayRouteGrpcGatewayRouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGrpcGatewayRouteAction)(nil)).Elem()
+}
+
+func (i GatewayRouteGrpcGatewayRouteActionArgs) ToGatewayRouteGrpcGatewayRouteActionOutput() GatewayRouteGrpcGatewayRouteActionOutput {
+	return i.ToGatewayRouteGrpcGatewayRouteActionOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGrpcGatewayRouteActionArgs) ToGatewayRouteGrpcGatewayRouteActionOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteActionOutput)
+}
+
+func (i GatewayRouteGrpcGatewayRouteActionArgs) ToGatewayRouteGrpcGatewayRouteActionPtrOutput() GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return i.ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGrpcGatewayRouteActionArgs) ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteActionOutput).ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteGrpcGatewayRouteActionPtrInput is an input type that accepts GatewayRouteGrpcGatewayRouteActionArgs, GatewayRouteGrpcGatewayRouteActionPtr and GatewayRouteGrpcGatewayRouteActionPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteGrpcGatewayRouteActionPtrInput` via:
+//
+//          GatewayRouteGrpcGatewayRouteActionArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteGrpcGatewayRouteActionPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGrpcGatewayRouteActionPtrOutput() GatewayRouteGrpcGatewayRouteActionPtrOutput
+	ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(context.Context) GatewayRouteGrpcGatewayRouteActionPtrOutput
+}
+
+type gatewayRouteGrpcGatewayRouteActionPtrType GatewayRouteGrpcGatewayRouteActionArgs
+
+func GatewayRouteGrpcGatewayRouteActionPtr(v *GatewayRouteGrpcGatewayRouteActionArgs) GatewayRouteGrpcGatewayRouteActionPtrInput {
+	return (*gatewayRouteGrpcGatewayRouteActionPtrType)(v)
+}
+
+func (*gatewayRouteGrpcGatewayRouteActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGrpcGatewayRouteAction)(nil)).Elem()
+}
+
+func (i *gatewayRouteGrpcGatewayRouteActionPtrType) ToGatewayRouteGrpcGatewayRouteActionPtrOutput() GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return i.ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteGrpcGatewayRouteActionPtrType) ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html
+type GatewayRouteGrpcGatewayRouteActionOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGrpcGatewayRouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGrpcGatewayRouteAction)(nil)).Elem()
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionOutput) ToGatewayRouteGrpcGatewayRouteActionOutput() GatewayRouteGrpcGatewayRouteActionOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionOutput) ToGatewayRouteGrpcGatewayRouteActionOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteActionOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionOutput) ToGatewayRouteGrpcGatewayRouteActionPtrOutput() GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return o.ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionOutput) ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteAction) *GatewayRouteGrpcGatewayRouteAction {
+		return &v
+	}).(GatewayRouteGrpcGatewayRouteActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-target
+func (o GatewayRouteGrpcGatewayRouteActionOutput) Target() GatewayRouteGatewayRouteTargetOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteAction) GatewayRouteGatewayRouteTarget { return v.Target }).(GatewayRouteGatewayRouteTargetOutput)
+}
+
+type GatewayRouteGrpcGatewayRouteActionPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGrpcGatewayRouteActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGrpcGatewayRouteAction)(nil)).Elem()
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) ToGatewayRouteGrpcGatewayRouteActionPtrOutput() GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) ToGatewayRouteGrpcGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteActionPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) Elem() GatewayRouteGrpcGatewayRouteActionOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteAction) GatewayRouteGrpcGatewayRouteAction { return *v }).(GatewayRouteGrpcGatewayRouteActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html#cfn-appmesh-gatewayroute-grpcgatewayrouteaction-target
+func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) Target() GatewayRouteGatewayRouteTargetPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteAction) *GatewayRouteGatewayRouteTarget {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(GatewayRouteGatewayRouteTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html
+type GatewayRouteGrpcGatewayRouteMatch struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-servicename
+	ServiceName *string `pulumi:"ServiceName"`
+}
+
+// GatewayRouteGrpcGatewayRouteMatchInput is an input type that accepts GatewayRouteGrpcGatewayRouteMatchArgs and GatewayRouteGrpcGatewayRouteMatchOutput values.
+// You can construct a concrete instance of `GatewayRouteGrpcGatewayRouteMatchInput` via:
+//
+//          GatewayRouteGrpcGatewayRouteMatchArgs{...}
+type GatewayRouteGrpcGatewayRouteMatchInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGrpcGatewayRouteMatchOutput() GatewayRouteGrpcGatewayRouteMatchOutput
+	ToGatewayRouteGrpcGatewayRouteMatchOutputWithContext(context.Context) GatewayRouteGrpcGatewayRouteMatchOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html
+type GatewayRouteGrpcGatewayRouteMatchArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-servicename
+	ServiceName pulumi.StringPtrInput `pulumi:"ServiceName"`
+}
+
+func (GatewayRouteGrpcGatewayRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGrpcGatewayRouteMatch)(nil)).Elem()
+}
+
+func (i GatewayRouteGrpcGatewayRouteMatchArgs) ToGatewayRouteGrpcGatewayRouteMatchOutput() GatewayRouteGrpcGatewayRouteMatchOutput {
+	return i.ToGatewayRouteGrpcGatewayRouteMatchOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGrpcGatewayRouteMatchArgs) ToGatewayRouteGrpcGatewayRouteMatchOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteMatchOutput)
+}
+
+func (i GatewayRouteGrpcGatewayRouteMatchArgs) ToGatewayRouteGrpcGatewayRouteMatchPtrOutput() GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return i.ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteGrpcGatewayRouteMatchArgs) ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteMatchOutput).ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteGrpcGatewayRouteMatchPtrInput is an input type that accepts GatewayRouteGrpcGatewayRouteMatchArgs, GatewayRouteGrpcGatewayRouteMatchPtr and GatewayRouteGrpcGatewayRouteMatchPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteGrpcGatewayRouteMatchPtrInput` via:
+//
+//          GatewayRouteGrpcGatewayRouteMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteGrpcGatewayRouteMatchPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteGrpcGatewayRouteMatchPtrOutput() GatewayRouteGrpcGatewayRouteMatchPtrOutput
+	ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(context.Context) GatewayRouteGrpcGatewayRouteMatchPtrOutput
+}
+
+type gatewayRouteGrpcGatewayRouteMatchPtrType GatewayRouteGrpcGatewayRouteMatchArgs
+
+func GatewayRouteGrpcGatewayRouteMatchPtr(v *GatewayRouteGrpcGatewayRouteMatchArgs) GatewayRouteGrpcGatewayRouteMatchPtrInput {
+	return (*gatewayRouteGrpcGatewayRouteMatchPtrType)(v)
+}
+
+func (*gatewayRouteGrpcGatewayRouteMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGrpcGatewayRouteMatch)(nil)).Elem()
+}
+
+func (i *gatewayRouteGrpcGatewayRouteMatchPtrType) ToGatewayRouteGrpcGatewayRouteMatchPtrOutput() GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return i.ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteGrpcGatewayRouteMatchPtrType) ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGrpcGatewayRouteMatchPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html
+type GatewayRouteGrpcGatewayRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGrpcGatewayRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteGrpcGatewayRouteMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) ToGatewayRouteGrpcGatewayRouteMatchOutput() GatewayRouteGrpcGatewayRouteMatchOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) ToGatewayRouteGrpcGatewayRouteMatchOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMatchOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) ToGatewayRouteGrpcGatewayRouteMatchPtrOutput() GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return o.ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMatch) *GatewayRouteGrpcGatewayRouteMatch {
+		return &v
+	}).(GatewayRouteGrpcGatewayRouteMatchPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-servicename
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteGrpcGatewayRouteMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteGrpcGatewayRouteMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteGrpcGatewayRouteMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ToGatewayRouteGrpcGatewayRouteMatchPtrOutput() GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ToGatewayRouteGrpcGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGrpcGatewayRouteMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Elem() GatewayRouteGrpcGatewayRouteMatchOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteMatch) GatewayRouteGrpcGatewayRouteMatch { return *v }).(GatewayRouteGrpcGatewayRouteMatchOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html#cfn-appmesh-gatewayroute-grpcgatewayroutematch-servicename
+func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html
+type GatewayRouteHttpGatewayRoute struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-action
+	Action GatewayRouteHttpGatewayRouteAction `pulumi:"Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-match
+	Match GatewayRouteHttpGatewayRouteMatch `pulumi:"Match"`
+}
+
+// GatewayRouteHttpGatewayRouteInput is an input type that accepts GatewayRouteHttpGatewayRouteArgs and GatewayRouteHttpGatewayRouteOutput values.
+// You can construct a concrete instance of `GatewayRouteHttpGatewayRouteInput` via:
+//
+//          GatewayRouteHttpGatewayRouteArgs{...}
+type GatewayRouteHttpGatewayRouteInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHttpGatewayRouteOutput() GatewayRouteHttpGatewayRouteOutput
+	ToGatewayRouteHttpGatewayRouteOutputWithContext(context.Context) GatewayRouteHttpGatewayRouteOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html
+type GatewayRouteHttpGatewayRouteArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-action
+	Action GatewayRouteHttpGatewayRouteActionInput `pulumi:"Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-match
+	Match GatewayRouteHttpGatewayRouteMatchInput `pulumi:"Match"`
+}
+
+func (GatewayRouteHttpGatewayRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHttpGatewayRoute)(nil)).Elem()
+}
+
+func (i GatewayRouteHttpGatewayRouteArgs) ToGatewayRouteHttpGatewayRouteOutput() GatewayRouteHttpGatewayRouteOutput {
+	return i.ToGatewayRouteHttpGatewayRouteOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHttpGatewayRouteArgs) ToGatewayRouteHttpGatewayRouteOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteOutput)
+}
+
+func (i GatewayRouteHttpGatewayRouteArgs) ToGatewayRouteHttpGatewayRoutePtrOutput() GatewayRouteHttpGatewayRoutePtrOutput {
+	return i.ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHttpGatewayRouteArgs) ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteOutput).ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteHttpGatewayRoutePtrInput is an input type that accepts GatewayRouteHttpGatewayRouteArgs, GatewayRouteHttpGatewayRoutePtr and GatewayRouteHttpGatewayRoutePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteHttpGatewayRoutePtrInput` via:
+//
+//          GatewayRouteHttpGatewayRouteArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteHttpGatewayRoutePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHttpGatewayRoutePtrOutput() GatewayRouteHttpGatewayRoutePtrOutput
+	ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(context.Context) GatewayRouteHttpGatewayRoutePtrOutput
+}
+
+type gatewayRouteHttpGatewayRoutePtrType GatewayRouteHttpGatewayRouteArgs
+
+func GatewayRouteHttpGatewayRoutePtr(v *GatewayRouteHttpGatewayRouteArgs) GatewayRouteHttpGatewayRoutePtrInput {
+	return (*gatewayRouteHttpGatewayRoutePtrType)(v)
+}
+
+func (*gatewayRouteHttpGatewayRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHttpGatewayRoute)(nil)).Elem()
+}
+
+func (i *gatewayRouteHttpGatewayRoutePtrType) ToGatewayRouteHttpGatewayRoutePtrOutput() GatewayRouteHttpGatewayRoutePtrOutput {
+	return i.ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteHttpGatewayRoutePtrType) ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html
+type GatewayRouteHttpGatewayRouteOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHttpGatewayRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHttpGatewayRoute)(nil)).Elem()
+}
+
+func (o GatewayRouteHttpGatewayRouteOutput) ToGatewayRouteHttpGatewayRouteOutput() GatewayRouteHttpGatewayRouteOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteOutput) ToGatewayRouteHttpGatewayRouteOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteOutput) ToGatewayRouteHttpGatewayRoutePtrOutput() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteHttpGatewayRouteOutput) ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRoute) *GatewayRouteHttpGatewayRoute {
+		return &v
+	}).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-action
+func (o GatewayRouteHttpGatewayRouteOutput) Action() GatewayRouteHttpGatewayRouteActionOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRoute) GatewayRouteHttpGatewayRouteAction { return v.Action }).(GatewayRouteHttpGatewayRouteActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-match
+func (o GatewayRouteHttpGatewayRouteOutput) Match() GatewayRouteHttpGatewayRouteMatchOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRoute) GatewayRouteHttpGatewayRouteMatch { return v.Match }).(GatewayRouteHttpGatewayRouteMatchOutput)
+}
+
+type GatewayRouteHttpGatewayRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHttpGatewayRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHttpGatewayRoute)(nil)).Elem()
+}
+
+func (o GatewayRouteHttpGatewayRoutePtrOutput) ToGatewayRouteHttpGatewayRoutePtrOutput() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRoutePtrOutput) ToGatewayRouteHttpGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRoutePtrOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRoutePtrOutput) Elem() GatewayRouteHttpGatewayRouteOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRoute) GatewayRouteHttpGatewayRoute { return *v }).(GatewayRouteHttpGatewayRouteOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-action
+func (o GatewayRouteHttpGatewayRoutePtrOutput) Action() GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRoute) *GatewayRouteHttpGatewayRouteAction {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(GatewayRouteHttpGatewayRouteActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html#cfn-appmesh-gatewayroute-httpgatewayroute-match
+func (o GatewayRouteHttpGatewayRoutePtrOutput) Match() GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRoute) *GatewayRouteHttpGatewayRouteMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(GatewayRouteHttpGatewayRouteMatchPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html
+type GatewayRouteHttpGatewayRouteAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-target
+	Target GatewayRouteGatewayRouteTarget `pulumi:"Target"`
+}
+
+// GatewayRouteHttpGatewayRouteActionInput is an input type that accepts GatewayRouteHttpGatewayRouteActionArgs and GatewayRouteHttpGatewayRouteActionOutput values.
+// You can construct a concrete instance of `GatewayRouteHttpGatewayRouteActionInput` via:
+//
+//          GatewayRouteHttpGatewayRouteActionArgs{...}
+type GatewayRouteHttpGatewayRouteActionInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHttpGatewayRouteActionOutput() GatewayRouteHttpGatewayRouteActionOutput
+	ToGatewayRouteHttpGatewayRouteActionOutputWithContext(context.Context) GatewayRouteHttpGatewayRouteActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html
+type GatewayRouteHttpGatewayRouteActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-target
+	Target GatewayRouteGatewayRouteTargetInput `pulumi:"Target"`
+}
+
+func (GatewayRouteHttpGatewayRouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHttpGatewayRouteAction)(nil)).Elem()
+}
+
+func (i GatewayRouteHttpGatewayRouteActionArgs) ToGatewayRouteHttpGatewayRouteActionOutput() GatewayRouteHttpGatewayRouteActionOutput {
+	return i.ToGatewayRouteHttpGatewayRouteActionOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHttpGatewayRouteActionArgs) ToGatewayRouteHttpGatewayRouteActionOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteActionOutput)
+}
+
+func (i GatewayRouteHttpGatewayRouteActionArgs) ToGatewayRouteHttpGatewayRouteActionPtrOutput() GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return i.ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHttpGatewayRouteActionArgs) ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteActionOutput).ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteHttpGatewayRouteActionPtrInput is an input type that accepts GatewayRouteHttpGatewayRouteActionArgs, GatewayRouteHttpGatewayRouteActionPtr and GatewayRouteHttpGatewayRouteActionPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteHttpGatewayRouteActionPtrInput` via:
+//
+//          GatewayRouteHttpGatewayRouteActionArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteHttpGatewayRouteActionPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHttpGatewayRouteActionPtrOutput() GatewayRouteHttpGatewayRouteActionPtrOutput
+	ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(context.Context) GatewayRouteHttpGatewayRouteActionPtrOutput
+}
+
+type gatewayRouteHttpGatewayRouteActionPtrType GatewayRouteHttpGatewayRouteActionArgs
+
+func GatewayRouteHttpGatewayRouteActionPtr(v *GatewayRouteHttpGatewayRouteActionArgs) GatewayRouteHttpGatewayRouteActionPtrInput {
+	return (*gatewayRouteHttpGatewayRouteActionPtrType)(v)
+}
+
+func (*gatewayRouteHttpGatewayRouteActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHttpGatewayRouteAction)(nil)).Elem()
+}
+
+func (i *gatewayRouteHttpGatewayRouteActionPtrType) ToGatewayRouteHttpGatewayRouteActionPtrOutput() GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return i.ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteHttpGatewayRouteActionPtrType) ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html
+type GatewayRouteHttpGatewayRouteActionOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHttpGatewayRouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHttpGatewayRouteAction)(nil)).Elem()
+}
+
+func (o GatewayRouteHttpGatewayRouteActionOutput) ToGatewayRouteHttpGatewayRouteActionOutput() GatewayRouteHttpGatewayRouteActionOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteActionOutput) ToGatewayRouteHttpGatewayRouteActionOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteActionOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteActionOutput) ToGatewayRouteHttpGatewayRouteActionPtrOutput() GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return o.ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteHttpGatewayRouteActionOutput) ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteAction) *GatewayRouteHttpGatewayRouteAction {
+		return &v
+	}).(GatewayRouteHttpGatewayRouteActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-target
+func (o GatewayRouteHttpGatewayRouteActionOutput) Target() GatewayRouteGatewayRouteTargetOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteAction) GatewayRouteGatewayRouteTarget { return v.Target }).(GatewayRouteGatewayRouteTargetOutput)
+}
+
+type GatewayRouteHttpGatewayRouteActionPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHttpGatewayRouteActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHttpGatewayRouteAction)(nil)).Elem()
+}
+
+func (o GatewayRouteHttpGatewayRouteActionPtrOutput) ToGatewayRouteHttpGatewayRouteActionPtrOutput() GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteActionPtrOutput) ToGatewayRouteHttpGatewayRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteActionPtrOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteActionPtrOutput) Elem() GatewayRouteHttpGatewayRouteActionOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteAction) GatewayRouteHttpGatewayRouteAction { return *v }).(GatewayRouteHttpGatewayRouteActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html#cfn-appmesh-gatewayroute-httpgatewayrouteaction-target
+func (o GatewayRouteHttpGatewayRouteActionPtrOutput) Target() GatewayRouteGatewayRouteTargetPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteAction) *GatewayRouteGatewayRouteTarget {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(GatewayRouteGatewayRouteTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html
+type GatewayRouteHttpGatewayRouteMatch struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-prefix
+	Prefix string `pulumi:"Prefix"`
+}
+
+// GatewayRouteHttpGatewayRouteMatchInput is an input type that accepts GatewayRouteHttpGatewayRouteMatchArgs and GatewayRouteHttpGatewayRouteMatchOutput values.
+// You can construct a concrete instance of `GatewayRouteHttpGatewayRouteMatchInput` via:
+//
+//          GatewayRouteHttpGatewayRouteMatchArgs{...}
+type GatewayRouteHttpGatewayRouteMatchInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHttpGatewayRouteMatchOutput() GatewayRouteHttpGatewayRouteMatchOutput
+	ToGatewayRouteHttpGatewayRouteMatchOutputWithContext(context.Context) GatewayRouteHttpGatewayRouteMatchOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html
+type GatewayRouteHttpGatewayRouteMatchArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-prefix
+	Prefix pulumi.StringInput `pulumi:"Prefix"`
+}
+
+func (GatewayRouteHttpGatewayRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHttpGatewayRouteMatch)(nil)).Elem()
+}
+
+func (i GatewayRouteHttpGatewayRouteMatchArgs) ToGatewayRouteHttpGatewayRouteMatchOutput() GatewayRouteHttpGatewayRouteMatchOutput {
+	return i.ToGatewayRouteHttpGatewayRouteMatchOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHttpGatewayRouteMatchArgs) ToGatewayRouteHttpGatewayRouteMatchOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteMatchOutput)
+}
+
+func (i GatewayRouteHttpGatewayRouteMatchArgs) ToGatewayRouteHttpGatewayRouteMatchPtrOutput() GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return i.ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHttpGatewayRouteMatchArgs) ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteMatchOutput).ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteHttpGatewayRouteMatchPtrInput is an input type that accepts GatewayRouteHttpGatewayRouteMatchArgs, GatewayRouteHttpGatewayRouteMatchPtr and GatewayRouteHttpGatewayRouteMatchPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteHttpGatewayRouteMatchPtrInput` via:
+//
+//          GatewayRouteHttpGatewayRouteMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteHttpGatewayRouteMatchPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHttpGatewayRouteMatchPtrOutput() GatewayRouteHttpGatewayRouteMatchPtrOutput
+	ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(context.Context) GatewayRouteHttpGatewayRouteMatchPtrOutput
+}
+
+type gatewayRouteHttpGatewayRouteMatchPtrType GatewayRouteHttpGatewayRouteMatchArgs
+
+func GatewayRouteHttpGatewayRouteMatchPtr(v *GatewayRouteHttpGatewayRouteMatchArgs) GatewayRouteHttpGatewayRouteMatchPtrInput {
+	return (*gatewayRouteHttpGatewayRouteMatchPtrType)(v)
+}
+
+func (*gatewayRouteHttpGatewayRouteMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHttpGatewayRouteMatch)(nil)).Elem()
+}
+
+func (i *gatewayRouteHttpGatewayRouteMatchPtrType) ToGatewayRouteHttpGatewayRouteMatchPtrOutput() GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return i.ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteHttpGatewayRouteMatchPtrType) ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHttpGatewayRouteMatchPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html
+type GatewayRouteHttpGatewayRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHttpGatewayRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHttpGatewayRouteMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchOutput) ToGatewayRouteHttpGatewayRouteMatchOutput() GatewayRouteHttpGatewayRouteMatchOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchOutput) ToGatewayRouteHttpGatewayRouteMatchOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteMatchOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchOutput) ToGatewayRouteHttpGatewayRouteMatchPtrOutput() GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return o.ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchOutput) ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) *GatewayRouteHttpGatewayRouteMatch {
+		return &v
+	}).(GatewayRouteHttpGatewayRouteMatchPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-prefix
+func (o GatewayRouteHttpGatewayRouteMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GatewayRouteHttpGatewayRouteMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHttpGatewayRouteMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHttpGatewayRouteMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) ToGatewayRouteHttpGatewayRouteMatchPtrOutput() GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) ToGatewayRouteHttpGatewayRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHttpGatewayRouteMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Elem() GatewayRouteHttpGatewayRouteMatchOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteMatch) GatewayRouteHttpGatewayRouteMatch { return *v }).(GatewayRouteHttpGatewayRouteMatchOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html#cfn-appmesh-gatewayroute-httpgatewayroutematch-prefix
+func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html
+type GatewayRouteProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-gatewayroutename
+	GatewayRouteName string `pulumi:"GatewayRouteName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshname
+	MeshName string `pulumi:"MeshName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshowner
+	MeshOwner *string `pulumi:"MeshOwner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-spec
+	Spec GatewayRouteGatewayRouteSpec `pulumi:"Spec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-virtualgatewayname
+	VirtualGatewayName string `pulumi:"VirtualGatewayName"`
+}
+
+// GatewayRoutePropertiesInput is an input type that accepts GatewayRoutePropertiesArgs and GatewayRoutePropertiesOutput values.
+// You can construct a concrete instance of `GatewayRoutePropertiesInput` via:
+//
+//          GatewayRoutePropertiesArgs{...}
+type GatewayRoutePropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRoutePropertiesOutput() GatewayRoutePropertiesOutput
+	ToGatewayRoutePropertiesOutputWithContext(context.Context) GatewayRoutePropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html
+type GatewayRoutePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-gatewayroutename
+	GatewayRouteName pulumi.StringInput `pulumi:"GatewayRouteName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshname
+	MeshName pulumi.StringInput `pulumi:"MeshName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshowner
+	MeshOwner pulumi.StringPtrInput `pulumi:"MeshOwner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-spec
+	Spec GatewayRouteGatewayRouteSpecInput `pulumi:"Spec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-virtualgatewayname
+	VirtualGatewayName pulumi.StringInput `pulumi:"VirtualGatewayName"`
+}
+
+func (GatewayRoutePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteProperties)(nil)).Elem()
+}
+
+func (i GatewayRoutePropertiesArgs) ToGatewayRoutePropertiesOutput() GatewayRoutePropertiesOutput {
+	return i.ToGatewayRoutePropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRoutePropertiesArgs) ToGatewayRoutePropertiesOutputWithContext(ctx context.Context) GatewayRoutePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRoutePropertiesOutput)
+}
+
+func (i GatewayRoutePropertiesArgs) ToGatewayRoutePropertiesPtrOutput() GatewayRoutePropertiesPtrOutput {
+	return i.ToGatewayRoutePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRoutePropertiesArgs) ToGatewayRoutePropertiesPtrOutputWithContext(ctx context.Context) GatewayRoutePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRoutePropertiesOutput).ToGatewayRoutePropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayRoutePropertiesPtrInput is an input type that accepts GatewayRoutePropertiesArgs, GatewayRoutePropertiesPtr and GatewayRoutePropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayRoutePropertiesPtrInput` via:
+//
+//          GatewayRoutePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRoutePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRoutePropertiesPtrOutput() GatewayRoutePropertiesPtrOutput
+	ToGatewayRoutePropertiesPtrOutputWithContext(context.Context) GatewayRoutePropertiesPtrOutput
+}
+
+type gatewayRoutePropertiesPtrType GatewayRoutePropertiesArgs
+
+func GatewayRoutePropertiesPtr(v *GatewayRoutePropertiesArgs) GatewayRoutePropertiesPtrInput {
+	return (*gatewayRoutePropertiesPtrType)(v)
+}
+
+func (*gatewayRoutePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteProperties)(nil)).Elem()
+}
+
+func (i *gatewayRoutePropertiesPtrType) ToGatewayRoutePropertiesPtrOutput() GatewayRoutePropertiesPtrOutput {
+	return i.ToGatewayRoutePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRoutePropertiesPtrType) ToGatewayRoutePropertiesPtrOutputWithContext(ctx context.Context) GatewayRoutePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRoutePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html
+type GatewayRoutePropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRoutePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteProperties)(nil)).Elem()
+}
+
+func (o GatewayRoutePropertiesOutput) ToGatewayRoutePropertiesOutput() GatewayRoutePropertiesOutput {
+	return o
+}
+
+func (o GatewayRoutePropertiesOutput) ToGatewayRoutePropertiesOutputWithContext(ctx context.Context) GatewayRoutePropertiesOutput {
+	return o
+}
+
+func (o GatewayRoutePropertiesOutput) ToGatewayRoutePropertiesPtrOutput() GatewayRoutePropertiesPtrOutput {
+	return o.ToGatewayRoutePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRoutePropertiesOutput) ToGatewayRoutePropertiesPtrOutputWithContext(ctx context.Context) GatewayRoutePropertiesPtrOutput {
+	return o.ApplyT(func(v GatewayRouteProperties) *GatewayRouteProperties {
+		return &v
+	}).(GatewayRoutePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-gatewayroutename
+func (o GatewayRoutePropertiesOutput) GatewayRouteName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteProperties) string { return v.GatewayRouteName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshname
+func (o GatewayRoutePropertiesOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteProperties) string { return v.MeshName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshowner
+func (o GatewayRoutePropertiesOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteProperties) *string { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-spec
+func (o GatewayRoutePropertiesOutput) Spec() GatewayRouteGatewayRouteSpecOutput {
+	return o.ApplyT(func(v GatewayRouteProperties) GatewayRouteGatewayRouteSpec { return v.Spec }).(GatewayRouteGatewayRouteSpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-tags
+func (o GatewayRoutePropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v GatewayRouteProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-virtualgatewayname
+func (o GatewayRoutePropertiesOutput) VirtualGatewayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteProperties) string { return v.VirtualGatewayName }).(pulumi.StringOutput)
+}
+
+type GatewayRoutePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRoutePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteProperties)(nil)).Elem()
+}
+
+func (o GatewayRoutePropertiesPtrOutput) ToGatewayRoutePropertiesPtrOutput() GatewayRoutePropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayRoutePropertiesPtrOutput) ToGatewayRoutePropertiesPtrOutputWithContext(ctx context.Context) GatewayRoutePropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayRoutePropertiesPtrOutput) Elem() GatewayRoutePropertiesOutput {
+	return o.ApplyT(func(v *GatewayRouteProperties) GatewayRouteProperties { return *v }).(GatewayRoutePropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-gatewayroutename
+func (o GatewayRoutePropertiesPtrOutput) GatewayRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GatewayRouteName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshname
+func (o GatewayRoutePropertiesPtrOutput) MeshName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MeshName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-meshowner
+func (o GatewayRoutePropertiesPtrOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MeshOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-spec
+func (o GatewayRoutePropertiesPtrOutput) Spec() GatewayRouteGatewayRouteSpecPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteProperties) *GatewayRouteGatewayRouteSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.Spec
+	}).(GatewayRouteGatewayRouteSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-tags
+func (o GatewayRoutePropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *GatewayRouteProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html#cfn-appmesh-gatewayroute-virtualgatewayname
+func (o GatewayRoutePropertiesPtrOutput) VirtualGatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualGatewayName
+	}).(pulumi.StringPtrOutput)
+}
+
 type MeshAttributes struct {
 	Arn           string `pulumi:"Arn"`
 	MeshName      string `pulumi:"MeshName"`
@@ -4504,6 +6231,3677 @@ func (o RouteWeightedTargetArrayOutput) Index(i pulumi.IntInput) RouteWeightedTa
 	}).(RouteWeightedTargetOutput)
 }
 
+type VirtualGatewayAttributes struct {
+	Arn                string `pulumi:"Arn"`
+	MeshName           string `pulumi:"MeshName"`
+	MeshOwner          string `pulumi:"MeshOwner"`
+	ResourceOwner      string `pulumi:"ResourceOwner"`
+	Uid                string `pulumi:"Uid"`
+	VirtualGatewayName string `pulumi:"VirtualGatewayName"`
+}
+
+// VirtualGatewayAttributesInput is an input type that accepts VirtualGatewayAttributesArgs and VirtualGatewayAttributesOutput values.
+// You can construct a concrete instance of `VirtualGatewayAttributesInput` via:
+//
+//          VirtualGatewayAttributesArgs{...}
+type VirtualGatewayAttributesInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayAttributesOutput() VirtualGatewayAttributesOutput
+	ToVirtualGatewayAttributesOutputWithContext(context.Context) VirtualGatewayAttributesOutput
+}
+
+type VirtualGatewayAttributesArgs struct {
+	Arn                pulumi.StringInput `pulumi:"Arn"`
+	MeshName           pulumi.StringInput `pulumi:"MeshName"`
+	MeshOwner          pulumi.StringInput `pulumi:"MeshOwner"`
+	ResourceOwner      pulumi.StringInput `pulumi:"ResourceOwner"`
+	Uid                pulumi.StringInput `pulumi:"Uid"`
+	VirtualGatewayName pulumi.StringInput `pulumi:"VirtualGatewayName"`
+}
+
+func (VirtualGatewayAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayAttributes)(nil)).Elem()
+}
+
+func (i VirtualGatewayAttributesArgs) ToVirtualGatewayAttributesOutput() VirtualGatewayAttributesOutput {
+	return i.ToVirtualGatewayAttributesOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayAttributesArgs) ToVirtualGatewayAttributesOutputWithContext(ctx context.Context) VirtualGatewayAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAttributesOutput)
+}
+
+func (i VirtualGatewayAttributesArgs) ToVirtualGatewayAttributesPtrOutput() VirtualGatewayAttributesPtrOutput {
+	return i.ToVirtualGatewayAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayAttributesArgs) ToVirtualGatewayAttributesPtrOutputWithContext(ctx context.Context) VirtualGatewayAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAttributesOutput).ToVirtualGatewayAttributesPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayAttributesPtrInput is an input type that accepts VirtualGatewayAttributesArgs, VirtualGatewayAttributesPtr and VirtualGatewayAttributesPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayAttributesPtrInput` via:
+//
+//          VirtualGatewayAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayAttributesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayAttributesPtrOutput() VirtualGatewayAttributesPtrOutput
+	ToVirtualGatewayAttributesPtrOutputWithContext(context.Context) VirtualGatewayAttributesPtrOutput
+}
+
+type virtualGatewayAttributesPtrType VirtualGatewayAttributesArgs
+
+func VirtualGatewayAttributesPtr(v *VirtualGatewayAttributesArgs) VirtualGatewayAttributesPtrInput {
+	return (*virtualGatewayAttributesPtrType)(v)
+}
+
+func (*virtualGatewayAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayAttributes)(nil)).Elem()
+}
+
+func (i *virtualGatewayAttributesPtrType) ToVirtualGatewayAttributesPtrOutput() VirtualGatewayAttributesPtrOutput {
+	return i.ToVirtualGatewayAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayAttributesPtrType) ToVirtualGatewayAttributesPtrOutputWithContext(ctx context.Context) VirtualGatewayAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAttributesPtrOutput)
+}
+
+type VirtualGatewayAttributesOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayAttributes)(nil)).Elem()
+}
+
+func (o VirtualGatewayAttributesOutput) ToVirtualGatewayAttributesOutput() VirtualGatewayAttributesOutput {
+	return o
+}
+
+func (o VirtualGatewayAttributesOutput) ToVirtualGatewayAttributesOutputWithContext(ctx context.Context) VirtualGatewayAttributesOutput {
+	return o
+}
+
+func (o VirtualGatewayAttributesOutput) ToVirtualGatewayAttributesPtrOutput() VirtualGatewayAttributesPtrOutput {
+	return o.ToVirtualGatewayAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayAttributesOutput) ToVirtualGatewayAttributesPtrOutputWithContext(ctx context.Context) VirtualGatewayAttributesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayAttributes) *VirtualGatewayAttributes {
+		return &v
+	}).(VirtualGatewayAttributesPtrOutput)
+}
+func (o VirtualGatewayAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayAttributesOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayAttributes) string { return v.MeshName }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayAttributesOutput) MeshOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayAttributes) string { return v.MeshOwner }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayAttributesOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayAttributes) string { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayAttributesOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayAttributes) string { return v.Uid }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayAttributesOutput) VirtualGatewayName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayAttributes) string { return v.VirtualGatewayName }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayAttributes)(nil)).Elem()
+}
+
+func (o VirtualGatewayAttributesPtrOutput) ToVirtualGatewayAttributesPtrOutput() VirtualGatewayAttributesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayAttributesPtrOutput) ToVirtualGatewayAttributesPtrOutputWithContext(ctx context.Context) VirtualGatewayAttributesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayAttributesPtrOutput) Elem() VirtualGatewayAttributesOutput {
+	return o.ApplyT(func(v *VirtualGatewayAttributes) VirtualGatewayAttributes { return *v }).(VirtualGatewayAttributesOutput)
+}
+
+func (o VirtualGatewayAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayAttributesPtrOutput) MeshName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MeshName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayAttributesPtrOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MeshOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayAttributesPtrOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayAttributesPtrOutput) Uid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayAttributesPtrOutput) VirtualGatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualGatewayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html
+type VirtualGatewayProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshname
+	MeshName string `pulumi:"MeshName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshowner
+	MeshOwner *string `pulumi:"MeshOwner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-spec
+	Spec VirtualGatewayVirtualGatewaySpec `pulumi:"Spec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-virtualgatewayname
+	VirtualGatewayName string `pulumi:"VirtualGatewayName"`
+}
+
+// VirtualGatewayPropertiesInput is an input type that accepts VirtualGatewayPropertiesArgs and VirtualGatewayPropertiesOutput values.
+// You can construct a concrete instance of `VirtualGatewayPropertiesInput` via:
+//
+//          VirtualGatewayPropertiesArgs{...}
+type VirtualGatewayPropertiesInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayPropertiesOutput() VirtualGatewayPropertiesOutput
+	ToVirtualGatewayPropertiesOutputWithContext(context.Context) VirtualGatewayPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html
+type VirtualGatewayPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshname
+	MeshName pulumi.StringInput `pulumi:"MeshName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshowner
+	MeshOwner pulumi.StringPtrInput `pulumi:"MeshOwner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-spec
+	Spec VirtualGatewayVirtualGatewaySpecInput `pulumi:"Spec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-virtualgatewayname
+	VirtualGatewayName pulumi.StringInput `pulumi:"VirtualGatewayName"`
+}
+
+func (VirtualGatewayPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayProperties)(nil)).Elem()
+}
+
+func (i VirtualGatewayPropertiesArgs) ToVirtualGatewayPropertiesOutput() VirtualGatewayPropertiesOutput {
+	return i.ToVirtualGatewayPropertiesOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayPropertiesArgs) ToVirtualGatewayPropertiesOutputWithContext(ctx context.Context) VirtualGatewayPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayPropertiesOutput)
+}
+
+func (i VirtualGatewayPropertiesArgs) ToVirtualGatewayPropertiesPtrOutput() VirtualGatewayPropertiesPtrOutput {
+	return i.ToVirtualGatewayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayPropertiesArgs) ToVirtualGatewayPropertiesPtrOutputWithContext(ctx context.Context) VirtualGatewayPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayPropertiesOutput).ToVirtualGatewayPropertiesPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayPropertiesPtrInput is an input type that accepts VirtualGatewayPropertiesArgs, VirtualGatewayPropertiesPtr and VirtualGatewayPropertiesPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayPropertiesPtrInput` via:
+//
+//          VirtualGatewayPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayPropertiesPtrOutput() VirtualGatewayPropertiesPtrOutput
+	ToVirtualGatewayPropertiesPtrOutputWithContext(context.Context) VirtualGatewayPropertiesPtrOutput
+}
+
+type virtualGatewayPropertiesPtrType VirtualGatewayPropertiesArgs
+
+func VirtualGatewayPropertiesPtr(v *VirtualGatewayPropertiesArgs) VirtualGatewayPropertiesPtrInput {
+	return (*virtualGatewayPropertiesPtrType)(v)
+}
+
+func (*virtualGatewayPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayProperties)(nil)).Elem()
+}
+
+func (i *virtualGatewayPropertiesPtrType) ToVirtualGatewayPropertiesPtrOutput() VirtualGatewayPropertiesPtrOutput {
+	return i.ToVirtualGatewayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayPropertiesPtrType) ToVirtualGatewayPropertiesPtrOutputWithContext(ctx context.Context) VirtualGatewayPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html
+type VirtualGatewayPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayProperties)(nil)).Elem()
+}
+
+func (o VirtualGatewayPropertiesOutput) ToVirtualGatewayPropertiesOutput() VirtualGatewayPropertiesOutput {
+	return o
+}
+
+func (o VirtualGatewayPropertiesOutput) ToVirtualGatewayPropertiesOutputWithContext(ctx context.Context) VirtualGatewayPropertiesOutput {
+	return o
+}
+
+func (o VirtualGatewayPropertiesOutput) ToVirtualGatewayPropertiesPtrOutput() VirtualGatewayPropertiesPtrOutput {
+	return o.ToVirtualGatewayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayPropertiesOutput) ToVirtualGatewayPropertiesPtrOutputWithContext(ctx context.Context) VirtualGatewayPropertiesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayProperties) *VirtualGatewayProperties {
+		return &v
+	}).(VirtualGatewayPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshname
+func (o VirtualGatewayPropertiesOutput) MeshName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayProperties) string { return v.MeshName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshowner
+func (o VirtualGatewayPropertiesOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayProperties) *string { return v.MeshOwner }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-spec
+func (o VirtualGatewayPropertiesOutput) Spec() VirtualGatewayVirtualGatewaySpecOutput {
+	return o.ApplyT(func(v VirtualGatewayProperties) VirtualGatewayVirtualGatewaySpec { return v.Spec }).(VirtualGatewayVirtualGatewaySpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-tags
+func (o VirtualGatewayPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v VirtualGatewayProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-virtualgatewayname
+func (o VirtualGatewayPropertiesOutput) VirtualGatewayName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayProperties) string { return v.VirtualGatewayName }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayProperties)(nil)).Elem()
+}
+
+func (o VirtualGatewayPropertiesPtrOutput) ToVirtualGatewayPropertiesPtrOutput() VirtualGatewayPropertiesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayPropertiesPtrOutput) ToVirtualGatewayPropertiesPtrOutputWithContext(ctx context.Context) VirtualGatewayPropertiesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayPropertiesPtrOutput) Elem() VirtualGatewayPropertiesOutput {
+	return o.ApplyT(func(v *VirtualGatewayProperties) VirtualGatewayProperties { return *v }).(VirtualGatewayPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshname
+func (o VirtualGatewayPropertiesPtrOutput) MeshName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MeshName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-meshowner
+func (o VirtualGatewayPropertiesPtrOutput) MeshOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MeshOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-spec
+func (o VirtualGatewayPropertiesPtrOutput) Spec() VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayProperties) *VirtualGatewayVirtualGatewaySpec {
+		if v == nil {
+			return nil
+		}
+		return &v.Spec
+	}).(VirtualGatewayVirtualGatewaySpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-tags
+func (o VirtualGatewayPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewayProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html#cfn-appmesh-virtualgateway-virtualgatewayname
+func (o VirtualGatewayPropertiesPtrOutput) VirtualGatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualGatewayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html
+type VirtualGatewayVirtualGatewayAccessLog struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayaccesslog-file
+	File *VirtualGatewayVirtualGatewayFileAccessLog `pulumi:"File"`
+}
+
+// VirtualGatewayVirtualGatewayAccessLogInput is an input type that accepts VirtualGatewayVirtualGatewayAccessLogArgs and VirtualGatewayVirtualGatewayAccessLogOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayAccessLogInput` via:
+//
+//          VirtualGatewayVirtualGatewayAccessLogArgs{...}
+type VirtualGatewayVirtualGatewayAccessLogInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayAccessLogOutput() VirtualGatewayVirtualGatewayAccessLogOutput
+	ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(context.Context) VirtualGatewayVirtualGatewayAccessLogOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html
+type VirtualGatewayVirtualGatewayAccessLogArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayaccesslog-file
+	File VirtualGatewayVirtualGatewayFileAccessLogPtrInput `pulumi:"File"`
+}
+
+func (VirtualGatewayVirtualGatewayAccessLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogOutput() VirtualGatewayVirtualGatewayAccessLogOutput {
+	return i.ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayAccessLogOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayAccessLogOutput).ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayAccessLogPtrInput is an input type that accepts VirtualGatewayVirtualGatewayAccessLogArgs, VirtualGatewayVirtualGatewayAccessLogPtr and VirtualGatewayVirtualGatewayAccessLogPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayAccessLogPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayAccessLogArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayAccessLogPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput
+	ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput
+}
+
+type virtualGatewayVirtualGatewayAccessLogPtrType VirtualGatewayVirtualGatewayAccessLogArgs
+
+func VirtualGatewayVirtualGatewayAccessLogPtr(v *VirtualGatewayVirtualGatewayAccessLogArgs) VirtualGatewayVirtualGatewayAccessLogPtrInput {
+	return (*virtualGatewayVirtualGatewayAccessLogPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayAccessLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayAccessLogPtrType) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayAccessLogPtrType) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html
+type VirtualGatewayVirtualGatewayAccessLogOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayAccessLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogOutput() VirtualGatewayVirtualGatewayAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayAccessLog) *VirtualGatewayVirtualGatewayAccessLog {
+		return &v
+	}).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayaccesslog-file
+func (o VirtualGatewayVirtualGatewayAccessLogOutput) File() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayAccessLog) *VirtualGatewayVirtualGatewayFileAccessLog {
+		return v.File
+	}).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayAccessLogPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayAccessLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) Elem() VirtualGatewayVirtualGatewayAccessLogOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayAccessLog) VirtualGatewayVirtualGatewayAccessLog { return *v }).(VirtualGatewayVirtualGatewayAccessLogOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayaccesslog-file
+func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) File() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayAccessLog) *VirtualGatewayVirtualGatewayFileAccessLog {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html
+type VirtualGatewayVirtualGatewayBackendDefaults struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy
+	ClientPolicy *VirtualGatewayVirtualGatewayClientPolicy `pulumi:"ClientPolicy"`
+}
+
+// VirtualGatewayVirtualGatewayBackendDefaultsInput is an input type that accepts VirtualGatewayVirtualGatewayBackendDefaultsArgs and VirtualGatewayVirtualGatewayBackendDefaultsOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayBackendDefaultsInput` via:
+//
+//          VirtualGatewayVirtualGatewayBackendDefaultsArgs{...}
+type VirtualGatewayVirtualGatewayBackendDefaultsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayBackendDefaultsOutput() VirtualGatewayVirtualGatewayBackendDefaultsOutput
+	ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(context.Context) VirtualGatewayVirtualGatewayBackendDefaultsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html
+type VirtualGatewayVirtualGatewayBackendDefaultsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy
+	ClientPolicy VirtualGatewayVirtualGatewayClientPolicyPtrInput `pulumi:"ClientPolicy"`
+}
+
+func (VirtualGatewayVirtualGatewayBackendDefaultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsOutput() VirtualGatewayVirtualGatewayBackendDefaultsOutput {
+	return i.ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayBackendDefaultsOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayBackendDefaultsOutput).ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayBackendDefaultsPtrInput is an input type that accepts VirtualGatewayVirtualGatewayBackendDefaultsArgs, VirtualGatewayVirtualGatewayBackendDefaultsPtr and VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayBackendDefaultsPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayBackendDefaultsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayBackendDefaultsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput
+	ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput
+}
+
+type virtualGatewayVirtualGatewayBackendDefaultsPtrType VirtualGatewayVirtualGatewayBackendDefaultsArgs
+
+func VirtualGatewayVirtualGatewayBackendDefaultsPtr(v *VirtualGatewayVirtualGatewayBackendDefaultsArgs) VirtualGatewayVirtualGatewayBackendDefaultsPtrInput {
+	return (*virtualGatewayVirtualGatewayBackendDefaultsPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayBackendDefaultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayBackendDefaultsPtrType) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayBackendDefaultsPtrType) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html
+type VirtualGatewayVirtualGatewayBackendDefaultsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayBackendDefaultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsOutput() VirtualGatewayVirtualGatewayBackendDefaultsOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayBackendDefaults) *VirtualGatewayVirtualGatewayBackendDefaults {
+		return &v
+	}).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy
+func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ClientPolicy() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayBackendDefaults) *VirtualGatewayVirtualGatewayClientPolicy {
+		return v.ClientPolicy
+	}).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) Elem() VirtualGatewayVirtualGatewayBackendDefaultsOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayBackendDefaults) VirtualGatewayVirtualGatewayBackendDefaults {
+		return *v
+	}).(VirtualGatewayVirtualGatewayBackendDefaultsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html#cfn-appmesh-virtualgateway-virtualgatewaybackenddefaults-clientpolicy
+func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ClientPolicy() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayBackendDefaults) *VirtualGatewayVirtualGatewayClientPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ClientPolicy
+	}).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html
+type VirtualGatewayVirtualGatewayClientPolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicy-tls
+	TLS *VirtualGatewayVirtualGatewayClientPolicyTls `pulumi:"TLS"`
+}
+
+// VirtualGatewayVirtualGatewayClientPolicyInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyArgs and VirtualGatewayVirtualGatewayClientPolicyOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyInput` via:
+//
+//          VirtualGatewayVirtualGatewayClientPolicyArgs{...}
+type VirtualGatewayVirtualGatewayClientPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayClientPolicyOutput() VirtualGatewayVirtualGatewayClientPolicyOutput
+	ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html
+type VirtualGatewayVirtualGatewayClientPolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicy-tls
+	TLS VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput `pulumi:"TLS"`
+}
+
+func (VirtualGatewayVirtualGatewayClientPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyOutput() VirtualGatewayVirtualGatewayClientPolicyOutput {
+	return i.ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyOutput).ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayClientPolicyPtrInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyArgs, VirtualGatewayVirtualGatewayClientPolicyPtr and VirtualGatewayVirtualGatewayClientPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayClientPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayClientPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput
+	ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput
+}
+
+type virtualGatewayVirtualGatewayClientPolicyPtrType VirtualGatewayVirtualGatewayClientPolicyArgs
+
+func VirtualGatewayVirtualGatewayClientPolicyPtr(v *VirtualGatewayVirtualGatewayClientPolicyArgs) VirtualGatewayVirtualGatewayClientPolicyPtrInput {
+	return (*virtualGatewayVirtualGatewayClientPolicyPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayClientPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayClientPolicyPtrType) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayClientPolicyPtrType) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html
+type VirtualGatewayVirtualGatewayClientPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayClientPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyOutput() VirtualGatewayVirtualGatewayClientPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicy) *VirtualGatewayVirtualGatewayClientPolicy {
+		return &v
+	}).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicy-tls
+func (o VirtualGatewayVirtualGatewayClientPolicyOutput) TLS() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicy) *VirtualGatewayVirtualGatewayClientPolicyTls {
+		return v.TLS
+	}).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayClientPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayClientPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) Elem() VirtualGatewayVirtualGatewayClientPolicyOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicy) VirtualGatewayVirtualGatewayClientPolicy { return *v }).(VirtualGatewayVirtualGatewayClientPolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicy-tls
+func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) TLS() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicy) *VirtualGatewayVirtualGatewayClientPolicyTls {
+		if v == nil {
+			return nil
+		}
+		return v.TLS
+	}).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html
+type VirtualGatewayVirtualGatewayClientPolicyTls struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-enforce
+	Enforce *bool `pulumi:"Enforce"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-ports
+	Ports []int `pulumi:"Ports"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-validation
+	Validation VirtualGatewayVirtualGatewayTlsValidationContext `pulumi:"Validation"`
+}
+
+// VirtualGatewayVirtualGatewayClientPolicyTlsInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyTlsArgs and VirtualGatewayVirtualGatewayClientPolicyTlsOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyTlsInput` via:
+//
+//          VirtualGatewayVirtualGatewayClientPolicyTlsArgs{...}
+type VirtualGatewayVirtualGatewayClientPolicyTlsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayClientPolicyTlsOutput() VirtualGatewayVirtualGatewayClientPolicyTlsOutput
+	ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html
+type VirtualGatewayVirtualGatewayClientPolicyTlsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-enforce
+	Enforce pulumi.BoolPtrInput `pulumi:"Enforce"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-ports
+	Ports pulumi.IntArrayInput `pulumi:"Ports"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-validation
+	Validation VirtualGatewayVirtualGatewayTlsValidationContextInput `pulumi:"Validation"`
+}
+
+func (VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutput() VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
+	return i.ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyTlsOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyTlsOutput).ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyTlsArgs, VirtualGatewayVirtualGatewayClientPolicyTlsPtr and VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayClientPolicyTlsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput
+	ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput
+}
+
+type virtualGatewayVirtualGatewayClientPolicyTlsPtrType VirtualGatewayVirtualGatewayClientPolicyTlsArgs
+
+func VirtualGatewayVirtualGatewayClientPolicyTlsPtr(v *VirtualGatewayVirtualGatewayClientPolicyTlsArgs) VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput {
+	return (*virtualGatewayVirtualGatewayClientPolicyTlsPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayClientPolicyTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayClientPolicyTlsPtrType) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayClientPolicyTlsPtrType) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html
+type VirtualGatewayVirtualGatewayClientPolicyTlsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutput() VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) *VirtualGatewayVirtualGatewayClientPolicyTls {
+		return &v
+	}).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-enforce
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-ports
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-validation
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) Validation() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) VirtualGatewayVirtualGatewayTlsValidationContext {
+		return v.Validation
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextOutput)
+}
+
+type VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Elem() VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) VirtualGatewayVirtualGatewayClientPolicyTls {
+		return *v
+	}).(VirtualGatewayVirtualGatewayClientPolicyTlsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-enforce
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enforce
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-ports
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ports
+	}).(pulumi.IntArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html#cfn-appmesh-virtualgateway-virtualgatewayclientpolicytls-validation
+func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Validation() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) *VirtualGatewayVirtualGatewayTlsValidationContext {
+		if v == nil {
+			return nil
+		}
+		return &v.Validation
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html
+type VirtualGatewayVirtualGatewayConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-grpc
+	GRPC *VirtualGatewayVirtualGatewayGrpcConnectionPool `pulumi:"GRPC"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http
+	HTTP *VirtualGatewayVirtualGatewayHttpConnectionPool `pulumi:"HTTP"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http2
+	HTTP2 *VirtualGatewayVirtualGatewayHttp2ConnectionPool `pulumi:"HTTP2"`
+}
+
+// VirtualGatewayVirtualGatewayConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayConnectionPoolArgs and VirtualGatewayVirtualGatewayConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayConnectionPoolInput` via:
+//
+//          VirtualGatewayVirtualGatewayConnectionPoolArgs{...}
+type VirtualGatewayVirtualGatewayConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayConnectionPoolOutput() VirtualGatewayVirtualGatewayConnectionPoolOutput
+	ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html
+type VirtualGatewayVirtualGatewayConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-grpc
+	GRPC VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput `pulumi:"GRPC"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http
+	HTTP VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput `pulumi:"HTTP"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http2
+	HTTP2 VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput `pulumi:"HTTP2"`
+}
+
+func (VirtualGatewayVirtualGatewayConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolOutput() VirtualGatewayVirtualGatewayConnectionPoolOutput {
+	return i.ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayConnectionPoolOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayConnectionPoolOutput).ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayConnectionPoolArgs, VirtualGatewayVirtualGatewayConnectionPoolPtr and VirtualGatewayVirtualGatewayConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput
+	ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput
+}
+
+type virtualGatewayVirtualGatewayConnectionPoolPtrType VirtualGatewayVirtualGatewayConnectionPoolArgs
+
+func VirtualGatewayVirtualGatewayConnectionPoolPtr(v *VirtualGatewayVirtualGatewayConnectionPoolArgs) VirtualGatewayVirtualGatewayConnectionPoolPtrInput {
+	return (*virtualGatewayVirtualGatewayConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html
+type VirtualGatewayVirtualGatewayConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolOutput() VirtualGatewayVirtualGatewayConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayConnectionPool {
+		return &v
+	}).(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-grpc
+func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) GRPC() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayGrpcConnectionPool {
+		return v.GRPC
+	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http
+func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) HTTP() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttpConnectionPool {
+		return v.HTTP
+	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http2
+func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) HTTP2() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttp2ConnectionPool {
+		return v.HTTP2
+	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) VirtualGatewayVirtualGatewayConnectionPool {
+		return *v
+	}).(VirtualGatewayVirtualGatewayConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-grpc
+func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) GRPC() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayGrpcConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.GRPC
+	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http
+func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) HTTP() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttpConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP
+	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayconnectionpool-http2
+func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) HTTP2() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttp2ConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP2
+	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html
+type VirtualGatewayVirtualGatewayFileAccessLog struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayfileaccesslog-path
+	Path string `pulumi:"Path"`
+}
+
+// VirtualGatewayVirtualGatewayFileAccessLogInput is an input type that accepts VirtualGatewayVirtualGatewayFileAccessLogArgs and VirtualGatewayVirtualGatewayFileAccessLogOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayFileAccessLogInput` via:
+//
+//          VirtualGatewayVirtualGatewayFileAccessLogArgs{...}
+type VirtualGatewayVirtualGatewayFileAccessLogInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayFileAccessLogOutput() VirtualGatewayVirtualGatewayFileAccessLogOutput
+	ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(context.Context) VirtualGatewayVirtualGatewayFileAccessLogOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html
+type VirtualGatewayVirtualGatewayFileAccessLogArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayfileaccesslog-path
+	Path pulumi.StringInput `pulumi:"Path"`
+}
+
+func (VirtualGatewayVirtualGatewayFileAccessLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogOutput() VirtualGatewayVirtualGatewayFileAccessLogOutput {
+	return i.ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayFileAccessLogOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayFileAccessLogOutput).ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayFileAccessLogPtrInput is an input type that accepts VirtualGatewayVirtualGatewayFileAccessLogArgs, VirtualGatewayVirtualGatewayFileAccessLogPtr and VirtualGatewayVirtualGatewayFileAccessLogPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayFileAccessLogPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayFileAccessLogArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayFileAccessLogPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput
+	ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput
+}
+
+type virtualGatewayVirtualGatewayFileAccessLogPtrType VirtualGatewayVirtualGatewayFileAccessLogArgs
+
+func VirtualGatewayVirtualGatewayFileAccessLogPtr(v *VirtualGatewayVirtualGatewayFileAccessLogArgs) VirtualGatewayVirtualGatewayFileAccessLogPtrInput {
+	return (*virtualGatewayVirtualGatewayFileAccessLogPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayFileAccessLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayFileAccessLogPtrType) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayFileAccessLogPtrType) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html
+type VirtualGatewayVirtualGatewayFileAccessLogOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayFileAccessLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogOutput() VirtualGatewayVirtualGatewayFileAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayFileAccessLog) *VirtualGatewayVirtualGatewayFileAccessLog {
+		return &v
+	}).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayfileaccesslog-path
+func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayFileAccessLog) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayVirtualGatewayFileAccessLogPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) Elem() VirtualGatewayVirtualGatewayFileAccessLogOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayFileAccessLog) VirtualGatewayVirtualGatewayFileAccessLog {
+		return *v
+	}).(VirtualGatewayVirtualGatewayFileAccessLogOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html#cfn-appmesh-virtualgateway-virtualgatewayfileaccesslog-path
+func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayFileAccessLog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html
+type VirtualGatewayVirtualGatewayGrpcConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool-maxrequests
+	MaxRequests int `pulumi:"MaxRequests"`
+}
+
+// VirtualGatewayVirtualGatewayGrpcConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs and VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayGrpcConnectionPoolInput` via:
+//
+//          VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs{...}
+type VirtualGatewayVirtualGatewayGrpcConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput
+	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html
+type VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool-maxrequests
+	MaxRequests pulumi.IntInput `pulumi:"MaxRequests"`
+}
+
+func (VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
+	return i.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput).ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs, VirtualGatewayVirtualGatewayGrpcConnectionPoolPtr and VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput
+	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput
+}
+
+type virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs
+
+func VirtualGatewayVirtualGatewayGrpcConnectionPoolPtr(v *VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput {
+	return (*virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html
+type VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayGrpcConnectionPool) *VirtualGatewayVirtualGatewayGrpcConnectionPool {
+		return &v
+	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool-maxrequests
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayGrpcConnectionPool) VirtualGatewayVirtualGatewayGrpcConnectionPool {
+		return *v
+	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool-maxrequests
+func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayGrpcConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html
+type VirtualGatewayVirtualGatewayHealthCheckPolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-healthythreshold
+	HealthyThreshold int `pulumi:"HealthyThreshold"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-intervalmillis
+	IntervalMillis int `pulumi:"IntervalMillis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-path
+	Path *string `pulumi:"Path"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-port
+	Port *int `pulumi:"Port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-protocol
+	Protocol string `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-timeoutmillis
+	TimeoutMillis int `pulumi:"TimeoutMillis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-unhealthythreshold
+	UnhealthyThreshold int `pulumi:"UnhealthyThreshold"`
+}
+
+// VirtualGatewayVirtualGatewayHealthCheckPolicyInput is an input type that accepts VirtualGatewayVirtualGatewayHealthCheckPolicyArgs and VirtualGatewayVirtualGatewayHealthCheckPolicyOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHealthCheckPolicyInput` via:
+//
+//          VirtualGatewayVirtualGatewayHealthCheckPolicyArgs{...}
+type VirtualGatewayVirtualGatewayHealthCheckPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput
+	ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html
+type VirtualGatewayVirtualGatewayHealthCheckPolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-healthythreshold
+	HealthyThreshold pulumi.IntInput `pulumi:"HealthyThreshold"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-intervalmillis
+	IntervalMillis pulumi.IntInput `pulumi:"IntervalMillis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-path
+	Path pulumi.StringPtrInput `pulumi:"Path"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-port
+	Port pulumi.IntPtrInput `pulumi:"Port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-protocol
+	Protocol pulumi.StringInput `pulumi:"Protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-timeoutmillis
+	TimeoutMillis pulumi.IntInput `pulumi:"TimeoutMillis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-unhealthythreshold
+	UnhealthyThreshold pulumi.IntInput `pulumi:"UnhealthyThreshold"`
+}
+
+func (VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
+	return i.ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput).ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput is an input type that accepts VirtualGatewayVirtualGatewayHealthCheckPolicyArgs, VirtualGatewayVirtualGatewayHealthCheckPolicyPtr and VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayHealthCheckPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput
+	ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput
+}
+
+type virtualGatewayVirtualGatewayHealthCheckPolicyPtrType VirtualGatewayVirtualGatewayHealthCheckPolicyArgs
+
+func VirtualGatewayVirtualGatewayHealthCheckPolicyPtr(v *VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput {
+	return (*virtualGatewayVirtualGatewayHealthCheckPolicyPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayHealthCheckPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayHealthCheckPolicyPtrType) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayHealthCheckPolicyPtrType) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html
+type VirtualGatewayVirtualGatewayHealthCheckPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) *VirtualGatewayVirtualGatewayHealthCheckPolicy {
+		return &v
+	}).(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-healthythreshold
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) HealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-intervalmillis
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) IntervalMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.IntervalMillis }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-path
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-port
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-protocol
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-timeoutmillis
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) TimeoutMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.TimeoutMillis }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-unhealthythreshold
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) UnhealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+}
+
+type VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Elem() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) VirtualGatewayVirtualGatewayHealthCheckPolicy {
+		return *v
+	}).(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-healthythreshold
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-intervalmillis
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) IntervalMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-path
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-port
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-protocol
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-timeoutmillis
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) TimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html#cfn-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy-unhealthythreshold
+func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html
+type VirtualGatewayVirtualGatewayHttp2ConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttp2connectionpool-maxrequests
+	MaxRequests int `pulumi:"MaxRequests"`
+}
+
+// VirtualGatewayVirtualGatewayHttp2ConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs and VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttp2ConnectionPoolInput` via:
+//
+//          VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs{...}
+type VirtualGatewayVirtualGatewayHttp2ConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput
+	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html
+type VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttp2connectionpool-maxrequests
+	MaxRequests pulumi.IntInput `pulumi:"MaxRequests"`
+}
+
+func (VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
+	return i.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput).ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs, VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtr and VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput
+	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput
+}
+
+type virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs
+
+func VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtr(v *VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput {
+	return (*virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html
+type VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttp2ConnectionPool) *VirtualGatewayVirtualGatewayHttp2ConnectionPool {
+		return &v
+	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttp2connectionpool-maxrequests
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttp2ConnectionPool) VirtualGatewayVirtualGatewayHttp2ConnectionPool {
+		return *v
+	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttp2connectionpool-maxrequests
+func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttp2ConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html
+type VirtualGatewayVirtualGatewayHttpConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxconnections
+	MaxConnections int `pulumi:"MaxConnections"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests
+	MaxPendingRequests *int `pulumi:"MaxPendingRequests"`
+}
+
+// VirtualGatewayVirtualGatewayHttpConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayHttpConnectionPoolArgs and VirtualGatewayVirtualGatewayHttpConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttpConnectionPoolInput` via:
+//
+//          VirtualGatewayVirtualGatewayHttpConnectionPoolArgs{...}
+type VirtualGatewayVirtualGatewayHttpConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput
+	ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html
+type VirtualGatewayVirtualGatewayHttpConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxconnections
+	MaxConnections pulumi.IntInput `pulumi:"MaxConnections"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"MaxPendingRequests"`
+}
+
+func (VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
+	return i.ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput).ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayHttpConnectionPoolArgs, VirtualGatewayVirtualGatewayHttpConnectionPoolPtr and VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayHttpConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput
+	ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput
+}
+
+type virtualGatewayVirtualGatewayHttpConnectionPoolPtrType VirtualGatewayVirtualGatewayHttpConnectionPoolArgs
+
+func VirtualGatewayVirtualGatewayHttpConnectionPoolPtr(v *VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput {
+	return (*virtualGatewayVirtualGatewayHttpConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayHttpConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayHttpConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayHttpConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html
+type VirtualGatewayVirtualGatewayHttpConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttpConnectionPool) *VirtualGatewayVirtualGatewayHttpConnectionPool {
+		return &v
+	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxconnections
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttpConnectionPool) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttpConnectionPool) VirtualGatewayVirtualGatewayHttpConnectionPool {
+		return *v
+	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxconnections
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html#cfn-appmesh-virtualgateway-virtualgatewayhttpconnectionpool-maxpendingrequests
+func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html
+type VirtualGatewayVirtualGatewayListener struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-connectionpool
+	ConnectionPool *VirtualGatewayVirtualGatewayConnectionPool `pulumi:"ConnectionPool"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-healthcheck
+	HealthCheck *VirtualGatewayVirtualGatewayHealthCheckPolicy `pulumi:"HealthCheck"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-portmapping
+	PortMapping VirtualGatewayVirtualGatewayPortMapping `pulumi:"PortMapping"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-tls
+	TLS *VirtualGatewayVirtualGatewayListenerTls `pulumi:"TLS"`
+}
+
+// VirtualGatewayVirtualGatewayListenerInput is an input type that accepts VirtualGatewayVirtualGatewayListenerArgs and VirtualGatewayVirtualGatewayListenerOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerArgs{...}
+type VirtualGatewayVirtualGatewayListenerInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerOutput() VirtualGatewayVirtualGatewayListenerOutput
+	ToVirtualGatewayVirtualGatewayListenerOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html
+type VirtualGatewayVirtualGatewayListenerArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-connectionpool
+	ConnectionPool VirtualGatewayVirtualGatewayConnectionPoolPtrInput `pulumi:"ConnectionPool"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-healthcheck
+	HealthCheck VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput `pulumi:"HealthCheck"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-portmapping
+	PortMapping VirtualGatewayVirtualGatewayPortMappingInput `pulumi:"PortMapping"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-tls
+	TLS VirtualGatewayVirtualGatewayListenerTlsPtrInput `pulumi:"TLS"`
+}
+
+func (VirtualGatewayVirtualGatewayListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListener)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayListenerArgs) ToVirtualGatewayVirtualGatewayListenerOutput() VirtualGatewayVirtualGatewayListenerOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerArgs) ToVirtualGatewayVirtualGatewayListenerOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerOutput)
+}
+
+// VirtualGatewayVirtualGatewayListenerArrayInput is an input type that accepts VirtualGatewayVirtualGatewayListenerArray and VirtualGatewayVirtualGatewayListenerArrayOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerArrayInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerArray{ VirtualGatewayVirtualGatewayListenerArgs{...} }
+type VirtualGatewayVirtualGatewayListenerArrayInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerArrayOutput() VirtualGatewayVirtualGatewayListenerArrayOutput
+	ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerArrayOutput
+}
+
+type VirtualGatewayVirtualGatewayListenerArray []VirtualGatewayVirtualGatewayListenerInput
+
+func (VirtualGatewayVirtualGatewayListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewayVirtualGatewayListener)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayListenerArray) ToVirtualGatewayVirtualGatewayListenerArrayOutput() VirtualGatewayVirtualGatewayListenerArrayOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerArray) ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html
+type VirtualGatewayVirtualGatewayListenerOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListener)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerOutput) ToVirtualGatewayVirtualGatewayListenerOutput() VirtualGatewayVirtualGatewayListenerOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerOutput) ToVirtualGatewayVirtualGatewayListenerOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-connectionpool
+func (o VirtualGatewayVirtualGatewayListenerOutput) ConnectionPool() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) *VirtualGatewayVirtualGatewayConnectionPool {
+		return v.ConnectionPool
+	}).(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-healthcheck
+func (o VirtualGatewayVirtualGatewayListenerOutput) HealthCheck() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) *VirtualGatewayVirtualGatewayHealthCheckPolicy {
+		return v.HealthCheck
+	}).(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-portmapping
+func (o VirtualGatewayVirtualGatewayListenerOutput) PortMapping() VirtualGatewayVirtualGatewayPortMappingOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) VirtualGatewayVirtualGatewayPortMapping {
+		return v.PortMapping
+	}).(VirtualGatewayVirtualGatewayPortMappingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html#cfn-appmesh-virtualgateway-virtualgatewaylistener-tls
+func (o VirtualGatewayVirtualGatewayListenerOutput) TLS() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) *VirtualGatewayVirtualGatewayListenerTls { return v.TLS }).(VirtualGatewayVirtualGatewayListenerTlsPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewayVirtualGatewayListener)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerArrayOutput) ToVirtualGatewayVirtualGatewayListenerArrayOutput() VirtualGatewayVirtualGatewayListenerArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerArrayOutput) ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerArrayOutput) Index(i pulumi.IntInput) VirtualGatewayVirtualGatewayListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGatewayVirtualGatewayListener {
+		return vs[0].([]VirtualGatewayVirtualGatewayListener)[vs[1].(int)]
+	}).(VirtualGatewayVirtualGatewayListenerOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html
+type VirtualGatewayVirtualGatewayListenerTls struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
+	Certificate VirtualGatewayVirtualGatewayListenerTlsCertificate `pulumi:"Certificate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
+	Mode string `pulumi:"Mode"`
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsArgs and VirtualGatewayVirtualGatewayListenerTlsOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsArgs{...}
+type VirtualGatewayVirtualGatewayListenerTlsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsOutput() VirtualGatewayVirtualGatewayListenerTlsOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html
+type VirtualGatewayVirtualGatewayListenerTlsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
+	Certificate VirtualGatewayVirtualGatewayListenerTlsCertificateInput `pulumi:"Certificate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
+	Mode pulumi.StringInput `pulumi:"Mode"`
+}
+
+func (VirtualGatewayVirtualGatewayListenerTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsOutput() VirtualGatewayVirtualGatewayListenerTlsOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsOutput).ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsPtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsArgs, VirtualGatewayVirtualGatewayListenerTlsPtr and VirtualGatewayVirtualGatewayListenerTlsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayListenerTlsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput
+}
+
+type virtualGatewayVirtualGatewayListenerTlsPtrType VirtualGatewayVirtualGatewayListenerTlsArgs
+
+func VirtualGatewayVirtualGatewayListenerTlsPtr(v *VirtualGatewayVirtualGatewayListenerTlsArgs) VirtualGatewayVirtualGatewayListenerTlsPtrInput {
+	return (*virtualGatewayVirtualGatewayListenerTlsPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayListenerTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsPtrType) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsPtrType) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html
+type VirtualGatewayVirtualGatewayListenerTlsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsOutput() VirtualGatewayVirtualGatewayListenerTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTls) *VirtualGatewayVirtualGatewayListenerTls {
+		return &v
+	}).(VirtualGatewayVirtualGatewayListenerTlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
+func (o VirtualGatewayVirtualGatewayListenerTlsOutput) Certificate() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTls) VirtualGatewayVirtualGatewayListenerTlsCertificate {
+		return v.Certificate
+	}).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
+func (o VirtualGatewayVirtualGatewayListenerTlsOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTls) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayVirtualGatewayListenerTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTls) VirtualGatewayVirtualGatewayListenerTls { return *v }).(VirtualGatewayVirtualGatewayListenerTlsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-certificate
+func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) Certificate() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTls) *VirtualGatewayVirtualGatewayListenerTlsCertificate {
+		if v == nil {
+			return nil
+		}
+		return &v.Certificate
+	}).(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertls-mode
+func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsAcmCertificate struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate-certificatearn
+	CertificateArn string `pulumi:"CertificateArn"`
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsAcmCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs and VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsAcmCertificateInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs{...}
+type VirtualGatewayVirtualGatewayListenerTlsAcmCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate-certificatearn
+	CertificateArn pulumi.StringInput `pulumi:"CertificateArn"`
+}
+
+func (VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput).ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs, VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtr and VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput
+}
+
+type virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs
+
+func VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtr(v *VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput {
+	return (*virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
+		return &v
+	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate-certificatearn
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
+		return *v
+	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate-certificatearn
+func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsCertificate struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-acm
+	ACM *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate `pulumi:"ACM"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-file
+	File *VirtualGatewayVirtualGatewayListenerTlsFileCertificate `pulumi:"File"`
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsCertificateArgs and VirtualGatewayVirtualGatewayListenerTlsCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsCertificateInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsCertificateArgs{...}
+type VirtualGatewayVirtualGatewayListenerTlsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificateOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsCertificateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-acm
+	ACM VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput `pulumi:"ACM"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-file
+	File VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput `pulumi:"File"`
+}
+
+func (VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput).ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsCertificateArgs, VirtualGatewayVirtualGatewayListenerTlsCertificatePtr and VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput
+}
+
+type virtualGatewayVirtualGatewayListenerTlsCertificatePtrType VirtualGatewayVirtualGatewayListenerTlsCertificateArgs
+
+func VirtualGatewayVirtualGatewayListenerTlsCertificatePtr(v *VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput {
+	return (*virtualGatewayVirtualGatewayListenerTlsCertificatePtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayListenerTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsCertificate {
+		return &v
+	}).(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-acm
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ACM() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
+		return v.ACM
+	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-file
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) File() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
+		return v.File
+	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsCertificate) VirtualGatewayVirtualGatewayListenerTlsCertificate {
+		return *v
+	}).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-acm
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ACM() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ACM
+	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlscertificate-file
+func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) File() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsFileCertificate struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-certificatechain
+	CertificateChain string `pulumi:"CertificateChain"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-privatekey
+	PrivateKey string `pulumi:"PrivateKey"`
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsFileCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs and VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsFileCertificateInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs{...}
+type VirtualGatewayVirtualGatewayListenerTlsFileCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-certificatechain
+	CertificateChain pulumi.StringInput `pulumi:"CertificateChain"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-privatekey
+	PrivateKey pulumi.StringInput `pulumi:"PrivateKey"`
+}
+
+func (VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput).ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs, VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtr and VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput
+	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput
+}
+
+type virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs
+
+func VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtr(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput {
+	return (*virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html
+type VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsFileCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
+		return &v
+	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-certificatechain
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsFileCertificate) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-privatekey
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsFileCertificate) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificate) VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
+		return *v
+	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-certificatechain
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html#cfn-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate-privatekey
+func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html
+type VirtualGatewayVirtualGatewayLogging struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html#cfn-appmesh-virtualgateway-virtualgatewaylogging-accesslog
+	AccessLog *VirtualGatewayVirtualGatewayAccessLog `pulumi:"AccessLog"`
+}
+
+// VirtualGatewayVirtualGatewayLoggingInput is an input type that accepts VirtualGatewayVirtualGatewayLoggingArgs and VirtualGatewayVirtualGatewayLoggingOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayLoggingInput` via:
+//
+//          VirtualGatewayVirtualGatewayLoggingArgs{...}
+type VirtualGatewayVirtualGatewayLoggingInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayLoggingOutput() VirtualGatewayVirtualGatewayLoggingOutput
+	ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(context.Context) VirtualGatewayVirtualGatewayLoggingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html
+type VirtualGatewayVirtualGatewayLoggingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html#cfn-appmesh-virtualgateway-virtualgatewaylogging-accesslog
+	AccessLog VirtualGatewayVirtualGatewayAccessLogPtrInput `pulumi:"AccessLog"`
+}
+
+func (VirtualGatewayVirtualGatewayLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingOutput() VirtualGatewayVirtualGatewayLoggingOutput {
+	return i.ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayLoggingOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayLoggingOutput).ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayLoggingPtrInput is an input type that accepts VirtualGatewayVirtualGatewayLoggingArgs, VirtualGatewayVirtualGatewayLoggingPtr and VirtualGatewayVirtualGatewayLoggingPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayLoggingPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayLoggingArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayLoggingPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput
+	ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput
+}
+
+type virtualGatewayVirtualGatewayLoggingPtrType VirtualGatewayVirtualGatewayLoggingArgs
+
+func VirtualGatewayVirtualGatewayLoggingPtr(v *VirtualGatewayVirtualGatewayLoggingArgs) VirtualGatewayVirtualGatewayLoggingPtrInput {
+	return (*virtualGatewayVirtualGatewayLoggingPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayLoggingPtrType) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayLoggingPtrType) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html
+type VirtualGatewayVirtualGatewayLoggingOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingOutput() VirtualGatewayVirtualGatewayLoggingOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayLogging) *VirtualGatewayVirtualGatewayLogging {
+		return &v
+	}).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html#cfn-appmesh-virtualgateway-virtualgatewaylogging-accesslog
+func (o VirtualGatewayVirtualGatewayLoggingOutput) AccessLog() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayLogging) *VirtualGatewayVirtualGatewayAccessLog { return v.AccessLog }).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayLoggingPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) Elem() VirtualGatewayVirtualGatewayLoggingOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayLogging) VirtualGatewayVirtualGatewayLogging { return *v }).(VirtualGatewayVirtualGatewayLoggingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html#cfn-appmesh-virtualgateway-virtualgatewaylogging-accesslog
+func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) AccessLog() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayLogging) *VirtualGatewayVirtualGatewayAccessLog {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLog
+	}).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html
+type VirtualGatewayVirtualGatewayPortMapping struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-port
+	Port int `pulumi:"Port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-protocol
+	Protocol string `pulumi:"Protocol"`
+}
+
+// VirtualGatewayVirtualGatewayPortMappingInput is an input type that accepts VirtualGatewayVirtualGatewayPortMappingArgs and VirtualGatewayVirtualGatewayPortMappingOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayPortMappingInput` via:
+//
+//          VirtualGatewayVirtualGatewayPortMappingArgs{...}
+type VirtualGatewayVirtualGatewayPortMappingInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayPortMappingOutput() VirtualGatewayVirtualGatewayPortMappingOutput
+	ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(context.Context) VirtualGatewayVirtualGatewayPortMappingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html
+type VirtualGatewayVirtualGatewayPortMappingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-port
+	Port pulumi.IntInput `pulumi:"Port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-protocol
+	Protocol pulumi.StringInput `pulumi:"Protocol"`
+}
+
+func (VirtualGatewayVirtualGatewayPortMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayPortMapping)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayPortMappingArgs) ToVirtualGatewayVirtualGatewayPortMappingOutput() VirtualGatewayVirtualGatewayPortMappingOutput {
+	return i.ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayPortMappingArgs) ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayPortMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayPortMappingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html
+type VirtualGatewayVirtualGatewayPortMappingOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayPortMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayPortMapping)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayPortMappingOutput) ToVirtualGatewayVirtualGatewayPortMappingOutput() VirtualGatewayVirtualGatewayPortMappingOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayPortMappingOutput) ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayPortMappingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-port
+func (o VirtualGatewayVirtualGatewayPortMappingOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayPortMapping) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html#cfn-appmesh-virtualgateway-virtualgatewayportmapping-protocol
+func (o VirtualGatewayVirtualGatewayPortMappingOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html
+type VirtualGatewayVirtualGatewaySpec struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-backenddefaults
+	BackendDefaults *VirtualGatewayVirtualGatewayBackendDefaults `pulumi:"BackendDefaults"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners
+	Listeners []VirtualGatewayVirtualGatewayListener `pulumi:"Listeners"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-logging
+	Logging *VirtualGatewayVirtualGatewayLogging `pulumi:"Logging"`
+}
+
+// VirtualGatewayVirtualGatewaySpecInput is an input type that accepts VirtualGatewayVirtualGatewaySpecArgs and VirtualGatewayVirtualGatewaySpecOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewaySpecInput` via:
+//
+//          VirtualGatewayVirtualGatewaySpecArgs{...}
+type VirtualGatewayVirtualGatewaySpecInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewaySpecOutput() VirtualGatewayVirtualGatewaySpecOutput
+	ToVirtualGatewayVirtualGatewaySpecOutputWithContext(context.Context) VirtualGatewayVirtualGatewaySpecOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html
+type VirtualGatewayVirtualGatewaySpecArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-backenddefaults
+	BackendDefaults VirtualGatewayVirtualGatewayBackendDefaultsPtrInput `pulumi:"BackendDefaults"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners
+	Listeners VirtualGatewayVirtualGatewayListenerArrayInput `pulumi:"Listeners"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-logging
+	Logging VirtualGatewayVirtualGatewayLoggingPtrInput `pulumi:"Logging"`
+}
+
+func (VirtualGatewayVirtualGatewaySpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecOutput() VirtualGatewayVirtualGatewaySpecOutput {
+	return i.ToVirtualGatewayVirtualGatewaySpecOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewaySpecOutput)
+}
+
+func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewaySpecOutput).ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewaySpecPtrInput is an input type that accepts VirtualGatewayVirtualGatewaySpecArgs, VirtualGatewayVirtualGatewaySpecPtr and VirtualGatewayVirtualGatewaySpecPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewaySpecPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewaySpecArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewaySpecPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput
+	ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput
+}
+
+type virtualGatewayVirtualGatewaySpecPtrType VirtualGatewayVirtualGatewaySpecArgs
+
+func VirtualGatewayVirtualGatewaySpecPtr(v *VirtualGatewayVirtualGatewaySpecArgs) VirtualGatewayVirtualGatewaySpecPtrInput {
+	return (*virtualGatewayVirtualGatewaySpecPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewaySpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewaySpecPtrType) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewaySpecPtrType) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewaySpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html
+type VirtualGatewayVirtualGatewaySpecOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewaySpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecOutput() VirtualGatewayVirtualGatewaySpecOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewaySpec {
+		return &v
+	}).(VirtualGatewayVirtualGatewaySpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-backenddefaults
+func (o VirtualGatewayVirtualGatewaySpecOutput) BackendDefaults() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayBackendDefaults {
+		return v.BackendDefaults
+	}).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners
+func (o VirtualGatewayVirtualGatewaySpecOutput) Listeners() VirtualGatewayVirtualGatewayListenerArrayOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewaySpec) []VirtualGatewayVirtualGatewayListener { return v.Listeners }).(VirtualGatewayVirtualGatewayListenerArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-logging
+func (o VirtualGatewayVirtualGatewaySpecOutput) Logging() VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayLogging { return v.Logging }).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewaySpecPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewaySpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewaySpecPtrOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewaySpecPtrOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewaySpecPtrOutput) Elem() VirtualGatewayVirtualGatewaySpecOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) VirtualGatewayVirtualGatewaySpec { return *v }).(VirtualGatewayVirtualGatewaySpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-backenddefaults
+func (o VirtualGatewayVirtualGatewaySpecPtrOutput) BackendDefaults() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayBackendDefaults {
+		if v == nil {
+			return nil
+		}
+		return v.BackendDefaults
+	}).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-listeners
+func (o VirtualGatewayVirtualGatewaySpecPtrOutput) Listeners() VirtualGatewayVirtualGatewayListenerArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) []VirtualGatewayVirtualGatewayListener {
+		if v == nil {
+			return nil
+		}
+		return v.Listeners
+	}).(VirtualGatewayVirtualGatewayListenerArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html#cfn-appmesh-virtualgateway-virtualgatewayspec-logging
+func (o VirtualGatewayVirtualGatewaySpecPtrOutput) Logging() VirtualGatewayVirtualGatewayLoggingPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html
+type VirtualGatewayVirtualGatewayTlsValidationContext struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext-trust
+	Trust VirtualGatewayVirtualGatewayTlsValidationContextTrust `pulumi:"Trust"`
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextArgs and VirtualGatewayVirtualGatewayTlsValidationContextOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextArgs{...}
+type VirtualGatewayVirtualGatewayTlsValidationContextInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextOutput() VirtualGatewayVirtualGatewayTlsValidationContextOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html
+type VirtualGatewayVirtualGatewayTlsValidationContextArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext-trust
+	Trust VirtualGatewayVirtualGatewayTlsValidationContextTrustInput `pulumi:"Trust"`
+}
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextOutput() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextArgs, VirtualGatewayVirtualGatewayTlsValidationContextPtr and VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayTlsValidationContextPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput
+}
+
+type virtualGatewayVirtualGatewayTlsValidationContextPtrType VirtualGatewayVirtualGatewayTlsValidationContextArgs
+
+func VirtualGatewayVirtualGatewayTlsValidationContextPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextArgs) VirtualGatewayVirtualGatewayTlsValidationContextPtrInput {
+	return (*virtualGatewayVirtualGatewayTlsValidationContextPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayTlsValidationContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html
+type VirtualGatewayVirtualGatewayTlsValidationContextOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextOutput() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContext) *VirtualGatewayVirtualGatewayTlsValidationContext {
+		return &v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext-trust
+func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) Trust() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContext) VirtualGatewayVirtualGatewayTlsValidationContextTrust {
+		return v.Trust
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput)
+}
+
+type VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContext) VirtualGatewayVirtualGatewayTlsValidationContext {
+		return *v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext-trust
+func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) Trust() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContext) *VirtualGatewayVirtualGatewayTlsValidationContextTrust {
+		if v == nil {
+			return nil
+		}
+		return &v.Trust
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust-certificateauthorityarns
+	CertificateAuthorityArns []string `pulumi:"CertificateAuthorityArns"`
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs and VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs{...}
+type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust-certificateauthorityarns
+	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"CertificateAuthorityArns"`
+}
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs, VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtr and VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput
+}
+
+type virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs
+
+func VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput {
+	return (*virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+		return &v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust-certificateauthorityarns
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) []string {
+		return v.CertificateAuthorityArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+		return *v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust-certificateauthorityarns
+func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateAuthorityArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextFileTrust struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust-certificatechain
+	CertificateChain string `pulumi:"CertificateChain"`
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextFileTrustInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs and VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextFileTrustInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs{...}
+type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust-certificatechain
+	CertificateChain pulumi.StringInput `pulumi:"CertificateChain"`
+}
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs, VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtr and VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput
+}
+
+type virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs
+
+func VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput {
+	return (*virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+		return &v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust-certificatechain
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+		return *v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust-certificatechain
+func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextTrust struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-acm
+	ACM *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust `pulumi:"ACM"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-file
+	File *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust `pulumi:"File"`
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextTrustInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs and VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextTrustInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs{...}
+type VirtualGatewayVirtualGatewayTlsValidationContextTrustInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-acm
+	ACM VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput `pulumi:"ACM"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-file
+	File VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput `pulumi:"File"`
+}
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput)
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs, VirtualGatewayVirtualGatewayTlsValidationContextTrustPtr and VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput` via:
+//
+//          VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput
+	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput
+}
+
+type virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs
+
+func VirtualGatewayVirtualGatewayTlsValidationContextTrustPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput {
+	return (*virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType)(v)
+}
+
+func (*virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html
+type VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextTrust {
+		return &v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-acm
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ACM() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+		return v.ACM
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-file
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) File() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+		return v.File
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+}
+
+type VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextTrust) VirtualGatewayVirtualGatewayTlsValidationContextTrust {
+		return *v
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-acm
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ACM() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+		if v == nil {
+			return nil
+		}
+		return v.ACM
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-file
+func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) File() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html
 type VirtualNodeAccessLog struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html#cfn-appmesh-virtualnode-accesslog-file
@@ -6639,8 +12037,12 @@ func (o VirtualNodeHttpTimeoutPtrOutput) PerRequest() VirtualNodeDurationPtrOutp
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html
 type VirtualNodeListener struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+	ConnectionPool *VirtualNodeVirtualNodeConnectionPool `pulumi:"ConnectionPool"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
 	HealthCheck *VirtualNodeHealthCheck `pulumi:"HealthCheck"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+	OutlierDetection *VirtualNodeOutlierDetection `pulumi:"OutlierDetection"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
 	PortMapping VirtualNodePortMapping `pulumi:"PortMapping"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls
@@ -6662,8 +12064,12 @@ type VirtualNodeListenerInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html
 type VirtualNodeListenerArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+	ConnectionPool VirtualNodeVirtualNodeConnectionPoolPtrInput `pulumi:"ConnectionPool"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
 	HealthCheck VirtualNodeHealthCheckPtrInput `pulumi:"HealthCheck"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+	OutlierDetection VirtualNodeOutlierDetectionPtrInput `pulumi:"OutlierDetection"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
 	PortMapping VirtualNodePortMappingInput `pulumi:"PortMapping"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls
@@ -6724,9 +12130,19 @@ func (o VirtualNodeListenerOutput) ToVirtualNodeListenerOutputWithContext(ctx co
 	return o
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+func (o VirtualNodeListenerOutput) ConnectionPool() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeVirtualNodeConnectionPool { return v.ConnectionPool }).(VirtualNodeVirtualNodeConnectionPoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
 func (o VirtualNodeListenerOutput) HealthCheck() VirtualNodeHealthCheckPtrOutput {
 	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeHealthCheck { return v.HealthCheck }).(VirtualNodeHealthCheckPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+func (o VirtualNodeListenerOutput) OutlierDetection() VirtualNodeOutlierDetectionPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeOutlierDetection { return v.OutlierDetection }).(VirtualNodeOutlierDetectionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
@@ -7680,6 +13096,197 @@ func (o VirtualNodeLoggingPtrOutput) AccessLog() VirtualNodeAccessLogPtrOutput {
 		}
 		return v.AccessLog
 	}).(VirtualNodeAccessLogPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html
+type VirtualNodeOutlierDetection struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-baseejectionduration
+	BaseEjectionDuration VirtualNodeDuration `pulumi:"BaseEjectionDuration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-interval
+	Interval VirtualNodeDuration `pulumi:"Interval"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxejectionpercent
+	MaxEjectionPercent int `pulumi:"MaxEjectionPercent"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxservererrors
+	MaxServerErrors int `pulumi:"MaxServerErrors"`
+}
+
+// VirtualNodeOutlierDetectionInput is an input type that accepts VirtualNodeOutlierDetectionArgs and VirtualNodeOutlierDetectionOutput values.
+// You can construct a concrete instance of `VirtualNodeOutlierDetectionInput` via:
+//
+//          VirtualNodeOutlierDetectionArgs{...}
+type VirtualNodeOutlierDetectionInput interface {
+	pulumi.Input
+
+	ToVirtualNodeOutlierDetectionOutput() VirtualNodeOutlierDetectionOutput
+	ToVirtualNodeOutlierDetectionOutputWithContext(context.Context) VirtualNodeOutlierDetectionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html
+type VirtualNodeOutlierDetectionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-baseejectionduration
+	BaseEjectionDuration VirtualNodeDurationInput `pulumi:"BaseEjectionDuration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-interval
+	Interval VirtualNodeDurationInput `pulumi:"Interval"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxejectionpercent
+	MaxEjectionPercent pulumi.IntInput `pulumi:"MaxEjectionPercent"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxservererrors
+	MaxServerErrors pulumi.IntInput `pulumi:"MaxServerErrors"`
+}
+
+func (VirtualNodeOutlierDetectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeOutlierDetection)(nil)).Elem()
+}
+
+func (i VirtualNodeOutlierDetectionArgs) ToVirtualNodeOutlierDetectionOutput() VirtualNodeOutlierDetectionOutput {
+	return i.ToVirtualNodeOutlierDetectionOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeOutlierDetectionArgs) ToVirtualNodeOutlierDetectionOutputWithContext(ctx context.Context) VirtualNodeOutlierDetectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutlierDetectionOutput)
+}
+
+func (i VirtualNodeOutlierDetectionArgs) ToVirtualNodeOutlierDetectionPtrOutput() VirtualNodeOutlierDetectionPtrOutput {
+	return i.ToVirtualNodeOutlierDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeOutlierDetectionArgs) ToVirtualNodeOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeOutlierDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutlierDetectionOutput).ToVirtualNodeOutlierDetectionPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeOutlierDetectionPtrInput is an input type that accepts VirtualNodeOutlierDetectionArgs, VirtualNodeOutlierDetectionPtr and VirtualNodeOutlierDetectionPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeOutlierDetectionPtrInput` via:
+//
+//          VirtualNodeOutlierDetectionArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeOutlierDetectionPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeOutlierDetectionPtrOutput() VirtualNodeOutlierDetectionPtrOutput
+	ToVirtualNodeOutlierDetectionPtrOutputWithContext(context.Context) VirtualNodeOutlierDetectionPtrOutput
+}
+
+type virtualNodeOutlierDetectionPtrType VirtualNodeOutlierDetectionArgs
+
+func VirtualNodeOutlierDetectionPtr(v *VirtualNodeOutlierDetectionArgs) VirtualNodeOutlierDetectionPtrInput {
+	return (*virtualNodeOutlierDetectionPtrType)(v)
+}
+
+func (*virtualNodeOutlierDetectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeOutlierDetection)(nil)).Elem()
+}
+
+func (i *virtualNodeOutlierDetectionPtrType) ToVirtualNodeOutlierDetectionPtrOutput() VirtualNodeOutlierDetectionPtrOutput {
+	return i.ToVirtualNodeOutlierDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeOutlierDetectionPtrType) ToVirtualNodeOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeOutlierDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutlierDetectionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html
+type VirtualNodeOutlierDetectionOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeOutlierDetectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeOutlierDetection)(nil)).Elem()
+}
+
+func (o VirtualNodeOutlierDetectionOutput) ToVirtualNodeOutlierDetectionOutput() VirtualNodeOutlierDetectionOutput {
+	return o
+}
+
+func (o VirtualNodeOutlierDetectionOutput) ToVirtualNodeOutlierDetectionOutputWithContext(ctx context.Context) VirtualNodeOutlierDetectionOutput {
+	return o
+}
+
+func (o VirtualNodeOutlierDetectionOutput) ToVirtualNodeOutlierDetectionPtrOutput() VirtualNodeOutlierDetectionPtrOutput {
+	return o.ToVirtualNodeOutlierDetectionPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeOutlierDetectionOutput) ToVirtualNodeOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeOutlierDetectionPtrOutput {
+	return o.ApplyT(func(v VirtualNodeOutlierDetection) *VirtualNodeOutlierDetection {
+		return &v
+	}).(VirtualNodeOutlierDetectionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-baseejectionduration
+func (o VirtualNodeOutlierDetectionOutput) BaseEjectionDuration() VirtualNodeDurationOutput {
+	return o.ApplyT(func(v VirtualNodeOutlierDetection) VirtualNodeDuration { return v.BaseEjectionDuration }).(VirtualNodeDurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-interval
+func (o VirtualNodeOutlierDetectionOutput) Interval() VirtualNodeDurationOutput {
+	return o.ApplyT(func(v VirtualNodeOutlierDetection) VirtualNodeDuration { return v.Interval }).(VirtualNodeDurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxejectionpercent
+func (o VirtualNodeOutlierDetectionOutput) MaxEjectionPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeOutlierDetection) int { return v.MaxEjectionPercent }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxservererrors
+func (o VirtualNodeOutlierDetectionOutput) MaxServerErrors() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeOutlierDetection) int { return v.MaxServerErrors }).(pulumi.IntOutput)
+}
+
+type VirtualNodeOutlierDetectionPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeOutlierDetectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeOutlierDetection)(nil)).Elem()
+}
+
+func (o VirtualNodeOutlierDetectionPtrOutput) ToVirtualNodeOutlierDetectionPtrOutput() VirtualNodeOutlierDetectionPtrOutput {
+	return o
+}
+
+func (o VirtualNodeOutlierDetectionPtrOutput) ToVirtualNodeOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeOutlierDetectionPtrOutput {
+	return o
+}
+
+func (o VirtualNodeOutlierDetectionPtrOutput) Elem() VirtualNodeOutlierDetectionOutput {
+	return o.ApplyT(func(v *VirtualNodeOutlierDetection) VirtualNodeOutlierDetection { return *v }).(VirtualNodeOutlierDetectionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-baseejectionduration
+func (o VirtualNodeOutlierDetectionPtrOutput) BaseEjectionDuration() VirtualNodeDurationPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeOutlierDetection) *VirtualNodeDuration {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseEjectionDuration
+	}).(VirtualNodeDurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-interval
+func (o VirtualNodeOutlierDetectionPtrOutput) Interval() VirtualNodeDurationPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeOutlierDetection) *VirtualNodeDuration {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(VirtualNodeDurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxejectionpercent
+func (o VirtualNodeOutlierDetectionPtrOutput) MaxEjectionPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeOutlierDetection) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxEjectionPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html#cfn-appmesh-virtualnode-outlierdetection-maxservererrors
+func (o VirtualNodeOutlierDetectionPtrOutput) MaxServerErrors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeOutlierDetection) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxServerErrors
+	}).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-portmapping.html
@@ -8798,6 +14405,622 @@ func (o VirtualNodeTlsValidationContextTrustPtrOutput) File() VirtualNodeTlsVali
 	}).(VirtualNodeTlsValidationContextFileTrustPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html
+type VirtualNodeVirtualNodeConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-grpc
+	GRPC *VirtualNodeVirtualNodeGrpcConnectionPool `pulumi:"GRPC"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http
+	HTTP *VirtualNodeVirtualNodeHttpConnectionPool `pulumi:"HTTP"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http2
+	HTTP2 *VirtualNodeVirtualNodeHttp2ConnectionPool `pulumi:"HTTP2"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-tcp
+	TCP *VirtualNodeVirtualNodeTcpConnectionPool `pulumi:"TCP"`
+}
+
+// VirtualNodeVirtualNodeConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeConnectionPoolArgs and VirtualNodeVirtualNodeConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeConnectionPoolInput` via:
+//
+//          VirtualNodeVirtualNodeConnectionPoolArgs{...}
+type VirtualNodeVirtualNodeConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeConnectionPoolOutput() VirtualNodeVirtualNodeConnectionPoolOutput
+	ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html
+type VirtualNodeVirtualNodeConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-grpc
+	GRPC VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput `pulumi:"GRPC"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http
+	HTTP VirtualNodeVirtualNodeHttpConnectionPoolPtrInput `pulumi:"HTTP"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http2
+	HTTP2 VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput `pulumi:"HTTP2"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-tcp
+	TCP VirtualNodeVirtualNodeTcpConnectionPoolPtrInput `pulumi:"TCP"`
+}
+
+func (VirtualNodeVirtualNodeConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolOutput() VirtualNodeVirtualNodeConnectionPoolOutput {
+	return i.ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeConnectionPoolOutput)
+}
+
+func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeConnectionPoolOutput).ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeVirtualNodeConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeConnectionPoolArgs, VirtualNodeVirtualNodeConnectionPoolPtr and VirtualNodeVirtualNodeConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeConnectionPoolPtrInput` via:
+//
+//          VirtualNodeVirtualNodeConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeVirtualNodeConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput
+	ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput
+}
+
+type virtualNodeVirtualNodeConnectionPoolPtrType VirtualNodeVirtualNodeConnectionPoolArgs
+
+func VirtualNodeVirtualNodeConnectionPoolPtr(v *VirtualNodeVirtualNodeConnectionPoolArgs) VirtualNodeVirtualNodeConnectionPoolPtrInput {
+	return (*virtualNodeVirtualNodeConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeVirtualNodeConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeVirtualNodeConnectionPoolPtrType) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeVirtualNodeConnectionPoolPtrType) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html
+type VirtualNodeVirtualNodeConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolOutput() VirtualNodeVirtualNodeConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return o.ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeConnectionPool {
+		return &v
+	}).(VirtualNodeVirtualNodeConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-grpc
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) GRPC() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeGrpcConnectionPool { return v.GRPC }).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) HTTP() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttpConnectionPool { return v.HTTP }).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http2
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) HTTP2() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttp2ConnectionPool {
+		return v.HTTP2
+	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-tcp
+func (o VirtualNodeVirtualNodeConnectionPoolOutput) TCP() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeTcpConnectionPool { return v.TCP }).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
+}
+
+type VirtualNodeVirtualNodeConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) VirtualNodeVirtualNodeConnectionPool { return *v }).(VirtualNodeVirtualNodeConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-grpc
+func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) GRPC() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeGrpcConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.GRPC
+	}).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http
+func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) HTTP() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttpConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP
+	}).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-http2
+func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) HTTP2() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttp2ConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP2
+	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html#cfn-appmesh-virtualnode-virtualnodeconnectionpool-tcp
+func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) TCP() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeTcpConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.TCP
+	}).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html
+type VirtualNodeVirtualNodeGrpcConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html#cfn-appmesh-virtualnode-virtualnodegrpcconnectionpool-maxrequests
+	MaxRequests int `pulumi:"MaxRequests"`
+}
+
+// VirtualNodeVirtualNodeGrpcConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeGrpcConnectionPoolArgs and VirtualNodeVirtualNodeGrpcConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeGrpcConnectionPoolInput` via:
+//
+//          VirtualNodeVirtualNodeGrpcConnectionPoolArgs{...}
+type VirtualNodeVirtualNodeGrpcConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeGrpcConnectionPoolOutput() VirtualNodeVirtualNodeGrpcConnectionPoolOutput
+	ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html
+type VirtualNodeVirtualNodeGrpcConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html#cfn-appmesh-virtualnode-virtualnodegrpcconnectionpool-maxrequests
+	MaxRequests pulumi.IntInput `pulumi:"MaxRequests"`
+}
+
+func (VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutput() VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
+	return i.ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeGrpcConnectionPoolOutput)
+}
+
+func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeGrpcConnectionPoolOutput).ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeGrpcConnectionPoolArgs, VirtualNodeVirtualNodeGrpcConnectionPoolPtr and VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput` via:
+//
+//          VirtualNodeVirtualNodeGrpcConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput
+	ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput
+}
+
+type virtualNodeVirtualNodeGrpcConnectionPoolPtrType VirtualNodeVirtualNodeGrpcConnectionPoolArgs
+
+func VirtualNodeVirtualNodeGrpcConnectionPoolPtr(v *VirtualNodeVirtualNodeGrpcConnectionPoolArgs) VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput {
+	return (*virtualNodeVirtualNodeGrpcConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeVirtualNodeGrpcConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeVirtualNodeGrpcConnectionPoolPtrType) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeVirtualNodeGrpcConnectionPoolPtrType) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html
+type VirtualNodeVirtualNodeGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutput() VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeGrpcConnectionPool) *VirtualNodeVirtualNodeGrpcConnectionPool {
+		return &v
+	}).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html#cfn-appmesh-virtualnode-virtualnodegrpcconnectionpool-maxrequests
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeGrpcConnectionPool) VirtualNodeVirtualNodeGrpcConnectionPool { return *v }).(VirtualNodeVirtualNodeGrpcConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html#cfn-appmesh-virtualnode-virtualnodegrpcconnectionpool-maxrequests
+func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeGrpcConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html
+type VirtualNodeVirtualNodeHttp2ConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html#cfn-appmesh-virtualnode-virtualnodehttp2connectionpool-maxrequests
+	MaxRequests int `pulumi:"MaxRequests"`
+}
+
+// VirtualNodeVirtualNodeHttp2ConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeHttp2ConnectionPoolArgs and VirtualNodeVirtualNodeHttp2ConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeHttp2ConnectionPoolInput` via:
+//
+//          VirtualNodeVirtualNodeHttp2ConnectionPoolArgs{...}
+type VirtualNodeVirtualNodeHttp2ConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput
+	ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html
+type VirtualNodeVirtualNodeHttp2ConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html#cfn-appmesh-virtualnode-virtualnodehttp2connectionpool-maxrequests
+	MaxRequests pulumi.IntInput `pulumi:"MaxRequests"`
+}
+
+func (VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
+	return i.ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput)
+}
+
+func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput).ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeHttp2ConnectionPoolArgs, VirtualNodeVirtualNodeHttp2ConnectionPoolPtr and VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput` via:
+//
+//          VirtualNodeVirtualNodeHttp2ConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput
+	ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput
+}
+
+type virtualNodeVirtualNodeHttp2ConnectionPoolPtrType VirtualNodeVirtualNodeHttp2ConnectionPoolArgs
+
+func VirtualNodeVirtualNodeHttp2ConnectionPoolPtr(v *VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput {
+	return (*virtualNodeVirtualNodeHttp2ConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeVirtualNodeHttp2ConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeVirtualNodeHttp2ConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeVirtualNodeHttp2ConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html
+type VirtualNodeVirtualNodeHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeHttp2ConnectionPool) *VirtualNodeVirtualNodeHttp2ConnectionPool {
+		return &v
+	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html#cfn-appmesh-virtualnode-virtualnodehttp2connectionpool-maxrequests
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttp2ConnectionPool) VirtualNodeVirtualNodeHttp2ConnectionPool {
+		return *v
+	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html#cfn-appmesh-virtualnode-virtualnodehttp2connectionpool-maxrequests
+func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttp2ConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html
+type VirtualNodeVirtualNodeHttpConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxconnections
+	MaxConnections int `pulumi:"MaxConnections"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxpendingrequests
+	MaxPendingRequests *int `pulumi:"MaxPendingRequests"`
+}
+
+// VirtualNodeVirtualNodeHttpConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeHttpConnectionPoolArgs and VirtualNodeVirtualNodeHttpConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeHttpConnectionPoolInput` via:
+//
+//          VirtualNodeVirtualNodeHttpConnectionPoolArgs{...}
+type VirtualNodeVirtualNodeHttpConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeHttpConnectionPoolOutput() VirtualNodeVirtualNodeHttpConnectionPoolOutput
+	ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeHttpConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html
+type VirtualNodeVirtualNodeHttpConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxconnections
+	MaxConnections pulumi.IntInput `pulumi:"MaxConnections"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxpendingrequests
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"MaxPendingRequests"`
+}
+
+func (VirtualNodeVirtualNodeHttpConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolOutput() VirtualNodeVirtualNodeHttpConnectionPoolOutput {
+	return i.ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttpConnectionPoolOutput)
+}
+
+func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttpConnectionPoolOutput).ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeVirtualNodeHttpConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeHttpConnectionPoolArgs, VirtualNodeVirtualNodeHttpConnectionPoolPtr and VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeHttpConnectionPoolPtrInput` via:
+//
+//          VirtualNodeVirtualNodeHttpConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeVirtualNodeHttpConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput
+	ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput
+}
+
+type virtualNodeVirtualNodeHttpConnectionPoolPtrType VirtualNodeVirtualNodeHttpConnectionPoolArgs
+
+func VirtualNodeVirtualNodeHttpConnectionPoolPtr(v *VirtualNodeVirtualNodeHttpConnectionPoolArgs) VirtualNodeVirtualNodeHttpConnectionPoolPtrInput {
+	return (*virtualNodeVirtualNodeHttpConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeVirtualNodeHttpConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeVirtualNodeHttpConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeVirtualNodeHttpConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html
+type VirtualNodeVirtualNodeHttpConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeHttpConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolOutput() VirtualNodeVirtualNodeHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeHttpConnectionPool) *VirtualNodeVirtualNodeHttpConnectionPool {
+		return &v
+	}).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxconnections
+func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxpendingrequests
+func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeHttpConnectionPool) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeHttpConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttpConnectionPool) VirtualNodeVirtualNodeHttpConnectionPool { return *v }).(VirtualNodeVirtualNodeHttpConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxconnections
+func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodehttpconnectionpool-maxpendingrequests
+func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingRequests
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html
 type VirtualNodeVirtualNodeSpec struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backenddefaults
@@ -9006,6 +15229,140 @@ func (o VirtualNodeVirtualNodeSpecPtrOutput) ServiceDiscovery() VirtualNodeServi
 		}
 		return v.ServiceDiscovery
 	}).(VirtualNodeServiceDiscoveryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html
+type VirtualNodeVirtualNodeTcpConnectionPool struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodetcpconnectionpool-maxconnections
+	MaxConnections int `pulumi:"MaxConnections"`
+}
+
+// VirtualNodeVirtualNodeTcpConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeTcpConnectionPoolArgs and VirtualNodeVirtualNodeTcpConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeTcpConnectionPoolInput` via:
+//
+//          VirtualNodeVirtualNodeTcpConnectionPoolArgs{...}
+type VirtualNodeVirtualNodeTcpConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeTcpConnectionPoolOutput() VirtualNodeVirtualNodeTcpConnectionPoolOutput
+	ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeTcpConnectionPoolOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html
+type VirtualNodeVirtualNodeTcpConnectionPoolArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodetcpconnectionpool-maxconnections
+	MaxConnections pulumi.IntInput `pulumi:"MaxConnections"`
+}
+
+func (VirtualNodeVirtualNodeTcpConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolOutput() VirtualNodeVirtualNodeTcpConnectionPoolOutput {
+	return i.ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeTcpConnectionPoolOutput)
+}
+
+func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeTcpConnectionPoolOutput).ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeVirtualNodeTcpConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeTcpConnectionPoolArgs, VirtualNodeVirtualNodeTcpConnectionPoolPtr and VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeVirtualNodeTcpConnectionPoolPtrInput` via:
+//
+//          VirtualNodeVirtualNodeTcpConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeVirtualNodeTcpConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput
+	ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput
+}
+
+type virtualNodeVirtualNodeTcpConnectionPoolPtrType VirtualNodeVirtualNodeTcpConnectionPoolArgs
+
+func VirtualNodeVirtualNodeTcpConnectionPoolPtr(v *VirtualNodeVirtualNodeTcpConnectionPoolArgs) VirtualNodeVirtualNodeTcpConnectionPoolPtrInput {
+	return (*virtualNodeVirtualNodeTcpConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeVirtualNodeTcpConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeVirtualNodeTcpConnectionPoolPtrType) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeVirtualNodeTcpConnectionPoolPtrType) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html
+type VirtualNodeVirtualNodeTcpConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeTcpConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolOutput() VirtualNodeVirtualNodeTcpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeTcpConnectionPool) *VirtualNodeVirtualNodeTcpConnectionPool {
+		return &v
+	}).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodetcpconnectionpool-maxconnections
+func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeVirtualNodeTcpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+type VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeTcpConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeTcpConnectionPool) VirtualNodeVirtualNodeTcpConnectionPool { return *v }).(VirtualNodeVirtualNodeTcpConnectionPoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html#cfn-appmesh-virtualnode-virtualnodetcpconnectionpool-maxconnections
+func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeVirtualNodeTcpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html
@@ -10843,6 +17200,28 @@ func (o VirtualServiceVirtualServiceSpecPtrOutput) Provider() VirtualServiceVirt
 }
 
 func init() {
+	pulumi.RegisterOutputType(GatewayRouteAttributesOutput{})
+	pulumi.RegisterOutputType(GatewayRouteAttributesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGatewayRouteSpecOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGatewayRouteSpecPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGatewayRouteTargetOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGatewayRouteTargetPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGatewayRouteVirtualServiceOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGatewayRouteVirtualServicePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRoutePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteActionOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteActionPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteMatchOutput{})
+	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteMatchPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRouteOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRoutePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRouteActionOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRouteActionPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRouteMatchOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRouteMatchPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRoutePropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRoutePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MeshAttributesOutput{})
 	pulumi.RegisterOutputType(MeshAttributesPtrOutput{})
 	pulumi.RegisterOutputType(MeshEgressFilterOutput{})
@@ -10897,6 +17276,53 @@ func init() {
 	pulumi.RegisterOutputType(RouteTcpTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(RouteWeightedTargetOutput{})
 	pulumi.RegisterOutputType(RouteWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayAttributesOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayAttributesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayPropertiesOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayAccessLogOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayAccessLogPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayBackendDefaultsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyTlsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayFileAccessLogOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerArrayOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayLoggingOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayLoggingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayPortMappingOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewaySpecOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewaySpecPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeAccessLogOutput{})
 	pulumi.RegisterOutputType(VirtualNodeAccessLogPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeAttributesOutput{})
@@ -10939,6 +17365,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeListenerTlsFileCertificatePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeLoggingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeLoggingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeOutlierDetectionOutput{})
+	pulumi.RegisterOutputType(VirtualNodeOutlierDetectionPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodePortMappingOutput{})
 	pulumi.RegisterOutputType(VirtualNodePropertiesOutput{})
 	pulumi.RegisterOutputType(VirtualNodePropertiesPtrOutput{})
@@ -10954,8 +17382,18 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeTlsValidationContextFileTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTlsValidationContextTrustOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTlsValidationContextTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeGrpcConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttpConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeVirtualNodeSpecOutput{})
 	pulumi.RegisterOutputType(VirtualNodeVirtualNodeSpecPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeTcpConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeVirtualServiceBackendOutput{})
 	pulumi.RegisterOutputType(VirtualNodeVirtualServiceBackendPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRouterAttributesOutput{})

@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApiMapping struct {
 // NewApiMapping registers a new resource with the given unique name, arguments, and options.
 func NewApiMapping(ctx *pulumi.Context,
 	name string, args *ApiMappingArgs, opts ...pulumi.ResourceOption) (*ApiMapping, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApiMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApiMapping
 	err := ctx.RegisterResource("cloudformation:ApiGatewayV2:ApiMapping", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApiMappingArgs struct {
 
 func (ApiMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiMappingArgs)(nil)).Elem()
+}
+
+type ApiMappingInput interface {
+	pulumi.Input
+
+	ToApiMappingOutput() ApiMappingOutput
+	ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput
+}
+
+func (*ApiMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiMapping)(nil))
+}
+
+func (i *ApiMapping) ToApiMappingOutput() ApiMappingOutput {
+	return i.ToApiMappingOutputWithContext(context.Background())
+}
+
+func (i *ApiMapping) ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingOutput)
+}
+
+type ApiMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiMapping)(nil))
+}
+
+func (o ApiMappingOutput) ToApiMappingOutput() ApiMappingOutput {
+	return o
+}
+
+func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiMappingOutput{})
 }

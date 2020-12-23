@@ -4,6 +4,7 @@
 package networkmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LinkAssociation struct {
 // NewLinkAssociation registers a new resource with the given unique name, arguments, and options.
 func NewLinkAssociation(ctx *pulumi.Context,
 	name string, args *LinkAssociationArgs, opts ...pulumi.ResourceOption) (*LinkAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LinkAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LinkAssociation
 	err := ctx.RegisterResource("cloudformation:NetworkManager:LinkAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LinkAssociationArgs struct {
 
 func (LinkAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkAssociationArgs)(nil)).Elem()
+}
+
+type LinkAssociationInput interface {
+	pulumi.Input
+
+	ToLinkAssociationOutput() LinkAssociationOutput
+	ToLinkAssociationOutputWithContext(ctx context.Context) LinkAssociationOutput
+}
+
+func (*LinkAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAssociation)(nil))
+}
+
+func (i *LinkAssociation) ToLinkAssociationOutput() LinkAssociationOutput {
+	return i.ToLinkAssociationOutputWithContext(context.Background())
+}
+
+func (i *LinkAssociation) ToLinkAssociationOutputWithContext(ctx context.Context) LinkAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAssociationOutput)
+}
+
+type LinkAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAssociation)(nil))
+}
+
+func (o LinkAssociationOutput) ToLinkAssociationOutput() LinkAssociationOutput {
+	return o
+}
+
+func (o LinkAssociationOutput) ToLinkAssociationOutputWithContext(ctx context.Context) LinkAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkAssociationOutput{})
 }

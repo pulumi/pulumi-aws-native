@@ -4,6 +4,7 @@
 package wafregional
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GeoMatchSet struct {
 // NewGeoMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewGeoMatchSet(ctx *pulumi.Context,
 	name string, args *GeoMatchSetArgs, opts ...pulumi.ResourceOption) (*GeoMatchSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GeoMatchSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GeoMatchSet
 	err := ctx.RegisterResource("cloudformation:WAFRegional:GeoMatchSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GeoMatchSetArgs struct {
 
 func (GeoMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*geoMatchSetArgs)(nil)).Elem()
+}
+
+type GeoMatchSetInput interface {
+	pulumi.Input
+
+	ToGeoMatchSetOutput() GeoMatchSetOutput
+	ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput
+}
+
+func (*GeoMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeoMatchSet)(nil))
+}
+
+func (i *GeoMatchSet) ToGeoMatchSetOutput() GeoMatchSetOutput {
+	return i.ToGeoMatchSetOutputWithContext(context.Background())
+}
+
+func (i *GeoMatchSet) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetOutput)
+}
+
+type GeoMatchSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (GeoMatchSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeoMatchSet)(nil))
+}
+
+func (o GeoMatchSetOutput) ToGeoMatchSetOutput() GeoMatchSetOutput {
+	return o
+}
+
+func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GeoMatchSetOutput{})
 }

@@ -4289,14 +4289,169 @@ func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
+type DomainNameMutualTlsAuthentication struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
+	TruststoreUri *string `pulumi:"TruststoreUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
+	TruststoreVersion *string `pulumi:"TruststoreVersion"`
+}
+
+// DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+type DomainNameMutualTlsAuthenticationInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput
+	ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
+type DomainNameMutualTlsAuthenticationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
+	TruststoreUri pulumi.StringPtrInput `pulumi:"TruststoreUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
+	TruststoreVersion pulumi.StringPtrInput `pulumi:"TruststoreVersion"`
+}
+
+func (DomainNameMutualTlsAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return i.ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput).ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx)
+}
+
+// DomainNameMutualTlsAuthenticationPtrInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs, DomainNameMutualTlsAuthenticationPtr and DomainNameMutualTlsAuthenticationPtrOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationPtrInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainNameMutualTlsAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput
+	ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationPtrOutput
+}
+
+type domainNameMutualTlsAuthenticationPtrType DomainNameMutualTlsAuthenticationArgs
+
+func DomainNameMutualTlsAuthenticationPtr(v *DomainNameMutualTlsAuthenticationArgs) DomainNameMutualTlsAuthenticationPtrInput {
+	return (*domainNameMutualTlsAuthenticationPtrType)(v)
+}
+
+func (*domainNameMutualTlsAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
+type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
+		return &v
+	}).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreUri }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
+}
+
+type DomainNameMutualTlsAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication { return *v }).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TruststoreUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TruststoreVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 type DomainNameProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
 	CertificateArn *string `pulumi:"CertificateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-	DomainName string `pulumi:"DomainName"`
+	DomainName *string `pulumi:"DomainName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"EndpointConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"MutualTlsAuthentication"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
 	RegionalCertificateArn *string `pulumi:"RegionalCertificateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
@@ -4321,9 +4476,11 @@ type DomainNamePropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
 	CertificateArn pulumi.StringPtrInput `pulumi:"CertificateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-	DomainName pulumi.StringInput `pulumi:"DomainName"`
+	DomainName pulumi.StringPtrInput `pulumi:"DomainName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
 	EndpointConfiguration DomainNameEndpointConfigurationPtrInput `pulumi:"EndpointConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput `pulumi:"MutualTlsAuthentication"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
 	RegionalCertificateArn pulumi.StringPtrInput `pulumi:"RegionalCertificateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
@@ -4416,13 +4573,18 @@ func (o DomainNamePropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-func (o DomainNamePropertiesOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainNameProperties) string { return v.DomainName }).(pulumi.StringOutput)
+func (o DomainNamePropertiesOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameProperties) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
 func (o DomainNamePropertiesOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v DomainNameProperties) *DomainNameEndpointConfiguration { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+func (o DomainNamePropertiesOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v DomainNameProperties) *DomainNameMutualTlsAuthentication { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
@@ -4474,7 +4636,7 @@ func (o DomainNamePropertiesPtrOutput) DomainName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.DomainName
+		return v.DomainName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4486,6 +4648,16 @@ func (o DomainNamePropertiesPtrOutput) EndpointConfiguration() DomainNameEndpoin
 		}
 		return v.EndpointConfiguration
 	}).(DomainNameEndpointConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+func (o DomainNamePropertiesPtrOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v *DomainNameProperties) *DomainNameMutualTlsAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.MutualTlsAuthentication
+	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
@@ -10156,6 +10328,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameAttributesPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNamePropertiesOutput{})
 	pulumi.RegisterOutputType(DomainNamePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayResponseAttributesOutput{})

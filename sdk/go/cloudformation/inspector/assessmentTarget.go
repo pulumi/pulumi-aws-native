@@ -4,6 +4,7 @@
 package inspector
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type AssessmentTarget struct {
 // NewAssessmentTarget registers a new resource with the given unique name, arguments, and options.
 func NewAssessmentTarget(ctx *pulumi.Context,
 	name string, args *AssessmentTargetArgs, opts ...pulumi.ResourceOption) (*AssessmentTarget, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AssessmentTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource AssessmentTarget
 	err := ctx.RegisterResource("cloudformation:Inspector:AssessmentTarget", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AssessmentTargetArgs struct {
 
 func (AssessmentTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentTargetArgs)(nil)).Elem()
+}
+
+type AssessmentTargetInput interface {
+	pulumi.Input
+
+	ToAssessmentTargetOutput() AssessmentTargetOutput
+	ToAssessmentTargetOutputWithContext(ctx context.Context) AssessmentTargetOutput
+}
+
+func (*AssessmentTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentTarget)(nil))
+}
+
+func (i *AssessmentTarget) ToAssessmentTargetOutput() AssessmentTargetOutput {
+	return i.ToAssessmentTargetOutputWithContext(context.Background())
+}
+
+func (i *AssessmentTarget) ToAssessmentTargetOutputWithContext(ctx context.Context) AssessmentTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetOutput)
+}
+
+type AssessmentTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssessmentTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentTarget)(nil))
+}
+
+func (o AssessmentTargetOutput) ToAssessmentTargetOutput() AssessmentTargetOutput {
+	return o
+}
+
+func (o AssessmentTargetOutput) ToAssessmentTargetOutputWithContext(ctx context.Context) AssessmentTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssessmentTargetOutput{})
 }

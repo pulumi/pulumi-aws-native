@@ -156,6 +156,8 @@ func (o ServerAttributesPtrOutput) ServerId() pulumi.StringPtrOutput {
 type ServerEndpointDetails struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-addressallocationids
 	AddressAllocationIds []string `pulumi:"AddressAllocationIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
+	SecurityGroupIds []string `pulumi:"SecurityGroupIds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-subnetids
 	SubnetIds []string `pulumi:"SubnetIds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-vpcendpointid
@@ -179,6 +181,8 @@ type ServerEndpointDetailsInput interface {
 type ServerEndpointDetailsArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-addressallocationids
 	AddressAllocationIds pulumi.StringArrayInput `pulumi:"AddressAllocationIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"SecurityGroupIds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-subnetids
 	SubnetIds pulumi.StringArrayInput `pulumi:"SubnetIds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-vpcendpointid
@@ -270,6 +274,11 @@ func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOu
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.AddressAllocationIds }).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
+func (o ServerEndpointDetailsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-subnetids
 func (o ServerEndpointDetailsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
@@ -310,6 +319,16 @@ func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArra
 			return nil
 		}
 		return v.AddressAllocationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
+func (o ServerEndpointDetailsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -512,6 +531,8 @@ type ServerProperties struct {
 	LoggingRole *string `pulumi:"LoggingRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocols
 	Protocols []ServerProtocol `pulumi:"Protocols"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+	SecurityPolicyName *string `pulumi:"SecurityPolicyName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
 	Tags []cloudformation.Tag `pulumi:"Tags"`
 }
@@ -543,6 +564,8 @@ type ServerPropertiesArgs struct {
 	LoggingRole pulumi.StringPtrInput `pulumi:"LoggingRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocols
 	Protocols ServerProtocolArrayInput `pulumi:"Protocols"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+	SecurityPolicyName pulumi.StringPtrInput `pulumi:"SecurityPolicyName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
 	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 }
@@ -660,6 +683,11 @@ func (o ServerPropertiesOutput) Protocols() ServerProtocolArrayOutput {
 	return o.ApplyT(func(v ServerProperties) []ServerProtocol { return v.Protocols }).(ServerProtocolArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+func (o ServerPropertiesOutput) SecurityPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerProperties) *string { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
 func (o ServerPropertiesOutput) Tags() cloudformation.TagArrayOutput {
 	return o.ApplyT(func(v ServerProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
@@ -751,6 +779,16 @@ func (o ServerPropertiesPtrOutput) Protocols() ServerProtocolArrayOutput {
 		}
 		return v.Protocols
 	}).(ServerProtocolArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+func (o ServerPropertiesPtrOutput) SecurityPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityPolicyName
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags

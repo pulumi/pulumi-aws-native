@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EmailChannel struct {
 // NewEmailChannel registers a new resource with the given unique name, arguments, and options.
 func NewEmailChannel(ctx *pulumi.Context,
 	name string, args *EmailChannelArgs, opts ...pulumi.ResourceOption) (*EmailChannel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EmailChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EmailChannel
 	err := ctx.RegisterResource("cloudformation:Pinpoint:EmailChannel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EmailChannelArgs struct {
 
 func (EmailChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailChannelArgs)(nil)).Elem()
+}
+
+type EmailChannelInput interface {
+	pulumi.Input
+
+	ToEmailChannelOutput() EmailChannelOutput
+	ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput
+}
+
+func (*EmailChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannel)(nil))
+}
+
+func (i *EmailChannel) ToEmailChannelOutput() EmailChannelOutput {
+	return i.ToEmailChannelOutputWithContext(context.Background())
+}
+
+func (i *EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelOutput)
+}
+
+type EmailChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannel)(nil))
+}
+
+func (o EmailChannelOutput) ToEmailChannelOutput() EmailChannelOutput {
+	return o
+}
+
+func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EmailChannelOutput{})
 }

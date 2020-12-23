@@ -4,6 +4,7 @@
 package gamelift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GameSessionQueue struct {
 // NewGameSessionQueue registers a new resource with the given unique name, arguments, and options.
 func NewGameSessionQueue(ctx *pulumi.Context,
 	name string, args *GameSessionQueueArgs, opts ...pulumi.ResourceOption) (*GameSessionQueue, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GameSessionQueueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GameSessionQueue
 	err := ctx.RegisterResource("cloudformation:GameLift:GameSessionQueue", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GameSessionQueueArgs struct {
 
 func (GameSessionQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gameSessionQueueArgs)(nil)).Elem()
+}
+
+type GameSessionQueueInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueOutput() GameSessionQueueOutput
+	ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput
+}
+
+func (*GameSessionQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueue)(nil))
+}
+
+func (i *GameSessionQueue) ToGameSessionQueueOutput() GameSessionQueueOutput {
+	return i.ToGameSessionQueueOutputWithContext(context.Background())
+}
+
+func (i *GameSessionQueue) ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueOutput)
+}
+
+type GameSessionQueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (GameSessionQueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueue)(nil))
+}
+
+func (o GameSessionQueueOutput) ToGameSessionQueueOutput() GameSessionQueueOutput {
+	return o
+}
+
+func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GameSessionQueueOutput{})
 }

@@ -4,6 +4,7 @@
 package mediaconvert
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Queue struct {
 // NewQueue registers a new resource with the given unique name, arguments, and options.
 func NewQueue(ctx *pulumi.Context,
 	name string, args *QueueArgs, opts ...pulumi.ResourceOption) (*Queue, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &QueueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Queue
 	err := ctx.RegisterResource("cloudformation:MediaConvert:Queue", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type QueueArgs struct {
 
 func (QueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueArgs)(nil)).Elem()
+}
+
+type QueueInput interface {
+	pulumi.Input
+
+	ToQueueOutput() QueueOutput
+	ToQueueOutputWithContext(ctx context.Context) QueueOutput
+}
+
+func (*Queue) ElementType() reflect.Type {
+	return reflect.TypeOf((*Queue)(nil))
+}
+
+func (i *Queue) ToQueueOutput() QueueOutput {
+	return i.ToQueueOutputWithContext(context.Background())
+}
+
+func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
+}
+
+type QueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Queue)(nil))
+}
+
+func (o QueueOutput) ToQueueOutput() QueueOutput {
+	return o
+}
+
+func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueueOutput{})
 }

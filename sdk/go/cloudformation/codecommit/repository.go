@@ -4,6 +4,7 @@
 package codecommit
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Repository struct {
 // NewRepository registers a new resource with the given unique name, arguments, and options.
 func NewRepository(ctx *pulumi.Context,
 	name string, args *RepositoryArgs, opts ...pulumi.ResourceOption) (*Repository, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RepositoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Repository
 	err := ctx.RegisterResource("cloudformation:CodeCommit:Repository", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RepositoryArgs struct {
 
 func (RepositoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryArgs)(nil)).Elem()
+}
+
+type RepositoryInput interface {
+	pulumi.Input
+
+	ToRepositoryOutput() RepositoryOutput
+	ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput
+}
+
+func (*Repository) ElementType() reflect.Type {
+	return reflect.TypeOf((*Repository)(nil))
+}
+
+func (i *Repository) ToRepositoryOutput() RepositoryOutput {
+	return i.ToRepositoryOutputWithContext(context.Background())
+}
+
+func (i *Repository) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryOutput)
+}
+
+type RepositoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Repository)(nil))
+}
+
+func (o RepositoryOutput) ToRepositoryOutput() RepositoryOutput {
+	return o
+}
+
+func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryOutput{})
 }

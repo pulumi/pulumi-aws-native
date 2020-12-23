@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DataSource struct {
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
 func NewDataSource(ctx *pulumi.Context,
 	name string, args *DataSourceArgs, opts ...pulumi.ResourceOption) (*DataSource, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DataSourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DataSource
 	err := ctx.RegisterResource("cloudformation:AppSync:DataSource", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DataSourceArgs struct {
 
 func (DataSourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceArgs)(nil)).Elem()
+}
+
+type DataSourceInput interface {
+	pulumi.Input
+
+	ToDataSourceOutput() DataSourceOutput
+	ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput
+}
+
+func (*DataSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSource)(nil))
+}
+
+func (i *DataSource) ToDataSourceOutput() DataSourceOutput {
+	return i.ToDataSourceOutputWithContext(context.Background())
+}
+
+func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
+}
+
+type DataSourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSource)(nil))
+}
+
+func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {
+	return o
+}
+
+func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataSourceOutput{})
 }

@@ -4,6 +4,7 @@
 package budgets
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Budget struct {
 // NewBudget registers a new resource with the given unique name, arguments, and options.
 func NewBudget(ctx *pulumi.Context,
 	name string, args *BudgetArgs, opts ...pulumi.ResourceOption) (*Budget, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &BudgetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Budget
 	err := ctx.RegisterResource("cloudformation:Budgets:Budget", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type BudgetArgs struct {
 
 func (BudgetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetArgs)(nil)).Elem()
+}
+
+type BudgetInput interface {
+	pulumi.Input
+
+	ToBudgetOutput() BudgetOutput
+	ToBudgetOutputWithContext(ctx context.Context) BudgetOutput
+}
+
+func (*Budget) ElementType() reflect.Type {
+	return reflect.TypeOf((*Budget)(nil))
+}
+
+func (i *Budget) ToBudgetOutput() BudgetOutput {
+	return i.ToBudgetOutputWithContext(context.Background())
+}
+
+func (i *Budget) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetOutput)
+}
+
+type BudgetOutput struct {
+	*pulumi.OutputState
+}
+
+func (BudgetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Budget)(nil))
+}
+
+func (o BudgetOutput) ToBudgetOutput() BudgetOutput {
+	return o
+}
+
+func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BudgetOutput{})
 }

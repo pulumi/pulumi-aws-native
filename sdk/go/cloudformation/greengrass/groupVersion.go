@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GroupVersion struct {
 // NewGroupVersion registers a new resource with the given unique name, arguments, and options.
 func NewGroupVersion(ctx *pulumi.Context,
 	name string, args *GroupVersionArgs, opts ...pulumi.ResourceOption) (*GroupVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GroupVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GroupVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:GroupVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GroupVersionArgs struct {
 
 func (GroupVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupVersionArgs)(nil)).Elem()
+}
+
+type GroupVersionInput interface {
+	pulumi.Input
+
+	ToGroupVersionOutput() GroupVersionOutput
+	ToGroupVersionOutputWithContext(ctx context.Context) GroupVersionOutput
+}
+
+func (*GroupVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupVersion)(nil))
+}
+
+func (i *GroupVersion) ToGroupVersionOutput() GroupVersionOutput {
+	return i.ToGroupVersionOutputWithContext(context.Background())
+}
+
+func (i *GroupVersion) ToGroupVersionOutputWithContext(ctx context.Context) GroupVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupVersionOutput)
+}
+
+type GroupVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (GroupVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupVersion)(nil))
+}
+
+func (o GroupVersionOutput) ToGroupVersionOutput() GroupVersionOutput {
+	return o
+}
+
+func (o GroupVersionOutput) ToGroupVersionOutputWithContext(ctx context.Context) GroupVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GroupVersionOutput{})
 }

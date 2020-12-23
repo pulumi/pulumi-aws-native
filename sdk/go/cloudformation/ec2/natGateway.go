@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NatGateway struct {
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
 func NewNatGateway(ctx *pulumi.Context,
 	name string, args *NatGatewayArgs, opts ...pulumi.ResourceOption) (*NatGateway, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NatGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NatGateway
 	err := ctx.RegisterResource("cloudformation:EC2:NatGateway", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NatGatewayArgs struct {
 
 func (NatGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayArgs)(nil)).Elem()
+}
+
+type NatGatewayInput interface {
+	pulumi.Input
+
+	ToNatGatewayOutput() NatGatewayOutput
+	ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput
+}
+
+func (*NatGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGateway)(nil))
+}
+
+func (i *NatGateway) ToNatGatewayOutput() NatGatewayOutput {
+	return i.ToNatGatewayOutputWithContext(context.Background())
+}
+
+func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
+}
+
+type NatGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGateway)(nil))
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {
+	return o
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NatGatewayOutput{})
 }

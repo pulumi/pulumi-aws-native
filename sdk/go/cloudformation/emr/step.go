@@ -4,6 +4,7 @@
 package emr
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Step struct {
 // NewStep registers a new resource with the given unique name, arguments, and options.
 func NewStep(ctx *pulumi.Context,
 	name string, args *StepArgs, opts ...pulumi.ResourceOption) (*Step, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StepArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Step
 	err := ctx.RegisterResource("cloudformation:EMR:Step", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StepArgs struct {
 
 func (StepArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stepArgs)(nil)).Elem()
+}
+
+type StepInput interface {
+	pulumi.Input
+
+	ToStepOutput() StepOutput
+	ToStepOutputWithContext(ctx context.Context) StepOutput
+}
+
+func (*Step) ElementType() reflect.Type {
+	return reflect.TypeOf((*Step)(nil))
+}
+
+func (i *Step) ToStepOutput() StepOutput {
+	return i.ToStepOutputWithContext(context.Background())
+}
+
+func (i *Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepOutput)
+}
+
+type StepOutput struct {
+	*pulumi.OutputState
+}
+
+func (StepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Step)(nil))
+}
+
+func (o StepOutput) ToStepOutput() StepOutput {
+	return o
+}
+
+func (o StepOutput) ToStepOutputWithContext(ctx context.Context) StepOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StepOutput{})
 }

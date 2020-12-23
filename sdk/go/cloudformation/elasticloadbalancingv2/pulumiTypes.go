@@ -11,23 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html
 type ListenerAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
 	AuthenticateCognitoConfig *ListenerAuthenticateCognitoConfig `pulumi:"AuthenticateCognitoConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
 	AuthenticateOidcConfig *ListenerAuthenticateOidcConfig `pulumi:"AuthenticateOidcConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
 	FixedResponseConfig *ListenerFixedResponseConfig `pulumi:"FixedResponseConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
 	ForwardConfig *ListenerForwardConfig `pulumi:"ForwardConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-order
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-order
 	Order *int `pulumi:"Order"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
 	RedirectConfig *ListenerRedirectConfig `pulumi:"RedirectConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-targetgrouparn
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
 	TargetGroupArn *string `pulumi:"TargetGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-type
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
 	Type string `pulumi:"Type"`
 }
 
@@ -42,23 +42,23 @@ type ListenerActionInput interface {
 	ToListenerActionOutputWithContext(context.Context) ListenerActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html
 type ListenerActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
 	AuthenticateCognitoConfig ListenerAuthenticateCognitoConfigPtrInput `pulumi:"AuthenticateCognitoConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
 	AuthenticateOidcConfig ListenerAuthenticateOidcConfigPtrInput `pulumi:"AuthenticateOidcConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
 	FixedResponseConfig ListenerFixedResponseConfigPtrInput `pulumi:"FixedResponseConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
 	ForwardConfig ListenerForwardConfigPtrInput `pulumi:"ForwardConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-order
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-order
 	Order pulumi.IntPtrInput `pulumi:"Order"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
 	RedirectConfig ListenerRedirectConfigPtrInput `pulumi:"RedirectConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-targetgrouparn
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"TargetGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-type
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
 	Type pulumi.StringInput `pulumi:"Type"`
 }
 
@@ -99,7 +99,7 @@ func (i ListenerActionArray) ToListenerActionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html
 type ListenerActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerActionOutput) ElementType() reflect.Type {
@@ -114,42 +114,42 @@ func (o ListenerActionOutput) ToListenerActionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
 func (o ListenerActionOutput) AuthenticateCognitoConfig() ListenerAuthenticateCognitoConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerAuthenticateCognitoConfig { return v.AuthenticateCognitoConfig }).(ListenerAuthenticateCognitoConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
 func (o ListenerActionOutput) AuthenticateOidcConfig() ListenerAuthenticateOidcConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerAuthenticateOidcConfig { return v.AuthenticateOidcConfig }).(ListenerAuthenticateOidcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
 func (o ListenerActionOutput) FixedResponseConfig() ListenerFixedResponseConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerFixedResponseConfig { return v.FixedResponseConfig }).(ListenerFixedResponseConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
 func (o ListenerActionOutput) ForwardConfig() ListenerForwardConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerForwardConfig { return v.ForwardConfig }).(ListenerForwardConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-order
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-order
 func (o ListenerActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
 func (o ListenerActionOutput) RedirectConfig() ListenerRedirectConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerRedirectConfig { return v.RedirectConfig }).(ListenerRedirectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-targetgrouparn
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
 func (o ListenerActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-type
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
 func (o ListenerActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -175,6 +175,7 @@ func (o ListenerActionArrayOutput) Index(i pulumi.IntInput) ListenerActionOutput
 }
 
 type ListenerAttributes struct {
+	ListenerArn string `pulumi:"ListenerArn"`
 }
 
 // ListenerAttributesInput is an input type that accepts ListenerAttributesArgs and ListenerAttributesOutput values.
@@ -189,6 +190,7 @@ type ListenerAttributesInput interface {
 }
 
 type ListenerAttributesArgs struct {
+	ListenerArn pulumi.StringInput `pulumi:"ListenerArn"`
 }
 
 func (ListenerAttributesArgs) ElementType() reflect.Type {
@@ -267,6 +269,9 @@ func (o ListenerAttributesOutput) ToListenerAttributesPtrOutputWithContext(ctx c
 		return &v
 	}).(ListenerAttributesPtrOutput)
 }
+func (o ListenerAttributesOutput) ListenerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerAttributes) string { return v.ListenerArn }).(pulumi.StringOutput)
+}
 
 type ListenerAttributesPtrOutput struct{ *pulumi.OutputState }
 
@@ -286,6 +291,15 @@ func (o ListenerAttributesPtrOutput) Elem() ListenerAttributesOutput {
 	return o.ApplyT(func(v *ListenerAttributes) ListenerAttributes { return *v }).(ListenerAttributesOutput)
 }
 
+func (o ListenerAttributesPtrOutput) ListenerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ListenerArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html
 type ListenerAuthenticateCognitoConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-authenticationrequestextraparams
@@ -297,7 +311,7 @@ type ListenerAuthenticateCognitoConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessioncookiename
 	SessionCookieName *string `pulumi:"SessionCookieName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessiontimeout
-	SessionTimeout *int `pulumi:"SessionTimeout"`
+	SessionTimeout *string `pulumi:"SessionTimeout"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolarn
 	UserPoolArn string `pulumi:"UserPoolArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolclientid
@@ -328,7 +342,7 @@ type ListenerAuthenticateCognitoConfigArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessioncookiename
 	SessionCookieName pulumi.StringPtrInput `pulumi:"SessionCookieName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessiontimeout
-	SessionTimeout pulumi.IntPtrInput `pulumi:"SessionTimeout"`
+	SessionTimeout pulumi.StringPtrInput `pulumi:"SessionTimeout"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolarn
 	UserPoolArn pulumi.StringInput `pulumi:"UserPoolArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolclientid
@@ -436,8 +450,8 @@ func (o ListenerAuthenticateCognitoConfigOutput) SessionCookieName() pulumi.Stri
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessiontimeout
-func (o ListenerAuthenticateCognitoConfigOutput) SessionTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
+func (o ListenerAuthenticateCognitoConfigOutput) SessionTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) *string { return v.SessionTimeout }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolarn
@@ -514,13 +528,13 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) SessionCookieName() pulumi.S
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessiontimeout
-func (o ListenerAuthenticateCognitoConfigPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *int {
+func (o ListenerAuthenticateCognitoConfigPtrOutput) SessionTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.SessionTimeout
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolarn
@@ -572,7 +586,7 @@ type ListenerAuthenticateOidcConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessioncookiename
 	SessionCookieName *string `pulumi:"SessionCookieName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessiontimeout
-	SessionTimeout *int `pulumi:"SessionTimeout"`
+	SessionTimeout *string `pulumi:"SessionTimeout"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-tokenendpoint
 	TokenEndpoint string `pulumi:"TokenEndpoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-userinfoendpoint
@@ -609,7 +623,7 @@ type ListenerAuthenticateOidcConfigArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessioncookiename
 	SessionCookieName pulumi.StringPtrInput `pulumi:"SessionCookieName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessiontimeout
-	SessionTimeout pulumi.IntPtrInput `pulumi:"SessionTimeout"`
+	SessionTimeout pulumi.StringPtrInput `pulumi:"SessionTimeout"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-tokenendpoint
 	TokenEndpoint pulumi.StringInput `pulumi:"TokenEndpoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-userinfoendpoint
@@ -735,8 +749,8 @@ func (o ListenerAuthenticateOidcConfigOutput) SessionCookieName() pulumi.StringP
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessiontimeout
-func (o ListenerAuthenticateOidcConfigOutput) SessionTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
+func (o ListenerAuthenticateOidcConfigOutput) SessionTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *string { return v.SessionTimeout }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-tokenendpoint
@@ -848,13 +862,13 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) SessionCookieName() pulumi.Stri
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessiontimeout
-func (o ListenerAuthenticateOidcConfigPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *int {
+func (o ListenerAuthenticateOidcConfigPtrOutput) SessionTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.SessionTimeout
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-tokenendpoint
@@ -877,9 +891,9 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) UserInfoEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
 type ListenerCertificateType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
 	CertificateArn *string `pulumi:"CertificateArn"`
 }
 
@@ -894,9 +908,9 @@ type ListenerCertificateTypeInput interface {
 	ToListenerCertificateTypeOutputWithContext(context.Context) ListenerCertificateTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
 type ListenerCertificateTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
 	CertificateArn pulumi.StringPtrInput `pulumi:"CertificateArn"`
 }
 
@@ -937,7 +951,7 @@ func (i ListenerCertificateTypeArray) ToListenerCertificateTypeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
 type ListenerCertificateTypeOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateTypeOutput) ElementType() reflect.Type {
@@ -952,7 +966,7 @@ func (o ListenerCertificateTypeOutput) ToListenerCertificateTypeOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
 func (o ListenerCertificateTypeOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerCertificateType) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -1671,6 +1685,8 @@ func (o ListenerForwardConfigPtrOutput) TargetGroups() ListenerTargetGroupTupleA
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
 type ListenerProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+	AlpnPolicy []string `pulumi:"AlpnPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
 	Certificates []ListenerCertificateType `pulumi:"Certificates"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
@@ -1678,9 +1694,9 @@ type ListenerProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
 	LoadBalancerArn string `pulumi:"LoadBalancerArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port int `pulumi:"Port"`
+	Port *int `pulumi:"Port"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-	Protocol string `pulumi:"Protocol"`
+	Protocol *string `pulumi:"Protocol"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
 	SslPolicy *string `pulumi:"SslPolicy"`
 }
@@ -1698,6 +1714,8 @@ type ListenerPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
 type ListenerPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+	AlpnPolicy pulumi.StringArrayInput `pulumi:"AlpnPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
 	Certificates ListenerCertificateTypeArrayInput `pulumi:"Certificates"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
@@ -1705,9 +1723,9 @@ type ListenerPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
 	LoadBalancerArn pulumi.StringInput `pulumi:"LoadBalancerArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port pulumi.IntInput `pulumi:"Port"`
+	Port pulumi.IntPtrInput `pulumi:"Port"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-	Protocol pulumi.StringInput `pulumi:"Protocol"`
+	Protocol pulumi.StringPtrInput `pulumi:"Protocol"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
 	SslPolicy pulumi.StringPtrInput `pulumi:"SslPolicy"`
 }
@@ -1790,6 +1808,11 @@ func (o ListenerPropertiesOutput) ToListenerPropertiesPtrOutputWithContext(ctx c
 	}).(ListenerPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+func (o ListenerPropertiesOutput) AlpnPolicy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerProperties) []string { return v.AlpnPolicy }).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
 func (o ListenerPropertiesOutput) Certificates() ListenerCertificateTypeArrayOutput {
 	return o.ApplyT(func(v ListenerProperties) []ListenerCertificateType { return v.Certificates }).(ListenerCertificateTypeArrayOutput)
@@ -1806,13 +1829,13 @@ func (o ListenerPropertiesOutput) LoadBalancerArn() pulumi.StringOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-func (o ListenerPropertiesOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v ListenerProperties) int { return v.Port }).(pulumi.IntOutput)
+func (o ListenerPropertiesOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-func (o ListenerPropertiesOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v ListenerProperties) string { return v.Protocol }).(pulumi.StringOutput)
+func (o ListenerPropertiesOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerProperties) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
@@ -1836,6 +1859,16 @@ func (o ListenerPropertiesPtrOutput) ToListenerPropertiesPtrOutputWithContext(ct
 
 func (o ListenerPropertiesPtrOutput) Elem() ListenerPropertiesOutput {
 	return o.ApplyT(func(v *ListenerProperties) ListenerProperties { return *v }).(ListenerPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+func (o ListenerPropertiesPtrOutput) AlpnPolicy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ListenerProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlpnPolicy
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
@@ -1874,7 +1907,7 @@ func (o ListenerPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Port
+		return v.Port
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1884,7 +1917,7 @@ func (o ListenerPropertiesPtrOutput) Protocol() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Protocol
+		return v.Protocol
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5950,6 +5983,8 @@ func (o LoadBalancerPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 type LoadBalancerSubnetMapping struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-allocationid
 	AllocationId *string `pulumi:"AllocationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+	IPv6Address *string `pulumi:"IPv6Address"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
 	PrivateIPv4Address *string `pulumi:"PrivateIPv4Address"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-subnetid
@@ -5971,6 +6006,8 @@ type LoadBalancerSubnetMappingInput interface {
 type LoadBalancerSubnetMappingArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-allocationid
 	AllocationId pulumi.StringPtrInput `pulumi:"AllocationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+	IPv6Address pulumi.StringPtrInput `pulumi:"IPv6Address"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
 	PrivateIPv4Address pulumi.StringPtrInput `pulumi:"PrivateIPv4Address"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-subnetid
@@ -6032,6 +6069,11 @@ func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutputWithCo
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-allocationid
 func (o LoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+func (o LoadBalancerSubnetMappingOutput) IPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.IPv6Address }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
@@ -6223,7 +6265,7 @@ func (o TargetGroupAttributesPtrOutput) TargetGroupName() pulumi.StringPtrOutput
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
 type TargetGroupMatcher struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
-	HttpCode string `pulumi:"HttpCode"`
+	HttpCode *string `pulumi:"HttpCode"`
 }
 
 // TargetGroupMatcherInput is an input type that accepts TargetGroupMatcherArgs and TargetGroupMatcherOutput values.
@@ -6240,7 +6282,7 @@ type TargetGroupMatcherInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
 type TargetGroupMatcherArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
-	HttpCode pulumi.StringInput `pulumi:"HttpCode"`
+	HttpCode pulumi.StringPtrInput `pulumi:"HttpCode"`
 }
 
 func (TargetGroupMatcherArgs) ElementType() reflect.Type {
@@ -6322,8 +6364,8 @@ func (o TargetGroupMatcherOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx c
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
-func (o TargetGroupMatcherOutput) HttpCode() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetGroupMatcher) string { return v.HttpCode }).(pulumi.StringOutput)
+func (o TargetGroupMatcherOutput) HttpCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupMatcher) *string { return v.HttpCode }).(pulumi.StringPtrOutput)
 }
 
 type TargetGroupMatcherPtrOutput struct{ *pulumi.OutputState }
@@ -6350,7 +6392,7 @@ func (o TargetGroupMatcherPtrOutput) HttpCode() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.HttpCode
+		return v.HttpCode
 	}).(pulumi.StringPtrOutput)
 }
 

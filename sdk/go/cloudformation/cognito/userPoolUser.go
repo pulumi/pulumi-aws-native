@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolUser struct {
 // NewUserPoolUser registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolUser(ctx *pulumi.Context,
 	name string, args *UserPoolUserArgs, opts ...pulumi.ResourceOption) (*UserPoolUser, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolUserArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolUser
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolUser", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolUserArgs struct {
 
 func (UserPoolUserArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolUserArgs)(nil)).Elem()
+}
+
+type UserPoolUserInput interface {
+	pulumi.Input
+
+	ToUserPoolUserOutput() UserPoolUserOutput
+	ToUserPoolUserOutputWithContext(ctx context.Context) UserPoolUserOutput
+}
+
+func (*UserPoolUser) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUser)(nil))
+}
+
+func (i *UserPoolUser) ToUserPoolUserOutput() UserPoolUserOutput {
+	return i.ToUserPoolUserOutputWithContext(context.Background())
+}
+
+func (i *UserPoolUser) ToUserPoolUserOutputWithContext(ctx context.Context) UserPoolUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserOutput)
+}
+
+type UserPoolUserOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUser)(nil))
+}
+
+func (o UserPoolUserOutput) ToUserPoolUserOutput() UserPoolUserOutput {
+	return o
+}
+
+func (o UserPoolUserOutput) ToUserPoolUserOutputWithContext(ctx context.Context) UserPoolUserOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolUserOutput{})
 }

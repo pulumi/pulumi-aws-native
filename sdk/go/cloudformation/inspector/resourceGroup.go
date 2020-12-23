@@ -4,6 +4,7 @@
 package inspector
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResourceGroup struct {
 // NewResourceGroup registers a new resource with the given unique name, arguments, and options.
 func NewResourceGroup(ctx *pulumi.Context,
 	name string, args *ResourceGroupArgs, opts ...pulumi.ResourceOption) (*ResourceGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResourceGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResourceGroup
 	err := ctx.RegisterResource("cloudformation:Inspector:ResourceGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResourceGroupArgs struct {
 
 func (ResourceGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupArgs)(nil)).Elem()
+}
+
+type ResourceGroupInput interface {
+	pulumi.Input
+
+	ToResourceGroupOutput() ResourceGroupOutput
+	ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput
+}
+
+func (*ResourceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroup)(nil))
+}
+
+func (i *ResourceGroup) ToResourceGroupOutput() ResourceGroupOutput {
+	return i.ToResourceGroupOutputWithContext(context.Background())
+}
+
+func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
+}
+
+type ResourceGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroup)(nil))
+}
+
+func (o ResourceGroupOutput) ToResourceGroupOutput() ResourceGroupOutput {
+	return o
+}
+
+func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceGroupOutput{})
 }

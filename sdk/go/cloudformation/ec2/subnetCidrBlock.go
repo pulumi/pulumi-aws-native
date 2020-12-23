@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SubnetCidrBlock struct {
 // NewSubnetCidrBlock registers a new resource with the given unique name, arguments, and options.
 func NewSubnetCidrBlock(ctx *pulumi.Context,
 	name string, args *SubnetCidrBlockArgs, opts ...pulumi.ResourceOption) (*SubnetCidrBlock, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SubnetCidrBlockArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SubnetCidrBlock
 	err := ctx.RegisterResource("cloudformation:EC2:SubnetCidrBlock", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SubnetCidrBlockArgs struct {
 
 func (SubnetCidrBlockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetCidrBlockArgs)(nil)).Elem()
+}
+
+type SubnetCidrBlockInput interface {
+	pulumi.Input
+
+	ToSubnetCidrBlockOutput() SubnetCidrBlockOutput
+	ToSubnetCidrBlockOutputWithContext(ctx context.Context) SubnetCidrBlockOutput
+}
+
+func (*SubnetCidrBlock) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetCidrBlock)(nil))
+}
+
+func (i *SubnetCidrBlock) ToSubnetCidrBlockOutput() SubnetCidrBlockOutput {
+	return i.ToSubnetCidrBlockOutputWithContext(context.Background())
+}
+
+func (i *SubnetCidrBlock) ToSubnetCidrBlockOutputWithContext(ctx context.Context) SubnetCidrBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrBlockOutput)
+}
+
+type SubnetCidrBlockOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetCidrBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetCidrBlock)(nil))
+}
+
+func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutput() SubnetCidrBlockOutput {
+	return o
+}
+
+func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutputWithContext(ctx context.Context) SubnetCidrBlockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubnetCidrBlockOutput{})
 }

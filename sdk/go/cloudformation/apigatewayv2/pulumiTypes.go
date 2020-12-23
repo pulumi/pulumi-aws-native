@@ -11,6 +11,7 @@ import (
 )
 
 type ApiAttributes struct {
+	ApiEndpoint string `pulumi:"ApiEndpoint"`
 }
 
 // ApiAttributesInput is an input type that accepts ApiAttributesArgs and ApiAttributesOutput values.
@@ -25,6 +26,7 @@ type ApiAttributesInput interface {
 }
 
 type ApiAttributesArgs struct {
+	ApiEndpoint pulumi.StringInput `pulumi:"ApiEndpoint"`
 }
 
 func (ApiAttributesArgs) ElementType() reflect.Type {
@@ -103,6 +105,9 @@ func (o ApiAttributesOutput) ToApiAttributesPtrOutputWithContext(ctx context.Con
 		return &v
 	}).(ApiAttributesPtrOutput)
 }
+func (o ApiAttributesOutput) ApiEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiAttributes) string { return v.ApiEndpoint }).(pulumi.StringOutput)
+}
 
 type ApiAttributesPtrOutput struct{ *pulumi.OutputState }
 
@@ -120,6 +125,15 @@ func (o ApiAttributesPtrOutput) ToApiAttributesPtrOutputWithContext(ctx context.
 
 func (o ApiAttributesPtrOutput) Elem() ApiAttributesOutput {
 	return o.ApplyT(func(v *ApiAttributes) ApiAttributes { return *v }).(ApiAttributesOutput)
+}
+
+func (o ApiAttributesPtrOutput) ApiEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html
@@ -861,6 +875,8 @@ type ApiProperties struct {
 	CredentialsArn *string `pulumi:"CredentialsArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-description
 	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
+	DisableExecuteApiEndpoint *bool `pulumi:"DisableExecuteApiEndpoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
 	DisableSchemaValidation *bool `pulumi:"DisableSchemaValidation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-failonwarnings
@@ -908,6 +924,8 @@ type ApiPropertiesArgs struct {
 	CredentialsArn pulumi.StringPtrInput `pulumi:"CredentialsArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-description
 	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
+	DisableExecuteApiEndpoint pulumi.BoolPtrInput `pulumi:"DisableExecuteApiEndpoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
 	DisableSchemaValidation pulumi.BoolPtrInput `pulumi:"DisableSchemaValidation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-failonwarnings
@@ -1041,6 +1059,11 @@ func (o ApiPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
+func (o ApiPropertiesOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApiProperties) *bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
 func (o ApiPropertiesOutput) DisableSchemaValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApiProperties) *bool { return v.DisableSchemaValidation }).(pulumi.BoolPtrOutput)
@@ -1172,6 +1195,16 @@ func (o ApiPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
+func (o ApiPropertiesPtrOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableExecuteApiEndpoint
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
@@ -1535,12 +1568,16 @@ type AuthorizerProperties struct {
 	ApiId string `pulumi:"ApiId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizercredentialsarn
 	AuthorizerCredentialsArn *string `pulumi:"AuthorizerCredentialsArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+	AuthorizerPayloadFormatVersion *string `pulumi:"AuthorizerPayloadFormatVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
 	AuthorizerResultTtlInSeconds *int `pulumi:"AuthorizerResultTtlInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizertype
 	AuthorizerType string `pulumi:"AuthorizerType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
 	AuthorizerUri *string `pulumi:"AuthorizerUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+	EnableSimpleResponses *bool `pulumi:"EnableSimpleResponses"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	IdentitySource []string `pulumi:"IdentitySource"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identityvalidationexpression
@@ -1568,12 +1605,16 @@ type AuthorizerPropertiesArgs struct {
 	ApiId pulumi.StringInput `pulumi:"ApiId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizercredentialsarn
 	AuthorizerCredentialsArn pulumi.StringPtrInput `pulumi:"AuthorizerCredentialsArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+	AuthorizerPayloadFormatVersion pulumi.StringPtrInput `pulumi:"AuthorizerPayloadFormatVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
 	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"AuthorizerResultTtlInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizertype
 	AuthorizerType pulumi.StringInput `pulumi:"AuthorizerType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
 	AuthorizerUri pulumi.StringPtrInput `pulumi:"AuthorizerUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+	EnableSimpleResponses pulumi.BoolPtrInput `pulumi:"EnableSimpleResponses"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	IdentitySource pulumi.StringArrayInput `pulumi:"IdentitySource"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identityvalidationexpression
@@ -1672,6 +1713,11 @@ func (o AuthorizerPropertiesOutput) AuthorizerCredentialsArn() pulumi.StringPtrO
 	return o.ApplyT(func(v AuthorizerProperties) *string { return v.AuthorizerCredentialsArn }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+func (o AuthorizerPropertiesOutput) AuthorizerPayloadFormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *string { return v.AuthorizerPayloadFormatVersion }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
 func (o AuthorizerPropertiesOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AuthorizerProperties) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
@@ -1685,6 +1731,11 @@ func (o AuthorizerPropertiesOutput) AuthorizerType() pulumi.StringOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
 func (o AuthorizerPropertiesOutput) AuthorizerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizerProperties) *string { return v.AuthorizerUri }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+func (o AuthorizerPropertiesOutput) EnableSimpleResponses() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *bool { return v.EnableSimpleResponses }).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
@@ -1745,6 +1796,16 @@ func (o AuthorizerPropertiesPtrOutput) AuthorizerCredentialsArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+func (o AuthorizerPropertiesPtrOutput) AuthorizerPayloadFormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerPayloadFormatVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
 func (o AuthorizerPropertiesPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AuthorizerProperties) *int {
@@ -1773,6 +1834,16 @@ func (o AuthorizerPropertiesPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
 		}
 		return v.AuthorizerUri
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+func (o AuthorizerPropertiesPtrOutput) EnableSimpleResponses() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSimpleResponses
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
@@ -2248,6 +2319,8 @@ type DomainNameDomainNameConfiguration struct {
 	CertificateName *string `pulumi:"CertificateName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype
 	EndpointType *string `pulumi:"EndpointType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy
+	SecurityPolicy *string `pulumi:"SecurityPolicy"`
 }
 
 // DomainNameDomainNameConfigurationInput is an input type that accepts DomainNameDomainNameConfigurationArgs and DomainNameDomainNameConfigurationOutput values.
@@ -2269,6 +2342,8 @@ type DomainNameDomainNameConfigurationArgs struct {
 	CertificateName pulumi.StringPtrInput `pulumi:"CertificateName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype
 	EndpointType pulumi.StringPtrInput `pulumi:"EndpointType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy
+	SecurityPolicy pulumi.StringPtrInput `pulumi:"SecurityPolicy"`
 }
 
 func (DomainNameDomainNameConfigurationArgs) ElementType() reflect.Type {
@@ -2338,6 +2413,11 @@ func (o DomainNameDomainNameConfigurationOutput) EndpointType() pulumi.StringPtr
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy
+func (o DomainNameDomainNameConfigurationOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
 type DomainNameDomainNameConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainNameDomainNameConfigurationArrayOutput) ElementType() reflect.Type {
@@ -2358,12 +2438,167 @@ func (o DomainNameDomainNameConfigurationArrayOutput) Index(i pulumi.IntInput) D
 	}).(DomainNameDomainNameConfigurationOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html
+type DomainNameMutualTlsAuthentication struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreuri
+	TruststoreUri *string `pulumi:"TruststoreUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreversion
+	TruststoreVersion *string `pulumi:"TruststoreVersion"`
+}
+
+// DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+type DomainNameMutualTlsAuthenticationInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput
+	ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html
+type DomainNameMutualTlsAuthenticationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreuri
+	TruststoreUri pulumi.StringPtrInput `pulumi:"TruststoreUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreversion
+	TruststoreVersion pulumi.StringPtrInput `pulumi:"TruststoreVersion"`
+}
+
+func (DomainNameMutualTlsAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return i.ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput).ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx)
+}
+
+// DomainNameMutualTlsAuthenticationPtrInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs, DomainNameMutualTlsAuthenticationPtr and DomainNameMutualTlsAuthenticationPtrOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationPtrInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainNameMutualTlsAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput
+	ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationPtrOutput
+}
+
+type domainNameMutualTlsAuthenticationPtrType DomainNameMutualTlsAuthenticationArgs
+
+func DomainNameMutualTlsAuthenticationPtr(v *DomainNameMutualTlsAuthenticationArgs) DomainNameMutualTlsAuthenticationPtrInput {
+	return (*domainNameMutualTlsAuthenticationPtrType)(v)
+}
+
+func (*domainNameMutualTlsAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html
+type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
+		return &v
+	}).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreuri
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreUri }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreversion
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
+}
+
+type DomainNameMutualTlsAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication { return *v }).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreuri
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TruststoreUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html#cfn-apigatewayv2-domainname-mutualtlsauthentication-truststoreversion
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TruststoreVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html
 type DomainNameProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainname
 	DomainName string `pulumi:"DomainName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations
 	DomainNameConfigurations []DomainNameDomainNameConfiguration `pulumi:"DomainNameConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"MutualTlsAuthentication"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
 	Tags interface{} `pulumi:"Tags"`
 }
@@ -2385,6 +2620,8 @@ type DomainNamePropertiesArgs struct {
 	DomainName pulumi.StringInput `pulumi:"DomainName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations
 	DomainNameConfigurations DomainNameDomainNameConfigurationArrayInput `pulumi:"DomainNameConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput `pulumi:"MutualTlsAuthentication"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
 	Tags pulumi.Input `pulumi:"Tags"`
 }
@@ -2477,6 +2714,11 @@ func (o DomainNamePropertiesOutput) DomainNameConfigurations() DomainNameDomainN
 	return o.ApplyT(func(v DomainNameProperties) []DomainNameDomainNameConfiguration { return v.DomainNameConfigurations }).(DomainNameDomainNameConfigurationArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
+func (o DomainNamePropertiesOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v DomainNameProperties) *DomainNameMutualTlsAuthentication { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
 func (o DomainNamePropertiesOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v DomainNameProperties) interface{} { return v.Tags }).(pulumi.AnyOutput)
@@ -2518,6 +2760,16 @@ func (o DomainNamePropertiesPtrOutput) DomainNameConfigurations() DomainNameDoma
 		}
 		return v.DomainNameConfigurations
 	}).(DomainNameDomainNameConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
+func (o DomainNamePropertiesPtrOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v *DomainNameProperties) *DomainNameMutualTlsAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.MutualTlsAuthentication
+	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
@@ -2658,6 +2910,8 @@ type IntegrationProperties struct {
 	Description *string `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationmethod
 	IntegrationMethod *string `pulumi:"IntegrationMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
+	IntegrationSubtype *string `pulumi:"IntegrationSubtype"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
 	IntegrationType string `pulumi:"IntegrationType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationuri
@@ -2705,6 +2959,8 @@ type IntegrationPropertiesArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationmethod
 	IntegrationMethod pulumi.StringPtrInput `pulumi:"IntegrationMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
+	IntegrationSubtype pulumi.StringPtrInput `pulumi:"IntegrationSubtype"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
 	IntegrationType pulumi.StringInput `pulumi:"IntegrationType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationuri
@@ -2838,6 +3094,11 @@ func (o IntegrationPropertiesOutput) IntegrationMethod() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v IntegrationProperties) *string { return v.IntegrationMethod }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
+func (o IntegrationPropertiesOutput) IntegrationSubtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationProperties) *string { return v.IntegrationSubtype }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
 func (o IntegrationPropertiesOutput) IntegrationType() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationProperties) string { return v.IntegrationType }).(pulumi.StringOutput)
@@ -2968,6 +3229,16 @@ func (o IntegrationPropertiesPtrOutput) IntegrationMethod() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.IntegrationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
+func (o IntegrationPropertiesPtrOutput) IntegrationSubtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationSubtype
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5609,6 +5880,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameAttributesPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNamePropertiesOutput{})
 	pulumi.RegisterOutputType(DomainNamePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAttributesOutput{})

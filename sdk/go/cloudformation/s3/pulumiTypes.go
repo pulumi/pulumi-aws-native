@@ -2742,6 +2742,142 @@ func (o BucketFilterRuleArrayOutput) Index(i pulumi.IntInput) BucketFilterRuleOu
 	}).(BucketFilterRuleOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html
+type BucketIntelligentTieringConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-id
+	Id string `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-prefix
+	Prefix *string `pulumi:"Prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-status
+	Status string `pulumi:"Status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tagfilters
+	TagFilters []BucketTagFilter `pulumi:"TagFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tierings
+	Tierings []BucketTiering `pulumi:"Tierings"`
+}
+
+// BucketIntelligentTieringConfigurationInput is an input type that accepts BucketIntelligentTieringConfigurationArgs and BucketIntelligentTieringConfigurationOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationInput` via:
+//
+//          BucketIntelligentTieringConfigurationArgs{...}
+type BucketIntelligentTieringConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput
+	ToBucketIntelligentTieringConfigurationOutputWithContext(context.Context) BucketIntelligentTieringConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html
+type BucketIntelligentTieringConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-id
+	Id pulumi.StringInput `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"Prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-status
+	Status pulumi.StringInput `pulumi:"Status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tagfilters
+	TagFilters BucketTagFilterArrayInput `pulumi:"TagFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tierings
+	Tierings BucketTieringArrayInput `pulumi:"Tierings"`
+}
+
+func (BucketIntelligentTieringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (i BucketIntelligentTieringConfigurationArgs) ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput {
+	return i.ToBucketIntelligentTieringConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationArgs) ToBucketIntelligentTieringConfigurationOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationOutput)
+}
+
+// BucketIntelligentTieringConfigurationArrayInput is an input type that accepts BucketIntelligentTieringConfigurationArray and BucketIntelligentTieringConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationArrayInput` via:
+//
+//          BucketIntelligentTieringConfigurationArray{ BucketIntelligentTieringConfigurationArgs{...} }
+type BucketIntelligentTieringConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationArrayOutput() BucketIntelligentTieringConfigurationArrayOutput
+	ToBucketIntelligentTieringConfigurationArrayOutputWithContext(context.Context) BucketIntelligentTieringConfigurationArrayOutput
+}
+
+type BucketIntelligentTieringConfigurationArray []BucketIntelligentTieringConfigurationInput
+
+func (BucketIntelligentTieringConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringConfigurationArrayOutput() BucketIntelligentTieringConfigurationArrayOutput {
+	return i.ToBucketIntelligentTieringConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html
+type BucketIntelligentTieringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-id
+func (o BucketIntelligentTieringConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-prefix
+func (o BucketIntelligentTieringConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-status
+func (o BucketIntelligentTieringConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tagfilters
+func (o BucketIntelligentTieringConfigurationOutput) TagFilters() BucketTagFilterArrayOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) []BucketTagFilter { return v.TagFilters }).(BucketTagFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tierings
+func (o BucketIntelligentTieringConfigurationOutput) Tierings() BucketTieringArrayOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) []BucketTiering { return v.Tierings }).(BucketTieringArrayOutput)
+}
+
+type BucketIntelligentTieringConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTieringConfigurationArrayOutput() BucketIntelligentTieringConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationArrayOutput) Index(i pulumi.IntInput) BucketIntelligentTieringConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketIntelligentTieringConfiguration {
+		return vs[0].([]BucketIntelligentTieringConfiguration)[vs[1].(int)]
+	}).(BucketIntelligentTieringConfigurationOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html
 type BucketInventoryConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination
@@ -3304,7 +3440,7 @@ func (o BucketLoggingConfigurationPtrOutput) LogFilePrefix() pulumi.StringPtrOut
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
 type BucketMetrics struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
-	EventThreshold BucketReplicationTimeValue `pulumi:"EventThreshold"`
+	EventThreshold *BucketReplicationTimeValue `pulumi:"EventThreshold"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
 	Status string `pulumi:"Status"`
 }
@@ -3323,7 +3459,7 @@ type BucketMetricsInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
 type BucketMetricsArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
-	EventThreshold BucketReplicationTimeValueInput `pulumi:"EventThreshold"`
+	EventThreshold BucketReplicationTimeValuePtrInput `pulumi:"EventThreshold"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
 	Status pulumi.StringInput `pulumi:"Status"`
 }
@@ -3407,8 +3543,8 @@ func (o BucketMetricsOutput) ToBucketMetricsPtrOutputWithContext(ctx context.Con
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
-func (o BucketMetricsOutput) EventThreshold() BucketReplicationTimeValueOutput {
-	return o.ApplyT(func(v BucketMetrics) BucketReplicationTimeValue { return v.EventThreshold }).(BucketReplicationTimeValueOutput)
+func (o BucketMetricsOutput) EventThreshold() BucketReplicationTimeValuePtrOutput {
+	return o.ApplyT(func(v BucketMetrics) *BucketReplicationTimeValue { return v.EventThreshold }).(BucketReplicationTimeValuePtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
@@ -3440,7 +3576,7 @@ func (o BucketMetricsPtrOutput) EventThreshold() BucketReplicationTimeValuePtrOu
 		if v == nil {
 			return nil
 		}
-		return &v.EventThreshold
+		return v.EventThreshold
 	}).(BucketReplicationTimeValuePtrOutput)
 }
 
@@ -4363,6 +4499,240 @@ func (o BucketObjectLockRulePtrOutput) DefaultRetention() BucketDefaultRetention
 	}).(BucketDefaultRetentionPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
+type BucketOwnershipControls struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+	Rules []BucketOwnershipControlsRule `pulumi:"Rules"`
+}
+
+// BucketOwnershipControlsInput is an input type that accepts BucketOwnershipControlsArgs and BucketOwnershipControlsOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsInput` via:
+//
+//          BucketOwnershipControlsArgs{...}
+type BucketOwnershipControlsInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsOutput() BucketOwnershipControlsOutput
+	ToBucketOwnershipControlsOutputWithContext(context.Context) BucketOwnershipControlsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
+type BucketOwnershipControlsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+	Rules BucketOwnershipControlsRuleArrayInput `pulumi:"Rules"`
+}
+
+func (BucketOwnershipControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControls)(nil)).Elem()
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsOutput() BucketOwnershipControlsOutput {
+	return i.ToBucketOwnershipControlsOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsOutputWithContext(ctx context.Context) BucketOwnershipControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsOutput)
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return i.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsOutput).ToBucketOwnershipControlsPtrOutputWithContext(ctx)
+}
+
+// BucketOwnershipControlsPtrInput is an input type that accepts BucketOwnershipControlsArgs, BucketOwnershipControlsPtr and BucketOwnershipControlsPtrOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsPtrInput` via:
+//
+//          BucketOwnershipControlsArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketOwnershipControlsPtrInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput
+	ToBucketOwnershipControlsPtrOutputWithContext(context.Context) BucketOwnershipControlsPtrOutput
+}
+
+type bucketOwnershipControlsPtrType BucketOwnershipControlsArgs
+
+func BucketOwnershipControlsPtr(v *BucketOwnershipControlsArgs) BucketOwnershipControlsPtrInput {
+	return (*bucketOwnershipControlsPtrType)(v)
+}
+
+func (*bucketOwnershipControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControls)(nil)).Elem()
+}
+
+func (i *bucketOwnershipControlsPtrType) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return i.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketOwnershipControlsPtrType) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
+type BucketOwnershipControlsOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControls)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutput() BucketOwnershipControlsOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContext(ctx context.Context) BucketOwnershipControlsOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return o.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return o.ApplyT(func(v BucketOwnershipControls) *BucketOwnershipControls {
+		return &v
+	}).(BucketOwnershipControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+func (o BucketOwnershipControlsOutput) Rules() BucketOwnershipControlsRuleArrayOutput {
+	return o.ApplyT(func(v BucketOwnershipControls) []BucketOwnershipControlsRule { return v.Rules }).(BucketOwnershipControlsRuleArrayOutput)
+}
+
+type BucketOwnershipControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControls)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsPtrOutput) Elem() BucketOwnershipControlsOutput {
+	return o.ApplyT(func(v *BucketOwnershipControls) BucketOwnershipControls { return *v }).(BucketOwnershipControlsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+func (o BucketOwnershipControlsPtrOutput) Rules() BucketOwnershipControlsRuleArrayOutput {
+	return o.ApplyT(func(v *BucketOwnershipControls) []BucketOwnershipControlsRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(BucketOwnershipControlsRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
+type BucketOwnershipControlsRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
+	ObjectOwnership *string `pulumi:"ObjectOwnership"`
+}
+
+// BucketOwnershipControlsRuleInput is an input type that accepts BucketOwnershipControlsRuleArgs and BucketOwnershipControlsRuleOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsRuleInput` via:
+//
+//          BucketOwnershipControlsRuleArgs{...}
+type BucketOwnershipControlsRuleInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput
+	ToBucketOwnershipControlsRuleOutputWithContext(context.Context) BucketOwnershipControlsRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
+type BucketOwnershipControlsRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
+	ObjectOwnership pulumi.StringPtrInput `pulumi:"ObjectOwnership"`
+}
+
+func (BucketOwnershipControlsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput {
+	return i.ToBucketOwnershipControlsRuleOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput)
+}
+
+// BucketOwnershipControlsRuleArrayInput is an input type that accepts BucketOwnershipControlsRuleArray and BucketOwnershipControlsRuleArrayOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsRuleArrayInput` via:
+//
+//          BucketOwnershipControlsRuleArray{ BucketOwnershipControlsRuleArgs{...} }
+type BucketOwnershipControlsRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsRuleArrayOutput() BucketOwnershipControlsRuleArrayOutput
+	ToBucketOwnershipControlsRuleArrayOutputWithContext(context.Context) BucketOwnershipControlsRuleArrayOutput
+}
+
+type BucketOwnershipControlsRuleArray []BucketOwnershipControlsRuleInput
+
+func (BucketOwnershipControlsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (i BucketOwnershipControlsRuleArray) ToBucketOwnershipControlsRuleArrayOutput() BucketOwnershipControlsRuleArrayOutput {
+	return i.ToBucketOwnershipControlsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsRuleArray) ToBucketOwnershipControlsRuleArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
+type BucketOwnershipControlsRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
+func (o BucketOwnershipControlsRuleOutput) ObjectOwnership() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketOwnershipControlsRule) *string { return v.ObjectOwnership }).(pulumi.StringPtrOutput)
+}
+
+type BucketOwnershipControlsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsRuleArrayOutput) ToBucketOwnershipControlsRuleArrayOutput() BucketOwnershipControlsRuleArrayOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleArrayOutput) ToBucketOwnershipControlsRuleArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleArrayOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleArrayOutput) Index(i pulumi.IntInput) BucketOwnershipControlsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketOwnershipControlsRule {
+		return vs[0].([]BucketOwnershipControlsRule)[vs[1].(int)]
+	}).(BucketOwnershipControlsRuleOutput)
+}
+
 type BucketPolicyAttributes struct {
 }
 
@@ -4642,6 +5012,8 @@ type BucketProperties struct {
 	BucketName *string `pulumi:"BucketName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
 	CorsConfiguration *BucketCorsConfiguration `pulumi:"CorsConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+	IntelligentTieringConfigurations []BucketIntelligentTieringConfiguration `pulumi:"IntelligentTieringConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
 	InventoryConfigurations []BucketInventoryConfiguration `pulumi:"InventoryConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig
@@ -4656,6 +5028,8 @@ type BucketProperties struct {
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"ObjectLockConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled
 	ObjectLockEnabled *bool `pulumi:"ObjectLockEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+	OwnershipControls *BucketOwnershipControls `pulumi:"OwnershipControls"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
 	PublicAccessBlockConfiguration *BucketPublicAccessBlockConfiguration `pulumi:"PublicAccessBlockConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration
@@ -4693,6 +5067,8 @@ type BucketPropertiesArgs struct {
 	BucketName pulumi.StringPtrInput `pulumi:"BucketName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
 	CorsConfiguration BucketCorsConfigurationPtrInput `pulumi:"CorsConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+	IntelligentTieringConfigurations BucketIntelligentTieringConfigurationArrayInput `pulumi:"IntelligentTieringConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
 	InventoryConfigurations BucketInventoryConfigurationArrayInput `pulumi:"InventoryConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig
@@ -4707,6 +5083,8 @@ type BucketPropertiesArgs struct {
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput `pulumi:"ObjectLockConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled
 	ObjectLockEnabled pulumi.BoolPtrInput `pulumi:"ObjectLockEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+	OwnershipControls BucketOwnershipControlsPtrInput `pulumi:"OwnershipControls"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
 	PublicAccessBlockConfiguration BucketPublicAccessBlockConfigurationPtrInput `pulumi:"PublicAccessBlockConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration
@@ -4827,6 +5205,13 @@ func (o BucketPropertiesOutput) CorsConfiguration() BucketCorsConfigurationPtrOu
 	return o.ApplyT(func(v BucketProperties) *BucketCorsConfiguration { return v.CorsConfiguration }).(BucketCorsConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+func (o BucketPropertiesOutput) IntelligentTieringConfigurations() BucketIntelligentTieringConfigurationArrayOutput {
+	return o.ApplyT(func(v BucketProperties) []BucketIntelligentTieringConfiguration {
+		return v.IntelligentTieringConfigurations
+	}).(BucketIntelligentTieringConfigurationArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
 func (o BucketPropertiesOutput) InventoryConfigurations() BucketInventoryConfigurationArrayOutput {
 	return o.ApplyT(func(v BucketProperties) []BucketInventoryConfiguration { return v.InventoryConfigurations }).(BucketInventoryConfigurationArrayOutput)
@@ -4860,6 +5245,11 @@ func (o BucketPropertiesOutput) ObjectLockConfiguration() BucketObjectLockConfig
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled
 func (o BucketPropertiesOutput) ObjectLockEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketProperties) *bool { return v.ObjectLockEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+func (o BucketPropertiesOutput) OwnershipControls() BucketOwnershipControlsPtrOutput {
+	return o.ApplyT(func(v BucketProperties) *BucketOwnershipControls { return v.OwnershipControls }).(BucketOwnershipControlsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
@@ -4967,6 +5357,16 @@ func (o BucketPropertiesPtrOutput) CorsConfiguration() BucketCorsConfigurationPt
 	}).(BucketCorsConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+func (o BucketPropertiesPtrOutput) IntelligentTieringConfigurations() BucketIntelligentTieringConfigurationArrayOutput {
+	return o.ApplyT(func(v *BucketProperties) []BucketIntelligentTieringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IntelligentTieringConfigurations
+	}).(BucketIntelligentTieringConfigurationArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
 func (o BucketPropertiesPtrOutput) InventoryConfigurations() BucketInventoryConfigurationArrayOutput {
 	return o.ApplyT(func(v *BucketProperties) []BucketInventoryConfiguration {
@@ -5035,6 +5435,16 @@ func (o BucketPropertiesPtrOutput) ObjectLockEnabled() pulumi.BoolPtrOutput {
 		}
 		return v.ObjectLockEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+func (o BucketPropertiesPtrOutput) OwnershipControls() BucketOwnershipControlsPtrOutput {
+	return o.ApplyT(func(v *BucketProperties) *BucketOwnershipControls {
+		if v == nil {
+			return nil
+		}
+		return v.OwnershipControls
+	}).(BucketOwnershipControlsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
@@ -5638,6 +6048,140 @@ func (o BucketRedirectRuleOutput) ReplaceKeyPrefixWith() pulumi.StringPtrOutput 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeywith
 func (o BucketRedirectRuleOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRedirectRule) *string { return v.ReplaceKeyWith }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+type BucketReplicaModifications struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+	Status string `pulumi:"Status"`
+}
+
+// BucketReplicaModificationsInput is an input type that accepts BucketReplicaModificationsArgs and BucketReplicaModificationsOutput values.
+// You can construct a concrete instance of `BucketReplicaModificationsInput` via:
+//
+//          BucketReplicaModificationsArgs{...}
+type BucketReplicaModificationsInput interface {
+	pulumi.Input
+
+	ToBucketReplicaModificationsOutput() BucketReplicaModificationsOutput
+	ToBucketReplicaModificationsOutputWithContext(context.Context) BucketReplicaModificationsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+type BucketReplicaModificationsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+	Status pulumi.StringInput `pulumi:"Status"`
+}
+
+func (BucketReplicaModificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicaModifications)(nil)).Elem()
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsOutput() BucketReplicaModificationsOutput {
+	return i.ToBucketReplicaModificationsOutputWithContext(context.Background())
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsOutputWithContext(ctx context.Context) BucketReplicaModificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsOutput)
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return i.ToBucketReplicaModificationsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsOutput).ToBucketReplicaModificationsPtrOutputWithContext(ctx)
+}
+
+// BucketReplicaModificationsPtrInput is an input type that accepts BucketReplicaModificationsArgs, BucketReplicaModificationsPtr and BucketReplicaModificationsPtrOutput values.
+// You can construct a concrete instance of `BucketReplicaModificationsPtrInput` via:
+//
+//          BucketReplicaModificationsArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicaModificationsPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput
+	ToBucketReplicaModificationsPtrOutputWithContext(context.Context) BucketReplicaModificationsPtrOutput
+}
+
+type bucketReplicaModificationsPtrType BucketReplicaModificationsArgs
+
+func BucketReplicaModificationsPtr(v *BucketReplicaModificationsArgs) BucketReplicaModificationsPtrInput {
+	return (*bucketReplicaModificationsPtrType)(v)
+}
+
+func (*bucketReplicaModificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicaModifications)(nil)).Elem()
+}
+
+func (i *bucketReplicaModificationsPtrType) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return i.ToBucketReplicaModificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicaModificationsPtrType) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+type BucketReplicaModificationsOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicaModificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicaModifications)(nil)).Elem()
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsOutput() BucketReplicaModificationsOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsOutputWithContext(ctx context.Context) BucketReplicaModificationsOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return o.ToBucketReplicaModificationsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return o.ApplyT(func(v BucketReplicaModifications) *BucketReplicaModifications {
+		return &v
+	}).(BucketReplicaModificationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+func (o BucketReplicaModificationsOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicaModifications) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketReplicaModificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicaModificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicaModifications)(nil)).Elem()
+}
+
+func (o BucketReplicaModificationsPtrOutput) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsPtrOutput) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsPtrOutput) Elem() BucketReplicaModificationsOutput {
+	return o.ApplyT(func(v *BucketReplicaModifications) BucketReplicaModifications { return *v }).(BucketReplicaModificationsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+func (o BucketReplicaModificationsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicaModifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html
@@ -7429,6 +7973,8 @@ func (o BucketServerSideEncryptionByDefaultPtrOutput) SSEAlgorithm() pulumi.Stri
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html
 type BucketServerSideEncryptionRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+	BucketKeyEnabled *bool `pulumi:"BucketKeyEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
 	ServerSideEncryptionByDefault *BucketServerSideEncryptionByDefault `pulumi:"ServerSideEncryptionByDefault"`
 }
@@ -7446,6 +7992,8 @@ type BucketServerSideEncryptionRuleInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html
 type BucketServerSideEncryptionRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"BucketKeyEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
 	ServerSideEncryptionByDefault BucketServerSideEncryptionByDefaultPtrInput `pulumi:"ServerSideEncryptionByDefault"`
 }
@@ -7502,6 +8050,11 @@ func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOu
 	return o
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+func (o BucketServerSideEncryptionRuleOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionRule) *bool { return v.BucketKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
 func (o BucketServerSideEncryptionRuleOutput) ServerSideEncryptionByDefault() BucketServerSideEncryptionByDefaultPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionRule) *BucketServerSideEncryptionByDefault {
@@ -7531,8 +8084,10 @@ func (o BucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntInput) Buck
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
 type BucketSourceSelectionCriteria struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+	ReplicaModifications *BucketReplicaModifications `pulumi:"ReplicaModifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
-	SseKmsEncryptedObjects BucketSseKmsEncryptedObjects `pulumi:"SseKmsEncryptedObjects"`
+	SseKmsEncryptedObjects *BucketSseKmsEncryptedObjects `pulumi:"SseKmsEncryptedObjects"`
 }
 
 // BucketSourceSelectionCriteriaInput is an input type that accepts BucketSourceSelectionCriteriaArgs and BucketSourceSelectionCriteriaOutput values.
@@ -7548,8 +8103,10 @@ type BucketSourceSelectionCriteriaInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
 type BucketSourceSelectionCriteriaArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+	ReplicaModifications BucketReplicaModificationsPtrInput `pulumi:"ReplicaModifications"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
-	SseKmsEncryptedObjects BucketSseKmsEncryptedObjectsInput `pulumi:"SseKmsEncryptedObjects"`
+	SseKmsEncryptedObjects BucketSseKmsEncryptedObjectsPtrInput `pulumi:"SseKmsEncryptedObjects"`
 }
 
 func (BucketSourceSelectionCriteriaArgs) ElementType() reflect.Type {
@@ -7630,9 +8187,14 @@ func (o BucketSourceSelectionCriteriaOutput) ToBucketSourceSelectionCriteriaPtrO
 	}).(BucketSourceSelectionCriteriaPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+func (o BucketSourceSelectionCriteriaOutput) ReplicaModifications() BucketReplicaModificationsPtrOutput {
+	return o.ApplyT(func(v BucketSourceSelectionCriteria) *BucketReplicaModifications { return v.ReplicaModifications }).(BucketReplicaModificationsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
-func (o BucketSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() BucketSseKmsEncryptedObjectsOutput {
-	return o.ApplyT(func(v BucketSourceSelectionCriteria) BucketSseKmsEncryptedObjects { return v.SseKmsEncryptedObjects }).(BucketSseKmsEncryptedObjectsOutput)
+func (o BucketSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() BucketSseKmsEncryptedObjectsPtrOutput {
+	return o.ApplyT(func(v BucketSourceSelectionCriteria) *BucketSseKmsEncryptedObjects { return v.SseKmsEncryptedObjects }).(BucketSseKmsEncryptedObjectsPtrOutput)
 }
 
 type BucketSourceSelectionCriteriaPtrOutput struct{ *pulumi.OutputState }
@@ -7653,13 +8215,23 @@ func (o BucketSourceSelectionCriteriaPtrOutput) Elem() BucketSourceSelectionCrit
 	return o.ApplyT(func(v *BucketSourceSelectionCriteria) BucketSourceSelectionCriteria { return *v }).(BucketSourceSelectionCriteriaOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+func (o BucketSourceSelectionCriteriaPtrOutput) ReplicaModifications() BucketReplicaModificationsPtrOutput {
+	return o.ApplyT(func(v *BucketSourceSelectionCriteria) *BucketReplicaModifications {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicaModifications
+	}).(BucketReplicaModificationsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
 func (o BucketSourceSelectionCriteriaPtrOutput) SseKmsEncryptedObjects() BucketSseKmsEncryptedObjectsPtrOutput {
 	return o.ApplyT(func(v *BucketSourceSelectionCriteria) *BucketSseKmsEncryptedObjects {
 		if v == nil {
 			return nil
 		}
-		return &v.SseKmsEncryptedObjects
+		return v.SseKmsEncryptedObjects
 	}).(BucketSseKmsEncryptedObjectsPtrOutput)
 }
 
@@ -8048,6 +8620,115 @@ func (o BucketTagFilterArrayOutput) Index(i pulumi.IntInput) BucketTagFilterOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTagFilter {
 		return vs[0].([]BucketTagFilter)[vs[1].(int)]
 	}).(BucketTagFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html
+type BucketTiering struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-accesstier
+	AccessTier string `pulumi:"AccessTier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-days
+	Days int `pulumi:"Days"`
+}
+
+// BucketTieringInput is an input type that accepts BucketTieringArgs and BucketTieringOutput values.
+// You can construct a concrete instance of `BucketTieringInput` via:
+//
+//          BucketTieringArgs{...}
+type BucketTieringInput interface {
+	pulumi.Input
+
+	ToBucketTieringOutput() BucketTieringOutput
+	ToBucketTieringOutputWithContext(context.Context) BucketTieringOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html
+type BucketTieringArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-accesstier
+	AccessTier pulumi.StringInput `pulumi:"AccessTier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-days
+	Days pulumi.IntInput `pulumi:"Days"`
+}
+
+func (BucketTieringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTiering)(nil)).Elem()
+}
+
+func (i BucketTieringArgs) ToBucketTieringOutput() BucketTieringOutput {
+	return i.ToBucketTieringOutputWithContext(context.Background())
+}
+
+func (i BucketTieringArgs) ToBucketTieringOutputWithContext(ctx context.Context) BucketTieringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTieringOutput)
+}
+
+// BucketTieringArrayInput is an input type that accepts BucketTieringArray and BucketTieringArrayOutput values.
+// You can construct a concrete instance of `BucketTieringArrayInput` via:
+//
+//          BucketTieringArray{ BucketTieringArgs{...} }
+type BucketTieringArrayInput interface {
+	pulumi.Input
+
+	ToBucketTieringArrayOutput() BucketTieringArrayOutput
+	ToBucketTieringArrayOutputWithContext(context.Context) BucketTieringArrayOutput
+}
+
+type BucketTieringArray []BucketTieringInput
+
+func (BucketTieringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTiering)(nil)).Elem()
+}
+
+func (i BucketTieringArray) ToBucketTieringArrayOutput() BucketTieringArrayOutput {
+	return i.ToBucketTieringArrayOutputWithContext(context.Background())
+}
+
+func (i BucketTieringArray) ToBucketTieringArrayOutputWithContext(ctx context.Context) BucketTieringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTieringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html
+type BucketTieringOutput struct{ *pulumi.OutputState }
+
+func (BucketTieringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTiering)(nil)).Elem()
+}
+
+func (o BucketTieringOutput) ToBucketTieringOutput() BucketTieringOutput {
+	return o
+}
+
+func (o BucketTieringOutput) ToBucketTieringOutputWithContext(ctx context.Context) BucketTieringOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-accesstier
+func (o BucketTieringOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTiering) string { return v.AccessTier }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-days
+func (o BucketTieringOutput) Days() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketTiering) int { return v.Days }).(pulumi.IntOutput)
+}
+
+type BucketTieringArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketTieringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTiering)(nil)).Elem()
+}
+
+func (o BucketTieringArrayOutput) ToBucketTieringArrayOutput() BucketTieringArrayOutput {
+	return o
+}
+
+func (o BucketTieringArrayOutput) ToBucketTieringArrayOutputWithContext(ctx context.Context) BucketTieringArrayOutput {
+	return o
+}
+
+func (o BucketTieringArrayOutput) Index(i pulumi.IntInput) BucketTieringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTiering {
+		return vs[0].([]BucketTiering)[vs[1].(int)]
+	}).(BucketTieringOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html
@@ -8710,6 +9391,2216 @@ func (o BucketWebsiteConfigurationPtrOutput) RoutingRules() BucketRoutingRuleArr
 	}).(BucketRoutingRuleArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+type StorageLensAccountLevel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
+	ActivityMetrics *StorageLensActivityMetrics `pulumi:"ActivityMetrics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
+	BucketLevel StorageLensBucketLevel `pulumi:"BucketLevel"`
+}
+
+// StorageLensAccountLevelInput is an input type that accepts StorageLensAccountLevelArgs and StorageLensAccountLevelOutput values.
+// You can construct a concrete instance of `StorageLensAccountLevelInput` via:
+//
+//          StorageLensAccountLevelArgs{...}
+type StorageLensAccountLevelInput interface {
+	pulumi.Input
+
+	ToStorageLensAccountLevelOutput() StorageLensAccountLevelOutput
+	ToStorageLensAccountLevelOutputWithContext(context.Context) StorageLensAccountLevelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+type StorageLensAccountLevelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
+	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"ActivityMetrics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
+	BucketLevel StorageLensBucketLevelInput `pulumi:"BucketLevel"`
+}
+
+func (StorageLensAccountLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAccountLevel)(nil)).Elem()
+}
+
+func (i StorageLensAccountLevelArgs) ToStorageLensAccountLevelOutput() StorageLensAccountLevelOutput {
+	return i.ToStorageLensAccountLevelOutputWithContext(context.Background())
+}
+
+func (i StorageLensAccountLevelArgs) ToStorageLensAccountLevelOutputWithContext(ctx context.Context) StorageLensAccountLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAccountLevelOutput)
+}
+
+func (i StorageLensAccountLevelArgs) ToStorageLensAccountLevelPtrOutput() StorageLensAccountLevelPtrOutput {
+	return i.ToStorageLensAccountLevelPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensAccountLevelArgs) ToStorageLensAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensAccountLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAccountLevelOutput).ToStorageLensAccountLevelPtrOutputWithContext(ctx)
+}
+
+// StorageLensAccountLevelPtrInput is an input type that accepts StorageLensAccountLevelArgs, StorageLensAccountLevelPtr and StorageLensAccountLevelPtrOutput values.
+// You can construct a concrete instance of `StorageLensAccountLevelPtrInput` via:
+//
+//          StorageLensAccountLevelArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensAccountLevelPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensAccountLevelPtrOutput() StorageLensAccountLevelPtrOutput
+	ToStorageLensAccountLevelPtrOutputWithContext(context.Context) StorageLensAccountLevelPtrOutput
+}
+
+type storageLensAccountLevelPtrType StorageLensAccountLevelArgs
+
+func StorageLensAccountLevelPtr(v *StorageLensAccountLevelArgs) StorageLensAccountLevelPtrInput {
+	return (*storageLensAccountLevelPtrType)(v)
+}
+
+func (*storageLensAccountLevelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAccountLevel)(nil)).Elem()
+}
+
+func (i *storageLensAccountLevelPtrType) ToStorageLensAccountLevelPtrOutput() StorageLensAccountLevelPtrOutput {
+	return i.ToStorageLensAccountLevelPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensAccountLevelPtrType) ToStorageLensAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensAccountLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAccountLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+type StorageLensAccountLevelOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAccountLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAccountLevel)(nil)).Elem()
+}
+
+func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelOutput() StorageLensAccountLevelOutput {
+	return o
+}
+
+func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelOutputWithContext(ctx context.Context) StorageLensAccountLevelOutput {
+	return o
+}
+
+func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelPtrOutput() StorageLensAccountLevelPtrOutput {
+	return o.ToStorageLensAccountLevelPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensAccountLevelPtrOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAccountLevel {
+		return &v
+	}).(StorageLensAccountLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
+func (o StorageLensAccountLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
+func (o StorageLensAccountLevelOutput) BucketLevel() StorageLensBucketLevelOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) StorageLensBucketLevel { return v.BucketLevel }).(StorageLensBucketLevelOutput)
+}
+
+type StorageLensAccountLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAccountLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAccountLevel)(nil)).Elem()
+}
+
+func (o StorageLensAccountLevelPtrOutput) ToStorageLensAccountLevelPtrOutput() StorageLensAccountLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensAccountLevelPtrOutput) ToStorageLensAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensAccountLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensAccountLevelPtrOutput) Elem() StorageLensAccountLevelOutput {
+	return o.ApplyT(func(v *StorageLensAccountLevel) StorageLensAccountLevel { return *v }).(StorageLensAccountLevelOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
+func (o StorageLensAccountLevelPtrOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensAccountLevel) *StorageLensActivityMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.ActivityMetrics
+	}).(StorageLensActivityMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
+func (o StorageLensAccountLevelPtrOutput) BucketLevel() StorageLensBucketLevelPtrOutput {
+	return o.ApplyT(func(v *StorageLensAccountLevel) *StorageLensBucketLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketLevel
+	}).(StorageLensBucketLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+type StorageLensActivityMetrics struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+	IsEnabled *bool `pulumi:"IsEnabled"`
+}
+
+// StorageLensActivityMetricsInput is an input type that accepts StorageLensActivityMetricsArgs and StorageLensActivityMetricsOutput values.
+// You can construct a concrete instance of `StorageLensActivityMetricsInput` via:
+//
+//          StorageLensActivityMetricsArgs{...}
+type StorageLensActivityMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensActivityMetricsOutput() StorageLensActivityMetricsOutput
+	ToStorageLensActivityMetricsOutputWithContext(context.Context) StorageLensActivityMetricsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+type StorageLensActivityMetricsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+	IsEnabled pulumi.BoolPtrInput `pulumi:"IsEnabled"`
+}
+
+func (StorageLensActivityMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensActivityMetrics)(nil)).Elem()
+}
+
+func (i StorageLensActivityMetricsArgs) ToStorageLensActivityMetricsOutput() StorageLensActivityMetricsOutput {
+	return i.ToStorageLensActivityMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensActivityMetricsArgs) ToStorageLensActivityMetricsOutputWithContext(ctx context.Context) StorageLensActivityMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensActivityMetricsOutput)
+}
+
+func (i StorageLensActivityMetricsArgs) ToStorageLensActivityMetricsPtrOutput() StorageLensActivityMetricsPtrOutput {
+	return i.ToStorageLensActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensActivityMetricsArgs) ToStorageLensActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensActivityMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensActivityMetricsOutput).ToStorageLensActivityMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensActivityMetricsPtrInput is an input type that accepts StorageLensActivityMetricsArgs, StorageLensActivityMetricsPtr and StorageLensActivityMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensActivityMetricsPtrInput` via:
+//
+//          StorageLensActivityMetricsArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensActivityMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensActivityMetricsPtrOutput() StorageLensActivityMetricsPtrOutput
+	ToStorageLensActivityMetricsPtrOutputWithContext(context.Context) StorageLensActivityMetricsPtrOutput
+}
+
+type storageLensActivityMetricsPtrType StorageLensActivityMetricsArgs
+
+func StorageLensActivityMetricsPtr(v *StorageLensActivityMetricsArgs) StorageLensActivityMetricsPtrInput {
+	return (*storageLensActivityMetricsPtrType)(v)
+}
+
+func (*storageLensActivityMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensActivityMetrics)(nil)).Elem()
+}
+
+func (i *storageLensActivityMetricsPtrType) ToStorageLensActivityMetricsPtrOutput() StorageLensActivityMetricsPtrOutput {
+	return i.ToStorageLensActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensActivityMetricsPtrType) ToStorageLensActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensActivityMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensActivityMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+type StorageLensActivityMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensActivityMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensActivityMetrics)(nil)).Elem()
+}
+
+func (o StorageLensActivityMetricsOutput) ToStorageLensActivityMetricsOutput() StorageLensActivityMetricsOutput {
+	return o
+}
+
+func (o StorageLensActivityMetricsOutput) ToStorageLensActivityMetricsOutputWithContext(ctx context.Context) StorageLensActivityMetricsOutput {
+	return o
+}
+
+func (o StorageLensActivityMetricsOutput) ToStorageLensActivityMetricsPtrOutput() StorageLensActivityMetricsPtrOutput {
+	return o.ToStorageLensActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensActivityMetricsOutput) ToStorageLensActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensActivityMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensActivityMetrics) *StorageLensActivityMetrics {
+		return &v
+	}).(StorageLensActivityMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+func (o StorageLensActivityMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensActivityMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensActivityMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensActivityMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensActivityMetrics)(nil)).Elem()
+}
+
+func (o StorageLensActivityMetricsPtrOutput) ToStorageLensActivityMetricsPtrOutput() StorageLensActivityMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensActivityMetricsPtrOutput) ToStorageLensActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensActivityMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensActivityMetricsPtrOutput) Elem() StorageLensActivityMetricsOutput {
+	return o.ApplyT(func(v *StorageLensActivityMetrics) StorageLensActivityMetrics { return *v }).(StorageLensActivityMetricsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+func (o StorageLensActivityMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensActivityMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensAttributes struct {
+	StorageLensArn string `pulumi:"StorageLensArn"`
+}
+
+// StorageLensAttributesInput is an input type that accepts StorageLensAttributesArgs and StorageLensAttributesOutput values.
+// You can construct a concrete instance of `StorageLensAttributesInput` via:
+//
+//          StorageLensAttributesArgs{...}
+type StorageLensAttributesInput interface {
+	pulumi.Input
+
+	ToStorageLensAttributesOutput() StorageLensAttributesOutput
+	ToStorageLensAttributesOutputWithContext(context.Context) StorageLensAttributesOutput
+}
+
+type StorageLensAttributesArgs struct {
+	StorageLensArn pulumi.StringInput `pulumi:"StorageLensArn"`
+}
+
+func (StorageLensAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAttributes)(nil)).Elem()
+}
+
+func (i StorageLensAttributesArgs) ToStorageLensAttributesOutput() StorageLensAttributesOutput {
+	return i.ToStorageLensAttributesOutputWithContext(context.Background())
+}
+
+func (i StorageLensAttributesArgs) ToStorageLensAttributesOutputWithContext(ctx context.Context) StorageLensAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAttributesOutput)
+}
+
+func (i StorageLensAttributesArgs) ToStorageLensAttributesPtrOutput() StorageLensAttributesPtrOutput {
+	return i.ToStorageLensAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensAttributesArgs) ToStorageLensAttributesPtrOutputWithContext(ctx context.Context) StorageLensAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAttributesOutput).ToStorageLensAttributesPtrOutputWithContext(ctx)
+}
+
+// StorageLensAttributesPtrInput is an input type that accepts StorageLensAttributesArgs, StorageLensAttributesPtr and StorageLensAttributesPtrOutput values.
+// You can construct a concrete instance of `StorageLensAttributesPtrInput` via:
+//
+//          StorageLensAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensAttributesPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensAttributesPtrOutput() StorageLensAttributesPtrOutput
+	ToStorageLensAttributesPtrOutputWithContext(context.Context) StorageLensAttributesPtrOutput
+}
+
+type storageLensAttributesPtrType StorageLensAttributesArgs
+
+func StorageLensAttributesPtr(v *StorageLensAttributesArgs) StorageLensAttributesPtrInput {
+	return (*storageLensAttributesPtrType)(v)
+}
+
+func (*storageLensAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAttributes)(nil)).Elem()
+}
+
+func (i *storageLensAttributesPtrType) ToStorageLensAttributesPtrOutput() StorageLensAttributesPtrOutput {
+	return i.ToStorageLensAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensAttributesPtrType) ToStorageLensAttributesPtrOutputWithContext(ctx context.Context) StorageLensAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAttributesPtrOutput)
+}
+
+type StorageLensAttributesOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAttributes)(nil)).Elem()
+}
+
+func (o StorageLensAttributesOutput) ToStorageLensAttributesOutput() StorageLensAttributesOutput {
+	return o
+}
+
+func (o StorageLensAttributesOutput) ToStorageLensAttributesOutputWithContext(ctx context.Context) StorageLensAttributesOutput {
+	return o
+}
+
+func (o StorageLensAttributesOutput) ToStorageLensAttributesPtrOutput() StorageLensAttributesPtrOutput {
+	return o.ToStorageLensAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensAttributesOutput) ToStorageLensAttributesPtrOutputWithContext(ctx context.Context) StorageLensAttributesPtrOutput {
+	return o.ApplyT(func(v StorageLensAttributes) *StorageLensAttributes {
+		return &v
+	}).(StorageLensAttributesPtrOutput)
+}
+func (o StorageLensAttributesOutput) StorageLensArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensAttributes) string { return v.StorageLensArn }).(pulumi.StringOutput)
+}
+
+type StorageLensAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAttributes)(nil)).Elem()
+}
+
+func (o StorageLensAttributesPtrOutput) ToStorageLensAttributesPtrOutput() StorageLensAttributesPtrOutput {
+	return o
+}
+
+func (o StorageLensAttributesPtrOutput) ToStorageLensAttributesPtrOutputWithContext(ctx context.Context) StorageLensAttributesPtrOutput {
+	return o
+}
+
+func (o StorageLensAttributesPtrOutput) Elem() StorageLensAttributesOutput {
+	return o.ApplyT(func(v *StorageLensAttributes) StorageLensAttributes { return *v }).(StorageLensAttributesOutput)
+}
+
+func (o StorageLensAttributesPtrOutput) StorageLensArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageLensArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+type StorageLensAwsOrg struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
+	Arn string `pulumi:"Arn"`
+}
+
+// StorageLensAwsOrgInput is an input type that accepts StorageLensAwsOrgArgs and StorageLensAwsOrgOutput values.
+// You can construct a concrete instance of `StorageLensAwsOrgInput` via:
+//
+//          StorageLensAwsOrgArgs{...}
+type StorageLensAwsOrgInput interface {
+	pulumi.Input
+
+	ToStorageLensAwsOrgOutput() StorageLensAwsOrgOutput
+	ToStorageLensAwsOrgOutputWithContext(context.Context) StorageLensAwsOrgOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+type StorageLensAwsOrgArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
+	Arn pulumi.StringInput `pulumi:"Arn"`
+}
+
+func (StorageLensAwsOrgArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAwsOrg)(nil)).Elem()
+}
+
+func (i StorageLensAwsOrgArgs) ToStorageLensAwsOrgOutput() StorageLensAwsOrgOutput {
+	return i.ToStorageLensAwsOrgOutputWithContext(context.Background())
+}
+
+func (i StorageLensAwsOrgArgs) ToStorageLensAwsOrgOutputWithContext(ctx context.Context) StorageLensAwsOrgOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAwsOrgOutput)
+}
+
+func (i StorageLensAwsOrgArgs) ToStorageLensAwsOrgPtrOutput() StorageLensAwsOrgPtrOutput {
+	return i.ToStorageLensAwsOrgPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensAwsOrgArgs) ToStorageLensAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensAwsOrgPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAwsOrgOutput).ToStorageLensAwsOrgPtrOutputWithContext(ctx)
+}
+
+// StorageLensAwsOrgPtrInput is an input type that accepts StorageLensAwsOrgArgs, StorageLensAwsOrgPtr and StorageLensAwsOrgPtrOutput values.
+// You can construct a concrete instance of `StorageLensAwsOrgPtrInput` via:
+//
+//          StorageLensAwsOrgArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensAwsOrgPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensAwsOrgPtrOutput() StorageLensAwsOrgPtrOutput
+	ToStorageLensAwsOrgPtrOutputWithContext(context.Context) StorageLensAwsOrgPtrOutput
+}
+
+type storageLensAwsOrgPtrType StorageLensAwsOrgArgs
+
+func StorageLensAwsOrgPtr(v *StorageLensAwsOrgArgs) StorageLensAwsOrgPtrInput {
+	return (*storageLensAwsOrgPtrType)(v)
+}
+
+func (*storageLensAwsOrgPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAwsOrg)(nil)).Elem()
+}
+
+func (i *storageLensAwsOrgPtrType) ToStorageLensAwsOrgPtrOutput() StorageLensAwsOrgPtrOutput {
+	return i.ToStorageLensAwsOrgPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensAwsOrgPtrType) ToStorageLensAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensAwsOrgPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAwsOrgPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+type StorageLensAwsOrgOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAwsOrgOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAwsOrg)(nil)).Elem()
+}
+
+func (o StorageLensAwsOrgOutput) ToStorageLensAwsOrgOutput() StorageLensAwsOrgOutput {
+	return o
+}
+
+func (o StorageLensAwsOrgOutput) ToStorageLensAwsOrgOutputWithContext(ctx context.Context) StorageLensAwsOrgOutput {
+	return o
+}
+
+func (o StorageLensAwsOrgOutput) ToStorageLensAwsOrgPtrOutput() StorageLensAwsOrgPtrOutput {
+	return o.ToStorageLensAwsOrgPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensAwsOrgOutput) ToStorageLensAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensAwsOrgPtrOutput {
+	return o.ApplyT(func(v StorageLensAwsOrg) *StorageLensAwsOrg {
+		return &v
+	}).(StorageLensAwsOrgPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
+func (o StorageLensAwsOrgOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensAwsOrg) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type StorageLensAwsOrgPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAwsOrgPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAwsOrg)(nil)).Elem()
+}
+
+func (o StorageLensAwsOrgPtrOutput) ToStorageLensAwsOrgPtrOutput() StorageLensAwsOrgPtrOutput {
+	return o
+}
+
+func (o StorageLensAwsOrgPtrOutput) ToStorageLensAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensAwsOrgPtrOutput {
+	return o
+}
+
+func (o StorageLensAwsOrgPtrOutput) Elem() StorageLensAwsOrgOutput {
+	return o.ApplyT(func(v *StorageLensAwsOrg) StorageLensAwsOrg { return *v }).(StorageLensAwsOrgOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
+func (o StorageLensAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensAwsOrg) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
+type StorageLensBucketLevel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
+	ActivityMetrics *StorageLensActivityMetrics `pulumi:"ActivityMetrics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+	PrefixLevel *StorageLensPrefixLevel `pulumi:"PrefixLevel"`
+}
+
+// StorageLensBucketLevelInput is an input type that accepts StorageLensBucketLevelArgs and StorageLensBucketLevelOutput values.
+// You can construct a concrete instance of `StorageLensBucketLevelInput` via:
+//
+//          StorageLensBucketLevelArgs{...}
+type StorageLensBucketLevelInput interface {
+	pulumi.Input
+
+	ToStorageLensBucketLevelOutput() StorageLensBucketLevelOutput
+	ToStorageLensBucketLevelOutputWithContext(context.Context) StorageLensBucketLevelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
+type StorageLensBucketLevelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
+	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"ActivityMetrics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+	PrefixLevel StorageLensPrefixLevelPtrInput `pulumi:"PrefixLevel"`
+}
+
+func (StorageLensBucketLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensBucketLevel)(nil)).Elem()
+}
+
+func (i StorageLensBucketLevelArgs) ToStorageLensBucketLevelOutput() StorageLensBucketLevelOutput {
+	return i.ToStorageLensBucketLevelOutputWithContext(context.Background())
+}
+
+func (i StorageLensBucketLevelArgs) ToStorageLensBucketLevelOutputWithContext(ctx context.Context) StorageLensBucketLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketLevelOutput)
+}
+
+func (i StorageLensBucketLevelArgs) ToStorageLensBucketLevelPtrOutput() StorageLensBucketLevelPtrOutput {
+	return i.ToStorageLensBucketLevelPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensBucketLevelArgs) ToStorageLensBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensBucketLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketLevelOutput).ToStorageLensBucketLevelPtrOutputWithContext(ctx)
+}
+
+// StorageLensBucketLevelPtrInput is an input type that accepts StorageLensBucketLevelArgs, StorageLensBucketLevelPtr and StorageLensBucketLevelPtrOutput values.
+// You can construct a concrete instance of `StorageLensBucketLevelPtrInput` via:
+//
+//          StorageLensBucketLevelArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensBucketLevelPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensBucketLevelPtrOutput() StorageLensBucketLevelPtrOutput
+	ToStorageLensBucketLevelPtrOutputWithContext(context.Context) StorageLensBucketLevelPtrOutput
+}
+
+type storageLensBucketLevelPtrType StorageLensBucketLevelArgs
+
+func StorageLensBucketLevelPtr(v *StorageLensBucketLevelArgs) StorageLensBucketLevelPtrInput {
+	return (*storageLensBucketLevelPtrType)(v)
+}
+
+func (*storageLensBucketLevelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensBucketLevel)(nil)).Elem()
+}
+
+func (i *storageLensBucketLevelPtrType) ToStorageLensBucketLevelPtrOutput() StorageLensBucketLevelPtrOutput {
+	return i.ToStorageLensBucketLevelPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensBucketLevelPtrType) ToStorageLensBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensBucketLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
+type StorageLensBucketLevelOutput struct{ *pulumi.OutputState }
+
+func (StorageLensBucketLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensBucketLevel)(nil)).Elem()
+}
+
+func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelOutput() StorageLensBucketLevelOutput {
+	return o
+}
+
+func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelOutputWithContext(ctx context.Context) StorageLensBucketLevelOutput {
+	return o
+}
+
+func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelPtrOutput() StorageLensBucketLevelPtrOutput {
+	return o.ToStorageLensBucketLevelPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensBucketLevelPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensBucketLevel {
+		return &v
+	}).(StorageLensBucketLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
+func (o StorageLensBucketLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+func (o StorageLensBucketLevelOutput) PrefixLevel() StorageLensPrefixLevelPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensPrefixLevel { return v.PrefixLevel }).(StorageLensPrefixLevelPtrOutput)
+}
+
+type StorageLensBucketLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensBucketLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensBucketLevel)(nil)).Elem()
+}
+
+func (o StorageLensBucketLevelPtrOutput) ToStorageLensBucketLevelPtrOutput() StorageLensBucketLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensBucketLevelPtrOutput) ToStorageLensBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensBucketLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensBucketLevelPtrOutput) Elem() StorageLensBucketLevelOutput {
+	return o.ApplyT(func(v *StorageLensBucketLevel) StorageLensBucketLevel { return *v }).(StorageLensBucketLevelOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
+func (o StorageLensBucketLevelPtrOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensBucketLevel) *StorageLensActivityMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.ActivityMetrics
+	}).(StorageLensActivityMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+func (o StorageLensBucketLevelPtrOutput) PrefixLevel() StorageLensPrefixLevelPtrOutput {
+	return o.ApplyT(func(v *StorageLensBucketLevel) *StorageLensPrefixLevel {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixLevel
+	}).(StorageLensPrefixLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+type StorageLensBucketsAndRegions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
+	Buckets []string `pulumi:"Buckets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
+	Regions []string `pulumi:"Regions"`
+}
+
+// StorageLensBucketsAndRegionsInput is an input type that accepts StorageLensBucketsAndRegionsArgs and StorageLensBucketsAndRegionsOutput values.
+// You can construct a concrete instance of `StorageLensBucketsAndRegionsInput` via:
+//
+//          StorageLensBucketsAndRegionsArgs{...}
+type StorageLensBucketsAndRegionsInput interface {
+	pulumi.Input
+
+	ToStorageLensBucketsAndRegionsOutput() StorageLensBucketsAndRegionsOutput
+	ToStorageLensBucketsAndRegionsOutputWithContext(context.Context) StorageLensBucketsAndRegionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+type StorageLensBucketsAndRegionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
+	Buckets pulumi.StringArrayInput `pulumi:"Buckets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
+	Regions pulumi.StringArrayInput `pulumi:"Regions"`
+}
+
+func (StorageLensBucketsAndRegionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensBucketsAndRegions)(nil)).Elem()
+}
+
+func (i StorageLensBucketsAndRegionsArgs) ToStorageLensBucketsAndRegionsOutput() StorageLensBucketsAndRegionsOutput {
+	return i.ToStorageLensBucketsAndRegionsOutputWithContext(context.Background())
+}
+
+func (i StorageLensBucketsAndRegionsArgs) ToStorageLensBucketsAndRegionsOutputWithContext(ctx context.Context) StorageLensBucketsAndRegionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketsAndRegionsOutput)
+}
+
+func (i StorageLensBucketsAndRegionsArgs) ToStorageLensBucketsAndRegionsPtrOutput() StorageLensBucketsAndRegionsPtrOutput {
+	return i.ToStorageLensBucketsAndRegionsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensBucketsAndRegionsArgs) ToStorageLensBucketsAndRegionsPtrOutputWithContext(ctx context.Context) StorageLensBucketsAndRegionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketsAndRegionsOutput).ToStorageLensBucketsAndRegionsPtrOutputWithContext(ctx)
+}
+
+// StorageLensBucketsAndRegionsPtrInput is an input type that accepts StorageLensBucketsAndRegionsArgs, StorageLensBucketsAndRegionsPtr and StorageLensBucketsAndRegionsPtrOutput values.
+// You can construct a concrete instance of `StorageLensBucketsAndRegionsPtrInput` via:
+//
+//          StorageLensBucketsAndRegionsArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensBucketsAndRegionsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensBucketsAndRegionsPtrOutput() StorageLensBucketsAndRegionsPtrOutput
+	ToStorageLensBucketsAndRegionsPtrOutputWithContext(context.Context) StorageLensBucketsAndRegionsPtrOutput
+}
+
+type storageLensBucketsAndRegionsPtrType StorageLensBucketsAndRegionsArgs
+
+func StorageLensBucketsAndRegionsPtr(v *StorageLensBucketsAndRegionsArgs) StorageLensBucketsAndRegionsPtrInput {
+	return (*storageLensBucketsAndRegionsPtrType)(v)
+}
+
+func (*storageLensBucketsAndRegionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensBucketsAndRegions)(nil)).Elem()
+}
+
+func (i *storageLensBucketsAndRegionsPtrType) ToStorageLensBucketsAndRegionsPtrOutput() StorageLensBucketsAndRegionsPtrOutput {
+	return i.ToStorageLensBucketsAndRegionsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensBucketsAndRegionsPtrType) ToStorageLensBucketsAndRegionsPtrOutputWithContext(ctx context.Context) StorageLensBucketsAndRegionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+type StorageLensBucketsAndRegionsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensBucketsAndRegionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensBucketsAndRegions)(nil)).Elem()
+}
+
+func (o StorageLensBucketsAndRegionsOutput) ToStorageLensBucketsAndRegionsOutput() StorageLensBucketsAndRegionsOutput {
+	return o
+}
+
+func (o StorageLensBucketsAndRegionsOutput) ToStorageLensBucketsAndRegionsOutputWithContext(ctx context.Context) StorageLensBucketsAndRegionsOutput {
+	return o
+}
+
+func (o StorageLensBucketsAndRegionsOutput) ToStorageLensBucketsAndRegionsPtrOutput() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ToStorageLensBucketsAndRegionsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensBucketsAndRegionsOutput) ToStorageLensBucketsAndRegionsPtrOutputWithContext(ctx context.Context) StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketsAndRegions) *StorageLensBucketsAndRegions {
+		return &v
+	}).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
+func (o StorageLensBucketsAndRegionsOutput) Buckets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensBucketsAndRegions) []string { return v.Buckets }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
+func (o StorageLensBucketsAndRegionsOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensBucketsAndRegions) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type StorageLensBucketsAndRegionsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensBucketsAndRegionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensBucketsAndRegions)(nil)).Elem()
+}
+
+func (o StorageLensBucketsAndRegionsPtrOutput) ToStorageLensBucketsAndRegionsPtrOutput() StorageLensBucketsAndRegionsPtrOutput {
+	return o
+}
+
+func (o StorageLensBucketsAndRegionsPtrOutput) ToStorageLensBucketsAndRegionsPtrOutputWithContext(ctx context.Context) StorageLensBucketsAndRegionsPtrOutput {
+	return o
+}
+
+func (o StorageLensBucketsAndRegionsPtrOutput) Elem() StorageLensBucketsAndRegionsOutput {
+	return o.ApplyT(func(v *StorageLensBucketsAndRegions) StorageLensBucketsAndRegions { return *v }).(StorageLensBucketsAndRegionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
+func (o StorageLensBucketsAndRegionsPtrOutput) Buckets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensBucketsAndRegions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Buckets
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
+func (o StorageLensBucketsAndRegionsPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensBucketsAndRegions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+type StorageLensDataExport struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
+	S3BucketDestination StorageLensS3BucketDestination `pulumi:"S3BucketDestination"`
+}
+
+// StorageLensDataExportInput is an input type that accepts StorageLensDataExportArgs and StorageLensDataExportOutput values.
+// You can construct a concrete instance of `StorageLensDataExportInput` via:
+//
+//          StorageLensDataExportArgs{...}
+type StorageLensDataExportInput interface {
+	pulumi.Input
+
+	ToStorageLensDataExportOutput() StorageLensDataExportOutput
+	ToStorageLensDataExportOutputWithContext(context.Context) StorageLensDataExportOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+type StorageLensDataExportArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
+	S3BucketDestination StorageLensS3BucketDestinationInput `pulumi:"S3BucketDestination"`
+}
+
+func (StorageLensDataExportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensDataExport)(nil)).Elem()
+}
+
+func (i StorageLensDataExportArgs) ToStorageLensDataExportOutput() StorageLensDataExportOutput {
+	return i.ToStorageLensDataExportOutputWithContext(context.Background())
+}
+
+func (i StorageLensDataExportArgs) ToStorageLensDataExportOutputWithContext(ctx context.Context) StorageLensDataExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDataExportOutput)
+}
+
+func (i StorageLensDataExportArgs) ToStorageLensDataExportPtrOutput() StorageLensDataExportPtrOutput {
+	return i.ToStorageLensDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensDataExportArgs) ToStorageLensDataExportPtrOutputWithContext(ctx context.Context) StorageLensDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDataExportOutput).ToStorageLensDataExportPtrOutputWithContext(ctx)
+}
+
+// StorageLensDataExportPtrInput is an input type that accepts StorageLensDataExportArgs, StorageLensDataExportPtr and StorageLensDataExportPtrOutput values.
+// You can construct a concrete instance of `StorageLensDataExportPtrInput` via:
+//
+//          StorageLensDataExportArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensDataExportPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensDataExportPtrOutput() StorageLensDataExportPtrOutput
+	ToStorageLensDataExportPtrOutputWithContext(context.Context) StorageLensDataExportPtrOutput
+}
+
+type storageLensDataExportPtrType StorageLensDataExportArgs
+
+func StorageLensDataExportPtr(v *StorageLensDataExportArgs) StorageLensDataExportPtrInput {
+	return (*storageLensDataExportPtrType)(v)
+}
+
+func (*storageLensDataExportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensDataExport)(nil)).Elem()
+}
+
+func (i *storageLensDataExportPtrType) ToStorageLensDataExportPtrOutput() StorageLensDataExportPtrOutput {
+	return i.ToStorageLensDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensDataExportPtrType) ToStorageLensDataExportPtrOutputWithContext(ctx context.Context) StorageLensDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDataExportPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+type StorageLensDataExportOutput struct{ *pulumi.OutputState }
+
+func (StorageLensDataExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensDataExport)(nil)).Elem()
+}
+
+func (o StorageLensDataExportOutput) ToStorageLensDataExportOutput() StorageLensDataExportOutput {
+	return o
+}
+
+func (o StorageLensDataExportOutput) ToStorageLensDataExportOutputWithContext(ctx context.Context) StorageLensDataExportOutput {
+	return o
+}
+
+func (o StorageLensDataExportOutput) ToStorageLensDataExportPtrOutput() StorageLensDataExportPtrOutput {
+	return o.ToStorageLensDataExportPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensDataExportOutput) ToStorageLensDataExportPtrOutputWithContext(ctx context.Context) StorageLensDataExportPtrOutput {
+	return o.ApplyT(func(v StorageLensDataExport) *StorageLensDataExport {
+		return &v
+	}).(StorageLensDataExportPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
+func (o StorageLensDataExportOutput) S3BucketDestination() StorageLensS3BucketDestinationOutput {
+	return o.ApplyT(func(v StorageLensDataExport) StorageLensS3BucketDestination { return v.S3BucketDestination }).(StorageLensS3BucketDestinationOutput)
+}
+
+type StorageLensDataExportPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensDataExportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensDataExport)(nil)).Elem()
+}
+
+func (o StorageLensDataExportPtrOutput) ToStorageLensDataExportPtrOutput() StorageLensDataExportPtrOutput {
+	return o
+}
+
+func (o StorageLensDataExportPtrOutput) ToStorageLensDataExportPtrOutputWithContext(ctx context.Context) StorageLensDataExportPtrOutput {
+	return o
+}
+
+func (o StorageLensDataExportPtrOutput) Elem() StorageLensDataExportOutput {
+	return o.ApplyT(func(v *StorageLensDataExport) StorageLensDataExport { return *v }).(StorageLensDataExportOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
+func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
+	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensS3BucketDestination {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketDestination
+	}).(StorageLensS3BucketDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+type StorageLensEncryption struct {
+}
+
+// StorageLensEncryptionInput is an input type that accepts StorageLensEncryptionArgs and StorageLensEncryptionOutput values.
+// You can construct a concrete instance of `StorageLensEncryptionInput` via:
+//
+//          StorageLensEncryptionArgs{...}
+type StorageLensEncryptionInput interface {
+	pulumi.Input
+
+	ToStorageLensEncryptionOutput() StorageLensEncryptionOutput
+	ToStorageLensEncryptionOutputWithContext(context.Context) StorageLensEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+type StorageLensEncryptionArgs struct {
+}
+
+func (StorageLensEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensEncryption)(nil)).Elem()
+}
+
+func (i StorageLensEncryptionArgs) ToStorageLensEncryptionOutput() StorageLensEncryptionOutput {
+	return i.ToStorageLensEncryptionOutputWithContext(context.Background())
+}
+
+func (i StorageLensEncryptionArgs) ToStorageLensEncryptionOutputWithContext(ctx context.Context) StorageLensEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensEncryptionOutput)
+}
+
+func (i StorageLensEncryptionArgs) ToStorageLensEncryptionPtrOutput() StorageLensEncryptionPtrOutput {
+	return i.ToStorageLensEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensEncryptionArgs) ToStorageLensEncryptionPtrOutputWithContext(ctx context.Context) StorageLensEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensEncryptionOutput).ToStorageLensEncryptionPtrOutputWithContext(ctx)
+}
+
+// StorageLensEncryptionPtrInput is an input type that accepts StorageLensEncryptionArgs, StorageLensEncryptionPtr and StorageLensEncryptionPtrOutput values.
+// You can construct a concrete instance of `StorageLensEncryptionPtrInput` via:
+//
+//          StorageLensEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensEncryptionPtrOutput() StorageLensEncryptionPtrOutput
+	ToStorageLensEncryptionPtrOutputWithContext(context.Context) StorageLensEncryptionPtrOutput
+}
+
+type storageLensEncryptionPtrType StorageLensEncryptionArgs
+
+func StorageLensEncryptionPtr(v *StorageLensEncryptionArgs) StorageLensEncryptionPtrInput {
+	return (*storageLensEncryptionPtrType)(v)
+}
+
+func (*storageLensEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensEncryption)(nil)).Elem()
+}
+
+func (i *storageLensEncryptionPtrType) ToStorageLensEncryptionPtrOutput() StorageLensEncryptionPtrOutput {
+	return i.ToStorageLensEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensEncryptionPtrType) ToStorageLensEncryptionPtrOutputWithContext(ctx context.Context) StorageLensEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+type StorageLensEncryptionOutput struct{ *pulumi.OutputState }
+
+func (StorageLensEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensEncryption)(nil)).Elem()
+}
+
+func (o StorageLensEncryptionOutput) ToStorageLensEncryptionOutput() StorageLensEncryptionOutput {
+	return o
+}
+
+func (o StorageLensEncryptionOutput) ToStorageLensEncryptionOutputWithContext(ctx context.Context) StorageLensEncryptionOutput {
+	return o
+}
+
+func (o StorageLensEncryptionOutput) ToStorageLensEncryptionPtrOutput() StorageLensEncryptionPtrOutput {
+	return o.ToStorageLensEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensEncryptionOutput) ToStorageLensEncryptionPtrOutputWithContext(ctx context.Context) StorageLensEncryptionPtrOutput {
+	return o.ApplyT(func(v StorageLensEncryption) *StorageLensEncryption {
+		return &v
+	}).(StorageLensEncryptionPtrOutput)
+}
+
+type StorageLensEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensEncryption)(nil)).Elem()
+}
+
+func (o StorageLensEncryptionPtrOutput) ToStorageLensEncryptionPtrOutput() StorageLensEncryptionPtrOutput {
+	return o
+}
+
+func (o StorageLensEncryptionPtrOutput) ToStorageLensEncryptionPtrOutputWithContext(ctx context.Context) StorageLensEncryptionPtrOutput {
+	return o
+}
+
+func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
+	return o.ApplyT(func(v *StorageLensEncryption) StorageLensEncryption { return *v }).(StorageLensEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+type StorageLensPrefixLevel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+	StorageMetrics StorageLensPrefixLevelStorageMetrics `pulumi:"StorageMetrics"`
+}
+
+// StorageLensPrefixLevelInput is an input type that accepts StorageLensPrefixLevelArgs and StorageLensPrefixLevelOutput values.
+// You can construct a concrete instance of `StorageLensPrefixLevelInput` via:
+//
+//          StorageLensPrefixLevelArgs{...}
+type StorageLensPrefixLevelInput interface {
+	pulumi.Input
+
+	ToStorageLensPrefixLevelOutput() StorageLensPrefixLevelOutput
+	ToStorageLensPrefixLevelOutputWithContext(context.Context) StorageLensPrefixLevelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+type StorageLensPrefixLevelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+	StorageMetrics StorageLensPrefixLevelStorageMetricsInput `pulumi:"StorageMetrics"`
+}
+
+func (StorageLensPrefixLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensPrefixLevel)(nil)).Elem()
+}
+
+func (i StorageLensPrefixLevelArgs) ToStorageLensPrefixLevelOutput() StorageLensPrefixLevelOutput {
+	return i.ToStorageLensPrefixLevelOutputWithContext(context.Background())
+}
+
+func (i StorageLensPrefixLevelArgs) ToStorageLensPrefixLevelOutputWithContext(ctx context.Context) StorageLensPrefixLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelOutput)
+}
+
+func (i StorageLensPrefixLevelArgs) ToStorageLensPrefixLevelPtrOutput() StorageLensPrefixLevelPtrOutput {
+	return i.ToStorageLensPrefixLevelPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensPrefixLevelArgs) ToStorageLensPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelOutput).ToStorageLensPrefixLevelPtrOutputWithContext(ctx)
+}
+
+// StorageLensPrefixLevelPtrInput is an input type that accepts StorageLensPrefixLevelArgs, StorageLensPrefixLevelPtr and StorageLensPrefixLevelPtrOutput values.
+// You can construct a concrete instance of `StorageLensPrefixLevelPtrInput` via:
+//
+//          StorageLensPrefixLevelArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensPrefixLevelPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensPrefixLevelPtrOutput() StorageLensPrefixLevelPtrOutput
+	ToStorageLensPrefixLevelPtrOutputWithContext(context.Context) StorageLensPrefixLevelPtrOutput
+}
+
+type storageLensPrefixLevelPtrType StorageLensPrefixLevelArgs
+
+func StorageLensPrefixLevelPtr(v *StorageLensPrefixLevelArgs) StorageLensPrefixLevelPtrInput {
+	return (*storageLensPrefixLevelPtrType)(v)
+}
+
+func (*storageLensPrefixLevelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensPrefixLevel)(nil)).Elem()
+}
+
+func (i *storageLensPrefixLevelPtrType) ToStorageLensPrefixLevelPtrOutput() StorageLensPrefixLevelPtrOutput {
+	return i.ToStorageLensPrefixLevelPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensPrefixLevelPtrType) ToStorageLensPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+type StorageLensPrefixLevelOutput struct{ *pulumi.OutputState }
+
+func (StorageLensPrefixLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensPrefixLevel)(nil)).Elem()
+}
+
+func (o StorageLensPrefixLevelOutput) ToStorageLensPrefixLevelOutput() StorageLensPrefixLevelOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelOutput) ToStorageLensPrefixLevelOutputWithContext(ctx context.Context) StorageLensPrefixLevelOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelOutput) ToStorageLensPrefixLevelPtrOutput() StorageLensPrefixLevelPtrOutput {
+	return o.ToStorageLensPrefixLevelPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensPrefixLevelOutput) ToStorageLensPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelPtrOutput {
+	return o.ApplyT(func(v StorageLensPrefixLevel) *StorageLensPrefixLevel {
+		return &v
+	}).(StorageLensPrefixLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+func (o StorageLensPrefixLevelOutput) StorageMetrics() StorageLensPrefixLevelStorageMetricsOutput {
+	return o.ApplyT(func(v StorageLensPrefixLevel) StorageLensPrefixLevelStorageMetrics { return v.StorageMetrics }).(StorageLensPrefixLevelStorageMetricsOutput)
+}
+
+type StorageLensPrefixLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensPrefixLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensPrefixLevel)(nil)).Elem()
+}
+
+func (o StorageLensPrefixLevelPtrOutput) ToStorageLensPrefixLevelPtrOutput() StorageLensPrefixLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelPtrOutput) ToStorageLensPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelPtrOutput) Elem() StorageLensPrefixLevelOutput {
+	return o.ApplyT(func(v *StorageLensPrefixLevel) StorageLensPrefixLevel { return *v }).(StorageLensPrefixLevelOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+func (o StorageLensPrefixLevelPtrOutput) StorageMetrics() StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensPrefixLevel) *StorageLensPrefixLevelStorageMetrics {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageMetrics
+	}).(StorageLensPrefixLevelStorageMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
+type StorageLensPrefixLevelStorageMetrics struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+	IsEnabled *bool `pulumi:"IsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+	SelectionCriteria *StorageLensSelectionCriteria `pulumi:"SelectionCriteria"`
+}
+
+// StorageLensPrefixLevelStorageMetricsInput is an input type that accepts StorageLensPrefixLevelStorageMetricsArgs and StorageLensPrefixLevelStorageMetricsOutput values.
+// You can construct a concrete instance of `StorageLensPrefixLevelStorageMetricsInput` via:
+//
+//          StorageLensPrefixLevelStorageMetricsArgs{...}
+type StorageLensPrefixLevelStorageMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensPrefixLevelStorageMetricsOutput() StorageLensPrefixLevelStorageMetricsOutput
+	ToStorageLensPrefixLevelStorageMetricsOutputWithContext(context.Context) StorageLensPrefixLevelStorageMetricsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
+type StorageLensPrefixLevelStorageMetricsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+	IsEnabled pulumi.BoolPtrInput `pulumi:"IsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+	SelectionCriteria StorageLensSelectionCriteriaPtrInput `pulumi:"SelectionCriteria"`
+}
+
+func (StorageLensPrefixLevelStorageMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (i StorageLensPrefixLevelStorageMetricsArgs) ToStorageLensPrefixLevelStorageMetricsOutput() StorageLensPrefixLevelStorageMetricsOutput {
+	return i.ToStorageLensPrefixLevelStorageMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensPrefixLevelStorageMetricsArgs) ToStorageLensPrefixLevelStorageMetricsOutputWithContext(ctx context.Context) StorageLensPrefixLevelStorageMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelStorageMetricsOutput)
+}
+
+func (i StorageLensPrefixLevelStorageMetricsArgs) ToStorageLensPrefixLevelStorageMetricsPtrOutput() StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return i.ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensPrefixLevelStorageMetricsArgs) ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelStorageMetricsOutput).ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensPrefixLevelStorageMetricsPtrInput is an input type that accepts StorageLensPrefixLevelStorageMetricsArgs, StorageLensPrefixLevelStorageMetricsPtr and StorageLensPrefixLevelStorageMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensPrefixLevelStorageMetricsPtrInput` via:
+//
+//          StorageLensPrefixLevelStorageMetricsArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensPrefixLevelStorageMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensPrefixLevelStorageMetricsPtrOutput() StorageLensPrefixLevelStorageMetricsPtrOutput
+	ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(context.Context) StorageLensPrefixLevelStorageMetricsPtrOutput
+}
+
+type storageLensPrefixLevelStorageMetricsPtrType StorageLensPrefixLevelStorageMetricsArgs
+
+func StorageLensPrefixLevelStorageMetricsPtr(v *StorageLensPrefixLevelStorageMetricsArgs) StorageLensPrefixLevelStorageMetricsPtrInput {
+	return (*storageLensPrefixLevelStorageMetricsPtrType)(v)
+}
+
+func (*storageLensPrefixLevelStorageMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (i *storageLensPrefixLevelStorageMetricsPtrType) ToStorageLensPrefixLevelStorageMetricsPtrOutput() StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return i.ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensPrefixLevelStorageMetricsPtrType) ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelStorageMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
+type StorageLensPrefixLevelStorageMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensPrefixLevelStorageMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (o StorageLensPrefixLevelStorageMetricsOutput) ToStorageLensPrefixLevelStorageMetricsOutput() StorageLensPrefixLevelStorageMetricsOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelStorageMetricsOutput) ToStorageLensPrefixLevelStorageMetricsOutputWithContext(ctx context.Context) StorageLensPrefixLevelStorageMetricsOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelStorageMetricsOutput) ToStorageLensPrefixLevelStorageMetricsPtrOutput() StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return o.ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensPrefixLevelStorageMetricsOutput) ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *StorageLensPrefixLevelStorageMetrics {
+		return &v
+	}).(StorageLensPrefixLevelStorageMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+func (o StorageLensPrefixLevelStorageMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+func (o StorageLensPrefixLevelStorageMetricsOutput) SelectionCriteria() StorageLensSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *StorageLensSelectionCriteria { return v.SelectionCriteria }).(StorageLensSelectionCriteriaPtrOutput)
+}
+
+type StorageLensPrefixLevelStorageMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensPrefixLevelStorageMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (o StorageLensPrefixLevelStorageMetricsPtrOutput) ToStorageLensPrefixLevelStorageMetricsPtrOutput() StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelStorageMetricsPtrOutput) ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelStorageMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensPrefixLevelStorageMetricsPtrOutput) Elem() StorageLensPrefixLevelStorageMetricsOutput {
+	return o.ApplyT(func(v *StorageLensPrefixLevelStorageMetrics) StorageLensPrefixLevelStorageMetrics { return *v }).(StorageLensPrefixLevelStorageMetricsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+func (o StorageLensPrefixLevelStorageMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensPrefixLevelStorageMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+func (o StorageLensPrefixLevelStorageMetricsPtrOutput) SelectionCriteria() StorageLensSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v *StorageLensPrefixLevelStorageMetrics) *StorageLensSelectionCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.SelectionCriteria
+	}).(StorageLensSelectionCriteriaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+type StorageLensProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
+	StorageLensConfiguration StorageLensStorageLensConfiguration `pulumi:"StorageLensConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// StorageLensPropertiesInput is an input type that accepts StorageLensPropertiesArgs and StorageLensPropertiesOutput values.
+// You can construct a concrete instance of `StorageLensPropertiesInput` via:
+//
+//          StorageLensPropertiesArgs{...}
+type StorageLensPropertiesInput interface {
+	pulumi.Input
+
+	ToStorageLensPropertiesOutput() StorageLensPropertiesOutput
+	ToStorageLensPropertiesOutputWithContext(context.Context) StorageLensPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+type StorageLensPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
+	StorageLensConfiguration StorageLensStorageLensConfigurationInput `pulumi:"StorageLensConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (StorageLensPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensProperties)(nil)).Elem()
+}
+
+func (i StorageLensPropertiesArgs) ToStorageLensPropertiesOutput() StorageLensPropertiesOutput {
+	return i.ToStorageLensPropertiesOutputWithContext(context.Background())
+}
+
+func (i StorageLensPropertiesArgs) ToStorageLensPropertiesOutputWithContext(ctx context.Context) StorageLensPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPropertiesOutput)
+}
+
+func (i StorageLensPropertiesArgs) ToStorageLensPropertiesPtrOutput() StorageLensPropertiesPtrOutput {
+	return i.ToStorageLensPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensPropertiesArgs) ToStorageLensPropertiesPtrOutputWithContext(ctx context.Context) StorageLensPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPropertiesOutput).ToStorageLensPropertiesPtrOutputWithContext(ctx)
+}
+
+// StorageLensPropertiesPtrInput is an input type that accepts StorageLensPropertiesArgs, StorageLensPropertiesPtr and StorageLensPropertiesPtrOutput values.
+// You can construct a concrete instance of `StorageLensPropertiesPtrInput` via:
+//
+//          StorageLensPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensPropertiesPtrOutput() StorageLensPropertiesPtrOutput
+	ToStorageLensPropertiesPtrOutputWithContext(context.Context) StorageLensPropertiesPtrOutput
+}
+
+type storageLensPropertiesPtrType StorageLensPropertiesArgs
+
+func StorageLensPropertiesPtr(v *StorageLensPropertiesArgs) StorageLensPropertiesPtrInput {
+	return (*storageLensPropertiesPtrType)(v)
+}
+
+func (*storageLensPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensProperties)(nil)).Elem()
+}
+
+func (i *storageLensPropertiesPtrType) ToStorageLensPropertiesPtrOutput() StorageLensPropertiesPtrOutput {
+	return i.ToStorageLensPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensPropertiesPtrType) ToStorageLensPropertiesPtrOutputWithContext(ctx context.Context) StorageLensPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+type StorageLensPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StorageLensPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensProperties)(nil)).Elem()
+}
+
+func (o StorageLensPropertiesOutput) ToStorageLensPropertiesOutput() StorageLensPropertiesOutput {
+	return o
+}
+
+func (o StorageLensPropertiesOutput) ToStorageLensPropertiesOutputWithContext(ctx context.Context) StorageLensPropertiesOutput {
+	return o
+}
+
+func (o StorageLensPropertiesOutput) ToStorageLensPropertiesPtrOutput() StorageLensPropertiesPtrOutput {
+	return o.ToStorageLensPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensPropertiesOutput) ToStorageLensPropertiesPtrOutputWithContext(ctx context.Context) StorageLensPropertiesPtrOutput {
+	return o.ApplyT(func(v StorageLensProperties) *StorageLensProperties {
+		return &v
+	}).(StorageLensPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
+func (o StorageLensPropertiesOutput) StorageLensConfiguration() StorageLensStorageLensConfigurationOutput {
+	return o.ApplyT(func(v StorageLensProperties) StorageLensStorageLensConfiguration { return v.StorageLensConfiguration }).(StorageLensStorageLensConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+func (o StorageLensPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v StorageLensProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type StorageLensPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensProperties)(nil)).Elem()
+}
+
+func (o StorageLensPropertiesPtrOutput) ToStorageLensPropertiesPtrOutput() StorageLensPropertiesPtrOutput {
+	return o
+}
+
+func (o StorageLensPropertiesPtrOutput) ToStorageLensPropertiesPtrOutputWithContext(ctx context.Context) StorageLensPropertiesPtrOutput {
+	return o
+}
+
+func (o StorageLensPropertiesPtrOutput) Elem() StorageLensPropertiesOutput {
+	return o.ApplyT(func(v *StorageLensProperties) StorageLensProperties { return *v }).(StorageLensPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
+func (o StorageLensPropertiesPtrOutput) StorageLensConfiguration() StorageLensStorageLensConfigurationPtrOutput {
+	return o.ApplyT(func(v *StorageLensProperties) *StorageLensStorageLensConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageLensConfiguration
+	}).(StorageLensStorageLensConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+func (o StorageLensPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *StorageLensProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+type StorageLensS3BucketDestination struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+	AccountId string `pulumi:"AccountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+	Arn string `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
+	Encryption *StorageLensEncryption `pulumi:"Encryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+	Format string `pulumi:"Format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+	OutputSchemaVersion string `pulumi:"OutputSchemaVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+	Prefix *string `pulumi:"Prefix"`
+}
+
+// StorageLensS3BucketDestinationInput is an input type that accepts StorageLensS3BucketDestinationArgs and StorageLensS3BucketDestinationOutput values.
+// You can construct a concrete instance of `StorageLensS3BucketDestinationInput` via:
+//
+//          StorageLensS3BucketDestinationArgs{...}
+type StorageLensS3BucketDestinationInput interface {
+	pulumi.Input
+
+	ToStorageLensS3BucketDestinationOutput() StorageLensS3BucketDestinationOutput
+	ToStorageLensS3BucketDestinationOutputWithContext(context.Context) StorageLensS3BucketDestinationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+type StorageLensS3BucketDestinationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+	AccountId pulumi.StringInput `pulumi:"AccountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+	Arn pulumi.StringInput `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
+	Encryption StorageLensEncryptionPtrInput `pulumi:"Encryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+	Format pulumi.StringInput `pulumi:"Format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+	OutputSchemaVersion pulumi.StringInput `pulumi:"OutputSchemaVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"Prefix"`
+}
+
+func (StorageLensS3BucketDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensS3BucketDestination)(nil)).Elem()
+}
+
+func (i StorageLensS3BucketDestinationArgs) ToStorageLensS3BucketDestinationOutput() StorageLensS3BucketDestinationOutput {
+	return i.ToStorageLensS3BucketDestinationOutputWithContext(context.Background())
+}
+
+func (i StorageLensS3BucketDestinationArgs) ToStorageLensS3BucketDestinationOutputWithContext(ctx context.Context) StorageLensS3BucketDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensS3BucketDestinationOutput)
+}
+
+func (i StorageLensS3BucketDestinationArgs) ToStorageLensS3BucketDestinationPtrOutput() StorageLensS3BucketDestinationPtrOutput {
+	return i.ToStorageLensS3BucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensS3BucketDestinationArgs) ToStorageLensS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensS3BucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensS3BucketDestinationOutput).ToStorageLensS3BucketDestinationPtrOutputWithContext(ctx)
+}
+
+// StorageLensS3BucketDestinationPtrInput is an input type that accepts StorageLensS3BucketDestinationArgs, StorageLensS3BucketDestinationPtr and StorageLensS3BucketDestinationPtrOutput values.
+// You can construct a concrete instance of `StorageLensS3BucketDestinationPtrInput` via:
+//
+//          StorageLensS3BucketDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensS3BucketDestinationPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensS3BucketDestinationPtrOutput() StorageLensS3BucketDestinationPtrOutput
+	ToStorageLensS3BucketDestinationPtrOutputWithContext(context.Context) StorageLensS3BucketDestinationPtrOutput
+}
+
+type storageLensS3BucketDestinationPtrType StorageLensS3BucketDestinationArgs
+
+func StorageLensS3BucketDestinationPtr(v *StorageLensS3BucketDestinationArgs) StorageLensS3BucketDestinationPtrInput {
+	return (*storageLensS3BucketDestinationPtrType)(v)
+}
+
+func (*storageLensS3BucketDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensS3BucketDestination)(nil)).Elem()
+}
+
+func (i *storageLensS3BucketDestinationPtrType) ToStorageLensS3BucketDestinationPtrOutput() StorageLensS3BucketDestinationPtrOutput {
+	return i.ToStorageLensS3BucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensS3BucketDestinationPtrType) ToStorageLensS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensS3BucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensS3BucketDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+type StorageLensS3BucketDestinationOutput struct{ *pulumi.OutputState }
+
+func (StorageLensS3BucketDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensS3BucketDestination)(nil)).Elem()
+}
+
+func (o StorageLensS3BucketDestinationOutput) ToStorageLensS3BucketDestinationOutput() StorageLensS3BucketDestinationOutput {
+	return o
+}
+
+func (o StorageLensS3BucketDestinationOutput) ToStorageLensS3BucketDestinationOutputWithContext(ctx context.Context) StorageLensS3BucketDestinationOutput {
+	return o
+}
+
+func (o StorageLensS3BucketDestinationOutput) ToStorageLensS3BucketDestinationPtrOutput() StorageLensS3BucketDestinationPtrOutput {
+	return o.ToStorageLensS3BucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensS3BucketDestinationOutput) ToStorageLensS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensS3BucketDestinationPtrOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) *StorageLensS3BucketDestination {
+		return &v
+	}).(StorageLensS3BucketDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+func (o StorageLensS3BucketDestinationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+func (o StorageLensS3BucketDestinationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
+func (o StorageLensS3BucketDestinationOutput) Encryption() StorageLensEncryptionPtrOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) *StorageLensEncryption { return v.Encryption }).(StorageLensEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+func (o StorageLensS3BucketDestinationOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+func (o StorageLensS3BucketDestinationOutput) OutputSchemaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.OutputSchemaVersion }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+func (o StorageLensS3BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type StorageLensS3BucketDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensS3BucketDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensS3BucketDestination)(nil)).Elem()
+}
+
+func (o StorageLensS3BucketDestinationPtrOutput) ToStorageLensS3BucketDestinationPtrOutput() StorageLensS3BucketDestinationPtrOutput {
+	return o
+}
+
+func (o StorageLensS3BucketDestinationPtrOutput) ToStorageLensS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensS3BucketDestinationPtrOutput {
+	return o
+}
+
+func (o StorageLensS3BucketDestinationPtrOutput) Elem() StorageLensS3BucketDestinationOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) StorageLensS3BucketDestination { return *v }).(StorageLensS3BucketDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+func (o StorageLensS3BucketDestinationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+func (o StorageLensS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
+func (o StorageLensS3BucketDestinationPtrOutput) Encryption() StorageLensEncryptionPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *StorageLensEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(StorageLensEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+func (o StorageLensS3BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+func (o StorageLensS3BucketDestinationPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputSchemaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+func (o StorageLensS3BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+type StorageLensSelectionCriteria struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+	Delimiter *string `pulumi:"Delimiter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+	MaxDepth *int `pulumi:"MaxDepth"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+	MinStorageBytesPercentage *float64 `pulumi:"MinStorageBytesPercentage"`
+}
+
+// StorageLensSelectionCriteriaInput is an input type that accepts StorageLensSelectionCriteriaArgs and StorageLensSelectionCriteriaOutput values.
+// You can construct a concrete instance of `StorageLensSelectionCriteriaInput` via:
+//
+//          StorageLensSelectionCriteriaArgs{...}
+type StorageLensSelectionCriteriaInput interface {
+	pulumi.Input
+
+	ToStorageLensSelectionCriteriaOutput() StorageLensSelectionCriteriaOutput
+	ToStorageLensSelectionCriteriaOutputWithContext(context.Context) StorageLensSelectionCriteriaOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+type StorageLensSelectionCriteriaArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+	Delimiter pulumi.StringPtrInput `pulumi:"Delimiter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+	MaxDepth pulumi.IntPtrInput `pulumi:"MaxDepth"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+	MinStorageBytesPercentage pulumi.Float64PtrInput `pulumi:"MinStorageBytesPercentage"`
+}
+
+func (StorageLensSelectionCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensSelectionCriteria)(nil)).Elem()
+}
+
+func (i StorageLensSelectionCriteriaArgs) ToStorageLensSelectionCriteriaOutput() StorageLensSelectionCriteriaOutput {
+	return i.ToStorageLensSelectionCriteriaOutputWithContext(context.Background())
+}
+
+func (i StorageLensSelectionCriteriaArgs) ToStorageLensSelectionCriteriaOutputWithContext(ctx context.Context) StorageLensSelectionCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSelectionCriteriaOutput)
+}
+
+func (i StorageLensSelectionCriteriaArgs) ToStorageLensSelectionCriteriaPtrOutput() StorageLensSelectionCriteriaPtrOutput {
+	return i.ToStorageLensSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensSelectionCriteriaArgs) ToStorageLensSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSelectionCriteriaOutput).ToStorageLensSelectionCriteriaPtrOutputWithContext(ctx)
+}
+
+// StorageLensSelectionCriteriaPtrInput is an input type that accepts StorageLensSelectionCriteriaArgs, StorageLensSelectionCriteriaPtr and StorageLensSelectionCriteriaPtrOutput values.
+// You can construct a concrete instance of `StorageLensSelectionCriteriaPtrInput` via:
+//
+//          StorageLensSelectionCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensSelectionCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensSelectionCriteriaPtrOutput() StorageLensSelectionCriteriaPtrOutput
+	ToStorageLensSelectionCriteriaPtrOutputWithContext(context.Context) StorageLensSelectionCriteriaPtrOutput
+}
+
+type storageLensSelectionCriteriaPtrType StorageLensSelectionCriteriaArgs
+
+func StorageLensSelectionCriteriaPtr(v *StorageLensSelectionCriteriaArgs) StorageLensSelectionCriteriaPtrInput {
+	return (*storageLensSelectionCriteriaPtrType)(v)
+}
+
+func (*storageLensSelectionCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensSelectionCriteria)(nil)).Elem()
+}
+
+func (i *storageLensSelectionCriteriaPtrType) ToStorageLensSelectionCriteriaPtrOutput() StorageLensSelectionCriteriaPtrOutput {
+	return i.ToStorageLensSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensSelectionCriteriaPtrType) ToStorageLensSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSelectionCriteriaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+type StorageLensSelectionCriteriaOutput struct{ *pulumi.OutputState }
+
+func (StorageLensSelectionCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensSelectionCriteria)(nil)).Elem()
+}
+
+func (o StorageLensSelectionCriteriaOutput) ToStorageLensSelectionCriteriaOutput() StorageLensSelectionCriteriaOutput {
+	return o
+}
+
+func (o StorageLensSelectionCriteriaOutput) ToStorageLensSelectionCriteriaOutputWithContext(ctx context.Context) StorageLensSelectionCriteriaOutput {
+	return o
+}
+
+func (o StorageLensSelectionCriteriaOutput) ToStorageLensSelectionCriteriaPtrOutput() StorageLensSelectionCriteriaPtrOutput {
+	return o.ToStorageLensSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensSelectionCriteriaOutput) ToStorageLensSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v StorageLensSelectionCriteria) *StorageLensSelectionCriteria {
+		return &v
+	}).(StorageLensSelectionCriteriaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+func (o StorageLensSelectionCriteriaOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageLensSelectionCriteria) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+func (o StorageLensSelectionCriteriaOutput) MaxDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageLensSelectionCriteria) *int { return v.MaxDepth }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+func (o StorageLensSelectionCriteriaOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StorageLensSelectionCriteria) *float64 { return v.MinStorageBytesPercentage }).(pulumi.Float64PtrOutput)
+}
+
+type StorageLensSelectionCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensSelectionCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensSelectionCriteria)(nil)).Elem()
+}
+
+func (o StorageLensSelectionCriteriaPtrOutput) ToStorageLensSelectionCriteriaPtrOutput() StorageLensSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o StorageLensSelectionCriteriaPtrOutput) ToStorageLensSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o StorageLensSelectionCriteriaPtrOutput) Elem() StorageLensSelectionCriteriaOutput {
+	return o.ApplyT(func(v *StorageLensSelectionCriteria) StorageLensSelectionCriteria { return *v }).(StorageLensSelectionCriteriaOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+func (o StorageLensSelectionCriteriaPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensSelectionCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+func (o StorageLensSelectionCriteriaPtrOutput) MaxDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageLensSelectionCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+func (o StorageLensSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StorageLensSelectionCriteria) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinStorageBytesPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+type StorageLensStorageLensConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
+	AccountLevel StorageLensAccountLevel `pulumi:"AccountLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
+	AwsOrg *StorageLensAwsOrg `pulumi:"AwsOrg"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
+	DataExport *StorageLensDataExport `pulumi:"DataExport"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
+	Exclude *StorageLensBucketsAndRegions `pulumi:"Exclude"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
+	Id string `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
+	Include *StorageLensBucketsAndRegions `pulumi:"Include"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+	IsEnabled bool `pulumi:"IsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+	StorageLensArn *string `pulumi:"StorageLensArn"`
+}
+
+// StorageLensStorageLensConfigurationInput is an input type that accepts StorageLensStorageLensConfigurationArgs and StorageLensStorageLensConfigurationOutput values.
+// You can construct a concrete instance of `StorageLensStorageLensConfigurationInput` via:
+//
+//          StorageLensStorageLensConfigurationArgs{...}
+type StorageLensStorageLensConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageLensStorageLensConfigurationOutput() StorageLensStorageLensConfigurationOutput
+	ToStorageLensStorageLensConfigurationOutputWithContext(context.Context) StorageLensStorageLensConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+type StorageLensStorageLensConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
+	AccountLevel StorageLensAccountLevelInput `pulumi:"AccountLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
+	AwsOrg StorageLensAwsOrgPtrInput `pulumi:"AwsOrg"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
+	DataExport StorageLensDataExportPtrInput `pulumi:"DataExport"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
+	Exclude StorageLensBucketsAndRegionsPtrInput `pulumi:"Exclude"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
+	Id pulumi.StringInput `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
+	Include StorageLensBucketsAndRegionsPtrInput `pulumi:"Include"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+	IsEnabled pulumi.BoolInput `pulumi:"IsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+	StorageLensArn pulumi.StringPtrInput `pulumi:"StorageLensArn"`
+}
+
+func (StorageLensStorageLensConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensStorageLensConfiguration)(nil)).Elem()
+}
+
+func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationOutput() StorageLensStorageLensConfigurationOutput {
+	return i.ToStorageLensStorageLensConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensStorageLensConfigurationOutput)
+}
+
+func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
+	return i.ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensStorageLensConfigurationOutput).ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageLensStorageLensConfigurationPtrInput is an input type that accepts StorageLensStorageLensConfigurationArgs, StorageLensStorageLensConfigurationPtr and StorageLensStorageLensConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageLensStorageLensConfigurationPtrInput` via:
+//
+//          StorageLensStorageLensConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensStorageLensConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput
+	ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Context) StorageLensStorageLensConfigurationPtrOutput
+}
+
+type storageLensStorageLensConfigurationPtrType StorageLensStorageLensConfigurationArgs
+
+func StorageLensStorageLensConfigurationPtr(v *StorageLensStorageLensConfigurationArgs) StorageLensStorageLensConfigurationPtrInput {
+	return (*storageLensStorageLensConfigurationPtrType)(v)
+}
+
+func (*storageLensStorageLensConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensStorageLensConfiguration)(nil)).Elem()
+}
+
+func (i *storageLensStorageLensConfigurationPtrType) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
+	return i.ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensStorageLensConfigurationPtrType) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensStorageLensConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+type StorageLensStorageLensConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageLensStorageLensConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensStorageLensConfiguration)(nil)).Elem()
+}
+
+func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationOutput() StorageLensStorageLensConfigurationOutput {
+	return o
+}
+
+func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationOutput {
+	return o
+}
+
+func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
+	return o.ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensStorageLensConfiguration {
+		return &v
+	}).(StorageLensStorageLensConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
+func (o StorageLensStorageLensConfigurationOutput) AccountLevel() StorageLensAccountLevelOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) StorageLensAccountLevel { return v.AccountLevel }).(StorageLensAccountLevelOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
+func (o StorageLensStorageLensConfigurationOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensAwsOrg { return v.AwsOrg }).(StorageLensAwsOrgPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
+func (o StorageLensStorageLensConfigurationOutput) DataExport() StorageLensDataExportPtrOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensDataExport { return v.DataExport }).(StorageLensDataExportPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
+func (o StorageLensStorageLensConfigurationOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Exclude }).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
+func (o StorageLensStorageLensConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
+func (o StorageLensStorageLensConfigurationOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Include }).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+func (o StorageLensStorageLensConfigurationOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+func (o StorageLensStorageLensConfigurationOutput) StorageLensArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *string { return v.StorageLensArn }).(pulumi.StringPtrOutput)
+}
+
+type StorageLensStorageLensConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensStorageLensConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensStorageLensConfiguration)(nil)).Elem()
+}
+
+func (o StorageLensStorageLensConfigurationPtrOutput) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageLensStorageLensConfigurationPtrOutput) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageLensStorageLensConfigurationPtrOutput) Elem() StorageLensStorageLensConfigurationOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) StorageLensStorageLensConfiguration { return *v }).(StorageLensStorageLensConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
+func (o StorageLensStorageLensConfigurationPtrOutput) AccountLevel() StorageLensAccountLevelPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensAccountLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountLevel
+	}).(StorageLensAccountLevelPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
+func (o StorageLensStorageLensConfigurationPtrOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensAwsOrg {
+		if v == nil {
+			return nil
+		}
+		return v.AwsOrg
+	}).(StorageLensAwsOrgPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
+func (o StorageLensStorageLensConfigurationPtrOutput) DataExport() StorageLensDataExportPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensDataExport {
+		if v == nil {
+			return nil
+		}
+		return v.DataExport
+	}).(StorageLensDataExportPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
+func (o StorageLensStorageLensConfigurationPtrOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
+func (o StorageLensStorageLensConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
+func (o StorageLensStorageLensConfigurationPtrOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+func (o StorageLensStorageLensConfigurationPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+func (o StorageLensStorageLensConfigurationPtrOutput) StorageLensArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageLensArn
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessPointAttributesOutput{})
 	pulumi.RegisterOutputType(AccessPointAttributesPtrOutput{})
@@ -8747,6 +11638,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketFilterRuleOutput{})
 	pulumi.RegisterOutputType(BucketFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(BucketInventoryConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketInventoryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(BucketLambdaConfigurationOutput{})
@@ -8770,6 +11663,10 @@ func init() {
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockRuleOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockRulePtrOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsPtrOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsRuleOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketPolicyAttributesOutput{})
 	pulumi.RegisterOutputType(BucketPolicyAttributesPtrOutput{})
 	pulumi.RegisterOutputType(BucketPolicyPropertiesOutput{})
@@ -8783,6 +11680,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketRedirectAllRequestsToOutput{})
 	pulumi.RegisterOutputType(BucketRedirectAllRequestsToPtrOutput{})
 	pulumi.RegisterOutputType(BucketRedirectRuleOutput{})
+	pulumi.RegisterOutputType(BucketReplicaModificationsOutput{})
+	pulumi.RegisterOutputType(BucketReplicaModificationsPtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationDestinationOutput{})
@@ -8816,6 +11715,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketTagFilterOutput{})
 	pulumi.RegisterOutputType(BucketTagFilterPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(BucketTieringOutput{})
+	pulumi.RegisterOutputType(BucketTieringArrayOutput{})
 	pulumi.RegisterOutputType(BucketTopicConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketTopicConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(BucketTransitionOutput{})
@@ -8825,4 +11726,32 @@ func init() {
 	pulumi.RegisterOutputType(BucketVersioningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensAccountLevelOutput{})
+	pulumi.RegisterOutputType(StorageLensAccountLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensActivityMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensActivityMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensAttributesOutput{})
+	pulumi.RegisterOutputType(StorageLensAttributesPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensAwsOrgOutput{})
+	pulumi.RegisterOutputType(StorageLensAwsOrgPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensBucketLevelOutput{})
+	pulumi.RegisterOutputType(StorageLensBucketLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensBucketsAndRegionsOutput{})
+	pulumi.RegisterOutputType(StorageLensBucketsAndRegionsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensDataExportOutput{})
+	pulumi.RegisterOutputType(StorageLensDataExportPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensEncryptionOutput{})
+	pulumi.RegisterOutputType(StorageLensEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensPrefixLevelOutput{})
+	pulumi.RegisterOutputType(StorageLensPrefixLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensPrefixLevelStorageMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensPrefixLevelStorageMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensPropertiesOutput{})
+	pulumi.RegisterOutputType(StorageLensPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensS3BucketDestinationOutput{})
+	pulumi.RegisterOutputType(StorageLensS3BucketDestinationPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensSelectionCriteriaOutput{})
+	pulumi.RegisterOutputType(StorageLensSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensStorageLensConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageLensStorageLensConfigurationPtrOutput{})
 }

@@ -4,6 +4,7 @@
 package autoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ScheduledAction struct {
 // NewScheduledAction registers a new resource with the given unique name, arguments, and options.
 func NewScheduledAction(ctx *pulumi.Context,
 	name string, args *ScheduledActionArgs, opts ...pulumi.ResourceOption) (*ScheduledAction, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ScheduledActionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ScheduledAction
 	err := ctx.RegisterResource("cloudformation:AutoScaling:ScheduledAction", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ScheduledActionArgs struct {
 
 func (ScheduledActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledActionArgs)(nil)).Elem()
+}
+
+type ScheduledActionInput interface {
+	pulumi.Input
+
+	ToScheduledActionOutput() ScheduledActionOutput
+	ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput
+}
+
+func (*ScheduledAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAction)(nil))
+}
+
+func (i *ScheduledAction) ToScheduledActionOutput() ScheduledActionOutput {
+	return i.ToScheduledActionOutputWithContext(context.Background())
+}
+
+func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
+}
+
+type ScheduledActionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAction)(nil))
+}
+
+func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {
+	return o
+}
+
+func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduledActionOutput{})
 }

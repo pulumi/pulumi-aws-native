@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NetworkInterfacePermission struct {
 // NewNetworkInterfacePermission registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfacePermission(ctx *pulumi.Context,
 	name string, args *NetworkInterfacePermissionArgs, opts ...pulumi.ResourceOption) (*NetworkInterfacePermission, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NetworkInterfacePermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NetworkInterfacePermission
 	err := ctx.RegisterResource("cloudformation:EC2:NetworkInterfacePermission", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NetworkInterfacePermissionArgs struct {
 
 func (NetworkInterfacePermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfacePermissionArgs)(nil)).Elem()
+}
+
+type NetworkInterfacePermissionInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePermissionOutput() NetworkInterfacePermissionOutput
+	ToNetworkInterfacePermissionOutputWithContext(ctx context.Context) NetworkInterfacePermissionOutput
+}
+
+func (*NetworkInterfacePermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePermission)(nil))
+}
+
+func (i *NetworkInterfacePermission) ToNetworkInterfacePermissionOutput() NetworkInterfacePermissionOutput {
+	return i.ToNetworkInterfacePermissionOutputWithContext(context.Background())
+}
+
+func (i *NetworkInterfacePermission) ToNetworkInterfacePermissionOutputWithContext(ctx context.Context) NetworkInterfacePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePermissionOutput)
+}
+
+type NetworkInterfacePermissionOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfacePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePermission)(nil))
+}
+
+func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutput() NetworkInterfacePermissionOutput {
+	return o
+}
+
+func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutputWithContext(ctx context.Context) NetworkInterfacePermissionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfacePermissionOutput{})
 }

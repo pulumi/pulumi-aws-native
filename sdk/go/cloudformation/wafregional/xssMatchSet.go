@@ -4,6 +4,7 @@
 package wafregional
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type XssMatchSet struct {
 // NewXssMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewXssMatchSet(ctx *pulumi.Context,
 	name string, args *XssMatchSetArgs, opts ...pulumi.ResourceOption) (*XssMatchSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &XssMatchSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource XssMatchSet
 	err := ctx.RegisterResource("cloudformation:WAFRegional:XssMatchSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type XssMatchSetArgs struct {
 
 func (XssMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*xssMatchSetArgs)(nil)).Elem()
+}
+
+type XssMatchSetInput interface {
+	pulumi.Input
+
+	ToXssMatchSetOutput() XssMatchSetOutput
+	ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput
+}
+
+func (*XssMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*XssMatchSet)(nil))
+}
+
+func (i *XssMatchSet) ToXssMatchSetOutput() XssMatchSetOutput {
+	return i.ToXssMatchSetOutputWithContext(context.Background())
+}
+
+func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetOutput)
+}
+
+type XssMatchSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (XssMatchSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*XssMatchSet)(nil))
+}
+
+func (o XssMatchSetOutput) ToXssMatchSetOutput() XssMatchSetOutput {
+	return o
+}
+
+func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(XssMatchSetOutput{})
 }

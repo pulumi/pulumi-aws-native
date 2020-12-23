@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-cloudformation/sdk/go/cloudformation"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -2529,6 +2530,8 @@ func (o CrawlerPropertiesPtrOutput) Targets() CrawlerTargetsPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html
 type CrawlerS3Target struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+	ConnectionName *string `pulumi:"ConnectionName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
 	Exclusions []string `pulumi:"Exclusions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
@@ -2548,6 +2551,8 @@ type CrawlerS3TargetInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html
 type CrawlerS3TargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+	ConnectionName pulumi.StringPtrInput `pulumi:"ConnectionName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
 	Exclusions pulumi.StringArrayInput `pulumi:"Exclusions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
@@ -2604,6 +2609,11 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutput() CrawlerS3TargetOutput {
 
 func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Context) CrawlerS3TargetOutput {
 	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
@@ -3964,6 +3974,159 @@ func (o DatabaseAttributesPtrOutput) Elem() DatabaseAttributesOutput {
 	return o.ApplyT(func(v *DatabaseAttributes) DatabaseAttributes { return *v }).(DatabaseAttributesOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+type DatabaseDatabaseIdentifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+	CatalogId *string `pulumi:"CatalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+	DatabaseName *string `pulumi:"DatabaseName"`
+}
+
+// DatabaseDatabaseIdentifierInput is an input type that accepts DatabaseDatabaseIdentifierArgs and DatabaseDatabaseIdentifierOutput values.
+// You can construct a concrete instance of `DatabaseDatabaseIdentifierInput` via:
+//
+//          DatabaseDatabaseIdentifierArgs{...}
+type DatabaseDatabaseIdentifierInput interface {
+	pulumi.Input
+
+	ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput
+	ToDatabaseDatabaseIdentifierOutputWithContext(context.Context) DatabaseDatabaseIdentifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+type DatabaseDatabaseIdentifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"CatalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+	DatabaseName pulumi.StringPtrInput `pulumi:"DatabaseName"`
+}
+
+func (DatabaseDatabaseIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput {
+	return i.ToDatabaseDatabaseIdentifierOutputWithContext(context.Background())
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierOutput)
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return i.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierOutput).ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx)
+}
+
+// DatabaseDatabaseIdentifierPtrInput is an input type that accepts DatabaseDatabaseIdentifierArgs, DatabaseDatabaseIdentifierPtr and DatabaseDatabaseIdentifierPtrOutput values.
+// You can construct a concrete instance of `DatabaseDatabaseIdentifierPtrInput` via:
+//
+//          DatabaseDatabaseIdentifierArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseDatabaseIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput
+	ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Context) DatabaseDatabaseIdentifierPtrOutput
+}
+
+type databaseDatabaseIdentifierPtrType DatabaseDatabaseIdentifierArgs
+
+func DatabaseDatabaseIdentifierPtr(v *DatabaseDatabaseIdentifierArgs) DatabaseDatabaseIdentifierPtrInput {
+	return (*databaseDatabaseIdentifierPtrType)(v)
+}
+
+func (*databaseDatabaseIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (i *databaseDatabaseIdentifierPtrType) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return i.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseDatabaseIdentifierPtrType) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+type DatabaseDatabaseIdentifierOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDatabaseIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return o.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseIdentifier) *DatabaseDatabaseIdentifier {
+		return &v
+	}).(DatabaseDatabaseIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+func (o DatabaseDatabaseIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+func (o DatabaseDatabaseIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseDatabaseIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDatabaseIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (o DatabaseDatabaseIdentifierPtrOutput) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierPtrOutput) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierPtrOutput) Elem() DatabaseDatabaseIdentifierOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) DatabaseDatabaseIdentifier { return *v }).(DatabaseDatabaseIdentifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+func (o DatabaseDatabaseIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+func (o DatabaseDatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
 type DatabaseDatabaseInput struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
@@ -3974,6 +4137,8 @@ type DatabaseDatabaseInput struct {
 	Name *string `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
 	Parameters interface{} `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+	TargetDatabase *DatabaseDatabaseIdentifier `pulumi:"TargetDatabase"`
 }
 
 // DatabaseDatabaseInputInput is an input type that accepts DatabaseDatabaseInputArgs and DatabaseDatabaseInputOutput values.
@@ -3997,6 +4162,8 @@ type DatabaseDatabaseInputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
 	Parameters pulumi.Input `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+	TargetDatabase DatabaseDatabaseIdentifierPtrInput `pulumi:"TargetDatabase"`
 }
 
 func (DatabaseDatabaseInputArgs) ElementType() reflect.Type {
@@ -4097,6 +4264,11 @@ func (o DatabaseDatabaseInputOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v DatabaseDatabaseInput) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+func (o DatabaseDatabaseInputOutput) TargetDatabase() DatabaseDatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseInput) *DatabaseDatabaseIdentifier { return v.TargetDatabase }).(DatabaseDatabaseIdentifierPtrOutput)
+}
+
 type DatabaseDatabaseInputPtrOutput struct{ *pulumi.OutputState }
 
 func (DatabaseDatabaseInputPtrOutput) ElementType() reflect.Type {
@@ -4153,6 +4325,16 @@ func (o DatabaseDatabaseInputPtrOutput) Parameters() pulumi.AnyOutput {
 		}
 		return v.Parameters
 	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+func (o DatabaseDatabaseInputPtrOutput) TargetDatabase() DatabaseDatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) *DatabaseDatabaseIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDatabase
+	}).(DatabaseDatabaseIdentifierPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
@@ -6527,6 +6709,159 @@ func (o MLTransformInputRecordTablesPtrOutput) GlueTables() MLTransformGlueTable
 	}).(MLTransformGlueTablesArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
+type MLTransformMLUserDataEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+	KmsKeyId *string `pulumi:"KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+	MLUserDataEncryptionMode string `pulumi:"MLUserDataEncryptionMode"`
+}
+
+// MLTransformMLUserDataEncryptionInput is an input type that accepts MLTransformMLUserDataEncryptionArgs and MLTransformMLUserDataEncryptionOutput values.
+// You can construct a concrete instance of `MLTransformMLUserDataEncryptionInput` via:
+//
+//          MLTransformMLUserDataEncryptionArgs{...}
+type MLTransformMLUserDataEncryptionInput interface {
+	pulumi.Input
+
+	ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput
+	ToMLTransformMLUserDataEncryptionOutputWithContext(context.Context) MLTransformMLUserDataEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
+type MLTransformMLUserDataEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+	MLUserDataEncryptionMode pulumi.StringInput `pulumi:"MLUserDataEncryptionMode"`
+}
+
+func (MLTransformMLUserDataEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput {
+	return i.ToMLTransformMLUserDataEncryptionOutputWithContext(context.Background())
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionOutput)
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return i.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionOutput).ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx)
+}
+
+// MLTransformMLUserDataEncryptionPtrInput is an input type that accepts MLTransformMLUserDataEncryptionArgs, MLTransformMLUserDataEncryptionPtr and MLTransformMLUserDataEncryptionPtrOutput values.
+// You can construct a concrete instance of `MLTransformMLUserDataEncryptionPtrInput` via:
+//
+//          MLTransformMLUserDataEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformMLUserDataEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput
+	ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Context) MLTransformMLUserDataEncryptionPtrOutput
+}
+
+type mltransformMLUserDataEncryptionPtrType MLTransformMLUserDataEncryptionArgs
+
+func MLTransformMLUserDataEncryptionPtr(v *MLTransformMLUserDataEncryptionArgs) MLTransformMLUserDataEncryptionPtrInput {
+	return (*mltransformMLUserDataEncryptionPtrType)(v)
+}
+
+func (*mltransformMLUserDataEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (i *mltransformMLUserDataEncryptionPtrType) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return i.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformMLUserDataEncryptionPtrType) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
+type MLTransformMLUserDataEncryptionOutput struct{ *pulumi.OutputState }
+
+func (MLTransformMLUserDataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v MLTransformMLUserDataEncryption) *MLTransformMLUserDataEncryption {
+		return &v
+	}).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+func (o MLTransformMLUserDataEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformMLUserDataEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+func (o MLTransformMLUserDataEncryptionOutput) MLUserDataEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformMLUserDataEncryption) string { return v.MLUserDataEncryptionMode }).(pulumi.StringOutput)
+}
+
+type MLTransformMLUserDataEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformMLUserDataEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (o MLTransformMLUserDataEncryptionPtrOutput) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionPtrOutput) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionPtrOutput) Elem() MLTransformMLUserDataEncryptionOutput {
+	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) MLTransformMLUserDataEncryption { return *v }).(MLTransformMLUserDataEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+func (o MLTransformMLUserDataEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+func (o MLTransformMLUserDataEncryptionPtrOutput) MLUserDataEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MLUserDataEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html
 type MLTransformProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-description
@@ -6549,6 +6884,8 @@ type MLTransformProperties struct {
 	Tags interface{} `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-timeout
 	Timeout *int `pulumi:"Timeout"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformencryption
+	TransformEncryption *MLTransformTransformEncryption `pulumi:"TransformEncryption"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformparameters
 	TransformParameters MLTransformTransformParameters `pulumi:"TransformParameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-workertype
@@ -6588,6 +6925,8 @@ type MLTransformPropertiesArgs struct {
 	Tags pulumi.Input `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-timeout
 	Timeout pulumi.IntPtrInput `pulumi:"Timeout"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformencryption
+	TransformEncryption MLTransformTransformEncryptionPtrInput `pulumi:"TransformEncryption"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformparameters
 	TransformParameters MLTransformTransformParametersInput `pulumi:"TransformParameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-workertype
@@ -6722,6 +7061,11 @@ func (o MLTransformPropertiesOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MLTransformProperties) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformencryption
+func (o MLTransformPropertiesOutput) TransformEncryption() MLTransformTransformEncryptionPtrOutput {
+	return o.ApplyT(func(v MLTransformProperties) *MLTransformTransformEncryption { return v.TransformEncryption }).(MLTransformTransformEncryptionPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformparameters
 func (o MLTransformPropertiesOutput) TransformParameters() MLTransformTransformParametersOutput {
 	return o.ApplyT(func(v MLTransformProperties) MLTransformTransformParameters { return v.TransformParameters }).(MLTransformTransformParametersOutput)
@@ -6850,6 +7194,16 @@ func (o MLTransformPropertiesPtrOutput) Timeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformencryption
+func (o MLTransformPropertiesPtrOutput) TransformEncryption() MLTransformTransformEncryptionPtrOutput {
+	return o.ApplyT(func(v *MLTransformProperties) *MLTransformTransformEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.TransformEncryption
+	}).(MLTransformTransformEncryptionPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformparameters
 func (o MLTransformPropertiesPtrOutput) TransformParameters() MLTransformTransformParametersPtrOutput {
 	return o.ApplyT(func(v *MLTransformProperties) *MLTransformTransformParameters {
@@ -6867,6 +7221,159 @@ func (o MLTransformPropertiesPtrOutput) WorkerType() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.WorkerType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
+type MLTransformTransformEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+	MLUserDataEncryption *MLTransformMLUserDataEncryption `pulumi:"MLUserDataEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+	TaskRunSecurityConfigurationName *string `pulumi:"TaskRunSecurityConfigurationName"`
+}
+
+// MLTransformTransformEncryptionInput is an input type that accepts MLTransformTransformEncryptionArgs and MLTransformTransformEncryptionOutput values.
+// You can construct a concrete instance of `MLTransformTransformEncryptionInput` via:
+//
+//          MLTransformTransformEncryptionArgs{...}
+type MLTransformTransformEncryptionInput interface {
+	pulumi.Input
+
+	ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput
+	ToMLTransformTransformEncryptionOutputWithContext(context.Context) MLTransformTransformEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
+type MLTransformTransformEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+	MLUserDataEncryption MLTransformMLUserDataEncryptionPtrInput `pulumi:"MLUserDataEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+	TaskRunSecurityConfigurationName pulumi.StringPtrInput `pulumi:"TaskRunSecurityConfigurationName"`
+}
+
+func (MLTransformTransformEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput {
+	return i.ToMLTransformTransformEncryptionOutputWithContext(context.Background())
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionOutputWithContext(ctx context.Context) MLTransformTransformEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionOutput)
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return i.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionOutput).ToMLTransformTransformEncryptionPtrOutputWithContext(ctx)
+}
+
+// MLTransformTransformEncryptionPtrInput is an input type that accepts MLTransformTransformEncryptionArgs, MLTransformTransformEncryptionPtr and MLTransformTransformEncryptionPtrOutput values.
+// You can construct a concrete instance of `MLTransformTransformEncryptionPtrInput` via:
+//
+//          MLTransformTransformEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformTransformEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput
+	ToMLTransformTransformEncryptionPtrOutputWithContext(context.Context) MLTransformTransformEncryptionPtrOutput
+}
+
+type mltransformTransformEncryptionPtrType MLTransformTransformEncryptionArgs
+
+func MLTransformTransformEncryptionPtr(v *MLTransformTransformEncryptionArgs) MLTransformTransformEncryptionPtrInput {
+	return (*mltransformTransformEncryptionPtrType)(v)
+}
+
+func (*mltransformTransformEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (i *mltransformTransformEncryptionPtrType) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return i.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformTransformEncryptionPtrType) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
+type MLTransformTransformEncryptionOutput struct{ *pulumi.OutputState }
+
+func (MLTransformTransformEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionOutputWithContext(ctx context.Context) MLTransformTransformEncryptionOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return o.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return o.ApplyT(func(v MLTransformTransformEncryption) *MLTransformTransformEncryption {
+		return &v
+	}).(MLTransformTransformEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+func (o MLTransformTransformEncryptionOutput) MLUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v MLTransformTransformEncryption) *MLTransformMLUserDataEncryption { return v.MLUserDataEncryption }).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+func (o MLTransformTransformEncryptionOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformTransformEncryption) *string { return v.TaskRunSecurityConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+type MLTransformTransformEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformTransformEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (o MLTransformTransformEncryptionPtrOutput) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionPtrOutput) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionPtrOutput) Elem() MLTransformTransformEncryptionOutput {
+	return o.ApplyT(func(v *MLTransformTransformEncryption) MLTransformTransformEncryption { return *v }).(MLTransformTransformEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+func (o MLTransformTransformEncryptionPtrOutput) MLUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformEncryption) *MLTransformMLUserDataEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.MLUserDataEncryption
+	}).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+func (o MLTransformTransformEncryptionPtrOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskRunSecurityConfigurationName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7727,6 +8234,350 @@ func (o PartitionPropertiesPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
+type PartitionSchemaId struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+	RegistryName *string `pulumi:"RegistryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+	SchemaArn *string `pulumi:"SchemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+	SchemaName *string `pulumi:"SchemaName"`
+}
+
+// PartitionSchemaIdInput is an input type that accepts PartitionSchemaIdArgs and PartitionSchemaIdOutput values.
+// You can construct a concrete instance of `PartitionSchemaIdInput` via:
+//
+//          PartitionSchemaIdArgs{...}
+type PartitionSchemaIdInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaIdOutput() PartitionSchemaIdOutput
+	ToPartitionSchemaIdOutputWithContext(context.Context) PartitionSchemaIdOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
+type PartitionSchemaIdArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+	RegistryName pulumi.StringPtrInput `pulumi:"RegistryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+	SchemaArn pulumi.StringPtrInput `pulumi:"SchemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+	SchemaName pulumi.StringPtrInput `pulumi:"SchemaName"`
+}
+
+func (PartitionSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaId)(nil)).Elem()
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdOutput() PartitionSchemaIdOutput {
+	return i.ToPartitionSchemaIdOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdOutputWithContext(ctx context.Context) PartitionSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdOutput)
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return i.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdOutput).ToPartitionSchemaIdPtrOutputWithContext(ctx)
+}
+
+// PartitionSchemaIdPtrInput is an input type that accepts PartitionSchemaIdArgs, PartitionSchemaIdPtr and PartitionSchemaIdPtrOutput values.
+// You can construct a concrete instance of `PartitionSchemaIdPtrInput` via:
+//
+//          PartitionSchemaIdArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionSchemaIdPtrInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput
+	ToPartitionSchemaIdPtrOutputWithContext(context.Context) PartitionSchemaIdPtrOutput
+}
+
+type partitionSchemaIdPtrType PartitionSchemaIdArgs
+
+func PartitionSchemaIdPtr(v *PartitionSchemaIdArgs) PartitionSchemaIdPtrInput {
+	return (*partitionSchemaIdPtrType)(v)
+}
+
+func (*partitionSchemaIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaId)(nil)).Elem()
+}
+
+func (i *partitionSchemaIdPtrType) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return i.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSchemaIdPtrType) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
+type PartitionSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaId)(nil)).Elem()
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdOutput() PartitionSchemaIdOutput {
+	return o
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdOutputWithContext(ctx context.Context) PartitionSchemaIdOutput {
+	return o
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return o.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *PartitionSchemaId {
+		return &v
+	}).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+func (o PartitionSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+func (o PartitionSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+func (o PartitionSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type PartitionSchemaIdPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaId)(nil)).Elem()
+}
+
+func (o PartitionSchemaIdPtrOutput) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return o
+}
+
+func (o PartitionSchemaIdPtrOutput) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return o
+}
+
+func (o PartitionSchemaIdPtrOutput) Elem() PartitionSchemaIdOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) PartitionSchemaId { return *v }).(PartitionSchemaIdOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+func (o PartitionSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+func (o PartitionSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+func (o PartitionSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
+type PartitionSchemaReference struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schameversionid
+	SchameVersionId *string `pulumi:"SchameVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+	SchemaId *PartitionSchemaId `pulumi:"SchemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+	SchemaVersionNumber *int `pulumi:"SchemaVersionNumber"`
+}
+
+// PartitionSchemaReferenceInput is an input type that accepts PartitionSchemaReferenceArgs and PartitionSchemaReferenceOutput values.
+// You can construct a concrete instance of `PartitionSchemaReferenceInput` via:
+//
+//          PartitionSchemaReferenceArgs{...}
+type PartitionSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput
+	ToPartitionSchemaReferenceOutputWithContext(context.Context) PartitionSchemaReferenceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
+type PartitionSchemaReferenceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schameversionid
+	SchameVersionId pulumi.StringPtrInput `pulumi:"SchameVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+	SchemaId PartitionSchemaIdPtrInput `pulumi:"SchemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+	SchemaVersionNumber pulumi.IntPtrInput `pulumi:"SchemaVersionNumber"`
+}
+
+func (PartitionSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaReference)(nil)).Elem()
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput {
+	return i.ToPartitionSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferenceOutputWithContext(ctx context.Context) PartitionSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferenceOutput)
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return i.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferenceOutput).ToPartitionSchemaReferencePtrOutputWithContext(ctx)
+}
+
+// PartitionSchemaReferencePtrInput is an input type that accepts PartitionSchemaReferenceArgs, PartitionSchemaReferencePtr and PartitionSchemaReferencePtrOutput values.
+// You can construct a concrete instance of `PartitionSchemaReferencePtrInput` via:
+//
+//          PartitionSchemaReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionSchemaReferencePtrInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput
+	ToPartitionSchemaReferencePtrOutputWithContext(context.Context) PartitionSchemaReferencePtrOutput
+}
+
+type partitionSchemaReferencePtrType PartitionSchemaReferenceArgs
+
+func PartitionSchemaReferencePtr(v *PartitionSchemaReferenceArgs) PartitionSchemaReferencePtrInput {
+	return (*partitionSchemaReferencePtrType)(v)
+}
+
+func (*partitionSchemaReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaReference)(nil)).Elem()
+}
+
+func (i *partitionSchemaReferencePtrType) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return i.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSchemaReferencePtrType) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
+type PartitionSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaReference)(nil)).Elem()
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput {
+	return o
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferenceOutputWithContext(ctx context.Context) PartitionSchemaReferenceOutput {
+	return o
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return o.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *PartitionSchemaReference {
+		return &v
+	}).(PartitionSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schameversionid
+func (o PartitionSchemaReferenceOutput) SchameVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *string { return v.SchameVersionId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+func (o PartitionSchemaReferenceOutput) SchemaId() PartitionSchemaIdPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *PartitionSchemaId { return v.SchemaId }).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+func (o PartitionSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *int { return v.SchemaVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type PartitionSchemaReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaReference)(nil)).Elem()
+}
+
+func (o PartitionSchemaReferencePtrOutput) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return o
+}
+
+func (o PartitionSchemaReferencePtrOutput) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return o
+}
+
+func (o PartitionSchemaReferencePtrOutput) Elem() PartitionSchemaReferenceOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) PartitionSchemaReference { return *v }).(PartitionSchemaReferenceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schameversionid
+func (o PartitionSchemaReferencePtrOutput) SchameVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchameVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+func (o PartitionSchemaReferencePtrOutput) SchemaId() PartitionSchemaIdPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *PartitionSchemaId {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+func (o PartitionSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html
 type PartitionSerdeInfo struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
@@ -8089,6 +8940,8 @@ type PartitionStorageDescriptor struct {
 	OutputFormat *string `pulumi:"OutputFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
 	Parameters interface{} `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+	SchemaReference *PartitionSchemaReference `pulumi:"SchemaReference"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
 	SerdeInfo *PartitionSerdeInfo `pulumi:"SerdeInfo"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
@@ -8128,6 +8981,8 @@ type PartitionStorageDescriptorArgs struct {
 	OutputFormat pulumi.StringPtrInput `pulumi:"OutputFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
 	Parameters pulumi.Input `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+	SchemaReference PartitionSchemaReferencePtrInput `pulumi:"SchemaReference"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
 	SerdeInfo PartitionSerdeInfoPtrInput `pulumi:"SerdeInfo"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
@@ -8256,6 +9111,11 @@ func (o PartitionStorageDescriptorOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+func (o PartitionStorageDescriptorOutput) SchemaReference() PartitionSchemaReferencePtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSchemaReference { return v.SchemaReference }).(PartitionSchemaReferencePtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
 func (o PartitionStorageDescriptorOutput) SerdeInfo() PartitionSerdeInfoPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSerdeInfo { return v.SerdeInfo }).(PartitionSerdeInfoPtrOutput)
@@ -8374,6 +9234,16 @@ func (o PartitionStorageDescriptorPtrOutput) Parameters() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+func (o PartitionStorageDescriptorPtrOutput) SchemaReference() PartitionSchemaReferencePtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSchemaReference {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReference
+	}).(PartitionSchemaReferencePtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
 func (o PartitionStorageDescriptorPtrOutput) SerdeInfo() PartitionSerdeInfoPtrOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSerdeInfo {
@@ -8412,6 +9282,1753 @@ func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.Boo
 		}
 		return v.StoredAsSubDirectories
 	}).(pulumi.BoolPtrOutput)
+}
+
+type RegistryAttributes struct {
+	Arn string `pulumi:"Arn"`
+}
+
+// RegistryAttributesInput is an input type that accepts RegistryAttributesArgs and RegistryAttributesOutput values.
+// You can construct a concrete instance of `RegistryAttributesInput` via:
+//
+//          RegistryAttributesArgs{...}
+type RegistryAttributesInput interface {
+	pulumi.Input
+
+	ToRegistryAttributesOutput() RegistryAttributesOutput
+	ToRegistryAttributesOutputWithContext(context.Context) RegistryAttributesOutput
+}
+
+type RegistryAttributesArgs struct {
+	Arn pulumi.StringInput `pulumi:"Arn"`
+}
+
+func (RegistryAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryAttributes)(nil)).Elem()
+}
+
+func (i RegistryAttributesArgs) ToRegistryAttributesOutput() RegistryAttributesOutput {
+	return i.ToRegistryAttributesOutputWithContext(context.Background())
+}
+
+func (i RegistryAttributesArgs) ToRegistryAttributesOutputWithContext(ctx context.Context) RegistryAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryAttributesOutput)
+}
+
+func (i RegistryAttributesArgs) ToRegistryAttributesPtrOutput() RegistryAttributesPtrOutput {
+	return i.ToRegistryAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryAttributesArgs) ToRegistryAttributesPtrOutputWithContext(ctx context.Context) RegistryAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryAttributesOutput).ToRegistryAttributesPtrOutputWithContext(ctx)
+}
+
+// RegistryAttributesPtrInput is an input type that accepts RegistryAttributesArgs, RegistryAttributesPtr and RegistryAttributesPtrOutput values.
+// You can construct a concrete instance of `RegistryAttributesPtrInput` via:
+//
+//          RegistryAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryAttributesPtrInput interface {
+	pulumi.Input
+
+	ToRegistryAttributesPtrOutput() RegistryAttributesPtrOutput
+	ToRegistryAttributesPtrOutputWithContext(context.Context) RegistryAttributesPtrOutput
+}
+
+type registryAttributesPtrType RegistryAttributesArgs
+
+func RegistryAttributesPtr(v *RegistryAttributesArgs) RegistryAttributesPtrInput {
+	return (*registryAttributesPtrType)(v)
+}
+
+func (*registryAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryAttributes)(nil)).Elem()
+}
+
+func (i *registryAttributesPtrType) ToRegistryAttributesPtrOutput() RegistryAttributesPtrOutput {
+	return i.ToRegistryAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *registryAttributesPtrType) ToRegistryAttributesPtrOutputWithContext(ctx context.Context) RegistryAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryAttributesPtrOutput)
+}
+
+type RegistryAttributesOutput struct{ *pulumi.OutputState }
+
+func (RegistryAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryAttributes)(nil)).Elem()
+}
+
+func (o RegistryAttributesOutput) ToRegistryAttributesOutput() RegistryAttributesOutput {
+	return o
+}
+
+func (o RegistryAttributesOutput) ToRegistryAttributesOutputWithContext(ctx context.Context) RegistryAttributesOutput {
+	return o
+}
+
+func (o RegistryAttributesOutput) ToRegistryAttributesPtrOutput() RegistryAttributesPtrOutput {
+	return o.ToRegistryAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAttributesOutput) ToRegistryAttributesPtrOutputWithContext(ctx context.Context) RegistryAttributesPtrOutput {
+	return o.ApplyT(func(v RegistryAttributes) *RegistryAttributes {
+		return &v
+	}).(RegistryAttributesPtrOutput)
+}
+func (o RegistryAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type RegistryAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryAttributes)(nil)).Elem()
+}
+
+func (o RegistryAttributesPtrOutput) ToRegistryAttributesPtrOutput() RegistryAttributesPtrOutput {
+	return o
+}
+
+func (o RegistryAttributesPtrOutput) ToRegistryAttributesPtrOutputWithContext(ctx context.Context) RegistryAttributesPtrOutput {
+	return o
+}
+
+func (o RegistryAttributesPtrOutput) Elem() RegistryAttributesOutput {
+	return o.ApplyT(func(v *RegistryAttributes) RegistryAttributes { return *v }).(RegistryAttributesOutput)
+}
+
+func (o RegistryAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html
+type RegistryProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-description
+	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-name
+	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// RegistryPropertiesInput is an input type that accepts RegistryPropertiesArgs and RegistryPropertiesOutput values.
+// You can construct a concrete instance of `RegistryPropertiesInput` via:
+//
+//          RegistryPropertiesArgs{...}
+type RegistryPropertiesInput interface {
+	pulumi.Input
+
+	ToRegistryPropertiesOutput() RegistryPropertiesOutput
+	ToRegistryPropertiesOutputWithContext(context.Context) RegistryPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html
+type RegistryPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-description
+	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-name
+	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (RegistryPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryProperties)(nil)).Elem()
+}
+
+func (i RegistryPropertiesArgs) ToRegistryPropertiesOutput() RegistryPropertiesOutput {
+	return i.ToRegistryPropertiesOutputWithContext(context.Background())
+}
+
+func (i RegistryPropertiesArgs) ToRegistryPropertiesOutputWithContext(ctx context.Context) RegistryPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPropertiesOutput)
+}
+
+func (i RegistryPropertiesArgs) ToRegistryPropertiesPtrOutput() RegistryPropertiesPtrOutput {
+	return i.ToRegistryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryPropertiesArgs) ToRegistryPropertiesPtrOutputWithContext(ctx context.Context) RegistryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPropertiesOutput).ToRegistryPropertiesPtrOutputWithContext(ctx)
+}
+
+// RegistryPropertiesPtrInput is an input type that accepts RegistryPropertiesArgs, RegistryPropertiesPtr and RegistryPropertiesPtrOutput values.
+// You can construct a concrete instance of `RegistryPropertiesPtrInput` via:
+//
+//          RegistryPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRegistryPropertiesPtrOutput() RegistryPropertiesPtrOutput
+	ToRegistryPropertiesPtrOutputWithContext(context.Context) RegistryPropertiesPtrOutput
+}
+
+type registryPropertiesPtrType RegistryPropertiesArgs
+
+func RegistryPropertiesPtr(v *RegistryPropertiesArgs) RegistryPropertiesPtrInput {
+	return (*registryPropertiesPtrType)(v)
+}
+
+func (*registryPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryProperties)(nil)).Elem()
+}
+
+func (i *registryPropertiesPtrType) ToRegistryPropertiesPtrOutput() RegistryPropertiesPtrOutput {
+	return i.ToRegistryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *registryPropertiesPtrType) ToRegistryPropertiesPtrOutputWithContext(ctx context.Context) RegistryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html
+type RegistryPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RegistryPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryProperties)(nil)).Elem()
+}
+
+func (o RegistryPropertiesOutput) ToRegistryPropertiesOutput() RegistryPropertiesOutput {
+	return o
+}
+
+func (o RegistryPropertiesOutput) ToRegistryPropertiesOutputWithContext(ctx context.Context) RegistryPropertiesOutput {
+	return o
+}
+
+func (o RegistryPropertiesOutput) ToRegistryPropertiesPtrOutput() RegistryPropertiesPtrOutput {
+	return o.ToRegistryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryPropertiesOutput) ToRegistryPropertiesPtrOutputWithContext(ctx context.Context) RegistryPropertiesPtrOutput {
+	return o.ApplyT(func(v RegistryProperties) *RegistryProperties {
+		return &v
+	}).(RegistryPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-description
+func (o RegistryPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-name
+func (o RegistryPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-tags
+func (o RegistryPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v RegistryProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type RegistryPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryProperties)(nil)).Elem()
+}
+
+func (o RegistryPropertiesPtrOutput) ToRegistryPropertiesPtrOutput() RegistryPropertiesPtrOutput {
+	return o
+}
+
+func (o RegistryPropertiesPtrOutput) ToRegistryPropertiesPtrOutputWithContext(ctx context.Context) RegistryPropertiesPtrOutput {
+	return o
+}
+
+func (o RegistryPropertiesPtrOutput) Elem() RegistryPropertiesOutput {
+	return o.ApplyT(func(v *RegistryProperties) RegistryProperties { return *v }).(RegistryPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-description
+func (o RegistryPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-name
+func (o RegistryPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-tags
+func (o RegistryPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *RegistryProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+type SchemaAttributes struct {
+	Arn                    string `pulumi:"Arn"`
+	InitialSchemaVersionId string `pulumi:"InitialSchemaVersionId"`
+}
+
+// SchemaAttributesInput is an input type that accepts SchemaAttributesArgs and SchemaAttributesOutput values.
+// You can construct a concrete instance of `SchemaAttributesInput` via:
+//
+//          SchemaAttributesArgs{...}
+type SchemaAttributesInput interface {
+	pulumi.Input
+
+	ToSchemaAttributesOutput() SchemaAttributesOutput
+	ToSchemaAttributesOutputWithContext(context.Context) SchemaAttributesOutput
+}
+
+type SchemaAttributesArgs struct {
+	Arn                    pulumi.StringInput `pulumi:"Arn"`
+	InitialSchemaVersionId pulumi.StringInput `pulumi:"InitialSchemaVersionId"`
+}
+
+func (SchemaAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaAttributes)(nil)).Elem()
+}
+
+func (i SchemaAttributesArgs) ToSchemaAttributesOutput() SchemaAttributesOutput {
+	return i.ToSchemaAttributesOutputWithContext(context.Background())
+}
+
+func (i SchemaAttributesArgs) ToSchemaAttributesOutputWithContext(ctx context.Context) SchemaAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaAttributesOutput)
+}
+
+func (i SchemaAttributesArgs) ToSchemaAttributesPtrOutput() SchemaAttributesPtrOutput {
+	return i.ToSchemaAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaAttributesArgs) ToSchemaAttributesPtrOutputWithContext(ctx context.Context) SchemaAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaAttributesOutput).ToSchemaAttributesPtrOutputWithContext(ctx)
+}
+
+// SchemaAttributesPtrInput is an input type that accepts SchemaAttributesArgs, SchemaAttributesPtr and SchemaAttributesPtrOutput values.
+// You can construct a concrete instance of `SchemaAttributesPtrInput` via:
+//
+//          SchemaAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaAttributesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaAttributesPtrOutput() SchemaAttributesPtrOutput
+	ToSchemaAttributesPtrOutputWithContext(context.Context) SchemaAttributesPtrOutput
+}
+
+type schemaAttributesPtrType SchemaAttributesArgs
+
+func SchemaAttributesPtr(v *SchemaAttributesArgs) SchemaAttributesPtrInput {
+	return (*schemaAttributesPtrType)(v)
+}
+
+func (*schemaAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaAttributes)(nil)).Elem()
+}
+
+func (i *schemaAttributesPtrType) ToSchemaAttributesPtrOutput() SchemaAttributesPtrOutput {
+	return i.ToSchemaAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaAttributesPtrType) ToSchemaAttributesPtrOutputWithContext(ctx context.Context) SchemaAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaAttributesPtrOutput)
+}
+
+type SchemaAttributesOutput struct{ *pulumi.OutputState }
+
+func (SchemaAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaAttributes)(nil)).Elem()
+}
+
+func (o SchemaAttributesOutput) ToSchemaAttributesOutput() SchemaAttributesOutput {
+	return o
+}
+
+func (o SchemaAttributesOutput) ToSchemaAttributesOutputWithContext(ctx context.Context) SchemaAttributesOutput {
+	return o
+}
+
+func (o SchemaAttributesOutput) ToSchemaAttributesPtrOutput() SchemaAttributesPtrOutput {
+	return o.ToSchemaAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaAttributesOutput) ToSchemaAttributesPtrOutputWithContext(ctx context.Context) SchemaAttributesPtrOutput {
+	return o.ApplyT(func(v SchemaAttributes) *SchemaAttributes {
+		return &v
+	}).(SchemaAttributesPtrOutput)
+}
+func (o SchemaAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SchemaAttributesOutput) InitialSchemaVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaAttributes) string { return v.InitialSchemaVersionId }).(pulumi.StringOutput)
+}
+
+type SchemaAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaAttributes)(nil)).Elem()
+}
+
+func (o SchemaAttributesPtrOutput) ToSchemaAttributesPtrOutput() SchemaAttributesPtrOutput {
+	return o
+}
+
+func (o SchemaAttributesPtrOutput) ToSchemaAttributesPtrOutputWithContext(ctx context.Context) SchemaAttributesPtrOutput {
+	return o
+}
+
+func (o SchemaAttributesPtrOutput) Elem() SchemaAttributesOutput {
+	return o.ApplyT(func(v *SchemaAttributes) SchemaAttributes { return *v }).(SchemaAttributesOutput)
+}
+
+func (o SchemaAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaAttributesPtrOutput) InitialSchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InitialSchemaVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+type SchemaProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+	CheckpointVersion *SchemaSchemaVersion `pulumi:"CheckpointVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+	Compatibility string `pulumi:"Compatibility"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+	DataFormat string `pulumi:"DataFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+	Registry *SchemaRegistry `pulumi:"Registry"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+	SchemaDefinition string `pulumi:"SchemaDefinition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// SchemaPropertiesInput is an input type that accepts SchemaPropertiesArgs and SchemaPropertiesOutput values.
+// You can construct a concrete instance of `SchemaPropertiesInput` via:
+//
+//          SchemaPropertiesArgs{...}
+type SchemaPropertiesInput interface {
+	pulumi.Input
+
+	ToSchemaPropertiesOutput() SchemaPropertiesOutput
+	ToSchemaPropertiesOutputWithContext(context.Context) SchemaPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+type SchemaPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+	CheckpointVersion SchemaSchemaVersionPtrInput `pulumi:"CheckpointVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+	Compatibility pulumi.StringInput `pulumi:"Compatibility"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+	DataFormat pulumi.StringInput `pulumi:"DataFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+	Registry SchemaRegistryPtrInput `pulumi:"Registry"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+	SchemaDefinition pulumi.StringInput `pulumi:"SchemaDefinition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (SchemaPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaProperties)(nil)).Elem()
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesOutput() SchemaPropertiesOutput {
+	return i.ToSchemaPropertiesOutputWithContext(context.Background())
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesOutputWithContext(ctx context.Context) SchemaPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput)
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return i.ToSchemaPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput).ToSchemaPropertiesPtrOutputWithContext(ctx)
+}
+
+// SchemaPropertiesPtrInput is an input type that accepts SchemaPropertiesArgs, SchemaPropertiesPtr and SchemaPropertiesPtrOutput values.
+// You can construct a concrete instance of `SchemaPropertiesPtrInput` via:
+//
+//          SchemaPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput
+	ToSchemaPropertiesPtrOutputWithContext(context.Context) SchemaPropertiesPtrOutput
+}
+
+type schemaPropertiesPtrType SchemaPropertiesArgs
+
+func SchemaPropertiesPtr(v *SchemaPropertiesArgs) SchemaPropertiesPtrInput {
+	return (*schemaPropertiesPtrType)(v)
+}
+
+func (*schemaPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaProperties)(nil)).Elem()
+}
+
+func (i *schemaPropertiesPtrType) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return i.ToSchemaPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaPropertiesPtrType) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+type SchemaPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SchemaPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaProperties)(nil)).Elem()
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesOutput() SchemaPropertiesOutput {
+	return o
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesOutputWithContext(ctx context.Context) SchemaPropertiesOutput {
+	return o
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return o.ToSchemaPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return o.ApplyT(func(v SchemaProperties) *SchemaProperties {
+		return &v
+	}).(SchemaPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+func (o SchemaPropertiesOutput) CheckpointVersion() SchemaSchemaVersionPtrOutput {
+	return o.ApplyT(func(v SchemaProperties) *SchemaSchemaVersion { return v.CheckpointVersion }).(SchemaSchemaVersionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+func (o SchemaPropertiesOutput) Compatibility() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaProperties) string { return v.Compatibility }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+func (o SchemaPropertiesOutput) DataFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaProperties) string { return v.DataFormat }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+func (o SchemaPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+func (o SchemaPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+func (o SchemaPropertiesOutput) Registry() SchemaRegistryPtrOutput {
+	return o.ApplyT(func(v SchemaProperties) *SchemaRegistry { return v.Registry }).(SchemaRegistryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+func (o SchemaPropertiesOutput) SchemaDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaProperties) string { return v.SchemaDefinition }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+func (o SchemaPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v SchemaProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type SchemaPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaProperties)(nil)).Elem()
+}
+
+func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
+	return o.ApplyT(func(v *SchemaProperties) SchemaProperties { return *v }).(SchemaPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+func (o SchemaPropertiesPtrOutput) CheckpointVersion() SchemaSchemaVersionPtrOutput {
+	return o.ApplyT(func(v *SchemaProperties) *SchemaSchemaVersion {
+		if v == nil {
+			return nil
+		}
+		return v.CheckpointVersion
+	}).(SchemaSchemaVersionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+func (o SchemaPropertiesPtrOutput) Compatibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Compatibility
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+func (o SchemaPropertiesPtrOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+func (o SchemaPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+func (o SchemaPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+func (o SchemaPropertiesPtrOutput) Registry() SchemaRegistryPtrOutput {
+	return o.ApplyT(func(v *SchemaProperties) *SchemaRegistry {
+		if v == nil {
+			return nil
+		}
+		return v.Registry
+	}).(SchemaRegistryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+func (o SchemaPropertiesPtrOutput) SchemaDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaDefinition
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+func (o SchemaPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *SchemaProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
+type SchemaRegistry struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+	Arn *string `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+	Name *string `pulumi:"Name"`
+}
+
+// SchemaRegistryInput is an input type that accepts SchemaRegistryArgs and SchemaRegistryOutput values.
+// You can construct a concrete instance of `SchemaRegistryInput` via:
+//
+//          SchemaRegistryArgs{...}
+type SchemaRegistryInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryOutput() SchemaRegistryOutput
+	ToSchemaRegistryOutputWithContext(context.Context) SchemaRegistryOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
+type SchemaRegistryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+	Arn pulumi.StringPtrInput `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+	Name pulumi.StringPtrInput `pulumi:"Name"`
+}
+
+func (SchemaRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistry)(nil)).Elem()
+}
+
+func (i SchemaRegistryArgs) ToSchemaRegistryOutput() SchemaRegistryOutput {
+	return i.ToSchemaRegistryOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryArgs) ToSchemaRegistryOutputWithContext(ctx context.Context) SchemaRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryOutput)
+}
+
+func (i SchemaRegistryArgs) ToSchemaRegistryPtrOutput() SchemaRegistryPtrOutput {
+	return i.ToSchemaRegistryPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryArgs) ToSchemaRegistryPtrOutputWithContext(ctx context.Context) SchemaRegistryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryOutput).ToSchemaRegistryPtrOutputWithContext(ctx)
+}
+
+// SchemaRegistryPtrInput is an input type that accepts SchemaRegistryArgs, SchemaRegistryPtr and SchemaRegistryPtrOutput values.
+// You can construct a concrete instance of `SchemaRegistryPtrInput` via:
+//
+//          SchemaRegistryArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaRegistryPtrInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryPtrOutput() SchemaRegistryPtrOutput
+	ToSchemaRegistryPtrOutputWithContext(context.Context) SchemaRegistryPtrOutput
+}
+
+type schemaRegistryPtrType SchemaRegistryArgs
+
+func SchemaRegistryPtr(v *SchemaRegistryArgs) SchemaRegistryPtrInput {
+	return (*schemaRegistryPtrType)(v)
+}
+
+func (*schemaRegistryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistry)(nil)).Elem()
+}
+
+func (i *schemaRegistryPtrType) ToSchemaRegistryPtrOutput() SchemaRegistryPtrOutput {
+	return i.ToSchemaRegistryPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaRegistryPtrType) ToSchemaRegistryPtrOutputWithContext(ctx context.Context) SchemaRegistryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
+type SchemaRegistryOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistry)(nil)).Elem()
+}
+
+func (o SchemaRegistryOutput) ToSchemaRegistryOutput() SchemaRegistryOutput {
+	return o
+}
+
+func (o SchemaRegistryOutput) ToSchemaRegistryOutputWithContext(ctx context.Context) SchemaRegistryOutput {
+	return o
+}
+
+func (o SchemaRegistryOutput) ToSchemaRegistryPtrOutput() SchemaRegistryPtrOutput {
+	return o.ToSchemaRegistryPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaRegistryOutput) ToSchemaRegistryPtrOutputWithContext(ctx context.Context) SchemaRegistryPtrOutput {
+	return o.ApplyT(func(v SchemaRegistry) *SchemaRegistry {
+		return &v
+	}).(SchemaRegistryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+func (o SchemaRegistryOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRegistry) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+func (o SchemaRegistryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRegistry) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SchemaRegistryPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistry)(nil)).Elem()
+}
+
+func (o SchemaRegistryPtrOutput) ToSchemaRegistryPtrOutput() SchemaRegistryPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryPtrOutput) ToSchemaRegistryPtrOutputWithContext(ctx context.Context) SchemaRegistryPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryPtrOutput) Elem() SchemaRegistryOutput {
+	return o.ApplyT(func(v *SchemaRegistry) SchemaRegistry { return *v }).(SchemaRegistryOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+func (o SchemaRegistryPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+func (o SchemaRegistryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html
+type SchemaSchemaVersion struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
+	IsLatest *bool `pulumi:"IsLatest"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
+	VersionNumber *int `pulumi:"VersionNumber"`
+}
+
+// SchemaSchemaVersionInput is an input type that accepts SchemaSchemaVersionArgs and SchemaSchemaVersionOutput values.
+// You can construct a concrete instance of `SchemaSchemaVersionInput` via:
+//
+//          SchemaSchemaVersionArgs{...}
+type SchemaSchemaVersionInput interface {
+	pulumi.Input
+
+	ToSchemaSchemaVersionOutput() SchemaSchemaVersionOutput
+	ToSchemaSchemaVersionOutputWithContext(context.Context) SchemaSchemaVersionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html
+type SchemaSchemaVersionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
+	IsLatest pulumi.BoolPtrInput `pulumi:"IsLatest"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
+	VersionNumber pulumi.IntPtrInput `pulumi:"VersionNumber"`
+}
+
+func (SchemaSchemaVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaSchemaVersion)(nil)).Elem()
+}
+
+func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionOutput() SchemaSchemaVersionOutput {
+	return i.ToSchemaSchemaVersionOutputWithContext(context.Background())
+}
+
+func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionOutputWithContext(ctx context.Context) SchemaSchemaVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaVersionOutput)
+}
+
+func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
+	return i.ToSchemaSchemaVersionPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaVersionOutput).ToSchemaSchemaVersionPtrOutputWithContext(ctx)
+}
+
+// SchemaSchemaVersionPtrInput is an input type that accepts SchemaSchemaVersionArgs, SchemaSchemaVersionPtr and SchemaSchemaVersionPtrOutput values.
+// You can construct a concrete instance of `SchemaSchemaVersionPtrInput` via:
+//
+//          SchemaSchemaVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaSchemaVersionPtrInput interface {
+	pulumi.Input
+
+	ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput
+	ToSchemaSchemaVersionPtrOutputWithContext(context.Context) SchemaSchemaVersionPtrOutput
+}
+
+type schemaSchemaVersionPtrType SchemaSchemaVersionArgs
+
+func SchemaSchemaVersionPtr(v *SchemaSchemaVersionArgs) SchemaSchemaVersionPtrInput {
+	return (*schemaSchemaVersionPtrType)(v)
+}
+
+func (*schemaSchemaVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaSchemaVersion)(nil)).Elem()
+}
+
+func (i *schemaSchemaVersionPtrType) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
+	return i.ToSchemaSchemaVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaSchemaVersionPtrType) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaVersionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html
+type SchemaSchemaVersionOutput struct{ *pulumi.OutputState }
+
+func (SchemaSchemaVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaSchemaVersion)(nil)).Elem()
+}
+
+func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionOutput() SchemaSchemaVersionOutput {
+	return o
+}
+
+func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionOutputWithContext(ctx context.Context) SchemaSchemaVersionOutput {
+	return o
+}
+
+func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
+	return o.ToSchemaSchemaVersionPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
+	return o.ApplyT(func(v SchemaSchemaVersion) *SchemaSchemaVersion {
+		return &v
+	}).(SchemaSchemaVersionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
+func (o SchemaSchemaVersionOutput) IsLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SchemaSchemaVersion) *bool { return v.IsLatest }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
+func (o SchemaSchemaVersionOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SchemaSchemaVersion) *int { return v.VersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type SchemaSchemaVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaSchemaVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaSchemaVersion)(nil)).Elem()
+}
+
+func (o SchemaSchemaVersionPtrOutput) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
+	return o
+}
+
+func (o SchemaSchemaVersionPtrOutput) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
+	return o
+}
+
+func (o SchemaSchemaVersionPtrOutput) Elem() SchemaSchemaVersionOutput {
+	return o.ApplyT(func(v *SchemaSchemaVersion) SchemaSchemaVersion { return *v }).(SchemaSchemaVersionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
+func (o SchemaSchemaVersionPtrOutput) IsLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SchemaSchemaVersion) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsLatest
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
+func (o SchemaSchemaVersionPtrOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SchemaSchemaVersion) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+type SchemaVersionAttributes struct {
+	VersionId string `pulumi:"VersionId"`
+}
+
+// SchemaVersionAttributesInput is an input type that accepts SchemaVersionAttributesArgs and SchemaVersionAttributesOutput values.
+// You can construct a concrete instance of `SchemaVersionAttributesInput` via:
+//
+//          SchemaVersionAttributesArgs{...}
+type SchemaVersionAttributesInput interface {
+	pulumi.Input
+
+	ToSchemaVersionAttributesOutput() SchemaVersionAttributesOutput
+	ToSchemaVersionAttributesOutputWithContext(context.Context) SchemaVersionAttributesOutput
+}
+
+type SchemaVersionAttributesArgs struct {
+	VersionId pulumi.StringInput `pulumi:"VersionId"`
+}
+
+func (SchemaVersionAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionAttributes)(nil)).Elem()
+}
+
+func (i SchemaVersionAttributesArgs) ToSchemaVersionAttributesOutput() SchemaVersionAttributesOutput {
+	return i.ToSchemaVersionAttributesOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionAttributesArgs) ToSchemaVersionAttributesOutputWithContext(ctx context.Context) SchemaVersionAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionAttributesOutput)
+}
+
+func (i SchemaVersionAttributesArgs) ToSchemaVersionAttributesPtrOutput() SchemaVersionAttributesPtrOutput {
+	return i.ToSchemaVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionAttributesArgs) ToSchemaVersionAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionAttributesOutput).ToSchemaVersionAttributesPtrOutputWithContext(ctx)
+}
+
+// SchemaVersionAttributesPtrInput is an input type that accepts SchemaVersionAttributesArgs, SchemaVersionAttributesPtr and SchemaVersionAttributesPtrOutput values.
+// You can construct a concrete instance of `SchemaVersionAttributesPtrInput` via:
+//
+//          SchemaVersionAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaVersionAttributesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaVersionAttributesPtrOutput() SchemaVersionAttributesPtrOutput
+	ToSchemaVersionAttributesPtrOutputWithContext(context.Context) SchemaVersionAttributesPtrOutput
+}
+
+type schemaVersionAttributesPtrType SchemaVersionAttributesArgs
+
+func SchemaVersionAttributesPtr(v *SchemaVersionAttributesArgs) SchemaVersionAttributesPtrInput {
+	return (*schemaVersionAttributesPtrType)(v)
+}
+
+func (*schemaVersionAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionAttributes)(nil)).Elem()
+}
+
+func (i *schemaVersionAttributesPtrType) ToSchemaVersionAttributesPtrOutput() SchemaVersionAttributesPtrOutput {
+	return i.ToSchemaVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaVersionAttributesPtrType) ToSchemaVersionAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionAttributesPtrOutput)
+}
+
+type SchemaVersionAttributesOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionAttributes)(nil)).Elem()
+}
+
+func (o SchemaVersionAttributesOutput) ToSchemaVersionAttributesOutput() SchemaVersionAttributesOutput {
+	return o
+}
+
+func (o SchemaVersionAttributesOutput) ToSchemaVersionAttributesOutputWithContext(ctx context.Context) SchemaVersionAttributesOutput {
+	return o
+}
+
+func (o SchemaVersionAttributesOutput) ToSchemaVersionAttributesPtrOutput() SchemaVersionAttributesPtrOutput {
+	return o.ToSchemaVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaVersionAttributesOutput) ToSchemaVersionAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionAttributesPtrOutput {
+	return o.ApplyT(func(v SchemaVersionAttributes) *SchemaVersionAttributes {
+		return &v
+	}).(SchemaVersionAttributesPtrOutput)
+}
+func (o SchemaVersionAttributesOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaVersionAttributes) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+type SchemaVersionAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionAttributes)(nil)).Elem()
+}
+
+func (o SchemaVersionAttributesPtrOutput) ToSchemaVersionAttributesPtrOutput() SchemaVersionAttributesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionAttributesPtrOutput) ToSchemaVersionAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionAttributesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionAttributesPtrOutput) Elem() SchemaVersionAttributesOutput {
+	return o.ApplyT(func(v *SchemaVersionAttributes) SchemaVersionAttributes { return *v }).(SchemaVersionAttributesOutput)
+}
+
+func (o SchemaVersionAttributesPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaVersionMetadataAttributes struct {
+}
+
+// SchemaVersionMetadataAttributesInput is an input type that accepts SchemaVersionMetadataAttributesArgs and SchemaVersionMetadataAttributesOutput values.
+// You can construct a concrete instance of `SchemaVersionMetadataAttributesInput` via:
+//
+//          SchemaVersionMetadataAttributesArgs{...}
+type SchemaVersionMetadataAttributesInput interface {
+	pulumi.Input
+
+	ToSchemaVersionMetadataAttributesOutput() SchemaVersionMetadataAttributesOutput
+	ToSchemaVersionMetadataAttributesOutputWithContext(context.Context) SchemaVersionMetadataAttributesOutput
+}
+
+type SchemaVersionMetadataAttributesArgs struct {
+}
+
+func (SchemaVersionMetadataAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionMetadataAttributes)(nil)).Elem()
+}
+
+func (i SchemaVersionMetadataAttributesArgs) ToSchemaVersionMetadataAttributesOutput() SchemaVersionMetadataAttributesOutput {
+	return i.ToSchemaVersionMetadataAttributesOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionMetadataAttributesArgs) ToSchemaVersionMetadataAttributesOutputWithContext(ctx context.Context) SchemaVersionMetadataAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionMetadataAttributesOutput)
+}
+
+func (i SchemaVersionMetadataAttributesArgs) ToSchemaVersionMetadataAttributesPtrOutput() SchemaVersionMetadataAttributesPtrOutput {
+	return i.ToSchemaVersionMetadataAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionMetadataAttributesArgs) ToSchemaVersionMetadataAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionMetadataAttributesOutput).ToSchemaVersionMetadataAttributesPtrOutputWithContext(ctx)
+}
+
+// SchemaVersionMetadataAttributesPtrInput is an input type that accepts SchemaVersionMetadataAttributesArgs, SchemaVersionMetadataAttributesPtr and SchemaVersionMetadataAttributesPtrOutput values.
+// You can construct a concrete instance of `SchemaVersionMetadataAttributesPtrInput` via:
+//
+//          SchemaVersionMetadataAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaVersionMetadataAttributesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaVersionMetadataAttributesPtrOutput() SchemaVersionMetadataAttributesPtrOutput
+	ToSchemaVersionMetadataAttributesPtrOutputWithContext(context.Context) SchemaVersionMetadataAttributesPtrOutput
+}
+
+type schemaVersionMetadataAttributesPtrType SchemaVersionMetadataAttributesArgs
+
+func SchemaVersionMetadataAttributesPtr(v *SchemaVersionMetadataAttributesArgs) SchemaVersionMetadataAttributesPtrInput {
+	return (*schemaVersionMetadataAttributesPtrType)(v)
+}
+
+func (*schemaVersionMetadataAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionMetadataAttributes)(nil)).Elem()
+}
+
+func (i *schemaVersionMetadataAttributesPtrType) ToSchemaVersionMetadataAttributesPtrOutput() SchemaVersionMetadataAttributesPtrOutput {
+	return i.ToSchemaVersionMetadataAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaVersionMetadataAttributesPtrType) ToSchemaVersionMetadataAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionMetadataAttributesPtrOutput)
+}
+
+type SchemaVersionMetadataAttributesOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionMetadataAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionMetadataAttributes)(nil)).Elem()
+}
+
+func (o SchemaVersionMetadataAttributesOutput) ToSchemaVersionMetadataAttributesOutput() SchemaVersionMetadataAttributesOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataAttributesOutput) ToSchemaVersionMetadataAttributesOutputWithContext(ctx context.Context) SchemaVersionMetadataAttributesOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataAttributesOutput) ToSchemaVersionMetadataAttributesPtrOutput() SchemaVersionMetadataAttributesPtrOutput {
+	return o.ToSchemaVersionMetadataAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaVersionMetadataAttributesOutput) ToSchemaVersionMetadataAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataAttributesPtrOutput {
+	return o.ApplyT(func(v SchemaVersionMetadataAttributes) *SchemaVersionMetadataAttributes {
+		return &v
+	}).(SchemaVersionMetadataAttributesPtrOutput)
+}
+
+type SchemaVersionMetadataAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionMetadataAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionMetadataAttributes)(nil)).Elem()
+}
+
+func (o SchemaVersionMetadataAttributesPtrOutput) ToSchemaVersionMetadataAttributesPtrOutput() SchemaVersionMetadataAttributesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataAttributesPtrOutput) ToSchemaVersionMetadataAttributesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataAttributesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataAttributesPtrOutput) Elem() SchemaVersionMetadataAttributesOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadataAttributes) SchemaVersionMetadataAttributes { return *v }).(SchemaVersionMetadataAttributesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+type SchemaVersionMetadataProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+	Key string `pulumi:"Key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+	SchemaVersionId string `pulumi:"SchemaVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+	Value string `pulumi:"Value"`
+}
+
+// SchemaVersionMetadataPropertiesInput is an input type that accepts SchemaVersionMetadataPropertiesArgs and SchemaVersionMetadataPropertiesOutput values.
+// You can construct a concrete instance of `SchemaVersionMetadataPropertiesInput` via:
+//
+//          SchemaVersionMetadataPropertiesArgs{...}
+type SchemaVersionMetadataPropertiesInput interface {
+	pulumi.Input
+
+	ToSchemaVersionMetadataPropertiesOutput() SchemaVersionMetadataPropertiesOutput
+	ToSchemaVersionMetadataPropertiesOutputWithContext(context.Context) SchemaVersionMetadataPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+type SchemaVersionMetadataPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+	Key pulumi.StringInput `pulumi:"Key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+	SchemaVersionId pulumi.StringInput `pulumi:"SchemaVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+	Value pulumi.StringInput `pulumi:"Value"`
+}
+
+func (SchemaVersionMetadataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionMetadataProperties)(nil)).Elem()
+}
+
+func (i SchemaVersionMetadataPropertiesArgs) ToSchemaVersionMetadataPropertiesOutput() SchemaVersionMetadataPropertiesOutput {
+	return i.ToSchemaVersionMetadataPropertiesOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionMetadataPropertiesArgs) ToSchemaVersionMetadataPropertiesOutputWithContext(ctx context.Context) SchemaVersionMetadataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionMetadataPropertiesOutput)
+}
+
+func (i SchemaVersionMetadataPropertiesArgs) ToSchemaVersionMetadataPropertiesPtrOutput() SchemaVersionMetadataPropertiesPtrOutput {
+	return i.ToSchemaVersionMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionMetadataPropertiesArgs) ToSchemaVersionMetadataPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionMetadataPropertiesOutput).ToSchemaVersionMetadataPropertiesPtrOutputWithContext(ctx)
+}
+
+// SchemaVersionMetadataPropertiesPtrInput is an input type that accepts SchemaVersionMetadataPropertiesArgs, SchemaVersionMetadataPropertiesPtr and SchemaVersionMetadataPropertiesPtrOutput values.
+// You can construct a concrete instance of `SchemaVersionMetadataPropertiesPtrInput` via:
+//
+//          SchemaVersionMetadataPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaVersionMetadataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaVersionMetadataPropertiesPtrOutput() SchemaVersionMetadataPropertiesPtrOutput
+	ToSchemaVersionMetadataPropertiesPtrOutputWithContext(context.Context) SchemaVersionMetadataPropertiesPtrOutput
+}
+
+type schemaVersionMetadataPropertiesPtrType SchemaVersionMetadataPropertiesArgs
+
+func SchemaVersionMetadataPropertiesPtr(v *SchemaVersionMetadataPropertiesArgs) SchemaVersionMetadataPropertiesPtrInput {
+	return (*schemaVersionMetadataPropertiesPtrType)(v)
+}
+
+func (*schemaVersionMetadataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionMetadataProperties)(nil)).Elem()
+}
+
+func (i *schemaVersionMetadataPropertiesPtrType) ToSchemaVersionMetadataPropertiesPtrOutput() SchemaVersionMetadataPropertiesPtrOutput {
+	return i.ToSchemaVersionMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaVersionMetadataPropertiesPtrType) ToSchemaVersionMetadataPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionMetadataPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+type SchemaVersionMetadataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionMetadataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionMetadataProperties)(nil)).Elem()
+}
+
+func (o SchemaVersionMetadataPropertiesOutput) ToSchemaVersionMetadataPropertiesOutput() SchemaVersionMetadataPropertiesOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataPropertiesOutput) ToSchemaVersionMetadataPropertiesOutputWithContext(ctx context.Context) SchemaVersionMetadataPropertiesOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataPropertiesOutput) ToSchemaVersionMetadataPropertiesPtrOutput() SchemaVersionMetadataPropertiesPtrOutput {
+	return o.ToSchemaVersionMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaVersionMetadataPropertiesOutput) ToSchemaVersionMetadataPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataPropertiesPtrOutput {
+	return o.ApplyT(func(v SchemaVersionMetadataProperties) *SchemaVersionMetadataProperties {
+		return &v
+	}).(SchemaVersionMetadataPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+func (o SchemaVersionMetadataPropertiesOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaVersionMetadataProperties) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+func (o SchemaVersionMetadataPropertiesOutput) SchemaVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaVersionMetadataProperties) string { return v.SchemaVersionId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+func (o SchemaVersionMetadataPropertiesOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaVersionMetadataProperties) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SchemaVersionMetadataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionMetadataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionMetadataProperties)(nil)).Elem()
+}
+
+func (o SchemaVersionMetadataPropertiesPtrOutput) ToSchemaVersionMetadataPropertiesPtrOutput() SchemaVersionMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataPropertiesPtrOutput) ToSchemaVersionMetadataPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionMetadataPropertiesPtrOutput) Elem() SchemaVersionMetadataPropertiesOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadataProperties) SchemaVersionMetadataProperties { return *v }).(SchemaVersionMetadataPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+func (o SchemaVersionMetadataPropertiesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+func (o SchemaVersionMetadataPropertiesPtrOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+func (o SchemaVersionMetadataPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+type SchemaVersionProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+	Schema SchemaVersionSchema `pulumi:"Schema"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+	SchemaDefinition string `pulumi:"SchemaDefinition"`
+}
+
+// SchemaVersionPropertiesInput is an input type that accepts SchemaVersionPropertiesArgs and SchemaVersionPropertiesOutput values.
+// You can construct a concrete instance of `SchemaVersionPropertiesInput` via:
+//
+//          SchemaVersionPropertiesArgs{...}
+type SchemaVersionPropertiesInput interface {
+	pulumi.Input
+
+	ToSchemaVersionPropertiesOutput() SchemaVersionPropertiesOutput
+	ToSchemaVersionPropertiesOutputWithContext(context.Context) SchemaVersionPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+type SchemaVersionPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+	Schema SchemaVersionSchemaInput `pulumi:"Schema"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+	SchemaDefinition pulumi.StringInput `pulumi:"SchemaDefinition"`
+}
+
+func (SchemaVersionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionProperties)(nil)).Elem()
+}
+
+func (i SchemaVersionPropertiesArgs) ToSchemaVersionPropertiesOutput() SchemaVersionPropertiesOutput {
+	return i.ToSchemaVersionPropertiesOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionPropertiesArgs) ToSchemaVersionPropertiesOutputWithContext(ctx context.Context) SchemaVersionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionPropertiesOutput)
+}
+
+func (i SchemaVersionPropertiesArgs) ToSchemaVersionPropertiesPtrOutput() SchemaVersionPropertiesPtrOutput {
+	return i.ToSchemaVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionPropertiesArgs) ToSchemaVersionPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionPropertiesOutput).ToSchemaVersionPropertiesPtrOutputWithContext(ctx)
+}
+
+// SchemaVersionPropertiesPtrInput is an input type that accepts SchemaVersionPropertiesArgs, SchemaVersionPropertiesPtr and SchemaVersionPropertiesPtrOutput values.
+// You can construct a concrete instance of `SchemaVersionPropertiesPtrInput` via:
+//
+//          SchemaVersionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaVersionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaVersionPropertiesPtrOutput() SchemaVersionPropertiesPtrOutput
+	ToSchemaVersionPropertiesPtrOutputWithContext(context.Context) SchemaVersionPropertiesPtrOutput
+}
+
+type schemaVersionPropertiesPtrType SchemaVersionPropertiesArgs
+
+func SchemaVersionPropertiesPtr(v *SchemaVersionPropertiesArgs) SchemaVersionPropertiesPtrInput {
+	return (*schemaVersionPropertiesPtrType)(v)
+}
+
+func (*schemaVersionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionProperties)(nil)).Elem()
+}
+
+func (i *schemaVersionPropertiesPtrType) ToSchemaVersionPropertiesPtrOutput() SchemaVersionPropertiesPtrOutput {
+	return i.ToSchemaVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaVersionPropertiesPtrType) ToSchemaVersionPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+type SchemaVersionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionProperties)(nil)).Elem()
+}
+
+func (o SchemaVersionPropertiesOutput) ToSchemaVersionPropertiesOutput() SchemaVersionPropertiesOutput {
+	return o
+}
+
+func (o SchemaVersionPropertiesOutput) ToSchemaVersionPropertiesOutputWithContext(ctx context.Context) SchemaVersionPropertiesOutput {
+	return o
+}
+
+func (o SchemaVersionPropertiesOutput) ToSchemaVersionPropertiesPtrOutput() SchemaVersionPropertiesPtrOutput {
+	return o.ToSchemaVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaVersionPropertiesOutput) ToSchemaVersionPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionPropertiesPtrOutput {
+	return o.ApplyT(func(v SchemaVersionProperties) *SchemaVersionProperties {
+		return &v
+	}).(SchemaVersionPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+func (o SchemaVersionPropertiesOutput) Schema() SchemaVersionSchemaOutput {
+	return o.ApplyT(func(v SchemaVersionProperties) SchemaVersionSchema { return v.Schema }).(SchemaVersionSchemaOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+func (o SchemaVersionPropertiesOutput) SchemaDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaVersionProperties) string { return v.SchemaDefinition }).(pulumi.StringOutput)
+}
+
+type SchemaVersionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionProperties)(nil)).Elem()
+}
+
+func (o SchemaVersionPropertiesPtrOutput) ToSchemaVersionPropertiesPtrOutput() SchemaVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionPropertiesPtrOutput) ToSchemaVersionPropertiesPtrOutputWithContext(ctx context.Context) SchemaVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaVersionPropertiesPtrOutput) Elem() SchemaVersionPropertiesOutput {
+	return o.ApplyT(func(v *SchemaVersionProperties) SchemaVersionProperties { return *v }).(SchemaVersionPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+func (o SchemaVersionPropertiesPtrOutput) Schema() SchemaVersionSchemaPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionProperties) *SchemaVersionSchema {
+		if v == nil {
+			return nil
+		}
+		return &v.Schema
+	}).(SchemaVersionSchemaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+func (o SchemaVersionPropertiesPtrOutput) SchemaDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaDefinition
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
+type SchemaVersionSchema struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
+	RegistryName *string `pulumi:"RegistryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
+	SchemaArn *string `pulumi:"SchemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+	SchemaName *string `pulumi:"SchemaName"`
+}
+
+// SchemaVersionSchemaInput is an input type that accepts SchemaVersionSchemaArgs and SchemaVersionSchemaOutput values.
+// You can construct a concrete instance of `SchemaVersionSchemaInput` via:
+//
+//          SchemaVersionSchemaArgs{...}
+type SchemaVersionSchemaInput interface {
+	pulumi.Input
+
+	ToSchemaVersionSchemaOutput() SchemaVersionSchemaOutput
+	ToSchemaVersionSchemaOutputWithContext(context.Context) SchemaVersionSchemaOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
+type SchemaVersionSchemaArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
+	RegistryName pulumi.StringPtrInput `pulumi:"RegistryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
+	SchemaArn pulumi.StringPtrInput `pulumi:"SchemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+	SchemaName pulumi.StringPtrInput `pulumi:"SchemaName"`
+}
+
+func (SchemaVersionSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionSchema)(nil)).Elem()
+}
+
+func (i SchemaVersionSchemaArgs) ToSchemaVersionSchemaOutput() SchemaVersionSchemaOutput {
+	return i.ToSchemaVersionSchemaOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionSchemaArgs) ToSchemaVersionSchemaOutputWithContext(ctx context.Context) SchemaVersionSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionSchemaOutput)
+}
+
+func (i SchemaVersionSchemaArgs) ToSchemaVersionSchemaPtrOutput() SchemaVersionSchemaPtrOutput {
+	return i.ToSchemaVersionSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionSchemaArgs) ToSchemaVersionSchemaPtrOutputWithContext(ctx context.Context) SchemaVersionSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionSchemaOutput).ToSchemaVersionSchemaPtrOutputWithContext(ctx)
+}
+
+// SchemaVersionSchemaPtrInput is an input type that accepts SchemaVersionSchemaArgs, SchemaVersionSchemaPtr and SchemaVersionSchemaPtrOutput values.
+// You can construct a concrete instance of `SchemaVersionSchemaPtrInput` via:
+//
+//          SchemaVersionSchemaArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaVersionSchemaPtrInput interface {
+	pulumi.Input
+
+	ToSchemaVersionSchemaPtrOutput() SchemaVersionSchemaPtrOutput
+	ToSchemaVersionSchemaPtrOutputWithContext(context.Context) SchemaVersionSchemaPtrOutput
+}
+
+type schemaVersionSchemaPtrType SchemaVersionSchemaArgs
+
+func SchemaVersionSchemaPtr(v *SchemaVersionSchemaArgs) SchemaVersionSchemaPtrInput {
+	return (*schemaVersionSchemaPtrType)(v)
+}
+
+func (*schemaVersionSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionSchema)(nil)).Elem()
+}
+
+func (i *schemaVersionSchemaPtrType) ToSchemaVersionSchemaPtrOutput() SchemaVersionSchemaPtrOutput {
+	return i.ToSchemaVersionSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaVersionSchemaPtrType) ToSchemaVersionSchemaPtrOutputWithContext(ctx context.Context) SchemaVersionSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionSchemaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
+type SchemaVersionSchemaOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionSchema)(nil)).Elem()
+}
+
+func (o SchemaVersionSchemaOutput) ToSchemaVersionSchemaOutput() SchemaVersionSchemaOutput {
+	return o
+}
+
+func (o SchemaVersionSchemaOutput) ToSchemaVersionSchemaOutputWithContext(ctx context.Context) SchemaVersionSchemaOutput {
+	return o
+}
+
+func (o SchemaVersionSchemaOutput) ToSchemaVersionSchemaPtrOutput() SchemaVersionSchemaPtrOutput {
+	return o.ToSchemaVersionSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaVersionSchemaOutput) ToSchemaVersionSchemaPtrOutputWithContext(ctx context.Context) SchemaVersionSchemaPtrOutput {
+	return o.ApplyT(func(v SchemaVersionSchema) *SchemaVersionSchema {
+		return &v
+	}).(SchemaVersionSchemaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
+func (o SchemaVersionSchemaOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaVersionSchema) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
+func (o SchemaVersionSchemaOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaVersionSchema) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+func (o SchemaVersionSchemaOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaVersionSchema) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type SchemaVersionSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionSchema)(nil)).Elem()
+}
+
+func (o SchemaVersionSchemaPtrOutput) ToSchemaVersionSchemaPtrOutput() SchemaVersionSchemaPtrOutput {
+	return o
+}
+
+func (o SchemaVersionSchemaPtrOutput) ToSchemaVersionSchemaPtrOutputWithContext(ctx context.Context) SchemaVersionSchemaPtrOutput {
+	return o
+}
+
+func (o SchemaVersionSchemaPtrOutput) Elem() SchemaVersionSchemaOutput {
+	return o.ApplyT(func(v *SchemaVersionSchema) SchemaVersionSchema { return *v }).(SchemaVersionSchemaOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
+func (o SchemaVersionSchemaPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
+func (o SchemaVersionSchemaPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+func (o SchemaVersionSchemaPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationAttributes struct {
@@ -9861,6 +12478,350 @@ func (o TablePropertiesPtrOutput) TableInput() TableTableInputPtrOutput {
 	}).(TableTableInputPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+type TableSchemaId struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+	RegistryName *string `pulumi:"RegistryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+	SchemaArn *string `pulumi:"SchemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+	SchemaName *string `pulumi:"SchemaName"`
+}
+
+// TableSchemaIdInput is an input type that accepts TableSchemaIdArgs and TableSchemaIdOutput values.
+// You can construct a concrete instance of `TableSchemaIdInput` via:
+//
+//          TableSchemaIdArgs{...}
+type TableSchemaIdInput interface {
+	pulumi.Input
+
+	ToTableSchemaIdOutput() TableSchemaIdOutput
+	ToTableSchemaIdOutputWithContext(context.Context) TableSchemaIdOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+type TableSchemaIdArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+	RegistryName pulumi.StringPtrInput `pulumi:"RegistryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+	SchemaArn pulumi.StringPtrInput `pulumi:"SchemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+	SchemaName pulumi.StringPtrInput `pulumi:"SchemaName"`
+}
+
+func (TableSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaId)(nil)).Elem()
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdOutput() TableSchemaIdOutput {
+	return i.ToTableSchemaIdOutputWithContext(context.Background())
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdOutputWithContext(ctx context.Context) TableSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdOutput)
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return i.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdOutput).ToTableSchemaIdPtrOutputWithContext(ctx)
+}
+
+// TableSchemaIdPtrInput is an input type that accepts TableSchemaIdArgs, TableSchemaIdPtr and TableSchemaIdPtrOutput values.
+// You can construct a concrete instance of `TableSchemaIdPtrInput` via:
+//
+//          TableSchemaIdArgs{...}
+//
+//  or:
+//
+//          nil
+type TableSchemaIdPtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput
+	ToTableSchemaIdPtrOutputWithContext(context.Context) TableSchemaIdPtrOutput
+}
+
+type tableSchemaIdPtrType TableSchemaIdArgs
+
+func TableSchemaIdPtr(v *TableSchemaIdArgs) TableSchemaIdPtrInput {
+	return (*tableSchemaIdPtrType)(v)
+}
+
+func (*tableSchemaIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaId)(nil)).Elem()
+}
+
+func (i *tableSchemaIdPtrType) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return i.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaIdPtrType) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+type TableSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaId)(nil)).Elem()
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdOutput() TableSchemaIdOutput {
+	return o
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdOutputWithContext(ctx context.Context) TableSchemaIdOutput {
+	return o
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return o.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *TableSchemaId {
+		return &v
+	}).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+func (o TableSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+func (o TableSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+func (o TableSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type TableSchemaIdPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaId)(nil)).Elem()
+}
+
+func (o TableSchemaIdPtrOutput) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return o
+}
+
+func (o TableSchemaIdPtrOutput) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return o
+}
+
+func (o TableSchemaIdPtrOutput) Elem() TableSchemaIdOutput {
+	return o.ApplyT(func(v *TableSchemaId) TableSchemaId { return *v }).(TableSchemaIdOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+func (o TableSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+func (o TableSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+func (o TableSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+type TableSchemaReference struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schameversionid
+	SchameVersionId *string `pulumi:"SchameVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+	SchemaId *TableSchemaId `pulumi:"SchemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+	SchemaVersionNumber *int `pulumi:"SchemaVersionNumber"`
+}
+
+// TableSchemaReferenceInput is an input type that accepts TableSchemaReferenceArgs and TableSchemaReferenceOutput values.
+// You can construct a concrete instance of `TableSchemaReferenceInput` via:
+//
+//          TableSchemaReferenceArgs{...}
+type TableSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToTableSchemaReferenceOutput() TableSchemaReferenceOutput
+	ToTableSchemaReferenceOutputWithContext(context.Context) TableSchemaReferenceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+type TableSchemaReferenceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schameversionid
+	SchameVersionId pulumi.StringPtrInput `pulumi:"SchameVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+	SchemaId TableSchemaIdPtrInput `pulumi:"SchemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+	SchemaVersionNumber pulumi.IntPtrInput `pulumi:"SchemaVersionNumber"`
+}
+
+func (TableSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaReference)(nil)).Elem()
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferenceOutput() TableSchemaReferenceOutput {
+	return i.ToTableSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferenceOutputWithContext(ctx context.Context) TableSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferenceOutput)
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return i.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferenceOutput).ToTableSchemaReferencePtrOutputWithContext(ctx)
+}
+
+// TableSchemaReferencePtrInput is an input type that accepts TableSchemaReferenceArgs, TableSchemaReferencePtr and TableSchemaReferencePtrOutput values.
+// You can construct a concrete instance of `TableSchemaReferencePtrInput` via:
+//
+//          TableSchemaReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type TableSchemaReferencePtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput
+	ToTableSchemaReferencePtrOutputWithContext(context.Context) TableSchemaReferencePtrOutput
+}
+
+type tableSchemaReferencePtrType TableSchemaReferenceArgs
+
+func TableSchemaReferencePtr(v *TableSchemaReferenceArgs) TableSchemaReferencePtrInput {
+	return (*tableSchemaReferencePtrType)(v)
+}
+
+func (*tableSchemaReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaReference)(nil)).Elem()
+}
+
+func (i *tableSchemaReferencePtrType) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return i.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaReferencePtrType) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+type TableSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaReference)(nil)).Elem()
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferenceOutput() TableSchemaReferenceOutput {
+	return o
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferenceOutputWithContext(ctx context.Context) TableSchemaReferenceOutput {
+	return o
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return o.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *TableSchemaReference {
+		return &v
+	}).(TableSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schameversionid
+func (o TableSchemaReferenceOutput) SchameVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *string { return v.SchameVersionId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+func (o TableSchemaReferenceOutput) SchemaId() TableSchemaIdPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *TableSchemaId { return v.SchemaId }).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+func (o TableSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *int { return v.SchemaVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type TableSchemaReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaReference)(nil)).Elem()
+}
+
+func (o TableSchemaReferencePtrOutput) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return o
+}
+
+func (o TableSchemaReferencePtrOutput) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return o
+}
+
+func (o TableSchemaReferencePtrOutput) Elem() TableSchemaReferenceOutput {
+	return o.ApplyT(func(v *TableSchemaReference) TableSchemaReference { return *v }).(TableSchemaReferenceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schameversionid
+func (o TableSchemaReferencePtrOutput) SchameVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchameVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+func (o TableSchemaReferencePtrOutput) SchemaId() TableSchemaIdPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *TableSchemaId {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+func (o TableSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html
 type TableSerdeInfo struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name
@@ -10223,6 +13184,8 @@ type TableStorageDescriptor struct {
 	OutputFormat *string `pulumi:"OutputFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
 	Parameters interface{} `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+	SchemaReference *TableSchemaReference `pulumi:"SchemaReference"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
 	SerdeInfo *TableSerdeInfo `pulumi:"SerdeInfo"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
@@ -10262,6 +13225,8 @@ type TableStorageDescriptorArgs struct {
 	OutputFormat pulumi.StringPtrInput `pulumi:"OutputFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
 	Parameters pulumi.Input `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+	SchemaReference TableSchemaReferencePtrInput `pulumi:"SchemaReference"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
 	SerdeInfo TableSerdeInfoPtrInput `pulumi:"SerdeInfo"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
@@ -10390,6 +13355,11 @@ func (o TableStorageDescriptorOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v TableStorageDescriptor) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+func (o TableStorageDescriptorOutput) SchemaReference() TableSchemaReferencePtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *TableSchemaReference { return v.SchemaReference }).(TableSchemaReferencePtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
 func (o TableStorageDescriptorOutput) SerdeInfo() TableSerdeInfoPtrOutput {
 	return o.ApplyT(func(v TableStorageDescriptor) *TableSerdeInfo { return v.SerdeInfo }).(TableSerdeInfoPtrOutput)
@@ -10508,6 +13478,16 @@ func (o TableStorageDescriptorPtrOutput) Parameters() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+func (o TableStorageDescriptorPtrOutput) SchemaReference() TableSchemaReferencePtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *TableSchemaReference {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReference
+	}).(TableSchemaReferencePtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
 func (o TableStorageDescriptorPtrOutput) SerdeInfo() TableSerdeInfoPtrOutput {
 	return o.ApplyT(func(v *TableStorageDescriptor) *TableSerdeInfo {
@@ -10548,6 +13528,178 @@ func (o TableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
+type TableTableIdentifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+	CatalogId *string `pulumi:"CatalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+	DatabaseName *string `pulumi:"DatabaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+	Name *string `pulumi:"Name"`
+}
+
+// TableTableIdentifierInput is an input type that accepts TableTableIdentifierArgs and TableTableIdentifierOutput values.
+// You can construct a concrete instance of `TableTableIdentifierInput` via:
+//
+//          TableTableIdentifierArgs{...}
+type TableTableIdentifierInput interface {
+	pulumi.Input
+
+	ToTableTableIdentifierOutput() TableTableIdentifierOutput
+	ToTableTableIdentifierOutputWithContext(context.Context) TableTableIdentifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
+type TableTableIdentifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"CatalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+	DatabaseName pulumi.StringPtrInput `pulumi:"DatabaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+	Name pulumi.StringPtrInput `pulumi:"Name"`
+}
+
+func (TableTableIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTableIdentifier)(nil)).Elem()
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierOutput() TableTableIdentifierOutput {
+	return i.ToTableTableIdentifierOutputWithContext(context.Background())
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierOutputWithContext(ctx context.Context) TableTableIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierOutput)
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return i.ToTableTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierOutput).ToTableTableIdentifierPtrOutputWithContext(ctx)
+}
+
+// TableTableIdentifierPtrInput is an input type that accepts TableTableIdentifierArgs, TableTableIdentifierPtr and TableTableIdentifierPtrOutput values.
+// You can construct a concrete instance of `TableTableIdentifierPtrInput` via:
+//
+//          TableTableIdentifierArgs{...}
+//
+//  or:
+//
+//          nil
+type TableTableIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput
+	ToTableTableIdentifierPtrOutputWithContext(context.Context) TableTableIdentifierPtrOutput
+}
+
+type tableTableIdentifierPtrType TableTableIdentifierArgs
+
+func TableTableIdentifierPtr(v *TableTableIdentifierArgs) TableTableIdentifierPtrInput {
+	return (*tableTableIdentifierPtrType)(v)
+}
+
+func (*tableTableIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTableIdentifier)(nil)).Elem()
+}
+
+func (i *tableTableIdentifierPtrType) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return i.ToTableTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *tableTableIdentifierPtrType) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
+type TableTableIdentifierOutput struct{ *pulumi.OutputState }
+
+func (TableTableIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTableIdentifier)(nil)).Elem()
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierOutput() TableTableIdentifierOutput {
+	return o
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierOutputWithContext(ctx context.Context) TableTableIdentifierOutput {
+	return o
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return o.ToTableTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return o.ApplyT(func(v TableTableIdentifier) *TableTableIdentifier {
+		return &v
+	}).(TableTableIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+func (o TableTableIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+func (o TableTableIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+func (o TableTableIdentifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableIdentifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TableTableIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (TableTableIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTableIdentifier)(nil)).Elem()
+}
+
+func (o TableTableIdentifierPtrOutput) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableTableIdentifierPtrOutput) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableTableIdentifierPtrOutput) Elem() TableTableIdentifierOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) TableTableIdentifier { return *v }).(TableTableIdentifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+func (o TableTableIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+func (o TableTableIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+func (o TableTableIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html
 type TableTableInput struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
@@ -10566,6 +13718,8 @@ type TableTableInput struct {
 	StorageDescriptor *TableStorageDescriptor `pulumi:"StorageDescriptor"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
 	TableType *string `pulumi:"TableType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+	TargetTable *TableTableIdentifier `pulumi:"TargetTable"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
 	ViewExpandedText *string `pulumi:"ViewExpandedText"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
@@ -10601,6 +13755,8 @@ type TableTableInputArgs struct {
 	StorageDescriptor TableStorageDescriptorPtrInput `pulumi:"StorageDescriptor"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
 	TableType pulumi.StringPtrInput `pulumi:"TableType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+	TargetTable TableTableIdentifierPtrInput `pulumi:"TargetTable"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
 	ViewExpandedText pulumi.StringPtrInput `pulumi:"ViewExpandedText"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
@@ -10725,6 +13881,11 @@ func (o TableTableInputOutput) TableType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableTableInput) *string { return v.TableType }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+func (o TableTableInputOutput) TargetTable() TableTableIdentifierPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *TableTableIdentifier { return v.TargetTable }).(TableTableIdentifierPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
 func (o TableTableInputOutput) ViewExpandedText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableTableInput) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
@@ -10831,6 +13992,16 @@ func (o TableTableInputPtrOutput) TableType() pulumi.StringPtrOutput {
 		}
 		return v.TableType
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+func (o TableTableInputPtrOutput) TargetTable() TableTableIdentifierPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *TableTableIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTable
+	}).(TableTableIdentifierPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
@@ -12173,6 +15344,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAttributesOutput{})
 	pulumi.RegisterOutputType(DatabaseAttributesPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseDatabaseIdentifierOutput{})
+	pulumi.RegisterOutputType(DatabaseDatabaseIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDatabaseInputOutput{})
 	pulumi.RegisterOutputType(DatabaseDatabaseInputPtrOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesOutput{})
@@ -12201,8 +15374,12 @@ func init() {
 	pulumi.RegisterOutputType(MLTransformGlueTablesArrayOutput{})
 	pulumi.RegisterOutputType(MLTransformInputRecordTablesOutput{})
 	pulumi.RegisterOutputType(MLTransformInputRecordTablesPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformMLUserDataEncryptionOutput{})
+	pulumi.RegisterOutputType(MLTransformMLUserDataEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformPropertiesOutput{})
 	pulumi.RegisterOutputType(MLTransformPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformTransformEncryptionOutput{})
+	pulumi.RegisterOutputType(MLTransformTransformEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformTransformParametersOutput{})
 	pulumi.RegisterOutputType(MLTransformTransformParametersPtrOutput{})
 	pulumi.RegisterOutputType(PartitionAttributesOutput{})
@@ -12215,12 +15392,38 @@ func init() {
 	pulumi.RegisterOutputType(PartitionPartitionInputPtrOutput{})
 	pulumi.RegisterOutputType(PartitionPropertiesOutput{})
 	pulumi.RegisterOutputType(PartitionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaIdOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaIdPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaReferencePtrOutput{})
 	pulumi.RegisterOutputType(PartitionSerdeInfoOutput{})
 	pulumi.RegisterOutputType(PartitionSerdeInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartitionSkewedInfoOutput{})
 	pulumi.RegisterOutputType(PartitionSkewedInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(RegistryAttributesOutput{})
+	pulumi.RegisterOutputType(RegistryAttributesPtrOutput{})
+	pulumi.RegisterOutputType(RegistryPropertiesOutput{})
+	pulumi.RegisterOutputType(RegistryPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SchemaAttributesOutput{})
+	pulumi.RegisterOutputType(SchemaAttributesPtrOutput{})
+	pulumi.RegisterOutputType(SchemaPropertiesOutput{})
+	pulumi.RegisterOutputType(SchemaPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
+	pulumi.RegisterOutputType(SchemaSchemaVersionOutput{})
+	pulumi.RegisterOutputType(SchemaSchemaVersionPtrOutput{})
+	pulumi.RegisterOutputType(SchemaVersionAttributesOutput{})
+	pulumi.RegisterOutputType(SchemaVersionAttributesPtrOutput{})
+	pulumi.RegisterOutputType(SchemaVersionMetadataAttributesOutput{})
+	pulumi.RegisterOutputType(SchemaVersionMetadataAttributesPtrOutput{})
+	pulumi.RegisterOutputType(SchemaVersionMetadataPropertiesOutput{})
+	pulumi.RegisterOutputType(SchemaVersionMetadataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SchemaVersionPropertiesOutput{})
+	pulumi.RegisterOutputType(SchemaVersionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SchemaVersionSchemaOutput{})
+	pulumi.RegisterOutputType(SchemaVersionSchemaPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationAttributesOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationAttributesPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionOutput{})
@@ -12242,12 +15445,18 @@ func init() {
 	pulumi.RegisterOutputType(TableOrderArrayOutput{})
 	pulumi.RegisterOutputType(TablePropertiesOutput{})
 	pulumi.RegisterOutputType(TablePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TableSchemaIdOutput{})
+	pulumi.RegisterOutputType(TableSchemaIdPtrOutput{})
+	pulumi.RegisterOutputType(TableSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(TableSchemaReferencePtrOutput{})
 	pulumi.RegisterOutputType(TableSerdeInfoOutput{})
 	pulumi.RegisterOutputType(TableSerdeInfoPtrOutput{})
 	pulumi.RegisterOutputType(TableSkewedInfoOutput{})
 	pulumi.RegisterOutputType(TableSkewedInfoPtrOutput{})
 	pulumi.RegisterOutputType(TableStorageDescriptorOutput{})
 	pulumi.RegisterOutputType(TableStorageDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(TableTableIdentifierOutput{})
+	pulumi.RegisterOutputType(TableTableIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(TableTableInputOutput{})
 	pulumi.RegisterOutputType(TableTableInputPtrOutput{})
 	pulumi.RegisterOutputType(TriggerActionOutput{})

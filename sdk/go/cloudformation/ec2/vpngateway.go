@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPNGateway struct {
 // NewVPNGateway registers a new resource with the given unique name, arguments, and options.
 func NewVPNGateway(ctx *pulumi.Context,
 	name string, args *VPNGatewayArgs, opts ...pulumi.ResourceOption) (*VPNGateway, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPNGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPNGateway
 	err := ctx.RegisterResource("cloudformation:EC2:VPNGateway", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPNGatewayArgs struct {
 
 func (VPNGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpngatewayArgs)(nil)).Elem()
+}
+
+type VPNGatewayInput interface {
+	pulumi.Input
+
+	ToVPNGatewayOutput() VPNGatewayOutput
+	ToVPNGatewayOutputWithContext(ctx context.Context) VPNGatewayOutput
+}
+
+func (*VPNGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNGateway)(nil))
+}
+
+func (i *VPNGateway) ToVPNGatewayOutput() VPNGatewayOutput {
+	return i.ToVPNGatewayOutputWithContext(context.Background())
+}
+
+func (i *VPNGateway) ToVPNGatewayOutputWithContext(ctx context.Context) VPNGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNGatewayOutput)
+}
+
+type VPNGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPNGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNGateway)(nil))
+}
+
+func (o VPNGatewayOutput) ToVPNGatewayOutput() VPNGatewayOutput {
+	return o
+}
+
+func (o VPNGatewayOutput) ToVPNGatewayOutputWithContext(ctx context.Context) VPNGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPNGatewayOutput{})
 }

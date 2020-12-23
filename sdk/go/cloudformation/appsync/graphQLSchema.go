@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GraphQLSchema struct {
 // NewGraphQLSchema registers a new resource with the given unique name, arguments, and options.
 func NewGraphQLSchema(ctx *pulumi.Context,
 	name string, args *GraphQLSchemaArgs, opts ...pulumi.ResourceOption) (*GraphQLSchema, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GraphQLSchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GraphQLSchema
 	err := ctx.RegisterResource("cloudformation:AppSync:GraphQLSchema", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GraphQLSchemaArgs struct {
 
 func (GraphQLSchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphQLSchemaArgs)(nil)).Elem()
+}
+
+type GraphQLSchemaInput interface {
+	pulumi.Input
+
+	ToGraphQLSchemaOutput() GraphQLSchemaOutput
+	ToGraphQLSchemaOutputWithContext(ctx context.Context) GraphQLSchemaOutput
+}
+
+func (*GraphQLSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLSchema)(nil))
+}
+
+func (i *GraphQLSchema) ToGraphQLSchemaOutput() GraphQLSchemaOutput {
+	return i.ToGraphQLSchemaOutputWithContext(context.Background())
+}
+
+func (i *GraphQLSchema) ToGraphQLSchemaOutputWithContext(ctx context.Context) GraphQLSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLSchemaOutput)
+}
+
+type GraphQLSchemaOutput struct {
+	*pulumi.OutputState
+}
+
+func (GraphQLSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLSchema)(nil))
+}
+
+func (o GraphQLSchemaOutput) ToGraphQLSchemaOutput() GraphQLSchemaOutput {
+	return o
+}
+
+func (o GraphQLSchemaOutput) ToGraphQLSchemaOutputWithContext(ctx context.Context) GraphQLSchemaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GraphQLSchemaOutput{})
 }

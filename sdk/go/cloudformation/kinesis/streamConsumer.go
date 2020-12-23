@@ -4,6 +4,7 @@
 package kinesis
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type StreamConsumer struct {
 // NewStreamConsumer registers a new resource with the given unique name, arguments, and options.
 func NewStreamConsumer(ctx *pulumi.Context,
 	name string, args *StreamConsumerArgs, opts ...pulumi.ResourceOption) (*StreamConsumer, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StreamConsumerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource StreamConsumer
 	err := ctx.RegisterResource("cloudformation:Kinesis:StreamConsumer", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StreamConsumerArgs struct {
 
 func (StreamConsumerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamConsumerArgs)(nil)).Elem()
+}
+
+type StreamConsumerInput interface {
+	pulumi.Input
+
+	ToStreamConsumerOutput() StreamConsumerOutput
+	ToStreamConsumerOutputWithContext(ctx context.Context) StreamConsumerOutput
+}
+
+func (*StreamConsumer) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamConsumer)(nil))
+}
+
+func (i *StreamConsumer) ToStreamConsumerOutput() StreamConsumerOutput {
+	return i.ToStreamConsumerOutputWithContext(context.Background())
+}
+
+func (i *StreamConsumer) ToStreamConsumerOutputWithContext(ctx context.Context) StreamConsumerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerOutput)
+}
+
+type StreamConsumerOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamConsumerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamConsumer)(nil))
+}
+
+func (o StreamConsumerOutput) ToStreamConsumerOutput() StreamConsumerOutput {
+	return o
+}
+
+func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Context) StreamConsumerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamConsumerOutput{})
 }

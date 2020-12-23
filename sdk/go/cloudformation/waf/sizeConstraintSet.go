@@ -4,6 +4,7 @@
 package waf
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SizeConstraintSet struct {
 // NewSizeConstraintSet registers a new resource with the given unique name, arguments, and options.
 func NewSizeConstraintSet(ctx *pulumi.Context,
 	name string, args *SizeConstraintSetArgs, opts ...pulumi.ResourceOption) (*SizeConstraintSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SizeConstraintSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SizeConstraintSet
 	err := ctx.RegisterResource("cloudformation:WAF:SizeConstraintSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SizeConstraintSetArgs struct {
 
 func (SizeConstraintSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sizeConstraintSetArgs)(nil)).Elem()
+}
+
+type SizeConstraintSetInput interface {
+	pulumi.Input
+
+	ToSizeConstraintSetOutput() SizeConstraintSetOutput
+	ToSizeConstraintSetOutputWithContext(ctx context.Context) SizeConstraintSetOutput
+}
+
+func (*SizeConstraintSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*SizeConstraintSet)(nil))
+}
+
+func (i *SizeConstraintSet) ToSizeConstraintSetOutput() SizeConstraintSetOutput {
+	return i.ToSizeConstraintSetOutputWithContext(context.Background())
+}
+
+func (i *SizeConstraintSet) ToSizeConstraintSetOutputWithContext(ctx context.Context) SizeConstraintSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetOutput)
+}
+
+type SizeConstraintSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (SizeConstraintSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SizeConstraintSet)(nil))
+}
+
+func (o SizeConstraintSetOutput) ToSizeConstraintSetOutput() SizeConstraintSetOutput {
+	return o
+}
+
+func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx context.Context) SizeConstraintSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SizeConstraintSetOutput{})
 }

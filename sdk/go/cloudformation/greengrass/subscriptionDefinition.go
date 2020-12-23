@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SubscriptionDefinition struct {
 // NewSubscriptionDefinition registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionDefinition(ctx *pulumi.Context,
 	name string, args *SubscriptionDefinitionArgs, opts ...pulumi.ResourceOption) (*SubscriptionDefinition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SubscriptionDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SubscriptionDefinition
 	err := ctx.RegisterResource("cloudformation:Greengrass:SubscriptionDefinition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SubscriptionDefinitionArgs struct {
 
 func (SubscriptionDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionDefinitionArgs)(nil)).Elem()
+}
+
+type SubscriptionDefinitionInput interface {
+	pulumi.Input
+
+	ToSubscriptionDefinitionOutput() SubscriptionDefinitionOutput
+	ToSubscriptionDefinitionOutputWithContext(ctx context.Context) SubscriptionDefinitionOutput
+}
+
+func (*SubscriptionDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDefinition)(nil))
+}
+
+func (i *SubscriptionDefinition) ToSubscriptionDefinitionOutput() SubscriptionDefinitionOutput {
+	return i.ToSubscriptionDefinitionOutputWithContext(context.Background())
+}
+
+func (i *SubscriptionDefinition) ToSubscriptionDefinitionOutputWithContext(ctx context.Context) SubscriptionDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionOutput)
+}
+
+type SubscriptionDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDefinition)(nil))
+}
+
+func (o SubscriptionDefinitionOutput) ToSubscriptionDefinitionOutput() SubscriptionDefinitionOutput {
+	return o
+}
+
+func (o SubscriptionDefinitionOutput) ToSubscriptionDefinitionOutputWithContext(ctx context.Context) SubscriptionDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionDefinitionOutput{})
 }

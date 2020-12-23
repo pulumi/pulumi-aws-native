@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ThreatIntelSet struct {
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
 func NewThreatIntelSet(ctx *pulumi.Context,
 	name string, args *ThreatIntelSetArgs, opts ...pulumi.ResourceOption) (*ThreatIntelSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ThreatIntelSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ThreatIntelSet
 	err := ctx.RegisterResource("cloudformation:GuardDuty:ThreatIntelSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ThreatIntelSetArgs struct {
 
 func (ThreatIntelSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*threatIntelSetArgs)(nil)).Elem()
+}
+
+type ThreatIntelSetInput interface {
+	pulumi.Input
+
+	ToThreatIntelSetOutput() ThreatIntelSetOutput
+	ToThreatIntelSetOutputWithContext(ctx context.Context) ThreatIntelSetOutput
+}
+
+func (*ThreatIntelSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelSet)(nil))
+}
+
+func (i *ThreatIntelSet) ToThreatIntelSetOutput() ThreatIntelSetOutput {
+	return i.ToThreatIntelSetOutputWithContext(context.Background())
+}
+
+func (i *ThreatIntelSet) ToThreatIntelSetOutputWithContext(ctx context.Context) ThreatIntelSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetOutput)
+}
+
+type ThreatIntelSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThreatIntelSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelSet)(nil))
+}
+
+func (o ThreatIntelSetOutput) ToThreatIntelSetOutput() ThreatIntelSetOutput {
+	return o
+}
+
+func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Context) ThreatIntelSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ThreatIntelSetOutput{})
 }

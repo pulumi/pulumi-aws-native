@@ -260,12 +260,14 @@ func (o GitHubRepositoryCodePtrOutput) S3() GitHubRepositoryS3PtrOutput {
 type GitHubRepositoryProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-code
 	Code *GitHubRepositoryCode `pulumi:"Code"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+	ConnectionArn *string `pulumi:"ConnectionArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
 	EnableIssues *bool `pulumi:"EnableIssues"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-isprivate
 	IsPrivate *bool `pulumi:"IsPrivate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
-	RepositoryAccessToken string `pulumi:"RepositoryAccessToken"`
+	RepositoryAccessToken *string `pulumi:"RepositoryAccessToken"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositorydescription
 	RepositoryDescription *string `pulumi:"RepositoryDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryname
@@ -289,12 +291,14 @@ type GitHubRepositoryPropertiesInput interface {
 type GitHubRepositoryPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-code
 	Code GitHubRepositoryCodePtrInput `pulumi:"Code"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+	ConnectionArn pulumi.StringPtrInput `pulumi:"ConnectionArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
 	EnableIssues pulumi.BoolPtrInput `pulumi:"EnableIssues"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-isprivate
 	IsPrivate pulumi.BoolPtrInput `pulumi:"IsPrivate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
-	RepositoryAccessToken pulumi.StringInput `pulumi:"RepositoryAccessToken"`
+	RepositoryAccessToken pulumi.StringPtrInput `pulumi:"RepositoryAccessToken"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositorydescription
 	RepositoryDescription pulumi.StringPtrInput `pulumi:"RepositoryDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryname
@@ -386,6 +390,11 @@ func (o GitHubRepositoryPropertiesOutput) Code() GitHubRepositoryCodePtrOutput {
 	return o.ApplyT(func(v GitHubRepositoryProperties) *GitHubRepositoryCode { return v.Code }).(GitHubRepositoryCodePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+func (o GitHubRepositoryPropertiesOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubRepositoryProperties) *string { return v.ConnectionArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
 func (o GitHubRepositoryPropertiesOutput) EnableIssues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GitHubRepositoryProperties) *bool { return v.EnableIssues }).(pulumi.BoolPtrOutput)
@@ -397,8 +406,8 @@ func (o GitHubRepositoryPropertiesOutput) IsPrivate() pulumi.BoolPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
-func (o GitHubRepositoryPropertiesOutput) RepositoryAccessToken() pulumi.StringOutput {
-	return o.ApplyT(func(v GitHubRepositoryProperties) string { return v.RepositoryAccessToken }).(pulumi.StringOutput)
+func (o GitHubRepositoryPropertiesOutput) RepositoryAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubRepositoryProperties) *string { return v.RepositoryAccessToken }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositorydescription
@@ -444,6 +453,16 @@ func (o GitHubRepositoryPropertiesPtrOutput) Code() GitHubRepositoryCodePtrOutpu
 	}).(GitHubRepositoryCodePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+func (o GitHubRepositoryPropertiesPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubRepositoryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
 func (o GitHubRepositoryPropertiesPtrOutput) EnableIssues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GitHubRepositoryProperties) *bool {
@@ -470,7 +489,7 @@ func (o GitHubRepositoryPropertiesPtrOutput) RepositoryAccessToken() pulumi.Stri
 		if v == nil {
 			return nil
 		}
-		return &v.RepositoryAccessToken
+		return v.RepositoryAccessToken
 	}).(pulumi.StringPtrOutput)
 }
 

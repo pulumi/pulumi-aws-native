@@ -4,6 +4,7 @@
 package wafv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type IPSet struct {
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
 func NewIPSet(ctx *pulumi.Context,
 	name string, args *IPSetArgs, opts ...pulumi.ResourceOption) (*IPSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &IPSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource IPSet
 	err := ctx.RegisterResource("cloudformation:WAFv2:IPSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type IPSetArgs struct {
 
 func (IPSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipsetArgs)(nil)).Elem()
+}
+
+type IPSetInput interface {
+	pulumi.Input
+
+	ToIPSetOutput() IPSetOutput
+	ToIPSetOutputWithContext(ctx context.Context) IPSetOutput
+}
+
+func (*IPSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSet)(nil))
+}
+
+func (i *IPSet) ToIPSetOutput() IPSetOutput {
+	return i.ToIPSetOutputWithContext(context.Background())
+}
+
+func (i *IPSet) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSetOutput)
+}
+
+type IPSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (IPSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSet)(nil))
+}
+
+func (o IPSetOutput) ToIPSetOutput() IPSetOutput {
+	return o
+}
+
+func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IPSetOutput{})
 }

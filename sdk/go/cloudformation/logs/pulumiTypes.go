@@ -455,9 +455,11 @@ func (o LogGroupAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 type LogGroupProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-loggroupname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+	KmsKeyId *string `pulumi:"KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
 	LogGroupName *string `pulumi:"LogGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
 	RetentionInDays *int `pulumi:"RetentionInDays"`
 }
 
@@ -474,9 +476,11 @@ type LogGroupPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 type LogGroupPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-loggroupname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
 	LogGroupName pulumi.StringPtrInput `pulumi:"LogGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
 	RetentionInDays pulumi.IntPtrInput `pulumi:"RetentionInDays"`
 }
 
@@ -558,12 +562,17 @@ func (o LogGroupPropertiesOutput) ToLogGroupPropertiesPtrOutputWithContext(ctx c
 	}).(LogGroupPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-loggroupname
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+func (o LogGroupPropertiesOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogGroupProperties) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
 func (o LogGroupPropertiesOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogGroupProperties) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
 func (o LogGroupPropertiesOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LogGroupProperties) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -586,7 +595,17 @@ func (o LogGroupPropertiesPtrOutput) Elem() LogGroupPropertiesOutput {
 	return o.ApplyT(func(v *LogGroupProperties) LogGroupProperties { return *v }).(LogGroupPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-loggroupname
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+func (o LogGroupPropertiesPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
 func (o LogGroupPropertiesPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogGroupProperties) *string {
 		if v == nil {
@@ -596,7 +615,7 @@ func (o LogGroupPropertiesPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
 func (o LogGroupPropertiesPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogGroupProperties) *int {
 		if v == nil {

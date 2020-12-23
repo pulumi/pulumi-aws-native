@@ -411,9 +411,9 @@ func (o CustomDataIdentifierPropertiesPtrOutput) Regex() pulumi.StringPtrOutput 
 }
 
 type FindingsFilterAttributes struct {
-	Arn                     string        `pulumi:"Arn"`
-	FindingsFilterListItems []interface{} `pulumi:"FindingsFilterListItems"`
-	Id                      string        `pulumi:"Id"`
+	Arn                     string                                 `pulumi:"Arn"`
+	FindingsFilterListItems []FindingsFilterFindingsFilterListItem `pulumi:"FindingsFilterListItems"`
+	Id                      string                                 `pulumi:"Id"`
 }
 
 // FindingsFilterAttributesInput is an input type that accepts FindingsFilterAttributesArgs and FindingsFilterAttributesOutput values.
@@ -428,9 +428,9 @@ type FindingsFilterAttributesInput interface {
 }
 
 type FindingsFilterAttributesArgs struct {
-	Arn                     pulumi.StringInput `pulumi:"Arn"`
-	FindingsFilterListItems pulumi.ArrayInput  `pulumi:"FindingsFilterListItems"`
-	Id                      pulumi.StringInput `pulumi:"Id"`
+	Arn                     pulumi.StringInput                             `pulumi:"Arn"`
+	FindingsFilterListItems FindingsFilterFindingsFilterListItemArrayInput `pulumi:"FindingsFilterListItems"`
+	Id                      pulumi.StringInput                             `pulumi:"Id"`
 }
 
 func (FindingsFilterAttributesArgs) ElementType() reflect.Type {
@@ -513,8 +513,10 @@ func (o FindingsFilterAttributesOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FindingsFilterAttributes) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o FindingsFilterAttributesOutput) FindingsFilterListItems() pulumi.ArrayOutput {
-	return o.ApplyT(func(v FindingsFilterAttributes) []interface{} { return v.FindingsFilterListItems }).(pulumi.ArrayOutput)
+func (o FindingsFilterAttributesOutput) FindingsFilterListItems() FindingsFilterFindingsFilterListItemArrayOutput {
+	return o.ApplyT(func(v FindingsFilterAttributes) []FindingsFilterFindingsFilterListItem {
+		return v.FindingsFilterListItems
+	}).(FindingsFilterFindingsFilterListItemArrayOutput)
 }
 
 func (o FindingsFilterAttributesOutput) Id() pulumi.StringOutput {
@@ -548,13 +550,13 @@ func (o FindingsFilterAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FindingsFilterAttributesPtrOutput) FindingsFilterListItems() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *FindingsFilterAttributes) []interface{} {
+func (o FindingsFilterAttributesPtrOutput) FindingsFilterListItems() FindingsFilterFindingsFilterListItemArrayOutput {
+	return o.ApplyT(func(v *FindingsFilterAttributes) []FindingsFilterFindingsFilterListItem {
 		if v == nil {
 			return nil
 		}
 		return v.FindingsFilterListItems
-	}).(pulumi.ArrayOutput)
+	}).(FindingsFilterFindingsFilterListItemArrayOutput)
 }
 
 func (o FindingsFilterAttributesPtrOutput) Id() pulumi.StringPtrOutput {
@@ -813,6 +815,115 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriter
 		}
 		return v.Criterion
 	}).(FindingsFilterCriterionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html
+type FindingsFilterFindingsFilterListItem struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
+	Id *string `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name
+	Name *string `pulumi:"Name"`
+}
+
+// FindingsFilterFindingsFilterListItemInput is an input type that accepts FindingsFilterFindingsFilterListItemArgs and FindingsFilterFindingsFilterListItemOutput values.
+// You can construct a concrete instance of `FindingsFilterFindingsFilterListItemInput` via:
+//
+//          FindingsFilterFindingsFilterListItemArgs{...}
+type FindingsFilterFindingsFilterListItemInput interface {
+	pulumi.Input
+
+	ToFindingsFilterFindingsFilterListItemOutput() FindingsFilterFindingsFilterListItemOutput
+	ToFindingsFilterFindingsFilterListItemOutputWithContext(context.Context) FindingsFilterFindingsFilterListItemOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html
+type FindingsFilterFindingsFilterListItemArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
+	Id pulumi.StringPtrInput `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name
+	Name pulumi.StringPtrInput `pulumi:"Name"`
+}
+
+func (FindingsFilterFindingsFilterListItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilterFindingsFilterListItem)(nil)).Elem()
+}
+
+func (i FindingsFilterFindingsFilterListItemArgs) ToFindingsFilterFindingsFilterListItemOutput() FindingsFilterFindingsFilterListItemOutput {
+	return i.ToFindingsFilterFindingsFilterListItemOutputWithContext(context.Background())
+}
+
+func (i FindingsFilterFindingsFilterListItemArgs) ToFindingsFilterFindingsFilterListItemOutputWithContext(ctx context.Context) FindingsFilterFindingsFilterListItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingsFilterListItemOutput)
+}
+
+// FindingsFilterFindingsFilterListItemArrayInput is an input type that accepts FindingsFilterFindingsFilterListItemArray and FindingsFilterFindingsFilterListItemArrayOutput values.
+// You can construct a concrete instance of `FindingsFilterFindingsFilterListItemArrayInput` via:
+//
+//          FindingsFilterFindingsFilterListItemArray{ FindingsFilterFindingsFilterListItemArgs{...} }
+type FindingsFilterFindingsFilterListItemArrayInput interface {
+	pulumi.Input
+
+	ToFindingsFilterFindingsFilterListItemArrayOutput() FindingsFilterFindingsFilterListItemArrayOutput
+	ToFindingsFilterFindingsFilterListItemArrayOutputWithContext(context.Context) FindingsFilterFindingsFilterListItemArrayOutput
+}
+
+type FindingsFilterFindingsFilterListItemArray []FindingsFilterFindingsFilterListItemInput
+
+func (FindingsFilterFindingsFilterListItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FindingsFilterFindingsFilterListItem)(nil)).Elem()
+}
+
+func (i FindingsFilterFindingsFilterListItemArray) ToFindingsFilterFindingsFilterListItemArrayOutput() FindingsFilterFindingsFilterListItemArrayOutput {
+	return i.ToFindingsFilterFindingsFilterListItemArrayOutputWithContext(context.Background())
+}
+
+func (i FindingsFilterFindingsFilterListItemArray) ToFindingsFilterFindingsFilterListItemArrayOutputWithContext(ctx context.Context) FindingsFilterFindingsFilterListItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingsFilterListItemArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html
+type FindingsFilterFindingsFilterListItemOutput struct{ *pulumi.OutputState }
+
+func (FindingsFilterFindingsFilterListItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilterFindingsFilterListItem)(nil)).Elem()
+}
+
+func (o FindingsFilterFindingsFilterListItemOutput) ToFindingsFilterFindingsFilterListItemOutput() FindingsFilterFindingsFilterListItemOutput {
+	return o
+}
+
+func (o FindingsFilterFindingsFilterListItemOutput) ToFindingsFilterFindingsFilterListItemOutputWithContext(ctx context.Context) FindingsFilterFindingsFilterListItemOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
+func (o FindingsFilterFindingsFilterListItemOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FindingsFilterFindingsFilterListItem) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name
+func (o FindingsFilterFindingsFilterListItemOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FindingsFilterFindingsFilterListItem) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type FindingsFilterFindingsFilterListItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FindingsFilterFindingsFilterListItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FindingsFilterFindingsFilterListItem)(nil)).Elem()
+}
+
+func (o FindingsFilterFindingsFilterListItemArrayOutput) ToFindingsFilterFindingsFilterListItemArrayOutput() FindingsFilterFindingsFilterListItemArrayOutput {
+	return o
+}
+
+func (o FindingsFilterFindingsFilterListItemArrayOutput) ToFindingsFilterFindingsFilterListItemArrayOutputWithContext(ctx context.Context) FindingsFilterFindingsFilterListItemArrayOutput {
+	return o
+}
+
+func (o FindingsFilterFindingsFilterListItemArrayOutput) Index(i pulumi.IntInput) FindingsFilterFindingsFilterListItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FindingsFilterFindingsFilterListItem {
+		return vs[0].([]FindingsFilterFindingsFilterListItem)[vs[1].(int)]
+	}).(FindingsFilterFindingsFilterListItemOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
@@ -1330,6 +1441,8 @@ func init() {
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(FindingsFilterFindingsFilterListItemOutput{})
+	pulumi.RegisterOutputType(FindingsFilterFindingsFilterListItemArrayOutput{})
 	pulumi.RegisterOutputType(FindingsFilterPropertiesOutput{})
 	pulumi.RegisterOutputType(FindingsFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SessionAttributesOutput{})

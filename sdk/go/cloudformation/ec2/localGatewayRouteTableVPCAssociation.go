@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LocalGatewayRouteTableVPCAssociation struct {
 // NewLocalGatewayRouteTableVPCAssociation registers a new resource with the given unique name, arguments, and options.
 func NewLocalGatewayRouteTableVPCAssociation(ctx *pulumi.Context,
 	name string, args *LocalGatewayRouteTableVPCAssociationArgs, opts ...pulumi.ResourceOption) (*LocalGatewayRouteTableVPCAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LocalGatewayRouteTableVPCAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LocalGatewayRouteTableVPCAssociation
 	err := ctx.RegisterResource("cloudformation:EC2:LocalGatewayRouteTableVPCAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LocalGatewayRouteTableVPCAssociationArgs struct {
 
 func (LocalGatewayRouteTableVPCAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGatewayRouteTableVPCAssociationArgs)(nil)).Elem()
+}
+
+type LocalGatewayRouteTableVPCAssociationInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteTableVPCAssociationOutput() LocalGatewayRouteTableVPCAssociationOutput
+	ToLocalGatewayRouteTableVPCAssociationOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationOutput
+}
+
+func (*LocalGatewayRouteTableVPCAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociation)(nil))
+}
+
+func (i *LocalGatewayRouteTableVPCAssociation) ToLocalGatewayRouteTableVPCAssociationOutput() LocalGatewayRouteTableVPCAssociationOutput {
+	return i.ToLocalGatewayRouteTableVPCAssociationOutputWithContext(context.Background())
+}
+
+func (i *LocalGatewayRouteTableVPCAssociation) ToLocalGatewayRouteTableVPCAssociationOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVPCAssociationOutput)
+}
+
+type LocalGatewayRouteTableVPCAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocalGatewayRouteTableVPCAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociation)(nil))
+}
+
+func (o LocalGatewayRouteTableVPCAssociationOutput) ToLocalGatewayRouteTableVPCAssociationOutput() LocalGatewayRouteTableVPCAssociationOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVPCAssociationOutput) ToLocalGatewayRouteTableVPCAssociationOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationOutput{})
 }

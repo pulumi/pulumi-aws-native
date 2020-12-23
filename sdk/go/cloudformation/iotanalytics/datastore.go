@@ -4,6 +4,7 @@
 package iotanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Datastore struct {
 // NewDatastore registers a new resource with the given unique name, arguments, and options.
 func NewDatastore(ctx *pulumi.Context,
 	name string, args *DatastoreArgs, opts ...pulumi.ResourceOption) (*Datastore, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DatastoreArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Datastore
 	err := ctx.RegisterResource("cloudformation:IoTAnalytics:Datastore", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DatastoreArgs struct {
 
 func (DatastoreArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datastoreArgs)(nil)).Elem()
+}
+
+type DatastoreInput interface {
+	pulumi.Input
+
+	ToDatastoreOutput() DatastoreOutput
+	ToDatastoreOutputWithContext(ctx context.Context) DatastoreOutput
+}
+
+func (*Datastore) ElementType() reflect.Type {
+	return reflect.TypeOf((*Datastore)(nil))
+}
+
+func (i *Datastore) ToDatastoreOutput() DatastoreOutput {
+	return i.ToDatastoreOutputWithContext(context.Background())
+}
+
+func (i *Datastore) ToDatastoreOutputWithContext(ctx context.Context) DatastoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastoreOutput)
+}
+
+type DatastoreOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatastoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Datastore)(nil))
+}
+
+func (o DatastoreOutput) ToDatastoreOutput() DatastoreOutput {
+	return o
+}
+
+func (o DatastoreOutput) ToDatastoreOutputWithContext(ctx context.Context) DatastoreOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatastoreOutput{})
 }

@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBClusterParameterGroup struct {
 // NewDBClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
 func NewDBClusterParameterGroup(ctx *pulumi.Context,
 	name string, args *DBClusterParameterGroupArgs, opts ...pulumi.ResourceOption) (*DBClusterParameterGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBClusterParameterGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBClusterParameterGroup
 	err := ctx.RegisterResource("cloudformation:RDS:DBClusterParameterGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBClusterParameterGroupArgs struct {
 
 func (DBClusterParameterGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbclusterParameterGroupArgs)(nil)).Elem()
+}
+
+type DBClusterParameterGroupInput interface {
+	pulumi.Input
+
+	ToDBClusterParameterGroupOutput() DBClusterParameterGroupOutput
+	ToDBClusterParameterGroupOutputWithContext(ctx context.Context) DBClusterParameterGroupOutput
+}
+
+func (*DBClusterParameterGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterParameterGroup)(nil))
+}
+
+func (i *DBClusterParameterGroup) ToDBClusterParameterGroupOutput() DBClusterParameterGroupOutput {
+	return i.ToDBClusterParameterGroupOutputWithContext(context.Background())
+}
+
+func (i *DBClusterParameterGroup) ToDBClusterParameterGroupOutputWithContext(ctx context.Context) DBClusterParameterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterParameterGroupOutput)
+}
+
+type DBClusterParameterGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBClusterParameterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterParameterGroup)(nil))
+}
+
+func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutput() DBClusterParameterGroupOutput {
+	return o
+}
+
+func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutputWithContext(ctx context.Context) DBClusterParameterGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBClusterParameterGroupOutput{})
 }

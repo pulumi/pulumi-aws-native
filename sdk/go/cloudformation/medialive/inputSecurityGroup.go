@@ -4,6 +4,7 @@
 package medialive
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type InputSecurityGroup struct {
 // NewInputSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewInputSecurityGroup(ctx *pulumi.Context,
 	name string, args *InputSecurityGroupArgs, opts ...pulumi.ResourceOption) (*InputSecurityGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InputSecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource InputSecurityGroup
 	err := ctx.RegisterResource("cloudformation:MediaLive:InputSecurityGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InputSecurityGroupArgs struct {
 
 func (InputSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*inputSecurityGroupArgs)(nil)).Elem()
+}
+
+type InputSecurityGroupInput interface {
+	pulumi.Input
+
+	ToInputSecurityGroupOutput() InputSecurityGroupOutput
+	ToInputSecurityGroupOutputWithContext(ctx context.Context) InputSecurityGroupOutput
+}
+
+func (*InputSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSecurityGroup)(nil))
+}
+
+func (i *InputSecurityGroup) ToInputSecurityGroupOutput() InputSecurityGroupOutput {
+	return i.ToInputSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i *InputSecurityGroup) ToInputSecurityGroupOutputWithContext(ctx context.Context) InputSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupOutput)
+}
+
+type InputSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (InputSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSecurityGroup)(nil))
+}
+
+func (o InputSecurityGroupOutput) ToInputSecurityGroupOutput() InputSecurityGroupOutput {
+	return o
+}
+
+func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx context.Context) InputSecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InputSecurityGroupOutput{})
 }

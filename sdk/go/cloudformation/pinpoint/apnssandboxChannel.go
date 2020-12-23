@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type APNSSandboxChannel struct {
 // NewAPNSSandboxChannel registers a new resource with the given unique name, arguments, and options.
 func NewAPNSSandboxChannel(ctx *pulumi.Context,
 	name string, args *APNSSandboxChannelArgs, opts ...pulumi.ResourceOption) (*APNSSandboxChannel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &APNSSandboxChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource APNSSandboxChannel
 	err := ctx.RegisterResource("cloudformation:Pinpoint:APNSSandboxChannel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type APNSSandboxChannelArgs struct {
 
 func (APNSSandboxChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnssandboxChannelArgs)(nil)).Elem()
+}
+
+type APNSSandboxChannelInput interface {
+	pulumi.Input
+
+	ToAPNSSandboxChannelOutput() APNSSandboxChannelOutput
+	ToAPNSSandboxChannelOutputWithContext(ctx context.Context) APNSSandboxChannelOutput
+}
+
+func (*APNSSandboxChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*APNSSandboxChannel)(nil))
+}
+
+func (i *APNSSandboxChannel) ToAPNSSandboxChannelOutput() APNSSandboxChannelOutput {
+	return i.ToAPNSSandboxChannelOutputWithContext(context.Background())
+}
+
+func (i *APNSSandboxChannel) ToAPNSSandboxChannelOutputWithContext(ctx context.Context) APNSSandboxChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APNSSandboxChannelOutput)
+}
+
+type APNSSandboxChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (APNSSandboxChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*APNSSandboxChannel)(nil))
+}
+
+func (o APNSSandboxChannelOutput) ToAPNSSandboxChannelOutput() APNSSandboxChannelOutput {
+	return o
+}
+
+func (o APNSSandboxChannelOutput) ToAPNSSandboxChannelOutputWithContext(ctx context.Context) APNSSandboxChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(APNSSandboxChannelOutput{})
 }

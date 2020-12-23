@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Segment struct {
 // NewSegment registers a new resource with the given unique name, arguments, and options.
 func NewSegment(ctx *pulumi.Context,
 	name string, args *SegmentArgs, opts ...pulumi.ResourceOption) (*Segment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SegmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Segment
 	err := ctx.RegisterResource("cloudformation:Pinpoint:Segment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SegmentArgs struct {
 
 func (SegmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*segmentArgs)(nil)).Elem()
+}
+
+type SegmentInput interface {
+	pulumi.Input
+
+	ToSegmentOutput() SegmentOutput
+	ToSegmentOutputWithContext(ctx context.Context) SegmentOutput
+}
+
+func (*Segment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Segment)(nil))
+}
+
+func (i *Segment) ToSegmentOutput() SegmentOutput {
+	return i.ToSegmentOutputWithContext(context.Background())
+}
+
+func (i *Segment) ToSegmentOutputWithContext(ctx context.Context) SegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentOutput)
+}
+
+type SegmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (SegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Segment)(nil))
+}
+
+func (o SegmentOutput) ToSegmentOutput() SegmentOutput {
+	return o
+}
+
+func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SegmentOutput{})
 }

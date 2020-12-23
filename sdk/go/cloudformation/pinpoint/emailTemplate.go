@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EmailTemplate struct {
 // NewEmailTemplate registers a new resource with the given unique name, arguments, and options.
 func NewEmailTemplate(ctx *pulumi.Context,
 	name string, args *EmailTemplateArgs, opts ...pulumi.ResourceOption) (*EmailTemplate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EmailTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EmailTemplate
 	err := ctx.RegisterResource("cloudformation:Pinpoint:EmailTemplate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EmailTemplateArgs struct {
 
 func (EmailTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailTemplateArgs)(nil)).Elem()
+}
+
+type EmailTemplateInput interface {
+	pulumi.Input
+
+	ToEmailTemplateOutput() EmailTemplateOutput
+	ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput
+}
+
+func (*EmailTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplate)(nil))
+}
+
+func (i *EmailTemplate) ToEmailTemplateOutput() EmailTemplateOutput {
+	return i.ToEmailTemplateOutputWithContext(context.Background())
+}
+
+func (i *EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateOutput)
+}
+
+type EmailTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplate)(nil))
+}
+
+func (o EmailTemplateOutput) ToEmailTemplateOutput() EmailTemplateOutput {
+	return o
+}
+
+func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EmailTemplateOutput{})
 }

@@ -4,6 +4,7 @@
 package appstream
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DirectoryConfig struct {
 // NewDirectoryConfig registers a new resource with the given unique name, arguments, and options.
 func NewDirectoryConfig(ctx *pulumi.Context,
 	name string, args *DirectoryConfigArgs, opts ...pulumi.ResourceOption) (*DirectoryConfig, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DirectoryConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DirectoryConfig
 	err := ctx.RegisterResource("cloudformation:AppStream:DirectoryConfig", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DirectoryConfigArgs struct {
 
 func (DirectoryConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryConfigArgs)(nil)).Elem()
+}
+
+type DirectoryConfigInput interface {
+	pulumi.Input
+
+	ToDirectoryConfigOutput() DirectoryConfigOutput
+	ToDirectoryConfigOutputWithContext(ctx context.Context) DirectoryConfigOutput
+}
+
+func (*DirectoryConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryConfig)(nil))
+}
+
+func (i *DirectoryConfig) ToDirectoryConfigOutput() DirectoryConfigOutput {
+	return i.ToDirectoryConfigOutputWithContext(context.Background())
+}
+
+func (i *DirectoryConfig) ToDirectoryConfigOutputWithContext(ctx context.Context) DirectoryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigOutput)
+}
+
+type DirectoryConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (DirectoryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryConfig)(nil))
+}
+
+func (o DirectoryConfigOutput) ToDirectoryConfigOutput() DirectoryConfigOutput {
+	return o
+}
+
+func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Context) DirectoryConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DirectoryConfigOutput{})
 }

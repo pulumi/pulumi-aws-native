@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EndpointConfig struct {
 // NewEndpointConfig registers a new resource with the given unique name, arguments, and options.
 func NewEndpointConfig(ctx *pulumi.Context,
 	name string, args *EndpointConfigArgs, opts ...pulumi.ResourceOption) (*EndpointConfig, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EndpointConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EndpointConfig
 	err := ctx.RegisterResource("cloudformation:SageMaker:EndpointConfig", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EndpointConfigArgs struct {
 
 func (EndpointConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointConfigArgs)(nil)).Elem()
+}
+
+type EndpointConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigOutput() EndpointConfigOutput
+	ToEndpointConfigOutputWithContext(ctx context.Context) EndpointConfigOutput
+}
+
+func (*EndpointConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfig)(nil))
+}
+
+func (i *EndpointConfig) ToEndpointConfigOutput() EndpointConfigOutput {
+	return i.ToEndpointConfigOutputWithContext(context.Background())
+}
+
+func (i *EndpointConfig) ToEndpointConfigOutputWithContext(ctx context.Context) EndpointConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigOutput)
+}
+
+type EndpointConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfig)(nil))
+}
+
+func (o EndpointConfigOutput) ToEndpointConfigOutput() EndpointConfigOutput {
+	return o
+}
+
+func (o EndpointConfigOutput) ToEndpointConfigOutputWithContext(ctx context.Context) EndpointConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointConfigOutput{})
 }

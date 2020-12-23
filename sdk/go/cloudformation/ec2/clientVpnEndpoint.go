@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClientVpnEndpoint struct {
 // NewClientVpnEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewClientVpnEndpoint(ctx *pulumi.Context,
 	name string, args *ClientVpnEndpointArgs, opts ...pulumi.ResourceOption) (*ClientVpnEndpoint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClientVpnEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClientVpnEndpoint
 	err := ctx.RegisterResource("cloudformation:EC2:ClientVpnEndpoint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClientVpnEndpointArgs struct {
 
 func (ClientVpnEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientVpnEndpointArgs)(nil)).Elem()
+}
+
+type ClientVpnEndpointInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointOutput() ClientVpnEndpointOutput
+	ToClientVpnEndpointOutputWithContext(ctx context.Context) ClientVpnEndpointOutput
+}
+
+func (*ClientVpnEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpoint)(nil))
+}
+
+func (i *ClientVpnEndpoint) ToClientVpnEndpointOutput() ClientVpnEndpointOutput {
+	return i.ToClientVpnEndpointOutputWithContext(context.Background())
+}
+
+func (i *ClientVpnEndpoint) ToClientVpnEndpointOutputWithContext(ctx context.Context) ClientVpnEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointOutput)
+}
+
+type ClientVpnEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClientVpnEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpoint)(nil))
+}
+
+func (o ClientVpnEndpointOutput) ToClientVpnEndpointOutput() ClientVpnEndpointOutput {
+	return o
+}
+
+func (o ClientVpnEndpointOutput) ToClientVpnEndpointOutputWithContext(ctx context.Context) ClientVpnEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClientVpnEndpointOutput{})
 }

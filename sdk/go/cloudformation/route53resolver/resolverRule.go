@@ -4,6 +4,7 @@
 package route53resolver
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResolverRule struct {
 // NewResolverRule registers a new resource with the given unique name, arguments, and options.
 func NewResolverRule(ctx *pulumi.Context,
 	name string, args *ResolverRuleArgs, opts ...pulumi.ResourceOption) (*ResolverRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResolverRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResolverRule
 	err := ctx.RegisterResource("cloudformation:Route53Resolver:ResolverRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResolverRuleArgs struct {
 
 func (ResolverRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleArgs)(nil)).Elem()
+}
+
+type ResolverRuleInput interface {
+	pulumi.Input
+
+	ToResolverRuleOutput() ResolverRuleOutput
+	ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput
+}
+
+func (*ResolverRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRule)(nil))
+}
+
+func (i *ResolverRule) ToResolverRuleOutput() ResolverRuleOutput {
+	return i.ToResolverRuleOutputWithContext(context.Background())
+}
+
+func (i *ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleOutput)
+}
+
+type ResolverRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRule)(nil))
+}
+
+func (o ResolverRuleOutput) ToResolverRuleOutput() ResolverRuleOutput {
+	return o
+}
+
+func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResolverRuleOutput{})
 }

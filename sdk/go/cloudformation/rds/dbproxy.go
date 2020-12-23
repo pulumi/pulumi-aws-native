@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBProxy struct {
 // NewDBProxy registers a new resource with the given unique name, arguments, and options.
 func NewDBProxy(ctx *pulumi.Context,
 	name string, args *DBProxyArgs, opts ...pulumi.ResourceOption) (*DBProxy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBProxyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBProxy
 	err := ctx.RegisterResource("cloudformation:RDS:DBProxy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBProxyArgs struct {
 
 func (DBProxyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbproxyArgs)(nil)).Elem()
+}
+
+type DBProxyInput interface {
+	pulumi.Input
+
+	ToDBProxyOutput() DBProxyOutput
+	ToDBProxyOutputWithContext(ctx context.Context) DBProxyOutput
+}
+
+func (*DBProxy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxy)(nil))
+}
+
+func (i *DBProxy) ToDBProxyOutput() DBProxyOutput {
+	return i.ToDBProxyOutputWithContext(context.Background())
+}
+
+func (i *DBProxy) ToDBProxyOutputWithContext(ctx context.Context) DBProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBProxyOutput)
+}
+
+type DBProxyOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxy)(nil))
+}
+
+func (o DBProxyOutput) ToDBProxyOutput() DBProxyOutput {
+	return o
+}
+
+func (o DBProxyOutput) ToDBProxyOutputWithContext(ctx context.Context) DBProxyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBProxyOutput{})
 }

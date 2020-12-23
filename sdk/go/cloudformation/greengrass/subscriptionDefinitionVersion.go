@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SubscriptionDefinitionVersion struct {
 // NewSubscriptionDefinitionVersion registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionDefinitionVersion(ctx *pulumi.Context,
 	name string, args *SubscriptionDefinitionVersionArgs, opts ...pulumi.ResourceOption) (*SubscriptionDefinitionVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SubscriptionDefinitionVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SubscriptionDefinitionVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:SubscriptionDefinitionVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SubscriptionDefinitionVersionArgs struct {
 
 func (SubscriptionDefinitionVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionDefinitionVersionArgs)(nil)).Elem()
+}
+
+type SubscriptionDefinitionVersionInput interface {
+	pulumi.Input
+
+	ToSubscriptionDefinitionVersionOutput() SubscriptionDefinitionVersionOutput
+	ToSubscriptionDefinitionVersionOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionOutput
+}
+
+func (*SubscriptionDefinitionVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDefinitionVersion)(nil))
+}
+
+func (i *SubscriptionDefinitionVersion) ToSubscriptionDefinitionVersionOutput() SubscriptionDefinitionVersionOutput {
+	return i.ToSubscriptionDefinitionVersionOutputWithContext(context.Background())
+}
+
+func (i *SubscriptionDefinitionVersion) ToSubscriptionDefinitionVersionOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionOutput)
+}
+
+type SubscriptionDefinitionVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionDefinitionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDefinitionVersion)(nil))
+}
+
+func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutput() SubscriptionDefinitionVersionOutput {
+	return o
+}
+
+func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionDefinitionVersionOutput{})
 }

@@ -4,6 +4,7 @@
 package athena
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type WorkGroup struct {
 // NewWorkGroup registers a new resource with the given unique name, arguments, and options.
 func NewWorkGroup(ctx *pulumi.Context,
 	name string, args *WorkGroupArgs, opts ...pulumi.ResourceOption) (*WorkGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &WorkGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource WorkGroup
 	err := ctx.RegisterResource("cloudformation:Athena:WorkGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type WorkGroupArgs struct {
 
 func (WorkGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workGroupArgs)(nil)).Elem()
+}
+
+type WorkGroupInput interface {
+	pulumi.Input
+
+	ToWorkGroupOutput() WorkGroupOutput
+	ToWorkGroupOutputWithContext(ctx context.Context) WorkGroupOutput
+}
+
+func (*WorkGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroup)(nil))
+}
+
+func (i *WorkGroup) ToWorkGroupOutput() WorkGroupOutput {
+	return i.ToWorkGroupOutputWithContext(context.Background())
+}
+
+func (i *WorkGroup) ToWorkGroupOutputWithContext(ctx context.Context) WorkGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupOutput)
+}
+
+type WorkGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroup)(nil))
+}
+
+func (o WorkGroupOutput) ToWorkGroupOutput() WorkGroupOutput {
+	return o
+}
+
+func (o WorkGroupOutput) ToWorkGroupOutputWithContext(ctx context.Context) WorkGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkGroupOutput{})
 }

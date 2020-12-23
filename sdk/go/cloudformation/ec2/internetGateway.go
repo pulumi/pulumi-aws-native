@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type InternetGateway struct {
 // NewInternetGateway registers a new resource with the given unique name, arguments, and options.
 func NewInternetGateway(ctx *pulumi.Context,
 	name string, args *InternetGatewayArgs, opts ...pulumi.ResourceOption) (*InternetGateway, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InternetGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource InternetGateway
 	err := ctx.RegisterResource("cloudformation:EC2:InternetGateway", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InternetGatewayArgs struct {
 
 func (InternetGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*internetGatewayArgs)(nil)).Elem()
+}
+
+type InternetGatewayInput interface {
+	pulumi.Input
+
+	ToInternetGatewayOutput() InternetGatewayOutput
+	ToInternetGatewayOutputWithContext(ctx context.Context) InternetGatewayOutput
+}
+
+func (*InternetGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*InternetGateway)(nil))
+}
+
+func (i *InternetGateway) ToInternetGatewayOutput() InternetGatewayOutput {
+	return i.ToInternetGatewayOutputWithContext(context.Background())
+}
+
+func (i *InternetGateway) ToInternetGatewayOutputWithContext(ctx context.Context) InternetGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayOutput)
+}
+
+type InternetGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (InternetGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InternetGateway)(nil))
+}
+
+func (o InternetGatewayOutput) ToInternetGatewayOutput() InternetGatewayOutput {
+	return o
+}
+
+func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Context) InternetGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InternetGatewayOutput{})
 }

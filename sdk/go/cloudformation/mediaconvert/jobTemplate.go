@@ -4,6 +4,7 @@
 package mediaconvert
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type JobTemplate struct {
 // NewJobTemplate registers a new resource with the given unique name, arguments, and options.
 func NewJobTemplate(ctx *pulumi.Context,
 	name string, args *JobTemplateArgs, opts ...pulumi.ResourceOption) (*JobTemplate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &JobTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource JobTemplate
 	err := ctx.RegisterResource("cloudformation:MediaConvert:JobTemplate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type JobTemplateArgs struct {
 
 func (JobTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobTemplateArgs)(nil)).Elem()
+}
+
+type JobTemplateInput interface {
+	pulumi.Input
+
+	ToJobTemplateOutput() JobTemplateOutput
+	ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput
+}
+
+func (*JobTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplate)(nil))
+}
+
+func (i *JobTemplate) ToJobTemplateOutput() JobTemplateOutput {
+	return i.ToJobTemplateOutputWithContext(context.Background())
+}
+
+func (i *JobTemplate) ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateOutput)
+}
+
+type JobTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplate)(nil))
+}
+
+func (o JobTemplateOutput) ToJobTemplateOutput() JobTemplateOutput {
+	return o
+}
+
+func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobTemplateOutput{})
 }

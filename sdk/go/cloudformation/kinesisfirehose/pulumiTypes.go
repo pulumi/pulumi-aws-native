@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-cloudformation/sdk/go/cloudformation"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -830,6 +831,161 @@ func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) SchemaConfigur
 		}
 		return v.SchemaConfiguration
 	}).(DeliveryStreamSchemaConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html
+type DeliveryStreamDeliveryStreamEncryptionConfigurationInput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
+	KeyARN *string `pulumi:"KeyARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keytype
+	KeyType string `pulumi:"KeyType"`
+}
+
+// DeliveryStreamDeliveryStreamEncryptionConfigurationInputInput is an input type that accepts DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs and DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput values.
+// You can construct a concrete instance of `DeliveryStreamDeliveryStreamEncryptionConfigurationInputInput` via:
+//
+//          DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs{...}
+type DeliveryStreamDeliveryStreamEncryptionConfigurationInputInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput
+	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputOutputWithContext(context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html
+type DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
+	KeyARN pulumi.StringPtrInput `pulumi:"KeyARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keytype
+	KeyType pulumi.StringInput `pulumi:"KeyType"`
+}
+
+func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDeliveryStreamEncryptionConfigurationInput)(nil)).Elem()
+}
+
+func (i DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput {
+	return i.ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput)
+}
+
+func (i DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return i.ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput).ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput is an input type that accepts DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs, DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtr and DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput` via:
+//
+//          DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput
+	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput
+}
+
+type deliveryStreamDeliveryStreamEncryptionConfigurationInputPtrType DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs
+
+func DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtr(v *DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs) DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput {
+	return (*deliveryStreamDeliveryStreamEncryptionConfigurationInputPtrType)(v)
+}
+
+func (*deliveryStreamDeliveryStreamEncryptionConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDeliveryStreamEncryptionConfigurationInput)(nil)).Elem()
+}
+
+func (i *deliveryStreamDeliveryStreamEncryptionConfigurationInputPtrType) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return i.ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDeliveryStreamEncryptionConfigurationInputPtrType) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html
+type DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDeliveryStreamEncryptionConfigurationInput)(nil)).Elem()
+}
+
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput {
+	return o
+}
+
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput {
+	return o
+}
+
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return o.ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDeliveryStreamEncryptionConfigurationInput) *DeliveryStreamDeliveryStreamEncryptionConfigurationInput {
+		return &v
+	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) KeyARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDeliveryStreamEncryptionConfigurationInput) *string { return v.KeyARN }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keytype
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamDeliveryStreamEncryptionConfigurationInput) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDeliveryStreamEncryptionConfigurationInput)(nil)).Elem()
+}
+
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) Elem() DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput {
+	return o.ApplyT(func(v *DeliveryStreamDeliveryStreamEncryptionConfigurationInput) DeliveryStreamDeliveryStreamEncryptionConfigurationInput {
+		return *v
+	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) KeyARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDeliveryStreamEncryptionConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keytype
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDeliveryStreamEncryptionConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html
@@ -2294,6 +2450,746 @@ func (o DeliveryStreamHiveJsonSerDePtrOutput) TimestampFormats() pulumi.StringAr
 		}
 		return v.TimestampFormats
 	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html
+type DeliveryStreamHttpEndpointCommonAttribute struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename
+	AttributeName string `pulumi:"AttributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributevalue
+	AttributeValue string `pulumi:"AttributeValue"`
+}
+
+// DeliveryStreamHttpEndpointCommonAttributeInput is an input type that accepts DeliveryStreamHttpEndpointCommonAttributeArgs and DeliveryStreamHttpEndpointCommonAttributeOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointCommonAttributeInput` via:
+//
+//          DeliveryStreamHttpEndpointCommonAttributeArgs{...}
+type DeliveryStreamHttpEndpointCommonAttributeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointCommonAttributeOutput() DeliveryStreamHttpEndpointCommonAttributeOutput
+	ToDeliveryStreamHttpEndpointCommonAttributeOutputWithContext(context.Context) DeliveryStreamHttpEndpointCommonAttributeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html
+type DeliveryStreamHttpEndpointCommonAttributeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename
+	AttributeName pulumi.StringInput `pulumi:"AttributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributevalue
+	AttributeValue pulumi.StringInput `pulumi:"AttributeValue"`
+}
+
+func (DeliveryStreamHttpEndpointCommonAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointCommonAttribute)(nil)).Elem()
+}
+
+func (i DeliveryStreamHttpEndpointCommonAttributeArgs) ToDeliveryStreamHttpEndpointCommonAttributeOutput() DeliveryStreamHttpEndpointCommonAttributeOutput {
+	return i.ToDeliveryStreamHttpEndpointCommonAttributeOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointCommonAttributeArgs) ToDeliveryStreamHttpEndpointCommonAttributeOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointCommonAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointCommonAttributeOutput)
+}
+
+// DeliveryStreamHttpEndpointCommonAttributeArrayInput is an input type that accepts DeliveryStreamHttpEndpointCommonAttributeArray and DeliveryStreamHttpEndpointCommonAttributeArrayOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointCommonAttributeArrayInput` via:
+//
+//          DeliveryStreamHttpEndpointCommonAttributeArray{ DeliveryStreamHttpEndpointCommonAttributeArgs{...} }
+type DeliveryStreamHttpEndpointCommonAttributeArrayInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointCommonAttributeArrayOutput() DeliveryStreamHttpEndpointCommonAttributeArrayOutput
+	ToDeliveryStreamHttpEndpointCommonAttributeArrayOutputWithContext(context.Context) DeliveryStreamHttpEndpointCommonAttributeArrayOutput
+}
+
+type DeliveryStreamHttpEndpointCommonAttributeArray []DeliveryStreamHttpEndpointCommonAttributeInput
+
+func (DeliveryStreamHttpEndpointCommonAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryStreamHttpEndpointCommonAttribute)(nil)).Elem()
+}
+
+func (i DeliveryStreamHttpEndpointCommonAttributeArray) ToDeliveryStreamHttpEndpointCommonAttributeArrayOutput() DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
+	return i.ToDeliveryStreamHttpEndpointCommonAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointCommonAttributeArray) ToDeliveryStreamHttpEndpointCommonAttributeArrayOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointCommonAttributeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html
+type DeliveryStreamHttpEndpointCommonAttributeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointCommonAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointCommonAttribute)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointCommonAttributeOutput) ToDeliveryStreamHttpEndpointCommonAttributeOutput() DeliveryStreamHttpEndpointCommonAttributeOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointCommonAttributeOutput) ToDeliveryStreamHttpEndpointCommonAttributeOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointCommonAttributeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename
+func (o DeliveryStreamHttpEndpointCommonAttributeOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointCommonAttribute) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributevalue
+func (o DeliveryStreamHttpEndpointCommonAttributeOutput) AttributeValue() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointCommonAttribute) string { return v.AttributeValue }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamHttpEndpointCommonAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointCommonAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryStreamHttpEndpointCommonAttribute)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointCommonAttributeArrayOutput) ToDeliveryStreamHttpEndpointCommonAttributeArrayOutput() DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointCommonAttributeArrayOutput) ToDeliveryStreamHttpEndpointCommonAttributeArrayOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointCommonAttributeArrayOutput) Index(i pulumi.IntInput) DeliveryStreamHttpEndpointCommonAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryStreamHttpEndpointCommonAttribute {
+		return vs[0].([]DeliveryStreamHttpEndpointCommonAttribute)[vs[1].(int)]
+	}).(DeliveryStreamHttpEndpointCommonAttributeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html
+type DeliveryStreamHttpEndpointConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-accesskey
+	AccessKey *string `pulumi:"AccessKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-name
+	Name *string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-url
+	Url string `pulumi:"Url"`
+}
+
+// DeliveryStreamHttpEndpointConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointConfigurationArgs and DeliveryStreamHttpEndpointConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointConfigurationInput` via:
+//
+//          DeliveryStreamHttpEndpointConfigurationArgs{...}
+type DeliveryStreamHttpEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointConfigurationOutput() DeliveryStreamHttpEndpointConfigurationOutput
+	ToDeliveryStreamHttpEndpointConfigurationOutputWithContext(context.Context) DeliveryStreamHttpEndpointConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html
+type DeliveryStreamHttpEndpointConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-accesskey
+	AccessKey pulumi.StringPtrInput `pulumi:"AccessKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-name
+	Name pulumi.StringPtrInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-url
+	Url pulumi.StringInput `pulumi:"Url"`
+}
+
+func (DeliveryStreamHttpEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamHttpEndpointConfigurationArgs) ToDeliveryStreamHttpEndpointConfigurationOutput() DeliveryStreamHttpEndpointConfigurationOutput {
+	return i.ToDeliveryStreamHttpEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointConfigurationArgs) ToDeliveryStreamHttpEndpointConfigurationOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointConfigurationOutput)
+}
+
+func (i DeliveryStreamHttpEndpointConfigurationArgs) ToDeliveryStreamHttpEndpointConfigurationPtrOutput() DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return i.ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointConfigurationArgs) ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointConfigurationOutput).ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamHttpEndpointConfigurationPtrInput is an input type that accepts DeliveryStreamHttpEndpointConfigurationArgs, DeliveryStreamHttpEndpointConfigurationPtr and DeliveryStreamHttpEndpointConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointConfigurationPtrInput` via:
+//
+//          DeliveryStreamHttpEndpointConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryStreamHttpEndpointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointConfigurationPtrOutput() DeliveryStreamHttpEndpointConfigurationPtrOutput
+	ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Context) DeliveryStreamHttpEndpointConfigurationPtrOutput
+}
+
+type deliveryStreamHttpEndpointConfigurationPtrType DeliveryStreamHttpEndpointConfigurationArgs
+
+func DeliveryStreamHttpEndpointConfigurationPtr(v *DeliveryStreamHttpEndpointConfigurationArgs) DeliveryStreamHttpEndpointConfigurationPtrInput {
+	return (*deliveryStreamHttpEndpointConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamHttpEndpointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamHttpEndpointConfigurationPtrType) ToDeliveryStreamHttpEndpointConfigurationPtrOutput() DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return i.ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamHttpEndpointConfigurationPtrType) ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html
+type DeliveryStreamHttpEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationOutput) ToDeliveryStreamHttpEndpointConfigurationOutput() DeliveryStreamHttpEndpointConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationOutput) ToDeliveryStreamHttpEndpointConfigurationOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationOutput) ToDeliveryStreamHttpEndpointConfigurationPtrOutput() DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o.ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationOutput) ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointConfiguration) *DeliveryStreamHttpEndpointConfiguration {
+		return &v
+	}).(DeliveryStreamHttpEndpointConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-accesskey
+func (o DeliveryStreamHttpEndpointConfigurationOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointConfiguration) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-name
+func (o DeliveryStreamHttpEndpointConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-url
+func (o DeliveryStreamHttpEndpointConfigurationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointConfiguration) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamHttpEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) ToDeliveryStreamHttpEndpointConfigurationPtrOutput() DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) Elem() DeliveryStreamHttpEndpointConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointConfiguration) DeliveryStreamHttpEndpointConfiguration { return *v }).(DeliveryStreamHttpEndpointConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-accesskey
+func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-name
+func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-url
+func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html
+type DeliveryStreamHttpEndpointDestinationConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
+	BufferingHints *DeliveryStreamBufferingHints `pulumi:"BufferingHints"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
+	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"CloudWatchLoggingOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
+	EndpointConfiguration DeliveryStreamHttpEndpointConfiguration `pulumi:"EndpointConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
+	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"ProcessingConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
+	RequestConfiguration *DeliveryStreamHttpEndpointRequestConfiguration `pulumi:"RequestConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
+	RetryOptions *DeliveryStreamRetryOptions `pulumi:"RetryOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn
+	RoleARN *string `pulumi:"RoleARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode
+	S3BackupMode *string `pulumi:"S3BackupMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
+	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"S3Configuration"`
+}
+
+// DeliveryStreamHttpEndpointDestinationConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointDestinationConfigurationArgs and DeliveryStreamHttpEndpointDestinationConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointDestinationConfigurationInput` via:
+//
+//          DeliveryStreamHttpEndpointDestinationConfigurationArgs{...}
+type DeliveryStreamHttpEndpointDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointDestinationConfigurationOutput() DeliveryStreamHttpEndpointDestinationConfigurationOutput
+	ToDeliveryStreamHttpEndpointDestinationConfigurationOutputWithContext(context.Context) DeliveryStreamHttpEndpointDestinationConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html
+type DeliveryStreamHttpEndpointDestinationConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
+	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"BufferingHints"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
+	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"CloudWatchLoggingOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
+	EndpointConfiguration DeliveryStreamHttpEndpointConfigurationInput `pulumi:"EndpointConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
+	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"ProcessingConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
+	RequestConfiguration DeliveryStreamHttpEndpointRequestConfigurationPtrInput `pulumi:"RequestConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
+	RetryOptions DeliveryStreamRetryOptionsPtrInput `pulumi:"RetryOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn
+	RoleARN pulumi.StringPtrInput `pulumi:"RoleARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode
+	S3BackupMode pulumi.StringPtrInput `pulumi:"S3BackupMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
+	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"S3Configuration"`
+}
+
+func (DeliveryStreamHttpEndpointDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointDestinationConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToDeliveryStreamHttpEndpointDestinationConfigurationOutput() DeliveryStreamHttpEndpointDestinationConfigurationOutput {
+	return i.ToDeliveryStreamHttpEndpointDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToDeliveryStreamHttpEndpointDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointDestinationConfigurationOutput)
+}
+
+func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutput() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointDestinationConfigurationOutput).ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamHttpEndpointDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamHttpEndpointDestinationConfigurationArgs, DeliveryStreamHttpEndpointDestinationConfigurationPtr and DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointDestinationConfigurationPtrInput` via:
+//
+//          DeliveryStreamHttpEndpointDestinationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryStreamHttpEndpointDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutput() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput
+	ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(context.Context) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput
+}
+
+type deliveryStreamHttpEndpointDestinationConfigurationPtrType DeliveryStreamHttpEndpointDestinationConfigurationArgs
+
+func DeliveryStreamHttpEndpointDestinationConfigurationPtr(v *DeliveryStreamHttpEndpointDestinationConfigurationArgs) DeliveryStreamHttpEndpointDestinationConfigurationPtrInput {
+	return (*deliveryStreamHttpEndpointDestinationConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamHttpEndpointDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamHttpEndpointDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamHttpEndpointDestinationConfigurationPtrType) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutput() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamHttpEndpointDestinationConfigurationPtrType) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html
+type DeliveryStreamHttpEndpointDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ToDeliveryStreamHttpEndpointDestinationConfigurationOutput() DeliveryStreamHttpEndpointDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ToDeliveryStreamHttpEndpointDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutput() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return o.ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointDestinationConfiguration {
+		return &v
+	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamBufferingHints {
+		return v.BufferingHints
+	}).(DeliveryStreamBufferingHintsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) EndpointConfiguration() DeliveryStreamHttpEndpointConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) DeliveryStreamHttpEndpointConfiguration {
+		return v.EndpointConfiguration
+	}).(DeliveryStreamHttpEndpointConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) RequestConfiguration() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointRequestConfiguration {
+		return v.RequestConfiguration
+	}).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamRetryOptions {
+		return v.RetryOptions
+	}).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) RoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *string { return v.RoleARN }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
+		return v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationOutput)
+}
+
+type DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamHttpEndpointDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutput() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) Elem() DeliveryStreamHttpEndpointDestinationConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) DeliveryStreamHttpEndpointDestinationConfiguration {
+		return *v
+	}).(DeliveryStreamHttpEndpointDestinationConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamBufferingHints {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingHints
+	}).(DeliveryStreamBufferingHintsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) EndpointConfiguration() DeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointConfiguration
+	}).(DeliveryStreamHttpEndpointConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) RequestConfiguration() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointRequestConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RequestConfiguration
+	}).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamRetryOptions {
+		if v == nil {
+			return nil
+		}
+		return v.RetryOptions
+	}).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) RoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html
+type DeliveryStreamHttpEndpointRequestConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
+	CommonAttributes []DeliveryStreamHttpEndpointCommonAttribute `pulumi:"CommonAttributes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
+	ContentEncoding *string `pulumi:"ContentEncoding"`
+}
+
+// DeliveryStreamHttpEndpointRequestConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointRequestConfigurationArgs and DeliveryStreamHttpEndpointRequestConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointRequestConfigurationInput` via:
+//
+//          DeliveryStreamHttpEndpointRequestConfigurationArgs{...}
+type DeliveryStreamHttpEndpointRequestConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointRequestConfigurationOutput() DeliveryStreamHttpEndpointRequestConfigurationOutput
+	ToDeliveryStreamHttpEndpointRequestConfigurationOutputWithContext(context.Context) DeliveryStreamHttpEndpointRequestConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html
+type DeliveryStreamHttpEndpointRequestConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
+	CommonAttributes DeliveryStreamHttpEndpointCommonAttributeArrayInput `pulumi:"CommonAttributes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
+	ContentEncoding pulumi.StringPtrInput `pulumi:"ContentEncoding"`
+}
+
+func (DeliveryStreamHttpEndpointRequestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointRequestConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToDeliveryStreamHttpEndpointRequestConfigurationOutput() DeliveryStreamHttpEndpointRequestConfigurationOutput {
+	return i.ToDeliveryStreamHttpEndpointRequestConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToDeliveryStreamHttpEndpointRequestConfigurationOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointRequestConfigurationOutput)
+}
+
+func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutput() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return i.ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointRequestConfigurationOutput).ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamHttpEndpointRequestConfigurationPtrInput is an input type that accepts DeliveryStreamHttpEndpointRequestConfigurationArgs, DeliveryStreamHttpEndpointRequestConfigurationPtr and DeliveryStreamHttpEndpointRequestConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamHttpEndpointRequestConfigurationPtrInput` via:
+//
+//          DeliveryStreamHttpEndpointRequestConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryStreamHttpEndpointRequestConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutput() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput
+	ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(context.Context) DeliveryStreamHttpEndpointRequestConfigurationPtrOutput
+}
+
+type deliveryStreamHttpEndpointRequestConfigurationPtrType DeliveryStreamHttpEndpointRequestConfigurationArgs
+
+func DeliveryStreamHttpEndpointRequestConfigurationPtr(v *DeliveryStreamHttpEndpointRequestConfigurationArgs) DeliveryStreamHttpEndpointRequestConfigurationPtrInput {
+	return (*deliveryStreamHttpEndpointRequestConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamHttpEndpointRequestConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamHttpEndpointRequestConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamHttpEndpointRequestConfigurationPtrType) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutput() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return i.ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamHttpEndpointRequestConfigurationPtrType) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html
+type DeliveryStreamHttpEndpointRequestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointRequestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamHttpEndpointRequestConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ToDeliveryStreamHttpEndpointRequestConfigurationOutput() DeliveryStreamHttpEndpointRequestConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ToDeliveryStreamHttpEndpointRequestConfigurationOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutput() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return o.ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointRequestConfiguration) *DeliveryStreamHttpEndpointRequestConfiguration {
+		return &v
+	}).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) CommonAttributes() DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointRequestConfiguration) []DeliveryStreamHttpEndpointCommonAttribute {
+		return v.CommonAttributes
+	}).(DeliveryStreamHttpEndpointCommonAttributeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ContentEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointRequestConfiguration) *string { return v.ContentEncoding }).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamHttpEndpointRequestConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamHttpEndpointRequestConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutput() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) Elem() DeliveryStreamHttpEndpointRequestConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointRequestConfiguration) DeliveryStreamHttpEndpointRequestConfiguration {
+		return *v
+	}).(DeliveryStreamHttpEndpointRequestConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
+func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) CommonAttributes() DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointRequestConfiguration) []DeliveryStreamHttpEndpointCommonAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.CommonAttributes
+	}).(DeliveryStreamHttpEndpointCommonAttributeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
+func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentEncoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html
@@ -3932,6 +4828,8 @@ func (o DeliveryStreamProcessorParameterArrayOutput) Index(i pulumi.IntInput) De
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 type DeliveryStreamProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+	DeliveryStreamEncryptionConfigurationInput *DeliveryStreamDeliveryStreamEncryptionConfigurationInput `pulumi:"DeliveryStreamEncryptionConfigurationInput"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
 	DeliveryStreamName *string `pulumi:"DeliveryStreamName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
@@ -3940,6 +4838,8 @@ type DeliveryStreamProperties struct {
 	ElasticsearchDestinationConfiguration *DeliveryStreamElasticsearchDestinationConfiguration `pulumi:"ElasticsearchDestinationConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
 	ExtendedS3DestinationConfiguration *DeliveryStreamExtendedS3DestinationConfiguration `pulumi:"ExtendedS3DestinationConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+	HttpEndpointDestinationConfiguration *DeliveryStreamHttpEndpointDestinationConfiguration `pulumi:"HttpEndpointDestinationConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
 	KinesisStreamSourceConfiguration *DeliveryStreamKinesisStreamSourceConfiguration `pulumi:"KinesisStreamSourceConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
@@ -3948,6 +4848,8 @@ type DeliveryStreamProperties struct {
 	S3DestinationConfiguration *DeliveryStreamS3DestinationConfiguration `pulumi:"S3DestinationConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
 	SplunkDestinationConfiguration *DeliveryStreamSplunkDestinationConfiguration `pulumi:"SplunkDestinationConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
 }
 
 // DeliveryStreamPropertiesInput is an input type that accepts DeliveryStreamPropertiesArgs and DeliveryStreamPropertiesOutput values.
@@ -3963,6 +4865,8 @@ type DeliveryStreamPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 type DeliveryStreamPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+	DeliveryStreamEncryptionConfigurationInput DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput `pulumi:"DeliveryStreamEncryptionConfigurationInput"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
 	DeliveryStreamName pulumi.StringPtrInput `pulumi:"DeliveryStreamName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
@@ -3971,6 +4875,8 @@ type DeliveryStreamPropertiesArgs struct {
 	ElasticsearchDestinationConfiguration DeliveryStreamElasticsearchDestinationConfigurationPtrInput `pulumi:"ElasticsearchDestinationConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
 	ExtendedS3DestinationConfiguration DeliveryStreamExtendedS3DestinationConfigurationPtrInput `pulumi:"ExtendedS3DestinationConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+	HttpEndpointDestinationConfiguration DeliveryStreamHttpEndpointDestinationConfigurationPtrInput `pulumi:"HttpEndpointDestinationConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
 	KinesisStreamSourceConfiguration DeliveryStreamKinesisStreamSourceConfigurationPtrInput `pulumi:"KinesisStreamSourceConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
@@ -3979,6 +4885,8 @@ type DeliveryStreamPropertiesArgs struct {
 	S3DestinationConfiguration DeliveryStreamS3DestinationConfigurationPtrInput `pulumi:"S3DestinationConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
 	SplunkDestinationConfiguration DeliveryStreamSplunkDestinationConfigurationPtrInput `pulumi:"SplunkDestinationConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 }
 
 func (DeliveryStreamPropertiesArgs) ElementType() reflect.Type {
@@ -4059,6 +4967,13 @@ func (o DeliveryStreamPropertiesOutput) ToDeliveryStreamPropertiesPtrOutputWithC
 	}).(DeliveryStreamPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+func (o DeliveryStreamPropertiesOutput) DeliveryStreamEncryptionConfigurationInput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamProperties) *DeliveryStreamDeliveryStreamEncryptionConfigurationInput {
+		return v.DeliveryStreamEncryptionConfigurationInput
+	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
 func (o DeliveryStreamPropertiesOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamProperties) *string { return v.DeliveryStreamName }).(pulumi.StringPtrOutput)
@@ -4081,6 +4996,13 @@ func (o DeliveryStreamPropertiesOutput) ExtendedS3DestinationConfiguration() Del
 	return o.ApplyT(func(v DeliveryStreamProperties) *DeliveryStreamExtendedS3DestinationConfiguration {
 		return v.ExtendedS3DestinationConfiguration
 	}).(DeliveryStreamExtendedS3DestinationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+func (o DeliveryStreamPropertiesOutput) HttpEndpointDestinationConfiguration() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamProperties) *DeliveryStreamHttpEndpointDestinationConfiguration {
+		return v.HttpEndpointDestinationConfiguration
+	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
@@ -4111,6 +5033,11 @@ func (o DeliveryStreamPropertiesOutput) SplunkDestinationConfiguration() Deliver
 	}).(DeliveryStreamSplunkDestinationConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+func (o DeliveryStreamPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
 type DeliveryStreamPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamPropertiesPtrOutput) ElementType() reflect.Type {
@@ -4127,6 +5054,16 @@ func (o DeliveryStreamPropertiesPtrOutput) ToDeliveryStreamPropertiesPtrOutputWi
 
 func (o DeliveryStreamPropertiesPtrOutput) Elem() DeliveryStreamPropertiesOutput {
 	return o.ApplyT(func(v *DeliveryStreamProperties) DeliveryStreamProperties { return *v }).(DeliveryStreamPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+func (o DeliveryStreamPropertiesPtrOutput) DeliveryStreamEncryptionConfigurationInput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamProperties) *DeliveryStreamDeliveryStreamEncryptionConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStreamEncryptionConfigurationInput
+	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
@@ -4169,6 +5106,16 @@ func (o DeliveryStreamPropertiesPtrOutput) ExtendedS3DestinationConfiguration() 
 	}).(DeliveryStreamExtendedS3DestinationConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+func (o DeliveryStreamPropertiesPtrOutput) HttpEndpointDestinationConfiguration() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamProperties) *DeliveryStreamHttpEndpointDestinationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpointDestinationConfiguration
+	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
 func (o DeliveryStreamPropertiesPtrOutput) KinesisStreamSourceConfiguration() DeliveryStreamKinesisStreamSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamProperties) *DeliveryStreamKinesisStreamSourceConfiguration {
@@ -4207,6 +5154,16 @@ func (o DeliveryStreamPropertiesPtrOutput) SplunkDestinationConfiguration() Deli
 		}
 		return v.SplunkDestinationConfiguration
 	}).(DeliveryStreamSplunkDestinationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+func (o DeliveryStreamPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html
@@ -4672,6 +5629,140 @@ func (o DeliveryStreamRedshiftRetryOptionsPtrOutput) Elem() DeliveryStreamRedshi
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html#cfn-kinesisfirehose-deliverystream-redshiftretryoptions-durationinseconds
 func (o DeliveryStreamRedshiftRetryOptionsPtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftRetryOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DurationInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html
+type DeliveryStreamRetryOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
+	DurationInSeconds *int `pulumi:"DurationInSeconds"`
+}
+
+// DeliveryStreamRetryOptionsInput is an input type that accepts DeliveryStreamRetryOptionsArgs and DeliveryStreamRetryOptionsOutput values.
+// You can construct a concrete instance of `DeliveryStreamRetryOptionsInput` via:
+//
+//          DeliveryStreamRetryOptionsArgs{...}
+type DeliveryStreamRetryOptionsInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamRetryOptionsOutput() DeliveryStreamRetryOptionsOutput
+	ToDeliveryStreamRetryOptionsOutputWithContext(context.Context) DeliveryStreamRetryOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html
+type DeliveryStreamRetryOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
+	DurationInSeconds pulumi.IntPtrInput `pulumi:"DurationInSeconds"`
+}
+
+func (DeliveryStreamRetryOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamRetryOptions)(nil)).Elem()
+}
+
+func (i DeliveryStreamRetryOptionsArgs) ToDeliveryStreamRetryOptionsOutput() DeliveryStreamRetryOptionsOutput {
+	return i.ToDeliveryStreamRetryOptionsOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamRetryOptionsArgs) ToDeliveryStreamRetryOptionsOutputWithContext(ctx context.Context) DeliveryStreamRetryOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRetryOptionsOutput)
+}
+
+func (i DeliveryStreamRetryOptionsArgs) ToDeliveryStreamRetryOptionsPtrOutput() DeliveryStreamRetryOptionsPtrOutput {
+	return i.ToDeliveryStreamRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamRetryOptionsArgs) ToDeliveryStreamRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamRetryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRetryOptionsOutput).ToDeliveryStreamRetryOptionsPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamRetryOptionsPtrInput is an input type that accepts DeliveryStreamRetryOptionsArgs, DeliveryStreamRetryOptionsPtr and DeliveryStreamRetryOptionsPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamRetryOptionsPtrInput` via:
+//
+//          DeliveryStreamRetryOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryStreamRetryOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamRetryOptionsPtrOutput() DeliveryStreamRetryOptionsPtrOutput
+	ToDeliveryStreamRetryOptionsPtrOutputWithContext(context.Context) DeliveryStreamRetryOptionsPtrOutput
+}
+
+type deliveryStreamRetryOptionsPtrType DeliveryStreamRetryOptionsArgs
+
+func DeliveryStreamRetryOptionsPtr(v *DeliveryStreamRetryOptionsArgs) DeliveryStreamRetryOptionsPtrInput {
+	return (*deliveryStreamRetryOptionsPtrType)(v)
+}
+
+func (*deliveryStreamRetryOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamRetryOptions)(nil)).Elem()
+}
+
+func (i *deliveryStreamRetryOptionsPtrType) ToDeliveryStreamRetryOptionsPtrOutput() DeliveryStreamRetryOptionsPtrOutput {
+	return i.ToDeliveryStreamRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamRetryOptionsPtrType) ToDeliveryStreamRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamRetryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html
+type DeliveryStreamRetryOptionsOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamRetryOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamRetryOptions)(nil)).Elem()
+}
+
+func (o DeliveryStreamRetryOptionsOutput) ToDeliveryStreamRetryOptionsOutput() DeliveryStreamRetryOptionsOutput {
+	return o
+}
+
+func (o DeliveryStreamRetryOptionsOutput) ToDeliveryStreamRetryOptionsOutputWithContext(ctx context.Context) DeliveryStreamRetryOptionsOutput {
+	return o
+}
+
+func (o DeliveryStreamRetryOptionsOutput) ToDeliveryStreamRetryOptionsPtrOutput() DeliveryStreamRetryOptionsPtrOutput {
+	return o.ToDeliveryStreamRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamRetryOptionsOutput) ToDeliveryStreamRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamRetryOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamRetryOptions) *DeliveryStreamRetryOptions {
+		return &v
+	}).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
+func (o DeliveryStreamRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamRetryOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamRetryOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamRetryOptions)(nil)).Elem()
+}
+
+func (o DeliveryStreamRetryOptionsPtrOutput) ToDeliveryStreamRetryOptionsPtrOutput() DeliveryStreamRetryOptionsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamRetryOptionsPtrOutput) ToDeliveryStreamRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamRetryOptionsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamRetryOptionsPtrOutput) Elem() DeliveryStreamRetryOptionsOutput {
+	return o.ApplyT(func(v *DeliveryStreamRetryOptions) DeliveryStreamRetryOptions { return *v }).(DeliveryStreamRetryOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
+func (o DeliveryStreamRetryOptionsPtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamRetryOptions) *int {
 		if v == nil {
 			return nil
 		}
@@ -5947,6 +7038,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamCopyCommandPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDataFormatConversionConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDataFormatConversionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchBufferingHintsOutput{})
@@ -5961,6 +7054,14 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamExtendedS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamHiveJsonSerDeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamHiveJsonSerDePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointCommonAttributeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointCommonAttributeArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointRequestConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamInputFormatConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamInputFormatConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamKMSEncryptionConfigOutput{})
@@ -5987,6 +7088,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamRedshiftDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamRedshiftRetryOptionsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamRedshiftRetryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamRetryOptionsOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamRetryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSchemaConfigurationOutput{})

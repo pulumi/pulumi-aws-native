@@ -4,6 +4,7 @@
 package dms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ReplicationTask struct {
 // NewReplicationTask registers a new resource with the given unique name, arguments, and options.
 func NewReplicationTask(ctx *pulumi.Context,
 	name string, args *ReplicationTaskArgs, opts ...pulumi.ResourceOption) (*ReplicationTask, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ReplicationTaskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ReplicationTask
 	err := ctx.RegisterResource("cloudformation:DMS:ReplicationTask", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ReplicationTaskArgs struct {
 
 func (ReplicationTaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationTaskArgs)(nil)).Elem()
+}
+
+type ReplicationTaskInput interface {
+	pulumi.Input
+
+	ToReplicationTaskOutput() ReplicationTaskOutput
+	ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput
+}
+
+func (*ReplicationTask) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationTask)(nil))
+}
+
+func (i *ReplicationTask) ToReplicationTaskOutput() ReplicationTaskOutput {
+	return i.ToReplicationTaskOutputWithContext(context.Background())
+}
+
+func (i *ReplicationTask) ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskOutput)
+}
+
+type ReplicationTaskOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationTaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationTask)(nil))
+}
+
+func (o ReplicationTaskOutput) ToReplicationTaskOutput() ReplicationTaskOutput {
+	return o
+}
+
+func (o ReplicationTaskOutput) ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationTaskOutput{})
 }

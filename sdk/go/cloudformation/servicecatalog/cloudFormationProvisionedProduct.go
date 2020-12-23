@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CloudFormationProvisionedProduct struct {
 // NewCloudFormationProvisionedProduct registers a new resource with the given unique name, arguments, and options.
 func NewCloudFormationProvisionedProduct(ctx *pulumi.Context,
 	name string, args *CloudFormationProvisionedProductArgs, opts ...pulumi.ResourceOption) (*CloudFormationProvisionedProduct, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CloudFormationProvisionedProductArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CloudFormationProvisionedProduct
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:CloudFormationProvisionedProduct", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CloudFormationProvisionedProductArgs struct {
 
 func (CloudFormationProvisionedProductArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFormationProvisionedProductArgs)(nil)).Elem()
+}
+
+type CloudFormationProvisionedProductInput interface {
+	pulumi.Input
+
+	ToCloudFormationProvisionedProductOutput() CloudFormationProvisionedProductOutput
+	ToCloudFormationProvisionedProductOutputWithContext(ctx context.Context) CloudFormationProvisionedProductOutput
+}
+
+func (*CloudFormationProvisionedProduct) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProvisionedProduct)(nil))
+}
+
+func (i *CloudFormationProvisionedProduct) ToCloudFormationProvisionedProductOutput() CloudFormationProvisionedProductOutput {
+	return i.ToCloudFormationProvisionedProductOutputWithContext(context.Background())
+}
+
+func (i *CloudFormationProvisionedProduct) ToCloudFormationProvisionedProductOutputWithContext(ctx context.Context) CloudFormationProvisionedProductOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductOutput)
+}
+
+type CloudFormationProvisionedProductOutput struct {
+	*pulumi.OutputState
+}
+
+func (CloudFormationProvisionedProductOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProvisionedProduct)(nil))
+}
+
+func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProductOutput() CloudFormationProvisionedProductOutput {
+	return o
+}
+
+func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProductOutputWithContext(ctx context.Context) CloudFormationProvisionedProductOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CloudFormationProvisionedProductOutput{})
 }

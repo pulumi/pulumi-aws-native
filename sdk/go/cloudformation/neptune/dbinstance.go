@@ -4,6 +4,7 @@
 package neptune
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBInstance struct {
 // NewDBInstance registers a new resource with the given unique name, arguments, and options.
 func NewDBInstance(ctx *pulumi.Context,
 	name string, args *DBInstanceArgs, opts ...pulumi.ResourceOption) (*DBInstance, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBInstance
 	err := ctx.RegisterResource("cloudformation:Neptune:DBInstance", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBInstanceArgs struct {
 
 func (DBInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbinstanceArgs)(nil)).Elem()
+}
+
+type DBInstanceInput interface {
+	pulumi.Input
+
+	ToDBInstanceOutput() DBInstanceOutput
+	ToDBInstanceOutputWithContext(ctx context.Context) DBInstanceOutput
+}
+
+func (*DBInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstance)(nil))
+}
+
+func (i *DBInstance) ToDBInstanceOutput() DBInstanceOutput {
+	return i.ToDBInstanceOutputWithContext(context.Background())
+}
+
+func (i *DBInstance) ToDBInstanceOutputWithContext(ctx context.Context) DBInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceOutput)
+}
+
+type DBInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstance)(nil))
+}
+
+func (o DBInstanceOutput) ToDBInstanceOutput() DBInstanceOutput {
+	return o
+}
+
+func (o DBInstanceOutput) ToDBInstanceOutputWithContext(ctx context.Context) DBInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBInstanceOutput{})
 }

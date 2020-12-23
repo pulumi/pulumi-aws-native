@@ -4,6 +4,7 @@
 package kinesisanalyticsv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApplicationOutput struct {
 // NewApplicationOutput registers a new resource with the given unique name, arguments, and options.
 func NewApplicationOutput(ctx *pulumi.Context,
 	name string, args *ApplicationOutputArgs, opts ...pulumi.ResourceOption) (*ApplicationOutput, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApplicationOutputArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApplicationOutput
 	err := ctx.RegisterResource("cloudformation:KinesisAnalyticsV2:ApplicationOutput", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApplicationOutputArgs struct {
 
 func (ApplicationOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationOutputArgs)(nil)).Elem()
+}
+
+type ApplicationOutputInput interface {
+	pulumi.Input
+
+	ToApplicationOutputOutput() ApplicationOutputOutput
+	ToApplicationOutputOutputWithContext(ctx context.Context) ApplicationOutputOutput
+}
+
+func (*ApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutput)(nil))
+}
+
+func (i *ApplicationOutput) ToApplicationOutputOutput() ApplicationOutputOutput {
+	return i.ToApplicationOutputOutputWithContext(context.Background())
+}
+
+func (i *ApplicationOutput) ToApplicationOutputOutputWithContext(ctx context.Context) ApplicationOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputOutput)
+}
+
+type ApplicationOutputOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutput)(nil))
+}
+
+func (o ApplicationOutputOutput) ToApplicationOutputOutput() ApplicationOutputOutput {
+	return o
+}
+
+func (o ApplicationOutputOutput) ToApplicationOutputOutputWithContext(ctx context.Context) ApplicationOutputOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationOutputOutput{})
 }

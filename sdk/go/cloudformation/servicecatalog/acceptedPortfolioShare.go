@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type AcceptedPortfolioShare struct {
 // NewAcceptedPortfolioShare registers a new resource with the given unique name, arguments, and options.
 func NewAcceptedPortfolioShare(ctx *pulumi.Context,
 	name string, args *AcceptedPortfolioShareArgs, opts ...pulumi.ResourceOption) (*AcceptedPortfolioShare, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AcceptedPortfolioShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource AcceptedPortfolioShare
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:AcceptedPortfolioShare", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AcceptedPortfolioShareArgs struct {
 
 func (AcceptedPortfolioShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*acceptedPortfolioShareArgs)(nil)).Elem()
+}
+
+type AcceptedPortfolioShareInput interface {
+	pulumi.Input
+
+	ToAcceptedPortfolioShareOutput() AcceptedPortfolioShareOutput
+	ToAcceptedPortfolioShareOutputWithContext(ctx context.Context) AcceptedPortfolioShareOutput
+}
+
+func (*AcceptedPortfolioShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcceptedPortfolioShare)(nil))
+}
+
+func (i *AcceptedPortfolioShare) ToAcceptedPortfolioShareOutput() AcceptedPortfolioShareOutput {
+	return i.ToAcceptedPortfolioShareOutputWithContext(context.Background())
+}
+
+func (i *AcceptedPortfolioShare) ToAcceptedPortfolioShareOutputWithContext(ctx context.Context) AcceptedPortfolioShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceptedPortfolioShareOutput)
+}
+
+type AcceptedPortfolioShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (AcceptedPortfolioShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcceptedPortfolioShare)(nil))
+}
+
+func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutput() AcceptedPortfolioShareOutput {
+	return o
+}
+
+func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutputWithContext(ctx context.Context) AcceptedPortfolioShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AcceptedPortfolioShareOutput{})
 }

@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LaunchTemplateConstraint struct {
 // NewLaunchTemplateConstraint registers a new resource with the given unique name, arguments, and options.
 func NewLaunchTemplateConstraint(ctx *pulumi.Context,
 	name string, args *LaunchTemplateConstraintArgs, opts ...pulumi.ResourceOption) (*LaunchTemplateConstraint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LaunchTemplateConstraintArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LaunchTemplateConstraint
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:LaunchTemplateConstraint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LaunchTemplateConstraintArgs struct {
 
 func (LaunchTemplateConstraintArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchTemplateConstraintArgs)(nil)).Elem()
+}
+
+type LaunchTemplateConstraintInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateConstraintOutput() LaunchTemplateConstraintOutput
+	ToLaunchTemplateConstraintOutputWithContext(ctx context.Context) LaunchTemplateConstraintOutput
+}
+
+func (*LaunchTemplateConstraint) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateConstraint)(nil))
+}
+
+func (i *LaunchTemplateConstraint) ToLaunchTemplateConstraintOutput() LaunchTemplateConstraintOutput {
+	return i.ToLaunchTemplateConstraintOutputWithContext(context.Background())
+}
+
+func (i *LaunchTemplateConstraint) ToLaunchTemplateConstraintOutputWithContext(ctx context.Context) LaunchTemplateConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateConstraintOutput)
+}
+
+type LaunchTemplateConstraintOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchTemplateConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateConstraint)(nil))
+}
+
+func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutput() LaunchTemplateConstraintOutput {
+	return o
+}
+
+func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutputWithContext(ctx context.Context) LaunchTemplateConstraintOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LaunchTemplateConstraintOutput{})
 }

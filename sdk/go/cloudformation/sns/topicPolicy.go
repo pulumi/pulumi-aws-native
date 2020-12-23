@@ -4,6 +4,7 @@
 package sns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TopicPolicy struct {
 // NewTopicPolicy registers a new resource with the given unique name, arguments, and options.
 func NewTopicPolicy(ctx *pulumi.Context,
 	name string, args *TopicPolicyArgs, opts ...pulumi.ResourceOption) (*TopicPolicy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TopicPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TopicPolicy
 	err := ctx.RegisterResource("cloudformation:SNS:TopicPolicy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TopicPolicyArgs struct {
 
 func (TopicPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicPolicyArgs)(nil)).Elem()
+}
+
+type TopicPolicyInput interface {
+	pulumi.Input
+
+	ToTopicPolicyOutput() TopicPolicyOutput
+	ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput
+}
+
+func (*TopicPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPolicy)(nil))
+}
+
+func (i *TopicPolicy) ToTopicPolicyOutput() TopicPolicyOutput {
+	return i.ToTopicPolicyOutputWithContext(context.Background())
+}
+
+func (i *TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyOutput)
+}
+
+type TopicPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (TopicPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPolicy)(nil))
+}
+
+func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {
+	return o
+}
+
+func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TopicPolicyOutput{})
 }

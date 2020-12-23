@@ -4,6 +4,7 @@
 package kinesisanalyticsv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApplicationCloudWatchLoggingOption struct {
 // NewApplicationCloudWatchLoggingOption registers a new resource with the given unique name, arguments, and options.
 func NewApplicationCloudWatchLoggingOption(ctx *pulumi.Context,
 	name string, args *ApplicationCloudWatchLoggingOptionArgs, opts ...pulumi.ResourceOption) (*ApplicationCloudWatchLoggingOption, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApplicationCloudWatchLoggingOptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApplicationCloudWatchLoggingOption
 	err := ctx.RegisterResource("cloudformation:KinesisAnalyticsV2:ApplicationCloudWatchLoggingOption", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApplicationCloudWatchLoggingOptionArgs struct {
 
 func (ApplicationCloudWatchLoggingOptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationCloudWatchLoggingOptionArgs)(nil)).Elem()
+}
+
+type ApplicationCloudWatchLoggingOptionInput interface {
+	pulumi.Input
+
+	ToApplicationCloudWatchLoggingOptionOutput() ApplicationCloudWatchLoggingOptionOutput
+	ToApplicationCloudWatchLoggingOptionOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionOutput
+}
+
+func (*ApplicationCloudWatchLoggingOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCloudWatchLoggingOption)(nil))
+}
+
+func (i *ApplicationCloudWatchLoggingOption) ToApplicationCloudWatchLoggingOptionOutput() ApplicationCloudWatchLoggingOptionOutput {
+	return i.ToApplicationCloudWatchLoggingOptionOutputWithContext(context.Background())
+}
+
+func (i *ApplicationCloudWatchLoggingOption) ToApplicationCloudWatchLoggingOptionOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingOptionOutput)
+}
+
+type ApplicationCloudWatchLoggingOptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationCloudWatchLoggingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCloudWatchLoggingOption)(nil))
+}
+
+func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLoggingOptionOutput() ApplicationCloudWatchLoggingOptionOutput {
+	return o
+}
+
+func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLoggingOptionOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingOptionOutput{})
 }

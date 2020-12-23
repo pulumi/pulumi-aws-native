@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type IdentityPoolRoleAttachment struct {
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
 func NewIdentityPoolRoleAttachment(ctx *pulumi.Context,
 	name string, args *IdentityPoolRoleAttachmentArgs, opts ...pulumi.ResourceOption) (*IdentityPoolRoleAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &IdentityPoolRoleAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource IdentityPoolRoleAttachment
 	err := ctx.RegisterResource("cloudformation:Cognito:IdentityPoolRoleAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type IdentityPoolRoleAttachmentArgs struct {
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolRoleAttachmentArgs)(nil)).Elem()
+}
+
+type IdentityPoolRoleAttachmentInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput
+	ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput
+}
+
+func (*IdentityPoolRoleAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachment)(nil))
+}
+
+func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {
+	return i.ToIdentityPoolRoleAttachmentOutputWithContext(context.Background())
+}
+
+func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentOutput)
+}
+
+type IdentityPoolRoleAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityPoolRoleAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachment)(nil))
+}
+
+func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentOutput{})
 }

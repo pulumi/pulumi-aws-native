@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CoreDefinition struct {
 // NewCoreDefinition registers a new resource with the given unique name, arguments, and options.
 func NewCoreDefinition(ctx *pulumi.Context,
 	name string, args *CoreDefinitionArgs, opts ...pulumi.ResourceOption) (*CoreDefinition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CoreDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CoreDefinition
 	err := ctx.RegisterResource("cloudformation:Greengrass:CoreDefinition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CoreDefinitionArgs struct {
 
 func (CoreDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*coreDefinitionArgs)(nil)).Elem()
+}
+
+type CoreDefinitionInput interface {
+	pulumi.Input
+
+	ToCoreDefinitionOutput() CoreDefinitionOutput
+	ToCoreDefinitionOutputWithContext(ctx context.Context) CoreDefinitionOutput
+}
+
+func (*CoreDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreDefinition)(nil))
+}
+
+func (i *CoreDefinition) ToCoreDefinitionOutput() CoreDefinitionOutput {
+	return i.ToCoreDefinitionOutputWithContext(context.Background())
+}
+
+func (i *CoreDefinition) ToCoreDefinitionOutputWithContext(ctx context.Context) CoreDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionOutput)
+}
+
+type CoreDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (CoreDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreDefinition)(nil))
+}
+
+func (o CoreDefinitionOutput) ToCoreDefinitionOutput() CoreDefinitionOutput {
+	return o
+}
+
+func (o CoreDefinitionOutput) ToCoreDefinitionOutputWithContext(ctx context.Context) CoreDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CoreDefinitionOutput{})
 }

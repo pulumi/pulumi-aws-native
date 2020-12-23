@@ -4,6 +4,7 @@
 package configuration
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type OrganizationConformancePack struct {
 // NewOrganizationConformancePack registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationConformancePack(ctx *pulumi.Context,
 	name string, args *OrganizationConformancePackArgs, opts ...pulumi.ResourceOption) (*OrganizationConformancePack, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &OrganizationConformancePackArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource OrganizationConformancePack
 	err := ctx.RegisterResource("cloudformation:Configuration:OrganizationConformancePack", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type OrganizationConformancePackArgs struct {
 
 func (OrganizationConformancePackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConformancePackArgs)(nil)).Elem()
+}
+
+type OrganizationConformancePackInput interface {
+	pulumi.Input
+
+	ToOrganizationConformancePackOutput() OrganizationConformancePackOutput
+	ToOrganizationConformancePackOutputWithContext(ctx context.Context) OrganizationConformancePackOutput
+}
+
+func (*OrganizationConformancePack) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConformancePack)(nil))
+}
+
+func (i *OrganizationConformancePack) ToOrganizationConformancePackOutput() OrganizationConformancePackOutput {
+	return i.ToOrganizationConformancePackOutputWithContext(context.Background())
+}
+
+func (i *OrganizationConformancePack) ToOrganizationConformancePackOutputWithContext(ctx context.Context) OrganizationConformancePackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackOutput)
+}
+
+type OrganizationConformancePackOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationConformancePackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConformancePack)(nil))
+}
+
+func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutput() OrganizationConformancePackOutput {
+	return o
+}
+
+func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutputWithContext(ctx context.Context) OrganizationConformancePackOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationConformancePackOutput{})
 }

@@ -4,6 +4,7 @@
 package appstream
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Fleet struct {
 // NewFleet registers a new resource with the given unique name, arguments, and options.
 func NewFleet(ctx *pulumi.Context,
 	name string, args *FleetArgs, opts ...pulumi.ResourceOption) (*Fleet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FleetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Fleet
 	err := ctx.RegisterResource("cloudformation:AppStream:Fleet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FleetArgs struct {
 
 func (FleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetArgs)(nil)).Elem()
+}
+
+type FleetInput interface {
+	pulumi.Input
+
+	ToFleetOutput() FleetOutput
+	ToFleetOutputWithContext(ctx context.Context) FleetOutput
+}
+
+func (*Fleet) ElementType() reflect.Type {
+	return reflect.TypeOf((*Fleet)(nil))
+}
+
+func (i *Fleet) ToFleetOutput() FleetOutput {
+	return i.ToFleetOutputWithContext(context.Background())
+}
+
+func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetOutput)
+}
+
+type FleetOutput struct {
+	*pulumi.OutputState
+}
+
+func (FleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Fleet)(nil))
+}
+
+func (o FleetOutput) ToFleetOutput() FleetOutput {
+	return o
+}
+
+func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FleetOutput{})
 }

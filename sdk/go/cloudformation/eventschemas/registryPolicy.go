@@ -4,6 +4,7 @@
 package eventschemas
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RegistryPolicy struct {
 // NewRegistryPolicy registers a new resource with the given unique name, arguments, and options.
 func NewRegistryPolicy(ctx *pulumi.Context,
 	name string, args *RegistryPolicyArgs, opts ...pulumi.ResourceOption) (*RegistryPolicy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RegistryPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RegistryPolicy
 	err := ctx.RegisterResource("cloudformation:EventSchemas:RegistryPolicy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RegistryPolicyArgs struct {
 
 func (RegistryPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryPolicyArgs)(nil)).Elem()
+}
+
+type RegistryPolicyInput interface {
+	pulumi.Input
+
+	ToRegistryPolicyOutput() RegistryPolicyOutput
+	ToRegistryPolicyOutputWithContext(ctx context.Context) RegistryPolicyOutput
+}
+
+func (*RegistryPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryPolicy)(nil))
+}
+
+func (i *RegistryPolicy) ToRegistryPolicyOutput() RegistryPolicyOutput {
+	return i.ToRegistryPolicyOutputWithContext(context.Background())
+}
+
+func (i *RegistryPolicy) ToRegistryPolicyOutputWithContext(ctx context.Context) RegistryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyOutput)
+}
+
+type RegistryPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegistryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryPolicy)(nil))
+}
+
+func (o RegistryPolicyOutput) ToRegistryPolicyOutput() RegistryPolicyOutput {
+	return o
+}
+
+func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Context) RegistryPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegistryPolicyOutput{})
 }

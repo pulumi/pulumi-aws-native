@@ -4,6 +4,7 @@
 package elasticache
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CacheCluster struct {
 // NewCacheCluster registers a new resource with the given unique name, arguments, and options.
 func NewCacheCluster(ctx *pulumi.Context,
 	name string, args *CacheClusterArgs, opts ...pulumi.ResourceOption) (*CacheCluster, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CacheClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CacheCluster
 	err := ctx.RegisterResource("cloudformation:ElastiCache:CacheCluster", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CacheClusterArgs struct {
 
 func (CacheClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheClusterArgs)(nil)).Elem()
+}
+
+type CacheClusterInput interface {
+	pulumi.Input
+
+	ToCacheClusterOutput() CacheClusterOutput
+	ToCacheClusterOutputWithContext(ctx context.Context) CacheClusterOutput
+}
+
+func (*CacheCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheCluster)(nil))
+}
+
+func (i *CacheCluster) ToCacheClusterOutput() CacheClusterOutput {
+	return i.ToCacheClusterOutputWithContext(context.Background())
+}
+
+func (i *CacheCluster) ToCacheClusterOutputWithContext(ctx context.Context) CacheClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterOutput)
+}
+
+type CacheClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheCluster)(nil))
+}
+
+func (o CacheClusterOutput) ToCacheClusterOutput() CacheClusterOutput {
+	return o
+}
+
+func (o CacheClusterOutput) ToCacheClusterOutputWithContext(ctx context.Context) CacheClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheClusterOutput{})
 }

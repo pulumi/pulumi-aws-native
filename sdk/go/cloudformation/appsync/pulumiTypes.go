@@ -496,6 +496,8 @@ func (o ApiKeyAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 type ApiKeyProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apiid
 	ApiId string `pulumi:"ApiId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
+	ApiKeyId *string `pulumi:"ApiKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description
 	Description *string `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-expires
@@ -517,6 +519,8 @@ type ApiKeyPropertiesInput interface {
 type ApiKeyPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apiid
 	ApiId pulumi.StringInput `pulumi:"ApiId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
+	ApiKeyId pulumi.StringPtrInput `pulumi:"ApiKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description
 	Description pulumi.StringPtrInput `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-expires
@@ -606,6 +610,11 @@ func (o ApiKeyPropertiesOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyProperties) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
+func (o ApiKeyPropertiesOutput) ApiKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiKeyProperties) *string { return v.ApiKeyId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description
 func (o ApiKeyPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiKeyProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -641,6 +650,16 @@ func (o ApiKeyPropertiesPtrOutput) ApiId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.ApiId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
+func (o ApiKeyPropertiesPtrOutput) ApiKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2774,6 +2793,142 @@ func (o FunctionConfigurationAttributesPtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html
+type FunctionConfigurationLambdaConflictHandlerConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html#cfn-appsync-functionconfiguration-lambdaconflicthandlerconfig-lambdaconflicthandlerarn
+	LambdaConflictHandlerArn *string `pulumi:"LambdaConflictHandlerArn"`
+}
+
+// FunctionConfigurationLambdaConflictHandlerConfigInput is an input type that accepts FunctionConfigurationLambdaConflictHandlerConfigArgs and FunctionConfigurationLambdaConflictHandlerConfigOutput values.
+// You can construct a concrete instance of `FunctionConfigurationLambdaConflictHandlerConfigInput` via:
+//
+//          FunctionConfigurationLambdaConflictHandlerConfigArgs{...}
+type FunctionConfigurationLambdaConflictHandlerConfigInput interface {
+	pulumi.Input
+
+	ToFunctionConfigurationLambdaConflictHandlerConfigOutput() FunctionConfigurationLambdaConflictHandlerConfigOutput
+	ToFunctionConfigurationLambdaConflictHandlerConfigOutputWithContext(context.Context) FunctionConfigurationLambdaConflictHandlerConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html
+type FunctionConfigurationLambdaConflictHandlerConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html#cfn-appsync-functionconfiguration-lambdaconflicthandlerconfig-lambdaconflicthandlerarn
+	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"LambdaConflictHandlerArn"`
+}
+
+func (FunctionConfigurationLambdaConflictHandlerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfigurationLambdaConflictHandlerConfig)(nil)).Elem()
+}
+
+func (i FunctionConfigurationLambdaConflictHandlerConfigArgs) ToFunctionConfigurationLambdaConflictHandlerConfigOutput() FunctionConfigurationLambdaConflictHandlerConfigOutput {
+	return i.ToFunctionConfigurationLambdaConflictHandlerConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionConfigurationLambdaConflictHandlerConfigArgs) ToFunctionConfigurationLambdaConflictHandlerConfigOutputWithContext(ctx context.Context) FunctionConfigurationLambdaConflictHandlerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationLambdaConflictHandlerConfigOutput)
+}
+
+func (i FunctionConfigurationLambdaConflictHandlerConfigArgs) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutput() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return i.ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionConfigurationLambdaConflictHandlerConfigArgs) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationLambdaConflictHandlerConfigOutput).ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionConfigurationLambdaConflictHandlerConfigPtrInput is an input type that accepts FunctionConfigurationLambdaConflictHandlerConfigArgs, FunctionConfigurationLambdaConflictHandlerConfigPtr and FunctionConfigurationLambdaConflictHandlerConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionConfigurationLambdaConflictHandlerConfigPtrInput` via:
+//
+//          FunctionConfigurationLambdaConflictHandlerConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionConfigurationLambdaConflictHandlerConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutput() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput
+	ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(context.Context) FunctionConfigurationLambdaConflictHandlerConfigPtrOutput
+}
+
+type functionConfigurationLambdaConflictHandlerConfigPtrType FunctionConfigurationLambdaConflictHandlerConfigArgs
+
+func FunctionConfigurationLambdaConflictHandlerConfigPtr(v *FunctionConfigurationLambdaConflictHandlerConfigArgs) FunctionConfigurationLambdaConflictHandlerConfigPtrInput {
+	return (*functionConfigurationLambdaConflictHandlerConfigPtrType)(v)
+}
+
+func (*functionConfigurationLambdaConflictHandlerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfigurationLambdaConflictHandlerConfig)(nil)).Elem()
+}
+
+func (i *functionConfigurationLambdaConflictHandlerConfigPtrType) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutput() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return i.ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionConfigurationLambdaConflictHandlerConfigPtrType) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html
+type FunctionConfigurationLambdaConflictHandlerConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionConfigurationLambdaConflictHandlerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfigurationLambdaConflictHandlerConfig)(nil)).Elem()
+}
+
+func (o FunctionConfigurationLambdaConflictHandlerConfigOutput) ToFunctionConfigurationLambdaConflictHandlerConfigOutput() FunctionConfigurationLambdaConflictHandlerConfigOutput {
+	return o
+}
+
+func (o FunctionConfigurationLambdaConflictHandlerConfigOutput) ToFunctionConfigurationLambdaConflictHandlerConfigOutputWithContext(ctx context.Context) FunctionConfigurationLambdaConflictHandlerConfigOutput {
+	return o
+}
+
+func (o FunctionConfigurationLambdaConflictHandlerConfigOutput) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutput() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return o.ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionConfigurationLambdaConflictHandlerConfigOutput) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return o.ApplyT(func(v FunctionConfigurationLambdaConflictHandlerConfig) *FunctionConfigurationLambdaConflictHandlerConfig {
+		return &v
+	}).(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html#cfn-appsync-functionconfiguration-lambdaconflicthandlerconfig-lambdaconflicthandlerarn
+func (o FunctionConfigurationLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionConfigurationLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
+}
+
+type FunctionConfigurationLambdaConflictHandlerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfigurationLambdaConflictHandlerConfig)(nil)).Elem()
+}
+
+func (o FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutput() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return o
+}
+
+func (o FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) ToFunctionConfigurationLambdaConflictHandlerConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return o
+}
+
+func (o FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) Elem() FunctionConfigurationLambdaConflictHandlerConfigOutput {
+	return o.ApplyT(func(v *FunctionConfigurationLambdaConflictHandlerConfig) FunctionConfigurationLambdaConflictHandlerConfig {
+		return *v
+	}).(FunctionConfigurationLambdaConflictHandlerConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-lambdaconflicthandlerconfig.html#cfn-appsync-functionconfiguration-lambdaconflicthandlerconfig-lambdaconflicthandlerarn
+func (o FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfigurationLambdaConflictHandlerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaConflictHandlerArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
 type FunctionConfigurationProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-apiid
@@ -2794,6 +2949,8 @@ type FunctionConfigurationProperties struct {
 	ResponseMappingTemplate *string `pulumi:"ResponseMappingTemplate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplates3location
 	ResponseMappingTemplateS3Location *string `pulumi:"ResponseMappingTemplateS3Location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig
+	SyncConfig *FunctionConfigurationSyncConfig `pulumi:"SyncConfig"`
 }
 
 // FunctionConfigurationPropertiesInput is an input type that accepts FunctionConfigurationPropertiesArgs and FunctionConfigurationPropertiesOutput values.
@@ -2827,6 +2984,8 @@ type FunctionConfigurationPropertiesArgs struct {
 	ResponseMappingTemplate pulumi.StringPtrInput `pulumi:"ResponseMappingTemplate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplates3location
 	ResponseMappingTemplateS3Location pulumi.StringPtrInput `pulumi:"ResponseMappingTemplateS3Location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig
+	SyncConfig FunctionConfigurationSyncConfigPtrInput `pulumi:"SyncConfig"`
 }
 
 func (FunctionConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -2952,6 +3111,11 @@ func (o FunctionConfigurationPropertiesOutput) ResponseMappingTemplateS3Location
 	return o.ApplyT(func(v FunctionConfigurationProperties) *string { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig
+func (o FunctionConfigurationPropertiesOutput) SyncConfig() FunctionConfigurationSyncConfigPtrOutput {
+	return o.ApplyT(func(v FunctionConfigurationProperties) *FunctionConfigurationSyncConfig { return v.SyncConfig }).(FunctionConfigurationSyncConfigPtrOutput)
+}
+
 type FunctionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (FunctionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
@@ -3058,6 +3222,190 @@ func (o FunctionConfigurationPropertiesPtrOutput) ResponseMappingTemplateS3Locat
 		}
 		return v.ResponseMappingTemplateS3Location
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig
+func (o FunctionConfigurationPropertiesPtrOutput) SyncConfig() FunctionConfigurationSyncConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionConfigurationProperties) *FunctionConfigurationSyncConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SyncConfig
+	}).(FunctionConfigurationSyncConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html
+type FunctionConfigurationSyncConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflictdetection
+	ConflictDetection string `pulumi:"ConflictDetection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflicthandler
+	ConflictHandler *string `pulumi:"ConflictHandler"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-lambdaconflicthandlerconfig
+	LambdaConflictHandlerConfig *FunctionConfigurationLambdaConflictHandlerConfig `pulumi:"LambdaConflictHandlerConfig"`
+}
+
+// FunctionConfigurationSyncConfigInput is an input type that accepts FunctionConfigurationSyncConfigArgs and FunctionConfigurationSyncConfigOutput values.
+// You can construct a concrete instance of `FunctionConfigurationSyncConfigInput` via:
+//
+//          FunctionConfigurationSyncConfigArgs{...}
+type FunctionConfigurationSyncConfigInput interface {
+	pulumi.Input
+
+	ToFunctionConfigurationSyncConfigOutput() FunctionConfigurationSyncConfigOutput
+	ToFunctionConfigurationSyncConfigOutputWithContext(context.Context) FunctionConfigurationSyncConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html
+type FunctionConfigurationSyncConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflictdetection
+	ConflictDetection pulumi.StringInput `pulumi:"ConflictDetection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflicthandler
+	ConflictHandler pulumi.StringPtrInput `pulumi:"ConflictHandler"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-lambdaconflicthandlerconfig
+	LambdaConflictHandlerConfig FunctionConfigurationLambdaConflictHandlerConfigPtrInput `pulumi:"LambdaConflictHandlerConfig"`
+}
+
+func (FunctionConfigurationSyncConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfigurationSyncConfig)(nil)).Elem()
+}
+
+func (i FunctionConfigurationSyncConfigArgs) ToFunctionConfigurationSyncConfigOutput() FunctionConfigurationSyncConfigOutput {
+	return i.ToFunctionConfigurationSyncConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionConfigurationSyncConfigArgs) ToFunctionConfigurationSyncConfigOutputWithContext(ctx context.Context) FunctionConfigurationSyncConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationSyncConfigOutput)
+}
+
+func (i FunctionConfigurationSyncConfigArgs) ToFunctionConfigurationSyncConfigPtrOutput() FunctionConfigurationSyncConfigPtrOutput {
+	return i.ToFunctionConfigurationSyncConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionConfigurationSyncConfigArgs) ToFunctionConfigurationSyncConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationSyncConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationSyncConfigOutput).ToFunctionConfigurationSyncConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionConfigurationSyncConfigPtrInput is an input type that accepts FunctionConfigurationSyncConfigArgs, FunctionConfigurationSyncConfigPtr and FunctionConfigurationSyncConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionConfigurationSyncConfigPtrInput` via:
+//
+//          FunctionConfigurationSyncConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionConfigurationSyncConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionConfigurationSyncConfigPtrOutput() FunctionConfigurationSyncConfigPtrOutput
+	ToFunctionConfigurationSyncConfigPtrOutputWithContext(context.Context) FunctionConfigurationSyncConfigPtrOutput
+}
+
+type functionConfigurationSyncConfigPtrType FunctionConfigurationSyncConfigArgs
+
+func FunctionConfigurationSyncConfigPtr(v *FunctionConfigurationSyncConfigArgs) FunctionConfigurationSyncConfigPtrInput {
+	return (*functionConfigurationSyncConfigPtrType)(v)
+}
+
+func (*functionConfigurationSyncConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfigurationSyncConfig)(nil)).Elem()
+}
+
+func (i *functionConfigurationSyncConfigPtrType) ToFunctionConfigurationSyncConfigPtrOutput() FunctionConfigurationSyncConfigPtrOutput {
+	return i.ToFunctionConfigurationSyncConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionConfigurationSyncConfigPtrType) ToFunctionConfigurationSyncConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationSyncConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationSyncConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html
+type FunctionConfigurationSyncConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionConfigurationSyncConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfigurationSyncConfig)(nil)).Elem()
+}
+
+func (o FunctionConfigurationSyncConfigOutput) ToFunctionConfigurationSyncConfigOutput() FunctionConfigurationSyncConfigOutput {
+	return o
+}
+
+func (o FunctionConfigurationSyncConfigOutput) ToFunctionConfigurationSyncConfigOutputWithContext(ctx context.Context) FunctionConfigurationSyncConfigOutput {
+	return o
+}
+
+func (o FunctionConfigurationSyncConfigOutput) ToFunctionConfigurationSyncConfigPtrOutput() FunctionConfigurationSyncConfigPtrOutput {
+	return o.ToFunctionConfigurationSyncConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionConfigurationSyncConfigOutput) ToFunctionConfigurationSyncConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationSyncConfigPtrOutput {
+	return o.ApplyT(func(v FunctionConfigurationSyncConfig) *FunctionConfigurationSyncConfig {
+		return &v
+	}).(FunctionConfigurationSyncConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflictdetection
+func (o FunctionConfigurationSyncConfigOutput) ConflictDetection() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionConfigurationSyncConfig) string { return v.ConflictDetection }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflicthandler
+func (o FunctionConfigurationSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionConfigurationSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-lambdaconflicthandlerconfig
+func (o FunctionConfigurationSyncConfigOutput) LambdaConflictHandlerConfig() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return o.ApplyT(func(v FunctionConfigurationSyncConfig) *FunctionConfigurationLambdaConflictHandlerConfig {
+		return v.LambdaConflictHandlerConfig
+	}).(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput)
+}
+
+type FunctionConfigurationSyncConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionConfigurationSyncConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfigurationSyncConfig)(nil)).Elem()
+}
+
+func (o FunctionConfigurationSyncConfigPtrOutput) ToFunctionConfigurationSyncConfigPtrOutput() FunctionConfigurationSyncConfigPtrOutput {
+	return o
+}
+
+func (o FunctionConfigurationSyncConfigPtrOutput) ToFunctionConfigurationSyncConfigPtrOutputWithContext(ctx context.Context) FunctionConfigurationSyncConfigPtrOutput {
+	return o
+}
+
+func (o FunctionConfigurationSyncConfigPtrOutput) Elem() FunctionConfigurationSyncConfigOutput {
+	return o.ApplyT(func(v *FunctionConfigurationSyncConfig) FunctionConfigurationSyncConfig { return *v }).(FunctionConfigurationSyncConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflictdetection
+func (o FunctionConfigurationSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfigurationSyncConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConflictDetection
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-conflicthandler
+func (o FunctionConfigurationSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfigurationSyncConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictHandler
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-functionconfiguration-syncconfig.html#cfn-appsync-functionconfiguration-syncconfig-lambdaconflicthandlerconfig
+func (o FunctionConfigurationSyncConfigPtrOutput) LambdaConflictHandlerConfig() FunctionConfigurationLambdaConflictHandlerConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionConfigurationSyncConfig) *FunctionConfigurationLambdaConflictHandlerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaConflictHandlerConfig
+	}).(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html
@@ -5929,8 +6277,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationAttributesOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationAttributesPtrOutput{})
+	pulumi.RegisterOutputType(FunctionConfigurationLambdaConflictHandlerConfigOutput{})
+	pulumi.RegisterOutputType(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FunctionConfigurationSyncConfigOutput{})
+	pulumi.RegisterOutputType(FunctionConfigurationSyncConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProvidersOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProvidersPtrOutput{})

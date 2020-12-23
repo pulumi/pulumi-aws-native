@@ -4,6 +4,7 @@
 package appstream
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ImageBuilder struct {
 // NewImageBuilder registers a new resource with the given unique name, arguments, and options.
 func NewImageBuilder(ctx *pulumi.Context,
 	name string, args *ImageBuilderArgs, opts ...pulumi.ResourceOption) (*ImageBuilder, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ImageBuilderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ImageBuilder
 	err := ctx.RegisterResource("cloudformation:AppStream:ImageBuilder", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ImageBuilderArgs struct {
 
 func (ImageBuilderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageBuilderArgs)(nil)).Elem()
+}
+
+type ImageBuilderInput interface {
+	pulumi.Input
+
+	ToImageBuilderOutput() ImageBuilderOutput
+	ToImageBuilderOutputWithContext(ctx context.Context) ImageBuilderOutput
+}
+
+func (*ImageBuilder) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilder)(nil))
+}
+
+func (i *ImageBuilder) ToImageBuilderOutput() ImageBuilderOutput {
+	return i.ToImageBuilderOutputWithContext(context.Background())
+}
+
+func (i *ImageBuilder) ToImageBuilderOutputWithContext(ctx context.Context) ImageBuilderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderOutput)
+}
+
+type ImageBuilderOutput struct {
+	*pulumi.OutputState
+}
+
+func (ImageBuilderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilder)(nil))
+}
+
+func (o ImageBuilderOutput) ToImageBuilderOutput() ImageBuilderOutput {
+	return o
+}
+
+func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context) ImageBuilderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ImageBuilderOutput{})
 }

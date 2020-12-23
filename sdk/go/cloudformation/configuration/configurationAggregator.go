@@ -4,6 +4,7 @@
 package configuration
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConfigurationAggregator struct {
 // NewConfigurationAggregator registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationAggregator(ctx *pulumi.Context,
 	name string, args *ConfigurationAggregatorArgs, opts ...pulumi.ResourceOption) (*ConfigurationAggregator, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConfigurationAggregatorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConfigurationAggregator
 	err := ctx.RegisterResource("cloudformation:Configuration:ConfigurationAggregator", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConfigurationAggregatorArgs struct {
 
 func (ConfigurationAggregatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationAggregatorArgs)(nil)).Elem()
+}
+
+type ConfigurationAggregatorInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput
+	ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput
+}
+
+func (*ConfigurationAggregator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationAggregator)(nil))
+}
+
+func (i *ConfigurationAggregator) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {
+	return i.ToConfigurationAggregatorOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOutput)
+}
+
+type ConfigurationAggregatorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationAggregatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationAggregator)(nil))
+}
+
+func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationAggregatorOutput{})
 }

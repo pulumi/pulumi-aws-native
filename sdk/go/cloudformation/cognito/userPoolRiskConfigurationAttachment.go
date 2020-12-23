@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolRiskConfigurationAttachment struct {
 // NewUserPoolRiskConfigurationAttachment registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolRiskConfigurationAttachment(ctx *pulumi.Context,
 	name string, args *UserPoolRiskConfigurationAttachmentArgs, opts ...pulumi.ResourceOption) (*UserPoolRiskConfigurationAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolRiskConfigurationAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolRiskConfigurationAttachment
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolRiskConfigurationAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolRiskConfigurationAttachmentArgs struct {
 
 func (UserPoolRiskConfigurationAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolRiskConfigurationAttachmentArgs)(nil)).Elem()
+}
+
+type UserPoolRiskConfigurationAttachmentInput interface {
+	pulumi.Input
+
+	ToUserPoolRiskConfigurationAttachmentOutput() UserPoolRiskConfigurationAttachmentOutput
+	ToUserPoolRiskConfigurationAttachmentOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentOutput
+}
+
+func (*UserPoolRiskConfigurationAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRiskConfigurationAttachment)(nil))
+}
+
+func (i *UserPoolRiskConfigurationAttachment) ToUserPoolRiskConfigurationAttachmentOutput() UserPoolRiskConfigurationAttachmentOutput {
+	return i.ToUserPoolRiskConfigurationAttachmentOutputWithContext(context.Background())
+}
+
+func (i *UserPoolRiskConfigurationAttachment) ToUserPoolRiskConfigurationAttachmentOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentOutput)
+}
+
+type UserPoolRiskConfigurationAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolRiskConfigurationAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRiskConfigurationAttachment)(nil))
+}
+
+func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAttachmentOutput() UserPoolRiskConfigurationAttachmentOutput {
+	return o
+}
+
+func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAttachmentOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolRiskConfigurationAttachmentOutput{})
 }

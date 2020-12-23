@@ -4,6 +4,7 @@
 package macie
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Session struct {
 // NewSession registers a new resource with the given unique name, arguments, and options.
 func NewSession(ctx *pulumi.Context,
 	name string, args *SessionArgs, opts ...pulumi.ResourceOption) (*Session, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SessionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Session
 	err := ctx.RegisterResource("cloudformation:Macie:Session", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SessionArgs struct {
 
 func (SessionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionArgs)(nil)).Elem()
+}
+
+type SessionInput interface {
+	pulumi.Input
+
+	ToSessionOutput() SessionOutput
+	ToSessionOutputWithContext(ctx context.Context) SessionOutput
+}
+
+func (*Session) ElementType() reflect.Type {
+	return reflect.TypeOf((*Session)(nil))
+}
+
+func (i *Session) ToSessionOutput() SessionOutput {
+	return i.ToSessionOutputWithContext(context.Background())
+}
+
+func (i *Session) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionOutput)
+}
+
+type SessionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SessionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Session)(nil))
+}
+
+func (o SessionOutput) ToSessionOutput() SessionOutput {
+	return o
+}
+
+func (o SessionOutput) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SessionOutput{})
 }

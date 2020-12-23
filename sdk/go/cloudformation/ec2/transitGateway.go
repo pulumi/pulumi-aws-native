@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TransitGateway struct {
 // NewTransitGateway registers a new resource with the given unique name, arguments, and options.
 func NewTransitGateway(ctx *pulumi.Context,
 	name string, args *TransitGatewayArgs, opts ...pulumi.ResourceOption) (*TransitGateway, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TransitGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TransitGateway
 	err := ctx.RegisterResource("cloudformation:EC2:TransitGateway", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TransitGatewayArgs struct {
 
 func (TransitGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayArgs)(nil)).Elem()
+}
+
+type TransitGatewayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayOutput() TransitGatewayOutput
+	ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput
+}
+
+func (*TransitGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGateway)(nil))
+}
+
+func (i *TransitGateway) ToTransitGatewayOutput() TransitGatewayOutput {
+	return i.ToTransitGatewayOutputWithContext(context.Background())
+}
+
+func (i *TransitGateway) ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayOutput)
+}
+
+type TransitGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGateway)(nil))
+}
+
+func (o TransitGatewayOutput) ToTransitGatewayOutput() TransitGatewayOutput {
+	return o
+}
+
+func (o TransitGatewayOutput) ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitGatewayOutput{})
 }

@@ -4,6 +4,7 @@
 package dms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ReplicationInstance struct {
 // NewReplicationInstance registers a new resource with the given unique name, arguments, and options.
 func NewReplicationInstance(ctx *pulumi.Context,
 	name string, args *ReplicationInstanceArgs, opts ...pulumi.ResourceOption) (*ReplicationInstance, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ReplicationInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("cloudformation:DMS:ReplicationInstance", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ReplicationInstanceArgs struct {
 
 func (ReplicationInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationInstanceArgs)(nil)).Elem()
+}
+
+type ReplicationInstanceInput interface {
+	pulumi.Input
+
+	ToReplicationInstanceOutput() ReplicationInstanceOutput
+	ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput
+}
+
+func (*ReplicationInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationInstance)(nil))
+}
+
+func (i *ReplicationInstance) ToReplicationInstanceOutput() ReplicationInstanceOutput {
+	return i.ToReplicationInstanceOutputWithContext(context.Background())
+}
+
+func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
+}
+
+type ReplicationInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationInstance)(nil))
+}
+
+func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInstanceOutput {
+	return o
+}
+
+func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationInstanceOutput{})
 }

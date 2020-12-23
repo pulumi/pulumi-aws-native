@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CompositeAlarm struct {
 // NewCompositeAlarm registers a new resource with the given unique name, arguments, and options.
 func NewCompositeAlarm(ctx *pulumi.Context,
 	name string, args *CompositeAlarmArgs, opts ...pulumi.ResourceOption) (*CompositeAlarm, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CompositeAlarmArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CompositeAlarm
 	err := ctx.RegisterResource("cloudformation:CloudWatch:CompositeAlarm", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CompositeAlarmArgs struct {
 
 func (CompositeAlarmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*compositeAlarmArgs)(nil)).Elem()
+}
+
+type CompositeAlarmInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmOutput() CompositeAlarmOutput
+	ToCompositeAlarmOutputWithContext(ctx context.Context) CompositeAlarmOutput
+}
+
+func (*CompositeAlarm) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarm)(nil))
+}
+
+func (i *CompositeAlarm) ToCompositeAlarmOutput() CompositeAlarmOutput {
+	return i.ToCompositeAlarmOutputWithContext(context.Background())
+}
+
+func (i *CompositeAlarm) ToCompositeAlarmOutputWithContext(ctx context.Context) CompositeAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmOutput)
+}
+
+type CompositeAlarmOutput struct {
+	*pulumi.OutputState
+}
+
+func (CompositeAlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarm)(nil))
+}
+
+func (o CompositeAlarmOutput) ToCompositeAlarmOutput() CompositeAlarmOutput {
+	return o
+}
+
+func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Context) CompositeAlarmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CompositeAlarmOutput{})
 }

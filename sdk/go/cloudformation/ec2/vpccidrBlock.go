@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPCCidrBlock struct {
 // NewVPCCidrBlock registers a new resource with the given unique name, arguments, and options.
 func NewVPCCidrBlock(ctx *pulumi.Context,
 	name string, args *VPCCidrBlockArgs, opts ...pulumi.ResourceOption) (*VPCCidrBlock, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCCidrBlockArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPCCidrBlock
 	err := ctx.RegisterResource("cloudformation:EC2:VPCCidrBlock", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCCidrBlockArgs struct {
 
 func (VPCCidrBlockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpccidrBlockArgs)(nil)).Elem()
+}
+
+type VPCCidrBlockInput interface {
+	pulumi.Input
+
+	ToVPCCidrBlockOutput() VPCCidrBlockOutput
+	ToVPCCidrBlockOutputWithContext(ctx context.Context) VPCCidrBlockOutput
+}
+
+func (*VPCCidrBlock) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCCidrBlock)(nil))
+}
+
+func (i *VPCCidrBlock) ToVPCCidrBlockOutput() VPCCidrBlockOutput {
+	return i.ToVPCCidrBlockOutputWithContext(context.Background())
+}
+
+func (i *VPCCidrBlock) ToVPCCidrBlockOutputWithContext(ctx context.Context) VPCCidrBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCCidrBlockOutput)
+}
+
+type VPCCidrBlockOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCCidrBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCCidrBlock)(nil))
+}
+
+func (o VPCCidrBlockOutput) ToVPCCidrBlockOutput() VPCCidrBlockOutput {
+	return o
+}
+
+func (o VPCCidrBlockOutput) ToVPCCidrBlockOutputWithContext(ctx context.Context) VPCCidrBlockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCCidrBlockOutput{})
 }

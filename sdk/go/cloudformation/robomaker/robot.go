@@ -4,6 +4,7 @@
 package robomaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Robot struct {
 // NewRobot registers a new resource with the given unique name, arguments, and options.
 func NewRobot(ctx *pulumi.Context,
 	name string, args *RobotArgs, opts ...pulumi.ResourceOption) (*Robot, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RobotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Robot
 	err := ctx.RegisterResource("cloudformation:RoboMaker:Robot", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RobotArgs struct {
 
 func (RobotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*robotArgs)(nil)).Elem()
+}
+
+type RobotInput interface {
+	pulumi.Input
+
+	ToRobotOutput() RobotOutput
+	ToRobotOutputWithContext(ctx context.Context) RobotOutput
+}
+
+func (*Robot) ElementType() reflect.Type {
+	return reflect.TypeOf((*Robot)(nil))
+}
+
+func (i *Robot) ToRobotOutput() RobotOutput {
+	return i.ToRobotOutputWithContext(context.Background())
+}
+
+func (i *Robot) ToRobotOutputWithContext(ctx context.Context) RobotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotOutput)
+}
+
+type RobotOutput struct {
+	*pulumi.OutputState
+}
+
+func (RobotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Robot)(nil))
+}
+
+func (o RobotOutput) ToRobotOutput() RobotOutput {
+	return o
+}
+
+func (o RobotOutput) ToRobotOutputWithContext(ctx context.Context) RobotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RobotOutput{})
 }

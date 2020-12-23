@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CodeRepository struct {
 // NewCodeRepository registers a new resource with the given unique name, arguments, and options.
 func NewCodeRepository(ctx *pulumi.Context,
 	name string, args *CodeRepositoryArgs, opts ...pulumi.ResourceOption) (*CodeRepository, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CodeRepositoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CodeRepository
 	err := ctx.RegisterResource("cloudformation:SageMaker:CodeRepository", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CodeRepositoryArgs struct {
 
 func (CodeRepositoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*codeRepositoryArgs)(nil)).Elem()
+}
+
+type CodeRepositoryInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryOutput() CodeRepositoryOutput
+	ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput
+}
+
+func (*CodeRepository) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepository)(nil))
+}
+
+func (i *CodeRepository) ToCodeRepositoryOutput() CodeRepositoryOutput {
+	return i.ToCodeRepositoryOutputWithContext(context.Background())
+}
+
+func (i *CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryOutput)
+}
+
+type CodeRepositoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (CodeRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepository)(nil))
+}
+
+func (o CodeRepositoryOutput) ToCodeRepositoryOutput() CodeRepositoryOutput {
+	return o
+}
+
+func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CodeRepositoryOutput{})
 }

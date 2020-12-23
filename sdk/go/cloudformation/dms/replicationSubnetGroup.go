@@ -4,6 +4,7 @@
 package dms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ReplicationSubnetGroup struct {
 // NewReplicationSubnetGroup registers a new resource with the given unique name, arguments, and options.
 func NewReplicationSubnetGroup(ctx *pulumi.Context,
 	name string, args *ReplicationSubnetGroupArgs, opts ...pulumi.ResourceOption) (*ReplicationSubnetGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ReplicationSubnetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ReplicationSubnetGroup
 	err := ctx.RegisterResource("cloudformation:DMS:ReplicationSubnetGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ReplicationSubnetGroupArgs struct {
 
 func (ReplicationSubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationSubnetGroupArgs)(nil)).Elem()
+}
+
+type ReplicationSubnetGroupInput interface {
+	pulumi.Input
+
+	ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput
+	ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput
+}
+
+func (*ReplicationSubnetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationSubnetGroup)(nil))
+}
+
+func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput {
+	return i.ToReplicationSubnetGroupOutputWithContext(context.Background())
+}
+
+func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupOutput)
+}
+
+type ReplicationSubnetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationSubnetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationSubnetGroup)(nil))
+}
+
+func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput {
+	return o
+}
+
+func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationSubnetGroupOutput{})
 }

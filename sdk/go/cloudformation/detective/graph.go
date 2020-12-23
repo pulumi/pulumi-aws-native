@@ -4,6 +4,7 @@
 package detective
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Graph struct {
 // NewGraph registers a new resource with the given unique name, arguments, and options.
 func NewGraph(ctx *pulumi.Context,
 	name string, args *GraphArgs, opts ...pulumi.ResourceOption) (*Graph, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GraphArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Graph
 	err := ctx.RegisterResource("cloudformation:Detective:Graph", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GraphArgs struct {
 
 func (GraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphArgs)(nil)).Elem()
+}
+
+type GraphInput interface {
+	pulumi.Input
+
+	ToGraphOutput() GraphOutput
+	ToGraphOutputWithContext(ctx context.Context) GraphOutput
+}
+
+func (*Graph) ElementType() reflect.Type {
+	return reflect.TypeOf((*Graph)(nil))
+}
+
+func (i *Graph) ToGraphOutput() GraphOutput {
+	return i.ToGraphOutputWithContext(context.Background())
+}
+
+func (i *Graph) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphOutput)
+}
+
+type GraphOutput struct {
+	*pulumi.OutputState
+}
+
+func (GraphOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Graph)(nil))
+}
+
+func (o GraphOutput) ToGraphOutput() GraphOutput {
+	return o
+}
+
+func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GraphOutput{})
 }

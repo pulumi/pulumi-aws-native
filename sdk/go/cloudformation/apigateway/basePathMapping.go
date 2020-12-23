@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type BasePathMapping struct {
 // NewBasePathMapping registers a new resource with the given unique name, arguments, and options.
 func NewBasePathMapping(ctx *pulumi.Context,
 	name string, args *BasePathMappingArgs, opts ...pulumi.ResourceOption) (*BasePathMapping, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &BasePathMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource BasePathMapping
 	err := ctx.RegisterResource("cloudformation:ApiGateway:BasePathMapping", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type BasePathMappingArgs struct {
 
 func (BasePathMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*basePathMappingArgs)(nil)).Elem()
+}
+
+type BasePathMappingInput interface {
+	pulumi.Input
+
+	ToBasePathMappingOutput() BasePathMappingOutput
+	ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput
+}
+
+func (*BasePathMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasePathMapping)(nil))
+}
+
+func (i *BasePathMapping) ToBasePathMappingOutput() BasePathMappingOutput {
+	return i.ToBasePathMappingOutputWithContext(context.Background())
+}
+
+func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingOutput)
+}
+
+type BasePathMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (BasePathMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasePathMapping)(nil))
+}
+
+func (o BasePathMappingOutput) ToBasePathMappingOutput() BasePathMappingOutput {
+	return o
+}
+
+func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BasePathMappingOutput{})
 }

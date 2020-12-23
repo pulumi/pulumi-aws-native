@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GatewayRouteTableAssociation struct {
 // NewGatewayRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewGatewayRouteTableAssociation(ctx *pulumi.Context,
 	name string, args *GatewayRouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*GatewayRouteTableAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GatewayRouteTableAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GatewayRouteTableAssociation
 	err := ctx.RegisterResource("cloudformation:EC2:GatewayRouteTableAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GatewayRouteTableAssociationArgs struct {
 
 func (GatewayRouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayRouteTableAssociationArgs)(nil)).Elem()
+}
+
+type GatewayRouteTableAssociationInput interface {
+	pulumi.Input
+
+	ToGatewayRouteTableAssociationOutput() GatewayRouteTableAssociationOutput
+	ToGatewayRouteTableAssociationOutputWithContext(ctx context.Context) GatewayRouteTableAssociationOutput
+}
+
+func (*GatewayRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteTableAssociation)(nil))
+}
+
+func (i *GatewayRouteTableAssociation) ToGatewayRouteTableAssociationOutput() GatewayRouteTableAssociationOutput {
+	return i.ToGatewayRouteTableAssociationOutputWithContext(context.Background())
+}
+
+func (i *GatewayRouteTableAssociation) ToGatewayRouteTableAssociationOutputWithContext(ctx context.Context) GatewayRouteTableAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTableAssociationOutput)
+}
+
+type GatewayRouteTableAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayRouteTableAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteTableAssociation)(nil))
+}
+
+func (o GatewayRouteTableAssociationOutput) ToGatewayRouteTableAssociationOutput() GatewayRouteTableAssociationOutput {
+	return o
+}
+
+func (o GatewayRouteTableAssociationOutput) ToGatewayRouteTableAssociationOutputWithContext(ctx context.Context) GatewayRouteTableAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GatewayRouteTableAssociationOutput{})
 }

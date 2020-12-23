@@ -296,6 +296,8 @@ func (o DataLakeSettingsDataLakePrincipalOutput) DataLakePrincipalIdentifier() p
 type DataLakeSettingsProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-admins
 	Admins *DataLakeSettingsAdmins `pulumi:"Admins"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
+	TrustedResourceOwners []string `pulumi:"TrustedResourceOwners"`
 }
 
 // DataLakeSettingsPropertiesInput is an input type that accepts DataLakeSettingsPropertiesArgs and DataLakeSettingsPropertiesOutput values.
@@ -313,6 +315,8 @@ type DataLakeSettingsPropertiesInput interface {
 type DataLakeSettingsPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-admins
 	Admins DataLakeSettingsAdminsPtrInput `pulumi:"Admins"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
+	TrustedResourceOwners pulumi.StringArrayInput `pulumi:"TrustedResourceOwners"`
 }
 
 func (DataLakeSettingsPropertiesArgs) ElementType() reflect.Type {
@@ -398,6 +402,11 @@ func (o DataLakeSettingsPropertiesOutput) Admins() DataLakeSettingsAdminsPtrOutp
 	return o.ApplyT(func(v DataLakeSettingsProperties) *DataLakeSettingsAdmins { return v.Admins }).(DataLakeSettingsAdminsPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
+func (o DataLakeSettingsPropertiesOutput) TrustedResourceOwners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataLakeSettingsProperties) []string { return v.TrustedResourceOwners }).(pulumi.StringArrayOutput)
+}
+
 type DataLakeSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsPropertiesPtrOutput) ElementType() reflect.Type {
@@ -424,6 +433,16 @@ func (o DataLakeSettingsPropertiesPtrOutput) Admins() DataLakeSettingsAdminsPtrO
 		}
 		return v.Admins
 	}).(DataLakeSettingsAdminsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
+func (o DataLakeSettingsPropertiesPtrOutput) TrustedResourceOwners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataLakeSettingsProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedResourceOwners
+	}).(pulumi.StringArrayOutput)
 }
 
 type PermissionsAttributes struct {
@@ -808,6 +827,8 @@ func (o PermissionsDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pul
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html
 type PermissionsDataLocationResource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+	CatalogId *string `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
 	S3Resource *string `pulumi:"S3Resource"`
 }
@@ -825,6 +846,8 @@ type PermissionsDataLocationResourceInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html
 type PermissionsDataLocationResourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
 	S3Resource pulumi.StringPtrInput `pulumi:"S3Resource"`
 }
@@ -907,6 +930,11 @@ func (o PermissionsDataLocationResourceOutput) ToPermissionsDataLocationResource
 	}).(PermissionsDataLocationResourcePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+func (o PermissionsDataLocationResourceOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsDataLocationResource) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
 func (o PermissionsDataLocationResourceOutput) S3Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDataLocationResource) *string { return v.S3Resource }).(pulumi.StringPtrOutput)
@@ -930,6 +958,16 @@ func (o PermissionsDataLocationResourcePtrOutput) Elem() PermissionsDataLocation
 	return o.ApplyT(func(v *PermissionsDataLocationResource) PermissionsDataLocationResource { return *v }).(PermissionsDataLocationResourceOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+func (o PermissionsDataLocationResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsDataLocationResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
 func (o PermissionsDataLocationResourcePtrOutput) S3Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsDataLocationResource) *string {
@@ -942,6 +980,8 @@ func (o PermissionsDataLocationResourcePtrOutput) S3Resource() pulumi.StringPtrO
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html
 type PermissionsDatabaseResource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-catalogid
+	CatalogId *string `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-name
 	Name *string `pulumi:"Name"`
 }
@@ -959,6 +999,8 @@ type PermissionsDatabaseResourceInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html
 type PermissionsDatabaseResourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-name
 	Name pulumi.StringPtrInput `pulumi:"Name"`
 }
@@ -1041,6 +1083,11 @@ func (o PermissionsDatabaseResourceOutput) ToPermissionsDatabaseResourcePtrOutpu
 	}).(PermissionsDatabaseResourcePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-catalogid
+func (o PermissionsDatabaseResourceOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsDatabaseResource) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-name
 func (o PermissionsDatabaseResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDatabaseResource) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -1062,6 +1109,16 @@ func (o PermissionsDatabaseResourcePtrOutput) ToPermissionsDatabaseResourcePtrOu
 
 func (o PermissionsDatabaseResourcePtrOutput) Elem() PermissionsDatabaseResourceOutput {
 	return o.ApplyT(func(v *PermissionsDatabaseResource) PermissionsDatabaseResource { return *v }).(PermissionsDatabaseResourceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-catalogid
+func (o PermissionsDatabaseResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsDatabaseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-name
@@ -1458,10 +1515,14 @@ func (o PermissionsResourcePtrOutput) TableWithColumnsResource() PermissionsTabl
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html
 type PermissionsTableResource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+	CatalogId *string `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
 	DatabaseName *string `pulumi:"DatabaseName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-name
 	Name *string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+	TableWildcard *PermissionsTableWildcard `pulumi:"TableWildcard"`
 }
 
 // PermissionsTableResourceInput is an input type that accepts PermissionsTableResourceArgs and PermissionsTableResourceOutput values.
@@ -1477,10 +1538,14 @@ type PermissionsTableResourceInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html
 type PermissionsTableResourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
 	DatabaseName pulumi.StringPtrInput `pulumi:"DatabaseName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-name
 	Name pulumi.StringPtrInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+	TableWildcard PermissionsTableWildcardPtrInput `pulumi:"TableWildcard"`
 }
 
 func (PermissionsTableResourceArgs) ElementType() reflect.Type {
@@ -1561,6 +1626,11 @@ func (o PermissionsTableResourceOutput) ToPermissionsTableResourcePtrOutputWithC
 	}).(PermissionsTableResourcePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+func (o PermissionsTableResourceOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsTableResource) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
 func (o PermissionsTableResourceOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsTableResource) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
@@ -1569,6 +1639,11 @@ func (o PermissionsTableResourceOutput) DatabaseName() pulumi.StringPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-name
 func (o PermissionsTableResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsTableResource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+func (o PermissionsTableResourceOutput) TableWildcard() PermissionsTableWildcardPtrOutput {
+	return o.ApplyT(func(v PermissionsTableResource) *PermissionsTableWildcard { return v.TableWildcard }).(PermissionsTableWildcardPtrOutput)
 }
 
 type PermissionsTableResourcePtrOutput struct{ *pulumi.OutputState }
@@ -1587,6 +1662,16 @@ func (o PermissionsTableResourcePtrOutput) ToPermissionsTableResourcePtrOutputWi
 
 func (o PermissionsTableResourcePtrOutput) Elem() PermissionsTableResourceOutput {
 	return o.ApplyT(func(v *PermissionsTableResource) PermissionsTableResource { return *v }).(PermissionsTableResourceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+func (o PermissionsTableResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsTableResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
@@ -1609,8 +1694,135 @@ func (o PermissionsTableResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+func (o PermissionsTableResourcePtrOutput) TableWildcard() PermissionsTableWildcardPtrOutput {
+	return o.ApplyT(func(v *PermissionsTableResource) *PermissionsTableWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.TableWildcard
+	}).(PermissionsTableWildcardPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html
+type PermissionsTableWildcard struct {
+}
+
+// PermissionsTableWildcardInput is an input type that accepts PermissionsTableWildcardArgs and PermissionsTableWildcardOutput values.
+// You can construct a concrete instance of `PermissionsTableWildcardInput` via:
+//
+//          PermissionsTableWildcardArgs{...}
+type PermissionsTableWildcardInput interface {
+	pulumi.Input
+
+	ToPermissionsTableWildcardOutput() PermissionsTableWildcardOutput
+	ToPermissionsTableWildcardOutputWithContext(context.Context) PermissionsTableWildcardOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html
+type PermissionsTableWildcardArgs struct {
+}
+
+func (PermissionsTableWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsTableWildcard)(nil)).Elem()
+}
+
+func (i PermissionsTableWildcardArgs) ToPermissionsTableWildcardOutput() PermissionsTableWildcardOutput {
+	return i.ToPermissionsTableWildcardOutputWithContext(context.Background())
+}
+
+func (i PermissionsTableWildcardArgs) ToPermissionsTableWildcardOutputWithContext(ctx context.Context) PermissionsTableWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWildcardOutput)
+}
+
+func (i PermissionsTableWildcardArgs) ToPermissionsTableWildcardPtrOutput() PermissionsTableWildcardPtrOutput {
+	return i.ToPermissionsTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i PermissionsTableWildcardArgs) ToPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PermissionsTableWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWildcardOutput).ToPermissionsTableWildcardPtrOutputWithContext(ctx)
+}
+
+// PermissionsTableWildcardPtrInput is an input type that accepts PermissionsTableWildcardArgs, PermissionsTableWildcardPtr and PermissionsTableWildcardPtrOutput values.
+// You can construct a concrete instance of `PermissionsTableWildcardPtrInput` via:
+//
+//          PermissionsTableWildcardArgs{...}
+//
+//  or:
+//
+//          nil
+type PermissionsTableWildcardPtrInput interface {
+	pulumi.Input
+
+	ToPermissionsTableWildcardPtrOutput() PermissionsTableWildcardPtrOutput
+	ToPermissionsTableWildcardPtrOutputWithContext(context.Context) PermissionsTableWildcardPtrOutput
+}
+
+type permissionsTableWildcardPtrType PermissionsTableWildcardArgs
+
+func PermissionsTableWildcardPtr(v *PermissionsTableWildcardArgs) PermissionsTableWildcardPtrInput {
+	return (*permissionsTableWildcardPtrType)(v)
+}
+
+func (*permissionsTableWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsTableWildcard)(nil)).Elem()
+}
+
+func (i *permissionsTableWildcardPtrType) ToPermissionsTableWildcardPtrOutput() PermissionsTableWildcardPtrOutput {
+	return i.ToPermissionsTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionsTableWildcardPtrType) ToPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PermissionsTableWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWildcardPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html
+type PermissionsTableWildcardOutput struct{ *pulumi.OutputState }
+
+func (PermissionsTableWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsTableWildcard)(nil)).Elem()
+}
+
+func (o PermissionsTableWildcardOutput) ToPermissionsTableWildcardOutput() PermissionsTableWildcardOutput {
+	return o
+}
+
+func (o PermissionsTableWildcardOutput) ToPermissionsTableWildcardOutputWithContext(ctx context.Context) PermissionsTableWildcardOutput {
+	return o
+}
+
+func (o PermissionsTableWildcardOutput) ToPermissionsTableWildcardPtrOutput() PermissionsTableWildcardPtrOutput {
+	return o.ToPermissionsTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionsTableWildcardOutput) ToPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PermissionsTableWildcardPtrOutput {
+	return o.ApplyT(func(v PermissionsTableWildcard) *PermissionsTableWildcard {
+		return &v
+	}).(PermissionsTableWildcardPtrOutput)
+}
+
+type PermissionsTableWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionsTableWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsTableWildcard)(nil)).Elem()
+}
+
+func (o PermissionsTableWildcardPtrOutput) ToPermissionsTableWildcardPtrOutput() PermissionsTableWildcardPtrOutput {
+	return o
+}
+
+func (o PermissionsTableWildcardPtrOutput) ToPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PermissionsTableWildcardPtrOutput {
+	return o
+}
+
+func (o PermissionsTableWildcardPtrOutput) Elem() PermissionsTableWildcardOutput {
+	return o.ApplyT(func(v *PermissionsTableWildcard) PermissionsTableWildcard { return *v }).(PermissionsTableWildcardOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html
 type PermissionsTableWithColumnsResource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+	CatalogId *string `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
 	ColumnNames []string `pulumi:"ColumnNames"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnwildcard
@@ -1634,6 +1846,8 @@ type PermissionsTableWithColumnsResourceInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html
 type PermissionsTableWithColumnsResourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"CatalogId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
 	ColumnNames pulumi.StringArrayInput `pulumi:"ColumnNames"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnwildcard
@@ -1722,6 +1936,11 @@ func (o PermissionsTableWithColumnsResourceOutput) ToPermissionsTableWithColumns
 	}).(PermissionsTableWithColumnsResourcePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+func (o PermissionsTableWithColumnsResourceOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsTableWithColumnsResource) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
 func (o PermissionsTableWithColumnsResourceOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumnsResource) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
@@ -1758,6 +1977,16 @@ func (o PermissionsTableWithColumnsResourcePtrOutput) ToPermissionsTableWithColu
 
 func (o PermissionsTableWithColumnsResourcePtrOutput) Elem() PermissionsTableWithColumnsResourceOutput {
 	return o.ApplyT(func(v *PermissionsTableWithColumnsResource) PermissionsTableWithColumnsResource { return *v }).(PermissionsTableWithColumnsResourceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+func (o PermissionsTableWithColumnsResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsTableWithColumnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
@@ -2108,6 +2337,8 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsResourcePtrOutput{})
 	pulumi.RegisterOutputType(PermissionsTableResourceOutput{})
 	pulumi.RegisterOutputType(PermissionsTableResourcePtrOutput{})
+	pulumi.RegisterOutputType(PermissionsTableWildcardOutput{})
+	pulumi.RegisterOutputType(PermissionsTableWildcardPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsResourceOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceAttributesOutput{})

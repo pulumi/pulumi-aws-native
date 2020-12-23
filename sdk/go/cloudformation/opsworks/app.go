@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type App struct {
 // NewApp registers a new resource with the given unique name, arguments, and options.
 func NewApp(ctx *pulumi.Context,
 	name string, args *AppArgs, opts ...pulumi.ResourceOption) (*App, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource App
 	err := ctx.RegisterResource("cloudformation:OpsWorks:App", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AppArgs struct {
 
 func (AppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appArgs)(nil)).Elem()
+}
+
+type AppInput interface {
+	pulumi.Input
+
+	ToAppOutput() AppOutput
+	ToAppOutputWithContext(ctx context.Context) AppOutput
+}
+
+func (*App) ElementType() reflect.Type {
+	return reflect.TypeOf((*App)(nil))
+}
+
+func (i *App) ToAppOutput() AppOutput {
+	return i.ToAppOutputWithContext(context.Background())
+}
+
+func (i *App) ToAppOutputWithContext(ctx context.Context) AppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppOutput)
+}
+
+type AppOutput struct {
+	*pulumi.OutputState
+}
+
+func (AppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*App)(nil))
+}
+
+func (o AppOutput) ToAppOutput() AppOutput {
+	return o
+}
+
+func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AppOutput{})
 }

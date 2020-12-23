@@ -277,7 +277,8 @@ func (o AliasPropertiesPtrOutput) TargetKeyId() pulumi.StringPtrOutput {
 }
 
 type KeyAttributes struct {
-	Arn string `pulumi:"Arn"`
+	Arn   string `pulumi:"Arn"`
+	KeyId string `pulumi:"KeyId"`
 }
 
 // KeyAttributesInput is an input type that accepts KeyAttributesArgs and KeyAttributesOutput values.
@@ -292,7 +293,8 @@ type KeyAttributesInput interface {
 }
 
 type KeyAttributesArgs struct {
-	Arn pulumi.StringInput `pulumi:"Arn"`
+	Arn   pulumi.StringInput `pulumi:"Arn"`
+	KeyId pulumi.StringInput `pulumi:"KeyId"`
 }
 
 func (KeyAttributesArgs) ElementType() reflect.Type {
@@ -375,6 +377,10 @@ func (o KeyAttributesOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyAttributes) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o KeyAttributesOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyAttributes) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
 type KeyAttributesPtrOutput struct{ *pulumi.OutputState }
 
 func (KeyAttributesPtrOutput) ElementType() reflect.Type {
@@ -402,6 +408,15 @@ func (o KeyAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o KeyAttributesPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
 type KeyProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
@@ -412,6 +427,8 @@ type KeyProperties struct {
 	Enabled *bool `pulumi:"Enabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
 	KeyPolicy interface{} `pulumi:"KeyPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+	KeySpec *string `pulumi:"KeySpec"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 	KeyUsage *string `pulumi:"KeyUsage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
@@ -441,6 +458,8 @@ type KeyPropertiesArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"Enabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
 	KeyPolicy pulumi.Input `pulumi:"KeyPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+	KeySpec pulumi.StringPtrInput `pulumi:"KeySpec"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 	KeyUsage pulumi.StringPtrInput `pulumi:"KeyUsage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
@@ -547,6 +566,11 @@ func (o KeyPropertiesOutput) KeyPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v KeyProperties) interface{} { return v.KeyPolicy }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+func (o KeyPropertiesOutput) KeySpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *string { return v.KeySpec }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 func (o KeyPropertiesOutput) KeyUsage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyProperties) *string { return v.KeyUsage }).(pulumi.StringPtrOutput)
@@ -618,6 +642,16 @@ func (o KeyPropertiesPtrOutput) KeyPolicy() pulumi.AnyOutput {
 		}
 		return v.KeyPolicy
 	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+func (o KeyPropertiesPtrOutput) KeySpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySpec
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage

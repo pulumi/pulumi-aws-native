@@ -4,6 +4,7 @@
 package mediaconvert
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Preset struct {
 // NewPreset registers a new resource with the given unique name, arguments, and options.
 func NewPreset(ctx *pulumi.Context,
 	name string, args *PresetArgs, opts ...pulumi.ResourceOption) (*Preset, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PresetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Preset
 	err := ctx.RegisterResource("cloudformation:MediaConvert:Preset", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PresetArgs struct {
 
 func (PresetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*presetArgs)(nil)).Elem()
+}
+
+type PresetInput interface {
+	pulumi.Input
+
+	ToPresetOutput() PresetOutput
+	ToPresetOutputWithContext(ctx context.Context) PresetOutput
+}
+
+func (*Preset) ElementType() reflect.Type {
+	return reflect.TypeOf((*Preset)(nil))
+}
+
+func (i *Preset) ToPresetOutput() PresetOutput {
+	return i.ToPresetOutputWithContext(context.Background())
+}
+
+func (i *Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
+}
+
+type PresetOutput struct {
+	*pulumi.OutputState
+}
+
+func (PresetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Preset)(nil))
+}
+
+func (o PresetOutput) ToPresetOutput() PresetOutput {
+	return o
+}
+
+func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PresetOutput{})
 }

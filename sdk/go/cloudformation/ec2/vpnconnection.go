@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPNConnection struct {
 // NewVPNConnection registers a new resource with the given unique name, arguments, and options.
 func NewVPNConnection(ctx *pulumi.Context,
 	name string, args *VPNConnectionArgs, opts ...pulumi.ResourceOption) (*VPNConnection, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPNConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPNConnection
 	err := ctx.RegisterResource("cloudformation:EC2:VPNConnection", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPNConnectionArgs struct {
 
 func (VPNConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnconnectionArgs)(nil)).Elem()
+}
+
+type VPNConnectionInput interface {
+	pulumi.Input
+
+	ToVPNConnectionOutput() VPNConnectionOutput
+	ToVPNConnectionOutputWithContext(ctx context.Context) VPNConnectionOutput
+}
+
+func (*VPNConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnection)(nil))
+}
+
+func (i *VPNConnection) ToVPNConnectionOutput() VPNConnectionOutput {
+	return i.ToVPNConnectionOutputWithContext(context.Background())
+}
+
+func (i *VPNConnection) ToVPNConnectionOutputWithContext(ctx context.Context) VPNConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionOutput)
+}
+
+type VPNConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPNConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnection)(nil))
+}
+
+func (o VPNConnectionOutput) ToVPNConnectionOutput() VPNConnectionOutput {
+	return o
+}
+
+func (o VPNConnectionOutput) ToVPNConnectionOutputWithContext(ctx context.Context) VPNConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPNConnectionOutput{})
 }

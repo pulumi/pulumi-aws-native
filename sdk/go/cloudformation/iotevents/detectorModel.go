@@ -4,6 +4,7 @@
 package iotevents
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DetectorModel struct {
 // NewDetectorModel registers a new resource with the given unique name, arguments, and options.
 func NewDetectorModel(ctx *pulumi.Context,
 	name string, args *DetectorModelArgs, opts ...pulumi.ResourceOption) (*DetectorModel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DetectorModelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DetectorModel
 	err := ctx.RegisterResource("cloudformation:IoTEvents:DetectorModel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DetectorModelArgs struct {
 
 func (DetectorModelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*detectorModelArgs)(nil)).Elem()
+}
+
+type DetectorModelInput interface {
+	pulumi.Input
+
+	ToDetectorModelOutput() DetectorModelOutput
+	ToDetectorModelOutputWithContext(ctx context.Context) DetectorModelOutput
+}
+
+func (*DetectorModel) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModel)(nil))
+}
+
+func (i *DetectorModel) ToDetectorModelOutput() DetectorModelOutput {
+	return i.ToDetectorModelOutputWithContext(context.Background())
+}
+
+func (i *DetectorModel) ToDetectorModelOutputWithContext(ctx context.Context) DetectorModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOutput)
+}
+
+type DetectorModelOutput struct {
+	*pulumi.OutputState
+}
+
+func (DetectorModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModel)(nil))
+}
+
+func (o DetectorModelOutput) ToDetectorModelOutput() DetectorModelOutput {
+	return o
+}
+
+func (o DetectorModelOutput) ToDetectorModelOutputWithContext(ctx context.Context) DetectorModelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DetectorModelOutput{})
 }

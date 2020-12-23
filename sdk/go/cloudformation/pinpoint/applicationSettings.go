@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApplicationSettings struct {
 // NewApplicationSettings registers a new resource with the given unique name, arguments, and options.
 func NewApplicationSettings(ctx *pulumi.Context,
 	name string, args *ApplicationSettingsArgs, opts ...pulumi.ResourceOption) (*ApplicationSettings, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApplicationSettingsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApplicationSettings
 	err := ctx.RegisterResource("cloudformation:Pinpoint:ApplicationSettings", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApplicationSettingsArgs struct {
 
 func (ApplicationSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSettingsArgs)(nil)).Elem()
+}
+
+type ApplicationSettingsInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsOutput() ApplicationSettingsOutput
+	ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput
+}
+
+func (*ApplicationSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettings)(nil))
+}
+
+func (i *ApplicationSettings) ToApplicationSettingsOutput() ApplicationSettingsOutput {
+	return i.ToApplicationSettingsOutputWithContext(context.Background())
+}
+
+func (i *ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsOutput)
+}
+
+type ApplicationSettingsOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettings)(nil))
+}
+
+func (o ApplicationSettingsOutput) ToApplicationSettingsOutput() ApplicationSettingsOutput {
+	return o
+}
+
+func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationSettingsOutput{})
 }

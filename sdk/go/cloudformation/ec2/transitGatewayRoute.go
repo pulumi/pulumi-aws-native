@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TransitGatewayRoute struct {
 // NewTransitGatewayRoute registers a new resource with the given unique name, arguments, and options.
 func NewTransitGatewayRoute(ctx *pulumi.Context,
 	name string, args *TransitGatewayRouteArgs, opts ...pulumi.ResourceOption) (*TransitGatewayRoute, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TransitGatewayRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TransitGatewayRoute
 	err := ctx.RegisterResource("cloudformation:EC2:TransitGatewayRoute", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TransitGatewayRouteArgs struct {
 
 func (TransitGatewayRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRouteArgs)(nil)).Elem()
+}
+
+type TransitGatewayRouteInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteOutput() TransitGatewayRouteOutput
+	ToTransitGatewayRouteOutputWithContext(ctx context.Context) TransitGatewayRouteOutput
+}
+
+func (*TransitGatewayRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRoute)(nil))
+}
+
+func (i *TransitGatewayRoute) ToTransitGatewayRouteOutput() TransitGatewayRouteOutput {
+	return i.ToTransitGatewayRouteOutputWithContext(context.Background())
+}
+
+func (i *TransitGatewayRoute) ToTransitGatewayRouteOutputWithContext(ctx context.Context) TransitGatewayRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteOutput)
+}
+
+type TransitGatewayRouteOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRoute)(nil))
+}
+
+func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutput() TransitGatewayRouteOutput {
+	return o
+}
+
+func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutputWithContext(ctx context.Context) TransitGatewayRouteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitGatewayRouteOutput{})
 }

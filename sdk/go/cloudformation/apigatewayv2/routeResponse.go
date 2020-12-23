@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RouteResponse struct {
 // NewRouteResponse registers a new resource with the given unique name, arguments, and options.
 func NewRouteResponse(ctx *pulumi.Context,
 	name string, args *RouteResponseArgs, opts ...pulumi.ResourceOption) (*RouteResponse, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RouteResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RouteResponse
 	err := ctx.RegisterResource("cloudformation:ApiGatewayV2:RouteResponse", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RouteResponseArgs struct {
 
 func (RouteResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeResponseArgs)(nil)).Elem()
+}
+
+type RouteResponseInput interface {
+	pulumi.Input
+
+	ToRouteResponseOutput() RouteResponseOutput
+	ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput
+}
+
+func (*RouteResponse) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteResponse)(nil))
+}
+
+func (i *RouteResponse) ToRouteResponseOutput() RouteResponseOutput {
+	return i.ToRouteResponseOutputWithContext(context.Background())
+}
+
+func (i *RouteResponse) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseOutput)
+}
+
+type RouteResponseOutput struct {
+	*pulumi.OutputState
+}
+
+func (RouteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteResponse)(nil))
+}
+
+func (o RouteResponseOutput) ToRouteResponseOutput() RouteResponseOutput {
+	return o
+}
+
+func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RouteResponseOutput{})
 }

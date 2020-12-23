@@ -4,6 +4,7 @@
 package robomaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SimulationApplication struct {
 // NewSimulationApplication registers a new resource with the given unique name, arguments, and options.
 func NewSimulationApplication(ctx *pulumi.Context,
 	name string, args *SimulationApplicationArgs, opts ...pulumi.ResourceOption) (*SimulationApplication, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SimulationApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SimulationApplication
 	err := ctx.RegisterResource("cloudformation:RoboMaker:SimulationApplication", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SimulationApplicationArgs struct {
 
 func (SimulationApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*simulationApplicationArgs)(nil)).Elem()
+}
+
+type SimulationApplicationInput interface {
+	pulumi.Input
+
+	ToSimulationApplicationOutput() SimulationApplicationOutput
+	ToSimulationApplicationOutputWithContext(ctx context.Context) SimulationApplicationOutput
+}
+
+func (*SimulationApplication) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimulationApplication)(nil))
+}
+
+func (i *SimulationApplication) ToSimulationApplicationOutput() SimulationApplicationOutput {
+	return i.ToSimulationApplicationOutputWithContext(context.Background())
+}
+
+func (i *SimulationApplication) ToSimulationApplicationOutputWithContext(ctx context.Context) SimulationApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationOutput)
+}
+
+type SimulationApplicationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SimulationApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimulationApplication)(nil))
+}
+
+func (o SimulationApplicationOutput) ToSimulationApplicationOutput() SimulationApplicationOutput {
+	return o
+}
+
+func (o SimulationApplicationOutput) ToSimulationApplicationOutputWithContext(ctx context.Context) SimulationApplicationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SimulationApplicationOutput{})
 }

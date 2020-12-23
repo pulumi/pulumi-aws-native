@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LaunchNotificationConstraint struct {
 // NewLaunchNotificationConstraint registers a new resource with the given unique name, arguments, and options.
 func NewLaunchNotificationConstraint(ctx *pulumi.Context,
 	name string, args *LaunchNotificationConstraintArgs, opts ...pulumi.ResourceOption) (*LaunchNotificationConstraint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LaunchNotificationConstraintArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LaunchNotificationConstraint
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:LaunchNotificationConstraint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LaunchNotificationConstraintArgs struct {
 
 func (LaunchNotificationConstraintArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchNotificationConstraintArgs)(nil)).Elem()
+}
+
+type LaunchNotificationConstraintInput interface {
+	pulumi.Input
+
+	ToLaunchNotificationConstraintOutput() LaunchNotificationConstraintOutput
+	ToLaunchNotificationConstraintOutputWithContext(ctx context.Context) LaunchNotificationConstraintOutput
+}
+
+func (*LaunchNotificationConstraint) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchNotificationConstraint)(nil))
+}
+
+func (i *LaunchNotificationConstraint) ToLaunchNotificationConstraintOutput() LaunchNotificationConstraintOutput {
+	return i.ToLaunchNotificationConstraintOutputWithContext(context.Background())
+}
+
+func (i *LaunchNotificationConstraint) ToLaunchNotificationConstraintOutputWithContext(ctx context.Context) LaunchNotificationConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchNotificationConstraintOutput)
+}
+
+type LaunchNotificationConstraintOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchNotificationConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchNotificationConstraint)(nil))
+}
+
+func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutput() LaunchNotificationConstraintOutput {
+	return o
+}
+
+func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutputWithContext(ctx context.Context) LaunchNotificationConstraintOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LaunchNotificationConstraintOutput{})
 }

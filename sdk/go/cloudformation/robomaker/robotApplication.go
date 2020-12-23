@@ -4,6 +4,7 @@
 package robomaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RobotApplication struct {
 // NewRobotApplication registers a new resource with the given unique name, arguments, and options.
 func NewRobotApplication(ctx *pulumi.Context,
 	name string, args *RobotApplicationArgs, opts ...pulumi.ResourceOption) (*RobotApplication, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RobotApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RobotApplication
 	err := ctx.RegisterResource("cloudformation:RoboMaker:RobotApplication", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RobotApplicationArgs struct {
 
 func (RobotApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*robotApplicationArgs)(nil)).Elem()
+}
+
+type RobotApplicationInput interface {
+	pulumi.Input
+
+	ToRobotApplicationOutput() RobotApplicationOutput
+	ToRobotApplicationOutputWithContext(ctx context.Context) RobotApplicationOutput
+}
+
+func (*RobotApplication) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplication)(nil))
+}
+
+func (i *RobotApplication) ToRobotApplicationOutput() RobotApplicationOutput {
+	return i.ToRobotApplicationOutputWithContext(context.Background())
+}
+
+func (i *RobotApplication) ToRobotApplicationOutputWithContext(ctx context.Context) RobotApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationOutput)
+}
+
+type RobotApplicationOutput struct {
+	*pulumi.OutputState
+}
+
+func (RobotApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplication)(nil))
+}
+
+func (o RobotApplicationOutput) ToRobotApplicationOutput() RobotApplicationOutput {
+	return o
+}
+
+func (o RobotApplicationOutput) ToRobotApplicationOutputWithContext(ctx context.Context) RobotApplicationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RobotApplicationOutput{})
 }

@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Resolver struct {
 // NewResolver registers a new resource with the given unique name, arguments, and options.
 func NewResolver(ctx *pulumi.Context,
 	name string, args *ResolverArgs, opts ...pulumi.ResourceOption) (*Resolver, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResolverArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Resolver
 	err := ctx.RegisterResource("cloudformation:AppSync:Resolver", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResolverArgs struct {
 
 func (ResolverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverArgs)(nil)).Elem()
+}
+
+type ResolverInput interface {
+	pulumi.Input
+
+	ToResolverOutput() ResolverOutput
+	ToResolverOutputWithContext(ctx context.Context) ResolverOutput
+}
+
+func (*Resolver) ElementType() reflect.Type {
+	return reflect.TypeOf((*Resolver)(nil))
+}
+
+func (i *Resolver) ToResolverOutput() ResolverOutput {
+	return i.ToResolverOutputWithContext(context.Background())
+}
+
+func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutput)
+}
+
+type ResolverOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Resolver)(nil))
+}
+
+func (o ResolverOutput) ToResolverOutput() ResolverOutput {
+	return o
+}
+
+func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) ResolverOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResolverOutput{})
 }

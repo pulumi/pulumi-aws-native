@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBSecurityGroup struct {
 // NewDBSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewDBSecurityGroup(ctx *pulumi.Context,
 	name string, args *DBSecurityGroupArgs, opts ...pulumi.ResourceOption) (*DBSecurityGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBSecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBSecurityGroup
 	err := ctx.RegisterResource("cloudformation:RDS:DBSecurityGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBSecurityGroupArgs struct {
 
 func (DBSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbsecurityGroupArgs)(nil)).Elem()
+}
+
+type DBSecurityGroupInput interface {
+	pulumi.Input
+
+	ToDBSecurityGroupOutput() DBSecurityGroupOutput
+	ToDBSecurityGroupOutputWithContext(ctx context.Context) DBSecurityGroupOutput
+}
+
+func (*DBSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBSecurityGroup)(nil))
+}
+
+func (i *DBSecurityGroup) ToDBSecurityGroupOutput() DBSecurityGroupOutput {
+	return i.ToDBSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i *DBSecurityGroup) ToDBSecurityGroupOutputWithContext(ctx context.Context) DBSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupOutput)
+}
+
+type DBSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBSecurityGroup)(nil))
+}
+
+func (o DBSecurityGroupOutput) ToDBSecurityGroupOutput() DBSecurityGroupOutput {
+	return o
+}
+
+func (o DBSecurityGroupOutput) ToDBSecurityGroupOutputWithContext(ctx context.Context) DBSecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBSecurityGroupOutput{})
 }

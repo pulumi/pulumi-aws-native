@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Alarm struct {
 // NewAlarm registers a new resource with the given unique name, arguments, and options.
 func NewAlarm(ctx *pulumi.Context,
 	name string, args *AlarmArgs, opts ...pulumi.ResourceOption) (*Alarm, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AlarmArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Alarm
 	err := ctx.RegisterResource("cloudformation:CloudWatch:Alarm", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AlarmArgs struct {
 
 func (AlarmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alarmArgs)(nil)).Elem()
+}
+
+type AlarmInput interface {
+	pulumi.Input
+
+	ToAlarmOutput() AlarmOutput
+	ToAlarmOutputWithContext(ctx context.Context) AlarmOutput
+}
+
+func (*Alarm) ElementType() reflect.Type {
+	return reflect.TypeOf((*Alarm)(nil))
+}
+
+func (i *Alarm) ToAlarmOutput() AlarmOutput {
+	return i.ToAlarmOutputWithContext(context.Background())
+}
+
+func (i *Alarm) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmOutput)
+}
+
+type AlarmOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Alarm)(nil))
+}
+
+func (o AlarmOutput) ToAlarmOutput() AlarmOutput {
+	return o
+}
+
+func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlarmOutput{})
 }

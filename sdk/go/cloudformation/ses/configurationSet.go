@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConfigurationSet struct {
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationSet(ctx *pulumi.Context,
 	name string, args *ConfigurationSetArgs, opts ...pulumi.ResourceOption) (*ConfigurationSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConfigurationSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("cloudformation:SES:ConfigurationSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConfigurationSetArgs struct {
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetArgs)(nil)).Elem()
+}
+
+type ConfigurationSetInput interface {
+	pulumi.Input
+
+	ToConfigurationSetOutput() ConfigurationSetOutput
+	ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput
+}
+
+func (*ConfigurationSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSet)(nil))
+}
+
+func (i *ConfigurationSet) ToConfigurationSetOutput() ConfigurationSetOutput {
+	return i.ToConfigurationSetOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetOutput)
+}
+
+type ConfigurationSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSet)(nil))
+}
+
+func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutput {
+	return o
+}
+
+func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationSetOutput{})
 }

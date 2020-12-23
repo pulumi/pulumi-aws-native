@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ReceiptRuleSet struct {
 // NewReceiptRuleSet registers a new resource with the given unique name, arguments, and options.
 func NewReceiptRuleSet(ctx *pulumi.Context,
 	name string, args *ReceiptRuleSetArgs, opts ...pulumi.ResourceOption) (*ReceiptRuleSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ReceiptRuleSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ReceiptRuleSet
 	err := ctx.RegisterResource("cloudformation:SES:ReceiptRuleSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ReceiptRuleSetArgs struct {
 
 func (ReceiptRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptRuleSetArgs)(nil)).Elem()
+}
+
+type ReceiptRuleSetInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSetOutput() ReceiptRuleSetOutput
+	ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput
+}
+
+func (*ReceiptRuleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSet)(nil))
+}
+
+func (i *ReceiptRuleSet) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
+	return i.ToReceiptRuleSetOutputWithContext(context.Background())
+}
+
+func (i *ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetOutput)
+}
+
+type ReceiptRuleSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReceiptRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSet)(nil))
+}
+
+func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
+	return o
+}
+
+func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReceiptRuleSetOutput{})
 }

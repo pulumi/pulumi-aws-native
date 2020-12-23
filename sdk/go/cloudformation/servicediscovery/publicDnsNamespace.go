@@ -4,6 +4,7 @@
 package servicediscovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PublicDnsNamespace struct {
 // NewPublicDnsNamespace registers a new resource with the given unique name, arguments, and options.
 func NewPublicDnsNamespace(ctx *pulumi.Context,
 	name string, args *PublicDnsNamespaceArgs, opts ...pulumi.ResourceOption) (*PublicDnsNamespace, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PublicDnsNamespaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PublicDnsNamespace
 	err := ctx.RegisterResource("cloudformation:ServiceDiscovery:PublicDnsNamespace", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PublicDnsNamespaceArgs struct {
 
 func (PublicDnsNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicDnsNamespaceArgs)(nil)).Elem()
+}
+
+type PublicDnsNamespaceInput interface {
+	pulumi.Input
+
+	ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput
+	ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput
+}
+
+func (*PublicDnsNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicDnsNamespace)(nil))
+}
+
+func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
+	return i.ToPublicDnsNamespaceOutputWithContext(context.Background())
+}
+
+func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceOutput)
+}
+
+type PublicDnsNamespaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicDnsNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicDnsNamespace)(nil))
+}
+
+func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
+	return o
+}
+
+func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublicDnsNamespaceOutput{})
 }

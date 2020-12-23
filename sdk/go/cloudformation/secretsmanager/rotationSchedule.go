@@ -4,6 +4,7 @@
 package secretsmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RotationSchedule struct {
 // NewRotationSchedule registers a new resource with the given unique name, arguments, and options.
 func NewRotationSchedule(ctx *pulumi.Context,
 	name string, args *RotationScheduleArgs, opts ...pulumi.ResourceOption) (*RotationSchedule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RotationScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RotationSchedule
 	err := ctx.RegisterResource("cloudformation:SecretsManager:RotationSchedule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RotationScheduleArgs struct {
 
 func (RotationScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rotationScheduleArgs)(nil)).Elem()
+}
+
+type RotationScheduleInput interface {
+	pulumi.Input
+
+	ToRotationScheduleOutput() RotationScheduleOutput
+	ToRotationScheduleOutputWithContext(ctx context.Context) RotationScheduleOutput
+}
+
+func (*RotationSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationSchedule)(nil))
+}
+
+func (i *RotationSchedule) ToRotationScheduleOutput() RotationScheduleOutput {
+	return i.ToRotationScheduleOutputWithContext(context.Background())
+}
+
+func (i *RotationSchedule) ToRotationScheduleOutputWithContext(ctx context.Context) RotationScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleOutput)
+}
+
+type RotationScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RotationScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationSchedule)(nil))
+}
+
+func (o RotationScheduleOutput) ToRotationScheduleOutput() RotationScheduleOutput {
+	return o
+}
+
+func (o RotationScheduleOutput) ToRotationScheduleOutputWithContext(ctx context.Context) RotationScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RotationScheduleOutput{})
 }

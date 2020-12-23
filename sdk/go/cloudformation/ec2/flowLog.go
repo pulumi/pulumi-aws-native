@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type FlowLog struct {
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
 func NewFlowLog(ctx *pulumi.Context,
 	name string, args *FlowLogArgs, opts ...pulumi.ResourceOption) (*FlowLog, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FlowLogArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource FlowLog
 	err := ctx.RegisterResource("cloudformation:EC2:FlowLog", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FlowLogArgs struct {
 
 func (FlowLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowLogArgs)(nil)).Elem()
+}
+
+type FlowLogInput interface {
+	pulumi.Input
+
+	ToFlowLogOutput() FlowLogOutput
+	ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput
+}
+
+func (*FlowLog) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLog)(nil))
+}
+
+func (i *FlowLog) ToFlowLogOutput() FlowLogOutput {
+	return i.ToFlowLogOutputWithContext(context.Background())
+}
+
+func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
+}
+
+type FlowLogOutput struct {
+	*pulumi.OutputState
+}
+
+func (FlowLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLog)(nil))
+}
+
+func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {
+	return o
+}
+
+func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FlowLogOutput{})
 }

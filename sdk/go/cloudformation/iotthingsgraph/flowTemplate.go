@@ -4,6 +4,7 @@
 package iotthingsgraph
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type FlowTemplate struct {
 // NewFlowTemplate registers a new resource with the given unique name, arguments, and options.
 func NewFlowTemplate(ctx *pulumi.Context,
 	name string, args *FlowTemplateArgs, opts ...pulumi.ResourceOption) (*FlowTemplate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FlowTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource FlowTemplate
 	err := ctx.RegisterResource("cloudformation:IoTThingsGraph:FlowTemplate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FlowTemplateArgs struct {
 
 func (FlowTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowTemplateArgs)(nil)).Elem()
+}
+
+type FlowTemplateInput interface {
+	pulumi.Input
+
+	ToFlowTemplateOutput() FlowTemplateOutput
+	ToFlowTemplateOutputWithContext(ctx context.Context) FlowTemplateOutput
+}
+
+func (*FlowTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowTemplate)(nil))
+}
+
+func (i *FlowTemplate) ToFlowTemplateOutput() FlowTemplateOutput {
+	return i.ToFlowTemplateOutputWithContext(context.Background())
+}
+
+func (i *FlowTemplate) ToFlowTemplateOutputWithContext(ctx context.Context) FlowTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowTemplateOutput)
+}
+
+type FlowTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (FlowTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowTemplate)(nil))
+}
+
+func (o FlowTemplateOutput) ToFlowTemplateOutput() FlowTemplateOutput {
+	return o
+}
+
+func (o FlowTemplateOutput) ToFlowTemplateOutputWithContext(ctx context.Context) FlowTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FlowTemplateOutput{})
 }

@@ -4,6 +4,7 @@
 package macie
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CustomDataIdentifier struct {
 // NewCustomDataIdentifier registers a new resource with the given unique name, arguments, and options.
 func NewCustomDataIdentifier(ctx *pulumi.Context,
 	name string, args *CustomDataIdentifierArgs, opts ...pulumi.ResourceOption) (*CustomDataIdentifier, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CustomDataIdentifierArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CustomDataIdentifier
 	err := ctx.RegisterResource("cloudformation:Macie:CustomDataIdentifier", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CustomDataIdentifierArgs struct {
 
 func (CustomDataIdentifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDataIdentifierArgs)(nil)).Elem()
+}
+
+type CustomDataIdentifierInput interface {
+	pulumi.Input
+
+	ToCustomDataIdentifierOutput() CustomDataIdentifierOutput
+	ToCustomDataIdentifierOutputWithContext(ctx context.Context) CustomDataIdentifierOutput
+}
+
+func (*CustomDataIdentifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDataIdentifier)(nil))
+}
+
+func (i *CustomDataIdentifier) ToCustomDataIdentifierOutput() CustomDataIdentifierOutput {
+	return i.ToCustomDataIdentifierOutputWithContext(context.Background())
+}
+
+func (i *CustomDataIdentifier) ToCustomDataIdentifierOutputWithContext(ctx context.Context) CustomDataIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierOutput)
+}
+
+type CustomDataIdentifierOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomDataIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDataIdentifier)(nil))
+}
+
+func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutput() CustomDataIdentifierOutput {
+	return o
+}
+
+func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx context.Context) CustomDataIdentifierOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomDataIdentifierOutput{})
 }

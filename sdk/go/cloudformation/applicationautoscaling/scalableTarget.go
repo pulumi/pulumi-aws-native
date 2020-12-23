@@ -4,6 +4,7 @@
 package applicationautoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ScalableTarget struct {
 // NewScalableTarget registers a new resource with the given unique name, arguments, and options.
 func NewScalableTarget(ctx *pulumi.Context,
 	name string, args *ScalableTargetArgs, opts ...pulumi.ResourceOption) (*ScalableTarget, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ScalableTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ScalableTarget
 	err := ctx.RegisterResource("cloudformation:ApplicationAutoScaling:ScalableTarget", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ScalableTargetArgs struct {
 
 func (ScalableTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalableTargetArgs)(nil)).Elem()
+}
+
+type ScalableTargetInput interface {
+	pulumi.Input
+
+	ToScalableTargetOutput() ScalableTargetOutput
+	ToScalableTargetOutputWithContext(ctx context.Context) ScalableTargetOutput
+}
+
+func (*ScalableTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalableTarget)(nil))
+}
+
+func (i *ScalableTarget) ToScalableTargetOutput() ScalableTargetOutput {
+	return i.ToScalableTargetOutputWithContext(context.Background())
+}
+
+func (i *ScalableTarget) ToScalableTargetOutputWithContext(ctx context.Context) ScalableTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetOutput)
+}
+
+type ScalableTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScalableTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalableTarget)(nil))
+}
+
+func (o ScalableTargetOutput) ToScalableTargetOutput() ScalableTargetOutput {
+	return o
+}
+
+func (o ScalableTargetOutput) ToScalableTargetOutputWithContext(ctx context.Context) ScalableTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScalableTargetOutput{})
 }

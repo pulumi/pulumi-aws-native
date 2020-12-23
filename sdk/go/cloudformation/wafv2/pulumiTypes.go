@@ -1599,10 +1599,165 @@ func (o RuleGroupFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
+type RuleGroupForwardedIPConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
+	FallbackBehavior string `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
+	HeaderName string `pulumi:"HeaderName"`
+}
+
+// RuleGroupForwardedIPConfigurationInput is an input type that accepts RuleGroupForwardedIPConfigurationArgs and RuleGroupForwardedIPConfigurationOutput values.
+// You can construct a concrete instance of `RuleGroupForwardedIPConfigurationInput` via:
+//
+//          RuleGroupForwardedIPConfigurationArgs{...}
+type RuleGroupForwardedIPConfigurationInput interface {
+	pulumi.Input
+
+	ToRuleGroupForwardedIPConfigurationOutput() RuleGroupForwardedIPConfigurationOutput
+	ToRuleGroupForwardedIPConfigurationOutputWithContext(context.Context) RuleGroupForwardedIPConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
+type RuleGroupForwardedIPConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
+	FallbackBehavior pulumi.StringInput `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
+	HeaderName pulumi.StringInput `pulumi:"HeaderName"`
+}
+
+func (RuleGroupForwardedIPConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i RuleGroupForwardedIPConfigurationArgs) ToRuleGroupForwardedIPConfigurationOutput() RuleGroupForwardedIPConfigurationOutput {
+	return i.ToRuleGroupForwardedIPConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuleGroupForwardedIPConfigurationArgs) ToRuleGroupForwardedIPConfigurationOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupForwardedIPConfigurationOutput)
+}
+
+func (i RuleGroupForwardedIPConfigurationArgs) ToRuleGroupForwardedIPConfigurationPtrOutput() RuleGroupForwardedIPConfigurationPtrOutput {
+	return i.ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupForwardedIPConfigurationArgs) ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupForwardedIPConfigurationOutput).ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuleGroupForwardedIPConfigurationPtrInput is an input type that accepts RuleGroupForwardedIPConfigurationArgs, RuleGroupForwardedIPConfigurationPtr and RuleGroupForwardedIPConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuleGroupForwardedIPConfigurationPtrInput` via:
+//
+//          RuleGroupForwardedIPConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupForwardedIPConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupForwardedIPConfigurationPtrOutput() RuleGroupForwardedIPConfigurationPtrOutput
+	ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(context.Context) RuleGroupForwardedIPConfigurationPtrOutput
+}
+
+type ruleGroupForwardedIPConfigurationPtrType RuleGroupForwardedIPConfigurationArgs
+
+func RuleGroupForwardedIPConfigurationPtr(v *RuleGroupForwardedIPConfigurationArgs) RuleGroupForwardedIPConfigurationPtrInput {
+	return (*ruleGroupForwardedIPConfigurationPtrType)(v)
+}
+
+func (*ruleGroupForwardedIPConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i *ruleGroupForwardedIPConfigurationPtrType) ToRuleGroupForwardedIPConfigurationPtrOutput() RuleGroupForwardedIPConfigurationPtrOutput {
+	return i.ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupForwardedIPConfigurationPtrType) ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
+type RuleGroupForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupForwardedIPConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o RuleGroupForwardedIPConfigurationOutput) ToRuleGroupForwardedIPConfigurationOutput() RuleGroupForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o RuleGroupForwardedIPConfigurationOutput) ToRuleGroupForwardedIPConfigurationOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o RuleGroupForwardedIPConfigurationOutput) ToRuleGroupForwardedIPConfigurationPtrOutput() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupForwardedIPConfigurationOutput) ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupForwardedIPConfiguration) *RuleGroupForwardedIPConfiguration {
+		return &v
+	}).(RuleGroupForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
+func (o RuleGroupForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
+func (o RuleGroupForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+type RuleGroupForwardedIPConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupForwardedIPConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o RuleGroupForwardedIPConfigurationPtrOutput) ToRuleGroupForwardedIPConfigurationPtrOutput() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o RuleGroupForwardedIPConfigurationPtrOutput) ToRuleGroupForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o RuleGroupForwardedIPConfigurationPtrOutput) Elem() RuleGroupForwardedIPConfigurationOutput {
+	return o.ApplyT(func(v *RuleGroupForwardedIPConfiguration) RuleGroupForwardedIPConfiguration { return *v }).(RuleGroupForwardedIPConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
+func (o RuleGroupForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
+func (o RuleGroupForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
 type RuleGroupGeoMatchStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
 	CountryCodes []string `pulumi:"CountryCodes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
+	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"ForwardedIPConfig"`
 }
 
 // RuleGroupGeoMatchStatementInput is an input type that accepts RuleGroupGeoMatchStatementArgs and RuleGroupGeoMatchStatementOutput values.
@@ -1620,6 +1775,8 @@ type RuleGroupGeoMatchStatementInput interface {
 type RuleGroupGeoMatchStatementArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
 	CountryCodes pulumi.StringArrayInput `pulumi:"CountryCodes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
+	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"ForwardedIPConfig"`
 }
 
 func (RuleGroupGeoMatchStatementArgs) ElementType() reflect.Type {
@@ -1705,6 +1862,11 @@ func (o RuleGroupGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v RuleGroupGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
+func (o RuleGroupGeoMatchStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupGeoMatchStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
+}
+
 type RuleGroupGeoMatchStatementPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupGeoMatchStatementPtrOutput) ElementType() reflect.Type {
@@ -1733,10 +1895,194 @@ func (o RuleGroupGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
+func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuleGroupGeoMatchStatement) *RuleGroupForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIPConfig
+	}).(RuleGroupForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
+type RuleGroupIPSetForwardedIPConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
+	FallbackBehavior string `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
+	HeaderName string `pulumi:"HeaderName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
+	Position string `pulumi:"Position"`
+}
+
+// RuleGroupIPSetForwardedIPConfigurationInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationArgs and RuleGroupIPSetForwardedIPConfigurationOutput values.
+// You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationInput` via:
+//
+//          RuleGroupIPSetForwardedIPConfigurationArgs{...}
+type RuleGroupIPSetForwardedIPConfigurationInput interface {
+	pulumi.Input
+
+	ToRuleGroupIPSetForwardedIPConfigurationOutput() RuleGroupIPSetForwardedIPConfigurationOutput
+	ToRuleGroupIPSetForwardedIPConfigurationOutputWithContext(context.Context) RuleGroupIPSetForwardedIPConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
+type RuleGroupIPSetForwardedIPConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
+	FallbackBehavior pulumi.StringInput `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
+	HeaderName pulumi.StringInput `pulumi:"HeaderName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
+	Position pulumi.StringInput `pulumi:"Position"`
+}
+
+func (RuleGroupIPSetForwardedIPConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i RuleGroupIPSetForwardedIPConfigurationArgs) ToRuleGroupIPSetForwardedIPConfigurationOutput() RuleGroupIPSetForwardedIPConfigurationOutput {
+	return i.ToRuleGroupIPSetForwardedIPConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuleGroupIPSetForwardedIPConfigurationArgs) ToRuleGroupIPSetForwardedIPConfigurationOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIPSetForwardedIPConfigurationOutput)
+}
+
+func (i RuleGroupIPSetForwardedIPConfigurationArgs) ToRuleGroupIPSetForwardedIPConfigurationPtrOutput() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return i.ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupIPSetForwardedIPConfigurationArgs) ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIPSetForwardedIPConfigurationOutput).ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuleGroupIPSetForwardedIPConfigurationPtrInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationArgs, RuleGroupIPSetForwardedIPConfigurationPtr and RuleGroupIPSetForwardedIPConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationPtrInput` via:
+//
+//          RuleGroupIPSetForwardedIPConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupIPSetForwardedIPConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupIPSetForwardedIPConfigurationPtrOutput() RuleGroupIPSetForwardedIPConfigurationPtrOutput
+	ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(context.Context) RuleGroupIPSetForwardedIPConfigurationPtrOutput
+}
+
+type ruleGroupIPSetForwardedIPConfigurationPtrType RuleGroupIPSetForwardedIPConfigurationArgs
+
+func RuleGroupIPSetForwardedIPConfigurationPtr(v *RuleGroupIPSetForwardedIPConfigurationArgs) RuleGroupIPSetForwardedIPConfigurationPtrInput {
+	return (*ruleGroupIPSetForwardedIPConfigurationPtrType)(v)
+}
+
+func (*ruleGroupIPSetForwardedIPConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i *ruleGroupIPSetForwardedIPConfigurationPtrType) ToRuleGroupIPSetForwardedIPConfigurationPtrOutput() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return i.ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupIPSetForwardedIPConfigurationPtrType) ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
+type RuleGroupIPSetForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupIPSetForwardedIPConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) ToRuleGroupIPSetForwardedIPConfigurationOutput() RuleGroupIPSetForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) ToRuleGroupIPSetForwardedIPConfigurationOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) ToRuleGroupIPSetForwardedIPConfigurationPtrOutput() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return o.ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) *RuleGroupIPSetForwardedIPConfiguration {
+		return &v
+	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) Position() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.Position }).(pulumi.StringOutput)
+}
+
+type RuleGroupIPSetForwardedIPConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupIPSetForwardedIPConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationPtrOutput() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Elem() RuleGroupIPSetForwardedIPConfigurationOutput {
+	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) RuleGroupIPSetForwardedIPConfiguration { return *v }).(RuleGroupIPSetForwardedIPConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Position
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
 type RuleGroupIPSetReferenceStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
 	Arn string `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+	IPSetForwardedIPConfig *RuleGroupIPSetForwardedIPConfiguration `pulumi:"IPSetForwardedIPConfig"`
 }
 
 // RuleGroupIPSetReferenceStatementInput is an input type that accepts RuleGroupIPSetReferenceStatementArgs and RuleGroupIPSetReferenceStatementOutput values.
@@ -1754,6 +2100,8 @@ type RuleGroupIPSetReferenceStatementInput interface {
 type RuleGroupIPSetReferenceStatementArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
 	Arn pulumi.StringInput `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+	IPSetForwardedIPConfig RuleGroupIPSetForwardedIPConfigurationPtrInput `pulumi:"IPSetForwardedIPConfig"`
 }
 
 func (RuleGroupIPSetReferenceStatementArgs) ElementType() reflect.Type {
@@ -1839,6 +2187,13 @@ func (o RuleGroupIPSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupIPSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+func (o RuleGroupIPSetReferenceStatementOutput) IPSetForwardedIPConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupIPSetReferenceStatement) *RuleGroupIPSetForwardedIPConfiguration {
+		return v.IPSetForwardedIPConfig
+	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
+}
+
 type RuleGroupIPSetReferenceStatementPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupIPSetReferenceStatementPtrOutput) ElementType() reflect.Type {
@@ -1865,6 +2220,16 @@ func (o RuleGroupIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput 
 		}
 		return &v.Arn
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+func (o RuleGroupIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuleGroupIPSetReferenceStatement) *RuleGroupIPSetForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IPSetForwardedIPConfig
+	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html
@@ -2655,6 +3020,8 @@ func (o RuleGroupPropertiesPtrOutput) VisibilityConfig() RuleGroupVisibilityConf
 type RuleGroupRateBasedStatementOne struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
 	AggregateKeyType string `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
+	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
 	Limit int `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
@@ -2676,6 +3043,8 @@ type RuleGroupRateBasedStatementOneInput interface {
 type RuleGroupRateBasedStatementOneArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
 	AggregateKeyType pulumi.StringInput `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
+	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
 	Limit pulumi.IntInput `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
@@ -2765,6 +3134,11 @@ func (o RuleGroupRateBasedStatementOneOutput) AggregateKeyType() pulumi.StringOu
 	return o.ApplyT(func(v RuleGroupRateBasedStatementOne) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
+func (o RuleGroupRateBasedStatementOneOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementOne) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
 func (o RuleGroupRateBasedStatementOneOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementOne) int { return v.Limit }).(pulumi.IntOutput)
@@ -2803,6 +3177,16 @@ func (o RuleGroupRateBasedStatementOnePtrOutput) AggregateKeyType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
+func (o RuleGroupRateBasedStatementOnePtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatementOne) *RuleGroupForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIPConfig
+	}).(RuleGroupForwardedIPConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
 func (o RuleGroupRateBasedStatementOnePtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatementOne) *int {
@@ -2827,6 +3211,8 @@ func (o RuleGroupRateBasedStatementOnePtrOutput) ScopeDownStatement() RuleGroupS
 type RuleGroupRateBasedStatementTwo struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
 	AggregateKeyType string `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
+	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
 	Limit int `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
@@ -2848,6 +3234,8 @@ type RuleGroupRateBasedStatementTwoInput interface {
 type RuleGroupRateBasedStatementTwoArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
 	AggregateKeyType pulumi.StringInput `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
+	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
 	Limit pulumi.IntInput `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
@@ -2937,6 +3325,11 @@ func (o RuleGroupRateBasedStatementTwoOutput) AggregateKeyType() pulumi.StringOu
 	return o.ApplyT(func(v RuleGroupRateBasedStatementTwo) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
+func (o RuleGroupRateBasedStatementTwoOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementTwo) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
 func (o RuleGroupRateBasedStatementTwoOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementTwo) int { return v.Limit }).(pulumi.IntOutput)
@@ -2973,6 +3366,16 @@ func (o RuleGroupRateBasedStatementTwoPtrOutput) AggregateKeyType() pulumi.Strin
 		}
 		return &v.AggregateKeyType
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
+func (o RuleGroupRateBasedStatementTwoPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatementTwo) *RuleGroupForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIPConfig
+	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
@@ -6470,10 +6873,165 @@ func (o WebACLFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
+type WebACLForwardedIPConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
+	FallbackBehavior string `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
+	HeaderName string `pulumi:"HeaderName"`
+}
+
+// WebACLForwardedIPConfigurationInput is an input type that accepts WebACLForwardedIPConfigurationArgs and WebACLForwardedIPConfigurationOutput values.
+// You can construct a concrete instance of `WebACLForwardedIPConfigurationInput` via:
+//
+//          WebACLForwardedIPConfigurationArgs{...}
+type WebACLForwardedIPConfigurationInput interface {
+	pulumi.Input
+
+	ToWebACLForwardedIPConfigurationOutput() WebACLForwardedIPConfigurationOutput
+	ToWebACLForwardedIPConfigurationOutputWithContext(context.Context) WebACLForwardedIPConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
+type WebACLForwardedIPConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
+	FallbackBehavior pulumi.StringInput `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
+	HeaderName pulumi.StringInput `pulumi:"HeaderName"`
+}
+
+func (WebACLForwardedIPConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i WebACLForwardedIPConfigurationArgs) ToWebACLForwardedIPConfigurationOutput() WebACLForwardedIPConfigurationOutput {
+	return i.ToWebACLForwardedIPConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebACLForwardedIPConfigurationArgs) ToWebACLForwardedIPConfigurationOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLForwardedIPConfigurationOutput)
+}
+
+func (i WebACLForwardedIPConfigurationArgs) ToWebACLForwardedIPConfigurationPtrOutput() WebACLForwardedIPConfigurationPtrOutput {
+	return i.ToWebACLForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLForwardedIPConfigurationArgs) ToWebACLForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLForwardedIPConfigurationOutput).ToWebACLForwardedIPConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebACLForwardedIPConfigurationPtrInput is an input type that accepts WebACLForwardedIPConfigurationArgs, WebACLForwardedIPConfigurationPtr and WebACLForwardedIPConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebACLForwardedIPConfigurationPtrInput` via:
+//
+//          WebACLForwardedIPConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLForwardedIPConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebACLForwardedIPConfigurationPtrOutput() WebACLForwardedIPConfigurationPtrOutput
+	ToWebACLForwardedIPConfigurationPtrOutputWithContext(context.Context) WebACLForwardedIPConfigurationPtrOutput
+}
+
+type webACLForwardedIPConfigurationPtrType WebACLForwardedIPConfigurationArgs
+
+func WebACLForwardedIPConfigurationPtr(v *WebACLForwardedIPConfigurationArgs) WebACLForwardedIPConfigurationPtrInput {
+	return (*webACLForwardedIPConfigurationPtrType)(v)
+}
+
+func (*webACLForwardedIPConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i *webACLForwardedIPConfigurationPtrType) ToWebACLForwardedIPConfigurationPtrOutput() WebACLForwardedIPConfigurationPtrOutput {
+	return i.ToWebACLForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLForwardedIPConfigurationPtrType) ToWebACLForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
+type WebACLForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebACLForwardedIPConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o WebACLForwardedIPConfigurationOutput) ToWebACLForwardedIPConfigurationOutput() WebACLForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o WebACLForwardedIPConfigurationOutput) ToWebACLForwardedIPConfigurationOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o WebACLForwardedIPConfigurationOutput) ToWebACLForwardedIPConfigurationPtrOutput() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ToWebACLForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLForwardedIPConfigurationOutput) ToWebACLForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLForwardedIPConfiguration) *WebACLForwardedIPConfiguration {
+		return &v
+	}).(WebACLForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
+func (o WebACLForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
+func (o WebACLForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+type WebACLForwardedIPConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLForwardedIPConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o WebACLForwardedIPConfigurationPtrOutput) ToWebACLForwardedIPConfigurationPtrOutput() WebACLForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o WebACLForwardedIPConfigurationPtrOutput) ToWebACLForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o WebACLForwardedIPConfigurationPtrOutput) Elem() WebACLForwardedIPConfigurationOutput {
+	return o.ApplyT(func(v *WebACLForwardedIPConfiguration) WebACLForwardedIPConfiguration { return *v }).(WebACLForwardedIPConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
+func (o WebACLForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
+func (o WebACLForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
 type WebACLGeoMatchStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
 	CountryCodes []string `pulumi:"CountryCodes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"ForwardedIPConfig"`
 }
 
 // WebACLGeoMatchStatementInput is an input type that accepts WebACLGeoMatchStatementArgs and WebACLGeoMatchStatementOutput values.
@@ -6491,6 +7049,8 @@ type WebACLGeoMatchStatementInput interface {
 type WebACLGeoMatchStatementArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
 	CountryCodes pulumi.StringArrayInput `pulumi:"CountryCodes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"ForwardedIPConfig"`
 }
 
 func (WebACLGeoMatchStatementArgs) ElementType() reflect.Type {
@@ -6576,6 +7136,11 @@ func (o WebACLGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebACLGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+func (o WebACLGeoMatchStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLGeoMatchStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
+}
+
 type WebACLGeoMatchStatementPtrOutput struct{ *pulumi.OutputState }
 
 func (WebACLGeoMatchStatementPtrOutput) ElementType() reflect.Type {
@@ -6604,10 +7169,194 @@ func (o WebACLGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+func (o WebACLGeoMatchStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebACLGeoMatchStatement) *WebACLForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIPConfig
+	}).(WebACLForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
+type WebACLIPSetForwardedIPConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
+	FallbackBehavior string `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
+	HeaderName string `pulumi:"HeaderName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
+	Position string `pulumi:"Position"`
+}
+
+// WebACLIPSetForwardedIPConfigurationInput is an input type that accepts WebACLIPSetForwardedIPConfigurationArgs and WebACLIPSetForwardedIPConfigurationOutput values.
+// You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationInput` via:
+//
+//          WebACLIPSetForwardedIPConfigurationArgs{...}
+type WebACLIPSetForwardedIPConfigurationInput interface {
+	pulumi.Input
+
+	ToWebACLIPSetForwardedIPConfigurationOutput() WebACLIPSetForwardedIPConfigurationOutput
+	ToWebACLIPSetForwardedIPConfigurationOutputWithContext(context.Context) WebACLIPSetForwardedIPConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
+type WebACLIPSetForwardedIPConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
+	FallbackBehavior pulumi.StringInput `pulumi:"FallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
+	HeaderName pulumi.StringInput `pulumi:"HeaderName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
+	Position pulumi.StringInput `pulumi:"Position"`
+}
+
+func (WebACLIPSetForwardedIPConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i WebACLIPSetForwardedIPConfigurationArgs) ToWebACLIPSetForwardedIPConfigurationOutput() WebACLIPSetForwardedIPConfigurationOutput {
+	return i.ToWebACLIPSetForwardedIPConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebACLIPSetForwardedIPConfigurationArgs) ToWebACLIPSetForwardedIPConfigurationOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLIPSetForwardedIPConfigurationOutput)
+}
+
+func (i WebACLIPSetForwardedIPConfigurationArgs) ToWebACLIPSetForwardedIPConfigurationPtrOutput() WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return i.ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLIPSetForwardedIPConfigurationArgs) ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLIPSetForwardedIPConfigurationOutput).ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebACLIPSetForwardedIPConfigurationPtrInput is an input type that accepts WebACLIPSetForwardedIPConfigurationArgs, WebACLIPSetForwardedIPConfigurationPtr and WebACLIPSetForwardedIPConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationPtrInput` via:
+//
+//          WebACLIPSetForwardedIPConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLIPSetForwardedIPConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebACLIPSetForwardedIPConfigurationPtrOutput() WebACLIPSetForwardedIPConfigurationPtrOutput
+	ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(context.Context) WebACLIPSetForwardedIPConfigurationPtrOutput
+}
+
+type webACLIPSetForwardedIPConfigurationPtrType WebACLIPSetForwardedIPConfigurationArgs
+
+func WebACLIPSetForwardedIPConfigurationPtr(v *WebACLIPSetForwardedIPConfigurationArgs) WebACLIPSetForwardedIPConfigurationPtrInput {
+	return (*webACLIPSetForwardedIPConfigurationPtrType)(v)
+}
+
+func (*webACLIPSetForwardedIPConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (i *webACLIPSetForwardedIPConfigurationPtrType) ToWebACLIPSetForwardedIPConfigurationPtrOutput() WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return i.ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLIPSetForwardedIPConfigurationPtrType) ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLIPSetForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
+type WebACLIPSetForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebACLIPSetForwardedIPConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o WebACLIPSetForwardedIPConfigurationOutput) ToWebACLIPSetForwardedIPConfigurationOutput() WebACLIPSetForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o WebACLIPSetForwardedIPConfigurationOutput) ToWebACLIPSetForwardedIPConfigurationOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationOutput {
+	return o
+}
+
+func (o WebACLIPSetForwardedIPConfigurationOutput) ToWebACLIPSetForwardedIPConfigurationPtrOutput() WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return o.ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLIPSetForwardedIPConfigurationOutput) ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) *WebACLIPSetForwardedIPConfiguration {
+		return &v
+	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
+func (o WebACLIPSetForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
+func (o WebACLIPSetForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
+func (o WebACLIPSetForwardedIPConfigurationOutput) Position() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.Position }).(pulumi.StringOutput)
+}
+
+type WebACLIPSetForwardedIPConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLIPSetForwardedIPConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLIPSetForwardedIPConfiguration)(nil)).Elem()
+}
+
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) ToWebACLIPSetForwardedIPConfigurationPtrOutput() WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) ToWebACLIPSetForwardedIPConfigurationPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return o
+}
+
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Elem() WebACLIPSetForwardedIPConfigurationOutput {
+	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) WebACLIPSetForwardedIPConfiguration { return *v }).(WebACLIPSetForwardedIPConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Position
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
 type WebACLIPSetReferenceStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
 	Arn string `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+	IPSetForwardedIPConfig *WebACLIPSetForwardedIPConfiguration `pulumi:"IPSetForwardedIPConfig"`
 }
 
 // WebACLIPSetReferenceStatementInput is an input type that accepts WebACLIPSetReferenceStatementArgs and WebACLIPSetReferenceStatementOutput values.
@@ -6625,6 +7374,8 @@ type WebACLIPSetReferenceStatementInput interface {
 type WebACLIPSetReferenceStatementArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
 	Arn pulumi.StringInput `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+	IPSetForwardedIPConfig WebACLIPSetForwardedIPConfigurationPtrInput `pulumi:"IPSetForwardedIPConfig"`
 }
 
 func (WebACLIPSetReferenceStatementArgs) ElementType() reflect.Type {
@@ -6710,6 +7461,13 @@ func (o WebACLIPSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLIPSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+func (o WebACLIPSetReferenceStatementOutput) IPSetForwardedIPConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLIPSetReferenceStatement) *WebACLIPSetForwardedIPConfiguration {
+		return v.IPSetForwardedIPConfig
+	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
+}
+
 type WebACLIPSetReferenceStatementPtrOutput struct{ *pulumi.OutputState }
 
 func (WebACLIPSetReferenceStatementPtrOutput) ElementType() reflect.Type {
@@ -6736,6 +7494,16 @@ func (o WebACLIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 		}
 		return &v.Arn
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+func (o WebACLIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebACLIPSetReferenceStatement) *WebACLIPSetForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IPSetForwardedIPConfig
+	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
@@ -7851,6 +8619,8 @@ func (o WebACLPropertiesPtrOutput) VisibilityConfig() WebACLVisibilityConfigPtrO
 type WebACLRateBasedStatementOne struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
 	AggregateKeyType string `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
 	Limit int `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
@@ -7872,6 +8642,8 @@ type WebACLRateBasedStatementOneInput interface {
 type WebACLRateBasedStatementOneArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
 	AggregateKeyType pulumi.StringInput `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
 	Limit pulumi.IntInput `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
@@ -7961,6 +8733,11 @@ func (o WebACLRateBasedStatementOneOutput) AggregateKeyType() pulumi.StringOutpu
 	return o.ApplyT(func(v WebACLRateBasedStatementOne) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+func (o WebACLRateBasedStatementOneOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementOne) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
 func (o WebACLRateBasedStatementOneOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatementOne) int { return v.Limit }).(pulumi.IntOutput)
@@ -7999,6 +8776,16 @@ func (o WebACLRateBasedStatementOnePtrOutput) AggregateKeyType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+func (o WebACLRateBasedStatementOnePtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatementOne) *WebACLForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIPConfig
+	}).(WebACLForwardedIPConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
 func (o WebACLRateBasedStatementOnePtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebACLRateBasedStatementOne) *int {
@@ -8023,6 +8810,8 @@ func (o WebACLRateBasedStatementOnePtrOutput) ScopeDownStatement() WebACLStateme
 type WebACLRateBasedStatementTwo struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
 	AggregateKeyType string `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
+	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
 	Limit int `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
@@ -8044,6 +8833,8 @@ type WebACLRateBasedStatementTwoInput interface {
 type WebACLRateBasedStatementTwoArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
 	AggregateKeyType pulumi.StringInput `pulumi:"AggregateKeyType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
+	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"ForwardedIPConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
 	Limit pulumi.IntInput `pulumi:"Limit"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
@@ -8133,6 +8924,11 @@ func (o WebACLRateBasedStatementTwoOutput) AggregateKeyType() pulumi.StringOutpu
 	return o.ApplyT(func(v WebACLRateBasedStatementTwo) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
+func (o WebACLRateBasedStatementTwoOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementTwo) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
 func (o WebACLRateBasedStatementTwoOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatementTwo) int { return v.Limit }).(pulumi.IntOutput)
@@ -8169,6 +8965,16 @@ func (o WebACLRateBasedStatementTwoPtrOutput) AggregateKeyType() pulumi.StringPt
 		}
 		return &v.AggregateKeyType
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
+func (o WebACLRateBasedStatementTwoPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatementTwo) *WebACLForwardedIPConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIPConfig
+	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
@@ -10539,8 +11345,12 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationOutput{})
+	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupGeoMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupGeoMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationOutput{})
+	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetReferenceStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupNotStatementOneOutput{})
@@ -10598,8 +11408,12 @@ func init() {
 	pulumi.RegisterOutputType(WebACLExcludedRuleArrayOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchPtrOutput{})
+	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationOutput{})
+	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebACLGeoMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLGeoMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationOutput{})
+	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebACLIPSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebACLIPSetReferenceStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLManagedRuleGroupStatementOutput{})

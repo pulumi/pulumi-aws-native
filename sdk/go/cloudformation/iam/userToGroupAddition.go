@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserToGroupAddition struct {
 // NewUserToGroupAddition registers a new resource with the given unique name, arguments, and options.
 func NewUserToGroupAddition(ctx *pulumi.Context,
 	name string, args *UserToGroupAdditionArgs, opts ...pulumi.ResourceOption) (*UserToGroupAddition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserToGroupAdditionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserToGroupAddition
 	err := ctx.RegisterResource("cloudformation:IAM:UserToGroupAddition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserToGroupAdditionArgs struct {
 
 func (UserToGroupAdditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userToGroupAdditionArgs)(nil)).Elem()
+}
+
+type UserToGroupAdditionInput interface {
+	pulumi.Input
+
+	ToUserToGroupAdditionOutput() UserToGroupAdditionOutput
+	ToUserToGroupAdditionOutputWithContext(ctx context.Context) UserToGroupAdditionOutput
+}
+
+func (*UserToGroupAddition) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserToGroupAddition)(nil))
+}
+
+func (i *UserToGroupAddition) ToUserToGroupAdditionOutput() UserToGroupAdditionOutput {
+	return i.ToUserToGroupAdditionOutputWithContext(context.Background())
+}
+
+func (i *UserToGroupAddition) ToUserToGroupAdditionOutputWithContext(ctx context.Context) UserToGroupAdditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserToGroupAdditionOutput)
+}
+
+type UserToGroupAdditionOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserToGroupAdditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserToGroupAddition)(nil))
+}
+
+func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutput() UserToGroupAdditionOutput {
+	return o
+}
+
+func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutputWithContext(ctx context.Context) UserToGroupAdditionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserToGroupAdditionOutput{})
 }

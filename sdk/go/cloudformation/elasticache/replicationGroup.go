@@ -4,6 +4,7 @@
 package elasticache
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -29,11 +30,12 @@ type ReplicationGroup struct {
 // NewReplicationGroup registers a new resource with the given unique name, arguments, and options.
 func NewReplicationGroup(ctx *pulumi.Context,
 	name string, args *ReplicationGroupArgs, opts ...pulumi.ResourceOption) (*ReplicationGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ReplicationGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ReplicationGroup
 	err := ctx.RegisterResource("cloudformation:ElastiCache:ReplicationGroup", name, args, &resource, opts...)
@@ -119,4 +121,43 @@ type ReplicationGroupArgs struct {
 
 func (ReplicationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationGroupArgs)(nil)).Elem()
+}
+
+type ReplicationGroupInput interface {
+	pulumi.Input
+
+	ToReplicationGroupOutput() ReplicationGroupOutput
+	ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput
+}
+
+func (*ReplicationGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroup)(nil))
+}
+
+func (i *ReplicationGroup) ToReplicationGroupOutput() ReplicationGroupOutput {
+	return i.ToReplicationGroupOutputWithContext(context.Background())
+}
+
+func (i *ReplicationGroup) ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupOutput)
+}
+
+type ReplicationGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroup)(nil))
+}
+
+func (o ReplicationGroupOutput) ToReplicationGroupOutput() ReplicationGroupOutput {
+	return o
+}
+
+func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationGroupOutput{})
 }

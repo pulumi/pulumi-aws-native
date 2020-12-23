@@ -4,6 +4,7 @@
 package secretsmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SecretTargetAttachment struct {
 // NewSecretTargetAttachment registers a new resource with the given unique name, arguments, and options.
 func NewSecretTargetAttachment(ctx *pulumi.Context,
 	name string, args *SecretTargetAttachmentArgs, opts ...pulumi.ResourceOption) (*SecretTargetAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SecretTargetAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SecretTargetAttachment
 	err := ctx.RegisterResource("cloudformation:SecretsManager:SecretTargetAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SecretTargetAttachmentArgs struct {
 
 func (SecretTargetAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretTargetAttachmentArgs)(nil)).Elem()
+}
+
+type SecretTargetAttachmentInput interface {
+	pulumi.Input
+
+	ToSecretTargetAttachmentOutput() SecretTargetAttachmentOutput
+	ToSecretTargetAttachmentOutputWithContext(ctx context.Context) SecretTargetAttachmentOutput
+}
+
+func (*SecretTargetAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretTargetAttachment)(nil))
+}
+
+func (i *SecretTargetAttachment) ToSecretTargetAttachmentOutput() SecretTargetAttachmentOutput {
+	return i.ToSecretTargetAttachmentOutputWithContext(context.Background())
+}
+
+func (i *SecretTargetAttachment) ToSecretTargetAttachmentOutputWithContext(ctx context.Context) SecretTargetAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretTargetAttachmentOutput)
+}
+
+type SecretTargetAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecretTargetAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretTargetAttachment)(nil))
+}
+
+func (o SecretTargetAttachmentOutput) ToSecretTargetAttachmentOutput() SecretTargetAttachmentOutput {
+	return o
+}
+
+func (o SecretTargetAttachmentOutput) ToSecretTargetAttachmentOutputWithContext(ctx context.Context) SecretTargetAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecretTargetAttachmentOutput{})
 }

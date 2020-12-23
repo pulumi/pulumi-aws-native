@@ -4,6 +4,7 @@
 package emr
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type InstanceGroupConfig struct {
 // NewInstanceGroupConfig registers a new resource with the given unique name, arguments, and options.
 func NewInstanceGroupConfig(ctx *pulumi.Context,
 	name string, args *InstanceGroupConfigArgs, opts ...pulumi.ResourceOption) (*InstanceGroupConfig, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InstanceGroupConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource InstanceGroupConfig
 	err := ctx.RegisterResource("cloudformation:EMR:InstanceGroupConfig", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InstanceGroupConfigArgs struct {
 
 func (InstanceGroupConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceGroupConfigArgs)(nil)).Elem()
+}
+
+type InstanceGroupConfigInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigOutput() InstanceGroupConfigOutput
+	ToInstanceGroupConfigOutputWithContext(ctx context.Context) InstanceGroupConfigOutput
+}
+
+func (*InstanceGroupConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfig)(nil))
+}
+
+func (i *InstanceGroupConfig) ToInstanceGroupConfigOutput() InstanceGroupConfigOutput {
+	return i.ToInstanceGroupConfigOutputWithContext(context.Background())
+}
+
+func (i *InstanceGroupConfig) ToInstanceGroupConfigOutputWithContext(ctx context.Context) InstanceGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigOutput)
+}
+
+type InstanceGroupConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfig)(nil))
+}
+
+func (o InstanceGroupConfigOutput) ToInstanceGroupConfigOutput() InstanceGroupConfigOutput {
+	return o
+}
+
+func (o InstanceGroupConfigOutput) ToInstanceGroupConfigOutputWithContext(ctx context.Context) InstanceGroupConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstanceGroupConfigOutput{})
 }
