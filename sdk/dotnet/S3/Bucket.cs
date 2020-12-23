@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.S3
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:S3:Bucket")]
     public partial class Bucket : Pulumi.CustomResource
     {
         /// <summary>

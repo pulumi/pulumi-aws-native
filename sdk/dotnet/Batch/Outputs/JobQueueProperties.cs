@@ -29,6 +29,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state
         /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-tags
+        /// </summary>
+        public readonly Union<System.Text.Json.JsonElement, string>? Tags;
 
         [OutputConstructor]
         private JobQueueProperties(
@@ -38,12 +42,15 @@ namespace Pulumi.Cloudformation.Batch.Outputs
 
             int Priority,
 
-            string? State)
+            string? State,
+
+            Union<System.Text.Json.JsonElement, string>? Tags)
         {
             this.ComputeEnvironmentOrder = ComputeEnvironmentOrder;
             this.JobQueueName = JobQueueName;
             this.Priority = Priority;
             this.State = State;
+            this.Tags = Tags;
         }
     }
 }

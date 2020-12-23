@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppStream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppStream:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

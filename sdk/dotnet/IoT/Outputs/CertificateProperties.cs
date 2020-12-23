@@ -14,9 +14,21 @@ namespace Pulumi.Cloudformation.IoT.Outputs
     public sealed class CertificateProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+        /// </summary>
+        public readonly string? CACertificatePem;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
+        /// </summary>
+        public readonly string? CertificateMode;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+        /// </summary>
+        public readonly string? CertificatePem;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
         /// </summary>
-        public readonly string CertificateSigningRequest;
+        public readonly string? CertificateSigningRequest;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
         /// </summary>
@@ -24,10 +36,19 @@ namespace Pulumi.Cloudformation.IoT.Outputs
 
         [OutputConstructor]
         private CertificateProperties(
-            string CertificateSigningRequest,
+            string? CACertificatePem,
+
+            string? CertificateMode,
+
+            string? CertificatePem,
+
+            string? CertificateSigningRequest,
 
             string Status)
         {
+            this.CACertificatePem = CACertificatePem;
+            this.CertificateMode = CertificateMode;
+            this.CertificatePem = CertificatePem;
             this.CertificateSigningRequest = CertificateSigningRequest;
             this.Status = Status;
         }

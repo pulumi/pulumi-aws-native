@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MediaConvert
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MediaConvert:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

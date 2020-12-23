@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Route53Resolver
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Route53Resolver:ResolverEndpoint")]
     public partial class ResolverEndpoint : Pulumi.CustomResource
     {
         /// <summary>

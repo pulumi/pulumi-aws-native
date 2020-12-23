@@ -22,16 +22,34 @@ namespace Pulumi.Cloudformation.Cognito.Inputs
         public Input<string>? CreateAuthChallenge { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
+        /// </summary>
+        [Input("CustomEmailSender")]
+        public Input<Inputs.UserPoolCustomEmailSenderArgs>? CustomEmailSender { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
         /// </summary>
         [Input("CustomMessage")]
         public Input<string>? CustomMessage { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
+        /// </summary>
+        [Input("CustomSMSSender")]
+        public Input<Inputs.UserPoolCustomSMSSenderArgs>? CustomSMSSender { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
         /// </summary>
         [Input("DefineAuthChallenge")]
         public Input<string>? DefineAuthChallenge { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
+        /// </summary>
+        [Input("KMSKeyID")]
+        public Input<string>? KMSKeyID { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postauthentication

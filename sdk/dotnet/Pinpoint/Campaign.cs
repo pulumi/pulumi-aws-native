@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:Campaign")]
     public partial class Campaign : Pulumi.CustomResource
     {
         /// <summary>

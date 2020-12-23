@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Amplify
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Amplify:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

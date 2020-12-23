@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT1Click
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT1Click:Placement")]
     public partial class Placement : Pulumi.CustomResource
     {
         /// <summary>

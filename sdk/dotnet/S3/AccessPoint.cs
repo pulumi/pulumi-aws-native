@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.S3
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:S3:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>

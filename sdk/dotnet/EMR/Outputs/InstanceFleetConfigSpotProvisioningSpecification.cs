@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.EMR.Outputs
     public sealed class InstanceFleetConfigSpotProvisioningSpecification
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-allocationstrategy
+        /// </summary>
+        public readonly string? AllocationStrategy;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-blockdurationminutes
         /// </summary>
         public readonly int? BlockDurationMinutes;
@@ -28,12 +32,15 @@ namespace Pulumi.Cloudformation.EMR.Outputs
 
         [OutputConstructor]
         private InstanceFleetConfigSpotProvisioningSpecification(
+            string? AllocationStrategy,
+
             int? BlockDurationMinutes,
 
             string TimeoutAction,
 
             int TimeoutDurationMinutes)
         {
+            this.AllocationStrategy = AllocationStrategy;
             this.BlockDurationMinutes = BlockDurationMinutes;
             this.TimeoutAction = TimeoutAction;
             this.TimeoutDurationMinutes = TimeoutDurationMinutes;

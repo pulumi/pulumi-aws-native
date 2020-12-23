@@ -20,7 +20,7 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-hostpath
         /// </summary>
-        public readonly string HostPath;
+        public readonly string? HostPath;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-permissions
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         private TaskDefinitionDevice(
             string? ContainerPath,
 
-            string HostPath,
+            string? HostPath,
 
             ImmutableArray<string> Permissions)
         {

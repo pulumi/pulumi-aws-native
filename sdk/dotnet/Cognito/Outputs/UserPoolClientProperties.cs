@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
     public sealed class UserPoolClientProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+        /// </summary>
+        public readonly int? AccessTokenValidity;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflows
         /// </summary>
         public readonly ImmutableArray<string> AllowedOAuthFlows;
@@ -50,6 +54,10 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
         /// </summary>
         public readonly bool? GenerateSecret;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+        /// </summary>
+        public readonly int? IdTokenValidity;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
         /// </summary>
         public readonly ImmutableArray<string> LogoutURLs;
@@ -70,6 +78,10 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SupportedIdentityProviders;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+        /// </summary>
+        public readonly Outputs.UserPoolClientTokenValidityUnits? TokenValidityUnits;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
         /// </summary>
         public readonly string UserPoolId;
@@ -80,6 +92,8 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
 
         [OutputConstructor]
         private UserPoolClientProperties(
+            int? AccessTokenValidity,
+
             ImmutableArray<string> AllowedOAuthFlows,
 
             bool? AllowedOAuthFlowsUserPoolClient,
@@ -98,6 +112,8 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
 
             bool? GenerateSecret,
 
+            int? IdTokenValidity,
+
             ImmutableArray<string> LogoutURLs,
 
             string? PreventUserExistenceErrors,
@@ -108,10 +124,13 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
 
             ImmutableArray<string> SupportedIdentityProviders,
 
+            Outputs.UserPoolClientTokenValidityUnits? TokenValidityUnits,
+
             string UserPoolId,
 
             ImmutableArray<string> WriteAttributes)
         {
+            this.AccessTokenValidity = AccessTokenValidity;
             this.AllowedOAuthFlows = AllowedOAuthFlows;
             this.AllowedOAuthFlowsUserPoolClient = AllowedOAuthFlowsUserPoolClient;
             this.AllowedOAuthScopes = AllowedOAuthScopes;
@@ -121,11 +140,13 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
             this.DefaultRedirectURI = DefaultRedirectURI;
             this.ExplicitAuthFlows = ExplicitAuthFlows;
             this.GenerateSecret = GenerateSecret;
+            this.IdTokenValidity = IdTokenValidity;
             this.LogoutURLs = LogoutURLs;
             this.PreventUserExistenceErrors = PreventUserExistenceErrors;
             this.ReadAttributes = ReadAttributes;
             this.RefreshTokenValidity = RefreshTokenValidity;
             this.SupportedIdentityProviders = SupportedIdentityProviders;
+            this.TokenValidityUnits = TokenValidityUnits;
             this.UserPoolId = UserPoolId;
             this.WriteAttributes = WriteAttributes;
         }

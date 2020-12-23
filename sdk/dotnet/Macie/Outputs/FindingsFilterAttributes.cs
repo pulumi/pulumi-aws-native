@@ -14,14 +14,14 @@ namespace Pulumi.Cloudformation.Macie.Outputs
     public sealed class FindingsFilterAttributes
     {
         public readonly string Arn;
-        public readonly ImmutableArray<object> FindingsFilterListItems;
+        public readonly ImmutableArray<Outputs.FindingsFilterFindingsFilterListItem> FindingsFilterListItems;
         public readonly string Id;
 
         [OutputConstructor]
         private FindingsFilterAttributes(
             string Arn,
 
-            ImmutableArray<object> FindingsFilterListItems,
+            ImmutableArray<Outputs.FindingsFilterFindingsFilterListItem> FindingsFilterListItems,
 
             string Id)
         {

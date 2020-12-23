@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT:TopicRule")]
     public partial class TopicRule : Pulumi.CustomResource
     {
         /// <summary>

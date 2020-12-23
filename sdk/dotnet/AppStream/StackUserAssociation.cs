@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppStream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppStream:StackUserAssociation")]
     public partial class StackUserAssociation : Pulumi.CustomResource
     {
         /// <summary>

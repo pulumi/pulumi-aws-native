@@ -63,6 +63,12 @@ namespace Pulumi.Cloudformation.Transfer.Inputs
             set => _Protocols = value;
         }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+        /// </summary>
+        [Input("SecurityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
+
         [Input("Tags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
 

@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.ImageBuilder.Inputs
         public Input<string>? DistributionConfigurationArn { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+        /// </summary>
+        [Input("EnhancedImageMetadataEnabled")]
+        public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
         /// </summary>
         [Input("ImageRecipeArn", required: true)]

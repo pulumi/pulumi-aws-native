@@ -33,6 +33,18 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         [Input("DesiredvCpus")]
         public Input<int>? DesiredvCpus { get; set; }
 
+        [Input("Ec2Configuration")]
+        private InputList<Inputs.ComputeEnvironmentEc2ConfigurationObjectArgs>? _Ec2Configuration;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration
+        /// </summary>
+        public InputList<Inputs.ComputeEnvironmentEc2ConfigurationObjectArgs> Ec2Configuration
+        {
+            get => _Ec2Configuration ?? (_Ec2Configuration = new InputList<Inputs.ComputeEnvironmentEc2ConfigurationObjectArgs>());
+            set => _Ec2Configuration = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair
         /// </summary>
@@ -48,10 +60,10 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole
         /// </summary>
-        [Input("InstanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
+        [Input("InstanceRole")]
+        public Input<string>? InstanceRole { get; set; }
 
-        [Input("InstanceTypes", required: true)]
+        [Input("InstanceTypes")]
         private InputList<string>? _InstanceTypes;
 
         /// <summary>
@@ -78,8 +90,8 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
         /// </summary>
-        [Input("MinvCpus", required: true)]
-        public Input<int> MinvCpus { get; set; } = null!;
+        [Input("MinvCpus")]
+        public Input<int>? MinvCpus { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup

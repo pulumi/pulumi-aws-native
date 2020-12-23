@@ -51,6 +51,12 @@ namespace Pulumi.Cloudformation.RDS.Inputs
         [Input("DBProxyName", required: true)]
         public Input<string> DBProxyName { get; set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+        /// </summary>
+        [Input("TargetGroupName", required: true)]
+        public Input<string> TargetGroupName { get; set; } = null!;
+
         public DBProxyTargetGroupPropertiesArgs()
         {
         }

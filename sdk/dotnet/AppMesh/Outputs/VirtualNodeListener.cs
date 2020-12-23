@@ -14,9 +14,17 @@ namespace Pulumi.Cloudformation.AppMesh.Outputs
     public sealed class VirtualNodeListener
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+        /// </summary>
+        public readonly Outputs.VirtualNodeVirtualNodeConnectionPool? ConnectionPool;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
         /// </summary>
         public readonly Outputs.VirtualNodeHealthCheck? HealthCheck;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+        /// </summary>
+        public readonly Outputs.VirtualNodeOutlierDetection? OutlierDetection;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
         /// </summary>
@@ -32,7 +40,11 @@ namespace Pulumi.Cloudformation.AppMesh.Outputs
 
         [OutputConstructor]
         private VirtualNodeListener(
+            Outputs.VirtualNodeVirtualNodeConnectionPool? ConnectionPool,
+
             Outputs.VirtualNodeHealthCheck? HealthCheck,
+
+            Outputs.VirtualNodeOutlierDetection? OutlierDetection,
 
             Outputs.VirtualNodePortMapping PortMapping,
 
@@ -40,7 +52,9 @@ namespace Pulumi.Cloudformation.AppMesh.Outputs
 
             Outputs.VirtualNodeListenerTimeout? Timeout)
         {
+            this.ConnectionPool = ConnectionPool;
             this.HealthCheck = HealthCheck;
+            this.OutlierDetection = OutlierDetection;
             this.PortMapping = PortMapping;
             this.TLS = TLS;
             this.Timeout = Timeout;

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ASK
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ASK:Skill")]
     public partial class Skill : Pulumi.CustomResource
     {
         /// <summary>

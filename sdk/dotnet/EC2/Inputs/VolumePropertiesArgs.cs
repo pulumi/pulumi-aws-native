@@ -82,6 +82,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
+        /// </summary>
+        [Input("Throughput")]
+        public Input<int>? Throughput { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
         /// </summary>
         [Input("VolumeType")]

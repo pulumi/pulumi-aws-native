@@ -57,6 +57,18 @@ namespace Pulumi.Cloudformation.S3.Inputs
         [Input("CorsConfiguration")]
         public Input<Inputs.BucketCorsConfigurationArgs>? CorsConfiguration { get; set; }
 
+        [Input("IntelligentTieringConfigurations")]
+        private InputList<Inputs.BucketIntelligentTieringConfigurationArgs>? _IntelligentTieringConfigurations;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+        /// </summary>
+        public InputList<Inputs.BucketIntelligentTieringConfigurationArgs> IntelligentTieringConfigurations
+        {
+            get => _IntelligentTieringConfigurations ?? (_IntelligentTieringConfigurations = new InputList<Inputs.BucketIntelligentTieringConfigurationArgs>());
+            set => _IntelligentTieringConfigurations = value;
+        }
+
         [Input("InventoryConfigurations")]
         private InputList<Inputs.BucketInventoryConfigurationArgs>? _InventoryConfigurations;
 
@@ -110,6 +122,12 @@ namespace Pulumi.Cloudformation.S3.Inputs
         /// </summary>
         [Input("ObjectLockEnabled")]
         public Input<bool>? ObjectLockEnabled { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+        /// </summary>
+        [Input("OwnershipControls")]
+        public Input<Inputs.BucketOwnershipControlsArgs>? OwnershipControls { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration

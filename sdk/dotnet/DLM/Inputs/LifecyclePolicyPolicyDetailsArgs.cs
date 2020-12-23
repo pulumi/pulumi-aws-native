@@ -15,6 +15,24 @@ namespace Pulumi.Cloudformation.DLM.Inputs
     /// </summary>
     public sealed class LifecyclePolicyPolicyDetailsArgs : Pulumi.ResourceArgs
     {
+        [Input("Actions")]
+        private InputList<Inputs.LifecyclePolicyActionArgs>? _Actions;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
+        /// </summary>
+        public InputList<Inputs.LifecyclePolicyActionArgs> Actions
+        {
+            get => _Actions ?? (_Actions = new InputList<Inputs.LifecyclePolicyActionArgs>());
+            set => _Actions = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
+        /// </summary>
+        [Input("EventSource")]
+        public Input<Inputs.LifecyclePolicyEventSourceArgs>? EventSource { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
         /// </summary>
@@ -27,7 +45,7 @@ namespace Pulumi.Cloudformation.DLM.Inputs
         [Input("PolicyType")]
         public Input<string>? PolicyType { get; set; }
 
-        [Input("ResourceTypes", required: true)]
+        [Input("ResourceTypes")]
         private InputList<string>? _ResourceTypes;
 
         /// <summary>
@@ -39,7 +57,7 @@ namespace Pulumi.Cloudformation.DLM.Inputs
             set => _ResourceTypes = value;
         }
 
-        [Input("Schedules", required: true)]
+        [Input("Schedules")]
         private InputList<Inputs.LifecyclePolicyScheduleArgs>? _Schedules;
 
         /// <summary>
@@ -51,7 +69,7 @@ namespace Pulumi.Cloudformation.DLM.Inputs
             set => _Schedules = value;
         }
 
-        [Input("TargetTags", required: true)]
+        [Input("TargetTags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _TargetTags;
 
         /// <summary>

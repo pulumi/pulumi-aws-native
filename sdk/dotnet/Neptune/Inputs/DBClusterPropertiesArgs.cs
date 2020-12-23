@@ -15,6 +15,18 @@ namespace Pulumi.Cloudformation.Neptune.Inputs
     /// </summary>
     public sealed class DBClusterPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("AssociatedRoles")]
+        private InputList<Inputs.DBClusterDBClusterRoleArgs>? _AssociatedRoles;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+        /// </summary>
+        public InputList<Inputs.DBClusterDBClusterRoleArgs> AssociatedRoles
+        {
+            get => _AssociatedRoles ?? (_AssociatedRoles = new InputList<Inputs.DBClusterDBClusterRoleArgs>());
+            set => _AssociatedRoles = value;
+        }
+
         [Input("AvailabilityZones")]
         private InputList<string>? _AvailabilityZones;
 

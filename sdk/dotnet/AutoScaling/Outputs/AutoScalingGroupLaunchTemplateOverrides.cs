@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification
+        /// </summary>
+        public readonly Outputs.AutoScalingGroupLaunchTemplateSpecification? LaunchTemplateSpecification;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity
         /// </summary>
         public readonly string? WeightedCapacity;
@@ -26,9 +30,12 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
         private AutoScalingGroupLaunchTemplateOverrides(
             string? InstanceType,
 
+            Outputs.AutoScalingGroupLaunchTemplateSpecification? LaunchTemplateSpecification,
+
             string? WeightedCapacity)
         {
             this.InstanceType = InstanceType;
+            this.LaunchTemplateSpecification = LaunchTemplateSpecification;
             this.WeightedCapacity = WeightedCapacity;
         }
     }

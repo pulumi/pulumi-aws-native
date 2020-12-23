@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MSK
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MSK:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SSM:Association")]
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>

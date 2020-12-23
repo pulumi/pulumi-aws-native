@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

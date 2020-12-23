@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SQS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SQS:QueuePolicy")]
     public partial class QueuePolicy : Pulumi.CustomResource
     {
         /// <summary>

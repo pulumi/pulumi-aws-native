@@ -14,13 +14,21 @@ namespace Pulumi.Cloudformation.CodeCommit.Outputs
     public sealed class RepositoryCode
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname
+        /// </summary>
+        public readonly string? BranchName;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3
         /// </summary>
         public readonly Outputs.RepositoryS3 S3;
 
         [OutputConstructor]
-        private RepositoryCode(Outputs.RepositoryS3 S3)
+        private RepositoryCode(
+            string? BranchName,
+
+            Outputs.RepositoryS3 S3)
         {
+            this.BranchName = BranchName;
             this.S3 = S3;
         }
     }

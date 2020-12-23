@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppSync:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
         /// <summary>

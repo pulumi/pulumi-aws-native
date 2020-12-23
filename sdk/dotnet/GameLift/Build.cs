@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GameLift:Build")]
     public partial class Build : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GameLift:Fleet")]
     public partial class Fleet : Pulumi.CustomResource
     {
         /// <summary>

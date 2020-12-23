@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Greengrass
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Greengrass:ConnectorDefinition")]
     public partial class ConnectorDefinition : Pulumi.CustomResource
     {
         /// <summary>

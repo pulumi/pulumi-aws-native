@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DMS:ReplicationInstance")]
     public partial class ReplicationInstance : Pulumi.CustomResource
     {
         /// <summary>

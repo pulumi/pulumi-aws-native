@@ -39,6 +39,12 @@ namespace Pulumi.Cloudformation.Athena.Inputs
         [Input("QueryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+        /// </summary>
+        [Input("WorkGroup")]
+        public Input<string>? WorkGroup { get; set; }
+
         public NamedQueryPropertiesArgs()
         {
         }

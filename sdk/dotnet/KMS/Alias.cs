@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.KMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:KMS:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>

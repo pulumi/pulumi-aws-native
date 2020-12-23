@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:LaunchRoleConstraint")]
     public partial class LaunchRoleConstraint : Pulumi.CustomResource
     {
         /// <summary>

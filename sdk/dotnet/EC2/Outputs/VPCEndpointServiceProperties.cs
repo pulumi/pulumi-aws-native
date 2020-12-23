@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly bool? AcceptanceRequired;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
+        /// </summary>
+        public readonly ImmutableArray<string> GatewayLoadBalancerArns;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
         /// </summary>
         public readonly ImmutableArray<string> NetworkLoadBalancerArns;
@@ -26,9 +30,12 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         private VPCEndpointServiceProperties(
             bool? AcceptanceRequired,
 
+            ImmutableArray<string> GatewayLoadBalancerArns,
+
             ImmutableArray<string> NetworkLoadBalancerArns)
         {
             this.AcceptanceRequired = AcceptanceRequired;
+            this.GatewayLoadBalancerArns = GatewayLoadBalancerArns;
             this.NetworkLoadBalancerArns = NetworkLoadBalancerArns;
         }
     }

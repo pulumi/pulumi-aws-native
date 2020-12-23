@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Configuration:ConformancePack")]
     public partial class ConformancePack : Pulumi.CustomResource
     {
         /// <summary>

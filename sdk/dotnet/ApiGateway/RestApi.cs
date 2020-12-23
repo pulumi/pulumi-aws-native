@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:RestApi")]
     public partial class RestApi : Pulumi.CustomResource
     {
         /// <summary>

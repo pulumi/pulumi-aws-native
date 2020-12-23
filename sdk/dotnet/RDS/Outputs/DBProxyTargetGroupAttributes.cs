@@ -14,16 +14,11 @@ namespace Pulumi.Cloudformation.RDS.Outputs
     public sealed class DBProxyTargetGroupAttributes
     {
         public readonly string TargetGroupArn;
-        public readonly string TargetGroupName;
 
         [OutputConstructor]
-        private DBProxyTargetGroupAttributes(
-            string TargetGroupArn,
-
-            string TargetGroupName)
+        private DBProxyTargetGroupAttributes(string TargetGroupArn)
         {
             this.TargetGroupArn = TargetGroupArn;
-            this.TargetGroupName = TargetGroupName;
         }
     }
 }

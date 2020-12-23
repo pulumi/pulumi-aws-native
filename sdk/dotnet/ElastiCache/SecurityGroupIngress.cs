@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElastiCache:SecurityGroupIngress")]
     public partial class SecurityGroupIngress : Pulumi.CustomResource
     {
         /// <summary>

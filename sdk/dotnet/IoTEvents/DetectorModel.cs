@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoTEvents
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoTEvents:DetectorModel")]
     public partial class DetectorModel : Pulumi.CustomResource
     {
         /// <summary>

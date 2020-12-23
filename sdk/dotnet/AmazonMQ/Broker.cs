@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AmazonMQ
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AmazonMQ:Broker")]
     public partial class Broker : Pulumi.CustomResource
     {
         /// <summary>

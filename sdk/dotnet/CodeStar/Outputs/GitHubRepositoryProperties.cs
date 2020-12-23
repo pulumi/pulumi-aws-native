@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.CodeStar.Outputs
         /// </summary>
         public readonly Outputs.GitHubRepositoryCode? Code;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+        /// </summary>
+        public readonly string? ConnectionArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
         /// </summary>
         public readonly bool? EnableIssues;
@@ -28,7 +32,7 @@ namespace Pulumi.Cloudformation.CodeStar.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
         /// </summary>
-        public readonly string RepositoryAccessToken;
+        public readonly string? RepositoryAccessToken;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositorydescription
         /// </summary>
@@ -46,11 +50,13 @@ namespace Pulumi.Cloudformation.CodeStar.Outputs
         private GitHubRepositoryProperties(
             Outputs.GitHubRepositoryCode? Code,
 
+            string? ConnectionArn,
+
             bool? EnableIssues,
 
             bool? IsPrivate,
 
-            string RepositoryAccessToken,
+            string? RepositoryAccessToken,
 
             string? RepositoryDescription,
 
@@ -59,6 +65,7 @@ namespace Pulumi.Cloudformation.CodeStar.Outputs
             string RepositoryOwner)
         {
             this.Code = Code;
+            this.ConnectionArn = ConnectionArn;
             this.EnableIssues = EnableIssues;
             this.IsPrivate = IsPrivate;
             this.RepositoryAccessToken = RepositoryAccessToken;

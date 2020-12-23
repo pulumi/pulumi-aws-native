@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DocDB
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DocDB:DBCluster")]
     public partial class DBCluster : Pulumi.CustomResource
     {
         /// <summary>

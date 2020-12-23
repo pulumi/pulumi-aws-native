@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ACMPCA
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ACMPCA:CertificateAuthority")]
     public partial class CertificateAuthority : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT:ProvisioningTemplate")]
     public partial class ProvisioningTemplate : Pulumi.CustomResource
     {
         /// <summary>

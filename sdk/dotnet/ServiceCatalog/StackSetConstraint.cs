@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:StackSetConstraint")]
     public partial class StackSetConstraint : Pulumi.CustomResource
     {
         /// <summary>

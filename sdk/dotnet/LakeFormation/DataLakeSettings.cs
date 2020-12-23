@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.LakeFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:LakeFormation:DataLakeSettings")]
     public partial class DataLakeSettings : Pulumi.CustomResource
     {
         /// <summary>

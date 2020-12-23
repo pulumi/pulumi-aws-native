@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ECS:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

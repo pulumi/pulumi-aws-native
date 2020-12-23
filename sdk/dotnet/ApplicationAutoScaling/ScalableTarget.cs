@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApplicationAutoScaling
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApplicationAutoScaling:ScalableTarget")]
     public partial class ScalableTarget : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.PinpointEmail
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:PinpointEmail:DedicatedIpPool")]
     public partial class DedicatedIpPool : Pulumi.CustomResource
     {
         /// <summary>

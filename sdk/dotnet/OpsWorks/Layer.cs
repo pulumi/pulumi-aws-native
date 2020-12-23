@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.OpsWorks
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:OpsWorks:Layer")]
     public partial class Layer : Pulumi.CustomResource
     {
         /// <summary>

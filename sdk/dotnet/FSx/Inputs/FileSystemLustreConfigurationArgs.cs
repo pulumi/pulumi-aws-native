@@ -16,10 +16,40 @@ namespace Pulumi.Cloudformation.FSx.Inputs
     public sealed class FileSystemLustreConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+        /// </summary>
+        [Input("AutoImportPolicy")]
+        public Input<string>? AutoImportPolicy { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+        /// </summary>
+        [Input("AutomaticBackupRetentionDays")]
+        public Input<int>? AutomaticBackupRetentionDays { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+        /// </summary>
+        [Input("CopyTagsToBackups")]
+        public Input<bool>? CopyTagsToBackups { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+        /// </summary>
+        [Input("DailyAutomaticBackupStartTime")]
+        public Input<string>? DailyAutomaticBackupStartTime { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
         /// </summary>
         [Input("DeploymentType")]
         public Input<string>? DeploymentType { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+        /// </summary>
+        [Input("DriveCacheType")]
+        public Input<string>? DriveCacheType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath

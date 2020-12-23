@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
         /// </summary>
         public readonly bool? BadgeEnabled;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+        /// </summary>
+        public readonly Outputs.ProjectProjectBuildBatchConfig? BuildBatchConfig;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
         /// </summary>
         public readonly Outputs.ProjectProjectCache? Cache;
@@ -100,6 +104,8 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
 
             bool? BadgeEnabled,
 
+            Outputs.ProjectProjectBuildBatchConfig? BuildBatchConfig,
+
             Outputs.ProjectProjectCache? Cache,
 
             string? Description,
@@ -138,6 +144,7 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
         {
             this.Artifacts = Artifacts;
             this.BadgeEnabled = BadgeEnabled;
+            this.BuildBatchConfig = BuildBatchConfig;
             this.Cache = Cache;
             this.Description = Description;
             this.EncryptionKey = EncryptionKey;

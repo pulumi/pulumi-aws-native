@@ -13,9 +13,12 @@ namespace Pulumi.Cloudformation.ECS.Outputs
     [OutputType]
     public sealed class TaskDefinitionAttributes
     {
+        public readonly string TaskDefinitionArn;
+
         [OutputConstructor]
-        private TaskDefinitionAttributes()
+        private TaskDefinitionAttributes(string TaskDefinitionArn)
         {
+            this.TaskDefinitionArn = TaskDefinitionArn;
         }
     }
 }

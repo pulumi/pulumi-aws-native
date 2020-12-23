@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>

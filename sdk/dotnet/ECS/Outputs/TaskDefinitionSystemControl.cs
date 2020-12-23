@@ -16,17 +16,17 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
         /// </summary>
-        public readonly string Namespace;
+        public readonly string? Namespace;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private TaskDefinitionSystemControl(
-            string Namespace,
+            string? Namespace,
 
-            string Value)
+            string? Value)
         {
             this.Namespace = Namespace;
             this.Value = Value;

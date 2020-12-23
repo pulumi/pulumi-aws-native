@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.ECS.Outputs
     public sealed class ServiceDeploymentConfiguration
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
+        /// </summary>
+        public readonly Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
         /// </summary>
         public readonly int? MaximumPercent;
@@ -24,10 +28,13 @@ namespace Pulumi.Cloudformation.ECS.Outputs
 
         [OutputConstructor]
         private ServiceDeploymentConfiguration(
+            Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker,
+
             int? MaximumPercent,
 
             int? MinimumHealthyPercent)
         {
+            this.DeploymentCircuitBreaker = DeploymentCircuitBreaker;
             this.MaximumPercent = MaximumPercent;
             this.MinimumHealthyPercent = MinimumHealthyPercent;
         }

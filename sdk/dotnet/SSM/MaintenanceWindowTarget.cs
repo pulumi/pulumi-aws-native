@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SSM:MaintenanceWindowTarget")]
     public partial class MaintenanceWindowTarget : Pulumi.CustomResource
     {
         /// <summary>

@@ -15,6 +15,18 @@ namespace Pulumi.Cloudformation.Backup.Inputs
     /// </summary>
     public sealed class BackupPlanBackupPlanResourceTypeArgs : Pulumi.ResourceArgs
     {
+        [Input("AdvancedBackupSettings")]
+        private InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>? _AdvancedBackupSettings;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+        /// </summary>
+        public InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs> AdvancedBackupSettings
+        {
+            get => _AdvancedBackupSettings ?? (_AdvancedBackupSettings = new InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>());
+            set => _AdvancedBackupSettings = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
         /// </summary>

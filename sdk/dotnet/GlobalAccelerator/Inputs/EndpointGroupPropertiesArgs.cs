@@ -63,6 +63,18 @@ namespace Pulumi.Cloudformation.GlobalAccelerator.Inputs
         [Input("ListenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
+        [Input("PortOverrides")]
+        private InputList<Inputs.EndpointGroupPortOverrideArgs>? _PortOverrides;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        /// </summary>
+        public InputList<Inputs.EndpointGroupPortOverrideArgs> PortOverrides
+        {
+            get => _PortOverrides ?? (_PortOverrides = new InputList<Inputs.EndpointGroupPortOverrideArgs>());
+            set => _PortOverrides = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
         /// </summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.LakeFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:LakeFormation:Permissions")]
     public partial class Permissions : Pulumi.CustomResource
     {
         /// <summary>

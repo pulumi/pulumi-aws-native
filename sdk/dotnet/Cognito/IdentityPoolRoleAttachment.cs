@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cognito
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cognito:IdentityPoolRoleAttachment")]
     public partial class IdentityPoolRoleAttachment : Pulumi.CustomResource
     {
         /// <summary>

@@ -58,6 +58,12 @@ namespace Pulumi.Cloudformation.AppStream.Inputs
         public Input<string>? FleetType { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+        /// </summary>
+        [Input("IamRoleArn")]
+        public Input<string>? IamRoleArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
         /// </summary>
         [Input("IdleDisconnectTimeoutInSeconds")]
@@ -92,6 +98,12 @@ namespace Pulumi.Cloudformation.AppStream.Inputs
         /// </summary>
         [Input("Name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+        /// </summary>
+        [Input("StreamView")]
+        public Input<string>? StreamView { get; set; }
 
         [Input("Tags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;

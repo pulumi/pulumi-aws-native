@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:GeoMatchSet")]
     public partial class GeoMatchSet : Pulumi.CustomResource
     {
         /// <summary>

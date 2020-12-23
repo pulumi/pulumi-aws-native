@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.OpsWorks
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:OpsWorks:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>

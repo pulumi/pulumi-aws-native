@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAF
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAF:ByteMatchSet")]
     public partial class ByteMatchSet : Pulumi.CustomResource
     {
         /// <summary>

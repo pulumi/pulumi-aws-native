@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
     public sealed class LaunchTemplateNetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+        /// </summary>
+        [Input("AssociateCarrierIpAddress")]
+        public Input<bool>? AssociateCarrierIpAddress { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
         /// </summary>
         [Input("AssociatePublicIpAddress")]
@@ -74,6 +80,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
             get => _Ipv6Addresses ?? (_Ipv6Addresses = new InputList<Inputs.LaunchTemplateIpv6AddArgs>());
             set => _Ipv6Addresses = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+        /// </summary>
+        [Input("NetworkCardIndex")]
+        public Input<int>? NetworkCardIndex { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid

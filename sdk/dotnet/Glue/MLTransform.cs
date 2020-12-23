@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:MLTransform")]
     public partial class MLTransform : Pulumi.CustomResource
     {
         /// <summary>

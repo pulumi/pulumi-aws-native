@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DLM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DLM:LifecyclePolicy")]
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
         /// <summary>

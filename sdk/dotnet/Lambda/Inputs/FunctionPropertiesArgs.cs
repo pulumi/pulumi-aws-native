@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         public Input<Inputs.FunctionCodeArgs> Code { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+        /// </summary>
+        [Input("CodeSigningConfigArn")]
+        public Input<string>? CodeSigningConfigArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
         /// </summary>
         [Input("DeadLetterConfig")]
@@ -39,6 +45,18 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         [Input("Environment")]
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
 
+        [Input("FileSystemConfigs")]
+        private InputList<Inputs.FunctionFileSystemConfigArgs>? _FileSystemConfigs;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+        /// </summary>
+        public InputList<Inputs.FunctionFileSystemConfigArgs> FileSystemConfigs
+        {
+            get => _FileSystemConfigs ?? (_FileSystemConfigs = new InputList<Inputs.FunctionFileSystemConfigArgs>());
+            set => _FileSystemConfigs = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
         /// </summary>
@@ -48,8 +66,14 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
         /// </summary>
-        [Input("Handler", required: true)]
-        public Input<string> Handler { get; set; } = null!;
+        [Input("Handler")]
+        public Input<string>? Handler { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+        /// </summary>
+        [Input("ImageConfig")]
+        public Input<Inputs.FunctionImageConfigArgs>? ImageConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
@@ -76,6 +100,12 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         public Input<int>? MemorySize { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+        /// </summary>
+        [Input("PackageType")]
+        public Input<string>? PackageType { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
         /// </summary>
         [Input("ReservedConcurrentExecutions")]
@@ -90,8 +120,8 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
         /// </summary>
-        [Input("Runtime", required: true)]
-        public Input<string> Runtime { get; set; } = null!;
+        [Input("Runtime")]
+        public Input<string>? Runtime { get; set; }
 
         [Input("Tags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;

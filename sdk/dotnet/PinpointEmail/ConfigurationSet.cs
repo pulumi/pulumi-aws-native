@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.PinpointEmail
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:PinpointEmail:ConfigurationSet")]
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
         /// <summary>

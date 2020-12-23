@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudWatch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudWatch:Alarm")]
     public partial class Alarm : Pulumi.CustomResource
     {
         /// <summary>

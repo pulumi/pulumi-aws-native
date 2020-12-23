@@ -14,6 +14,14 @@ namespace Pulumi.Cloudformation.DLM.Outputs
     public sealed class LifecyclePolicyPolicyDetails
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LifecyclePolicyAction> Actions;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
+        /// </summary>
+        public readonly Outputs.LifecyclePolicyEventSource? EventSource;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
         /// </summary>
         public readonly Outputs.LifecyclePolicyParameters? Parameters;
@@ -36,6 +44,10 @@ namespace Pulumi.Cloudformation.DLM.Outputs
 
         [OutputConstructor]
         private LifecyclePolicyPolicyDetails(
+            ImmutableArray<Outputs.LifecyclePolicyAction> Actions,
+
+            Outputs.LifecyclePolicyEventSource? EventSource,
+
             Outputs.LifecyclePolicyParameters? Parameters,
 
             string? PolicyType,
@@ -46,6 +58,8 @@ namespace Pulumi.Cloudformation.DLM.Outputs
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TargetTags)
         {
+            this.Actions = Actions;
+            this.EventSource = EventSource;
             this.Parameters = Parameters;
             this.PolicyType = PolicyType;
             this.ResourceTypes = ResourceTypes;

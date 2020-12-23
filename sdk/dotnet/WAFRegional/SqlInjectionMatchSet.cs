@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:SqlInjectionMatchSet")]
     public partial class SqlInjectionMatchSet : Pulumi.CustomResource
     {
         /// <summary>

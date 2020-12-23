@@ -34,6 +34,12 @@ namespace Pulumi.Cloudformation.AutoScaling.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-capacityrebalance
+        /// </summary>
+        [Input("CapacityRebalance")]
+        public Input<bool>? CapacityRebalance { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
         /// </summary>
         [Input("Cooldown")]
@@ -134,6 +140,12 @@ namespace Pulumi.Cloudformation.AutoScaling.Inputs
         /// </summary>
         [Input("MixedInstancesPolicy")]
         public Input<Inputs.AutoScalingGroupMixedInstancesPolicyArgs>? MixedInstancesPolicy { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein
+        /// </summary>
+        [Input("NewInstancesProtectedFromScaleIn")]
+        public Input<bool>? NewInstancesProtectedFromScaleIn { get; set; }
 
         [Input("NotificationConfigurations")]
         private InputList<Inputs.AutoScalingGroupNotificationConfigurationArgs>? _NotificationConfigurations;

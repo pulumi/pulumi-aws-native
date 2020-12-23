@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

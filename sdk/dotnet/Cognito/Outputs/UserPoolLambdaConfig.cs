@@ -18,13 +18,25 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
         /// </summary>
         public readonly string? CreateAuthChallenge;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
+        /// </summary>
+        public readonly Outputs.UserPoolCustomEmailSender? CustomEmailSender;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
         /// </summary>
         public readonly string? CustomMessage;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
+        /// </summary>
+        public readonly Outputs.UserPoolCustomSMSSender? CustomSMSSender;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
         /// </summary>
         public readonly string? DefineAuthChallenge;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
+        /// </summary>
+        public readonly string? KMSKeyID;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-postauthentication
         /// </summary>
@@ -58,9 +70,15 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
         private UserPoolLambdaConfig(
             string? CreateAuthChallenge,
 
+            Outputs.UserPoolCustomEmailSender? CustomEmailSender,
+
             string? CustomMessage,
 
+            Outputs.UserPoolCustomSMSSender? CustomSMSSender,
+
             string? DefineAuthChallenge,
+
+            string? KMSKeyID,
 
             string? PostAuthentication,
 
@@ -77,8 +95,11 @@ namespace Pulumi.Cloudformation.Cognito.Outputs
             string? VerifyAuthChallengeResponse)
         {
             this.CreateAuthChallenge = CreateAuthChallenge;
+            this.CustomEmailSender = CustomEmailSender;
             this.CustomMessage = CustomMessage;
+            this.CustomSMSSender = CustomSMSSender;
             this.DefineAuthChallenge = DefineAuthChallenge;
+            this.KMSKeyID = KMSKeyID;
             this.PostAuthentication = PostAuthentication;
             this.PostConfirmation = PostConfirmation;
             this.PreAuthentication = PreAuthentication;

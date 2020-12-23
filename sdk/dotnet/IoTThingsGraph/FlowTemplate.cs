@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoTThingsGraph
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoTThingsGraph:FlowTemplate")]
     public partial class FlowTemplate : Pulumi.CustomResource
     {
         /// <summary>

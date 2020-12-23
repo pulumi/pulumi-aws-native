@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Backup
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Backup:BackupSelection")]
     public partial class BackupSelection : Pulumi.CustomResource
     {
         /// <summary>

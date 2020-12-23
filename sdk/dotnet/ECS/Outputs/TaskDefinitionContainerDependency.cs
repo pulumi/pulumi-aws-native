@@ -16,17 +16,17 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
         /// </summary>
-        public readonly string Condition;
+        public readonly string? Condition;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
         /// </summary>
-        public readonly string ContainerName;
+        public readonly string? ContainerName;
 
         [OutputConstructor]
         private TaskDefinitionContainerDependency(
-            string Condition,
+            string? Condition,
 
-            string ContainerName)
+            string? ContainerName)
         {
             this.Condition = Condition;
             this.ContainerName = ContainerName;

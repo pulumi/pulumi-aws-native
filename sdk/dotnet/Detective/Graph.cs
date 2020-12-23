@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Detective
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Detective:Graph")]
     public partial class Graph : Pulumi.CustomResource
     {
         /// <summary>

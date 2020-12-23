@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.Configuration.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
         /// </summary>
-        public readonly string DeliveryS3Bucket;
+        public readonly string? DeliveryS3Bucket;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.Configuration.Outputs
 
             string ConformancePackName,
 
-            string DeliveryS3Bucket,
+            string? DeliveryS3Bucket,
 
             string? DeliveryS3KeyPrefix,
 

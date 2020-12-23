@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElasticLoadBalancingV2:TargetGroup")]
     public partial class TargetGroup : Pulumi.CustomResource
     {
         /// <summary>

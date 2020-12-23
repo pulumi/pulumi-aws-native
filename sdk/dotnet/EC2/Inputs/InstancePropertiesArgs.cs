@@ -94,6 +94,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+        /// </summary>
+        [Input("EnclaveOptions")]
+        public Input<Inputs.InstanceEnclaveOptionsArgs>? EnclaveOptions { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
         /// </summary>
         [Input("HibernationOptions")]

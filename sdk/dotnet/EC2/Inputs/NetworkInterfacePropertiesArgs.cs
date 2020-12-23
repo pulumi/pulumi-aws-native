@@ -45,11 +45,17 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         [Input("Ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
+        [Input("Ipv6Addresses")]
+        private InputList<Inputs.NetworkInterfaceInstanceIpv6AddressArgs>? _Ipv6Addresses;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
         /// </summary>
-        [Input("Ipv6Addresses")]
-        public Input<Inputs.NetworkInterfaceInstanceIpv6AddressArgs>? Ipv6Addresses { get; set; }
+        public InputList<Inputs.NetworkInterfaceInstanceIpv6AddressArgs> Ipv6Addresses
+        {
+            get => _Ipv6Addresses ?? (_Ipv6Addresses = new InputList<Inputs.NetworkInterfaceInstanceIpv6AddressArgs>());
+            set => _Ipv6Addresses = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress

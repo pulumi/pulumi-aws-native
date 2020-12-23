@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.LakeFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:LakeFormation:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>

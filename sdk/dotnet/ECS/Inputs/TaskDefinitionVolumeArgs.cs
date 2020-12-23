@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.ECS.Inputs
         public Input<Inputs.TaskDefinitionDockerVolumeConfigurationArgs>? DockerVolumeConfiguration { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
+        /// </summary>
+        [Input("EFSVolumeConfiguration")]
+        public Input<Inputs.TaskDefinitionEFSVolumeConfigurationArgs>? EFSVolumeConfiguration { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
         /// </summary>
         [Input("Host")]

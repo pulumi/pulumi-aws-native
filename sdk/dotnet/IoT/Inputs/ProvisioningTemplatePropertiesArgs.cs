@@ -39,17 +39,11 @@ namespace Pulumi.Cloudformation.IoT.Inputs
         [Input("ProvisioningRoleArn", required: true)]
         public Input<string> ProvisioningRoleArn { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<object>? _Tags;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
         /// </summary>
-        public InputList<object> Tags
-        {
-            get => _Tags ?? (_Tags = new InputList<object>());
-            set => _Tags = value;
-        }
+        [Input("Tags")]
+        public Input<Inputs.ProvisioningTemplateTagsArgs>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody

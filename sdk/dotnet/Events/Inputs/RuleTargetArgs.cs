@@ -28,6 +28,12 @@ namespace Pulumi.Cloudformation.Events.Inputs
         public Input<Inputs.RuleBatchParametersArgs>? BatchParameters { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
+        /// </summary>
+        [Input("DeadLetterConfig")]
+        public Input<Inputs.RuleDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
         /// </summary>
         [Input("EcsParameters")]
@@ -68,6 +74,18 @@ namespace Pulumi.Cloudformation.Events.Inputs
         /// </summary>
         [Input("KinesisParameters")]
         public Input<Inputs.RuleKinesisParametersArgs>? KinesisParameters { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+        /// </summary>
+        [Input("RedshiftDataParameters")]
+        public Input<Inputs.RuleRedshiftDataParametersArgs>? RedshiftDataParameters { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+        /// </summary>
+        [Input("RetryPolicy")]
+        public Input<Inputs.RuleRetryPolicyArgs>? RetryPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn

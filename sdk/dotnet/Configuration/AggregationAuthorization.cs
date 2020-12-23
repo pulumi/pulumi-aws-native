@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Configuration:AggregationAuthorization")]
     public partial class AggregationAuthorization : Pulumi.CustomResource
     {
         /// <summary>

@@ -11,15 +11,15 @@ namespace Pulumi.Cloudformation.StepFunctions.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup.html
+    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
     /// </summary>
     public sealed class StateMachineCloudWatchLogsLogGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup-loggrouparn
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
         /// </summary>
-        [Input("LogGroupArn", required: true)]
-        public Input<string> LogGroupArn { get; set; } = null!;
+        [Input("LogGroupArn")]
+        public Input<string>? LogGroupArn { get; set; }
 
         public StateMachineCloudWatchLogsLogGroupArgs()
         {

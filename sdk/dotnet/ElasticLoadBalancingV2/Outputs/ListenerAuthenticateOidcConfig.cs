@@ -48,7 +48,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessiontimeout
         /// </summary>
-        public readonly int? SessionTimeout;
+        public readonly string? SessionTimeout;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-tokenendpoint
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
 
             string? SessionCookieName,
 
-            int? SessionTimeout,
+            string? SessionTimeout,
 
             string TokenEndpoint,
 

@@ -15,6 +15,12 @@ namespace Pulumi.Cloudformation.Glue.Inputs
     /// </summary>
     public sealed class CrawlerS3TargetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+        /// </summary>
+        [Input("ConnectionName")]
+        public Input<string>? ConnectionName { get; set; }
+
         [Input("Exclusions")]
         private InputList<string>? _Exclusions;
 

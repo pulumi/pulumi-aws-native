@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppMesh
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppMesh:VirtualService")]
     public partial class VirtualService : Pulumi.CustomResource
     {
         /// <summary>

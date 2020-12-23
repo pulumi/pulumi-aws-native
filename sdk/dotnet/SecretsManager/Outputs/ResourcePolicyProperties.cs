@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.SecretsManager.Outputs
     public sealed class ResourcePolicyProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
+        /// </summary>
+        public readonly bool? BlockPublicPolicy;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string> ResourcePolicy;
@@ -24,10 +28,13 @@ namespace Pulumi.Cloudformation.SecretsManager.Outputs
 
         [OutputConstructor]
         private ResourcePolicyProperties(
+            bool? BlockPublicPolicy,
+
             Union<System.Text.Json.JsonElement, string> ResourcePolicy,
 
             string SecretId)
         {
+            this.BlockPublicPolicy = BlockPublicPolicy;
             this.ResourcePolicy = ResourcePolicy;
             this.SecretId = SecretId;
         }

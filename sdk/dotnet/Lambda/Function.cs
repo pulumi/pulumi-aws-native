@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Lambda:Function")]
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>

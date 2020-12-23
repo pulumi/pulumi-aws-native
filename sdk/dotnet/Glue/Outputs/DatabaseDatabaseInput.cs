@@ -29,6 +29,10 @@ namespace Pulumi.Cloudformation.Glue.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? Parameters;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+        /// </summary>
+        public readonly Outputs.DatabaseDatabaseIdentifier? TargetDatabase;
 
         [OutputConstructor]
         private DatabaseDatabaseInput(
@@ -38,12 +42,15 @@ namespace Pulumi.Cloudformation.Glue.Outputs
 
             string? Name,
 
-            Union<System.Text.Json.JsonElement, string>? Parameters)
+            Union<System.Text.Json.JsonElement, string>? Parameters,
+
+            Outputs.DatabaseDatabaseIdentifier? TargetDatabase)
         {
             this.Description = Description;
             this.LocationUri = LocationUri;
             this.Name = Name;
             this.Parameters = Parameters;
+            this.TargetDatabase = TargetDatabase;
         }
     }
 }

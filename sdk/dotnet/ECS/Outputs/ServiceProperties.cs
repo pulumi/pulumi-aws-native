@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.ECS.Outputs
     public sealed class ServiceProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> CapacityProviderStrategy;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
         /// </summary>
         public readonly string? Cluster;
@@ -74,6 +78,10 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// </summary>
         public readonly string? SchedulingStrategy;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
+        /// </summary>
+        public readonly string? ServiceArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
         /// </summary>
         public readonly string? ServiceName;
@@ -92,6 +100,8 @@ namespace Pulumi.Cloudformation.ECS.Outputs
 
         [OutputConstructor]
         private ServiceProperties(
+            ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> CapacityProviderStrategy,
+
             string? Cluster,
 
             Outputs.ServiceDeploymentConfiguration? DeploymentConfiguration,
@@ -122,6 +132,8 @@ namespace Pulumi.Cloudformation.ECS.Outputs
 
             string? SchedulingStrategy,
 
+            string? ServiceArn,
+
             string? ServiceName,
 
             ImmutableArray<Outputs.ServiceServiceRegistry> ServiceRegistries,
@@ -130,6 +142,7 @@ namespace Pulumi.Cloudformation.ECS.Outputs
 
             string? TaskDefinition)
         {
+            this.CapacityProviderStrategy = CapacityProviderStrategy;
             this.Cluster = Cluster;
             this.DeploymentConfiguration = DeploymentConfiguration;
             this.DeploymentController = DeploymentController;
@@ -145,6 +158,7 @@ namespace Pulumi.Cloudformation.ECS.Outputs
             this.PropagateTags = PropagateTags;
             this.Role = Role;
             this.SchedulingStrategy = SchedulingStrategy;
+            this.ServiceArn = ServiceArn;
             this.ServiceName = ServiceName;
             this.ServiceRegistries = ServiceRegistries;
             this.Tags = Tags;

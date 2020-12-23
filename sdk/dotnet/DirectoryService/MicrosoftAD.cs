@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DirectoryService
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DirectoryService:MicrosoftAD")]
     public partial class MicrosoftAD : Pulumi.CustomResource
     {
         /// <summary>

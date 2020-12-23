@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
     public sealed class ChannelInputAttachment
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-automaticinputfailoversettings
+        /// </summary>
+        public readonly Outputs.ChannelAutomaticInputFailoverSettings? AutomaticInputFailoverSettings;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputattachmentname
         /// </summary>
         public readonly string? InputAttachmentName;
@@ -28,12 +32,15 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
 
         [OutputConstructor]
         private ChannelInputAttachment(
+            Outputs.ChannelAutomaticInputFailoverSettings? AutomaticInputFailoverSettings,
+
             string? InputAttachmentName,
 
             string? InputId,
 
             Outputs.ChannelInputSettings? InputSettings)
         {
+            this.AutomaticInputFailoverSettings = AutomaticInputFailoverSettings;
             this.InputAttachmentName = InputAttachmentName;
             this.InputId = InputId;
             this.InputSettings = InputSettings;

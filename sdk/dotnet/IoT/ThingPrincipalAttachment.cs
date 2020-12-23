@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT:ThingPrincipalAttachment")]
     public partial class ThingPrincipalAttachment : Pulumi.CustomResource
     {
         /// <summary>

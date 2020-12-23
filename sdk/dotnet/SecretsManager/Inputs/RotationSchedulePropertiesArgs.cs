@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.SecretsManager.Inputs
     public sealed class RotationSchedulePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
+        /// </summary>
+        [Input("HostedRotationLambda")]
+        public Input<Inputs.RotationScheduleHostedRotationLambdaArgs>? HostedRotationLambda { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
         /// </summary>
         [Input("RotationLambdaARN")]

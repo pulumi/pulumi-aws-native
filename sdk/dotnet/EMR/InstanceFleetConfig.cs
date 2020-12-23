@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EMR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EMR:InstanceFleetConfig")]
     public partial class InstanceFleetConfig : Pulumi.CustomResource
     {
         /// <summary>

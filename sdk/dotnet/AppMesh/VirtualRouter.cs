@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppMesh
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppMesh:VirtualRouter")]
     public partial class VirtualRouter : Pulumi.CustomResource
     {
         /// <summary>

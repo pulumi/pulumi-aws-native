@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Redshift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Redshift:ClusterSecurityGroupIngress")]
     public partial class ClusterSecurityGroupIngress : Pulumi.CustomResource
     {
         /// <summary>

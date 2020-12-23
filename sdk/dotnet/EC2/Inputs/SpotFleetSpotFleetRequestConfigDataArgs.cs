@@ -39,6 +39,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         [Input("InstanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+        /// </summary>
+        [Input("InstancePoolsToUseCount")]
+        public Input<int>? InstancePoolsToUseCount { get; set; }
+
         [Input("LaunchSpecifications")]
         private InputList<Inputs.SpotFleetSpotFleetLaunchSpecificationArgs>? _LaunchSpecifications;
 
@@ -70,10 +76,40 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         public Input<Inputs.SpotFleetLoadBalancersConfigArgs>? LoadBalancersConfig { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+        /// </summary>
+        [Input("OnDemandAllocationStrategy")]
+        public Input<string>? OnDemandAllocationStrategy { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+        /// </summary>
+        [Input("OnDemandMaxTotalPrice")]
+        public Input<string>? OnDemandMaxTotalPrice { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+        /// </summary>
+        [Input("OnDemandTargetCapacity")]
+        public Input<int>? OnDemandTargetCapacity { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
         /// </summary>
         [Input("ReplaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+        /// </summary>
+        [Input("SpotMaintenanceStrategies")]
+        public Input<Inputs.SpotFleetSpotMaintenanceStrategiesArgs>? SpotMaintenanceStrategies { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+        /// </summary>
+        [Input("SpotMaxTotalPrice")]
+        public Input<string>? SpotMaxTotalPrice { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice

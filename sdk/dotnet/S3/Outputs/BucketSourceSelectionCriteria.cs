@@ -14,13 +14,21 @@ namespace Pulumi.Cloudformation.S3.Outputs
     public sealed class BucketSourceSelectionCriteria
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+        /// </summary>
+        public readonly Outputs.BucketReplicaModifications? ReplicaModifications;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
         /// </summary>
-        public readonly Outputs.BucketSseKmsEncryptedObjects SseKmsEncryptedObjects;
+        public readonly Outputs.BucketSseKmsEncryptedObjects? SseKmsEncryptedObjects;
 
         [OutputConstructor]
-        private BucketSourceSelectionCriteria(Outputs.BucketSseKmsEncryptedObjects SseKmsEncryptedObjects)
+        private BucketSourceSelectionCriteria(
+            Outputs.BucketReplicaModifications? ReplicaModifications,
+
+            Outputs.BucketSseKmsEncryptedObjects? SseKmsEncryptedObjects)
         {
+            this.ReplicaModifications = ReplicaModifications;
             this.SseKmsEncryptedObjects = SseKmsEncryptedObjects;
         }
     }

@@ -17,11 +17,19 @@ namespace Pulumi.Cloudformation.WAFv2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
         /// </summary>
         public readonly ImmutableArray<string> CountryCodes;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+        /// </summary>
+        public readonly Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig;
 
         [OutputConstructor]
-        private WebACLGeoMatchStatement(ImmutableArray<string> CountryCodes)
+        private WebACLGeoMatchStatement(
+            ImmutableArray<string> CountryCodes,
+
+            Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig)
         {
             this.CountryCodes = CountryCodes;
+            this.ForwardedIPConfig = ForwardedIPConfig;
         }
     }
 }

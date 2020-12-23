@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.Events.Outputs
         /// </summary>
         public readonly Outputs.RuleBatchParameters? BatchParameters;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
+        /// </summary>
+        public readonly Outputs.RuleDeadLetterConfig? DeadLetterConfig;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
         /// </summary>
         public readonly Outputs.RuleEcsParameters? EcsParameters;
@@ -50,6 +54,14 @@ namespace Pulumi.Cloudformation.Events.Outputs
         /// </summary>
         public readonly Outputs.RuleKinesisParameters? KinesisParameters;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+        /// </summary>
+        public readonly Outputs.RuleRedshiftDataParameters? RedshiftDataParameters;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+        /// </summary>
+        public readonly Outputs.RuleRetryPolicy? RetryPolicy;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
         /// </summary>
         public readonly string? RoleArn;
@@ -68,6 +80,8 @@ namespace Pulumi.Cloudformation.Events.Outputs
 
             Outputs.RuleBatchParameters? BatchParameters,
 
+            Outputs.RuleDeadLetterConfig? DeadLetterConfig,
+
             Outputs.RuleEcsParameters? EcsParameters,
 
             Outputs.RuleHttpParameters? HttpParameters,
@@ -82,6 +96,10 @@ namespace Pulumi.Cloudformation.Events.Outputs
 
             Outputs.RuleKinesisParameters? KinesisParameters,
 
+            Outputs.RuleRedshiftDataParameters? RedshiftDataParameters,
+
+            Outputs.RuleRetryPolicy? RetryPolicy,
+
             string? RoleArn,
 
             Outputs.RuleRunCommandParameters? RunCommandParameters,
@@ -90,6 +108,7 @@ namespace Pulumi.Cloudformation.Events.Outputs
         {
             this.Arn = Arn;
             this.BatchParameters = BatchParameters;
+            this.DeadLetterConfig = DeadLetterConfig;
             this.EcsParameters = EcsParameters;
             this.HttpParameters = HttpParameters;
             this.Id = Id;
@@ -97,6 +116,8 @@ namespace Pulumi.Cloudformation.Events.Outputs
             this.InputPath = InputPath;
             this.InputTransformer = InputTransformer;
             this.KinesisParameters = KinesisParameters;
+            this.RedshiftDataParameters = RedshiftDataParameters;
+            this.RetryPolicy = RetryPolicy;
             this.RoleArn = RoleArn;
             this.RunCommandParameters = RunCommandParameters;
             this.SqsParameters = SqsParameters;

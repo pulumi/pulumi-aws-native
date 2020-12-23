@@ -19,7 +19,7 @@ namespace Pulumi.Cloudformation.Route53.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
         /// </summary>
         [Input("HealthCheckConfig", required: true)]
-        public Input<Inputs.HealthCheckHealthCheckConfigArgs> HealthCheckConfig { get; set; } = null!;
+        public InputUnion<System.Text.Json.JsonElement, string> HealthCheckConfig { get; set; } = null!;
 
         [Input("HealthCheckTags")]
         private InputList<Inputs.HealthCheckHealthCheckTagArgs>? _HealthCheckTags;

@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
     public sealed class FunctionCodeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+        /// </summary>
+        [Input("ImageUri")]
+        public Input<string>? ImageUri { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
         /// </summary>
         [Input("S3Bucket")]

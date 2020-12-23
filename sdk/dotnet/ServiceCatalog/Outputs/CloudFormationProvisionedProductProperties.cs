@@ -26,6 +26,10 @@ namespace Pulumi.Cloudformation.ServiceCatalog.Outputs
         /// </summary>
         public readonly string? PathId;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+        /// </summary>
+        public readonly string? PathName;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
         /// </summary>
         public readonly string? ProductId;
@@ -66,6 +70,8 @@ namespace Pulumi.Cloudformation.ServiceCatalog.Outputs
 
             string? PathId,
 
+            string? PathName,
+
             string? ProductId,
 
             string? ProductName,
@@ -85,6 +91,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog.Outputs
             this.AcceptLanguage = AcceptLanguage;
             this.NotificationArns = NotificationArns;
             this.PathId = PathId;
+            this.PathName = PathName;
             this.ProductId = ProductId;
             this.ProductName = ProductName;
             this.ProvisionedProductName = ProvisionedProductName;

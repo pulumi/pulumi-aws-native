@@ -39,6 +39,18 @@ namespace Pulumi.Cloudformation.DLM.Inputs
         [Input("State")]
         public Input<string>? State { get; set; }
 
+        [Input("Tags")]
+        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-tags
+        /// </summary>
+        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
+
         public LifecyclePolicyPropertiesArgs()
         {
         }

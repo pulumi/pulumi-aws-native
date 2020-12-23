@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudFormation:Stack")]
     public partial class Stack : Pulumi.CustomResource
     {
         /// <summary>

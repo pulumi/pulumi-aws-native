@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.QLDB
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:QLDB:Ledger")]
     public partial class Ledger : Pulumi.CustomResource
     {
         /// <summary>

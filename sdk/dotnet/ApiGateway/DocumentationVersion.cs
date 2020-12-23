@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:DocumentationVersion")]
     public partial class DocumentationVersion : Pulumi.CustomResource
     {
         /// <summary>

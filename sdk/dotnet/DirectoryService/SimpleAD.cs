@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DirectoryService
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DirectoryService:SimpleAD")]
     public partial class SimpleAD : Pulumi.CustomResource
     {
         /// <summary>

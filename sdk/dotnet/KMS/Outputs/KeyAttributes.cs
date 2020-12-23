@@ -14,11 +14,16 @@ namespace Pulumi.Cloudformation.KMS.Outputs
     public sealed class KeyAttributes
     {
         public readonly string Arn;
+        public readonly string KeyId;
 
         [OutputConstructor]
-        private KeyAttributes(string Arn)
+        private KeyAttributes(
+            string Arn,
+
+            string KeyId)
         {
             this.Arn = Arn;
+            this.KeyId = KeyId;
         }
     }
 }

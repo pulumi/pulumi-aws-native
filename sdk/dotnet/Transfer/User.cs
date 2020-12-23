@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Transfer
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Transfer:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

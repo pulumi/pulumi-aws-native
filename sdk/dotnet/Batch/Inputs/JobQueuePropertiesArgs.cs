@@ -45,6 +45,12 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         [Input("State")]
         public Input<string>? State { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-tags
+        /// </summary>
+        [Input("Tags")]
+        public InputUnion<System.Text.Json.JsonElement, string>? Tags { get; set; }
+
         public JobQueuePropertiesArgs()
         {
         }

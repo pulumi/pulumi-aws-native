@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DynamoDB
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DynamoDB:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>

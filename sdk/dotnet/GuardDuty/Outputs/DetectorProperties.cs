@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.GuardDuty.Outputs
     public sealed class DetectorProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+        /// </summary>
+        public readonly Outputs.DetectorCFNDataSourceConfigurations? DataSources;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
         /// </summary>
         public readonly bool Enable;
@@ -24,10 +28,13 @@ namespace Pulumi.Cloudformation.GuardDuty.Outputs
 
         [OutputConstructor]
         private DetectorProperties(
+            Outputs.DetectorCFNDataSourceConfigurations? DataSources,
+
             bool Enable,
 
             string? FindingPublishingFrequency)
         {
+            this.DataSources = DataSources;
             this.Enable = Enable;
             this.FindingPublishingFrequency = FindingPublishingFrequency;
         }

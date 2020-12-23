@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:GatewayResponse")]
     public partial class GatewayResponse : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Greengrass
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Greengrass:SubscriptionDefinition")]
     public partial class SubscriptionDefinition : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AccessAnalyzer
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AccessAnalyzer:Analyzer")]
     public partial class Analyzer : Pulumi.CustomResource
     {
         /// <summary>

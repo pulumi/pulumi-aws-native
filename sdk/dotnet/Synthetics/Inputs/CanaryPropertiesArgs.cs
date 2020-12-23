@@ -48,8 +48,8 @@ namespace Pulumi.Cloudformation.Synthetics.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
         /// </summary>
-        [Input("RunConfig", required: true)]
-        public Input<Inputs.CanaryRunConfigArgs> RunConfig { get; set; } = null!;
+        [Input("RunConfig")]
+        public Input<Inputs.CanaryRunConfigArgs>? RunConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion

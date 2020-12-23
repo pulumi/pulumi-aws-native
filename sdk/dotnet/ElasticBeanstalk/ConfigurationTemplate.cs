@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElasticBeanstalk
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElasticBeanstalk:ConfigurationTemplate")]
     public partial class ConfigurationTemplate : Pulumi.CustomResource
     {
         /// <summary>

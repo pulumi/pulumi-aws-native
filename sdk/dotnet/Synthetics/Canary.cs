@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Synthetics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Synthetics:Canary")]
     public partial class Canary : Pulumi.CustomResource
     {
         /// <summary>

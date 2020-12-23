@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GlobalAccelerator
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GlobalAccelerator:Accelerator")]
     public partial class Accelerator : Pulumi.CustomResource
     {
         /// <summary>

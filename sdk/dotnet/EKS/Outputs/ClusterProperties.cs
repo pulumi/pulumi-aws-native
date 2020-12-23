@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.EKS.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterEncryptionConfig> EncryptionConfig;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+        /// </summary>
+        public readonly Outputs.ClusterKubernetesNetworkConfig? KubernetesNetworkConfig;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
         /// </summary>
         public readonly string? Name;
@@ -38,6 +42,8 @@ namespace Pulumi.Cloudformation.EKS.Outputs
         private ClusterProperties(
             ImmutableArray<Outputs.ClusterEncryptionConfig> EncryptionConfig,
 
+            Outputs.ClusterKubernetesNetworkConfig? KubernetesNetworkConfig,
+
             string? Name,
 
             Outputs.ClusterResourcesVpcConfig ResourcesVpcConfig,
@@ -47,6 +53,7 @@ namespace Pulumi.Cloudformation.EKS.Outputs
             string? Version)
         {
             this.EncryptionConfig = EncryptionConfig;
+            this.KubernetesNetworkConfig = KubernetesNetworkConfig;
             this.Name = Name;
             this.ResourcesVpcConfig = ResourcesVpcConfig;
             this.RoleArn = RoleArn;

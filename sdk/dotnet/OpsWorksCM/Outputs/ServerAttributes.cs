@@ -15,15 +15,19 @@ namespace Pulumi.Cloudformation.OpsWorksCM.Outputs
     {
         public readonly string Arn;
         public readonly string Endpoint;
+        public readonly string Id;
 
         [OutputConstructor]
         private ServerAttributes(
             string Arn,
 
-            string Endpoint)
+            string Endpoint,
+
+            string Id)
         {
             this.Arn = Arn;
             this.Endpoint = Endpoint;
+            this.Id = Id;
         }
     }
 }

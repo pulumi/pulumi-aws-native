@@ -38,6 +38,10 @@ namespace Pulumi.Cloudformation.DLM.Outputs
         /// </summary>
         public readonly Outputs.LifecyclePolicyRetainRule? RetainRule;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LifecyclePolicyShareRule> ShareRules;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
         /// </summary>
         public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagsToAdd;
@@ -60,6 +64,8 @@ namespace Pulumi.Cloudformation.DLM.Outputs
 
             Outputs.LifecyclePolicyRetainRule? RetainRule,
 
+            ImmutableArray<Outputs.LifecyclePolicyShareRule> ShareRules,
+
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagsToAdd,
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> VariableTags)
@@ -70,6 +76,7 @@ namespace Pulumi.Cloudformation.DLM.Outputs
             this.FastRestoreRule = FastRestoreRule;
             this.Name = Name;
             this.RetainRule = RetainRule;
+            this.ShareRules = ShareRules;
             this.TagsToAdd = TagsToAdd;
             this.VariableTags = VariableTags;
         }

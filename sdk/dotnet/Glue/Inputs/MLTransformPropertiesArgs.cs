@@ -76,6 +76,12 @@ namespace Pulumi.Cloudformation.Glue.Inputs
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformencryption
+        /// </summary>
+        [Input("TransformEncryption")]
+        public Input<Inputs.MLTransformTransformEncryptionArgs>? TransformEncryption { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformparameters
         /// </summary>
         [Input("TransformParameters", required: true)]

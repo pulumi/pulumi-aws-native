@@ -29,6 +29,10 @@ namespace Pulumi.Cloudformation.DLM.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-state
         /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-tags
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private LifecyclePolicyProperties(
@@ -38,12 +42,15 @@ namespace Pulumi.Cloudformation.DLM.Outputs
 
             Outputs.LifecyclePolicyPolicyDetails? PolicyDetails,
 
-            string? State)
+            string? State,
+
+            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
         {
             this.Description = Description;
             this.ExecutionRoleArn = ExecutionRoleArn;
             this.PolicyDetails = PolicyDetails;
             this.State = State;
+            this.Tags = Tags;
         }
     }
 }

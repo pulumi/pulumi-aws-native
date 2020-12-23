@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.LakeFormation.Inputs
     public sealed class PermissionsDataLocationResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+        /// </summary>
+        [Input("CatalogId")]
+        public Input<string>? CatalogId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
         /// </summary>
         [Input("S3Resource")]

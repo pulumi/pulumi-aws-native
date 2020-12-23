@@ -76,6 +76,12 @@ namespace Pulumi.Cloudformation.Glue.Inputs
         public InputUnion<System.Text.Json.JsonElement, string>? Parameters { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+        /// </summary>
+        [Input("SchemaReference")]
+        public Input<Inputs.PartitionSchemaReferenceArgs>? SchemaReference { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
         /// </summary>
         [Input("SerdeInfo")]

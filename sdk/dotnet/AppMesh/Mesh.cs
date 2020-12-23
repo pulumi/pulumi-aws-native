@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppMesh
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppMesh:Mesh")]
     public partial class Mesh : Pulumi.CustomResource
     {
         /// <summary>

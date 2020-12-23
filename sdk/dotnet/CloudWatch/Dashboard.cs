@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudWatch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudWatch:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>

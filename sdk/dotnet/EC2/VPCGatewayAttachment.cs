@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:VPCGatewayAttachment")]
     public partial class VPCGatewayAttachment : Pulumi.CustomResource
     {
         /// <summary>

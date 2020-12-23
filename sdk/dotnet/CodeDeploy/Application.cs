@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeDeploy
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeDeploy:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

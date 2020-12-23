@@ -38,6 +38,10 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
         /// </summary>
         public readonly string Platform;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedOsVersions;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -64,6 +68,8 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
 
             string Platform,
 
+            ImmutableArray<string> SupportedOsVersions,
+
             ImmutableDictionary<string, string>? Tags,
 
             string? Uri,
@@ -76,6 +82,7 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
             this.KmsKeyId = KmsKeyId;
             this.Name = Name;
             this.Platform = Platform;
+            this.SupportedOsVersions = SupportedOsVersions;
             this.Tags = Tags;
             this.Uri = Uri;
             this.Version = Version;

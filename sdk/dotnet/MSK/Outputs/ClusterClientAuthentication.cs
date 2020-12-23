@@ -14,13 +14,21 @@ namespace Pulumi.Cloudformation.MSK.Outputs
     public sealed class ClusterClientAuthentication
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
+        /// </summary>
+        public readonly Outputs.ClusterSasl? Sasl;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
         /// </summary>
         public readonly Outputs.ClusterTls? Tls;
 
         [OutputConstructor]
-        private ClusterClientAuthentication(Outputs.ClusterTls? Tls)
+        private ClusterClientAuthentication(
+            Outputs.ClusterSasl? Sasl,
+
+            Outputs.ClusterTls? Tls)
         {
+            this.Sasl = Sasl;
             this.Tls = Tls;
         }
     }

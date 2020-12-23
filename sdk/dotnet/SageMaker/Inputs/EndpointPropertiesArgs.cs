@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.SageMaker.Inputs
     public sealed class EndpointPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-deploymentconfig
+        /// </summary>
+        [Input("DeploymentConfig")]
+        public Input<Inputs.EndpointDeploymentConfigArgs>? DeploymentConfig { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointconfigname
         /// </summary>
         [Input("EndpointConfigName", required: true)]

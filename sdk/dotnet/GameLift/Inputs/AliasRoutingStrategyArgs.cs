@@ -30,8 +30,8 @@ namespace Pulumi.Cloudformation.GameLift.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
         /// </summary>
-        [Input("Type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("Type")]
+        public Input<string>? Type { get; set; }
 
         public AliasRoutingStrategyArgs()
         {

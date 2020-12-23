@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:RateBasedRule")]
     public partial class RateBasedRule : Pulumi.CustomResource
     {
         /// <summary>

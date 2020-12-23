@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>

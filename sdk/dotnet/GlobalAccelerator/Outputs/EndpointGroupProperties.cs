@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.GlobalAccelerator.Outputs
         /// </summary>
         public readonly string ListenerArn;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EndpointGroupPortOverride> PortOverrides;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
         /// </summary>
         public readonly int? ThresholdCount;
@@ -66,6 +70,8 @@ namespace Pulumi.Cloudformation.GlobalAccelerator.Outputs
 
             string ListenerArn,
 
+            ImmutableArray<Outputs.EndpointGroupPortOverride> PortOverrides,
+
             int? ThresholdCount,
 
             double? TrafficDialPercentage)
@@ -77,6 +83,7 @@ namespace Pulumi.Cloudformation.GlobalAccelerator.Outputs
             this.HealthCheckPort = HealthCheckPort;
             this.HealthCheckProtocol = HealthCheckProtocol;
             this.ListenerArn = ListenerArn;
+            this.PortOverrides = PortOverrides;
             this.ThresholdCount = ThresholdCount;
             this.TrafficDialPercentage = TrafficDialPercentage;
         }

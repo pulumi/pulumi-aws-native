@@ -33,6 +33,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Inputs
         [Input("EndpointType")]
         public Input<string>? EndpointType { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy
+        /// </summary>
+        [Input("SecurityPolicy")]
+        public Input<string>? SecurityPolicy { get; set; }
+
         public DomainNameDomainNameConfigurationArgs()
         {
         }

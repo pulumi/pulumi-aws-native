@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Budgets
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Budgets:Budget")]
     public partial class Budget : Pulumi.CustomResource
     {
         /// <summary>

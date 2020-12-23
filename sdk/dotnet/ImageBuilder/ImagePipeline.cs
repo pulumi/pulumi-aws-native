@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ImageBuilder:ImagePipeline")]
     public partial class ImagePipeline : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EFS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EFS:MountTarget")]
     public partial class MountTarget : Pulumi.CustomResource
     {
         /// <summary>

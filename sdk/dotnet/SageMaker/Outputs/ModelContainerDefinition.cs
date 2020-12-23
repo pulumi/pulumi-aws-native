@@ -26,6 +26,10 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
         /// </summary>
         public readonly string? Image;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-imageconfig
+        /// </summary>
+        public readonly Outputs.ModelImageConfig? ImageConfig;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
         /// </summary>
         public readonly string? Mode;
@@ -37,6 +41,10 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modelpackagename
         /// </summary>
         public readonly string? ModelPackageName;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-multimodelconfig
+        /// </summary>
+        public readonly Outputs.ModelMultiModelConfig? MultiModelConfig;
 
         [OutputConstructor]
         private ModelContainerDefinition(
@@ -46,18 +54,24 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
 
             string? Image,
 
+            Outputs.ModelImageConfig? ImageConfig,
+
             string? Mode,
 
             string? ModelDataUrl,
 
-            string? ModelPackageName)
+            string? ModelPackageName,
+
+            Outputs.ModelMultiModelConfig? MultiModelConfig)
         {
             this.ContainerHostname = ContainerHostname;
             this.Environment = Environment;
             this.Image = Image;
+            this.ImageConfig = ImageConfig;
             this.Mode = Mode;
             this.ModelDataUrl = ModelDataUrl;
             this.ModelPackageName = ModelPackageName;
+            this.MultiModelConfig = MultiModelConfig;
         }
     }
 }

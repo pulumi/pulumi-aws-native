@@ -82,6 +82,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+        /// </summary>
+        [Input("EnclaveOptions")]
+        public Input<Inputs.LaunchTemplateEnclaveOptionsArgs>? EnclaveOptions { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
         /// </summary>
         [Input("HibernationOptions")]

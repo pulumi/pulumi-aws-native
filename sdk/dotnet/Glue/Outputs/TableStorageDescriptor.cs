@@ -46,6 +46,10 @@ namespace Pulumi.Cloudformation.Glue.Outputs
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? Parameters;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+        /// </summary>
+        public readonly Outputs.TableSchemaReference? SchemaReference;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
         /// </summary>
         public readonly Outputs.TableSerdeInfo? SerdeInfo;
@@ -80,6 +84,8 @@ namespace Pulumi.Cloudformation.Glue.Outputs
 
             Union<System.Text.Json.JsonElement, string>? Parameters,
 
+            Outputs.TableSchemaReference? SchemaReference,
+
             Outputs.TableSerdeInfo? SerdeInfo,
 
             Outputs.TableSkewedInfo? SkewedInfo,
@@ -96,6 +102,7 @@ namespace Pulumi.Cloudformation.Glue.Outputs
             this.NumberOfBuckets = NumberOfBuckets;
             this.OutputFormat = OutputFormat;
             this.Parameters = Parameters;
+            this.SchemaReference = SchemaReference;
             this.SerdeInfo = SerdeInfo;
             this.SkewedInfo = SkewedInfo;
             this.SortColumns = SortColumns;

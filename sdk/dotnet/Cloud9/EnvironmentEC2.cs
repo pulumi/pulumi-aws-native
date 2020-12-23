@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cloud9
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cloud9:EnvironmentEC2")]
     public partial class EnvironmentEC2 : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.StepFunctions
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:StepFunctions:StateMachine")]
     public partial class StateMachine : Pulumi.CustomResource
     {
         /// <summary>

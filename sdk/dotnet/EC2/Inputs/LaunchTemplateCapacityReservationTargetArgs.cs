@@ -21,6 +21,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         [Input("CapacityReservationId")]
         public Input<string>? CapacityReservationId { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+        /// </summary>
+        [Input("CapacityReservationResourceGroupArn")]
+        public Input<string>? CapacityReservationResourceGroupArn { get; set; }
+
         public LaunchTemplateCapacityReservationTargetArgs()
         {
         }

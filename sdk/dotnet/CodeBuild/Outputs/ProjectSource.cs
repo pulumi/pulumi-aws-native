@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
         /// </summary>
         public readonly string? BuildSpec;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildstatusconfig
+        /// </summary>
+        public readonly Outputs.ProjectBuildStatusConfig? BuildStatusConfig;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
         /// </summary>
         public readonly int? GitCloneDepth;
@@ -56,6 +60,8 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
 
             string? BuildSpec,
 
+            Outputs.ProjectBuildStatusConfig? BuildStatusConfig,
+
             int? GitCloneDepth,
 
             Outputs.ProjectGitSubmodulesConfig? GitSubmodulesConfig,
@@ -72,6 +78,7 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
         {
             this.Auth = Auth;
             this.BuildSpec = BuildSpec;
+            this.BuildStatusConfig = BuildStatusConfig;
             this.GitCloneDepth = GitCloneDepth;
             this.GitSubmodulesConfig = GitSubmodulesConfig;
             this.InsecureSsl = InsecureSsl;

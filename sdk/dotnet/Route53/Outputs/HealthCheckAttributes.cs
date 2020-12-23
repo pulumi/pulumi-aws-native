@@ -13,9 +13,12 @@ namespace Pulumi.Cloudformation.Route53.Outputs
     [OutputType]
     public sealed class HealthCheckAttributes
     {
+        public readonly string HealthCheckId;
+
         [OutputConstructor]
-        private HealthCheckAttributes()
+        private HealthCheckAttributes(string HealthCheckId)
         {
+            this.HealthCheckId = HealthCheckId;
         }
     }
 }

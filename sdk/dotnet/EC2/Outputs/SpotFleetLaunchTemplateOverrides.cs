@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
+        /// </summary>
+        public readonly double? Priority;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
         /// </summary>
         public readonly string? SpotPrice;
@@ -40,6 +44,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? InstanceType,
 
+            double? Priority,
+
             string? SpotPrice,
 
             string? SubnetId,
@@ -48,6 +54,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         {
             this.AvailabilityZone = AvailabilityZone;
             this.InstanceType = InstanceType;
+            this.Priority = Priority;
             this.SpotPrice = SpotPrice;
             this.SubnetId = SubnetId;
             this.WeightedCapacity = WeightedCapacity;

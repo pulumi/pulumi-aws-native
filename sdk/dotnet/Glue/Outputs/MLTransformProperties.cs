@@ -54,6 +54,10 @@ namespace Pulumi.Cloudformation.Glue.Outputs
         /// </summary>
         public readonly int? Timeout;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformencryption
+        /// </summary>
+        public readonly Outputs.MLTransformTransformEncryption? TransformEncryption;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-transformparameters
         /// </summary>
         public readonly Outputs.MLTransformTransformParameters TransformParameters;
@@ -84,6 +88,8 @@ namespace Pulumi.Cloudformation.Glue.Outputs
 
             int? Timeout,
 
+            Outputs.MLTransformTransformEncryption? TransformEncryption,
+
             Outputs.MLTransformTransformParameters TransformParameters,
 
             string? WorkerType)
@@ -98,6 +104,7 @@ namespace Pulumi.Cloudformation.Glue.Outputs
             this.Role = Role;
             this.Tags = Tags;
             this.Timeout = Timeout;
+            this.TransformEncryption = TransformEncryption;
             this.TransformParameters = TransformParameters;
             this.WorkerType = WorkerType;
         }

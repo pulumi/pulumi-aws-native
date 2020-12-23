@@ -34,10 +34,22 @@ namespace Pulumi.Cloudformation.Elasticsearch.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+        /// </summary>
+        [Input("AdvancedSecurityOptions")]
+        public Input<Inputs.DomainAdvancedSecurityOptionsInputArgs>? AdvancedSecurityOptions { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
         /// </summary>
         [Input("CognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
+        /// </summary>
+        [Input("DomainEndpointOptions")]
+        public Input<Inputs.DomainDomainEndpointOptionsArgs>? DomainEndpointOptions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname

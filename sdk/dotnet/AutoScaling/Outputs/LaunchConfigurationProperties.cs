@@ -66,6 +66,10 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
         /// </summary>
         public readonly string? LaunchConfigurationName;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-metadataoptions
+        /// </summary>
+        public readonly Outputs.LaunchConfigurationMetadataOptions? MetadataOptions;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
         /// </summary>
         public readonly string? PlacementTenancy;
@@ -114,6 +118,8 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
 
             string? LaunchConfigurationName,
 
+            Outputs.LaunchConfigurationMetadataOptions? MetadataOptions,
+
             string? PlacementTenancy,
 
             string? RamDiskId,
@@ -137,6 +143,7 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
             this.KernelId = KernelId;
             this.KeyName = KeyName;
             this.LaunchConfigurationName = LaunchConfigurationName;
+            this.MetadataOptions = MetadataOptions;
             this.PlacementTenancy = PlacementTenancy;
             this.RamDiskId = RamDiskId;
             this.SecurityGroups = SecurityGroups;

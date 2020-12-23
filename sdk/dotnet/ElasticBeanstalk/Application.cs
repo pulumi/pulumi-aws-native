@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElasticBeanstalk
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElasticBeanstalk:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

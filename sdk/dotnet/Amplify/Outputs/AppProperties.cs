@@ -30,6 +30,10 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
         /// </summary>
         public readonly string? BuildSpec;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+        /// </summary>
+        public readonly string? CustomHeaders;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
         /// </summary>
         public readonly ImmutableArray<Outputs.AppCustomRule> CustomRules;
@@ -37,6 +41,10 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+        /// </summary>
+        public readonly bool? EnableBranchAutoDeletion;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
         /// </summary>
@@ -72,9 +80,13 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
 
             string? BuildSpec,
 
+            string? CustomHeaders,
+
             ImmutableArray<Outputs.AppCustomRule> CustomRules,
 
             string? Description,
+
+            bool? EnableBranchAutoDeletion,
 
             ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables,
 
@@ -92,8 +104,10 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
             this.AutoBranchCreationConfig = AutoBranchCreationConfig;
             this.BasicAuthConfig = BasicAuthConfig;
             this.BuildSpec = BuildSpec;
+            this.CustomHeaders = CustomHeaders;
             this.CustomRules = CustomRules;
             this.Description = Description;
+            this.EnableBranchAutoDeletion = EnableBranchAutoDeletion;
             this.EnvironmentVariables = EnvironmentVariables;
             this.IAMServiceRole = IAMServiceRole;
             this.Name = Name;

@@ -22,6 +22,14 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEnvironment> Environment;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn
+        /// </summary>
+        public readonly string? ExecutionRoleArn;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
+        /// </summary>
+        public readonly Outputs.JobDefinitionFargatePlatformConfiguration? FargatePlatformConfiguration;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
         /// </summary>
         public readonly string Image;
@@ -38,6 +46,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// </summary>
         public readonly Outputs.JobDefinitionLinuxParameters? LinuxParameters;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-logconfiguration
+        /// </summary>
+        public readonly Outputs.JobDefinitionLogConfiguration? LogConfiguration;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
         /// </summary>
         public readonly int? Memory;
@@ -45,6 +57,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionMountPoints> MountPoints;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration
+        /// </summary>
+        public readonly Outputs.JobDefinitionNetworkConfiguration? NetworkConfiguration;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged
         /// </summary>
@@ -57,6 +73,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionResourceRequirement> ResourceRequirements;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets
+        /// </summary>
+        public readonly ImmutableArray<Outputs.JobDefinitionSecret> Secrets;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
         /// </summary>
@@ -80,6 +100,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
 
             ImmutableArray<Outputs.JobDefinitionEnvironment> Environment,
 
+            string? ExecutionRoleArn,
+
+            Outputs.JobDefinitionFargatePlatformConfiguration? FargatePlatformConfiguration,
+
             string Image,
 
             string? InstanceType,
@@ -88,15 +112,21 @@ namespace Pulumi.Cloudformation.Batch.Outputs
 
             Outputs.JobDefinitionLinuxParameters? LinuxParameters,
 
+            Outputs.JobDefinitionLogConfiguration? LogConfiguration,
+
             int? Memory,
 
             ImmutableArray<Outputs.JobDefinitionMountPoints> MountPoints,
+
+            Outputs.JobDefinitionNetworkConfiguration? NetworkConfiguration,
 
             bool? Privileged,
 
             bool? ReadonlyRootFilesystem,
 
             ImmutableArray<Outputs.JobDefinitionResourceRequirement> ResourceRequirements,
+
+            ImmutableArray<Outputs.JobDefinitionSecret> Secrets,
 
             ImmutableArray<Outputs.JobDefinitionUlimit> Ulimits,
 
@@ -108,15 +138,20 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         {
             this.Command = Command;
             this.Environment = Environment;
+            this.ExecutionRoleArn = ExecutionRoleArn;
+            this.FargatePlatformConfiguration = FargatePlatformConfiguration;
             this.Image = Image;
             this.InstanceType = InstanceType;
             this.JobRoleArn = JobRoleArn;
             this.LinuxParameters = LinuxParameters;
+            this.LogConfiguration = LogConfiguration;
             this.Memory = Memory;
             this.MountPoints = MountPoints;
+            this.NetworkConfiguration = NetworkConfiguration;
             this.Privileged = Privileged;
             this.ReadonlyRootFilesystem = ReadonlyRootFilesystem;
             this.ResourceRequirements = ResourceRequirements;
+            this.Secrets = Secrets;
             this.Ulimits = Ulimits;
             this.User = User;
             this.Vcpus = Vcpus;

@@ -16,7 +16,7 @@ namespace Pulumi.Cloudformation.Events.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
         /// </summary>
-        public readonly string Action;
+        public readonly string? Action;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
         /// </summary>
@@ -28,7 +28,11 @@ namespace Pulumi.Cloudformation.Events.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
         /// </summary>
-        public readonly string Principal;
+        public readonly string? Principal;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement
+        /// </summary>
+        public readonly Union<System.Text.Json.JsonElement, string>? Statement;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
         /// </summary>
@@ -36,13 +40,15 @@ namespace Pulumi.Cloudformation.Events.Outputs
 
         [OutputConstructor]
         private EventBusPolicyProperties(
-            string Action,
+            string? Action,
 
             Outputs.EventBusPolicyCondition? Condition,
 
             string? EventBusName,
 
-            string Principal,
+            string? Principal,
+
+            Union<System.Text.Json.JsonElement, string>? Statement,
 
             string StatementId)
         {
@@ -50,6 +56,7 @@ namespace Pulumi.Cloudformation.Events.Outputs
             this.Condition = Condition;
             this.EventBusName = EventBusName;
             this.Principal = Principal;
+            this.Statement = Statement;
             this.StatementId = StatementId;
         }
     }

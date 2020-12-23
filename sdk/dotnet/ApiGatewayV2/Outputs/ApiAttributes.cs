@@ -13,9 +13,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
     [OutputType]
     public sealed class ApiAttributes
     {
+        public readonly string ApiEndpoint;
+
         [OutputConstructor]
-        private ApiAttributes()
+        private ApiAttributes(string ApiEndpoint)
         {
+            this.ApiEndpoint = ApiEndpoint;
         }
     }
 }

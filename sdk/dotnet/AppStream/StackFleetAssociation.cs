@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppStream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppStream:StackFleetAssociation")]
     public partial class StackFleetAssociation : Pulumi.CustomResource
     {
         /// <summary>

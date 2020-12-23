@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElastiCache:CacheCluster")]
     public partial class CacheCluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:WebACL")]
     public partial class WebACL : Pulumi.CustomResource
     {
         /// <summary>

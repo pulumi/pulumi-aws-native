@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Neptune
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Neptune:DBInstance")]
     public partial class DBInstance : Pulumi.CustomResource
     {
         /// <summary>

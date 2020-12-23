@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
     public sealed class ProjectProjectTriggers
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
+        /// </summary>
+        public readonly string? BuildType;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
         /// </summary>
         public readonly ImmutableArray<Outputs.ProjectFilterGroup> FilterGroups;
@@ -24,10 +28,13 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
 
         [OutputConstructor]
         private ProjectProjectTriggers(
+            string? BuildType,
+
             ImmutableArray<Outputs.ProjectFilterGroup> FilterGroups,
 
             bool? Webhook)
         {
+            this.BuildType = BuildType;
             this.FilterGroups = FilterGroups;
             this.Webhook = Webhook;
         }

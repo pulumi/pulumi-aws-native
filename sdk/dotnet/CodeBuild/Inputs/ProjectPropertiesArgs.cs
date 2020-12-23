@@ -28,6 +28,12 @@ namespace Pulumi.Cloudformation.CodeBuild.Inputs
         public Input<bool>? BadgeEnabled { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+        /// </summary>
+        [Input("BuildBatchConfig")]
+        public Input<Inputs.ProjectProjectBuildBatchConfigArgs>? BuildBatchConfig { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
         /// </summary>
         [Input("Cache")]

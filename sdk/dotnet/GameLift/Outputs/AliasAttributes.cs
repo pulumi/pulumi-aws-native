@@ -13,9 +13,12 @@ namespace Pulumi.Cloudformation.GameLift.Outputs
     [OutputType]
     public sealed class AliasAttributes
     {
+        public readonly string AliasId;
+
         [OutputConstructor]
-        private AliasAttributes()
+        private AliasAttributes(string AliasId)
         {
+            this.AliasId = AliasId;
         }
     }
 }

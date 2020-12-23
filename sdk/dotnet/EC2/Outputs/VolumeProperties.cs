@@ -54,6 +54,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
+        /// </summary>
+        public readonly int? Throughput;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype
         /// </summary>
         public readonly string? VolumeType;
@@ -80,6 +84,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
 
+            int? Throughput,
+
             string? VolumeType)
         {
             this.AutoEnableIO = AutoEnableIO;
@@ -92,6 +98,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             this.Size = Size;
             this.SnapshotId = SnapshotId;
             this.Tags = Tags;
+            this.Throughput = Throughput;
             this.VolumeType = VolumeType;
         }
     }

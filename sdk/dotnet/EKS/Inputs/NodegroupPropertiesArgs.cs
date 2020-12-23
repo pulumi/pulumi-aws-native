@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.EKS.Inputs
         public Input<string>? AmiType { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype
+        /// </summary>
+        [Input("CapacityType")]
+        public Input<string>? CapacityType { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
         /// </summary>
         [Input("ClusterName", required: true)]
@@ -56,6 +62,12 @@ namespace Pulumi.Cloudformation.EKS.Inputs
         /// </summary>
         [Input("Labels")]
         public InputUnion<System.Text.Json.JsonElement, string>? Labels { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate
+        /// </summary>
+        [Input("LaunchTemplate")]
+        public Input<Inputs.NodegroupLaunchTemplateSpecificationArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole

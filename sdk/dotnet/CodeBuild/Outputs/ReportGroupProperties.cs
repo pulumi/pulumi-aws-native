@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
     public sealed class ReportGroupProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+        /// </summary>
+        public readonly bool? DeleteReports;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
         /// </summary>
         public readonly Outputs.ReportGroupReportExportConfig ExportConfig;
@@ -32,6 +36,8 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
 
         [OutputConstructor]
         private ReportGroupProperties(
+            bool? DeleteReports,
+
             Outputs.ReportGroupReportExportConfig ExportConfig,
 
             string? Name,
@@ -40,6 +46,7 @@ namespace Pulumi.Cloudformation.CodeBuild.Outputs
 
             string Type)
         {
+            this.DeleteReports = DeleteReports;
             this.ExportConfig = ExportConfig;
             this.Name = Name;
             this.Tags = Tags;

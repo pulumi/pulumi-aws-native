@@ -14,11 +14,16 @@ namespace Pulumi.Cloudformation.IoT.Outputs
     public sealed class CertificateAttributes
     {
         public readonly string Arn;
+        public readonly string Id;
 
         [OutputConstructor]
-        private CertificateAttributes(string Arn)
+        private CertificateAttributes(
+            string Arn,
+
+            string Id)
         {
             this.Arn = Arn;
+            this.Id = Id;
         }
     }
 }

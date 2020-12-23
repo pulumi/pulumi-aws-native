@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeDeploy
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeDeploy:DeploymentGroup")]
     public partial class DeploymentGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudTrail
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudTrail:Trail")]
     public partial class Trail : Pulumi.CustomResource
     {
         /// <summary>

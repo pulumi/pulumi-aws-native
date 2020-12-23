@@ -14,13 +14,21 @@ namespace Pulumi.Cloudformation.LakeFormation.Outputs
     public sealed class PermissionsDatabaseResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-catalogid
+        /// </summary>
+        public readonly string? CatalogId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-name
         /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]
-        private PermissionsDatabaseResource(string? Name)
+        private PermissionsDatabaseResource(
+            string? CatalogId,
+
+            string? Name)
         {
+            this.CatalogId = CatalogId;
             this.Name = Name;
         }
     }

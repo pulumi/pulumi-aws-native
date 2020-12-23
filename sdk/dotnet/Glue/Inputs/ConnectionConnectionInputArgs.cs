@@ -18,8 +18,8 @@ namespace Pulumi.Cloudformation.Glue.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
         /// </summary>
-        [Input("ConnectionProperties", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> ConnectionProperties { get; set; } = null!;
+        [Input("ConnectionProperties")]
+        public InputUnion<System.Text.Json.JsonElement, string>? ConnectionProperties { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype

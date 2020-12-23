@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:DevEndpoint")]
     public partial class DevEndpoint : Pulumi.CustomResource
     {
         /// <summary>

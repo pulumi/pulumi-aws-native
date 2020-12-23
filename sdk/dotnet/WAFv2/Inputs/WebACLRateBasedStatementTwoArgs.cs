@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.WAFv2.Inputs
         public Input<string> AggregateKeyType { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
+        /// </summary>
+        [Input("ForwardedIPConfig")]
+        public Input<Inputs.WebACLForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
         /// </summary>
         [Input("Limit", required: true)]

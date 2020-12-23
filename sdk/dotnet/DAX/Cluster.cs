@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DAX
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DAX:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

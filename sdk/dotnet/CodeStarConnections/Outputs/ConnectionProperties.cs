@@ -18,9 +18,13 @@ namespace Pulumi.Cloudformation.CodeStarConnections.Outputs
         /// </summary>
         public readonly string ConnectionName;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+        /// </summary>
+        public readonly string? HostArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
         /// </summary>
-        public readonly string ProviderType;
+        public readonly string? ProviderType;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
         /// </summary>
@@ -30,11 +34,14 @@ namespace Pulumi.Cloudformation.CodeStarConnections.Outputs
         private ConnectionProperties(
             string ConnectionName,
 
-            string ProviderType,
+            string? HostArn,
+
+            string? ProviderType,
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
         {
             this.ConnectionName = ConnectionName;
+            this.HostArn = HostArn;
             this.ProviderType = ProviderType;
             this.Tags = Tags;
         }

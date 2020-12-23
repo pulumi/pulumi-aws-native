@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:RegexPatternSet")]
     public partial class RegexPatternSet : Pulumi.CustomResource
     {
         /// <summary>

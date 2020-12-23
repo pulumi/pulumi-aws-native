@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GlobalAccelerator
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GlobalAccelerator:Listener")]
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>

@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.EFS.Outputs
     public sealed class FileSystemProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+        /// </summary>
+        public readonly Outputs.FileSystemBackupPolicy? BackupPolicy;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         /// </summary>
         public readonly bool? Encrypted;
@@ -48,6 +52,8 @@ namespace Pulumi.Cloudformation.EFS.Outputs
 
         [OutputConstructor]
         private FileSystemProperties(
+            Outputs.FileSystemBackupPolicy? BackupPolicy,
+
             bool? Encrypted,
 
             Union<System.Text.Json.JsonElement, string>? FileSystemPolicy,
@@ -64,6 +70,7 @@ namespace Pulumi.Cloudformation.EFS.Outputs
 
             string? ThroughputMode)
         {
+            this.BackupPolicy = BackupPolicy;
             this.Encrypted = Encrypted;
             this.FileSystemPolicy = FileSystemPolicy;
             this.FileSystemTags = FileSystemTags;

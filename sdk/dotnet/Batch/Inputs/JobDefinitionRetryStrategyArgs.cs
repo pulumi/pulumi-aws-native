@@ -21,6 +21,18 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         [Input("Attempts")]
         public Input<int>? Attempts { get; set; }
 
+        [Input("EvaluateOnExit")]
+        private InputList<Inputs.JobDefinitionEvaluateOnExitArgs>? _EvaluateOnExit;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
+        /// </summary>
+        public InputList<Inputs.JobDefinitionEvaluateOnExitArgs> EvaluateOnExit
+        {
+            get => _EvaluateOnExit ?? (_EvaluateOnExit = new InputList<Inputs.JobDefinitionEvaluateOnExitArgs>());
+            set => _EvaluateOnExit = value;
+        }
+
         public JobDefinitionRetryStrategyArgs()
         {
         }

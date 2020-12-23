@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-admchannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:ADMChannel")]
     public partial class ADMChannel : Pulumi.CustomResource
     {
         /// <summary>

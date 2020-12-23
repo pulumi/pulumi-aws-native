@@ -16,7 +16,7 @@ namespace Pulumi.Cloudformation.Route53.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
         /// </summary>
-        public readonly Outputs.HealthCheckHealthCheckConfig HealthCheckConfig;
+        public readonly Union<System.Text.Json.JsonElement, string> HealthCheckConfig;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.Route53.Outputs
 
         [OutputConstructor]
         private HealthCheckProperties(
-            Outputs.HealthCheckHealthCheckConfig HealthCheckConfig,
+            Union<System.Text.Json.JsonElement, string> HealthCheckConfig,
 
             ImmutableArray<Outputs.HealthCheckHealthCheckTag> HealthCheckTags)
         {

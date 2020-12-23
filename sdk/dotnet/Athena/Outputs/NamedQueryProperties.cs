@@ -29,6 +29,10 @@ namespace Pulumi.Cloudformation.Athena.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
         /// </summary>
         public readonly string QueryString;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+        /// </summary>
+        public readonly string? WorkGroup;
 
         [OutputConstructor]
         private NamedQueryProperties(
@@ -38,12 +42,15 @@ namespace Pulumi.Cloudformation.Athena.Outputs
 
             string? Name,
 
-            string QueryString)
+            string QueryString,
+
+            string? WorkGroup)
         {
             this.Database = Database;
             this.Description = Description;
             this.Name = Name;
             this.QueryString = QueryString;
+            this.WorkGroup = WorkGroup;
         }
     }
 }

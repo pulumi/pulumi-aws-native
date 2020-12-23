@@ -34,6 +34,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly bool? MapPublicIpOnLaunch;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-outpostarn
+        /// </summary>
+        public readonly string? OutpostArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags
         /// </summary>
         public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
@@ -54,6 +58,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             bool? MapPublicIpOnLaunch,
 
+            string? OutpostArn,
+
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
 
             string VpcId)
@@ -63,6 +69,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             this.CidrBlock = CidrBlock;
             this.Ipv6CidrBlock = Ipv6CidrBlock;
             this.MapPublicIpOnLaunch = MapPublicIpOnLaunch;
+            this.OutpostArn = OutpostArn;
             this.Tags = Tags;
             this.VpcId = VpcId;
         }

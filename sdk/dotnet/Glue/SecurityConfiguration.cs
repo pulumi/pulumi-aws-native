@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:SecurityConfiguration")]
     public partial class SecurityConfiguration : Pulumi.CustomResource
     {
         /// <summary>

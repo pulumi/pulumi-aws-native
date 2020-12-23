@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:EventStream")]
     public partial class EventStream : Pulumi.CustomResource
     {
         /// <summary>

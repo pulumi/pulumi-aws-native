@@ -36,8 +36,8 @@ namespace Pulumi.Cloudformation.Configuration.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
         /// </summary>
-        [Input("DeliveryS3Bucket", required: true)]
-        public Input<string> DeliveryS3Bucket { get; set; } = null!;
+        [Input("DeliveryS3Bucket")]
+        public Input<string>? DeliveryS3Bucket { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix

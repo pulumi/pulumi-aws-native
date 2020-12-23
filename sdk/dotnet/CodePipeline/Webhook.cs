@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodePipeline
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodePipeline:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>

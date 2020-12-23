@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-baiduchannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:BaiduChannel")]
     public partial class BaiduChannel : Pulumi.CustomResource
     {
         /// <summary>

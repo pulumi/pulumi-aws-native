@@ -41,6 +41,10 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
         /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        /// </summary>
+        public readonly string? WorkingDirectory;
 
         [OutputConstructor]
         private ImageRecipeProperties(
@@ -56,7 +60,9 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
 
             ImmutableDictionary<string, string>? Tags,
 
-            string Version)
+            string Version,
+
+            string? WorkingDirectory)
         {
             this.BlockDeviceMappings = BlockDeviceMappings;
             this.Components = Components;
@@ -65,6 +71,7 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
             this.ParentImage = ParentImage;
             this.Tags = Tags;
             this.Version = Version;
+            this.WorkingDirectory = WorkingDirectory;
         }
     }
 }

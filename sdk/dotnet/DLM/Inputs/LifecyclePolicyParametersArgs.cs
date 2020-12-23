@@ -21,6 +21,12 @@ namespace Pulumi.Cloudformation.DLM.Inputs
         [Input("ExcludeBootVolume")]
         public Input<bool>? ExcludeBootVolume { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
+        /// </summary>
+        [Input("NoReboot")]
+        public Input<bool>? NoReboot { get; set; }
+
         public LifecyclePolicyParametersArgs()
         {
         }

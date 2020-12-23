@@ -21,15 +21,22 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiopidselection
         /// </summary>
         public readonly Outputs.ChannelAudioPidSelection? AudioPidSelection;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiotrackselection
+        /// </summary>
+        public readonly Outputs.ChannelAudioTrackSelection? AudioTrackSelection;
 
         [OutputConstructor]
         private ChannelAudioSelectorSettings(
             Outputs.ChannelAudioLanguageSelection? AudioLanguageSelection,
 
-            Outputs.ChannelAudioPidSelection? AudioPidSelection)
+            Outputs.ChannelAudioPidSelection? AudioPidSelection,
+
+            Outputs.ChannelAudioTrackSelection? AudioTrackSelection)
         {
             this.AudioLanguageSelection = AudioLanguageSelection;
             this.AudioPidSelection = AudioPidSelection;
+            this.AudioTrackSelection = AudioTrackSelection;
         }
     }
 }

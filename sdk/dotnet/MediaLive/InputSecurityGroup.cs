@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MediaLive
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MediaLive:InputSecurityGroup")]
     public partial class InputSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

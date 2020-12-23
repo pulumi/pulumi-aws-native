@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cognito
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cognito:UserPoolGroup")]
     public partial class UserPoolGroup : Pulumi.CustomResource
     {
         /// <summary>

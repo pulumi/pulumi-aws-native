@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:VoiceChannel")]
     public partial class VoiceChannel : Pulumi.CustomResource
     {
         /// <summary>

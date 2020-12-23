@@ -38,6 +38,10 @@ namespace Pulumi.Cloudformation.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketCorsConfiguration? CorsConfiguration;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BucketIntelligentTieringConfiguration> IntelligentTieringConfigurations;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketInventoryConfiguration> InventoryConfigurations;
@@ -65,6 +69,10 @@ namespace Pulumi.Cloudformation.S3.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled
         /// </summary>
         public readonly bool? ObjectLockEnabled;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols
+        /// </summary>
+        public readonly Outputs.BucketOwnershipControls? OwnershipControls;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
         /// </summary>
@@ -100,6 +108,8 @@ namespace Pulumi.Cloudformation.S3.Outputs
 
             Outputs.BucketCorsConfiguration? CorsConfiguration,
 
+            ImmutableArray<Outputs.BucketIntelligentTieringConfiguration> IntelligentTieringConfigurations,
+
             ImmutableArray<Outputs.BucketInventoryConfiguration> InventoryConfigurations,
 
             Outputs.BucketLifecycleConfiguration? LifecycleConfiguration,
@@ -113,6 +123,8 @@ namespace Pulumi.Cloudformation.S3.Outputs
             Outputs.BucketObjectLockConfiguration? ObjectLockConfiguration,
 
             bool? ObjectLockEnabled,
+
+            Outputs.BucketOwnershipControls? OwnershipControls,
 
             Outputs.BucketPublicAccessBlockConfiguration? PublicAccessBlockConfiguration,
 
@@ -130,6 +142,7 @@ namespace Pulumi.Cloudformation.S3.Outputs
             this.BucketEncryption = BucketEncryption;
             this.BucketName = BucketName;
             this.CorsConfiguration = CorsConfiguration;
+            this.IntelligentTieringConfigurations = IntelligentTieringConfigurations;
             this.InventoryConfigurations = InventoryConfigurations;
             this.LifecycleConfiguration = LifecycleConfiguration;
             this.LoggingConfiguration = LoggingConfiguration;
@@ -137,6 +150,7 @@ namespace Pulumi.Cloudformation.S3.Outputs
             this.NotificationConfiguration = NotificationConfiguration;
             this.ObjectLockConfiguration = ObjectLockConfiguration;
             this.ObjectLockEnabled = ObjectLockEnabled;
+            this.OwnershipControls = OwnershipControls;
             this.PublicAccessBlockConfiguration = PublicAccessBlockConfiguration;
             this.ReplicationConfiguration = ReplicationConfiguration;
             this.Tags = Tags;

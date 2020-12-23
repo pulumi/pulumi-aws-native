@@ -51,6 +51,18 @@ namespace Pulumi.Cloudformation.ImageBuilder.Inputs
         [Input("Platform", required: true)]
         public Input<string> Platform { get; set; } = null!;
 
+        [Input("SupportedOsVersions")]
+        private InputList<string>? _SupportedOsVersions;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+        /// </summary>
+        public InputList<string> SupportedOsVersions
+        {
+            get => _SupportedOsVersions ?? (_SupportedOsVersions = new InputList<string>());
+            set => _SupportedOsVersions = value;
+        }
+
         [Input("Tags")]
         private InputMap<string>? _Tags;
 

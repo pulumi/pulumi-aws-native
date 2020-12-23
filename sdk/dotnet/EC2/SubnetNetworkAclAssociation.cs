@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:SubnetNetworkAclAssociation")]
     public partial class SubnetNetworkAclAssociation : Pulumi.CustomResource
     {
         /// <summary>

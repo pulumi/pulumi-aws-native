@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Inspector
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Inspector:ResourceGroup")]
     public partial class ResourceGroup : Pulumi.CustomResource
     {
         /// <summary>

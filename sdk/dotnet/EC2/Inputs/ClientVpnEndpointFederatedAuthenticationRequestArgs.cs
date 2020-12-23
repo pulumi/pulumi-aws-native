@@ -21,6 +21,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         [Input("SAMLProviderArn", required: true)]
         public Input<string> SAMLProviderArn { get; set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+        /// </summary>
+        [Input("SelfServiceSAMLProviderArn")]
+        public Input<string>? SelfServiceSAMLProviderArn { get; set; }
+
         public ClientVpnEndpointFederatedAuthenticationRequestArgs()
         {
         }

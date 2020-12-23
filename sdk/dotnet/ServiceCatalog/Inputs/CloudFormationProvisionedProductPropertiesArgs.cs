@@ -40,6 +40,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog.Inputs
         public Input<string>? PathId { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+        /// </summary>
+        [Input("PathName")]
+        public Input<string>? PathName { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
         /// </summary>
         [Input("ProductId")]

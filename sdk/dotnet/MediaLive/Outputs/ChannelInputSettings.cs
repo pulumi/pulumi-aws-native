@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelNetworkInputSettings? NetworkInputSettings;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-smpte2038datapreference
+        /// </summary>
+        public readonly string? Smpte2038DataPreference;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-sourceendbehavior
         /// </summary>
         public readonly string? SourceEndBehavior;
@@ -66,6 +70,8 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
 
             Outputs.ChannelNetworkInputSettings? NetworkInputSettings,
 
+            string? Smpte2038DataPreference,
+
             string? SourceEndBehavior,
 
             Outputs.ChannelVideoSelector? VideoSelector)
@@ -77,6 +83,7 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
             this.FilterStrength = FilterStrength;
             this.InputFilter = InputFilter;
             this.NetworkInputSettings = NetworkInputSettings;
+            this.Smpte2038DataPreference = Smpte2038DataPreference;
             this.SourceEndBehavior = SourceEndBehavior;
             this.VideoSelector = VideoSelector;
         }

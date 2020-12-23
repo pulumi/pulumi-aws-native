@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GuardDuty
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GuardDuty:Detector")]
     public partial class Detector : Pulumi.CustomResource
     {
         /// <summary>

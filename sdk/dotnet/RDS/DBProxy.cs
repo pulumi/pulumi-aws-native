@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:DBProxy")]
     public partial class DBProxy : Pulumi.CustomResource
     {
         /// <summary>

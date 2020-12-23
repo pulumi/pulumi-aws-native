@@ -28,7 +28,11 @@ namespace Pulumi.Cloudformation.KMS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string> KeyPolicy;
+        public readonly object KeyPolicy;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+        /// </summary>
+        public readonly string? KeySpec;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
         /// </summary>
@@ -50,7 +54,9 @@ namespace Pulumi.Cloudformation.KMS.Outputs
 
             bool? Enabled,
 
-            Union<System.Text.Json.JsonElement, string> KeyPolicy,
+            object KeyPolicy,
+
+            string? KeySpec,
 
             string? KeyUsage,
 
@@ -62,6 +68,7 @@ namespace Pulumi.Cloudformation.KMS.Outputs
             this.EnableKeyRotation = EnableKeyRotation;
             this.Enabled = Enabled;
             this.KeyPolicy = KeyPolicy;
+            this.KeySpec = KeySpec;
             this.KeyUsage = KeyUsage;
             this.PendingWindowInDays = PendingWindowInDays;
             this.Tags = Tags;

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GlobalAccelerator
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GlobalAccelerator:EndpointGroup")]
     public partial class EndpointGroup : Pulumi.CustomResource
     {
         /// <summary>

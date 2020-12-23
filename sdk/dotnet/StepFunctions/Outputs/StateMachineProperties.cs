@@ -45,6 +45,10 @@ namespace Pulumi.Cloudformation.StepFunctions.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
         /// </summary>
         public readonly ImmutableArray<Outputs.StateMachineTagsEntry> Tags;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
+        /// </summary>
+        public readonly Outputs.StateMachineTracingConfiguration? TracingConfiguration;
 
         [OutputConstructor]
         private StateMachineProperties(
@@ -62,7 +66,9 @@ namespace Pulumi.Cloudformation.StepFunctions.Outputs
 
             string? StateMachineType,
 
-            ImmutableArray<Outputs.StateMachineTagsEntry> Tags)
+            ImmutableArray<Outputs.StateMachineTagsEntry> Tags,
+
+            Outputs.StateMachineTracingConfiguration? TracingConfiguration)
         {
             this.DefinitionS3Location = DefinitionS3Location;
             this.DefinitionString = DefinitionString;
@@ -72,6 +78,7 @@ namespace Pulumi.Cloudformation.StepFunctions.Outputs
             this.StateMachineName = StateMachineName;
             this.StateMachineType = StateMachineType;
             this.Tags = Tags;
+            this.TracingConfiguration = TracingConfiguration;
         }
     }
 }

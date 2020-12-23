@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.PinpointEmail
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:PinpointEmail:ConfigurationSetEventDestination")]
     public partial class ConfigurationSetEventDestination : Pulumi.CustomResource
     {
         /// <summary>

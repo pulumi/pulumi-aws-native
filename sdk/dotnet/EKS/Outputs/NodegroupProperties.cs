@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.EKS.Outputs
         /// </summary>
         public readonly string? AmiType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype
+        /// </summary>
+        public readonly string? CapacityType;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
         /// </summary>
         public readonly string ClusterName;
@@ -37,6 +41,10 @@ namespace Pulumi.Cloudformation.EKS.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? Labels;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate
+        /// </summary>
+        public readonly Outputs.NodegroupLaunchTemplateSpecification? LaunchTemplate;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
         /// </summary>
@@ -74,6 +82,8 @@ namespace Pulumi.Cloudformation.EKS.Outputs
         private NodegroupProperties(
             string? AmiType,
 
+            string? CapacityType,
+
             string ClusterName,
 
             double? DiskSize,
@@ -83,6 +93,8 @@ namespace Pulumi.Cloudformation.EKS.Outputs
             ImmutableArray<string> InstanceTypes,
 
             Union<System.Text.Json.JsonElement, string>? Labels,
+
+            Outputs.NodegroupLaunchTemplateSpecification? LaunchTemplate,
 
             string NodeRole,
 
@@ -101,11 +113,13 @@ namespace Pulumi.Cloudformation.EKS.Outputs
             string? Version)
         {
             this.AmiType = AmiType;
+            this.CapacityType = CapacityType;
             this.ClusterName = ClusterName;
             this.DiskSize = DiskSize;
             this.ForceUpdateEnabled = ForceUpdateEnabled;
             this.InstanceTypes = InstanceTypes;
             this.Labels = Labels;
+            this.LaunchTemplate = LaunchTemplate;
             this.NodeRole = NodeRole;
             this.NodegroupName = NodegroupName;
             this.ReleaseVersion = ReleaseVersion;

@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.GuardDuty.Inputs
     public sealed class DetectorPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+        /// </summary>
+        [Input("DataSources")]
+        public Input<Inputs.DetectorCFNDataSourceConfigurationsArgs>? DataSources { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
         /// </summary>
         [Input("Enable", required: true)]

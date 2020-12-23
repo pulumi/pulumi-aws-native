@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFv2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFv2:RuleGroup")]
     public partial class RuleGroup : Pulumi.CustomResource
     {
         /// <summary>

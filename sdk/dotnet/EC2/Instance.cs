@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>

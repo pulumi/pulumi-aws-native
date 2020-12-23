@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeStarNotifications
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeStarNotifications:NotificationRule")]
     public partial class NotificationRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
         /// </summary>
-        public readonly string Destination;
+        public readonly string? Destination;
 
         [OutputConstructor]
-        private EventSourceMappingOnFailure(string Destination)
+        private EventSourceMappingOnFailure(string? Destination)
         {
             this.Destination = Destination;
         }

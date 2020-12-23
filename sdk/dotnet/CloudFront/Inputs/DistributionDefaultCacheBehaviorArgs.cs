@@ -27,6 +27,12 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
             set => _AllowedMethods = value;
         }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+        /// </summary>
+        [Input("CachePolicyId")]
+        public Input<string>? CachePolicyId { get; set; }
+
         [Input("CachedMethods")]
         private InputList<string>? _CachedMethods;
 
@@ -60,8 +66,8 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
         /// </summary>
-        [Input("ForwardedValues", required: true)]
-        public Input<Inputs.DistributionForwardedValuesArgs> ForwardedValues { get; set; } = null!;
+        [Input("ForwardedValues")]
+        public Input<Inputs.DistributionForwardedValuesArgs>? ForwardedValues { get; set; }
 
         [Input("LambdaFunctionAssociations")]
         private InputList<Inputs.DistributionLambdaFunctionAssociationArgs>? _LambdaFunctionAssociations;
@@ -88,6 +94,18 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
         public Input<double>? MinTTL { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+        /// </summary>
+        [Input("OriginRequestPolicyId")]
+        public Input<string>? OriginRequestPolicyId { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+        /// </summary>
+        [Input("RealtimeLogConfigArn")]
+        public Input<string>? RealtimeLogConfigArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
         /// </summary>
         [Input("SmoothStreaming")]
@@ -98,6 +116,18 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
         /// </summary>
         [Input("TargetOriginId", required: true)]
         public Input<string> TargetOriginId { get; set; } = null!;
+
+        [Input("TrustedKeyGroups")]
+        private InputList<string>? _TrustedKeyGroups;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+        /// </summary>
+        public InputList<string> TrustedKeyGroups
+        {
+            get => _TrustedKeyGroups ?? (_TrustedKeyGroups = new InputList<string>());
+            set => _TrustedKeyGroups = value;
+        }
 
         [Input("TrustedSigners")]
         private InputList<string>? _TrustedSigners;

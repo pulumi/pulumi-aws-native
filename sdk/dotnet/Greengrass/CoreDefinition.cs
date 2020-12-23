@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Greengrass
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Greengrass:CoreDefinition")]
     public partial class CoreDefinition : Pulumi.CustomResource
     {
         /// <summary>

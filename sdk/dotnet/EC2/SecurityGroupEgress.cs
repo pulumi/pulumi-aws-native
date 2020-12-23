@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:SecurityGroupEgress")]
     public partial class SecurityGroupEgress : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.StepFunctions
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:StepFunctions:Activity")]
     public partial class Activity : Pulumi.CustomResource
     {
         /// <summary>

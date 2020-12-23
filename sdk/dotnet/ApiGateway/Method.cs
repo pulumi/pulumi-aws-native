@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:Method")]
     public partial class Method : Pulumi.CustomResource
     {
         /// <summary>

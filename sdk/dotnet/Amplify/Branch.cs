@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Amplify
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Amplify:Branch")]
     public partial class Branch : Pulumi.CustomResource
     {
         /// <summary>

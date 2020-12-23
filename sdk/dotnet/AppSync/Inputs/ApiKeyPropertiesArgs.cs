@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.AppSync.Inputs
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
+        /// </summary>
+        [Input("ApiKeyId")]
+        public Input<string>? ApiKeyId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description
         /// </summary>
         [Input("Description")]

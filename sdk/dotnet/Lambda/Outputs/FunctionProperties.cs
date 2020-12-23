@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// </summary>
         public readonly Outputs.FunctionCode Code;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+        /// </summary>
+        public readonly string? CodeSigningConfigArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
         /// </summary>
         public readonly Outputs.FunctionDeadLetterConfig? DeadLetterConfig;
@@ -30,13 +34,21 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// </summary>
         public readonly Outputs.FunctionEnvironment? Environment;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FunctionFileSystemConfig> FileSystemConfigs;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
         /// </summary>
         public readonly string? FunctionName;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
         /// </summary>
-        public readonly string Handler;
+        public readonly string? Handler;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+        /// </summary>
+        public readonly Outputs.FunctionImageConfig? ImageConfig;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
         /// </summary>
@@ -50,6 +62,10 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// </summary>
         public readonly int? MemorySize;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+        /// </summary>
+        public readonly string? PackageType;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
         /// </summary>
         public readonly int? ReservedConcurrentExecutions;
@@ -60,7 +76,7 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
         /// </summary>
-        public readonly string Runtime;
+        public readonly string? Runtime;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
         /// </summary>
@@ -82,15 +98,21 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         private FunctionProperties(
             Outputs.FunctionCode Code,
 
+            string? CodeSigningConfigArn,
+
             Outputs.FunctionDeadLetterConfig? DeadLetterConfig,
 
             string? Description,
 
             Outputs.FunctionEnvironment? Environment,
 
+            ImmutableArray<Outputs.FunctionFileSystemConfig> FileSystemConfigs,
+
             string? FunctionName,
 
-            string Handler,
+            string? Handler,
+
+            Outputs.FunctionImageConfig? ImageConfig,
 
             string? KmsKeyArn,
 
@@ -98,11 +120,13 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
 
             int? MemorySize,
 
+            string? PackageType,
+
             int? ReservedConcurrentExecutions,
 
             string Role,
 
-            string Runtime,
+            string? Runtime,
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
 
@@ -113,14 +137,18 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
             Outputs.FunctionVpcConfig? VpcConfig)
         {
             this.Code = Code;
+            this.CodeSigningConfigArn = CodeSigningConfigArn;
             this.DeadLetterConfig = DeadLetterConfig;
             this.Description = Description;
             this.Environment = Environment;
+            this.FileSystemConfigs = FileSystemConfigs;
             this.FunctionName = FunctionName;
             this.Handler = Handler;
+            this.ImageConfig = ImageConfig;
             this.KmsKeyArn = KmsKeyArn;
             this.Layers = Layers;
             this.MemorySize = MemorySize;
+            this.PackageType = PackageType;
             this.ReservedConcurrentExecutions = ReservedConcurrentExecutions;
             this.Role = Role;
             this.Runtime = Runtime;

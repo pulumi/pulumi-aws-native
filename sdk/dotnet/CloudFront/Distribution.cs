@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudFront:Distribution")]
     public partial class Distribution : Pulumi.CustomResource
     {
         /// <summary>

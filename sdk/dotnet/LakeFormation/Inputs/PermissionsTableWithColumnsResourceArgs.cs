@@ -15,6 +15,12 @@ namespace Pulumi.Cloudformation.LakeFormation.Inputs
     /// </summary>
     public sealed class PermissionsTableWithColumnsResourceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+        /// </summary>
+        [Input("CatalogId")]
+        public Input<string>? CatalogId { get; set; }
+
         [Input("ColumnNames")]
         private InputList<string>? _ColumnNames;
 

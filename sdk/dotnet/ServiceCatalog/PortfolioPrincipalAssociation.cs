@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:PortfolioPrincipalAssociation")]
     public partial class PortfolioPrincipalAssociation : Pulumi.CustomResource
     {
         /// <summary>

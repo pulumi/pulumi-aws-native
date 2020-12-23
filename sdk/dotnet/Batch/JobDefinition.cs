@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Batch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Batch:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>

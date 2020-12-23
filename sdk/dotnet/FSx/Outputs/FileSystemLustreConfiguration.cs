@@ -14,9 +14,29 @@ namespace Pulumi.Cloudformation.FSx.Outputs
     public sealed class FileSystemLustreConfiguration
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+        /// </summary>
+        public readonly string? AutoImportPolicy;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+        /// </summary>
+        public readonly int? AutomaticBackupRetentionDays;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+        /// </summary>
+        public readonly bool? CopyTagsToBackups;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+        /// </summary>
+        public readonly string? DailyAutomaticBackupStartTime;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
         /// </summary>
         public readonly string? DeploymentType;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+        /// </summary>
+        public readonly string? DriveCacheType;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
         /// </summary>
@@ -40,7 +60,17 @@ namespace Pulumi.Cloudformation.FSx.Outputs
 
         [OutputConstructor]
         private FileSystemLustreConfiguration(
+            string? AutoImportPolicy,
+
+            int? AutomaticBackupRetentionDays,
+
+            bool? CopyTagsToBackups,
+
+            string? DailyAutomaticBackupStartTime,
+
             string? DeploymentType,
+
+            string? DriveCacheType,
 
             string? ExportPath,
 
@@ -52,7 +82,12 @@ namespace Pulumi.Cloudformation.FSx.Outputs
 
             string? WeeklyMaintenanceStartTime)
         {
+            this.AutoImportPolicy = AutoImportPolicy;
+            this.AutomaticBackupRetentionDays = AutomaticBackupRetentionDays;
+            this.CopyTagsToBackups = CopyTagsToBackups;
+            this.DailyAutomaticBackupStartTime = DailyAutomaticBackupStartTime;
             this.DeploymentType = DeploymentType;
+            this.DriveCacheType = DriveCacheType;
             this.ExportPath = ExportPath;
             this.ImportPath = ImportPath;
             this.ImportedFileChunkSize = ImportedFileChunkSize;

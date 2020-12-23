@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EventSchemas
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EventSchemas:RegistryPolicy")]
     public partial class RegistryPolicy : Pulumi.CustomResource
     {
         /// <summary>

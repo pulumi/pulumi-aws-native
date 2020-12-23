@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>

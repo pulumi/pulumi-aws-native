@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.CodeCommit.Inputs
     public sealed class RepositoryCodeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname
+        /// </summary>
+        [Input("BranchName")]
+        public Input<string>? BranchName { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3
         /// </summary>
         [Input("S3", required: true)]

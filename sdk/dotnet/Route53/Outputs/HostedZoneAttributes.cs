@@ -13,11 +13,16 @@ namespace Pulumi.Cloudformation.Route53.Outputs
     [OutputType]
     public sealed class HostedZoneAttributes
     {
+        public readonly string Id;
         public readonly ImmutableArray<string> NameServers;
 
         [OutputConstructor]
-        private HostedZoneAttributes(ImmutableArray<string> NameServers)
+        private HostedZoneAttributes(
+            string Id,
+
+            ImmutableArray<string> NameServers)
         {
+            this.Id = Id;
             this.NameServers = NameServers;
         }
     }

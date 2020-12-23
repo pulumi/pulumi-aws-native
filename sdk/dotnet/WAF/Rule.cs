@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAF
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAF:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>

@@ -15,6 +15,12 @@ namespace Pulumi.Cloudformation.Cognito.Inputs
     /// </summary>
     public sealed class UserPoolClientPropertiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+        /// </summary>
+        [Input("AccessTokenValidity")]
+        public Input<int>? AccessTokenValidity { get; set; }
+
         [Input("AllowedOAuthFlows")]
         private InputList<string>? _AllowedOAuthFlows;
 
@@ -93,6 +99,12 @@ namespace Pulumi.Cloudformation.Cognito.Inputs
         [Input("GenerateSecret")]
         public Input<bool>? GenerateSecret { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+        /// </summary>
+        [Input("IdTokenValidity")]
+        public Input<int>? IdTokenValidity { get; set; }
+
         [Input("LogoutURLs")]
         private InputList<string>? _LogoutURLs;
 
@@ -140,6 +152,12 @@ namespace Pulumi.Cloudformation.Cognito.Inputs
             get => _SupportedIdentityProviders ?? (_SupportedIdentityProviders = new InputList<string>());
             set => _SupportedIdentityProviders = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+        /// </summary>
+        [Input("TokenValidityUnits")]
+        public Input<Inputs.UserPoolClientTokenValidityUnitsArgs>? TokenValidityUnits { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid

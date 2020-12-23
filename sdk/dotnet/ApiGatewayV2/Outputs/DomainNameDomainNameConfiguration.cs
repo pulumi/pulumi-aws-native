@@ -25,6 +25,10 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype
         /// </summary>
         public readonly string? EndpointType;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy
+        /// </summary>
+        public readonly string? SecurityPolicy;
 
         [OutputConstructor]
         private DomainNameDomainNameConfiguration(
@@ -32,11 +36,14 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
 
             string? CertificateName,
 
-            string? EndpointType)
+            string? EndpointType,
+
+            string? SecurityPolicy)
         {
             this.CertificateArn = CertificateArn;
             this.CertificateName = CertificateName;
             this.EndpointType = EndpointType;
+            this.SecurityPolicy = SecurityPolicy;
         }
     }
 }

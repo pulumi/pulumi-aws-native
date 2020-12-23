@@ -30,6 +30,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// </summary>
         public readonly string? State;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-tags
+        /// </summary>
+        public readonly Union<System.Text.Json.JsonElement, string>? Tags;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
         /// </summary>
         public readonly string Type;
@@ -44,12 +48,15 @@ namespace Pulumi.Cloudformation.Batch.Outputs
 
             string? State,
 
+            Union<System.Text.Json.JsonElement, string>? Tags,
+
             string Type)
         {
             this.ComputeEnvironmentName = ComputeEnvironmentName;
             this.ComputeResources = ComputeResources;
             this.ServiceRole = ServiceRole;
             this.State = State;
+            this.Tags = Tags;
             this.Type = Type;
         }
     }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppMesh
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppMesh:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

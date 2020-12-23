@@ -26,6 +26,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// </summary>
         public readonly int? DesiredvCpus;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ComputeEnvironmentEc2ConfigurationObject> Ec2Configuration;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair
         /// </summary>
         public readonly string? Ec2KeyPair;
@@ -36,7 +40,7 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole
         /// </summary>
-        public readonly string InstanceRole;
+        public readonly string? InstanceRole;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes
         /// </summary>
@@ -52,7 +56,7 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
         /// </summary>
-        public readonly int MinvCpus;
+        public readonly int? MinvCpus;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup
         /// </summary>
@@ -86,11 +90,13 @@ namespace Pulumi.Cloudformation.Batch.Outputs
 
             int? DesiredvCpus,
 
+            ImmutableArray<Outputs.ComputeEnvironmentEc2ConfigurationObject> Ec2Configuration,
+
             string? Ec2KeyPair,
 
             string? ImageId,
 
-            string InstanceRole,
+            string? InstanceRole,
 
             ImmutableArray<string> InstanceTypes,
 
@@ -98,7 +104,7 @@ namespace Pulumi.Cloudformation.Batch.Outputs
 
             int MaxvCpus,
 
-            int MinvCpus,
+            int? MinvCpus,
 
             string? PlacementGroup,
 
@@ -115,6 +121,7 @@ namespace Pulumi.Cloudformation.Batch.Outputs
             this.AllocationStrategy = AllocationStrategy;
             this.BidPercentage = BidPercentage;
             this.DesiredvCpus = DesiredvCpus;
+            this.Ec2Configuration = Ec2Configuration;
             this.Ec2KeyPair = Ec2KeyPair;
             this.ImageId = ImageId;
             this.InstanceRole = InstanceRole;

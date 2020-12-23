@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SageMaker:Workteam")]
     public partial class Workteam : Pulumi.CustomResource
     {
         /// <summary>

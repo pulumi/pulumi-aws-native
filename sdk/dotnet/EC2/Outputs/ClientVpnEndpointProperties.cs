@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly string ClientCidrBlock;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
+        /// </summary>
+        public readonly Outputs.ClientVpnEndpointClientConnectOptions? ClientConnectOptions;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
         /// </summary>
         public readonly Outputs.ClientVpnEndpointConnectionLogOptions ConnectionLogOptions;
@@ -37,6 +41,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
+        /// </summary>
+        public readonly string? SelfServicePortal;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
         /// </summary>
@@ -68,6 +76,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string ClientCidrBlock,
 
+            Outputs.ClientVpnEndpointClientConnectOptions? ClientConnectOptions,
+
             Outputs.ClientVpnEndpointConnectionLogOptions ConnectionLogOptions,
 
             string? Description,
@@ -75,6 +85,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             ImmutableArray<string> DnsServers,
 
             ImmutableArray<string> SecurityGroupIds,
+
+            string? SelfServicePortal,
 
             string ServerCertificateArn,
 
@@ -90,10 +102,12 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         {
             this.AuthenticationOptions = AuthenticationOptions;
             this.ClientCidrBlock = ClientCidrBlock;
+            this.ClientConnectOptions = ClientConnectOptions;
             this.ConnectionLogOptions = ConnectionLogOptions;
             this.Description = Description;
             this.DnsServers = DnsServers;
             this.SecurityGroupIds = SecurityGroupIds;
+            this.SelfServicePortal = SelfServicePortal;
             this.ServerCertificateArn = ServerCertificateArn;
             this.SplitTunnel = SplitTunnel;
             this.TagSpecifications = TagSpecifications;

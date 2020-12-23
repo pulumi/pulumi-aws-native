@@ -70,6 +70,12 @@ namespace Pulumi.Cloudformation.Glue.Inputs
         public Input<string>? TableType { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+        /// </summary>
+        [Input("TargetTable")]
+        public Input<Inputs.TableTableIdentifierArgs>? TargetTable { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
         /// </summary>
         [Input("ViewExpandedText")]

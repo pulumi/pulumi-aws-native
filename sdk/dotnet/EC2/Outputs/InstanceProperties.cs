@@ -54,6 +54,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.InstanceElasticInferenceAccelerator> ElasticInferenceAccelerators;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-enclaveoptions
+        /// </summary>
+        public readonly Outputs.InstanceEnclaveOptions? EnclaveOptions;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
         /// </summary>
         public readonly Outputs.InstanceHibernationOptions? HibernationOptions;
@@ -184,6 +188,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             ImmutableArray<Outputs.InstanceElasticInferenceAccelerator> ElasticInferenceAccelerators,
 
+            Outputs.InstanceEnclaveOptions? EnclaveOptions,
+
             Outputs.InstanceHibernationOptions? HibernationOptions,
 
             string? HostId,
@@ -248,6 +254,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             this.EbsOptimized = EbsOptimized;
             this.ElasticGpuSpecifications = ElasticGpuSpecifications;
             this.ElasticInferenceAccelerators = ElasticInferenceAccelerators;
+            this.EnclaveOptions = EnclaveOptions;
             this.HibernationOptions = HibernationOptions;
             this.HostId = HostId;
             this.HostResourceGroupArn = HostResourceGroupArn;

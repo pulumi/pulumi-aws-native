@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Lambda:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>

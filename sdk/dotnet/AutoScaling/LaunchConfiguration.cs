@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AutoScaling
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AutoScaling:LaunchConfiguration")]
     public partial class LaunchConfiguration : Pulumi.CustomResource
     {
         /// <summary>

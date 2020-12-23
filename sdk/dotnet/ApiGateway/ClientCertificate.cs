@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:ClientCertificate")]
     public partial class ClientCertificate : Pulumi.CustomResource
     {
         /// <summary>

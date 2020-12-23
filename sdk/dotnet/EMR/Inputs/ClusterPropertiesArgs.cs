@@ -94,10 +94,22 @@ namespace Pulumi.Cloudformation.EMR.Inputs
         public Input<Inputs.ClusterKerberosAttributesArgs>? KerberosAttributes { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+        /// </summary>
+        [Input("LogEncryptionKmsKeyId")]
+        public Input<string>? LogEncryptionKmsKeyId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
         /// </summary>
         [Input("LogUri")]
         public Input<string>? LogUri { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+        /// </summary>
+        [Input("ManagedScalingPolicy")]
+        public Input<Inputs.ClusterManagedScalingPolicyArgs>? ManagedScalingPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
@@ -128,6 +140,12 @@ namespace Pulumi.Cloudformation.EMR.Inputs
         /// </summary>
         [Input("ServiceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+        /// </summary>
+        [Input("StepConcurrencyLevel")]
+        public Input<int>? StepConcurrencyLevel { get; set; }
 
         [Input("Steps")]
         private InputList<Inputs.ClusterStepConfigArgs>? _Steps;

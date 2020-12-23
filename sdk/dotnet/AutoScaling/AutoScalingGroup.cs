@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AutoScaling
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AutoScaling:AutoScalingGroup")]
     public partial class AutoScalingGroup : Pulumi.CustomResource
     {
         /// <summary>

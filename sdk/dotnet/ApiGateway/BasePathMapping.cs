@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:BasePathMapping")]
     public partial class BasePathMapping : Pulumi.CustomResource
     {
         /// <summary>

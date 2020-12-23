@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IAM:ManagedPolicy")]
     public partial class ManagedPolicy : Pulumi.CustomResource
     {
         /// <summary>

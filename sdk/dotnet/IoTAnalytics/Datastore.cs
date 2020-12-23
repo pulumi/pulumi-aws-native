@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoTAnalytics:Datastore")]
     public partial class Datastore : Pulumi.CustomResource
     {
         /// <summary>

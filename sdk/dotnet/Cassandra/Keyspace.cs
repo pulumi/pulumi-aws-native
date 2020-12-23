@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cassandra
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cassandra:Keyspace")]
     public partial class Keyspace : Pulumi.CustomResource
     {
         /// <summary>

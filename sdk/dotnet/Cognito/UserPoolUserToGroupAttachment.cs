@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cognito
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cognito:UserPoolUserToGroupAttachment")]
     public partial class UserPoolUserToGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>

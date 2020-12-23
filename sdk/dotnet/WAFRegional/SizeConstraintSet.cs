@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:SizeConstraintSet")]
     public partial class SizeConstraintSet : Pulumi.CustomResource
     {
         /// <summary>

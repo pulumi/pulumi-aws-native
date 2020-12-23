@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SageMaker:NotebookInstance")]
     public partial class NotebookInstance : Pulumi.CustomResource
     {
         /// <summary>

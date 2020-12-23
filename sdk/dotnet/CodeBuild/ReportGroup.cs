@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeBuild
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeBuild:ReportGroup")]
     public partial class ReportGroup : Pulumi.CustomResource
     {
         /// <summary>

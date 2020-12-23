@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.EFS.Inputs
     public sealed class FileSystemPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+        /// </summary>
+        [Input("BackupPolicy")]
+        public Input<Inputs.FileSystemBackupPolicyArgs>? BackupPolicy { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         /// </summary>
         [Input("Encrypted")]

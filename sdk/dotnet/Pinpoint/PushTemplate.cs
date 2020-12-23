@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:PushTemplate")]
     public partial class PushTemplate : Pulumi.CustomResource
     {
         /// <summary>

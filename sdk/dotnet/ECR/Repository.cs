@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ECR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ECR:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>

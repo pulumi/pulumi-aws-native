@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SageMaker:CodeRepository")]
     public partial class CodeRepository : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Lambda:EventInvokeConfig")]
     public partial class EventInvokeConfig : Pulumi.CustomResource
     {
         /// <summary>

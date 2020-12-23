@@ -74,6 +74,10 @@ namespace Pulumi.Cloudformation.RDS.Outputs
         /// </summary>
         public readonly string? EngineVersion;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
+        /// </summary>
+        public readonly string? GlobalClusterIdentifier;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
         /// </summary>
         public readonly string? KmsKeyId;
@@ -170,6 +174,8 @@ namespace Pulumi.Cloudformation.RDS.Outputs
 
             string? EngineVersion,
 
+            string? GlobalClusterIdentifier,
+
             string? KmsKeyId,
 
             string? MasterUserPassword,
@@ -217,6 +223,7 @@ namespace Pulumi.Cloudformation.RDS.Outputs
             this.Engine = Engine;
             this.EngineMode = EngineMode;
             this.EngineVersion = EngineVersion;
+            this.GlobalClusterIdentifier = GlobalClusterIdentifier;
             this.KmsKeyId = KmsKeyId;
             this.MasterUserPassword = MasterUserPassword;
             this.MasterUsername = MasterUsername;

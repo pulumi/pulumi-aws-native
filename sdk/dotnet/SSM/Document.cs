@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SSM:Document")]
     public partial class Document : Pulumi.CustomResource
     {
         /// <summary>

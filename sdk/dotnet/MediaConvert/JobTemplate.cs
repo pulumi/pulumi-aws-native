@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MediaConvert
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MediaConvert:JobTemplate")]
     public partial class JobTemplate : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GuardDuty
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GuardDuty:ThreatIntelSet")]
     public partial class ThreatIntelSet : Pulumi.CustomResource
     {
         /// <summary>

@@ -58,6 +58,12 @@ namespace Pulumi.Cloudformation.AppStream.Inputs
         public Input<bool>? EnableDefaultInternetAccess { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn
+        /// </summary>
+        [Input("IamRoleArn")]
+        public Input<string>? IamRoleArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
         /// </summary>
         [Input("ImageArn")]

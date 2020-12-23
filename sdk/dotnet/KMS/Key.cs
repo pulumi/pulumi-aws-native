@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.KMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:KMS:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>

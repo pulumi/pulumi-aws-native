@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:LaunchTemplateConstraint")]
     public partial class LaunchTemplateConstraint : Pulumi.CustomResource
     {
         /// <summary>

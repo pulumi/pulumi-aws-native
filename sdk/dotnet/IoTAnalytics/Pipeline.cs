@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoTAnalytics:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>

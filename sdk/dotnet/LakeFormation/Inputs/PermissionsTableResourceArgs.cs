@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.LakeFormation.Inputs
     public sealed class PermissionsTableResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+        /// </summary>
+        [Input("CatalogId")]
+        public Input<string>? CatalogId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
         /// </summary>
         [Input("DatabaseName")]
@@ -26,6 +32,12 @@ namespace Pulumi.Cloudformation.LakeFormation.Inputs
         /// </summary>
         [Input("Name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+        /// </summary>
+        [Input("TableWildcard")]
+        public Input<Inputs.PermissionsTableWildcardArgs>? TableWildcard { get; set; }
 
         public PermissionsTableResourceArgs()
         {

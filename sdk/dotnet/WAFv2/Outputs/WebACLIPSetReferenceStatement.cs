@@ -17,11 +17,19 @@ namespace Pulumi.Cloudformation.WAFv2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+        /// </summary>
+        public readonly Outputs.WebACLIPSetForwardedIPConfiguration? IPSetForwardedIPConfig;
 
         [OutputConstructor]
-        private WebACLIPSetReferenceStatement(string Arn)
+        private WebACLIPSetReferenceStatement(
+            string Arn,
+
+            Outputs.WebACLIPSetForwardedIPConfiguration? IPSetForwardedIPConfig)
         {
             this.Arn = Arn;
+            this.IPSetForwardedIPConfig = IPSetForwardedIPConfig;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>

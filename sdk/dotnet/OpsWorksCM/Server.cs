@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.OpsWorksCM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:OpsWorksCM:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

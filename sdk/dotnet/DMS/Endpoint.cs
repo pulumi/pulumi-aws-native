@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DMS:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.PinpointEmail
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:PinpointEmail:Identity")]
     public partial class Identity : Pulumi.CustomResource
     {
         /// <summary>

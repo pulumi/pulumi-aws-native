@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GroundStation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GroundStation:MissionProfile")]
     public partial class MissionProfile : Pulumi.CustomResource
     {
         /// <summary>

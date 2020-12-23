@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.FMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:FMS:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
         /// <summary>

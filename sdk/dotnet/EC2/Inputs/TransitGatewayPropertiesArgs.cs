@@ -51,6 +51,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         [Input("DnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+        /// </summary>
+        [Input("MulticastSupport")]
+        public Input<string>? MulticastSupport { get; set; }
+
         [Input("Tags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
 

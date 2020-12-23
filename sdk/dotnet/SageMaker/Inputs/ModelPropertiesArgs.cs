@@ -28,6 +28,12 @@ namespace Pulumi.Cloudformation.SageMaker.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-enablenetworkisolation
+        /// </summary>
+        [Input("EnableNetworkIsolation")]
+        public Input<bool>? EnableNetworkIsolation { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
         /// </summary>
         [Input("ExecutionRoleArn", required: true)]

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ManagedBlockchain
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ManagedBlockchain:Member")]
     public partial class Member : Pulumi.CustomResource
     {
         /// <summary>

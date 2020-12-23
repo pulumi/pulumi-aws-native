@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:Classifier")]
     public partial class Classifier : Pulumi.CustomResource
     {
         /// <summary>

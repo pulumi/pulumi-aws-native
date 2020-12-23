@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppMesh
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppMesh:VirtualNode")]
     public partial class VirtualNode : Pulumi.CustomResource
     {
         /// <summary>

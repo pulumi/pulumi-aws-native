@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
+        /// </summary>
+        public readonly bool? DisableExecuteApiEndpoint;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
         /// </summary>
         public readonly bool? DisableSchemaValidation;
@@ -94,6 +98,8 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
 
             string? Description,
 
+            bool? DisableExecuteApiEndpoint,
+
             bool? DisableSchemaValidation,
 
             bool? FailOnWarnings,
@@ -119,6 +125,7 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
             this.CorsConfiguration = CorsConfiguration;
             this.CredentialsArn = CredentialsArn;
             this.Description = Description;
+            this.DisableExecuteApiEndpoint = DisableExecuteApiEndpoint;
             this.DisableSchemaValidation = DisableSchemaValidation;
             this.FailOnWarnings = FailOnWarnings;
             this.Name = Name;

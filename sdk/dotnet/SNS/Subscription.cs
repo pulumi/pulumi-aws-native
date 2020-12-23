@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SNS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SNS:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>

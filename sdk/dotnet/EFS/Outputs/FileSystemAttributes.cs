@@ -13,11 +13,16 @@ namespace Pulumi.Cloudformation.EFS.Outputs
     [OutputType]
     public sealed class FileSystemAttributes
     {
+        public readonly string Arn;
         public readonly string FileSystemId;
 
         [OutputConstructor]
-        private FileSystemAttributes(string FileSystemId)
+        private FileSystemAttributes(
+            string Arn,
+
+            string FileSystemId)
         {
+            this.Arn = Arn;
             this.FileSystemId = FileSystemId;
         }
     }

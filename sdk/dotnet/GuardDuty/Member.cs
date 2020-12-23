@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GuardDuty
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GuardDuty:Member")]
     public partial class Member : Pulumi.CustomResource
     {
         /// <summary>

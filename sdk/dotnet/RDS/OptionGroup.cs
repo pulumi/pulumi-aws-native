@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:OptionGroup")]
     public partial class OptionGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:DBSecurityGroup")]
     public partial class DBSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

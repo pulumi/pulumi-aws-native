@@ -75,6 +75,12 @@ namespace Pulumi.Cloudformation.ImageBuilder.Inputs
         [Input("Version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        /// </summary>
+        [Input("WorkingDirectory")]
+        public Input<string>? WorkingDirectory { get; set; }
+
         public ImageRecipePropertiesArgs()
         {
         }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Cloudformation.StepFunctions.Inputs
 {
 
+    /// <summary>
+    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definitionsubstitutions.html
+    /// </summary>
     public sealed class StateMachineDefinitionSubstitutionsArgs : Pulumi.ResourceArgs
     {
         public StateMachineDefinitionSubstitutionsArgs()

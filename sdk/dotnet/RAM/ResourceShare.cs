@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RAM:ResourceShare")]
     public partial class ResourceShare : Pulumi.CustomResource
     {
         /// <summary>

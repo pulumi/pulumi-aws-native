@@ -40,6 +40,18 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn
+        /// </summary>
+        [Input("ExecutionRoleArn")]
+        public Input<string>? ExecutionRoleArn { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
+        /// </summary>
+        [Input("FargatePlatformConfiguration")]
+        public Input<Inputs.JobDefinitionFargatePlatformConfigurationArgs>? FargatePlatformConfiguration { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
         /// </summary>
         [Input("Image", required: true)]
@@ -64,6 +76,12 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         public Input<Inputs.JobDefinitionLinuxParametersArgs>? LinuxParameters { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-logconfiguration
+        /// </summary>
+        [Input("LogConfiguration")]
+        public Input<Inputs.JobDefinitionLogConfigurationArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
         /// </summary>
         [Input("Memory")]
@@ -80,6 +98,12 @@ namespace Pulumi.Cloudformation.Batch.Inputs
             get => _MountPoints ?? (_MountPoints = new InputList<Inputs.JobDefinitionMountPointsArgs>());
             set => _MountPoints = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration
+        /// </summary>
+        [Input("NetworkConfiguration")]
+        public Input<Inputs.JobDefinitionNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged
@@ -103,6 +127,18 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         {
             get => _ResourceRequirements ?? (_ResourceRequirements = new InputList<Inputs.JobDefinitionResourceRequirementArgs>());
             set => _ResourceRequirements = value;
+        }
+
+        [Input("Secrets")]
+        private InputList<Inputs.JobDefinitionSecretArgs>? _Secrets;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets
+        /// </summary>
+        public InputList<Inputs.JobDefinitionSecretArgs> Secrets
+        {
+            get => _Secrets ?? (_Secrets = new InputList<Inputs.JobDefinitionSecretArgs>());
+            set => _Secrets = value;
         }
 
         [Input("Ulimits")]

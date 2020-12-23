@@ -15,6 +15,12 @@ namespace Pulumi.Cloudformation.CodeBuild.Inputs
     /// </summary>
     public sealed class ProjectProjectTriggersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
+        /// </summary>
+        [Input("BuildType")]
+        public Input<string>? BuildType { get; set; }
+
         [Input("FilterGroups")]
         private InputList<Inputs.ProjectFilterGroupArgs>? _FilterGroups;
 

@@ -22,10 +22,22 @@ namespace Pulumi.Cloudformation.GroundStation.Inputs
         public Input<Inputs.DataflowEndpointGroupSocketAddressArgs>? Address { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
+        /// </summary>
+        [Input("Mtu")]
+        public Input<int>? Mtu { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
         /// </summary>
         [Input("Name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
+        /// </summary>
+        [Input("Status")]
+        public Input<string>? Status { get; set; }
 
         public DataflowEndpointGroupDataflowEndpointArgs()
         {

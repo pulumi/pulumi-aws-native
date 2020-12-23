@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GameLift:MatchmakingConfiguration")]
     public partial class MatchmakingConfiguration : Pulumi.CustomResource
     {
         /// <summary>

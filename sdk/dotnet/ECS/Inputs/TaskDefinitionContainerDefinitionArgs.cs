@@ -123,6 +123,18 @@ namespace Pulumi.Cloudformation.ECS.Inputs
             set => _Environment = value;
         }
 
+        [Input("EnvironmentFiles")]
+        private InputList<Inputs.TaskDefinitionEnvironmentFileArgs>? _EnvironmentFiles;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
+        /// </summary>
+        public InputList<Inputs.TaskDefinitionEnvironmentFileArgs> EnvironmentFiles
+        {
+            get => _EnvironmentFiles ?? (_EnvironmentFiles = new InputList<Inputs.TaskDefinitionEnvironmentFileArgs>());
+            set => _EnvironmentFiles = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
         /// </summary>

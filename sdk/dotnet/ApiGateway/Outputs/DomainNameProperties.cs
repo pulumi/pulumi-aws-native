@@ -20,11 +20,15 @@ namespace Pulumi.Cloudformation.ApiGateway.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
         /// </summary>
-        public readonly string DomainName;
+        public readonly string? DomainName;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
         /// </summary>
         public readonly Outputs.DomainNameEndpointConfiguration? EndpointConfiguration;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+        /// </summary>
+        public readonly Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
         /// </summary>
@@ -42,9 +46,11 @@ namespace Pulumi.Cloudformation.ApiGateway.Outputs
         private DomainNameProperties(
             string? CertificateArn,
 
-            string DomainName,
+            string? DomainName,
 
             Outputs.DomainNameEndpointConfiguration? EndpointConfiguration,
+
+            Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication,
 
             string? RegionalCertificateArn,
 
@@ -55,6 +61,7 @@ namespace Pulumi.Cloudformation.ApiGateway.Outputs
             this.CertificateArn = CertificateArn;
             this.DomainName = DomainName;
             this.EndpointConfiguration = EndpointConfiguration;
+            this.MutualTlsAuthentication = MutualTlsAuthentication;
             this.RegionalCertificateArn = RegionalCertificateArn;
             this.SecurityPolicy = SecurityPolicy;
             this.Tags = Tags;

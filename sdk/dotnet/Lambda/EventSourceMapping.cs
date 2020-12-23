@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Lambda:EventSourceMapping")]
     public partial class EventSourceMapping : Pulumi.CustomResource
     {
         /// <summary>

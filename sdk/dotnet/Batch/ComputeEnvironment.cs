@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Batch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Batch:ComputeEnvironment")]
     public partial class ComputeEnvironment : Pulumi.CustomResource
     {
         /// <summary>

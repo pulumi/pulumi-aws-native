@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Configuration:ConfigurationRecorder")]
     public partial class ConfigurationRecorder : Pulumi.CustomResource
     {
         /// <summary>

@@ -15,7 +15,7 @@ namespace Pulumi.Cloudformation.ECS.Inputs
     /// </summary>
     public sealed class TaskDefinitionHealthCheckArgs : Pulumi.ResourceArgs
     {
-        [Input("Command", required: true)]
+        [Input("Command")]
         private InputList<string>? _Command;
 
         /// <summary>

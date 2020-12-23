@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Inputs
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+        /// </summary>
+        [Input("IPv6Address")]
+        public Input<string>? IPv6Address { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
         /// </summary>
         [Input("PrivateIPv4Address")]

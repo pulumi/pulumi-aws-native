@@ -18,14 +18,14 @@ namespace Pulumi.Cloudformation.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
         /// </summary>
-        [Input("Condition", required: true)]
-        public Input<string> Condition { get; set; } = null!;
+        [Input("Condition")]
+        public Input<string>? Condition { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
         /// </summary>
-        [Input("ContainerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("ContainerName")]
+        public Input<string>? ContainerName { get; set; }
 
         public TaskDefinitionContainerDependencyArgs()
         {

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppStream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppStream:DirectoryConfig")]
     public partial class DirectoryConfig : Pulumi.CustomResource
     {
         /// <summary>

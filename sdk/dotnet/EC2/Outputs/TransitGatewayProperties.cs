@@ -38,6 +38,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly string? DnsSupport;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+        /// </summary>
+        public readonly string? MulticastSupport;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
         /// </summary>
         public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
@@ -60,6 +64,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? DnsSupport,
 
+            string? MulticastSupport,
+
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
 
             string? VpnEcmpSupport)
@@ -70,6 +76,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             this.DefaultRouteTablePropagation = DefaultRouteTablePropagation;
             this.Description = Description;
             this.DnsSupport = DnsSupport;
+            this.MulticastSupport = MulticastSupport;
             this.Tags = Tags;
             this.VpnEcmpSupport = VpnEcmpSupport;
         }

@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// </summary>
         public readonly Outputs.TaskDefinitionDockerVolumeConfiguration? DockerVolumeConfiguration;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
+        /// </summary>
+        public readonly Outputs.TaskDefinitionEFSVolumeConfiguration? EFSVolumeConfiguration;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
         /// </summary>
         public readonly Outputs.TaskDefinitionHostVolumeProperties? Host;
@@ -30,11 +34,14 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         private TaskDefinitionVolume(
             Outputs.TaskDefinitionDockerVolumeConfiguration? DockerVolumeConfiguration,
 
+            Outputs.TaskDefinitionEFSVolumeConfiguration? EFSVolumeConfiguration,
+
             Outputs.TaskDefinitionHostVolumeProperties? Host,
 
             string? Name)
         {
             this.DockerVolumeConfiguration = DockerVolumeConfiguration;
+            this.EFSVolumeConfiguration = EFSVolumeConfiguration;
             this.Host = Host;
             this.Name = Name;
         }

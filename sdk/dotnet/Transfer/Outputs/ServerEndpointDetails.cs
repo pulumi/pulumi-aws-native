@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AddressAllocationIds;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
+        /// </summary>
+        public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-subnetids
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
@@ -34,6 +38,8 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
         private ServerEndpointDetails(
             ImmutableArray<string> AddressAllocationIds,
 
+            ImmutableArray<string> SecurityGroupIds,
+
             ImmutableArray<string> SubnetIds,
 
             string? VpcEndpointId,
@@ -41,6 +47,7 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
             string? VpcId)
         {
             this.AddressAllocationIds = AddressAllocationIds;
+            this.SecurityGroupIds = SecurityGroupIds;
             this.SubnetIds = SubnetIds;
             this.VpcEndpointId = VpcEndpointId;
             this.VpcId = VpcId;
