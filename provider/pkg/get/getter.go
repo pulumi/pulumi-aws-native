@@ -534,7 +534,7 @@ func (g *Getter) GetResourceAttributes(ctx context.Context, resourceType, physic
 	case "AWS::EC2::FlowLog":
 		return nil, nil
 	case "AWS::EC2::Host":
-		return nil, nil
+		return g.getEC2HostAttributes(ctx, physicalResourceID)
 	case "AWS::EC2::Instance":
 		return g.getEC2InstanceAttributes(ctx, physicalResourceID)
 	case "AWS::EC2::InternetGateway":
