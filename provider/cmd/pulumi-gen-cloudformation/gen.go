@@ -109,6 +109,13 @@ func (ctx *context) propertyTypeSpec(resourceScope, itemType, primitiveItemType,
 			AdditionalProperties: &elementType,
 		}
 	case "":
+		// TODO: We hit this on a bunch of properties:
+		// AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider
+		// AWS::DataBrew::Recipe.Parameters
+		// AWS::ECR::Repository.RepositoryPolicyText
+		// AWS::SageMaker::ModelPackageGroup.ModelPackageGroupPolicy
+		// AWS::KMS::Key.KeyPolicy
+		// Make special cases for those?
 		return pschema.TypeSpec{Ref: "pulumi.json#/Any"}
 	default:
 		return ctx.nestedTypeSpec(resourceScope, typ)
