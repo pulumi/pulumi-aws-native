@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPNGatewayRoutePropagation struct {
 // NewVPNGatewayRoutePropagation registers a new resource with the given unique name, arguments, and options.
 func NewVPNGatewayRoutePropagation(ctx *pulumi.Context,
 	name string, args *VPNGatewayRoutePropagationArgs, opts ...pulumi.ResourceOption) (*VPNGatewayRoutePropagation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPNGatewayRoutePropagationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPNGatewayRoutePropagation
 	err := ctx.RegisterResource("cloudformation:EC2:VPNGatewayRoutePropagation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPNGatewayRoutePropagationArgs struct {
 
 func (VPNGatewayRoutePropagationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpngatewayRoutePropagationArgs)(nil)).Elem()
+}
+
+type VPNGatewayRoutePropagationInput interface {
+	pulumi.Input
+
+	ToVPNGatewayRoutePropagationOutput() VPNGatewayRoutePropagationOutput
+	ToVPNGatewayRoutePropagationOutputWithContext(ctx context.Context) VPNGatewayRoutePropagationOutput
+}
+
+func (*VPNGatewayRoutePropagation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNGatewayRoutePropagation)(nil))
+}
+
+func (i *VPNGatewayRoutePropagation) ToVPNGatewayRoutePropagationOutput() VPNGatewayRoutePropagationOutput {
+	return i.ToVPNGatewayRoutePropagationOutputWithContext(context.Background())
+}
+
+func (i *VPNGatewayRoutePropagation) ToVPNGatewayRoutePropagationOutputWithContext(ctx context.Context) VPNGatewayRoutePropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNGatewayRoutePropagationOutput)
+}
+
+type VPNGatewayRoutePropagationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPNGatewayRoutePropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNGatewayRoutePropagation)(nil))
+}
+
+func (o VPNGatewayRoutePropagationOutput) ToVPNGatewayRoutePropagationOutput() VPNGatewayRoutePropagationOutput {
+	return o
+}
+
+func (o VPNGatewayRoutePropagationOutput) ToVPNGatewayRoutePropagationOutputWithContext(ctx context.Context) VPNGatewayRoutePropagationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPNGatewayRoutePropagationOutput{})
 }

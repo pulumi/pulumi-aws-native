@@ -16,7 +16,7 @@ namespace Pulumi.Cloudformation.Glue.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string> ConnectionProperties;
+        public readonly Union<System.Text.Json.JsonElement, string>? ConnectionProperties;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Cloudformation.Glue.Outputs
 
         [OutputConstructor]
         private ConnectionConnectionInput(
-            Union<System.Text.Json.JsonElement, string> ConnectionProperties,
+            Union<System.Text.Json.JsonElement, string>? ConnectionProperties,
 
             string ConnectionType,
 

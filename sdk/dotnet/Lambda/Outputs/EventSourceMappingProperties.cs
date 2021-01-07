@@ -32,11 +32,15 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
         /// </summary>
-        public readonly string EventSourceArn;
+        public readonly string? EventSourceArn;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
         /// </summary>
         public readonly string FunctionName;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+        /// </summary>
+        public readonly ImmutableArray<string> FunctionResponseTypes;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
         /// </summary>
@@ -54,9 +58,33 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// </summary>
         public readonly int? ParallelizationFactor;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+        /// </summary>
+        public readonly bool? PartialBatchResponse;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+        /// </summary>
+        public readonly ImmutableArray<string> Queues;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+        /// </summary>
+        public readonly Outputs.EventSourceMappingSelfManagedEventSource? SelfManagedEventSource;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
         /// </summary>
         public readonly string? StartingPosition;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+        /// </summary>
+        public readonly ImmutableArray<string> Topics;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        /// </summary>
+        public readonly int? TumblingWindowInSeconds;
 
         [OutputConstructor]
         private EventSourceMappingProperties(
@@ -68,9 +96,11 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
 
             bool? Enabled,
 
-            string EventSourceArn,
+            string? EventSourceArn,
 
             string FunctionName,
+
+            ImmutableArray<string> FunctionResponseTypes,
 
             int? MaximumBatchingWindowInSeconds,
 
@@ -80,7 +110,19 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
 
             int? ParallelizationFactor,
 
-            string? StartingPosition)
+            bool? PartialBatchResponse,
+
+            ImmutableArray<string> Queues,
+
+            Outputs.EventSourceMappingSelfManagedEventSource? SelfManagedEventSource,
+
+            ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations,
+
+            string? StartingPosition,
+
+            ImmutableArray<string> Topics,
+
+            int? TumblingWindowInSeconds)
         {
             this.BatchSize = BatchSize;
             this.BisectBatchOnFunctionError = BisectBatchOnFunctionError;
@@ -88,11 +130,18 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
             this.Enabled = Enabled;
             this.EventSourceArn = EventSourceArn;
             this.FunctionName = FunctionName;
+            this.FunctionResponseTypes = FunctionResponseTypes;
             this.MaximumBatchingWindowInSeconds = MaximumBatchingWindowInSeconds;
             this.MaximumRecordAgeInSeconds = MaximumRecordAgeInSeconds;
             this.MaximumRetryAttempts = MaximumRetryAttempts;
             this.ParallelizationFactor = ParallelizationFactor;
+            this.PartialBatchResponse = PartialBatchResponse;
+            this.Queues = Queues;
+            this.SelfManagedEventSource = SelfManagedEventSource;
+            this.SourceAccessConfigurations = SourceAccessConfigurations;
             this.StartingPosition = StartingPosition;
+            this.Topics = Topics;
+            this.TumblingWindowInSeconds = TumblingWindowInSeconds;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Events
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Events:EventBus")]
     public partial class EventBus : Pulumi.CustomResource
     {
         /// <summary>

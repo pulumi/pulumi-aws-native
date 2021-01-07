@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SageMaker:EndpointConfig")]
     public partial class EndpointConfig : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package pinpointemail
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Identity struct {
 // NewIdentity registers a new resource with the given unique name, arguments, and options.
 func NewIdentity(ctx *pulumi.Context,
 	name string, args *IdentityArgs, opts ...pulumi.ResourceOption) (*Identity, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &IdentityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Identity
 	err := ctx.RegisterResource("cloudformation:PinpointEmail:Identity", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type IdentityArgs struct {
 
 func (IdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityArgs)(nil)).Elem()
+}
+
+type IdentityInput interface {
+	pulumi.Input
+
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(ctx context.Context) IdentityOutput
+}
+
+func (*Identity) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil))
+}
+
+func (i *Identity) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
+}
+
+func (i *Identity) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
+}
+
+type IdentityOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil))
+}
+
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityOutput{})
 }

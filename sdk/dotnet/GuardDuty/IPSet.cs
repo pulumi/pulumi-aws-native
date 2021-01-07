@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GuardDuty
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GuardDuty:IPSet")]
     public partial class IPSet : Pulumi.CustomResource
     {
         /// <summary>

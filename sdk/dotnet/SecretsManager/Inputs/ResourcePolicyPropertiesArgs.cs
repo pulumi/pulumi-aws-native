@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.SecretsManager.Inputs
     public sealed class ResourcePolicyPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
+        /// </summary>
+        [Input("BlockPublicPolicy")]
+        public Input<bool>? BlockPublicPolicy { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
         /// </summary>
         [Input("ResourcePolicy", required: true)]

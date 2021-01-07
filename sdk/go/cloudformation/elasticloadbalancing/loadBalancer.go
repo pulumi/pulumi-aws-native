@@ -4,6 +4,7 @@
 package elasticloadbalancing
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LoadBalancer struct {
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancer(ctx *pulumi.Context,
 	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LoadBalancerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LoadBalancer
 	err := ctx.RegisterResource("cloudformation:ElasticLoadBalancing:LoadBalancer", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LoadBalancerArgs struct {
 
 func (LoadBalancerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerArgs)(nil)).Elem()
+}
+
+type LoadBalancerInput interface {
+	pulumi.Input
+
+	ToLoadBalancerOutput() LoadBalancerOutput
+	ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput
+}
+
+func (*LoadBalancer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancer)(nil))
+}
+
+func (i *LoadBalancer) ToLoadBalancerOutput() LoadBalancerOutput {
+	return i.ToLoadBalancerOutputWithContext(context.Background())
+}
+
+func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerOutput)
+}
+
+type LoadBalancerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancer)(nil))
+}
+
+func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {
+	return o
+}
+
+func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerOutput{})
 }

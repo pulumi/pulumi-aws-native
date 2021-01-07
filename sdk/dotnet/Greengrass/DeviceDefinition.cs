@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Greengrass
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Greengrass:DeviceDefinition")]
     public partial class DeviceDefinition : Pulumi.CustomResource
     {
         /// <summary>

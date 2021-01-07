@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DeviceDefinition struct {
 // NewDeviceDefinition registers a new resource with the given unique name, arguments, and options.
 func NewDeviceDefinition(ctx *pulumi.Context,
 	name string, args *DeviceDefinitionArgs, opts ...pulumi.ResourceOption) (*DeviceDefinition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeviceDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DeviceDefinition
 	err := ctx.RegisterResource("cloudformation:Greengrass:DeviceDefinition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DeviceDefinitionArgs struct {
 
 func (DeviceDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceDefinitionArgs)(nil)).Elem()
+}
+
+type DeviceDefinitionInput interface {
+	pulumi.Input
+
+	ToDeviceDefinitionOutput() DeviceDefinitionOutput
+	ToDeviceDefinitionOutputWithContext(ctx context.Context) DeviceDefinitionOutput
+}
+
+func (*DeviceDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceDefinition)(nil))
+}
+
+func (i *DeviceDefinition) ToDeviceDefinitionOutput() DeviceDefinitionOutput {
+	return i.ToDeviceDefinitionOutputWithContext(context.Background())
+}
+
+func (i *DeviceDefinition) ToDeviceDefinitionOutputWithContext(ctx context.Context) DeviceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionOutput)
+}
+
+type DeviceDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeviceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceDefinition)(nil))
+}
+
+func (o DeviceDefinitionOutput) ToDeviceDefinitionOutput() DeviceDefinitionOutput {
+	return o
+}
+
+func (o DeviceDefinitionOutput) ToDeviceDefinitionOutputWithContext(ctx context.Context) DeviceDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeviceDefinitionOutput{})
 }

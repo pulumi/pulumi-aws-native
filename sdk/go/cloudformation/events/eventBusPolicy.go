@@ -4,6 +4,7 @@
 package events
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EventBusPolicy struct {
 // NewEventBusPolicy registers a new resource with the given unique name, arguments, and options.
 func NewEventBusPolicy(ctx *pulumi.Context,
 	name string, args *EventBusPolicyArgs, opts ...pulumi.ResourceOption) (*EventBusPolicy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EventBusPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EventBusPolicy
 	err := ctx.RegisterResource("cloudformation:Events:EventBusPolicy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EventBusPolicyArgs struct {
 
 func (EventBusPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventBusPolicyArgs)(nil)).Elem()
+}
+
+type EventBusPolicyInput interface {
+	pulumi.Input
+
+	ToEventBusPolicyOutput() EventBusPolicyOutput
+	ToEventBusPolicyOutputWithContext(ctx context.Context) EventBusPolicyOutput
+}
+
+func (*EventBusPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusPolicy)(nil))
+}
+
+func (i *EventBusPolicy) ToEventBusPolicyOutput() EventBusPolicyOutput {
+	return i.ToEventBusPolicyOutputWithContext(context.Background())
+}
+
+func (i *EventBusPolicy) ToEventBusPolicyOutputWithContext(ctx context.Context) EventBusPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyOutput)
+}
+
+type EventBusPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventBusPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusPolicy)(nil))
+}
+
+func (o EventBusPolicyOutput) ToEventBusPolicyOutput() EventBusPolicyOutput {
+	return o
+}
+
+func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Context) EventBusPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventBusPolicyOutput{})
 }

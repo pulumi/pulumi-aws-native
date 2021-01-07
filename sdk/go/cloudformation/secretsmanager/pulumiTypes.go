@@ -125,6 +125,8 @@ func (o ResourcePolicyAttributesPtrOutput) Elem() ResourcePolicyAttributesOutput
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html
 type ResourcePolicyProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
+	BlockPublicPolicy *bool `pulumi:"BlockPublicPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
 	ResourcePolicy interface{} `pulumi:"ResourcePolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid
@@ -144,6 +146,8 @@ type ResourcePolicyPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html
 type ResourcePolicyPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"BlockPublicPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
 	ResourcePolicy pulumi.Input `pulumi:"ResourcePolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid
@@ -228,6 +232,11 @@ func (o ResourcePolicyPropertiesOutput) ToResourcePolicyPropertiesPtrOutputWithC
 	}).(ResourcePolicyPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
+func (o ResourcePolicyPropertiesOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyProperties) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
 func (o ResourcePolicyPropertiesOutput) ResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v ResourcePolicyProperties) interface{} { return v.ResourcePolicy }).(pulumi.AnyOutput)
@@ -254,6 +263,16 @@ func (o ResourcePolicyPropertiesPtrOutput) ToResourcePolicyPropertiesPtrOutputWi
 
 func (o ResourcePolicyPropertiesPtrOutput) Elem() ResourcePolicyPropertiesOutput {
 	return o.ApplyT(func(v *ResourcePolicyProperties) ResourcePolicyProperties { return *v }).(ResourcePolicyPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-blockpublicpolicy
+func (o ResourcePolicyPropertiesPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicPolicy
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
@@ -388,8 +407,258 @@ func (o RotationScheduleAttributesPtrOutput) Elem() RotationScheduleAttributesOu
 	return o.ApplyT(func(v *RotationScheduleAttributes) RotationScheduleAttributes { return *v }).(RotationScheduleAttributesOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html
+type RotationScheduleHostedRotationLambda struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-kmskeyarn
+	KmsKeyArn *string `pulumi:"KmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretarn
+	MasterSecretArn *string `pulumi:"MasterSecretArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretkmskeyarn
+	MasterSecretKmsKeyArn *string `pulumi:"MasterSecretKmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationlambdaname
+	RotationLambdaName *string `pulumi:"RotationLambdaName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationtype
+	RotationType string `pulumi:"RotationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsecuritygroupids
+	VpcSecurityGroupIds *string `pulumi:"VpcSecurityGroupIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsubnetids
+	VpcSubnetIds *string `pulumi:"VpcSubnetIds"`
+}
+
+// RotationScheduleHostedRotationLambdaInput is an input type that accepts RotationScheduleHostedRotationLambdaArgs and RotationScheduleHostedRotationLambdaOutput values.
+// You can construct a concrete instance of `RotationScheduleHostedRotationLambdaInput` via:
+//
+//          RotationScheduleHostedRotationLambdaArgs{...}
+type RotationScheduleHostedRotationLambdaInput interface {
+	pulumi.Input
+
+	ToRotationScheduleHostedRotationLambdaOutput() RotationScheduleHostedRotationLambdaOutput
+	ToRotationScheduleHostedRotationLambdaOutputWithContext(context.Context) RotationScheduleHostedRotationLambdaOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html
+type RotationScheduleHostedRotationLambdaArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-kmskeyarn
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"KmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretarn
+	MasterSecretArn pulumi.StringPtrInput `pulumi:"MasterSecretArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretkmskeyarn
+	MasterSecretKmsKeyArn pulumi.StringPtrInput `pulumi:"MasterSecretKmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationlambdaname
+	RotationLambdaName pulumi.StringPtrInput `pulumi:"RotationLambdaName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationtype
+	RotationType pulumi.StringInput `pulumi:"RotationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsecuritygroupids
+	VpcSecurityGroupIds pulumi.StringPtrInput `pulumi:"VpcSecurityGroupIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsubnetids
+	VpcSubnetIds pulumi.StringPtrInput `pulumi:"VpcSubnetIds"`
+}
+
+func (RotationScheduleHostedRotationLambdaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaOutput() RotationScheduleHostedRotationLambdaOutput {
+	return i.ToRotationScheduleHostedRotationLambdaOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaOutput)
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return i.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaOutput).ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx)
+}
+
+// RotationScheduleHostedRotationLambdaPtrInput is an input type that accepts RotationScheduleHostedRotationLambdaArgs, RotationScheduleHostedRotationLambdaPtr and RotationScheduleHostedRotationLambdaPtrOutput values.
+// You can construct a concrete instance of `RotationScheduleHostedRotationLambdaPtrInput` via:
+//
+//          RotationScheduleHostedRotationLambdaArgs{...}
+//
+//  or:
+//
+//          nil
+type RotationScheduleHostedRotationLambdaPtrInput interface {
+	pulumi.Input
+
+	ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput
+	ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Context) RotationScheduleHostedRotationLambdaPtrOutput
+}
+
+type rotationScheduleHostedRotationLambdaPtrType RotationScheduleHostedRotationLambdaArgs
+
+func RotationScheduleHostedRotationLambdaPtr(v *RotationScheduleHostedRotationLambdaArgs) RotationScheduleHostedRotationLambdaPtrInput {
+	return (*rotationScheduleHostedRotationLambdaPtrType)(v)
+}
+
+func (*rotationScheduleHostedRotationLambdaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (i *rotationScheduleHostedRotationLambdaPtrType) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return i.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i *rotationScheduleHostedRotationLambdaPtrType) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html
+type RotationScheduleHostedRotationLambdaOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleHostedRotationLambdaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaOutput() RotationScheduleHostedRotationLambdaOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return o.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Background())
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *RotationScheduleHostedRotationLambda {
+		return &v
+	}).(RotationScheduleHostedRotationLambdaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-kmskeyarn
+func (o RotationScheduleHostedRotationLambdaOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretarn
+func (o RotationScheduleHostedRotationLambdaOutput) MasterSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.MasterSecretArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretkmskeyarn
+func (o RotationScheduleHostedRotationLambdaOutput) MasterSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.MasterSecretKmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationlambdaname
+func (o RotationScheduleHostedRotationLambdaOutput) RotationLambdaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.RotationLambdaName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationtype
+func (o RotationScheduleHostedRotationLambdaOutput) RotationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) string { return v.RotationType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsecuritygroupids
+func (o RotationScheduleHostedRotationLambdaOutput) VpcSecurityGroupIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.VpcSecurityGroupIds }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsubnetids
+func (o RotationScheduleHostedRotationLambdaOutput) VpcSubnetIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.VpcSubnetIds }).(pulumi.StringPtrOutput)
+}
+
+type RotationScheduleHostedRotationLambdaPtrOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleHostedRotationLambdaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) Elem() RotationScheduleHostedRotationLambdaOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) RotationScheduleHostedRotationLambda { return *v }).(RotationScheduleHostedRotationLambdaOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-kmskeyarn
+func (o RotationScheduleHostedRotationLambdaPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretarn
+func (o RotationScheduleHostedRotationLambdaPtrOutput) MasterSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-mastersecretkmskeyarn
+func (o RotationScheduleHostedRotationLambdaPtrOutput) MasterSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterSecretKmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationlambdaname
+func (o RotationScheduleHostedRotationLambdaPtrOutput) RotationLambdaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RotationLambdaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationtype
+func (o RotationScheduleHostedRotationLambdaPtrOutput) RotationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RotationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsecuritygroupids
+func (o RotationScheduleHostedRotationLambdaPtrOutput) VpcSecurityGroupIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSecurityGroupIds
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-vpcsubnetids
+func (o RotationScheduleHostedRotationLambdaPtrOutput) VpcSubnetIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSubnetIds
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
 type RotationScheduleProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
+	HostedRotationLambda *RotationScheduleHostedRotationLambda `pulumi:"HostedRotationLambda"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
 	RotationLambdaARN *string `pulumi:"RotationLambdaARN"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationrules
@@ -411,6 +680,8 @@ type RotationSchedulePropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
 type RotationSchedulePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
+	HostedRotationLambda RotationScheduleHostedRotationLambdaPtrInput `pulumi:"HostedRotationLambda"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
 	RotationLambdaARN pulumi.StringPtrInput `pulumi:"RotationLambdaARN"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationrules
@@ -497,6 +768,13 @@ func (o RotationSchedulePropertiesOutput) ToRotationSchedulePropertiesPtrOutputW
 	}).(RotationSchedulePropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
+func (o RotationSchedulePropertiesOutput) HostedRotationLambda() RotationScheduleHostedRotationLambdaPtrOutput {
+	return o.ApplyT(func(v RotationScheduleProperties) *RotationScheduleHostedRotationLambda {
+		return v.HostedRotationLambda
+	}).(RotationScheduleHostedRotationLambdaPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
 func (o RotationSchedulePropertiesOutput) RotationLambdaARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RotationScheduleProperties) *string { return v.RotationLambdaARN }).(pulumi.StringPtrOutput)
@@ -528,6 +806,16 @@ func (o RotationSchedulePropertiesPtrOutput) ToRotationSchedulePropertiesPtrOutp
 
 func (o RotationSchedulePropertiesPtrOutput) Elem() RotationSchedulePropertiesOutput {
 	return o.ApplyT(func(v *RotationScheduleProperties) RotationScheduleProperties { return *v }).(RotationSchedulePropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
+func (o RotationSchedulePropertiesPtrOutput) HostedRotationLambda() RotationScheduleHostedRotationLambdaPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleProperties) *RotationScheduleHostedRotationLambda {
+		if v == nil {
+			return nil
+		}
+		return v.HostedRotationLambda
+	}).(RotationScheduleHostedRotationLambdaPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
@@ -1631,6 +1919,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourcePolicyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RotationScheduleAttributesOutput{})
 	pulumi.RegisterOutputType(RotationScheduleAttributesPtrOutput{})
+	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaOutput{})
+	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaPtrOutput{})
 	pulumi.RegisterOutputType(RotationSchedulePropertiesOutput{})
 	pulumi.RegisterOutputType(RotationSchedulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RotationScheduleRotationRulesOutput{})

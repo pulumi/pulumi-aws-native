@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGatewayV2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGatewayV2:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {
         /// <summary>

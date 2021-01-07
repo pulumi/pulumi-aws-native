@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPCGatewayAttachment struct {
 // NewVPCGatewayAttachment registers a new resource with the given unique name, arguments, and options.
 func NewVPCGatewayAttachment(ctx *pulumi.Context,
 	name string, args *VPCGatewayAttachmentArgs, opts ...pulumi.ResourceOption) (*VPCGatewayAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCGatewayAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPCGatewayAttachment
 	err := ctx.RegisterResource("cloudformation:EC2:VPCGatewayAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCGatewayAttachmentArgs struct {
 
 func (VPCGatewayAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcgatewayAttachmentArgs)(nil)).Elem()
+}
+
+type VPCGatewayAttachmentInput interface {
+	pulumi.Input
+
+	ToVPCGatewayAttachmentOutput() VPCGatewayAttachmentOutput
+	ToVPCGatewayAttachmentOutputWithContext(ctx context.Context) VPCGatewayAttachmentOutput
+}
+
+func (*VPCGatewayAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCGatewayAttachment)(nil))
+}
+
+func (i *VPCGatewayAttachment) ToVPCGatewayAttachmentOutput() VPCGatewayAttachmentOutput {
+	return i.ToVPCGatewayAttachmentOutputWithContext(context.Background())
+}
+
+func (i *VPCGatewayAttachment) ToVPCGatewayAttachmentOutputWithContext(ctx context.Context) VPCGatewayAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCGatewayAttachmentOutput)
+}
+
+type VPCGatewayAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCGatewayAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCGatewayAttachment)(nil))
+}
+
+func (o VPCGatewayAttachmentOutput) ToVPCGatewayAttachmentOutput() VPCGatewayAttachmentOutput {
+	return o
+}
+
+func (o VPCGatewayAttachmentOutput) ToVPCGatewayAttachmentOutputWithContext(ctx context.Context) VPCGatewayAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCGatewayAttachmentOutput{})
 }

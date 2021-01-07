@@ -69,6 +69,12 @@ namespace Pulumi.Cloudformation.StepFunctions.Inputs
             set => _Tags = value;
         }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
+        /// </summary>
+        [Input("TracingConfiguration")]
+        public Input<Inputs.StateMachineTracingConfigurationArgs>? TracingConfiguration { get; set; }
+
         public StateMachinePropertiesArgs()
         {
         }

@@ -5,56 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from .. import _utilities, _tables
+from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
+from ._inputs import *
+
+__all__ = ['Server']
 
 
 class Server(pulumi.CustomResource):
-    attributes: pulumi.Output[dict]
-    """
-    The attributes associated with the resource
-      * `arn` (`str`)
-      * `endpoint` (`str`)
-    """
-    logical_id: pulumi.Output[str]
-    """
-    An explicit logical ID for the resource
-    """
-    metadata: pulumi.Output[dict]
-    """
-    Arbitrary structured data associated with the resource
-    """
-    properties: pulumi.Output[dict]
-    """
-    The input properties associated with the resource
-      * `associate_public_ip_address` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
-      * `backup_id` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
-      * `backup_retention_count` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
-      * `custom_certificate` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
-      * `custom_domain` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
-      * `custom_private_key` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
-      * `disable_automated_backup` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
-      * `engine` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
-      * `engine_attributes` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
-        * `name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
-        * `value` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-value
-
-      * `engine_model` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
-      * `engine_version` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
-      * `instance_profile_arn` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
-      * `instance_type` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
-      * `key_pair` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
-      * `preferred_backup_window` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
-      * `preferred_maintenance_window` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
-      * `security_group_ids` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
-      * `server_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
-      * `service_role_arn` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
-      * `subnet_ids` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
-      * `tags` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
-        * `key` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-        * `value` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-    """
-    def __init__(__self__, resource_name, opts=None, deletion_policy=None, logical_id=None, metadata=None, properties=None, update_replace_policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_policy: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesArgs']]] = None,
+                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html
 
@@ -62,38 +34,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
         :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[dict] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[dict] properties: The input properties associated with the resource
+        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
+        :param pulumi.Input[pulumi.InputType['ServerPropertiesArgs']] properties: The input properties associated with the resource
         :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-
-        The **properties** object supports the following:
-
-          * `associate_public_ip_address` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
-          * `backup_id` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
-          * `backup_retention_count` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
-          * `custom_certificate` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
-          * `custom_domain` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
-          * `custom_private_key` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
-          * `disable_automated_backup` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
-          * `engine` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
-          * `engine_attributes` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
-            * `name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
-            * `value` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-value
-
-          * `engine_model` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
-          * `engine_version` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
-          * `instance_profile_arn` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
-          * `instance_type` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
-          * `key_pair` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
-          * `preferred_backup_window` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
-          * `preferred_maintenance_window` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
-          * `security_group_ids` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
-          * `server_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
-          * `service_role_arn` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
-          * `subnet_ids` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
-          * `tags` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
-            * `key` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-            * `value` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,7 +49,7 @@ class Server(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -115,7 +58,7 @@ class Server(pulumi.CustomResource):
             __props__['deletion_policy'] = deletion_policy
             __props__['logical_id'] = logical_id
             __props__['metadata'] = metadata
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['update_replace_policy'] = update_replace_policy
@@ -127,13 +70,15 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -142,8 +87,41 @@ class Server(pulumi.CustomResource):
 
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Output['outputs.ServerAttributes']:
+        """
+        The attributes associated with the resource
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        An explicit logical ID for the resource
+        """
+        return pulumi.get(self, "logical_id")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional[str]]:
+        """
+        Arbitrary structured data associated with the resource
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ServerProperties']:
+        """
+        The input properties associated with the resource
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

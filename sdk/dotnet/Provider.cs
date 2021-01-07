@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Cloudformation
 {
+    [CloudformationResourceType("pulumi:providers:cloudformation")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>

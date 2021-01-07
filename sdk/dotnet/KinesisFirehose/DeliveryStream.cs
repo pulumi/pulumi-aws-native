@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.KinesisFirehose
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:KinesisFirehose:DeliveryStream")]
     public partial class DeliveryStream : Pulumi.CustomResource
     {
         /// <summary>

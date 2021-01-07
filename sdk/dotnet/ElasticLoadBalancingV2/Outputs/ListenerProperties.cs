@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
     public sealed class ListenerProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+        /// </summary>
+        public readonly ImmutableArray<string> AlpnPolicy;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerCertificate> Certificates;
@@ -28,11 +32,11 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
         /// </summary>
-        public readonly string Protocol;
+        public readonly string? Protocol;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
         /// </summary>
@@ -40,18 +44,21 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerProperties(
+            ImmutableArray<string> AlpnPolicy,
+
             ImmutableArray<Outputs.ListenerCertificate> Certificates,
 
             ImmutableArray<Outputs.ListenerAction> DefaultActions,
 
             string LoadBalancerArn,
 
-            int Port,
+            int? Port,
 
-            string Protocol,
+            string? Protocol,
 
             string? SslPolicy)
         {
+            this.AlpnPolicy = AlpnPolicy;
             this.Certificates = Certificates;
             this.DefaultActions = DefaultActions;
             this.LoadBalancerArn = LoadBalancerArn;

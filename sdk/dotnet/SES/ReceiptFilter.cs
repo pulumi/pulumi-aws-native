@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SES
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptfilter.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SES:ReceiptFilter")]
     public partial class ReceiptFilter : Pulumi.CustomResource
     {
         /// <summary>

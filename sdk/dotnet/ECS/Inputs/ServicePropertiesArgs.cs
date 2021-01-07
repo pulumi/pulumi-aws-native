@@ -15,6 +15,18 @@ namespace Pulumi.Cloudformation.ECS.Inputs
     /// </summary>
     public sealed class ServicePropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("CapacityProviderStrategy")]
+        private InputList<Inputs.ServiceCapacityProviderStrategyItemArgs>? _CapacityProviderStrategy;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
+        /// </summary>
+        public InputList<Inputs.ServiceCapacityProviderStrategyItemArgs> CapacityProviderStrategy
+        {
+            get => _CapacityProviderStrategy ?? (_CapacityProviderStrategy = new InputList<Inputs.ServiceCapacityProviderStrategyItemArgs>());
+            set => _CapacityProviderStrategy = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
         /// </summary>
@@ -122,6 +134,12 @@ namespace Pulumi.Cloudformation.ECS.Inputs
         /// </summary>
         [Input("SchedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
+        /// </summary>
+        [Input("ServiceArn")]
+        public Input<string>? ServiceArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename

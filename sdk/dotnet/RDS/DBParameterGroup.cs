@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:DBParameterGroup")]
     public partial class DBParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

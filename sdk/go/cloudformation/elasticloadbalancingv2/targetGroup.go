@@ -4,6 +4,7 @@
 package elasticloadbalancingv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TargetGroup struct {
 // NewTargetGroup registers a new resource with the given unique name, arguments, and options.
 func NewTargetGroup(ctx *pulumi.Context,
 	name string, args *TargetGroupArgs, opts ...pulumi.ResourceOption) (*TargetGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TargetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TargetGroup
 	err := ctx.RegisterResource("cloudformation:ElasticLoadBalancingV2:TargetGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TargetGroupArgs struct {
 
 func (TargetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupArgs)(nil)).Elem()
+}
+
+type TargetGroupInput interface {
+	pulumi.Input
+
+	ToTargetGroupOutput() TargetGroupOutput
+	ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput
+}
+
+func (*TargetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroup)(nil))
+}
+
+func (i *TargetGroup) ToTargetGroupOutput() TargetGroupOutput {
+	return i.ToTargetGroupOutputWithContext(context.Background())
+}
+
+func (i *TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupOutput)
+}
+
+type TargetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (TargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroup)(nil))
+}
+
+func (o TargetGroupOutput) ToTargetGroupOutput() TargetGroupOutput {
+	return o
+}
+
+func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TargetGroupOutput{})
 }

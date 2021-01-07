@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.AmazonMQ.Outputs
     public sealed class BrokerProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
+        /// </summary>
+        public readonly string? AuthenticationStrategy;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
         /// </summary>
         public readonly bool AutoMinorVersionUpgrade;
@@ -45,6 +49,10 @@ namespace Pulumi.Cloudformation.AmazonMQ.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
         /// </summary>
         public readonly string HostInstanceType;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
+        /// </summary>
+        public readonly Outputs.BrokerLdapServerMetadata? LdapServerMetadata;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
         /// </summary>
@@ -80,6 +88,8 @@ namespace Pulumi.Cloudformation.AmazonMQ.Outputs
 
         [OutputConstructor]
         private BrokerProperties(
+            string? AuthenticationStrategy,
+
             bool AutoMinorVersionUpgrade,
 
             string BrokerName,
@@ -95,6 +105,8 @@ namespace Pulumi.Cloudformation.AmazonMQ.Outputs
             string EngineVersion,
 
             string HostInstanceType,
+
+            Outputs.BrokerLdapServerMetadata? LdapServerMetadata,
 
             Outputs.BrokerLogList? Logs,
 
@@ -112,6 +124,7 @@ namespace Pulumi.Cloudformation.AmazonMQ.Outputs
 
             ImmutableArray<Outputs.BrokerUser> Users)
         {
+            this.AuthenticationStrategy = AuthenticationStrategy;
             this.AutoMinorVersionUpgrade = AutoMinorVersionUpgrade;
             this.BrokerName = BrokerName;
             this.Configuration = Configuration;
@@ -120,6 +133,7 @@ namespace Pulumi.Cloudformation.AmazonMQ.Outputs
             this.EngineType = EngineType;
             this.EngineVersion = EngineVersion;
             this.HostInstanceType = HostInstanceType;
+            this.LdapServerMetadata = LdapServerMetadata;
             this.Logs = Logs;
             this.MaintenanceWindowStartTime = MaintenanceWindowStartTime;
             this.PubliclyAccessible = PubliclyAccessible;

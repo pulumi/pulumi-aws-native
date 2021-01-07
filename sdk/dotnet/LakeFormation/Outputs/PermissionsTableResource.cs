@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.LakeFormation.Outputs
     public sealed class PermissionsTableResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-catalogid
+        /// </summary>
+        public readonly string? CatalogId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-databasename
         /// </summary>
         public readonly string? DatabaseName;
@@ -21,15 +25,25 @@ namespace Pulumi.Cloudformation.LakeFormation.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-name
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html#cfn-lakeformation-permissions-tableresource-tablewildcard
+        /// </summary>
+        public readonly Outputs.PermissionsTableWildcard? TableWildcard;
 
         [OutputConstructor]
         private PermissionsTableResource(
+            string? CatalogId,
+
             string? DatabaseName,
 
-            string? Name)
+            string? Name,
+
+            Outputs.PermissionsTableWildcard? TableWildcard)
         {
+            this.CatalogId = CatalogId;
             this.DatabaseName = DatabaseName;
             this.Name = Name;
+            this.TableWildcard = TableWildcard;
         }
     }
 }

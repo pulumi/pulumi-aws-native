@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Macro struct {
 // NewMacro registers a new resource with the given unique name, arguments, and options.
 func NewMacro(ctx *pulumi.Context,
 	name string, args *MacroArgs, opts ...pulumi.ResourceOption) (*Macro, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MacroArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Macro
 	err := ctx.RegisterResource("cloudformation:CloudFormation:Macro", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MacroArgs struct {
 
 func (MacroArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*macroArgs)(nil)).Elem()
+}
+
+type MacroInput interface {
+	pulumi.Input
+
+	ToMacroOutput() MacroOutput
+	ToMacroOutputWithContext(ctx context.Context) MacroOutput
+}
+
+func (*Macro) ElementType() reflect.Type {
+	return reflect.TypeOf((*Macro)(nil))
+}
+
+func (i *Macro) ToMacroOutput() MacroOutput {
+	return i.ToMacroOutputWithContext(context.Background())
+}
+
+func (i *Macro) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MacroOutput)
+}
+
+type MacroOutput struct {
+	*pulumi.OutputState
+}
+
+func (MacroOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Macro)(nil))
+}
+
+func (o MacroOutput) ToMacroOutput() MacroOutput {
+	return o
+}
+
+func (o MacroOutput) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MacroOutput{})
 }

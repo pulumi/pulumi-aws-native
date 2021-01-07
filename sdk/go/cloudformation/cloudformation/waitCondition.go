@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -30,11 +31,12 @@ type WaitCondition struct {
 // NewWaitCondition registers a new resource with the given unique name, arguments, and options.
 func NewWaitCondition(ctx *pulumi.Context,
 	name string, args *WaitConditionArgs, opts ...pulumi.ResourceOption) (*WaitCondition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &WaitConditionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource WaitCondition
 	err := ctx.RegisterResource("cloudformation:CloudFormation:WaitCondition", name, args, &resource, opts...)
@@ -120,4 +122,43 @@ type WaitConditionArgs struct {
 
 func (WaitConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*waitConditionArgs)(nil)).Elem()
+}
+
+type WaitConditionInput interface {
+	pulumi.Input
+
+	ToWaitConditionOutput() WaitConditionOutput
+	ToWaitConditionOutputWithContext(ctx context.Context) WaitConditionOutput
+}
+
+func (*WaitCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitCondition)(nil))
+}
+
+func (i *WaitCondition) ToWaitConditionOutput() WaitConditionOutput {
+	return i.ToWaitConditionOutputWithContext(context.Background())
+}
+
+func (i *WaitCondition) ToWaitConditionOutputWithContext(ctx context.Context) WaitConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitConditionOutput)
+}
+
+type WaitConditionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WaitConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitCondition)(nil))
+}
+
+func (o WaitConditionOutput) ToWaitConditionOutput() WaitConditionOutput {
+	return o
+}
+
+func (o WaitConditionOutput) ToWaitConditionOutputWithContext(ctx context.Context) WaitConditionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WaitConditionOutput{})
 }

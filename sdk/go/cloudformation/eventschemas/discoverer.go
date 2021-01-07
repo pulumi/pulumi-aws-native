@@ -4,6 +4,7 @@
 package eventschemas
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Discoverer struct {
 // NewDiscoverer registers a new resource with the given unique name, arguments, and options.
 func NewDiscoverer(ctx *pulumi.Context,
 	name string, args *DiscovererArgs, opts ...pulumi.ResourceOption) (*Discoverer, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DiscovererArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Discoverer
 	err := ctx.RegisterResource("cloudformation:EventSchemas:Discoverer", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DiscovererArgs struct {
 
 func (DiscovererArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*discovererArgs)(nil)).Elem()
+}
+
+type DiscovererInput interface {
+	pulumi.Input
+
+	ToDiscovererOutput() DiscovererOutput
+	ToDiscovererOutputWithContext(ctx context.Context) DiscovererOutput
+}
+
+func (*Discoverer) ElementType() reflect.Type {
+	return reflect.TypeOf((*Discoverer)(nil))
+}
+
+func (i *Discoverer) ToDiscovererOutput() DiscovererOutput {
+	return i.ToDiscovererOutputWithContext(context.Background())
+}
+
+func (i *Discoverer) ToDiscovererOutputWithContext(ctx context.Context) DiscovererOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscovererOutput)
+}
+
+type DiscovererOutput struct {
+	*pulumi.OutputState
+}
+
+func (DiscovererOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Discoverer)(nil))
+}
+
+func (o DiscovererOutput) ToDiscovererOutput() DiscovererOutput {
+	return o
+}
+
+func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) DiscovererOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DiscovererOutput{})
 }

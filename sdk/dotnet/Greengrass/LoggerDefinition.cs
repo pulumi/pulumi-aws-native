@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Greengrass
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Greengrass:LoggerDefinition")]
     public partial class LoggerDefinition : Pulumi.CustomResource
     {
         /// <summary>

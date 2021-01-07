@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConnectorDefinitionVersion struct {
 // NewConnectorDefinitionVersion registers a new resource with the given unique name, arguments, and options.
 func NewConnectorDefinitionVersion(ctx *pulumi.Context,
 	name string, args *ConnectorDefinitionVersionArgs, opts ...pulumi.ResourceOption) (*ConnectorDefinitionVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConnectorDefinitionVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConnectorDefinitionVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:ConnectorDefinitionVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConnectorDefinitionVersionArgs struct {
 
 func (ConnectorDefinitionVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorDefinitionVersionArgs)(nil)).Elem()
+}
+
+type ConnectorDefinitionVersionInput interface {
+	pulumi.Input
+
+	ToConnectorDefinitionVersionOutput() ConnectorDefinitionVersionOutput
+	ToConnectorDefinitionVersionOutputWithContext(ctx context.Context) ConnectorDefinitionVersionOutput
+}
+
+func (*ConnectorDefinitionVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinitionVersion)(nil))
+}
+
+func (i *ConnectorDefinitionVersion) ToConnectorDefinitionVersionOutput() ConnectorDefinitionVersionOutput {
+	return i.ToConnectorDefinitionVersionOutputWithContext(context.Background())
+}
+
+func (i *ConnectorDefinitionVersion) ToConnectorDefinitionVersionOutputWithContext(ctx context.Context) ConnectorDefinitionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionOutput)
+}
+
+type ConnectorDefinitionVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectorDefinitionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinitionVersion)(nil))
+}
+
+func (o ConnectorDefinitionVersionOutput) ToConnectorDefinitionVersionOutput() ConnectorDefinitionVersionOutput {
+	return o
+}
+
+func (o ConnectorDefinitionVersionOutput) ToConnectorDefinitionVersionOutputWithContext(ctx context.Context) ConnectorDefinitionVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectorDefinitionVersionOutput{})
 }

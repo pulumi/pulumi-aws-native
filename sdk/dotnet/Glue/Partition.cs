@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:Partition")]
     public partial class Partition : Pulumi.CustomResource
     {
         /// <summary>

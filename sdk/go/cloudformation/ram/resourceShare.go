@@ -4,6 +4,7 @@
 package ram
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResourceShare struct {
 // NewResourceShare registers a new resource with the given unique name, arguments, and options.
 func NewResourceShare(ctx *pulumi.Context,
 	name string, args *ResourceShareArgs, opts ...pulumi.ResourceOption) (*ResourceShare, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResourceShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResourceShare
 	err := ctx.RegisterResource("cloudformation:RAM:ResourceShare", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResourceShareArgs struct {
 
 func (ResourceShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceShareArgs)(nil)).Elem()
+}
+
+type ResourceShareInput interface {
+	pulumi.Input
+
+	ToResourceShareOutput() ResourceShareOutput
+	ToResourceShareOutputWithContext(ctx context.Context) ResourceShareOutput
+}
+
+func (*ResourceShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShare)(nil))
+}
+
+func (i *ResourceShare) ToResourceShareOutput() ResourceShareOutput {
+	return i.ToResourceShareOutputWithContext(context.Background())
+}
+
+func (i *ResourceShare) ToResourceShareOutputWithContext(ctx context.Context) ResourceShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareOutput)
+}
+
+type ResourceShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShare)(nil))
+}
+
+func (o ResourceShareOutput) ToResourceShareOutput() ResourceShareOutput {
+	return o
+}
+
+func (o ResourceShareOutput) ToResourceShareOutputWithContext(ctx context.Context) ResourceShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceShareOutput{})
 }

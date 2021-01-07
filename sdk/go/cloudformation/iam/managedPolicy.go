@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ManagedPolicy struct {
 // NewManagedPolicy registers a new resource with the given unique name, arguments, and options.
 func NewManagedPolicy(ctx *pulumi.Context,
 	name string, args *ManagedPolicyArgs, opts ...pulumi.ResourceOption) (*ManagedPolicy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ManagedPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ManagedPolicy
 	err := ctx.RegisterResource("cloudformation:IAM:ManagedPolicy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ManagedPolicyArgs struct {
 
 func (ManagedPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPolicyArgs)(nil)).Elem()
+}
+
+type ManagedPolicyInput interface {
+	pulumi.Input
+
+	ToManagedPolicyOutput() ManagedPolicyOutput
+	ToManagedPolicyOutputWithContext(ctx context.Context) ManagedPolicyOutput
+}
+
+func (*ManagedPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPolicy)(nil))
+}
+
+func (i *ManagedPolicy) ToManagedPolicyOutput() ManagedPolicyOutput {
+	return i.ToManagedPolicyOutputWithContext(context.Background())
+}
+
+func (i *ManagedPolicy) ToManagedPolicyOutputWithContext(ctx context.Context) ManagedPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyOutput)
+}
+
+type ManagedPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPolicy)(nil))
+}
+
+func (o ManagedPolicyOutput) ToManagedPolicyOutput() ManagedPolicyOutput {
+	return o
+}
+
+func (o ManagedPolicyOutput) ToManagedPolicyOutputWithContext(ctx context.Context) ManagedPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedPolicyOutput{})
 }

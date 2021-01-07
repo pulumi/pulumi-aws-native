@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Inspector
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Inspector:AssessmentTemplate")]
     public partial class AssessmentTemplate : Pulumi.CustomResource
     {
         /// <summary>

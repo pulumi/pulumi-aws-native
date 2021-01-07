@@ -20,7 +20,7 @@ namespace Pulumi.Cloudformation.Configuration.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
         /// </summary>
-        public readonly string DeliveryS3Bucket;
+        public readonly string? DeliveryS3Bucket;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Cloudformation.Configuration.Outputs
         private OrganizationConformancePackProperties(
             ImmutableArray<Outputs.OrganizationConformancePackConformancePackInputParameter> ConformancePackInputParameters,
 
-            string DeliveryS3Bucket,
+            string? DeliveryS3Bucket,
 
             string? DeliveryS3KeyPrefix,
 

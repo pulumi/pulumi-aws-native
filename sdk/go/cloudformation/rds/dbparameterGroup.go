@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBParameterGroup struct {
 // NewDBParameterGroup registers a new resource with the given unique name, arguments, and options.
 func NewDBParameterGroup(ctx *pulumi.Context,
 	name string, args *DBParameterGroupArgs, opts ...pulumi.ResourceOption) (*DBParameterGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBParameterGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBParameterGroup
 	err := ctx.RegisterResource("cloudformation:RDS:DBParameterGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBParameterGroupArgs struct {
 
 func (DBParameterGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbparameterGroupArgs)(nil)).Elem()
+}
+
+type DBParameterGroupInput interface {
+	pulumi.Input
+
+	ToDBParameterGroupOutput() DBParameterGroupOutput
+	ToDBParameterGroupOutputWithContext(ctx context.Context) DBParameterGroupOutput
+}
+
+func (*DBParameterGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBParameterGroup)(nil))
+}
+
+func (i *DBParameterGroup) ToDBParameterGroupOutput() DBParameterGroupOutput {
+	return i.ToDBParameterGroupOutputWithContext(context.Background())
+}
+
+func (i *DBParameterGroup) ToDBParameterGroupOutputWithContext(ctx context.Context) DBParameterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBParameterGroupOutput)
+}
+
+type DBParameterGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBParameterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBParameterGroup)(nil))
+}
+
+func (o DBParameterGroupOutput) ToDBParameterGroupOutput() DBParameterGroupOutput {
+	return o
+}
+
+func (o DBParameterGroupOutput) ToDBParameterGroupOutputWithContext(ctx context.Context) DBParameterGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBParameterGroupOutput{})
 }

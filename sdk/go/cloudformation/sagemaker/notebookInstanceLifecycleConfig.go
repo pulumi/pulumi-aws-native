@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NotebookInstanceLifecycleConfig struct {
 // NewNotebookInstanceLifecycleConfig registers a new resource with the given unique name, arguments, and options.
 func NewNotebookInstanceLifecycleConfig(ctx *pulumi.Context,
 	name string, args *NotebookInstanceLifecycleConfigArgs, opts ...pulumi.ResourceOption) (*NotebookInstanceLifecycleConfig, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NotebookInstanceLifecycleConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NotebookInstanceLifecycleConfig
 	err := ctx.RegisterResource("cloudformation:SageMaker:NotebookInstanceLifecycleConfig", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NotebookInstanceLifecycleConfigArgs struct {
 
 func (NotebookInstanceLifecycleConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceLifecycleConfigArgs)(nil)).Elem()
+}
+
+type NotebookInstanceLifecycleConfigInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceLifecycleConfigOutput() NotebookInstanceLifecycleConfigOutput
+	ToNotebookInstanceLifecycleConfigOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigOutput
+}
+
+func (*NotebookInstanceLifecycleConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceLifecycleConfig)(nil))
+}
+
+func (i *NotebookInstanceLifecycleConfig) ToNotebookInstanceLifecycleConfigOutput() NotebookInstanceLifecycleConfigOutput {
+	return i.ToNotebookInstanceLifecycleConfigOutputWithContext(context.Background())
+}
+
+func (i *NotebookInstanceLifecycleConfig) ToNotebookInstanceLifecycleConfigOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigOutput)
+}
+
+type NotebookInstanceLifecycleConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotebookInstanceLifecycleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceLifecycleConfig)(nil))
+}
+
+func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfigOutput() NotebookInstanceLifecycleConfigOutput {
+	return o
+}
+
+func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfigOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigOutput{})
 }

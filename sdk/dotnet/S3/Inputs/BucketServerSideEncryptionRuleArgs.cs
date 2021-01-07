@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.S3.Inputs
     public sealed class BucketServerSideEncryptionRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+        /// </summary>
+        [Input("BucketKeyEnabled")]
+        public Input<bool>? BucketKeyEnabled { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
         /// </summary>
         [Input("ServerSideEncryptionByDefault")]

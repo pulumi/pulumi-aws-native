@@ -4,6 +4,7 @@
 package cassandra
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Table struct {
 // NewTable registers a new resource with the given unique name, arguments, and options.
 func NewTable(ctx *pulumi.Context,
 	name string, args *TableArgs, opts ...pulumi.ResourceOption) (*Table, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Table
 	err := ctx.RegisterResource("cloudformation:Cassandra:Table", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TableArgs struct {
 
 func (TableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableArgs)(nil)).Elem()
+}
+
+type TableInput interface {
+	pulumi.Input
+
+	ToTableOutput() TableOutput
+	ToTableOutputWithContext(ctx context.Context) TableOutput
+}
+
+func (*Table) ElementType() reflect.Type {
+	return reflect.TypeOf((*Table)(nil))
+}
+
+func (i *Table) ToTableOutput() TableOutput {
+	return i.ToTableOutputWithContext(context.Background())
+}
+
+func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
+}
+
+type TableOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Table)(nil))
+}
+
+func (o TableOutput) ToTableOutput() TableOutput {
+	return o
+}
+
+func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TableOutput{})
 }

@@ -39,6 +39,12 @@ namespace Pulumi.Cloudformation.Glue.Inputs
         [Input("Parameters")]
         public InputUnion<System.Text.Json.JsonElement, string>? Parameters { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+        /// </summary>
+        [Input("TargetDatabase")]
+        public Input<Inputs.DatabaseDatabaseIdentifierArgs>? TargetDatabase { get; set; }
+
         public DatabaseDatabaseInputArgs()
         {
         }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:NetworkManager:GlobalNetwork")]
     public partial class GlobalNetwork : Pulumi.CustomResource
     {
         /// <summary>

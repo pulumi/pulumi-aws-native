@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Logs
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Logs:LogGroup")]
     public partial class LogGroup : Pulumi.CustomResource
     {
         /// <summary>

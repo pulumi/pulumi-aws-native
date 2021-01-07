@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.KinesisAnalytics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:KinesisAnalytics:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

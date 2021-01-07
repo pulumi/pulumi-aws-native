@@ -13,9 +13,12 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerAttributes
     {
+        public readonly string ListenerArn;
+
         [OutputConstructor]
-        private ListenerAttributes()
+        private ListenerAttributes(string ListenerArn)
         {
+            this.ListenerArn = ListenerArn;
         }
     }
 }

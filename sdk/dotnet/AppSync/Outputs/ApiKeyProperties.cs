@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.AppSync.Outputs
         /// </summary>
         public readonly string ApiId;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-apikeyid
+        /// </summary>
+        public readonly string? ApiKeyId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html#cfn-appsync-apikey-description
         /// </summary>
         public readonly string? Description;
@@ -30,11 +34,14 @@ namespace Pulumi.Cloudformation.AppSync.Outputs
         private ApiKeyProperties(
             string ApiId,
 
+            string? ApiKeyId,
+
             string? Description,
 
             double? Expires)
         {
             this.ApiId = ApiId;
+            this.ApiKeyId = ApiKeyId;
             this.Description = Description;
             this.Expires = Expires;
         }

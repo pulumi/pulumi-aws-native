@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:EIP")]
     public partial class EIP : Pulumi.CustomResource
     {
         /// <summary>

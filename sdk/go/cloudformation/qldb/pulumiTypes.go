@@ -314,9 +314,557 @@ func (o LedgerPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
 	}).(cloudformation.TagArrayOutput)
 }
 
+type StreamAttributes struct {
+	Arn string `pulumi:"Arn"`
+	Id  string `pulumi:"Id"`
+}
+
+// StreamAttributesInput is an input type that accepts StreamAttributesArgs and StreamAttributesOutput values.
+// You can construct a concrete instance of `StreamAttributesInput` via:
+//
+//          StreamAttributesArgs{...}
+type StreamAttributesInput interface {
+	pulumi.Input
+
+	ToStreamAttributesOutput() StreamAttributesOutput
+	ToStreamAttributesOutputWithContext(context.Context) StreamAttributesOutput
+}
+
+type StreamAttributesArgs struct {
+	Arn pulumi.StringInput `pulumi:"Arn"`
+	Id  pulumi.StringInput `pulumi:"Id"`
+}
+
+func (StreamAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamAttributes)(nil)).Elem()
+}
+
+func (i StreamAttributesArgs) ToStreamAttributesOutput() StreamAttributesOutput {
+	return i.ToStreamAttributesOutputWithContext(context.Background())
+}
+
+func (i StreamAttributesArgs) ToStreamAttributesOutputWithContext(ctx context.Context) StreamAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamAttributesOutput)
+}
+
+func (i StreamAttributesArgs) ToStreamAttributesPtrOutput() StreamAttributesPtrOutput {
+	return i.ToStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i StreamAttributesArgs) ToStreamAttributesPtrOutputWithContext(ctx context.Context) StreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamAttributesOutput).ToStreamAttributesPtrOutputWithContext(ctx)
+}
+
+// StreamAttributesPtrInput is an input type that accepts StreamAttributesArgs, StreamAttributesPtr and StreamAttributesPtrOutput values.
+// You can construct a concrete instance of `StreamAttributesPtrInput` via:
+//
+//          StreamAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamAttributesPtrInput interface {
+	pulumi.Input
+
+	ToStreamAttributesPtrOutput() StreamAttributesPtrOutput
+	ToStreamAttributesPtrOutputWithContext(context.Context) StreamAttributesPtrOutput
+}
+
+type streamAttributesPtrType StreamAttributesArgs
+
+func StreamAttributesPtr(v *StreamAttributesArgs) StreamAttributesPtrInput {
+	return (*streamAttributesPtrType)(v)
+}
+
+func (*streamAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamAttributes)(nil)).Elem()
+}
+
+func (i *streamAttributesPtrType) ToStreamAttributesPtrOutput() StreamAttributesPtrOutput {
+	return i.ToStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *streamAttributesPtrType) ToStreamAttributesPtrOutputWithContext(ctx context.Context) StreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamAttributesPtrOutput)
+}
+
+type StreamAttributesOutput struct{ *pulumi.OutputState }
+
+func (StreamAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamAttributes)(nil)).Elem()
+}
+
+func (o StreamAttributesOutput) ToStreamAttributesOutput() StreamAttributesOutput {
+	return o
+}
+
+func (o StreamAttributesOutput) ToStreamAttributesOutputWithContext(ctx context.Context) StreamAttributesOutput {
+	return o
+}
+
+func (o StreamAttributesOutput) ToStreamAttributesPtrOutput() StreamAttributesPtrOutput {
+	return o.ToStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o StreamAttributesOutput) ToStreamAttributesPtrOutputWithContext(ctx context.Context) StreamAttributesPtrOutput {
+	return o.ApplyT(func(v StreamAttributes) *StreamAttributes {
+		return &v
+	}).(StreamAttributesPtrOutput)
+}
+func (o StreamAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o StreamAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type StreamAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamAttributes)(nil)).Elem()
+}
+
+func (o StreamAttributesPtrOutput) ToStreamAttributesPtrOutput() StreamAttributesPtrOutput {
+	return o
+}
+
+func (o StreamAttributesPtrOutput) ToStreamAttributesPtrOutputWithContext(ctx context.Context) StreamAttributesPtrOutput {
+	return o
+}
+
+func (o StreamAttributesPtrOutput) Elem() StreamAttributesOutput {
+	return o.ApplyT(func(v *StreamAttributes) StreamAttributes { return *v }).(StreamAttributesOutput)
+}
+
+func (o StreamAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html
+type StreamKinesisConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
+	AggregationEnabled *bool `pulumi:"AggregationEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
+	StreamArn *string `pulumi:"StreamArn"`
+}
+
+// StreamKinesisConfigurationInput is an input type that accepts StreamKinesisConfigurationArgs and StreamKinesisConfigurationOutput values.
+// You can construct a concrete instance of `StreamKinesisConfigurationInput` via:
+//
+//          StreamKinesisConfigurationArgs{...}
+type StreamKinesisConfigurationInput interface {
+	pulumi.Input
+
+	ToStreamKinesisConfigurationOutput() StreamKinesisConfigurationOutput
+	ToStreamKinesisConfigurationOutputWithContext(context.Context) StreamKinesisConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html
+type StreamKinesisConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
+	AggregationEnabled pulumi.BoolPtrInput `pulumi:"AggregationEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
+	StreamArn pulumi.StringPtrInput `pulumi:"StreamArn"`
+}
+
+func (StreamKinesisConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamKinesisConfiguration)(nil)).Elem()
+}
+
+func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationOutput() StreamKinesisConfigurationOutput {
+	return i.ToStreamKinesisConfigurationOutputWithContext(context.Background())
+}
+
+func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationOutputWithContext(ctx context.Context) StreamKinesisConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationOutput)
+}
+
+func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
+	return i.ToStreamKinesisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationOutput).ToStreamKinesisConfigurationPtrOutputWithContext(ctx)
+}
+
+// StreamKinesisConfigurationPtrInput is an input type that accepts StreamKinesisConfigurationArgs, StreamKinesisConfigurationPtr and StreamKinesisConfigurationPtrOutput values.
+// You can construct a concrete instance of `StreamKinesisConfigurationPtrInput` via:
+//
+//          StreamKinesisConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamKinesisConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput
+	ToStreamKinesisConfigurationPtrOutputWithContext(context.Context) StreamKinesisConfigurationPtrOutput
+}
+
+type streamKinesisConfigurationPtrType StreamKinesisConfigurationArgs
+
+func StreamKinesisConfigurationPtr(v *StreamKinesisConfigurationArgs) StreamKinesisConfigurationPtrInput {
+	return (*streamKinesisConfigurationPtrType)(v)
+}
+
+func (*streamKinesisConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamKinesisConfiguration)(nil)).Elem()
+}
+
+func (i *streamKinesisConfigurationPtrType) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
+	return i.ToStreamKinesisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *streamKinesisConfigurationPtrType) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html
+type StreamKinesisConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StreamKinesisConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamKinesisConfiguration)(nil)).Elem()
+}
+
+func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationOutput() StreamKinesisConfigurationOutput {
+	return o
+}
+
+func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationOutputWithContext(ctx context.Context) StreamKinesisConfigurationOutput {
+	return o
+}
+
+func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
+	return o.ToStreamKinesisConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
+	return o.ApplyT(func(v StreamKinesisConfiguration) *StreamKinesisConfiguration {
+		return &v
+	}).(StreamKinesisConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
+func (o StreamKinesisConfigurationOutput) AggregationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamKinesisConfiguration) *bool { return v.AggregationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
+func (o StreamKinesisConfigurationOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamKinesisConfiguration) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
+}
+
+type StreamKinesisConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamKinesisConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamKinesisConfiguration)(nil)).Elem()
+}
+
+func (o StreamKinesisConfigurationPtrOutput) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamKinesisConfigurationPtrOutput) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamKinesisConfigurationPtrOutput) Elem() StreamKinesisConfigurationOutput {
+	return o.ApplyT(func(v *StreamKinesisConfiguration) StreamKinesisConfiguration { return *v }).(StreamKinesisConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
+func (o StreamKinesisConfigurationPtrOutput) AggregationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamKinesisConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
+func (o StreamKinesisConfigurationPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamKinesisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
+type StreamProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
+	ExclusiveEndTime *string `pulumi:"ExclusiveEndTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
+	InclusiveStartTime string `pulumi:"InclusiveStartTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+	KinesisConfiguration StreamKinesisConfiguration `pulumi:"KinesisConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
+	LedgerName string `pulumi:"LedgerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
+	RoleArn string `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+	StreamName string `pulumi:"StreamName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// StreamPropertiesInput is an input type that accepts StreamPropertiesArgs and StreamPropertiesOutput values.
+// You can construct a concrete instance of `StreamPropertiesInput` via:
+//
+//          StreamPropertiesArgs{...}
+type StreamPropertiesInput interface {
+	pulumi.Input
+
+	ToStreamPropertiesOutput() StreamPropertiesOutput
+	ToStreamPropertiesOutputWithContext(context.Context) StreamPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
+type StreamPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
+	ExclusiveEndTime pulumi.StringPtrInput `pulumi:"ExclusiveEndTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
+	InclusiveStartTime pulumi.StringInput `pulumi:"InclusiveStartTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+	KinesisConfiguration StreamKinesisConfigurationInput `pulumi:"KinesisConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
+	LedgerName pulumi.StringInput `pulumi:"LedgerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
+	RoleArn pulumi.StringInput `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+	StreamName pulumi.StringInput `pulumi:"StreamName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (StreamPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProperties)(nil)).Elem()
+}
+
+func (i StreamPropertiesArgs) ToStreamPropertiesOutput() StreamPropertiesOutput {
+	return i.ToStreamPropertiesOutputWithContext(context.Background())
+}
+
+func (i StreamPropertiesArgs) ToStreamPropertiesOutputWithContext(ctx context.Context) StreamPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamPropertiesOutput)
+}
+
+func (i StreamPropertiesArgs) ToStreamPropertiesPtrOutput() StreamPropertiesPtrOutput {
+	return i.ToStreamPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StreamPropertiesArgs) ToStreamPropertiesPtrOutputWithContext(ctx context.Context) StreamPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamPropertiesOutput).ToStreamPropertiesPtrOutputWithContext(ctx)
+}
+
+// StreamPropertiesPtrInput is an input type that accepts StreamPropertiesArgs, StreamPropertiesPtr and StreamPropertiesPtrOutput values.
+// You can construct a concrete instance of `StreamPropertiesPtrInput` via:
+//
+//          StreamPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStreamPropertiesPtrOutput() StreamPropertiesPtrOutput
+	ToStreamPropertiesPtrOutputWithContext(context.Context) StreamPropertiesPtrOutput
+}
+
+type streamPropertiesPtrType StreamPropertiesArgs
+
+func StreamPropertiesPtr(v *StreamPropertiesArgs) StreamPropertiesPtrInput {
+	return (*streamPropertiesPtrType)(v)
+}
+
+func (*streamPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProperties)(nil)).Elem()
+}
+
+func (i *streamPropertiesPtrType) ToStreamPropertiesPtrOutput() StreamPropertiesPtrOutput {
+	return i.ToStreamPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *streamPropertiesPtrType) ToStreamPropertiesPtrOutputWithContext(ctx context.Context) StreamPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
+type StreamPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StreamPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProperties)(nil)).Elem()
+}
+
+func (o StreamPropertiesOutput) ToStreamPropertiesOutput() StreamPropertiesOutput {
+	return o
+}
+
+func (o StreamPropertiesOutput) ToStreamPropertiesOutputWithContext(ctx context.Context) StreamPropertiesOutput {
+	return o
+}
+
+func (o StreamPropertiesOutput) ToStreamPropertiesPtrOutput() StreamPropertiesPtrOutput {
+	return o.ToStreamPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StreamPropertiesOutput) ToStreamPropertiesPtrOutputWithContext(ctx context.Context) StreamPropertiesPtrOutput {
+	return o.ApplyT(func(v StreamProperties) *StreamProperties {
+		return &v
+	}).(StreamPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
+func (o StreamPropertiesOutput) ExclusiveEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProperties) *string { return v.ExclusiveEndTime }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
+func (o StreamPropertiesOutput) InclusiveStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamProperties) string { return v.InclusiveStartTime }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+func (o StreamPropertiesOutput) KinesisConfiguration() StreamKinesisConfigurationOutput {
+	return o.ApplyT(func(v StreamProperties) StreamKinesisConfiguration { return v.KinesisConfiguration }).(StreamKinesisConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
+func (o StreamPropertiesOutput) LedgerName() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamProperties) string { return v.LedgerName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
+func (o StreamPropertiesOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+func (o StreamPropertiesOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamProperties) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
+func (o StreamPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v StreamProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type StreamPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProperties)(nil)).Elem()
+}
+
+func (o StreamPropertiesPtrOutput) ToStreamPropertiesPtrOutput() StreamPropertiesPtrOutput {
+	return o
+}
+
+func (o StreamPropertiesPtrOutput) ToStreamPropertiesPtrOutputWithContext(ctx context.Context) StreamPropertiesPtrOutput {
+	return o
+}
+
+func (o StreamPropertiesPtrOutput) Elem() StreamPropertiesOutput {
+	return o.ApplyT(func(v *StreamProperties) StreamProperties { return *v }).(StreamPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
+func (o StreamPropertiesPtrOutput) ExclusiveEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusiveEndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
+func (o StreamPropertiesPtrOutput) InclusiveStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InclusiveStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+func (o StreamPropertiesPtrOutput) KinesisConfiguration() StreamKinesisConfigurationPtrOutput {
+	return o.ApplyT(func(v *StreamProperties) *StreamKinesisConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.KinesisConfiguration
+	}).(StreamKinesisConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
+func (o StreamPropertiesPtrOutput) LedgerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LedgerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
+func (o StreamPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+func (o StreamPropertiesPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
+func (o StreamPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *StreamProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LedgerAttributesOutput{})
 	pulumi.RegisterOutputType(LedgerAttributesPtrOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StreamAttributesOutput{})
+	pulumi.RegisterOutputType(StreamAttributesPtrOutput{})
+	pulumi.RegisterOutputType(StreamKinesisConfigurationOutput{})
+	pulumi.RegisterOutputType(StreamKinesisConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StreamPropertiesOutput{})
+	pulumi.RegisterOutputType(StreamPropertiesPtrOutput{})
 }

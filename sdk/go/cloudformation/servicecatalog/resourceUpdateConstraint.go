@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResourceUpdateConstraint struct {
 // NewResourceUpdateConstraint registers a new resource with the given unique name, arguments, and options.
 func NewResourceUpdateConstraint(ctx *pulumi.Context,
 	name string, args *ResourceUpdateConstraintArgs, opts ...pulumi.ResourceOption) (*ResourceUpdateConstraint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResourceUpdateConstraintArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResourceUpdateConstraint
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:ResourceUpdateConstraint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResourceUpdateConstraintArgs struct {
 
 func (ResourceUpdateConstraintArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceUpdateConstraintArgs)(nil)).Elem()
+}
+
+type ResourceUpdateConstraintInput interface {
+	pulumi.Input
+
+	ToResourceUpdateConstraintOutput() ResourceUpdateConstraintOutput
+	ToResourceUpdateConstraintOutputWithContext(ctx context.Context) ResourceUpdateConstraintOutput
+}
+
+func (*ResourceUpdateConstraint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceUpdateConstraint)(nil))
+}
+
+func (i *ResourceUpdateConstraint) ToResourceUpdateConstraintOutput() ResourceUpdateConstraintOutput {
+	return i.ToResourceUpdateConstraintOutputWithContext(context.Background())
+}
+
+func (i *ResourceUpdateConstraint) ToResourceUpdateConstraintOutputWithContext(ctx context.Context) ResourceUpdateConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceUpdateConstraintOutput)
+}
+
+type ResourceUpdateConstraintOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceUpdateConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceUpdateConstraint)(nil))
+}
+
+func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutput() ResourceUpdateConstraintOutput {
+	return o
+}
+
+func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutputWithContext(ctx context.Context) ResourceUpdateConstraintOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceUpdateConstraintOutput{})
 }

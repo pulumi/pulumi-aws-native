@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CertificateManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CertificateManager:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

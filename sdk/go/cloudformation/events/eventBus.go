@@ -4,6 +4,7 @@
 package events
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EventBus struct {
 // NewEventBus registers a new resource with the given unique name, arguments, and options.
 func NewEventBus(ctx *pulumi.Context,
 	name string, args *EventBusArgs, opts ...pulumi.ResourceOption) (*EventBus, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EventBusArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EventBus
 	err := ctx.RegisterResource("cloudformation:Events:EventBus", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EventBusArgs struct {
 
 func (EventBusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventBusArgs)(nil)).Elem()
+}
+
+type EventBusInput interface {
+	pulumi.Input
+
+	ToEventBusOutput() EventBusOutput
+	ToEventBusOutputWithContext(ctx context.Context) EventBusOutput
+}
+
+func (*EventBus) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBus)(nil))
+}
+
+func (i *EventBus) ToEventBusOutput() EventBusOutput {
+	return i.ToEventBusOutputWithContext(context.Background())
+}
+
+func (i *EventBus) ToEventBusOutputWithContext(ctx context.Context) EventBusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusOutput)
+}
+
+type EventBusOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventBusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBus)(nil))
+}
+
+func (o EventBusOutput) ToEventBusOutput() EventBusOutput {
+	return o
+}
+
+func (o EventBusOutput) ToEventBusOutputWithContext(ctx context.Context) EventBusOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventBusOutput{})
 }

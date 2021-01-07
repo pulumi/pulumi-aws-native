@@ -4,6 +4,7 @@
 package codeguruprofiler
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ProfilingGroup struct {
 // NewProfilingGroup registers a new resource with the given unique name, arguments, and options.
 func NewProfilingGroup(ctx *pulumi.Context,
 	name string, args *ProfilingGroupArgs, opts ...pulumi.ResourceOption) (*ProfilingGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ProfilingGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ProfilingGroup
 	err := ctx.RegisterResource("cloudformation:CodeGuruProfiler:ProfilingGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ProfilingGroupArgs struct {
 
 func (ProfilingGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profilingGroupArgs)(nil)).Elem()
+}
+
+type ProfilingGroupInput interface {
+	pulumi.Input
+
+	ToProfilingGroupOutput() ProfilingGroupOutput
+	ToProfilingGroupOutputWithContext(ctx context.Context) ProfilingGroupOutput
+}
+
+func (*ProfilingGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilingGroup)(nil))
+}
+
+func (i *ProfilingGroup) ToProfilingGroupOutput() ProfilingGroupOutput {
+	return i.ToProfilingGroupOutputWithContext(context.Background())
+}
+
+func (i *ProfilingGroup) ToProfilingGroupOutputWithContext(ctx context.Context) ProfilingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupOutput)
+}
+
+type ProfilingGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfilingGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilingGroup)(nil))
+}
+
+func (o ProfilingGroupOutput) ToProfilingGroupOutput() ProfilingGroupOutput {
+	return o
+}
+
+func (o ProfilingGroupOutput) ToProfilingGroupOutputWithContext(ctx context.Context) ProfilingGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfilingGroupOutput{})
 }

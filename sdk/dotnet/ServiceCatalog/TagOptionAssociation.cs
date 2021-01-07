@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:TagOptionAssociation")]
     public partial class TagOptionAssociation : Pulumi.CustomResource
     {
         /// <summary>

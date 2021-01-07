@@ -4,6 +4,7 @@
 package chatbot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SlackChannelConfiguration struct {
 // NewSlackChannelConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewSlackChannelConfiguration(ctx *pulumi.Context,
 	name string, args *SlackChannelConfigurationArgs, opts ...pulumi.ResourceOption) (*SlackChannelConfiguration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SlackChannelConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SlackChannelConfiguration
 	err := ctx.RegisterResource("cloudformation:Chatbot:SlackChannelConfiguration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SlackChannelConfigurationArgs struct {
 
 func (SlackChannelConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*slackChannelConfigurationArgs)(nil)).Elem()
+}
+
+type SlackChannelConfigurationInput interface {
+	pulumi.Input
+
+	ToSlackChannelConfigurationOutput() SlackChannelConfigurationOutput
+	ToSlackChannelConfigurationOutputWithContext(ctx context.Context) SlackChannelConfigurationOutput
+}
+
+func (*SlackChannelConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackChannelConfiguration)(nil))
+}
+
+func (i *SlackChannelConfiguration) ToSlackChannelConfigurationOutput() SlackChannelConfigurationOutput {
+	return i.ToSlackChannelConfigurationOutputWithContext(context.Background())
+}
+
+func (i *SlackChannelConfiguration) ToSlackChannelConfigurationOutputWithContext(ctx context.Context) SlackChannelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelConfigurationOutput)
+}
+
+type SlackChannelConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SlackChannelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackChannelConfiguration)(nil))
+}
+
+func (o SlackChannelConfigurationOutput) ToSlackChannelConfigurationOutput() SlackChannelConfigurationOutput {
+	return o
+}
+
+func (o SlackChannelConfigurationOutput) ToSlackChannelConfigurationOutputWithContext(ctx context.Context) SlackChannelConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SlackChannelConfigurationOutput{})
 }

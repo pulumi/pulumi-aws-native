@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT:Thing")]
     public partial class Thing : Pulumi.CustomResource
     {
         /// <summary>

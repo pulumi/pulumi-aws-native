@@ -22,9 +22,17 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AdvancedOptions;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+        /// </summary>
+        public readonly Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
         /// </summary>
         public readonly Outputs.DomainCognitoOptions? CognitoOptions;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
+        /// </summary>
+        public readonly Outputs.DomainDomainEndpointOptions? DomainEndpointOptions;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
         /// </summary>
@@ -72,7 +80,11 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
 
             ImmutableDictionary<string, string>? AdvancedOptions,
 
+            Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions,
+
             Outputs.DomainCognitoOptions? CognitoOptions,
+
+            Outputs.DomainDomainEndpointOptions? DomainEndpointOptions,
 
             string? DomainName,
 
@@ -96,7 +108,9 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
         {
             this.AccessPolicies = AccessPolicies;
             this.AdvancedOptions = AdvancedOptions;
+            this.AdvancedSecurityOptions = AdvancedSecurityOptions;
             this.CognitoOptions = CognitoOptions;
+            this.DomainEndpointOptions = DomainEndpointOptions;
             this.DomainName = DomainName;
             this.EBSOptions = EBSOptions;
             this.ElasticsearchClusterConfig = ElasticsearchClusterConfig;

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:NetworkInterfaceAttachment")]
     public partial class NetworkInterfaceAttachment : Pulumi.CustomResource
     {
         /// <summary>

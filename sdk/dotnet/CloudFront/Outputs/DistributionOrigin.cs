@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
         /// </summary>
         public readonly string? OriginPath;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+        /// </summary>
+        public readonly Outputs.DistributionOriginShield? OriginShield;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
         /// </summary>
         public readonly Outputs.DistributionS3OriginConfig? S3OriginConfig;
@@ -62,6 +66,8 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
 
             string? OriginPath,
 
+            Outputs.DistributionOriginShield? OriginShield,
+
             Outputs.DistributionS3OriginConfig? S3OriginConfig)
         {
             this.ConnectionAttempts = ConnectionAttempts;
@@ -71,6 +77,7 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
             this.Id = Id;
             this.OriginCustomHeaders = OriginCustomHeaders;
             this.OriginPath = OriginPath;
+            this.OriginShield = OriginShield;
             this.S3OriginConfig = S3OriginConfig;
         }
     }

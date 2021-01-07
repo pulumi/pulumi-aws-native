@@ -21,11 +21,35 @@ namespace Pulumi.Cloudformation.Amplify.Inputs
         [Input("AppId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        [Input("AutoSubDomainCreationPatterns")]
+        private InputList<string>? _AutoSubDomainCreationPatterns;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
+        /// </summary>
+        public InputList<string> AutoSubDomainCreationPatterns
+        {
+            get => _AutoSubDomainCreationPatterns ?? (_AutoSubDomainCreationPatterns = new InputList<string>());
+            set => _AutoSubDomainCreationPatterns = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
+        /// </summary>
+        [Input("AutoSubDomainIAMRole")]
+        public Input<string>? AutoSubDomainIAMRole { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
         /// </summary>
         [Input("DomainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
+        /// </summary>
+        [Input("EnableAutoSubDomain")]
+        public Input<bool>? EnableAutoSubDomain { get; set; }
 
         [Input("SubDomainSettings", required: true)]
         private InputList<Inputs.DomainSubDomainSettingArgs>? _SubDomainSettings;

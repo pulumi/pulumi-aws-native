@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPCEndpointServicePermissions struct {
 // NewVPCEndpointServicePermissions registers a new resource with the given unique name, arguments, and options.
 func NewVPCEndpointServicePermissions(ctx *pulumi.Context,
 	name string, args *VPCEndpointServicePermissionsArgs, opts ...pulumi.ResourceOption) (*VPCEndpointServicePermissions, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCEndpointServicePermissionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPCEndpointServicePermissions
 	err := ctx.RegisterResource("cloudformation:EC2:VPCEndpointServicePermissions", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCEndpointServicePermissionsArgs struct {
 
 func (VPCEndpointServicePermissionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcendpointServicePermissionsArgs)(nil)).Elem()
+}
+
+type VPCEndpointServicePermissionsInput interface {
+	pulumi.Input
+
+	ToVPCEndpointServicePermissionsOutput() VPCEndpointServicePermissionsOutput
+	ToVPCEndpointServicePermissionsOutputWithContext(ctx context.Context) VPCEndpointServicePermissionsOutput
+}
+
+func (*VPCEndpointServicePermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpointServicePermissions)(nil))
+}
+
+func (i *VPCEndpointServicePermissions) ToVPCEndpointServicePermissionsOutput() VPCEndpointServicePermissionsOutput {
+	return i.ToVPCEndpointServicePermissionsOutputWithContext(context.Background())
+}
+
+func (i *VPCEndpointServicePermissions) ToVPCEndpointServicePermissionsOutputWithContext(ctx context.Context) VPCEndpointServicePermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCEndpointServicePermissionsOutput)
+}
+
+type VPCEndpointServicePermissionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCEndpointServicePermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpointServicePermissions)(nil))
+}
+
+func (o VPCEndpointServicePermissionsOutput) ToVPCEndpointServicePermissionsOutput() VPCEndpointServicePermissionsOutput {
+	return o
+}
+
+func (o VPCEndpointServicePermissionsOutput) ToVPCEndpointServicePermissionsOutputWithContext(ctx context.Context) VPCEndpointServicePermissionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCEndpointServicePermissionsOutput{})
 }

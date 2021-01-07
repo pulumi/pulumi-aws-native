@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClientCertificate struct {
 // NewClientCertificate registers a new resource with the given unique name, arguments, and options.
 func NewClientCertificate(ctx *pulumi.Context,
 	name string, args *ClientCertificateArgs, opts ...pulumi.ResourceOption) (*ClientCertificate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClientCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClientCertificate
 	err := ctx.RegisterResource("cloudformation:ApiGateway:ClientCertificate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClientCertificateArgs struct {
 
 func (ClientCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientCertificateArgs)(nil)).Elem()
+}
+
+type ClientCertificateInput interface {
+	pulumi.Input
+
+	ToClientCertificateOutput() ClientCertificateOutput
+	ToClientCertificateOutputWithContext(ctx context.Context) ClientCertificateOutput
+}
+
+func (*ClientCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificate)(nil))
+}
+
+func (i *ClientCertificate) ToClientCertificateOutput() ClientCertificateOutput {
+	return i.ToClientCertificateOutputWithContext(context.Background())
+}
+
+func (i *ClientCertificate) ToClientCertificateOutputWithContext(ctx context.Context) ClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateOutput)
+}
+
+type ClientCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificate)(nil))
+}
+
+func (o ClientCertificateOutput) ToClientCertificateOutput() ClientCertificateOutput {
+	return o
+}
+
+func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx context.Context) ClientCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClientCertificateOutput{})
 }

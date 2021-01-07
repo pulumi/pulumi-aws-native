@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SES
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SES:ReceiptRuleSet")]
     public partial class ReceiptRuleSet : Pulumi.CustomResource
     {
         /// <summary>

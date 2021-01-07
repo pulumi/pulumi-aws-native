@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Lambda:Version")]
     public partial class Version : Pulumi.CustomResource
     {
         /// <summary>

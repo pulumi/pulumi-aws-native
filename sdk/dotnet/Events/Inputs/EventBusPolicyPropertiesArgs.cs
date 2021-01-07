@@ -18,8 +18,8 @@ namespace Pulumi.Cloudformation.Events.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
         /// </summary>
-        [Input("Action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        [Input("Action")]
+        public Input<string>? Action { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
@@ -36,8 +36,14 @@ namespace Pulumi.Cloudformation.Events.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
         /// </summary>
-        [Input("Principal", required: true)]
-        public Input<string> Principal { get; set; } = null!;
+        [Input("Principal")]
+        public Input<string>? Principal { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement
+        /// </summary>
+        [Input("Statement")]
+        public InputUnion<System.Text.Json.JsonElement, string>? Statement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid

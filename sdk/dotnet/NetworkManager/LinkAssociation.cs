@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:NetworkManager:LinkAssociation")]
     public partial class LinkAssociation : Pulumi.CustomResource
     {
         /// <summary>

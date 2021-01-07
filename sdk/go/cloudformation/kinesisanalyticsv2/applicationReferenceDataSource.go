@@ -4,6 +4,7 @@
 package kinesisanalyticsv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApplicationReferenceDataSource struct {
 // NewApplicationReferenceDataSource registers a new resource with the given unique name, arguments, and options.
 func NewApplicationReferenceDataSource(ctx *pulumi.Context,
 	name string, args *ApplicationReferenceDataSourceArgs, opts ...pulumi.ResourceOption) (*ApplicationReferenceDataSource, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApplicationReferenceDataSourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApplicationReferenceDataSource
 	err := ctx.RegisterResource("cloudformation:KinesisAnalyticsV2:ApplicationReferenceDataSource", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApplicationReferenceDataSourceArgs struct {
 
 func (ApplicationReferenceDataSourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationReferenceDataSourceArgs)(nil)).Elem()
+}
+
+type ApplicationReferenceDataSourceInput interface {
+	pulumi.Input
+
+	ToApplicationReferenceDataSourceOutput() ApplicationReferenceDataSourceOutput
+	ToApplicationReferenceDataSourceOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceOutput
+}
+
+func (*ApplicationReferenceDataSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationReferenceDataSource)(nil))
+}
+
+func (i *ApplicationReferenceDataSource) ToApplicationReferenceDataSourceOutput() ApplicationReferenceDataSourceOutput {
+	return i.ToApplicationReferenceDataSourceOutputWithContext(context.Background())
+}
+
+func (i *ApplicationReferenceDataSource) ToApplicationReferenceDataSourceOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceOutput)
+}
+
+type ApplicationReferenceDataSourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationReferenceDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationReferenceDataSource)(nil))
+}
+
+func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOutput() ApplicationReferenceDataSourceOutput {
+	return o
+}
+
+func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceOutput{})
 }

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NetworkAclEntry struct {
 // NewNetworkAclEntry registers a new resource with the given unique name, arguments, and options.
 func NewNetworkAclEntry(ctx *pulumi.Context,
 	name string, args *NetworkAclEntryArgs, opts ...pulumi.ResourceOption) (*NetworkAclEntry, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NetworkAclEntryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NetworkAclEntry
 	err := ctx.RegisterResource("cloudformation:EC2:NetworkAclEntry", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NetworkAclEntryArgs struct {
 
 func (NetworkAclEntryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclEntryArgs)(nil)).Elem()
+}
+
+type NetworkAclEntryInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryOutput() NetworkAclEntryOutput
+	ToNetworkAclEntryOutputWithContext(ctx context.Context) NetworkAclEntryOutput
+}
+
+func (*NetworkAclEntry) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntry)(nil))
+}
+
+func (i *NetworkAclEntry) ToNetworkAclEntryOutput() NetworkAclEntryOutput {
+	return i.ToNetworkAclEntryOutputWithContext(context.Background())
+}
+
+func (i *NetworkAclEntry) ToNetworkAclEntryOutputWithContext(ctx context.Context) NetworkAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryOutput)
+}
+
+type NetworkAclEntryOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntry)(nil))
+}
+
+func (o NetworkAclEntryOutput) ToNetworkAclEntryOutput() NetworkAclEntryOutput {
+	return o
+}
+
+func (o NetworkAclEntryOutput) ToNetworkAclEntryOutputWithContext(ctx context.Context) NetworkAclEntryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkAclEntryOutput{})
 }

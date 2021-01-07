@@ -42,14 +42,26 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
         /// </summary>
-        [Input("EventSourceArn", required: true)]
-        public Input<string> EventSourceArn { get; set; } = null!;
+        [Input("EventSourceArn")]
+        public Input<string>? EventSourceArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
         /// </summary>
         [Input("FunctionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
+
+        [Input("FunctionResponseTypes")]
+        private InputList<string>? _FunctionResponseTypes;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+        /// </summary>
+        public InputList<string> FunctionResponseTypes
+        {
+            get => _FunctionResponseTypes ?? (_FunctionResponseTypes = new InputList<string>());
+            set => _FunctionResponseTypes = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
@@ -76,10 +88,64 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         public Input<int>? ParallelizationFactor { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+        /// </summary>
+        [Input("PartialBatchResponse")]
+        public Input<bool>? PartialBatchResponse { get; set; }
+
+        [Input("Queues")]
+        private InputList<string>? _Queues;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+        /// </summary>
+        public InputList<string> Queues
+        {
+            get => _Queues ?? (_Queues = new InputList<string>());
+            set => _Queues = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+        /// </summary>
+        [Input("SelfManagedEventSource")]
+        public Input<Inputs.EventSourceMappingSelfManagedEventSourceArgs>? SelfManagedEventSource { get; set; }
+
+        [Input("SourceAccessConfigurations")]
+        private InputList<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? _SourceAccessConfigurations;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+        /// </summary>
+        public InputList<Inputs.EventSourceMappingSourceAccessConfigurationArgs> SourceAccessConfigurations
+        {
+            get => _SourceAccessConfigurations ?? (_SourceAccessConfigurations = new InputList<Inputs.EventSourceMappingSourceAccessConfigurationArgs>());
+            set => _SourceAccessConfigurations = value;
+        }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
         /// </summary>
         [Input("StartingPosition")]
         public Input<string>? StartingPosition { get; set; }
+
+        [Input("Topics")]
+        private InputList<string>? _Topics;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+        /// </summary>
+        public InputList<string> Topics
+        {
+            get => _Topics ?? (_Topics = new InputList<string>());
+            set => _Topics = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        /// </summary>
+        [Input("TumblingWindowInSeconds")]
+        public Input<int>? TumblingWindowInSeconds { get; set; }
 
         public EventSourceMappingPropertiesArgs()
         {

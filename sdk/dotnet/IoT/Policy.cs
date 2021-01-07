@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

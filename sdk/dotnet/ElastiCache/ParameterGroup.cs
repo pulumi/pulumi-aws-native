@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElastiCache:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

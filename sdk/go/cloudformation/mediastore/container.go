@@ -4,6 +4,7 @@
 package mediastore
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Container struct {
 // NewContainer registers a new resource with the given unique name, arguments, and options.
 func NewContainer(ctx *pulumi.Context,
 	name string, args *ContainerArgs, opts ...pulumi.ResourceOption) (*Container, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ContainerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Container
 	err := ctx.RegisterResource("cloudformation:MediaStore:Container", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ContainerArgs struct {
 
 func (ContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerArgs)(nil)).Elem()
+}
+
+type ContainerInput interface {
+	pulumi.Input
+
+	ToContainerOutput() ContainerOutput
+	ToContainerOutputWithContext(ctx context.Context) ContainerOutput
+}
+
+func (*Container) ElementType() reflect.Type {
+	return reflect.TypeOf((*Container)(nil))
+}
+
+func (i *Container) ToContainerOutput() ContainerOutput {
+	return i.ToContainerOutputWithContext(context.Background())
+}
+
+func (i *Container) ToContainerOutputWithContext(ctx context.Context) ContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerOutput)
+}
+
+type ContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Container)(nil))
+}
+
+func (o ContainerOutput) ToContainerOutput() ContainerOutput {
+	return o
+}
+
+func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) ContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerOutput{})
 }

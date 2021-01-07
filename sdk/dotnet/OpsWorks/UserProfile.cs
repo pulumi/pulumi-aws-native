@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.OpsWorks
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:OpsWorks:UserProfile")]
     public partial class UserProfile : Pulumi.CustomResource
     {
         /// <summary>

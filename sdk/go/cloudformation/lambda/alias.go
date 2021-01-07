@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -29,11 +30,12 @@ type Alias struct {
 // NewAlias registers a new resource with the given unique name, arguments, and options.
 func NewAlias(ctx *pulumi.Context,
 	name string, args *AliasArgs, opts ...pulumi.ResourceOption) (*Alias, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Alias
 	err := ctx.RegisterResource("cloudformation:Lambda:Alias", name, args, &resource, opts...)
@@ -119,4 +121,43 @@ type AliasArgs struct {
 
 func (AliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*aliasArgs)(nil)).Elem()
+}
+
+type AliasInput interface {
+	pulumi.Input
+
+	ToAliasOutput() AliasOutput
+	ToAliasOutputWithContext(ctx context.Context) AliasOutput
+}
+
+func (*Alias) ElementType() reflect.Type {
+	return reflect.TypeOf((*Alias)(nil))
+}
+
+func (i *Alias) ToAliasOutput() AliasOutput {
+	return i.ToAliasOutputWithContext(context.Background())
+}
+
+func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
+}
+
+type AliasOutput struct {
+	*pulumi.OutputState
+}
+
+func (AliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Alias)(nil))
+}
+
+func (o AliasOutput) ToAliasOutput() AliasOutput {
+	return o
+}
+
+func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AliasOutput{})
 }

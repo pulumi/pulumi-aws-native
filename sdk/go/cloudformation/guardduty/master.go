@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Master struct {
 // NewMaster registers a new resource with the given unique name, arguments, and options.
 func NewMaster(ctx *pulumi.Context,
 	name string, args *MasterArgs, opts ...pulumi.ResourceOption) (*Master, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MasterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Master
 	err := ctx.RegisterResource("cloudformation:GuardDuty:Master", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MasterArgs struct {
 
 func (MasterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*masterArgs)(nil)).Elem()
+}
+
+type MasterInput interface {
+	pulumi.Input
+
+	ToMasterOutput() MasterOutput
+	ToMasterOutputWithContext(ctx context.Context) MasterOutput
+}
+
+func (*Master) ElementType() reflect.Type {
+	return reflect.TypeOf((*Master)(nil))
+}
+
+func (i *Master) ToMasterOutput() MasterOutput {
+	return i.ToMasterOutputWithContext(context.Background())
+}
+
+func (i *Master) ToMasterOutputWithContext(ctx context.Context) MasterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MasterOutput)
+}
+
+type MasterOutput struct {
+	*pulumi.OutputState
+}
+
+func (MasterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Master)(nil))
+}
+
+func (o MasterOutput) ToMasterOutput() MasterOutput {
+	return o
+}
+
+func (o MasterOutput) ToMasterOutputWithContext(ctx context.Context) MasterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MasterOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.OpsWorks
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:OpsWorks:ElasticLoadBalancerAttachment")]
     public partial class ElasticLoadBalancerAttachment : Pulumi.CustomResource
     {
         /// <summary>

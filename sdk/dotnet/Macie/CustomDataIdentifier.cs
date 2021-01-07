@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Macie
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Macie:CustomDataIdentifier")]
     public partial class CustomDataIdentifier : Pulumi.CustomResource
     {
         /// <summary>

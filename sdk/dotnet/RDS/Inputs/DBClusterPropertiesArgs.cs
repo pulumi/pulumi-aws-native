@@ -124,6 +124,12 @@ namespace Pulumi.Cloudformation.RDS.Inputs
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
+        /// </summary>
+        [Input("GlobalClusterIdentifier")]
+        public Input<string>? GlobalClusterIdentifier { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
         /// </summary>
         [Input("KmsKeyId")]

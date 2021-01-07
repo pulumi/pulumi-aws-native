@@ -15,15 +15,19 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
     {
         public readonly string Arn;
         public readonly string ImageId;
+        public readonly string Name;
 
         [OutputConstructor]
         private ImageAttributes(
             string Arn,
 
-            string ImageId)
+            string ImageId,
+
+            string Name)
         {
             this.Arn = Arn;
             this.ImageId = ImageId;
+            this.Name = Name;
         }
     }
 }

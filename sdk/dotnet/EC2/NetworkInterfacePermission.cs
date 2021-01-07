@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:NetworkInterfacePermission")]
     public partial class NetworkInterfacePermission : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:CustomerGateway")]
     public partial class CustomerGateway : Pulumi.CustomResource
     {
         /// <summary>

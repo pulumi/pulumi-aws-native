@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MediaStore
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MediaStore:Container")]
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>

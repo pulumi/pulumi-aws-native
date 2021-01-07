@@ -4,6 +4,7 @@
 package dms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EventSubscription struct {
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
 func NewEventSubscription(ctx *pulumi.Context,
 	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EventSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EventSubscription
 	err := ctx.RegisterResource("cloudformation:DMS:EventSubscription", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EventSubscriptionArgs struct {
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSubscriptionArgs)(nil)).Elem()
+}
+
+type EventSubscriptionInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionOutput() EventSubscriptionOutput
+	ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput
+}
+
+func (*EventSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscription)(nil))
+}
+
+func (i *EventSubscription) ToEventSubscriptionOutput() EventSubscriptionOutput {
+	return i.ToEventSubscriptionOutputWithContext(context.Background())
+}
+
+func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
+}
+
+type EventSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscription)(nil))
+}
+
+func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOutput {
+	return o
+}
+
+func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventSubscriptionOutput{})
 }

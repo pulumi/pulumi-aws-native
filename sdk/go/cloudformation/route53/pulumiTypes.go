@@ -10,160 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html
-type HealthCheckAlarmIdentifier struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-name
-	Name string `pulumi:"Name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-region
-	Region string `pulumi:"Region"`
-}
-
-// HealthCheckAlarmIdentifierInput is an input type that accepts HealthCheckAlarmIdentifierArgs and HealthCheckAlarmIdentifierOutput values.
-// You can construct a concrete instance of `HealthCheckAlarmIdentifierInput` via:
-//
-//          HealthCheckAlarmIdentifierArgs{...}
-type HealthCheckAlarmIdentifierInput interface {
-	pulumi.Input
-
-	ToHealthCheckAlarmIdentifierOutput() HealthCheckAlarmIdentifierOutput
-	ToHealthCheckAlarmIdentifierOutputWithContext(context.Context) HealthCheckAlarmIdentifierOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html
-type HealthCheckAlarmIdentifierArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-name
-	Name pulumi.StringInput `pulumi:"Name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-region
-	Region pulumi.StringInput `pulumi:"Region"`
-}
-
-func (HealthCheckAlarmIdentifierArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckAlarmIdentifier)(nil)).Elem()
-}
-
-func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierOutput() HealthCheckAlarmIdentifierOutput {
-	return i.ToHealthCheckAlarmIdentifierOutputWithContext(context.Background())
-}
-
-func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierOutput)
-}
-
-func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
-	return i.ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierOutput).ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx)
-}
-
-// HealthCheckAlarmIdentifierPtrInput is an input type that accepts HealthCheckAlarmIdentifierArgs, HealthCheckAlarmIdentifierPtr and HealthCheckAlarmIdentifierPtrOutput values.
-// You can construct a concrete instance of `HealthCheckAlarmIdentifierPtrInput` via:
-//
-//          HealthCheckAlarmIdentifierArgs{...}
-//
-//  or:
-//
-//          nil
-type HealthCheckAlarmIdentifierPtrInput interface {
-	pulumi.Input
-
-	ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput
-	ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Context) HealthCheckAlarmIdentifierPtrOutput
-}
-
-type healthCheckAlarmIdentifierPtrType HealthCheckAlarmIdentifierArgs
-
-func HealthCheckAlarmIdentifierPtr(v *HealthCheckAlarmIdentifierArgs) HealthCheckAlarmIdentifierPtrInput {
-	return (*healthCheckAlarmIdentifierPtrType)(v)
-}
-
-func (*healthCheckAlarmIdentifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthCheckAlarmIdentifier)(nil)).Elem()
-}
-
-func (i *healthCheckAlarmIdentifierPtrType) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
-	return i.ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i *healthCheckAlarmIdentifierPtrType) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html
-type HealthCheckAlarmIdentifierOutput struct{ *pulumi.OutputState }
-
-func (HealthCheckAlarmIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckAlarmIdentifier)(nil)).Elem()
-}
-
-func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierOutput() HealthCheckAlarmIdentifierOutput {
-	return o
-}
-
-func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierOutput {
-	return o
-}
-
-func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
-	return o.ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
-	return o.ApplyT(func(v HealthCheckAlarmIdentifier) *HealthCheckAlarmIdentifier {
-		return &v
-	}).(HealthCheckAlarmIdentifierPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-name
-func (o HealthCheckAlarmIdentifierOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthCheckAlarmIdentifier) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-region
-func (o HealthCheckAlarmIdentifierOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthCheckAlarmIdentifier) string { return v.Region }).(pulumi.StringOutput)
-}
-
-type HealthCheckAlarmIdentifierPtrOutput struct{ *pulumi.OutputState }
-
-func (HealthCheckAlarmIdentifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthCheckAlarmIdentifier)(nil)).Elem()
-}
-
-func (o HealthCheckAlarmIdentifierPtrOutput) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
-	return o
-}
-
-func (o HealthCheckAlarmIdentifierPtrOutput) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
-	return o
-}
-
-func (o HealthCheckAlarmIdentifierPtrOutput) Elem() HealthCheckAlarmIdentifierOutput {
-	return o.ApplyT(func(v *HealthCheckAlarmIdentifier) HealthCheckAlarmIdentifier { return *v }).(HealthCheckAlarmIdentifierOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-name
-func (o HealthCheckAlarmIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckAlarmIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html#cfn-route53-healthcheck-alarmidentifier-region
-func (o HealthCheckAlarmIdentifierPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckAlarmIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Region
-	}).(pulumi.StringPtrOutput)
-}
-
 type HealthCheckAttributes struct {
+	HealthCheckId string `pulumi:"HealthCheckId"`
 }
 
 // HealthCheckAttributesInput is an input type that accepts HealthCheckAttributesArgs and HealthCheckAttributesOutput values.
@@ -178,6 +26,7 @@ type HealthCheckAttributesInput interface {
 }
 
 type HealthCheckAttributesArgs struct {
+	HealthCheckId pulumi.StringInput `pulumi:"HealthCheckId"`
 }
 
 func (HealthCheckAttributesArgs) ElementType() reflect.Type {
@@ -256,6 +105,9 @@ func (o HealthCheckAttributesOutput) ToHealthCheckAttributesPtrOutputWithContext
 		return &v
 	}).(HealthCheckAttributesPtrOutput)
 }
+func (o HealthCheckAttributesOutput) HealthCheckId() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckAttributes) string { return v.HealthCheckId }).(pulumi.StringOutput)
+}
 
 type HealthCheckAttributesPtrOutput struct{ *pulumi.OutputState }
 
@@ -275,430 +127,20 @@ func (o HealthCheckAttributesPtrOutput) Elem() HealthCheckAttributesOutput {
 	return o.ApplyT(func(v *HealthCheckAttributes) HealthCheckAttributes { return *v }).(HealthCheckAttributesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html
-type HealthCheckHealthCheckConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-alarmidentifier
-	AlarmIdentifier *HealthCheckAlarmIdentifier `pulumi:"AlarmIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
-	ChildHealthChecks []string `pulumi:"ChildHealthChecks"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-enablesni
-	EnableSNI *bool `pulumi:"EnableSNI"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-failurethreshold
-	FailureThreshold *int `pulumi:"FailureThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-fullyqualifieddomainname
-	FullyQualifiedDomainName *string `pulumi:"FullyQualifiedDomainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-healththreshold
-	HealthThreshold *int `pulumi:"HealthThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-ipaddress
-	IPAddress *string `pulumi:"IPAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-insufficientdatahealthstatus
-	InsufficientDataHealthStatus *string `pulumi:"InsufficientDataHealthStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-inverted
-	Inverted *bool `pulumi:"Inverted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-measurelatency
-	MeasureLatency *bool `pulumi:"MeasureLatency"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
-	Port *int `pulumi:"Port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-regions
-	Regions []string `pulumi:"Regions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
-	RequestInterval *int `pulumi:"RequestInterval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-resourcepath
-	ResourcePath *string `pulumi:"ResourcePath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-searchstring
-	SearchString *string `pulumi:"SearchString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type
-	Type string `pulumi:"Type"`
-}
-
-// HealthCheckHealthCheckConfigInput is an input type that accepts HealthCheckHealthCheckConfigArgs and HealthCheckHealthCheckConfigOutput values.
-// You can construct a concrete instance of `HealthCheckHealthCheckConfigInput` via:
-//
-//          HealthCheckHealthCheckConfigArgs{...}
-type HealthCheckHealthCheckConfigInput interface {
-	pulumi.Input
-
-	ToHealthCheckHealthCheckConfigOutput() HealthCheckHealthCheckConfigOutput
-	ToHealthCheckHealthCheckConfigOutputWithContext(context.Context) HealthCheckHealthCheckConfigOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html
-type HealthCheckHealthCheckConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-alarmidentifier
-	AlarmIdentifier HealthCheckAlarmIdentifierPtrInput `pulumi:"AlarmIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
-	ChildHealthChecks pulumi.StringArrayInput `pulumi:"ChildHealthChecks"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-enablesni
-	EnableSNI pulumi.BoolPtrInput `pulumi:"EnableSNI"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-failurethreshold
-	FailureThreshold pulumi.IntPtrInput `pulumi:"FailureThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-fullyqualifieddomainname
-	FullyQualifiedDomainName pulumi.StringPtrInput `pulumi:"FullyQualifiedDomainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-healththreshold
-	HealthThreshold pulumi.IntPtrInput `pulumi:"HealthThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-ipaddress
-	IPAddress pulumi.StringPtrInput `pulumi:"IPAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-insufficientdatahealthstatus
-	InsufficientDataHealthStatus pulumi.StringPtrInput `pulumi:"InsufficientDataHealthStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-inverted
-	Inverted pulumi.BoolPtrInput `pulumi:"Inverted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-measurelatency
-	MeasureLatency pulumi.BoolPtrInput `pulumi:"MeasureLatency"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
-	Port pulumi.IntPtrInput `pulumi:"Port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-regions
-	Regions pulumi.StringArrayInput `pulumi:"Regions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
-	RequestInterval pulumi.IntPtrInput `pulumi:"RequestInterval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-resourcepath
-	ResourcePath pulumi.StringPtrInput `pulumi:"ResourcePath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-searchstring
-	SearchString pulumi.StringPtrInput `pulumi:"SearchString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type
-	Type pulumi.StringInput `pulumi:"Type"`
-}
-
-func (HealthCheckHealthCheckConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckHealthCheckConfig)(nil)).Elem()
-}
-
-func (i HealthCheckHealthCheckConfigArgs) ToHealthCheckHealthCheckConfigOutput() HealthCheckHealthCheckConfigOutput {
-	return i.ToHealthCheckHealthCheckConfigOutputWithContext(context.Background())
-}
-
-func (i HealthCheckHealthCheckConfigArgs) ToHealthCheckHealthCheckConfigOutputWithContext(ctx context.Context) HealthCheckHealthCheckConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckHealthCheckConfigOutput)
-}
-
-func (i HealthCheckHealthCheckConfigArgs) ToHealthCheckHealthCheckConfigPtrOutput() HealthCheckHealthCheckConfigPtrOutput {
-	return i.ToHealthCheckHealthCheckConfigPtrOutputWithContext(context.Background())
-}
-
-func (i HealthCheckHealthCheckConfigArgs) ToHealthCheckHealthCheckConfigPtrOutputWithContext(ctx context.Context) HealthCheckHealthCheckConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckHealthCheckConfigOutput).ToHealthCheckHealthCheckConfigPtrOutputWithContext(ctx)
-}
-
-// HealthCheckHealthCheckConfigPtrInput is an input type that accepts HealthCheckHealthCheckConfigArgs, HealthCheckHealthCheckConfigPtr and HealthCheckHealthCheckConfigPtrOutput values.
-// You can construct a concrete instance of `HealthCheckHealthCheckConfigPtrInput` via:
-//
-//          HealthCheckHealthCheckConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type HealthCheckHealthCheckConfigPtrInput interface {
-	pulumi.Input
-
-	ToHealthCheckHealthCheckConfigPtrOutput() HealthCheckHealthCheckConfigPtrOutput
-	ToHealthCheckHealthCheckConfigPtrOutputWithContext(context.Context) HealthCheckHealthCheckConfigPtrOutput
-}
-
-type healthCheckHealthCheckConfigPtrType HealthCheckHealthCheckConfigArgs
-
-func HealthCheckHealthCheckConfigPtr(v *HealthCheckHealthCheckConfigArgs) HealthCheckHealthCheckConfigPtrInput {
-	return (*healthCheckHealthCheckConfigPtrType)(v)
-}
-
-func (*healthCheckHealthCheckConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthCheckHealthCheckConfig)(nil)).Elem()
-}
-
-func (i *healthCheckHealthCheckConfigPtrType) ToHealthCheckHealthCheckConfigPtrOutput() HealthCheckHealthCheckConfigPtrOutput {
-	return i.ToHealthCheckHealthCheckConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *healthCheckHealthCheckConfigPtrType) ToHealthCheckHealthCheckConfigPtrOutputWithContext(ctx context.Context) HealthCheckHealthCheckConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckHealthCheckConfigPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html
-type HealthCheckHealthCheckConfigOutput struct{ *pulumi.OutputState }
-
-func (HealthCheckHealthCheckConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckHealthCheckConfig)(nil)).Elem()
-}
-
-func (o HealthCheckHealthCheckConfigOutput) ToHealthCheckHealthCheckConfigOutput() HealthCheckHealthCheckConfigOutput {
-	return o
-}
-
-func (o HealthCheckHealthCheckConfigOutput) ToHealthCheckHealthCheckConfigOutputWithContext(ctx context.Context) HealthCheckHealthCheckConfigOutput {
-	return o
-}
-
-func (o HealthCheckHealthCheckConfigOutput) ToHealthCheckHealthCheckConfigPtrOutput() HealthCheckHealthCheckConfigPtrOutput {
-	return o.ToHealthCheckHealthCheckConfigPtrOutputWithContext(context.Background())
-}
-
-func (o HealthCheckHealthCheckConfigOutput) ToHealthCheckHealthCheckConfigPtrOutputWithContext(ctx context.Context) HealthCheckHealthCheckConfigPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *HealthCheckHealthCheckConfig {
-		return &v
-	}).(HealthCheckHealthCheckConfigPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-alarmidentifier
-func (o HealthCheckHealthCheckConfigOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *HealthCheckAlarmIdentifier { return v.AlarmIdentifier }).(HealthCheckAlarmIdentifierPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
-func (o HealthCheckHealthCheckConfigOutput) ChildHealthChecks() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) []string { return v.ChildHealthChecks }).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-enablesni
-func (o HealthCheckHealthCheckConfigOutput) EnableSNI() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *bool { return v.EnableSNI }).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-failurethreshold
-func (o HealthCheckHealthCheckConfigOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-fullyqualifieddomainname
-func (o HealthCheckHealthCheckConfigOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *string { return v.FullyQualifiedDomainName }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-healththreshold
-func (o HealthCheckHealthCheckConfigOutput) HealthThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *int { return v.HealthThreshold }).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-ipaddress
-func (o HealthCheckHealthCheckConfigOutput) IPAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *string { return v.IPAddress }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-insufficientdatahealthstatus
-func (o HealthCheckHealthCheckConfigOutput) InsufficientDataHealthStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *string { return v.InsufficientDataHealthStatus }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-inverted
-func (o HealthCheckHealthCheckConfigOutput) Inverted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *bool { return v.Inverted }).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-measurelatency
-func (o HealthCheckHealthCheckConfigOutput) MeasureLatency() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *bool { return v.MeasureLatency }).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
-func (o HealthCheckHealthCheckConfigOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-regions
-func (o HealthCheckHealthCheckConfigOutput) Regions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) []string { return v.Regions }).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
-func (o HealthCheckHealthCheckConfigOutput) RequestInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *int { return v.RequestInterval }).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-resourcepath
-func (o HealthCheckHealthCheckConfigOutput) ResourcePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-searchstring
-func (o HealthCheckHealthCheckConfigOutput) SearchString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) *string { return v.SearchString }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type
-func (o HealthCheckHealthCheckConfigOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckConfig) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type HealthCheckHealthCheckConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (HealthCheckHealthCheckConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthCheckHealthCheckConfig)(nil)).Elem()
-}
-
-func (o HealthCheckHealthCheckConfigPtrOutput) ToHealthCheckHealthCheckConfigPtrOutput() HealthCheckHealthCheckConfigPtrOutput {
-	return o
-}
-
-func (o HealthCheckHealthCheckConfigPtrOutput) ToHealthCheckHealthCheckConfigPtrOutputWithContext(ctx context.Context) HealthCheckHealthCheckConfigPtrOutput {
-	return o
-}
-
-func (o HealthCheckHealthCheckConfigPtrOutput) Elem() HealthCheckHealthCheckConfigOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) HealthCheckHealthCheckConfig { return *v }).(HealthCheckHealthCheckConfigOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-alarmidentifier
-func (o HealthCheckHealthCheckConfigPtrOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *HealthCheckAlarmIdentifier {
+func (o HealthCheckAttributesPtrOutput) HealthCheckId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckAttributes) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AlarmIdentifier
-	}).(HealthCheckAlarmIdentifierPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
-func (o HealthCheckHealthCheckConfigPtrOutput) ChildHealthChecks() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ChildHealthChecks
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-enablesni
-func (o HealthCheckHealthCheckConfigPtrOutput) EnableSNI() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableSNI
-	}).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-failurethreshold
-func (o HealthCheckHealthCheckConfigPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.FailureThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-fullyqualifieddomainname
-func (o HealthCheckHealthCheckConfigPtrOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FullyQualifiedDomainName
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-healththreshold
-func (o HealthCheckHealthCheckConfigPtrOutput) HealthThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HealthThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-ipaddress
-func (o HealthCheckHealthCheckConfigPtrOutput) IPAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IPAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-insufficientdatahealthstatus
-func (o HealthCheckHealthCheckConfigPtrOutput) InsufficientDataHealthStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InsufficientDataHealthStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-inverted
-func (o HealthCheckHealthCheckConfigPtrOutput) Inverted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Inverted
-	}).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-measurelatency
-func (o HealthCheckHealthCheckConfigPtrOutput) MeasureLatency() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.MeasureLatency
-	}).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
-func (o HealthCheckHealthCheckConfigPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-regions
-func (o HealthCheckHealthCheckConfigPtrOutput) Regions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Regions
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
-func (o HealthCheckHealthCheckConfigPtrOutput) RequestInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RequestInterval
-	}).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-resourcepath
-func (o HealthCheckHealthCheckConfigPtrOutput) ResourcePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourcePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-searchstring
-func (o HealthCheckHealthCheckConfigPtrOutput) SearchString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SearchString
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type
-func (o HealthCheckHealthCheckConfigPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckHealthCheckConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
+		return &v.HealthCheckId
 	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
 type HealthCheckHealthCheckTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-key
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
 	Key string `pulumi:"Key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-value
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
 	Value string `pulumi:"Value"`
 }
 
@@ -715,9 +157,9 @@ type HealthCheckHealthCheckTagInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
 type HealthCheckHealthCheckTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-key
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
 	Key pulumi.StringInput `pulumi:"Key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-value
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
 	Value pulumi.StringInput `pulumi:"Value"`
 }
 
@@ -773,12 +215,12 @@ func (o HealthCheckHealthCheckTagOutput) ToHealthCheckHealthCheckTagOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-key
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
 func (o HealthCheckHealthCheckTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckHealthCheckTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-value
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
 func (o HealthCheckHealthCheckTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckHealthCheckTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -806,7 +248,7 @@ func (o HealthCheckHealthCheckTagArrayOutput) Index(i pulumi.IntInput) HealthChe
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
 type HealthCheckProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-	HealthCheckConfig HealthCheckHealthCheckConfig `pulumi:"HealthCheckConfig"`
+	HealthCheckConfig interface{} `pulumi:"HealthCheckConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
 	HealthCheckTags []HealthCheckHealthCheckTag `pulumi:"HealthCheckTags"`
 }
@@ -825,7 +267,7 @@ type HealthCheckPropertiesInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
 type HealthCheckPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-	HealthCheckConfig HealthCheckHealthCheckConfigInput `pulumi:"HealthCheckConfig"`
+	HealthCheckConfig pulumi.Input `pulumi:"HealthCheckConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
 	HealthCheckTags HealthCheckHealthCheckTagArrayInput `pulumi:"HealthCheckTags"`
 }
@@ -909,8 +351,8 @@ func (o HealthCheckPropertiesOutput) ToHealthCheckPropertiesPtrOutputWithContext
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-func (o HealthCheckPropertiesOutput) HealthCheckConfig() HealthCheckHealthCheckConfigOutput {
-	return o.ApplyT(func(v HealthCheckProperties) HealthCheckHealthCheckConfig { return v.HealthCheckConfig }).(HealthCheckHealthCheckConfigOutput)
+func (o HealthCheckPropertiesOutput) HealthCheckConfig() pulumi.AnyOutput {
+	return o.ApplyT(func(v HealthCheckProperties) interface{} { return v.HealthCheckConfig }).(pulumi.AnyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
@@ -937,13 +379,13 @@ func (o HealthCheckPropertiesPtrOutput) Elem() HealthCheckPropertiesOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-func (o HealthCheckPropertiesPtrOutput) HealthCheckConfig() HealthCheckHealthCheckConfigPtrOutput {
-	return o.ApplyT(func(v *HealthCheckProperties) *HealthCheckHealthCheckConfig {
+func (o HealthCheckPropertiesPtrOutput) HealthCheckConfig() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HealthCheckProperties) interface{} {
 		if v == nil {
 			return nil
 		}
-		return &v.HealthCheckConfig
-	}).(HealthCheckHealthCheckConfigPtrOutput)
+		return v.HealthCheckConfig
+	}).(pulumi.AnyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
@@ -957,6 +399,7 @@ func (o HealthCheckPropertiesPtrOutput) HealthCheckTags() HealthCheckHealthCheck
 }
 
 type HostedZoneAttributes struct {
+	Id          string   `pulumi:"Id"`
 	NameServers []string `pulumi:"NameServers"`
 }
 
@@ -972,6 +415,7 @@ type HostedZoneAttributesInput interface {
 }
 
 type HostedZoneAttributesArgs struct {
+	Id          pulumi.StringInput      `pulumi:"Id"`
 	NameServers pulumi.StringArrayInput `pulumi:"NameServers"`
 }
 
@@ -1051,6 +495,10 @@ func (o HostedZoneAttributesOutput) ToHostedZoneAttributesPtrOutputWithContext(c
 		return &v
 	}).(HostedZoneAttributesPtrOutput)
 }
+func (o HostedZoneAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v HostedZoneAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
 func (o HostedZoneAttributesOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HostedZoneAttributes) []string { return v.NameServers }).(pulumi.StringArrayOutput)
 }
@@ -1071,6 +519,15 @@ func (o HostedZoneAttributesPtrOutput) ToHostedZoneAttributesPtrOutputWithContex
 
 func (o HostedZoneAttributesPtrOutput) Elem() HostedZoneAttributesOutput {
 	return o.ApplyT(func(v *HostedZoneAttributes) HostedZoneAttributes { return *v }).(HostedZoneAttributesOutput)
+}
+
+func (o HostedZoneAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedZoneAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o HostedZoneAttributesPtrOutput) NameServers() pulumi.StringArrayOutput {
@@ -1216,11 +673,11 @@ func (o HostedZoneHostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
 type HostedZoneHostedZoneTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-key
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
 	Key string `pulumi:"Key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-value
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
 	Value string `pulumi:"Value"`
 }
 
@@ -1235,11 +692,11 @@ type HostedZoneHostedZoneTagInput interface {
 	ToHostedZoneHostedZoneTagOutputWithContext(context.Context) HostedZoneHostedZoneTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
 type HostedZoneHostedZoneTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-key
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
 	Key pulumi.StringInput `pulumi:"Key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-value
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
 	Value pulumi.StringInput `pulumi:"Value"`
 }
 
@@ -1280,7 +737,7 @@ func (i HostedZoneHostedZoneTagArray) ToHostedZoneHostedZoneTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
 type HostedZoneHostedZoneTagOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneHostedZoneTagOutput) ElementType() reflect.Type {
@@ -1295,12 +752,12 @@ func (o HostedZoneHostedZoneTagOutput) ToHostedZoneHostedZoneTagOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-key
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
 func (o HostedZoneHostedZoneTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneHostedZoneTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html#cfn-route53-hostedzonetags-value
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
 func (o HostedZoneHostedZoneTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneHostedZoneTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1669,11 +1126,11 @@ func (o HostedZoneQueryLoggingConfigPtrOutput) CloudWatchLogsLogGroupArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
 type HostedZoneVPC struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
 	VPCId string `pulumi:"VPCId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcregion
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
 	VPCRegion string `pulumi:"VPCRegion"`
 }
 
@@ -1688,11 +1145,11 @@ type HostedZoneVPCInput interface {
 	ToHostedZoneVPCOutputWithContext(context.Context) HostedZoneVPCOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
 type HostedZoneVPCArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
 	VPCId pulumi.StringInput `pulumi:"VPCId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcregion
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
 	VPCRegion pulumi.StringInput `pulumi:"VPCRegion"`
 }
 
@@ -1733,7 +1190,7 @@ func (i HostedZoneVPCArray) ToHostedZoneVPCArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVPCArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
 type HostedZoneVPCOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneVPCOutput) ElementType() reflect.Type {
@@ -1748,12 +1205,12 @@ func (o HostedZoneVPCOutput) ToHostedZoneVPCOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
 func (o HostedZoneVPCOutput) VPCId() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneVPC) string { return v.VPCId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcregion
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
 func (o HostedZoneVPCOutput) VPCRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneVPC) string { return v.VPCRegion }).(pulumi.StringOutput)
 }
@@ -3508,12 +2965,8 @@ func (o RecordSetPropertiesPtrOutput) Weight() pulumi.IntPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierOutput{})
-	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckAttributesOutput{})
 	pulumi.RegisterOutputType(HealthCheckAttributesPtrOutput{})
-	pulumi.RegisterOutputType(HealthCheckHealthCheckConfigOutput{})
-	pulumi.RegisterOutputType(HealthCheckHealthCheckConfigPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckHealthCheckTagOutput{})
 	pulumi.RegisterOutputType(HealthCheckHealthCheckTagArrayOutput{})
 	pulumi.RegisterOutputType(HealthCheckPropertiesOutput{})

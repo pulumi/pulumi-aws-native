@@ -21,3 +21,62 @@ from .segment import *
 from .sms_channel import *
 from .sms_template import *
 from .voice_channel import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:Pinpoint:ADMChannel":
+                return ADMChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:APNSChannel":
+                return APNSChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:APNSSandboxChannel":
+                return APNSSandboxChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:APNSVoipChannel":
+                return APNSVoipChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:APNSVoipSandboxChannel":
+                return APNSVoipSandboxChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:App":
+                return App(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:ApplicationSettings":
+                return ApplicationSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:BaiduChannel":
+                return BaiduChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:Campaign":
+                return Campaign(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:EmailChannel":
+                return EmailChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:EmailTemplate":
+                return EmailTemplate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:EventStream":
+                return EventStream(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:GCMChannel":
+                return GCMChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:PushTemplate":
+                return PushTemplate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:SMSChannel":
+                return SMSChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:Segment":
+                return Segment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:SmsTemplate":
+                return SmsTemplate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Pinpoint:VoiceChannel":
+                return VoiceChannel(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "Pinpoint", _module_instance)
+
+_register_module()

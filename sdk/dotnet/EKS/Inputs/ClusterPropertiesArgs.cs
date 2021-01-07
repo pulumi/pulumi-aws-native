@@ -28,6 +28,12 @@ namespace Pulumi.Cloudformation.EKS.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+        /// </summary>
+        [Input("KubernetesNetworkConfig")]
+        public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
         /// </summary>
         [Input("Name")]

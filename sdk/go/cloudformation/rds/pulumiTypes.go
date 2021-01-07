@@ -611,6 +611,8 @@ type DBClusterProperties struct {
 	EngineMode *string `pulumi:"EngineMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
 	EngineVersion *string `pulumi:"EngineVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
+	GlobalClusterIdentifier *string `pulumi:"GlobalClusterIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
 	KmsKeyId *string `pulumi:"KmsKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword
@@ -688,6 +690,8 @@ type DBClusterPropertiesArgs struct {
 	EngineMode pulumi.StringPtrInput `pulumi:"EngineMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
 	EngineVersion pulumi.StringPtrInput `pulumi:"EngineVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
+	GlobalClusterIdentifier pulumi.StringPtrInput `pulumi:"GlobalClusterIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
 	KmsKeyId pulumi.StringPtrInput `pulumi:"KmsKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword
@@ -873,6 +877,11 @@ func (o DBClusterPropertiesOutput) EngineMode() pulumi.StringPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
 func (o DBClusterPropertiesOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBClusterProperties) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
+func (o DBClusterPropertiesOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterProperties) *string { return v.GlobalClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
@@ -1120,6 +1129,16 @@ func (o DBClusterPropertiesPtrOutput) EngineVersion() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.EngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
+func (o DBClusterPropertiesPtrOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalClusterIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3931,8 +3950,7 @@ func (o DBProxyTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyTagFormatOu
 }
 
 type DBProxyTargetGroupAttributes struct {
-	TargetGroupArn  string `pulumi:"TargetGroupArn"`
-	TargetGroupName string `pulumi:"TargetGroupName"`
+	TargetGroupArn string `pulumi:"TargetGroupArn"`
 }
 
 // DBProxyTargetGroupAttributesInput is an input type that accepts DBProxyTargetGroupAttributesArgs and DBProxyTargetGroupAttributesOutput values.
@@ -3947,8 +3965,7 @@ type DBProxyTargetGroupAttributesInput interface {
 }
 
 type DBProxyTargetGroupAttributesArgs struct {
-	TargetGroupArn  pulumi.StringInput `pulumi:"TargetGroupArn"`
-	TargetGroupName pulumi.StringInput `pulumi:"TargetGroupName"`
+	TargetGroupArn pulumi.StringInput `pulumi:"TargetGroupArn"`
 }
 
 func (DBProxyTargetGroupAttributesArgs) ElementType() reflect.Type {
@@ -4031,10 +4048,6 @@ func (o DBProxyTargetGroupAttributesOutput) TargetGroupArn() pulumi.StringOutput
 	return o.ApplyT(func(v DBProxyTargetGroupAttributes) string { return v.TargetGroupArn }).(pulumi.StringOutput)
 }
 
-func (o DBProxyTargetGroupAttributesOutput) TargetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v DBProxyTargetGroupAttributes) string { return v.TargetGroupName }).(pulumi.StringOutput)
-}
-
 type DBProxyTargetGroupAttributesPtrOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTargetGroupAttributesPtrOutput) ElementType() reflect.Type {
@@ -4059,15 +4072,6 @@ func (o DBProxyTargetGroupAttributesPtrOutput) TargetGroupArn() pulumi.StringPtr
 			return nil
 		}
 		return &v.TargetGroupArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DBProxyTargetGroupAttributesPtrOutput) TargetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroupAttributes) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4297,6 +4301,8 @@ type DBProxyTargetGroupProperties struct {
 	DBInstanceIdentifiers []string `pulumi:"DBInstanceIdentifiers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
 	DBProxyName string `pulumi:"DBProxyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+	TargetGroupName string `pulumi:"TargetGroupName"`
 }
 
 // DBProxyTargetGroupPropertiesInput is an input type that accepts DBProxyTargetGroupPropertiesArgs and DBProxyTargetGroupPropertiesOutput values.
@@ -4320,6 +4326,8 @@ type DBProxyTargetGroupPropertiesArgs struct {
 	DBInstanceIdentifiers pulumi.StringArrayInput `pulumi:"DBInstanceIdentifiers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
 	DBProxyName pulumi.StringInput `pulumi:"DBProxyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+	TargetGroupName pulumi.StringInput `pulumi:"TargetGroupName"`
 }
 
 func (DBProxyTargetGroupPropertiesArgs) ElementType() reflect.Type {
@@ -4422,6 +4430,11 @@ func (o DBProxyTargetGroupPropertiesOutput) DBProxyName() pulumi.StringOutput {
 	return o.ApplyT(func(v DBProxyTargetGroupProperties) string { return v.DBProxyName }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+func (o DBProxyTargetGroupPropertiesOutput) TargetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v DBProxyTargetGroupProperties) string { return v.TargetGroupName }).(pulumi.StringOutput)
+}
+
 type DBProxyTargetGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTargetGroupPropertiesPtrOutput) ElementType() reflect.Type {
@@ -4477,6 +4490,16 @@ func (o DBProxyTargetGroupPropertiesPtrOutput) DBProxyName() pulumi.StringPtrOut
 			return nil
 		}
 		return &v.DBProxyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+func (o DBProxyTargetGroupPropertiesPtrOutput) TargetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBProxyTargetGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5857,6 +5880,347 @@ func (o EventSubscriptionPropertiesPtrOutput) SourceType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GlobalClusterAttributes struct {
+}
+
+// GlobalClusterAttributesInput is an input type that accepts GlobalClusterAttributesArgs and GlobalClusterAttributesOutput values.
+// You can construct a concrete instance of `GlobalClusterAttributesInput` via:
+//
+//          GlobalClusterAttributesArgs{...}
+type GlobalClusterAttributesInput interface {
+	pulumi.Input
+
+	ToGlobalClusterAttributesOutput() GlobalClusterAttributesOutput
+	ToGlobalClusterAttributesOutputWithContext(context.Context) GlobalClusterAttributesOutput
+}
+
+type GlobalClusterAttributesArgs struct {
+}
+
+func (GlobalClusterAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterAttributes)(nil)).Elem()
+}
+
+func (i GlobalClusterAttributesArgs) ToGlobalClusterAttributesOutput() GlobalClusterAttributesOutput {
+	return i.ToGlobalClusterAttributesOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterAttributesArgs) ToGlobalClusterAttributesOutputWithContext(ctx context.Context) GlobalClusterAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterAttributesOutput)
+}
+
+func (i GlobalClusterAttributesArgs) ToGlobalClusterAttributesPtrOutput() GlobalClusterAttributesPtrOutput {
+	return i.ToGlobalClusterAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterAttributesArgs) ToGlobalClusterAttributesPtrOutputWithContext(ctx context.Context) GlobalClusterAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterAttributesOutput).ToGlobalClusterAttributesPtrOutputWithContext(ctx)
+}
+
+// GlobalClusterAttributesPtrInput is an input type that accepts GlobalClusterAttributesArgs, GlobalClusterAttributesPtr and GlobalClusterAttributesPtrOutput values.
+// You can construct a concrete instance of `GlobalClusterAttributesPtrInput` via:
+//
+//          GlobalClusterAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type GlobalClusterAttributesPtrInput interface {
+	pulumi.Input
+
+	ToGlobalClusterAttributesPtrOutput() GlobalClusterAttributesPtrOutput
+	ToGlobalClusterAttributesPtrOutputWithContext(context.Context) GlobalClusterAttributesPtrOutput
+}
+
+type globalClusterAttributesPtrType GlobalClusterAttributesArgs
+
+func GlobalClusterAttributesPtr(v *GlobalClusterAttributesArgs) GlobalClusterAttributesPtrInput {
+	return (*globalClusterAttributesPtrType)(v)
+}
+
+func (*globalClusterAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalClusterAttributes)(nil)).Elem()
+}
+
+func (i *globalClusterAttributesPtrType) ToGlobalClusterAttributesPtrOutput() GlobalClusterAttributesPtrOutput {
+	return i.ToGlobalClusterAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *globalClusterAttributesPtrType) ToGlobalClusterAttributesPtrOutputWithContext(ctx context.Context) GlobalClusterAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterAttributesPtrOutput)
+}
+
+type GlobalClusterAttributesOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterAttributes)(nil)).Elem()
+}
+
+func (o GlobalClusterAttributesOutput) ToGlobalClusterAttributesOutput() GlobalClusterAttributesOutput {
+	return o
+}
+
+func (o GlobalClusterAttributesOutput) ToGlobalClusterAttributesOutputWithContext(ctx context.Context) GlobalClusterAttributesOutput {
+	return o
+}
+
+func (o GlobalClusterAttributesOutput) ToGlobalClusterAttributesPtrOutput() GlobalClusterAttributesPtrOutput {
+	return o.ToGlobalClusterAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalClusterAttributesOutput) ToGlobalClusterAttributesPtrOutputWithContext(ctx context.Context) GlobalClusterAttributesPtrOutput {
+	return o.ApplyT(func(v GlobalClusterAttributes) *GlobalClusterAttributes {
+		return &v
+	}).(GlobalClusterAttributesPtrOutput)
+}
+
+type GlobalClusterAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalClusterAttributes)(nil)).Elem()
+}
+
+func (o GlobalClusterAttributesPtrOutput) ToGlobalClusterAttributesPtrOutput() GlobalClusterAttributesPtrOutput {
+	return o
+}
+
+func (o GlobalClusterAttributesPtrOutput) ToGlobalClusterAttributesPtrOutputWithContext(ctx context.Context) GlobalClusterAttributesPtrOutput {
+	return o
+}
+
+func (o GlobalClusterAttributesPtrOutput) Elem() GlobalClusterAttributesOutput {
+	return o.ApplyT(func(v *GlobalClusterAttributes) GlobalClusterAttributes { return *v }).(GlobalClusterAttributesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+type GlobalClusterProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+	DeletionProtection *bool `pulumi:"DeletionProtection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+	Engine *string `pulumi:"Engine"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+	EngineVersion *string `pulumi:"EngineVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+	GlobalClusterIdentifier *string `pulumi:"GlobalClusterIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+	SourceDBClusterIdentifier *string `pulumi:"SourceDBClusterIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+	StorageEncrypted *bool `pulumi:"StorageEncrypted"`
+}
+
+// GlobalClusterPropertiesInput is an input type that accepts GlobalClusterPropertiesArgs and GlobalClusterPropertiesOutput values.
+// You can construct a concrete instance of `GlobalClusterPropertiesInput` via:
+//
+//          GlobalClusterPropertiesArgs{...}
+type GlobalClusterPropertiesInput interface {
+	pulumi.Input
+
+	ToGlobalClusterPropertiesOutput() GlobalClusterPropertiesOutput
+	ToGlobalClusterPropertiesOutputWithContext(context.Context) GlobalClusterPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+type GlobalClusterPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+	DeletionProtection pulumi.BoolPtrInput `pulumi:"DeletionProtection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+	Engine pulumi.StringPtrInput `pulumi:"Engine"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+	EngineVersion pulumi.StringPtrInput `pulumi:"EngineVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+	GlobalClusterIdentifier pulumi.StringPtrInput `pulumi:"GlobalClusterIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+	SourceDBClusterIdentifier pulumi.StringPtrInput `pulumi:"SourceDBClusterIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+	StorageEncrypted pulumi.BoolPtrInput `pulumi:"StorageEncrypted"`
+}
+
+func (GlobalClusterPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterProperties)(nil)).Elem()
+}
+
+func (i GlobalClusterPropertiesArgs) ToGlobalClusterPropertiesOutput() GlobalClusterPropertiesOutput {
+	return i.ToGlobalClusterPropertiesOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterPropertiesArgs) ToGlobalClusterPropertiesOutputWithContext(ctx context.Context) GlobalClusterPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterPropertiesOutput)
+}
+
+func (i GlobalClusterPropertiesArgs) ToGlobalClusterPropertiesPtrOutput() GlobalClusterPropertiesPtrOutput {
+	return i.ToGlobalClusterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterPropertiesArgs) ToGlobalClusterPropertiesPtrOutputWithContext(ctx context.Context) GlobalClusterPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterPropertiesOutput).ToGlobalClusterPropertiesPtrOutputWithContext(ctx)
+}
+
+// GlobalClusterPropertiesPtrInput is an input type that accepts GlobalClusterPropertiesArgs, GlobalClusterPropertiesPtr and GlobalClusterPropertiesPtrOutput values.
+// You can construct a concrete instance of `GlobalClusterPropertiesPtrInput` via:
+//
+//          GlobalClusterPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type GlobalClusterPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGlobalClusterPropertiesPtrOutput() GlobalClusterPropertiesPtrOutput
+	ToGlobalClusterPropertiesPtrOutputWithContext(context.Context) GlobalClusterPropertiesPtrOutput
+}
+
+type globalClusterPropertiesPtrType GlobalClusterPropertiesArgs
+
+func GlobalClusterPropertiesPtr(v *GlobalClusterPropertiesArgs) GlobalClusterPropertiesPtrInput {
+	return (*globalClusterPropertiesPtrType)(v)
+}
+
+func (*globalClusterPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalClusterProperties)(nil)).Elem()
+}
+
+func (i *globalClusterPropertiesPtrType) ToGlobalClusterPropertiesPtrOutput() GlobalClusterPropertiesPtrOutput {
+	return i.ToGlobalClusterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *globalClusterPropertiesPtrType) ToGlobalClusterPropertiesPtrOutputWithContext(ctx context.Context) GlobalClusterPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+type GlobalClusterPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterProperties)(nil)).Elem()
+}
+
+func (o GlobalClusterPropertiesOutput) ToGlobalClusterPropertiesOutput() GlobalClusterPropertiesOutput {
+	return o
+}
+
+func (o GlobalClusterPropertiesOutput) ToGlobalClusterPropertiesOutputWithContext(ctx context.Context) GlobalClusterPropertiesOutput {
+	return o
+}
+
+func (o GlobalClusterPropertiesOutput) ToGlobalClusterPropertiesPtrOutput() GlobalClusterPropertiesPtrOutput {
+	return o.ToGlobalClusterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalClusterPropertiesOutput) ToGlobalClusterPropertiesPtrOutputWithContext(ctx context.Context) GlobalClusterPropertiesPtrOutput {
+	return o.ApplyT(func(v GlobalClusterProperties) *GlobalClusterProperties {
+		return &v
+	}).(GlobalClusterPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+func (o GlobalClusterPropertiesOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GlobalClusterProperties) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+func (o GlobalClusterPropertiesOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalClusterProperties) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+func (o GlobalClusterPropertiesOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalClusterProperties) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+func (o GlobalClusterPropertiesOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalClusterProperties) *string { return v.GlobalClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+func (o GlobalClusterPropertiesOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalClusterProperties) *string { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+func (o GlobalClusterPropertiesOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GlobalClusterProperties) *bool { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+type GlobalClusterPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalClusterProperties)(nil)).Elem()
+}
+
+func (o GlobalClusterPropertiesPtrOutput) ToGlobalClusterPropertiesPtrOutput() GlobalClusterPropertiesPtrOutput {
+	return o
+}
+
+func (o GlobalClusterPropertiesPtrOutput) ToGlobalClusterPropertiesPtrOutputWithContext(ctx context.Context) GlobalClusterPropertiesPtrOutput {
+	return o
+}
+
+func (o GlobalClusterPropertiesPtrOutput) Elem() GlobalClusterPropertiesOutput {
+	return o.ApplyT(func(v *GlobalClusterProperties) GlobalClusterProperties { return *v }).(GlobalClusterPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+func (o GlobalClusterPropertiesPtrOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalClusterProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeletionProtection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+func (o GlobalClusterPropertiesPtrOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalClusterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Engine
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+func (o GlobalClusterPropertiesPtrOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalClusterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+func (o GlobalClusterPropertiesPtrOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalClusterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+func (o GlobalClusterPropertiesPtrOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalClusterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDBClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+func (o GlobalClusterPropertiesPtrOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalClusterProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
 type OptionGroupAttributes struct {
 }
 
@@ -6490,6 +6854,10 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionAttributesPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionPropertiesOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GlobalClusterAttributesOutput{})
+	pulumi.RegisterOutputType(GlobalClusterAttributesPtrOutput{})
+	pulumi.RegisterOutputType(GlobalClusterPropertiesOutput{})
+	pulumi.RegisterOutputType(GlobalClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupAttributesOutput{})
 	pulumi.RegisterOutputType(OptionGroupAttributesPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})

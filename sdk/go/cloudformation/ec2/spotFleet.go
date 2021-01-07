@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SpotFleet struct {
 // NewSpotFleet registers a new resource with the given unique name, arguments, and options.
 func NewSpotFleet(ctx *pulumi.Context,
 	name string, args *SpotFleetArgs, opts ...pulumi.ResourceOption) (*SpotFleet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SpotFleetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SpotFleet
 	err := ctx.RegisterResource("cloudformation:EC2:SpotFleet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SpotFleetArgs struct {
 
 func (SpotFleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotFleetArgs)(nil)).Elem()
+}
+
+type SpotFleetInput interface {
+	pulumi.Input
+
+	ToSpotFleetOutput() SpotFleetOutput
+	ToSpotFleetOutputWithContext(ctx context.Context) SpotFleetOutput
+}
+
+func (*SpotFleet) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleet)(nil))
+}
+
+func (i *SpotFleet) ToSpotFleetOutput() SpotFleetOutput {
+	return i.ToSpotFleetOutputWithContext(context.Background())
+}
+
+func (i *SpotFleet) ToSpotFleetOutputWithContext(ctx context.Context) SpotFleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetOutput)
+}
+
+type SpotFleetOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpotFleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleet)(nil))
+}
+
+func (o SpotFleetOutput) ToSpotFleetOutput() SpotFleetOutput {
+	return o
+}
+
+func (o SpotFleetOutput) ToSpotFleetOutputWithContext(ctx context.Context) SpotFleetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SpotFleetOutput{})
 }

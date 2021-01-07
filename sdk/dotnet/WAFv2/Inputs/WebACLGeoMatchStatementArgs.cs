@@ -27,6 +27,12 @@ namespace Pulumi.Cloudformation.WAFv2.Inputs
             set => _CountryCodes = value;
         }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+        /// </summary>
+        [Input("ForwardedIPConfig")]
+        public Input<Inputs.WebACLForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
+
         public WebACLGeoMatchStatementArgs()
         {
         }

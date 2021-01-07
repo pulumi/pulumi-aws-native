@@ -4,6 +4,7 @@
 package configuration
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type OrganizationConfigRule struct {
 // NewOrganizationConfigRule registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationConfigRule(ctx *pulumi.Context,
 	name string, args *OrganizationConfigRuleArgs, opts ...pulumi.ResourceOption) (*OrganizationConfigRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &OrganizationConfigRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource OrganizationConfigRule
 	err := ctx.RegisterResource("cloudformation:Configuration:OrganizationConfigRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type OrganizationConfigRuleArgs struct {
 
 func (OrganizationConfigRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigRuleArgs)(nil)).Elem()
+}
+
+type OrganizationConfigRuleInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOutput() OrganizationConfigRuleOutput
+	ToOrganizationConfigRuleOutputWithContext(ctx context.Context) OrganizationConfigRuleOutput
+}
+
+func (*OrganizationConfigRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRule)(nil))
+}
+
+func (i *OrganizationConfigRule) ToOrganizationConfigRuleOutput() OrganizationConfigRuleOutput {
+	return i.ToOrganizationConfigRuleOutputWithContext(context.Background())
+}
+
+func (i *OrganizationConfigRule) ToOrganizationConfigRuleOutputWithContext(ctx context.Context) OrganizationConfigRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOutput)
+}
+
+type OrganizationConfigRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationConfigRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRule)(nil))
+}
+
+func (o OrganizationConfigRuleOutput) ToOrganizationConfigRuleOutput() OrganizationConfigRuleOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOutput) ToOrganizationConfigRuleOutputWithContext(ctx context.Context) OrganizationConfigRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationConfigRuleOutput{})
 }

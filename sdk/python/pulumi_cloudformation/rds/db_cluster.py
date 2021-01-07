@@ -5,73 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from .. import _utilities, _tables
+from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
+from ._inputs import *
+
+__all__ = ['DBCluster']
 
 
 class DBCluster(pulumi.CustomResource):
-    attributes: pulumi.Output[dict]
-    """
-    The attributes associated with the resource
-      * `endpoint_address` (`str`)
-      * `endpoint_port` (`str`)
-      * `read_endpoint_address` (`str`)
-    """
-    logical_id: pulumi.Output[str]
-    """
-    An explicit logical ID for the resource
-    """
-    metadata: pulumi.Output[dict]
-    """
-    Arbitrary structured data associated with the resource
-    """
-    properties: pulumi.Output[dict]
-    """
-    The input properties associated with the resource
-      * `associated_roles` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-associatedroles
-        * `feature_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-featurename
-        * `role_arn` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn
-
-      * `availability_zones` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
-      * `backtrack_window` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
-      * `backup_retention_period` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
-      * `db_cluster_identifier` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusteridentifier
-      * `db_cluster_parameter_group_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
-      * `db_subnet_group_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname
-      * `database_name` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
-      * `deletion_protection` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection
-      * `enable_cloudwatch_logs_exports` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
-      * `enable_http_endpoint` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablehttpendpoint
-      * `enable_iam_database_authentication` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
-      * `engine` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
-      * `engine_mode` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginemode
-      * `engine_version` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
-      * `kms_key_id` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
-      * `master_user_password` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword
-      * `master_username` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusername
-      * `port` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port
-      * `preferred_backup_window` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredbackupwindow
-      * `preferred_maintenance_window` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredmaintenancewindow
-      * `replication_source_identifier` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-replicationsourceidentifier
-      * `restore_type` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-restoretype
-      * `scaling_configuration` (`dict`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
-        * `auto_pause` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
-        * `max_capacity` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
-        * `min_capacity` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
-        * `seconds_until_auto_pause` (`float`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
-
-      * `snapshot_identifier` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
-      * `source_db_cluster_identifier` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusteridentifier
-      * `source_region` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
-      * `storage_encrypted` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
-      * `tags` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags
-        * `key` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-        * `value` (`str`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-
-      * `use_latest_restorable_time` (`bool`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-uselatestrestorabletime
-      * `vpc_security_group_ids` (`list`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
-    """
-    def __init__(__self__, resource_name, opts=None, deletion_policy=None, logical_id=None, metadata=None, properties=None, update_replace_policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_policy: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DBClusterPropertiesArgs']]] = None,
+                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
 
@@ -79,54 +34,9 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
         :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[dict] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[dict] properties: The input properties associated with the resource
+        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
+        :param pulumi.Input[pulumi.InputType['DBClusterPropertiesArgs']] properties: The input properties associated with the resource
         :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-
-        The **properties** object supports the following:
-
-          * `associated_roles` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-associatedroles
-            * `feature_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-featurename
-            * `role_arn` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn
-
-          * `availability_zones` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
-          * `backtrack_window` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
-          * `backup_retention_period` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
-          * `db_cluster_identifier` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusteridentifier
-          * `db_cluster_parameter_group_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
-          * `db_subnet_group_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname
-          * `database_name` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
-          * `deletion_protection` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection
-          * `enable_cloudwatch_logs_exports` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
-          * `enable_http_endpoint` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablehttpendpoint
-          * `enable_iam_database_authentication` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
-          * `engine` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
-          * `engine_mode` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginemode
-          * `engine_version` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
-          * `kms_key_id` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
-          * `master_user_password` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword
-          * `master_username` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusername
-          * `port` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port
-          * `preferred_backup_window` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredbackupwindow
-          * `preferred_maintenance_window` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredmaintenancewindow
-          * `replication_source_identifier` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-replicationsourceidentifier
-          * `restore_type` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-restoretype
-          * `scaling_configuration` (`pulumi.Input[dict]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
-            * `auto_pause` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
-            * `max_capacity` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
-            * `min_capacity` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
-            * `seconds_until_auto_pause` (`pulumi.Input[float]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
-
-          * `snapshot_identifier` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
-          * `source_db_cluster_identifier` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusteridentifier
-          * `source_region` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
-          * `storage_encrypted` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
-          * `tags` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags
-            * `key` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-            * `value` (`pulumi.Input[str]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-
-          * `use_latest_restorable_time` (`pulumi.Input[bool]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-uselatestrestorabletime
-          * `vpc_security_group_ids` (`pulumi.Input[list]`) - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,7 +49,7 @@ class DBCluster(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -148,7 +58,7 @@ class DBCluster(pulumi.CustomResource):
             __props__['deletion_policy'] = deletion_policy
             __props__['logical_id'] = logical_id
             __props__['metadata'] = metadata
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['update_replace_policy'] = update_replace_policy
@@ -160,13 +70,15 @@ class DBCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DBCluster':
         """
         Get an existing DBCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -175,8 +87,41 @@ class DBCluster(pulumi.CustomResource):
 
         return DBCluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Output['outputs.DBClusterAttributes']:
+        """
+        The attributes associated with the resource
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        An explicit logical ID for the resource
+        """
+        return pulumi.get(self, "logical_id")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional[str]]:
+        """
+        Arbitrary structured data associated with the resource
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.DBClusterProperties']:
+        """
+        The input properties associated with the resource
+        """
+        return pulumi.get(self, "properties")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

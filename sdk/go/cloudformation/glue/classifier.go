@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Classifier struct {
 // NewClassifier registers a new resource with the given unique name, arguments, and options.
 func NewClassifier(ctx *pulumi.Context,
 	name string, args *ClassifierArgs, opts ...pulumi.ResourceOption) (*Classifier, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClassifierArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Classifier
 	err := ctx.RegisterResource("cloudformation:Glue:Classifier", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClassifierArgs struct {
 
 func (ClassifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*classifierArgs)(nil)).Elem()
+}
+
+type ClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierOutput() ClassifierOutput
+	ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput
+}
+
+func (*Classifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*Classifier)(nil))
+}
+
+func (i *Classifier) ToClassifierOutput() ClassifierOutput {
+	return i.ToClassifierOutputWithContext(context.Background())
+}
+
+func (i *Classifier) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierOutput)
+}
+
+type ClassifierOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Classifier)(nil))
+}
+
+func (o ClassifierOutput) ToClassifierOutput() ClassifierOutput {
+	return o
+}
+
+func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClassifierOutput{})
 }

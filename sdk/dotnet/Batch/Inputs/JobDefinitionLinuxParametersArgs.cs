@@ -27,6 +27,42 @@ namespace Pulumi.Cloudformation.Batch.Inputs
             set => _Devices = value;
         }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-initprocessenabled
+        /// </summary>
+        [Input("InitProcessEnabled")]
+        public Input<bool>? InitProcessEnabled { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-maxswap
+        /// </summary>
+        [Input("MaxSwap")]
+        public Input<int>? MaxSwap { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-sharedmemorysize
+        /// </summary>
+        [Input("SharedMemorySize")]
+        public Input<int>? SharedMemorySize { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-swappiness
+        /// </summary>
+        [Input("Swappiness")]
+        public Input<int>? Swappiness { get; set; }
+
+        [Input("Tmpfs")]
+        private InputList<Inputs.JobDefinitionTmpfsArgs>? _Tmpfs;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-tmpfs
+        /// </summary>
+        public InputList<Inputs.JobDefinitionTmpfsArgs> Tmpfs
+        {
+            get => _Tmpfs ?? (_Tmpfs = new InputList<Inputs.JobDefinitionTmpfsArgs>());
+            set => _Tmpfs = value;
+        }
+
         public JobDefinitionLinuxParametersArgs()
         {
         }

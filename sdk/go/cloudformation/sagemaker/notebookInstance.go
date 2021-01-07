@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NotebookInstance struct {
 // NewNotebookInstance registers a new resource with the given unique name, arguments, and options.
 func NewNotebookInstance(ctx *pulumi.Context,
 	name string, args *NotebookInstanceArgs, opts ...pulumi.ResourceOption) (*NotebookInstance, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NotebookInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NotebookInstance
 	err := ctx.RegisterResource("cloudformation:SageMaker:NotebookInstance", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NotebookInstanceArgs struct {
 
 func (NotebookInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceArgs)(nil)).Elem()
+}
+
+type NotebookInstanceInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceOutput() NotebookInstanceOutput
+	ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput
+}
+
+func (*NotebookInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstance)(nil))
+}
+
+func (i *NotebookInstance) ToNotebookInstanceOutput() NotebookInstanceOutput {
+	return i.ToNotebookInstanceOutputWithContext(context.Background())
+}
+
+func (i *NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceOutput)
+}
+
+type NotebookInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotebookInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstance)(nil))
+}
+
+func (o NotebookInstanceOutput) ToNotebookInstanceOutput() NotebookInstanceOutput {
+	return o
+}
+
+func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotebookInstanceOutput{})
 }

@@ -106,6 +106,12 @@ namespace Pulumi.Cloudformation.AutoScaling.Inputs
         public Input<string>? LaunchConfigurationName { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-metadataoptions
+        /// </summary>
+        [Input("MetadataOptions")]
+        public Input<Inputs.LaunchConfigurationMetadataOptionsArgs>? MetadataOptions { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
         /// </summary>
         [Input("PlacementTenancy")]

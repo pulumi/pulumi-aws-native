@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Logs
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Logs:MetricFilter")]
     public partial class MetricFilter : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GameLift:GameSessionQueue")]
     public partial class GameSessionQueue : Pulumi.CustomResource
     {
         /// <summary>

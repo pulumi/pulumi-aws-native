@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.OpsWorks
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:OpsWorks:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>

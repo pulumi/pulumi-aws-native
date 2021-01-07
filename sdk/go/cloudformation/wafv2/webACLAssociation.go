@@ -4,6 +4,7 @@
 package wafv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type WebACLAssociation struct {
 // NewWebACLAssociation registers a new resource with the given unique name, arguments, and options.
 func NewWebACLAssociation(ctx *pulumi.Context,
 	name string, args *WebACLAssociationArgs, opts ...pulumi.ResourceOption) (*WebACLAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &WebACLAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource WebACLAssociation
 	err := ctx.RegisterResource("cloudformation:WAFv2:WebACLAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type WebACLAssociationArgs struct {
 
 func (WebACLAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webACLAssociationArgs)(nil)).Elem()
+}
+
+type WebACLAssociationInput interface {
+	pulumi.Input
+
+	ToWebACLAssociationOutput() WebACLAssociationOutput
+	ToWebACLAssociationOutputWithContext(ctx context.Context) WebACLAssociationOutput
+}
+
+func (*WebACLAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAssociation)(nil))
+}
+
+func (i *WebACLAssociation) ToWebACLAssociationOutput() WebACLAssociationOutput {
+	return i.ToWebACLAssociationOutputWithContext(context.Background())
+}
+
+func (i *WebACLAssociation) ToWebACLAssociationOutputWithContext(ctx context.Context) WebACLAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAssociationOutput)
+}
+
+type WebACLAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebACLAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAssociation)(nil))
+}
+
+func (o WebACLAssociationOutput) ToWebACLAssociationOutput() WebACLAssociationOutput {
+	return o
+}
+
+func (o WebACLAssociationOutput) ToWebACLAssociationOutputWithContext(ctx context.Context) WebACLAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebACLAssociationOutput{})
 }

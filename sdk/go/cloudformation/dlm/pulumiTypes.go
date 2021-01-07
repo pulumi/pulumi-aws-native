@@ -11,6 +11,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html
+type LifecyclePolicyAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-crossregioncopy
+	CrossRegionCopy []LifecyclePolicyCrossRegionCopyAction `pulumi:"CrossRegionCopy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-name
+	Name string `pulumi:"Name"`
+}
+
+// LifecyclePolicyActionInput is an input type that accepts LifecyclePolicyActionArgs and LifecyclePolicyActionOutput values.
+// You can construct a concrete instance of `LifecyclePolicyActionInput` via:
+//
+//          LifecyclePolicyActionArgs{...}
+type LifecyclePolicyActionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput
+	ToLifecyclePolicyActionOutputWithContext(context.Context) LifecyclePolicyActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html
+type LifecyclePolicyActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-crossregioncopy
+	CrossRegionCopy LifecyclePolicyCrossRegionCopyActionArrayInput `pulumi:"CrossRegionCopy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-name
+	Name pulumi.StringInput `pulumi:"Name"`
+}
+
+func (LifecyclePolicyActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput {
+	return i.ToLifecyclePolicyActionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutputWithContext(ctx context.Context) LifecyclePolicyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyActionOutput)
+}
+
+// LifecyclePolicyActionArrayInput is an input type that accepts LifecyclePolicyActionArray and LifecyclePolicyActionArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyActionArrayInput` via:
+//
+//          LifecyclePolicyActionArray{ LifecyclePolicyActionArgs{...} }
+type LifecyclePolicyActionArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyActionArrayOutput() LifecyclePolicyActionArrayOutput
+	ToLifecyclePolicyActionArrayOutputWithContext(context.Context) LifecyclePolicyActionArrayOutput
+}
+
+type LifecyclePolicyActionArray []LifecyclePolicyActionInput
+
+func (LifecyclePolicyActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (i LifecyclePolicyActionArray) ToLifecyclePolicyActionArrayOutput() LifecyclePolicyActionArrayOutput {
+	return i.ToLifecyclePolicyActionArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyActionArray) ToLifecyclePolicyActionArrayOutputWithContext(ctx context.Context) LifecyclePolicyActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html
+type LifecyclePolicyActionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput {
+	return o
+}
+
+func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutputWithContext(ctx context.Context) LifecyclePolicyActionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-crossregioncopy
+func (o LifecyclePolicyActionOutput) CrossRegionCopy() LifecyclePolicyCrossRegionCopyActionArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyAction) []LifecyclePolicyCrossRegionCopyAction { return v.CrossRegionCopy }).(LifecyclePolicyCrossRegionCopyActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html#cfn-dlm-lifecyclepolicy-action-name
+func (o LifecyclePolicyActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyActionArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyActionArrayOutput) ToLifecyclePolicyActionArrayOutput() LifecyclePolicyActionArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyActionArrayOutput) ToLifecyclePolicyActionArrayOutputWithContext(ctx context.Context) LifecyclePolicyActionArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyActionArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyAction {
+		return vs[0].([]LifecyclePolicyAction)[vs[1].(int)]
+	}).(LifecyclePolicyActionOutput)
+}
+
 type LifecyclePolicyAttributes struct {
 	Arn string `pulumi:"Arn"`
 }
@@ -328,6 +437,128 @@ func (o LifecyclePolicyCreateRulePtrOutput) Times() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html
+type LifecyclePolicyCrossRegionCopyAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-encryptionconfiguration
+	EncryptionConfiguration LifecyclePolicyEncryptionConfiguration `pulumi:"EncryptionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-retainrule
+	RetainRule *LifecyclePolicyCrossRegionCopyRetainRule `pulumi:"RetainRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-target
+	Target string `pulumi:"Target"`
+}
+
+// LifecyclePolicyCrossRegionCopyActionInput is an input type that accepts LifecyclePolicyCrossRegionCopyActionArgs and LifecyclePolicyCrossRegionCopyActionOutput values.
+// You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyActionInput` via:
+//
+//          LifecyclePolicyCrossRegionCopyActionArgs{...}
+type LifecyclePolicyCrossRegionCopyActionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyCrossRegionCopyActionOutput() LifecyclePolicyCrossRegionCopyActionOutput
+	ToLifecyclePolicyCrossRegionCopyActionOutputWithContext(context.Context) LifecyclePolicyCrossRegionCopyActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html
+type LifecyclePolicyCrossRegionCopyActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-encryptionconfiguration
+	EncryptionConfiguration LifecyclePolicyEncryptionConfigurationInput `pulumi:"EncryptionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-retainrule
+	RetainRule LifecyclePolicyCrossRegionCopyRetainRulePtrInput `pulumi:"RetainRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-target
+	Target pulumi.StringInput `pulumi:"Target"`
+}
+
+func (LifecyclePolicyCrossRegionCopyActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyCrossRegionCopyAction)(nil)).Elem()
+}
+
+func (i LifecyclePolicyCrossRegionCopyActionArgs) ToLifecyclePolicyCrossRegionCopyActionOutput() LifecyclePolicyCrossRegionCopyActionOutput {
+	return i.ToLifecyclePolicyCrossRegionCopyActionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyCrossRegionCopyActionArgs) ToLifecyclePolicyCrossRegionCopyActionOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyActionOutput)
+}
+
+// LifecyclePolicyCrossRegionCopyActionArrayInput is an input type that accepts LifecyclePolicyCrossRegionCopyActionArray and LifecyclePolicyCrossRegionCopyActionArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyActionArrayInput` via:
+//
+//          LifecyclePolicyCrossRegionCopyActionArray{ LifecyclePolicyCrossRegionCopyActionArgs{...} }
+type LifecyclePolicyCrossRegionCopyActionArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyCrossRegionCopyActionArrayOutput() LifecyclePolicyCrossRegionCopyActionArrayOutput
+	ToLifecyclePolicyCrossRegionCopyActionArrayOutputWithContext(context.Context) LifecyclePolicyCrossRegionCopyActionArrayOutput
+}
+
+type LifecyclePolicyCrossRegionCopyActionArray []LifecyclePolicyCrossRegionCopyActionInput
+
+func (LifecyclePolicyCrossRegionCopyActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyCrossRegionCopyAction)(nil)).Elem()
+}
+
+func (i LifecyclePolicyCrossRegionCopyActionArray) ToLifecyclePolicyCrossRegionCopyActionArrayOutput() LifecyclePolicyCrossRegionCopyActionArrayOutput {
+	return i.ToLifecyclePolicyCrossRegionCopyActionArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyCrossRegionCopyActionArray) ToLifecyclePolicyCrossRegionCopyActionArrayOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html
+type LifecyclePolicyCrossRegionCopyActionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyCrossRegionCopyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyCrossRegionCopyAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyCrossRegionCopyActionOutput) ToLifecyclePolicyCrossRegionCopyActionOutput() LifecyclePolicyCrossRegionCopyActionOutput {
+	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyActionOutput) ToLifecyclePolicyCrossRegionCopyActionOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyActionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-encryptionconfiguration
+func (o LifecyclePolicyCrossRegionCopyActionOutput) EncryptionConfiguration() LifecyclePolicyEncryptionConfigurationOutput {
+	return o.ApplyT(func(v LifecyclePolicyCrossRegionCopyAction) LifecyclePolicyEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(LifecyclePolicyEncryptionConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-retainrule
+func (o LifecyclePolicyCrossRegionCopyActionOutput) RetainRule() LifecyclePolicyCrossRegionCopyRetainRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyCrossRegionCopyAction) *LifecyclePolicyCrossRegionCopyRetainRule {
+		return v.RetainRule
+	}).(LifecyclePolicyCrossRegionCopyRetainRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html#cfn-dlm-lifecyclepolicy-crossregioncopyaction-target
+func (o LifecyclePolicyCrossRegionCopyActionOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyCrossRegionCopyAction) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyCrossRegionCopyActionArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyCrossRegionCopyActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyCrossRegionCopyAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyCrossRegionCopyActionArrayOutput) ToLifecyclePolicyCrossRegionCopyActionArrayOutput() LifecyclePolicyCrossRegionCopyActionArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyActionArrayOutput) ToLifecyclePolicyCrossRegionCopyActionArrayOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyActionArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyActionArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyCrossRegionCopyActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyCrossRegionCopyAction {
+		return vs[0].([]LifecyclePolicyCrossRegionCopyAction)[vs[1].(int)]
+	}).(LifecyclePolicyCrossRegionCopyActionOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html
 type LifecyclePolicyCrossRegionCopyRetainRule struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-interval
@@ -619,6 +850,395 @@ func (o LifecyclePolicyCrossRegionCopyRuleArrayOutput) Index(i pulumi.IntInput) 
 	}).(LifecyclePolicyCrossRegionCopyRuleOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html
+type LifecyclePolicyEncryptionConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html#cfn-dlm-lifecyclepolicy-encryptionconfiguration-cmkarn
+	CmkArn *string `pulumi:"CmkArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html#cfn-dlm-lifecyclepolicy-encryptionconfiguration-encrypted
+	Encrypted bool `pulumi:"Encrypted"`
+}
+
+// LifecyclePolicyEncryptionConfigurationInput is an input type that accepts LifecyclePolicyEncryptionConfigurationArgs and LifecyclePolicyEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `LifecyclePolicyEncryptionConfigurationInput` via:
+//
+//          LifecyclePolicyEncryptionConfigurationArgs{...}
+type LifecyclePolicyEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyEncryptionConfigurationOutput() LifecyclePolicyEncryptionConfigurationOutput
+	ToLifecyclePolicyEncryptionConfigurationOutputWithContext(context.Context) LifecyclePolicyEncryptionConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html
+type LifecyclePolicyEncryptionConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html#cfn-dlm-lifecyclepolicy-encryptionconfiguration-cmkarn
+	CmkArn pulumi.StringPtrInput `pulumi:"CmkArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html#cfn-dlm-lifecyclepolicy-encryptionconfiguration-encrypted
+	Encrypted pulumi.BoolInput `pulumi:"Encrypted"`
+}
+
+func (LifecyclePolicyEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i LifecyclePolicyEncryptionConfigurationArgs) ToLifecyclePolicyEncryptionConfigurationOutput() LifecyclePolicyEncryptionConfigurationOutput {
+	return i.ToLifecyclePolicyEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyEncryptionConfigurationArgs) ToLifecyclePolicyEncryptionConfigurationOutputWithContext(ctx context.Context) LifecyclePolicyEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEncryptionConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html
+type LifecyclePolicyEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o LifecyclePolicyEncryptionConfigurationOutput) ToLifecyclePolicyEncryptionConfigurationOutput() LifecyclePolicyEncryptionConfigurationOutput {
+	return o
+}
+
+func (o LifecyclePolicyEncryptionConfigurationOutput) ToLifecyclePolicyEncryptionConfigurationOutputWithContext(ctx context.Context) LifecyclePolicyEncryptionConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html#cfn-dlm-lifecyclepolicy-encryptionconfiguration-cmkarn
+func (o LifecyclePolicyEncryptionConfigurationOutput) CmkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyEncryptionConfiguration) *string { return v.CmkArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html#cfn-dlm-lifecyclepolicy-encryptionconfiguration-encrypted
+func (o LifecyclePolicyEncryptionConfigurationOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v LifecyclePolicyEncryptionConfiguration) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html
+type LifecyclePolicyEventParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-descriptionregex
+	DescriptionRegex *string `pulumi:"DescriptionRegex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-eventtype
+	EventType string `pulumi:"EventType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-snapshotowner
+	SnapshotOwner []string `pulumi:"SnapshotOwner"`
+}
+
+// LifecyclePolicyEventParametersInput is an input type that accepts LifecyclePolicyEventParametersArgs and LifecyclePolicyEventParametersOutput values.
+// You can construct a concrete instance of `LifecyclePolicyEventParametersInput` via:
+//
+//          LifecyclePolicyEventParametersArgs{...}
+type LifecyclePolicyEventParametersInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyEventParametersOutput() LifecyclePolicyEventParametersOutput
+	ToLifecyclePolicyEventParametersOutputWithContext(context.Context) LifecyclePolicyEventParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html
+type LifecyclePolicyEventParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-descriptionregex
+	DescriptionRegex pulumi.StringPtrInput `pulumi:"DescriptionRegex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-eventtype
+	EventType pulumi.StringInput `pulumi:"EventType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-snapshotowner
+	SnapshotOwner pulumi.StringArrayInput `pulumi:"SnapshotOwner"`
+}
+
+func (LifecyclePolicyEventParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyEventParameters)(nil)).Elem()
+}
+
+func (i LifecyclePolicyEventParametersArgs) ToLifecyclePolicyEventParametersOutput() LifecyclePolicyEventParametersOutput {
+	return i.ToLifecyclePolicyEventParametersOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyEventParametersArgs) ToLifecyclePolicyEventParametersOutputWithContext(ctx context.Context) LifecyclePolicyEventParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventParametersOutput)
+}
+
+func (i LifecyclePolicyEventParametersArgs) ToLifecyclePolicyEventParametersPtrOutput() LifecyclePolicyEventParametersPtrOutput {
+	return i.ToLifecyclePolicyEventParametersPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyEventParametersArgs) ToLifecyclePolicyEventParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyEventParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventParametersOutput).ToLifecyclePolicyEventParametersPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyEventParametersPtrInput is an input type that accepts LifecyclePolicyEventParametersArgs, LifecyclePolicyEventParametersPtr and LifecyclePolicyEventParametersPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyEventParametersPtrInput` via:
+//
+//          LifecyclePolicyEventParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyEventParametersPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyEventParametersPtrOutput() LifecyclePolicyEventParametersPtrOutput
+	ToLifecyclePolicyEventParametersPtrOutputWithContext(context.Context) LifecyclePolicyEventParametersPtrOutput
+}
+
+type lifecyclePolicyEventParametersPtrType LifecyclePolicyEventParametersArgs
+
+func LifecyclePolicyEventParametersPtr(v *LifecyclePolicyEventParametersArgs) LifecyclePolicyEventParametersPtrInput {
+	return (*lifecyclePolicyEventParametersPtrType)(v)
+}
+
+func (*lifecyclePolicyEventParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyEventParameters)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyEventParametersPtrType) ToLifecyclePolicyEventParametersPtrOutput() LifecyclePolicyEventParametersPtrOutput {
+	return i.ToLifecyclePolicyEventParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyEventParametersPtrType) ToLifecyclePolicyEventParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyEventParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html
+type LifecyclePolicyEventParametersOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyEventParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyEventParameters)(nil)).Elem()
+}
+
+func (o LifecyclePolicyEventParametersOutput) ToLifecyclePolicyEventParametersOutput() LifecyclePolicyEventParametersOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventParametersOutput) ToLifecyclePolicyEventParametersOutputWithContext(ctx context.Context) LifecyclePolicyEventParametersOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventParametersOutput) ToLifecyclePolicyEventParametersPtrOutput() LifecyclePolicyEventParametersPtrOutput {
+	return o.ToLifecyclePolicyEventParametersPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyEventParametersOutput) ToLifecyclePolicyEventParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyEventParametersPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyEventParameters) *LifecyclePolicyEventParameters {
+		return &v
+	}).(LifecyclePolicyEventParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-descriptionregex
+func (o LifecyclePolicyEventParametersOutput) DescriptionRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyEventParameters) *string { return v.DescriptionRegex }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-eventtype
+func (o LifecyclePolicyEventParametersOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyEventParameters) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-snapshotowner
+func (o LifecyclePolicyEventParametersOutput) SnapshotOwner() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyEventParameters) []string { return v.SnapshotOwner }).(pulumi.StringArrayOutput)
+}
+
+type LifecyclePolicyEventParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyEventParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyEventParameters)(nil)).Elem()
+}
+
+func (o LifecyclePolicyEventParametersPtrOutput) ToLifecyclePolicyEventParametersPtrOutput() LifecyclePolicyEventParametersPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventParametersPtrOutput) ToLifecyclePolicyEventParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyEventParametersPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventParametersPtrOutput) Elem() LifecyclePolicyEventParametersOutput {
+	return o.ApplyT(func(v *LifecyclePolicyEventParameters) LifecyclePolicyEventParameters { return *v }).(LifecyclePolicyEventParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-descriptionregex
+func (o LifecyclePolicyEventParametersPtrOutput) DescriptionRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyEventParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DescriptionRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-eventtype
+func (o LifecyclePolicyEventParametersPtrOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyEventParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html#cfn-dlm-lifecyclepolicy-eventparameters-snapshotowner
+func (o LifecyclePolicyEventParametersPtrOutput) SnapshotOwner() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyEventParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotOwner
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html
+type LifecyclePolicyEventSource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-parameters
+	Parameters *LifecyclePolicyEventParameters `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-type
+	Type string `pulumi:"Type"`
+}
+
+// LifecyclePolicyEventSourceInput is an input type that accepts LifecyclePolicyEventSourceArgs and LifecyclePolicyEventSourceOutput values.
+// You can construct a concrete instance of `LifecyclePolicyEventSourceInput` via:
+//
+//          LifecyclePolicyEventSourceArgs{...}
+type LifecyclePolicyEventSourceInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyEventSourceOutput() LifecyclePolicyEventSourceOutput
+	ToLifecyclePolicyEventSourceOutputWithContext(context.Context) LifecyclePolicyEventSourceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html
+type LifecyclePolicyEventSourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-parameters
+	Parameters LifecyclePolicyEventParametersPtrInput `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-type
+	Type pulumi.StringInput `pulumi:"Type"`
+}
+
+func (LifecyclePolicyEventSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyEventSource)(nil)).Elem()
+}
+
+func (i LifecyclePolicyEventSourceArgs) ToLifecyclePolicyEventSourceOutput() LifecyclePolicyEventSourceOutput {
+	return i.ToLifecyclePolicyEventSourceOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyEventSourceArgs) ToLifecyclePolicyEventSourceOutputWithContext(ctx context.Context) LifecyclePolicyEventSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventSourceOutput)
+}
+
+func (i LifecyclePolicyEventSourceArgs) ToLifecyclePolicyEventSourcePtrOutput() LifecyclePolicyEventSourcePtrOutput {
+	return i.ToLifecyclePolicyEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyEventSourceArgs) ToLifecyclePolicyEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventSourceOutput).ToLifecyclePolicyEventSourcePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyEventSourcePtrInput is an input type that accepts LifecyclePolicyEventSourceArgs, LifecyclePolicyEventSourcePtr and LifecyclePolicyEventSourcePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyEventSourcePtrInput` via:
+//
+//          LifecyclePolicyEventSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyEventSourcePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyEventSourcePtrOutput() LifecyclePolicyEventSourcePtrOutput
+	ToLifecyclePolicyEventSourcePtrOutputWithContext(context.Context) LifecyclePolicyEventSourcePtrOutput
+}
+
+type lifecyclePolicyEventSourcePtrType LifecyclePolicyEventSourceArgs
+
+func LifecyclePolicyEventSourcePtr(v *LifecyclePolicyEventSourceArgs) LifecyclePolicyEventSourcePtrInput {
+	return (*lifecyclePolicyEventSourcePtrType)(v)
+}
+
+func (*lifecyclePolicyEventSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyEventSource)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyEventSourcePtrType) ToLifecyclePolicyEventSourcePtrOutput() LifecyclePolicyEventSourcePtrOutput {
+	return i.ToLifecyclePolicyEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyEventSourcePtrType) ToLifecyclePolicyEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html
+type LifecyclePolicyEventSourceOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyEventSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyEventSource)(nil)).Elem()
+}
+
+func (o LifecyclePolicyEventSourceOutput) ToLifecyclePolicyEventSourceOutput() LifecyclePolicyEventSourceOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventSourceOutput) ToLifecyclePolicyEventSourceOutputWithContext(ctx context.Context) LifecyclePolicyEventSourceOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventSourceOutput) ToLifecyclePolicyEventSourcePtrOutput() LifecyclePolicyEventSourcePtrOutput {
+	return o.ToLifecyclePolicyEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyEventSourceOutput) ToLifecyclePolicyEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyEventSourcePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyEventSource) *LifecyclePolicyEventSource {
+		return &v
+	}).(LifecyclePolicyEventSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-parameters
+func (o LifecyclePolicyEventSourceOutput) Parameters() LifecyclePolicyEventParametersPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyEventSource) *LifecyclePolicyEventParameters { return v.Parameters }).(LifecyclePolicyEventParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-type
+func (o LifecyclePolicyEventSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyEventSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyEventSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyEventSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyEventSource)(nil)).Elem()
+}
+
+func (o LifecyclePolicyEventSourcePtrOutput) ToLifecyclePolicyEventSourcePtrOutput() LifecyclePolicyEventSourcePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventSourcePtrOutput) ToLifecyclePolicyEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyEventSourcePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyEventSourcePtrOutput) Elem() LifecyclePolicyEventSourceOutput {
+	return o.ApplyT(func(v *LifecyclePolicyEventSource) LifecyclePolicyEventSource { return *v }).(LifecyclePolicyEventSourceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-parameters
+func (o LifecyclePolicyEventSourcePtrOutput) Parameters() LifecyclePolicyEventParametersPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyEventSource) *LifecyclePolicyEventParameters {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(LifecyclePolicyEventParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html#cfn-dlm-lifecyclepolicy-eventsource-type
+func (o LifecyclePolicyEventSourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyEventSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html
 type LifecyclePolicyFastRestoreRule struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-availabilityzones
@@ -814,6 +1434,8 @@ func (o LifecyclePolicyFastRestoreRulePtrOutput) IntervalUnit() pulumi.StringPtr
 type LifecyclePolicyParameters struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
 	ExcludeBootVolume *bool `pulumi:"ExcludeBootVolume"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
+	NoReboot *bool `pulumi:"NoReboot"`
 }
 
 // LifecyclePolicyParametersInput is an input type that accepts LifecyclePolicyParametersArgs and LifecyclePolicyParametersOutput values.
@@ -831,6 +1453,8 @@ type LifecyclePolicyParametersInput interface {
 type LifecyclePolicyParametersArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
 	ExcludeBootVolume pulumi.BoolPtrInput `pulumi:"ExcludeBootVolume"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
+	NoReboot pulumi.BoolPtrInput `pulumi:"NoReboot"`
 }
 
 func (LifecyclePolicyParametersArgs) ElementType() reflect.Type {
@@ -916,6 +1540,11 @@ func (o LifecyclePolicyParametersOutput) ExcludeBootVolume() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v LifecyclePolicyParameters) *bool { return v.ExcludeBootVolume }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
+func (o LifecyclePolicyParametersOutput) NoReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyParameters) *bool { return v.NoReboot }).(pulumi.BoolPtrOutput)
+}
+
 type LifecyclePolicyParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyParametersPtrOutput) ElementType() reflect.Type {
@@ -944,8 +1573,22 @@ func (o LifecyclePolicyParametersPtrOutput) ExcludeBootVolume() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
+func (o LifecyclePolicyParametersPtrOutput) NoReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoReboot
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html
 type LifecyclePolicyPolicyDetails struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
+	Actions []LifecyclePolicyAction `pulumi:"Actions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
+	EventSource *LifecyclePolicyEventSource `pulumi:"EventSource"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
 	Parameters *LifecyclePolicyParameters `pulumi:"Parameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policytype
@@ -971,6 +1614,10 @@ type LifecyclePolicyPolicyDetailsInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html
 type LifecyclePolicyPolicyDetailsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
+	Actions LifecyclePolicyActionArrayInput `pulumi:"Actions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
+	EventSource LifecyclePolicyEventSourcePtrInput `pulumi:"EventSource"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
 	Parameters LifecyclePolicyParametersPtrInput `pulumi:"Parameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policytype
@@ -1061,6 +1708,16 @@ func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOut
 	}).(LifecyclePolicyPolicyDetailsPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
+func (o LifecyclePolicyPolicyDetailsOutput) Actions() LifecyclePolicyActionArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []LifecyclePolicyAction { return v.Actions }).(LifecyclePolicyActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
+func (o LifecyclePolicyPolicyDetailsOutput) EventSource() LifecyclePolicyEventSourcePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyEventSource { return v.EventSource }).(LifecyclePolicyEventSourcePtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
 func (o LifecyclePolicyPolicyDetailsOutput) Parameters() LifecyclePolicyParametersPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyParameters { return v.Parameters }).(LifecyclePolicyParametersPtrOutput)
@@ -1102,6 +1759,26 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtr
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetailsOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) LifecyclePolicyPolicyDetails { return *v }).(LifecyclePolicyPolicyDetailsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-actions
+func (o LifecyclePolicyPolicyDetailsPtrOutput) Actions() LifecyclePolicyActionArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []LifecyclePolicyAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(LifecyclePolicyActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
+func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyEventSourcePtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyEventSource {
+		if v == nil {
+			return nil
+		}
+		return v.EventSource
+	}).(LifecyclePolicyEventSourcePtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
@@ -1164,6 +1841,8 @@ type LifecyclePolicyProperties struct {
 	PolicyDetails *LifecyclePolicyPolicyDetails `pulumi:"PolicyDetails"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-state
 	State *string `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
 }
 
 // LifecyclePolicyPropertiesInput is an input type that accepts LifecyclePolicyPropertiesArgs and LifecyclePolicyPropertiesOutput values.
@@ -1187,6 +1866,8 @@ type LifecyclePolicyPropertiesArgs struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsPtrInput `pulumi:"PolicyDetails"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-state
 	State pulumi.StringPtrInput `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 }
 
 func (LifecyclePolicyPropertiesArgs) ElementType() reflect.Type {
@@ -1287,6 +1968,11 @@ func (o LifecyclePolicyPropertiesOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyProperties) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-tags
+func (o LifecyclePolicyPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
 type LifecyclePolicyPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPropertiesPtrOutput) ElementType() reflect.Type {
@@ -1343,6 +2029,16 @@ func (o LifecyclePolicyPropertiesPtrOutput) State() pulumi.StringPtrOutput {
 		}
 		return v.State
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-tags
+func (o LifecyclePolicyPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html
@@ -1531,6 +2227,8 @@ type LifecyclePolicySchedule struct {
 	Name *string `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-retainrule
 	RetainRule *LifecyclePolicyRetainRule `pulumi:"RetainRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
+	ShareRules []LifecyclePolicyShareRule `pulumi:"ShareRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
 	TagsToAdd []cloudformation.Tag `pulumi:"TagsToAdd"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
@@ -1562,6 +2260,8 @@ type LifecyclePolicyScheduleArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-retainrule
 	RetainRule LifecyclePolicyRetainRulePtrInput `pulumi:"RetainRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
+	ShareRules LifecyclePolicyShareRuleArrayInput `pulumi:"ShareRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
 	TagsToAdd cloudformation.TagArrayInput `pulumi:"TagsToAdd"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
@@ -1650,6 +2350,11 @@ func (o LifecyclePolicyScheduleOutput) RetainRule() LifecyclePolicyRetainRulePtr
 	return o.ApplyT(func(v LifecyclePolicySchedule) *LifecyclePolicyRetainRule { return v.RetainRule }).(LifecyclePolicyRetainRulePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
+func (o LifecyclePolicyScheduleOutput) ShareRules() LifecyclePolicyShareRuleArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicySchedule) []LifecyclePolicyShareRule { return v.ShareRules }).(LifecyclePolicyShareRuleArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
 func (o LifecyclePolicyScheduleOutput) TagsToAdd() cloudformation.TagArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicySchedule) []cloudformation.Tag { return v.TagsToAdd }).(cloudformation.TagArrayOutput)
@@ -1680,15 +2385,142 @@ func (o LifecyclePolicyScheduleArrayOutput) Index(i pulumi.IntInput) LifecyclePo
 	}).(LifecyclePolicyScheduleOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html
+type LifecyclePolicyShareRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-targetaccounts
+	TargetAccounts []string `pulumi:"TargetAccounts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareinterval
+	UnshareInterval *int `pulumi:"UnshareInterval"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareintervalunit
+	UnshareIntervalUnit *string `pulumi:"UnshareIntervalUnit"`
+}
+
+// LifecyclePolicyShareRuleInput is an input type that accepts LifecyclePolicyShareRuleArgs and LifecyclePolicyShareRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyShareRuleInput` via:
+//
+//          LifecyclePolicyShareRuleArgs{...}
+type LifecyclePolicyShareRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyShareRuleOutput() LifecyclePolicyShareRuleOutput
+	ToLifecyclePolicyShareRuleOutputWithContext(context.Context) LifecyclePolicyShareRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html
+type LifecyclePolicyShareRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-targetaccounts
+	TargetAccounts pulumi.StringArrayInput `pulumi:"TargetAccounts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareinterval
+	UnshareInterval pulumi.IntPtrInput `pulumi:"UnshareInterval"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareintervalunit
+	UnshareIntervalUnit pulumi.StringPtrInput `pulumi:"UnshareIntervalUnit"`
+}
+
+func (LifecyclePolicyShareRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyShareRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyShareRuleArgs) ToLifecyclePolicyShareRuleOutput() LifecyclePolicyShareRuleOutput {
+	return i.ToLifecyclePolicyShareRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyShareRuleArgs) ToLifecyclePolicyShareRuleOutputWithContext(ctx context.Context) LifecyclePolicyShareRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyShareRuleOutput)
+}
+
+// LifecyclePolicyShareRuleArrayInput is an input type that accepts LifecyclePolicyShareRuleArray and LifecyclePolicyShareRuleArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyShareRuleArrayInput` via:
+//
+//          LifecyclePolicyShareRuleArray{ LifecyclePolicyShareRuleArgs{...} }
+type LifecyclePolicyShareRuleArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyShareRuleArrayOutput() LifecyclePolicyShareRuleArrayOutput
+	ToLifecyclePolicyShareRuleArrayOutputWithContext(context.Context) LifecyclePolicyShareRuleArrayOutput
+}
+
+type LifecyclePolicyShareRuleArray []LifecyclePolicyShareRuleInput
+
+func (LifecyclePolicyShareRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyShareRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyShareRuleArray) ToLifecyclePolicyShareRuleArrayOutput() LifecyclePolicyShareRuleArrayOutput {
+	return i.ToLifecyclePolicyShareRuleArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyShareRuleArray) ToLifecyclePolicyShareRuleArrayOutputWithContext(ctx context.Context) LifecyclePolicyShareRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyShareRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html
+type LifecyclePolicyShareRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyShareRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyShareRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyShareRuleOutput) ToLifecyclePolicyShareRuleOutput() LifecyclePolicyShareRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyShareRuleOutput) ToLifecyclePolicyShareRuleOutputWithContext(ctx context.Context) LifecyclePolicyShareRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-targetaccounts
+func (o LifecyclePolicyShareRuleOutput) TargetAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyShareRule) []string { return v.TargetAccounts }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareinterval
+func (o LifecyclePolicyShareRuleOutput) UnshareInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyShareRule) *int { return v.UnshareInterval }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html#cfn-dlm-lifecyclepolicy-sharerule-unshareintervalunit
+func (o LifecyclePolicyShareRuleOutput) UnshareIntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyShareRule) *string { return v.UnshareIntervalUnit }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyShareRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyShareRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyShareRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyShareRuleArrayOutput) ToLifecyclePolicyShareRuleArrayOutput() LifecyclePolicyShareRuleArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyShareRuleArrayOutput) ToLifecyclePolicyShareRuleArrayOutputWithContext(ctx context.Context) LifecyclePolicyShareRuleArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyShareRuleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyShareRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyShareRule {
+		return vs[0].([]LifecyclePolicyShareRule)[vs[1].(int)]
+	}).(LifecyclePolicyShareRuleOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(LifecyclePolicyActionOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyActionArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyAttributesOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyAttributesPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCreateRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCreateRulePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyActionOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyActionArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyRetainRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyRetainRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyRuleArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyEventParametersOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyEventParametersPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyEventSourceOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyEventSourcePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyFastRestoreRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyFastRestoreRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyParametersOutput{})
@@ -1701,4 +2533,6 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyRetainRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyScheduleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyShareRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyShareRuleArrayOutput{})
 }

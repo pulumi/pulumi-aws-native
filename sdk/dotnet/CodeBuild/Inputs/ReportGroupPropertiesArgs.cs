@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.CodeBuild.Inputs
     public sealed class ReportGroupPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+        /// </summary>
+        [Input("DeleteReports")]
+        public Input<bool>? DeleteReports { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
         /// </summary>
         [Input("ExportConfig", required: true)]

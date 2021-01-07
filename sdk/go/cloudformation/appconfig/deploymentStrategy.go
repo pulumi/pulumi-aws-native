@@ -4,6 +4,7 @@
 package appconfig
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DeploymentStrategy struct {
 // NewDeploymentStrategy registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentStrategy(ctx *pulumi.Context,
 	name string, args *DeploymentStrategyArgs, opts ...pulumi.ResourceOption) (*DeploymentStrategy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeploymentStrategyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DeploymentStrategy
 	err := ctx.RegisterResource("cloudformation:AppConfig:DeploymentStrategy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DeploymentStrategyArgs struct {
 
 func (DeploymentStrategyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentStrategyArgs)(nil)).Elem()
+}
+
+type DeploymentStrategyInput interface {
+	pulumi.Input
+
+	ToDeploymentStrategyOutput() DeploymentStrategyOutput
+	ToDeploymentStrategyOutputWithContext(ctx context.Context) DeploymentStrategyOutput
+}
+
+func (*DeploymentStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStrategy)(nil))
+}
+
+func (i *DeploymentStrategy) ToDeploymentStrategyOutput() DeploymentStrategyOutput {
+	return i.ToDeploymentStrategyOutputWithContext(context.Background())
+}
+
+func (i *DeploymentStrategy) ToDeploymentStrategyOutputWithContext(ctx context.Context) DeploymentStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyOutput)
+}
+
+type DeploymentStrategyOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStrategy)(nil))
+}
+
+func (o DeploymentStrategyOutput) ToDeploymentStrategyOutput() DeploymentStrategyOutput {
+	return o
+}
+
+func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx context.Context) DeploymentStrategyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentStrategyOutput{})
 }

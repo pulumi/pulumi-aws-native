@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceDiscovery
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceDiscovery:PublicDnsNamespace")]
     public partial class PublicDnsNamespace : Pulumi.CustomResource
     {
         /// <summary>

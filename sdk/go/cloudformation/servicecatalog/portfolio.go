@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Portfolio struct {
 // NewPortfolio registers a new resource with the given unique name, arguments, and options.
 func NewPortfolio(ctx *pulumi.Context,
 	name string, args *PortfolioArgs, opts ...pulumi.ResourceOption) (*Portfolio, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PortfolioArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Portfolio
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:Portfolio", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PortfolioArgs struct {
 
 func (PortfolioArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioArgs)(nil)).Elem()
+}
+
+type PortfolioInput interface {
+	pulumi.Input
+
+	ToPortfolioOutput() PortfolioOutput
+	ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput
+}
+
+func (*Portfolio) ElementType() reflect.Type {
+	return reflect.TypeOf((*Portfolio)(nil))
+}
+
+func (i *Portfolio) ToPortfolioOutput() PortfolioOutput {
+	return i.ToPortfolioOutputWithContext(context.Background())
+}
+
+func (i *Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioOutput)
+}
+
+type PortfolioOutput struct {
+	*pulumi.OutputState
+}
+
+func (PortfolioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Portfolio)(nil))
+}
+
+func (o PortfolioOutput) ToPortfolioOutput() PortfolioOutput {
+	return o
+}
+
+func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PortfolioOutput{})
 }

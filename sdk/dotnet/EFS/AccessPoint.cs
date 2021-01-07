@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EFS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EFS:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>

@@ -16,10 +16,28 @@ namespace Pulumi.Cloudformation.IoT.Inputs
     public sealed class CertificatePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+        /// </summary>
+        [Input("CACertificatePem")]
+        public Input<string>? CACertificatePem { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
+        /// </summary>
+        [Input("CertificateMode")]
+        public Input<string>? CertificateMode { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+        /// </summary>
+        [Input("CertificatePem")]
+        public Input<string>? CertificatePem { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
         /// </summary>
-        [Input("CertificateSigningRequest", required: true)]
-        public Input<string> CertificateSigningRequest { get; set; } = null!;
+        [Input("CertificateSigningRequest")]
+        public Input<string>? CertificateSigningRequest { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status

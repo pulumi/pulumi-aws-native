@@ -11,6 +11,178 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html
+type DomainAdvancedSecurityOptionsInput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-enabled
+	Enabled *bool `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
+	InternalUserDatabaseEnabled *bool `pulumi:"InternalUserDatabaseEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-masteruseroptions
+	MasterUserOptions *DomainMasterUserOptions `pulumi:"MasterUserOptions"`
+}
+
+// DomainAdvancedSecurityOptionsInputInput is an input type that accepts DomainAdvancedSecurityOptionsInputArgs and DomainAdvancedSecurityOptionsInputOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsInputInput` via:
+//
+//          DomainAdvancedSecurityOptionsInputArgs{...}
+type DomainAdvancedSecurityOptionsInputInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsInputOutput() DomainAdvancedSecurityOptionsInputOutput
+	ToDomainAdvancedSecurityOptionsInputOutputWithContext(context.Context) DomainAdvancedSecurityOptionsInputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html
+type DomainAdvancedSecurityOptionsInputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
+	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"InternalUserDatabaseEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-masteruseroptions
+	MasterUserOptions DomainMasterUserOptionsPtrInput `pulumi:"MasterUserOptions"`
+}
+
+func (DomainAdvancedSecurityOptionsInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsInput)(nil)).Elem()
+}
+
+func (i DomainAdvancedSecurityOptionsInputArgs) ToDomainAdvancedSecurityOptionsInputOutput() DomainAdvancedSecurityOptionsInputOutput {
+	return i.ToDomainAdvancedSecurityOptionsInputOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsInputArgs) ToDomainAdvancedSecurityOptionsInputOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsInputOutput)
+}
+
+func (i DomainAdvancedSecurityOptionsInputArgs) ToDomainAdvancedSecurityOptionsInputPtrOutput() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsInputArgs) ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsInputOutput).ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(ctx)
+}
+
+// DomainAdvancedSecurityOptionsInputPtrInput is an input type that accepts DomainAdvancedSecurityOptionsInputArgs, DomainAdvancedSecurityOptionsInputPtr and DomainAdvancedSecurityOptionsInputPtrOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsInputPtrInput` via:
+//
+//          DomainAdvancedSecurityOptionsInputArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainAdvancedSecurityOptionsInputPtrInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsInputPtrOutput() DomainAdvancedSecurityOptionsInputPtrOutput
+	ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(context.Context) DomainAdvancedSecurityOptionsInputPtrOutput
+}
+
+type domainAdvancedSecurityOptionsInputPtrType DomainAdvancedSecurityOptionsInputArgs
+
+func DomainAdvancedSecurityOptionsInputPtr(v *DomainAdvancedSecurityOptionsInputArgs) DomainAdvancedSecurityOptionsInputPtrInput {
+	return (*domainAdvancedSecurityOptionsInputPtrType)(v)
+}
+
+func (*domainAdvancedSecurityOptionsInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsInput)(nil)).Elem()
+}
+
+func (i *domainAdvancedSecurityOptionsInputPtrType) ToDomainAdvancedSecurityOptionsInputPtrOutput() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAdvancedSecurityOptionsInputPtrType) ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html
+type DomainAdvancedSecurityOptionsInputOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsInput)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOptionsInputOutput() DomainAdvancedSecurityOptionsInputOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOptionsInputOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOptionsInputPtrOutput() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o.ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainAdvancedSecurityOptionsInput {
+		return &v
+	}).(DomainAdvancedSecurityOptionsInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-enabled
+func (o DomainAdvancedSecurityOptionsInputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
+func (o DomainAdvancedSecurityOptionsInputOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-masteruseroptions
+func (o DomainAdvancedSecurityOptionsInputOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions { return v.MasterUserOptions }).(DomainMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsInput)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) ToDomainAdvancedSecurityOptionsInputPtrOutput() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) Elem() DomainAdvancedSecurityOptionsInputOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) DomainAdvancedSecurityOptionsInput { return *v }).(DomainAdvancedSecurityOptionsInputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-enabled
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InternalUserDatabaseEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html#cfn-elasticsearch-domain-advancedsecurityoptionsinput-masteruseroptions
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserOptions
+	}).(DomainMasterUserOptionsPtrOutput)
+}
+
 type DomainAttributes struct {
 	Arn            string `pulumi:"Arn"`
 	DomainArn      string `pulumi:"DomainArn"`
@@ -358,6 +530,216 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html
+type DomainDomainEndpointOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpoint
+	CustomEndpoint *string `pulumi:"CustomEndpoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointcertificatearn
+	CustomEndpointCertificateArn *string `pulumi:"CustomEndpointCertificateArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointenabled
+	CustomEndpointEnabled *bool `pulumi:"CustomEndpointEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-enforcehttps
+	EnforceHTTPS *bool `pulumi:"EnforceHTTPS"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-tlssecuritypolicy
+	TLSSecurityPolicy *string `pulumi:"TLSSecurityPolicy"`
+}
+
+// DomainDomainEndpointOptionsInput is an input type that accepts DomainDomainEndpointOptionsArgs and DomainDomainEndpointOptionsOutput values.
+// You can construct a concrete instance of `DomainDomainEndpointOptionsInput` via:
+//
+//          DomainDomainEndpointOptionsArgs{...}
+type DomainDomainEndpointOptionsInput interface {
+	pulumi.Input
+
+	ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput
+	ToDomainDomainEndpointOptionsOutputWithContext(context.Context) DomainDomainEndpointOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html
+type DomainDomainEndpointOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpoint
+	CustomEndpoint pulumi.StringPtrInput `pulumi:"CustomEndpoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointcertificatearn
+	CustomEndpointCertificateArn pulumi.StringPtrInput `pulumi:"CustomEndpointCertificateArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointenabled
+	CustomEndpointEnabled pulumi.BoolPtrInput `pulumi:"CustomEndpointEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-enforcehttps
+	EnforceHTTPS pulumi.BoolPtrInput `pulumi:"EnforceHTTPS"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-tlssecuritypolicy
+	TLSSecurityPolicy pulumi.StringPtrInput `pulumi:"TLSSecurityPolicy"`
+}
+
+func (DomainDomainEndpointOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
+	return i.ToDomainDomainEndpointOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput)
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput).ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainDomainEndpointOptionsPtrInput is an input type that accepts DomainDomainEndpointOptionsArgs, DomainDomainEndpointOptionsPtr and DomainDomainEndpointOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainDomainEndpointOptionsPtrInput` via:
+//
+//          DomainDomainEndpointOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDomainEndpointOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput
+	ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Context) DomainDomainEndpointOptionsPtrOutput
+}
+
+type domainDomainEndpointOptionsPtrType DomainDomainEndpointOptionsArgs
+
+func DomainDomainEndpointOptionsPtr(v *DomainDomainEndpointOptionsArgs) DomainDomainEndpointOptionsPtrInput {
+	return (*domainDomainEndpointOptionsPtrType)(v)
+}
+
+func (*domainDomainEndpointOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html
+type DomainDomainEndpointOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainEndpointOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return o.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *DomainDomainEndpointOptions {
+		return &v
+	}).(DomainDomainEndpointOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpoint
+func (o DomainDomainEndpointOptionsOutput) CustomEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.CustomEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointcertificatearn
+func (o DomainDomainEndpointOptionsOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.CustomEndpointCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointenabled
+func (o DomainDomainEndpointOptionsOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.CustomEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-enforcehttps
+func (o DomainDomainEndpointOptionsOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.EnforceHTTPS }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-tlssecuritypolicy
+func (o DomainDomainEndpointOptionsOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TLSSecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainEndpointOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainEndpointOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptionsOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) DomainDomainEndpointOptions { return *v }).(DomainDomainEndpointOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpoint
+func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointcertificatearn
+func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpointCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointenabled
+func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-enforcehttps
+func (o DomainDomainEndpointOptionsPtrOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceHTTPS
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-tlssecuritypolicy
+func (o DomainDomainEndpointOptionsPtrOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TLSSecurityPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html
 type DomainEBSOptions struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-ebsenabled
@@ -561,6 +943,12 @@ type DomainElasticsearchClusterConfig struct {
 	InstanceCount *int `pulumi:"InstanceCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instnacetype
 	InstanceType *string `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmcount
+	WarmCount *int `pulumi:"WarmCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmenabled
+	WarmEnabled *bool `pulumi:"WarmEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmtype
+	WarmType *string `pulumi:"WarmType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-zoneawarenessconfig
 	ZoneAwarenessConfig *DomainZoneAwarenessConfig `pulumi:"ZoneAwarenessConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-zoneawarenessenabled
@@ -590,6 +978,12 @@ type DomainElasticsearchClusterConfigArgs struct {
 	InstanceCount pulumi.IntPtrInput `pulumi:"InstanceCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instnacetype
 	InstanceType pulumi.StringPtrInput `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmcount
+	WarmCount pulumi.IntPtrInput `pulumi:"WarmCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmenabled
+	WarmEnabled pulumi.BoolPtrInput `pulumi:"WarmEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmtype
+	WarmType pulumi.StringPtrInput `pulumi:"WarmType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-zoneawarenessconfig
 	ZoneAwarenessConfig DomainZoneAwarenessConfigPtrInput `pulumi:"ZoneAwarenessConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-zoneawarenessenabled
@@ -699,6 +1093,21 @@ func (o DomainElasticsearchClusterConfigOutput) InstanceType() pulumi.StringPtrO
 	return o.ApplyT(func(v DomainElasticsearchClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmcount
+func (o DomainElasticsearchClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainElasticsearchClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmenabled
+func (o DomainElasticsearchClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainElasticsearchClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmtype
+func (o DomainElasticsearchClusterConfigOutput) WarmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainElasticsearchClusterConfig) *string { return v.WarmType }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-zoneawarenessconfig
 func (o DomainElasticsearchClusterConfigOutput) ZoneAwarenessConfig() DomainZoneAwarenessConfigPtrOutput {
 	return o.ApplyT(func(v DomainElasticsearchClusterConfig) *DomainZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainZoneAwarenessConfigPtrOutput)
@@ -774,6 +1183,36 @@ func (o DomainElasticsearchClusterConfigPtrOutput) InstanceType() pulumi.StringP
 			return nil
 		}
 		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmcount
+func (o DomainElasticsearchClusterConfigPtrOutput) WarmCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainElasticsearchClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarmCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmenabled
+func (o DomainElasticsearchClusterConfigPtrOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainElasticsearchClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WarmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmtype
+func (o DomainElasticsearchClusterConfigPtrOutput) WarmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainElasticsearchClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WarmType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1059,6 +1498,178 @@ func (o DomainLogPublishingOptionMapOutput) MapIndex(k pulumi.StringInput) Domai
 	}).(DomainLogPublishingOptionOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html
+type DomainMasterUserOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserarn
+	MasterUserARN *string `pulumi:"MasterUserARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masterusername
+	MasterUserName *string `pulumi:"MasterUserName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserpassword
+	MasterUserPassword *string `pulumi:"MasterUserPassword"`
+}
+
+// DomainMasterUserOptionsInput is an input type that accepts DomainMasterUserOptionsArgs and DomainMasterUserOptionsOutput values.
+// You can construct a concrete instance of `DomainMasterUserOptionsInput` via:
+//
+//          DomainMasterUserOptionsArgs{...}
+type DomainMasterUserOptionsInput interface {
+	pulumi.Input
+
+	ToDomainMasterUserOptionsOutput() DomainMasterUserOptionsOutput
+	ToDomainMasterUserOptionsOutputWithContext(context.Context) DomainMasterUserOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html
+type DomainMasterUserOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserarn
+	MasterUserARN pulumi.StringPtrInput `pulumi:"MasterUserARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masterusername
+	MasterUserName pulumi.StringPtrInput `pulumi:"MasterUserName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserpassword
+	MasterUserPassword pulumi.StringPtrInput `pulumi:"MasterUserPassword"`
+}
+
+func (DomainMasterUserOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMasterUserOptions)(nil)).Elem()
+}
+
+func (i DomainMasterUserOptionsArgs) ToDomainMasterUserOptionsOutput() DomainMasterUserOptionsOutput {
+	return i.ToDomainMasterUserOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainMasterUserOptionsArgs) ToDomainMasterUserOptionsOutputWithContext(ctx context.Context) DomainMasterUserOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMasterUserOptionsOutput)
+}
+
+func (i DomainMasterUserOptionsArgs) ToDomainMasterUserOptionsPtrOutput() DomainMasterUserOptionsPtrOutput {
+	return i.ToDomainMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainMasterUserOptionsArgs) ToDomainMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainMasterUserOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMasterUserOptionsOutput).ToDomainMasterUserOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainMasterUserOptionsPtrInput is an input type that accepts DomainMasterUserOptionsArgs, DomainMasterUserOptionsPtr and DomainMasterUserOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainMasterUserOptionsPtrInput` via:
+//
+//          DomainMasterUserOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainMasterUserOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainMasterUserOptionsPtrOutput() DomainMasterUserOptionsPtrOutput
+	ToDomainMasterUserOptionsPtrOutputWithContext(context.Context) DomainMasterUserOptionsPtrOutput
+}
+
+type domainMasterUserOptionsPtrType DomainMasterUserOptionsArgs
+
+func DomainMasterUserOptionsPtr(v *DomainMasterUserOptionsArgs) DomainMasterUserOptionsPtrInput {
+	return (*domainMasterUserOptionsPtrType)(v)
+}
+
+func (*domainMasterUserOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainMasterUserOptions)(nil)).Elem()
+}
+
+func (i *domainMasterUserOptionsPtrType) ToDomainMasterUserOptionsPtrOutput() DomainMasterUserOptionsPtrOutput {
+	return i.ToDomainMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainMasterUserOptionsPtrType) ToDomainMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainMasterUserOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMasterUserOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html
+type DomainMasterUserOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainMasterUserOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMasterUserOptions)(nil)).Elem()
+}
+
+func (o DomainMasterUserOptionsOutput) ToDomainMasterUserOptionsOutput() DomainMasterUserOptionsOutput {
+	return o
+}
+
+func (o DomainMasterUserOptionsOutput) ToDomainMasterUserOptionsOutputWithContext(ctx context.Context) DomainMasterUserOptionsOutput {
+	return o
+}
+
+func (o DomainMasterUserOptionsOutput) ToDomainMasterUserOptionsPtrOutput() DomainMasterUserOptionsPtrOutput {
+	return o.ToDomainMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainMasterUserOptionsOutput) ToDomainMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v DomainMasterUserOptions) *DomainMasterUserOptions {
+		return &v
+	}).(DomainMasterUserOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserarn
+func (o DomainMasterUserOptionsOutput) MasterUserARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserARN }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masterusername
+func (o DomainMasterUserOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserpassword
+func (o DomainMasterUserOptionsOutput) MasterUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserPassword }).(pulumi.StringPtrOutput)
+}
+
+type DomainMasterUserOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainMasterUserOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainMasterUserOptions)(nil)).Elem()
+}
+
+func (o DomainMasterUserOptionsPtrOutput) ToDomainMasterUserOptionsPtrOutput() DomainMasterUserOptionsPtrOutput {
+	return o
+}
+
+func (o DomainMasterUserOptionsPtrOutput) ToDomainMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainMasterUserOptionsPtrOutput {
+	return o
+}
+
+func (o DomainMasterUserOptionsPtrOutput) Elem() DomainMasterUserOptionsOutput {
+	return o.ApplyT(func(v *DomainMasterUserOptions) DomainMasterUserOptions { return *v }).(DomainMasterUserOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserarn
+func (o DomainMasterUserOptionsPtrOutput) MasterUserARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masterusername
+func (o DomainMasterUserOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html#cfn-elasticsearch-domain-masteruseroptions-masteruserpassword
+func (o DomainMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html
 type DomainNodeToNodeEncryptionOptions struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions-enabled
@@ -1199,8 +1810,12 @@ type DomainProperties struct {
 	AccessPolicies interface{} `pulumi:"AccessPolicies"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions
 	AdvancedOptions map[string]string `pulumi:"AdvancedOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+	AdvancedSecurityOptions *DomainAdvancedSecurityOptionsInput `pulumi:"AdvancedSecurityOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
 	CognitoOptions *DomainCognitoOptions `pulumi:"CognitoOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
+	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"DomainEndpointOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
 	DomainName *string `pulumi:"DomainName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-ebsoptions
@@ -1240,8 +1855,12 @@ type DomainPropertiesArgs struct {
 	AccessPolicies pulumi.Input `pulumi:"AccessPolicies"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions
 	AdvancedOptions pulumi.StringMapInput `pulumi:"AdvancedOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+	AdvancedSecurityOptions DomainAdvancedSecurityOptionsInputPtrInput `pulumi:"AdvancedSecurityOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
 	CognitoOptions DomainCognitoOptionsPtrInput `pulumi:"CognitoOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
+	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput `pulumi:"DomainEndpointOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
 	DomainName pulumi.StringPtrInput `pulumi:"DomainName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-ebsoptions
@@ -1352,9 +1971,19 @@ func (o DomainPropertiesOutput) AdvancedOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DomainProperties) map[string]string { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+func (o DomainPropertiesOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o.ApplyT(func(v DomainProperties) *DomainAdvancedSecurityOptionsInput { return v.AdvancedSecurityOptions }).(DomainAdvancedSecurityOptionsInputPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
 func (o DomainPropertiesOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
 	return o.ApplyT(func(v DomainProperties) *DomainCognitoOptions { return v.CognitoOptions }).(DomainCognitoOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
+func (o DomainPropertiesOutput) DomainEndpointOptions() DomainDomainEndpointOptionsPtrOutput {
+	return o.ApplyT(func(v DomainProperties) *DomainDomainEndpointOptions { return v.DomainEndpointOptions }).(DomainDomainEndpointOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
@@ -1445,6 +2074,16 @@ func (o DomainPropertiesPtrOutput) AdvancedOptions() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+func (o DomainPropertiesPtrOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o.ApplyT(func(v *DomainProperties) *DomainAdvancedSecurityOptionsInput {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedSecurityOptions
+	}).(DomainAdvancedSecurityOptionsInputPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
 func (o DomainPropertiesPtrOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainProperties) *DomainCognitoOptions {
@@ -1453,6 +2092,16 @@ func (o DomainPropertiesPtrOutput) CognitoOptions() DomainCognitoOptionsPtrOutpu
 		}
 		return v.CognitoOptions
 	}).(DomainCognitoOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainendpointoptions
+func (o DomainPropertiesPtrOutput) DomainEndpointOptions() DomainDomainEndpointOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainProperties) *DomainDomainEndpointOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DomainEndpointOptions
+	}).(DomainDomainEndpointOptionsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
@@ -2135,10 +2784,14 @@ func (o DomainZoneAwarenessConfigPtrOutput) AvailabilityZoneCount() pulumi.IntPt
 }
 
 func init() {
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputPtrOutput{})
 	pulumi.RegisterOutputType(DomainAttributesOutput{})
 	pulumi.RegisterOutputType(DomainAttributesPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDomainEndpointOptionsOutput{})
+	pulumi.RegisterOutputType(DomainDomainEndpointOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEBSOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEBSOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainElasticsearchClusterConfigOutput{})
@@ -2147,6 +2800,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainLogPublishingOptionOutput{})
 	pulumi.RegisterOutputType(DomainLogPublishingOptionMapOutput{})
+	pulumi.RegisterOutputType(DomainMasterUserOptionsOutput{})
+	pulumi.RegisterOutputType(DomainMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainPropertiesOutput{})

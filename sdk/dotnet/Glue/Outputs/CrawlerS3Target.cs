@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+        /// </summary>
+        public readonly string? ConnectionName;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
@@ -24,10 +28,13 @@ namespace Pulumi.Cloudformation.Glue.Outputs
 
         [OutputConstructor]
         private CrawlerS3Target(
+            string? ConnectionName,
+
             ImmutableArray<string> Exclusions,
 
             string? Path)
         {
+            this.ConnectionName = ConnectionName;
             this.Exclusions = Exclusions;
             this.Path = Path;
         }

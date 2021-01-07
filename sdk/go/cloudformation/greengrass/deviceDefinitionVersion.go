@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DeviceDefinitionVersion struct {
 // NewDeviceDefinitionVersion registers a new resource with the given unique name, arguments, and options.
 func NewDeviceDefinitionVersion(ctx *pulumi.Context,
 	name string, args *DeviceDefinitionVersionArgs, opts ...pulumi.ResourceOption) (*DeviceDefinitionVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeviceDefinitionVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DeviceDefinitionVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:DeviceDefinitionVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DeviceDefinitionVersionArgs struct {
 
 func (DeviceDefinitionVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceDefinitionVersionArgs)(nil)).Elem()
+}
+
+type DeviceDefinitionVersionInput interface {
+	pulumi.Input
+
+	ToDeviceDefinitionVersionOutput() DeviceDefinitionVersionOutput
+	ToDeviceDefinitionVersionOutputWithContext(ctx context.Context) DeviceDefinitionVersionOutput
+}
+
+func (*DeviceDefinitionVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceDefinitionVersion)(nil))
+}
+
+func (i *DeviceDefinitionVersion) ToDeviceDefinitionVersionOutput() DeviceDefinitionVersionOutput {
+	return i.ToDeviceDefinitionVersionOutputWithContext(context.Background())
+}
+
+func (i *DeviceDefinitionVersion) ToDeviceDefinitionVersionOutputWithContext(ctx context.Context) DeviceDefinitionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionOutput)
+}
+
+type DeviceDefinitionVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeviceDefinitionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceDefinitionVersion)(nil))
+}
+
+func (o DeviceDefinitionVersionOutput) ToDeviceDefinitionVersionOutput() DeviceDefinitionVersionOutput {
+	return o
+}
+
+func (o DeviceDefinitionVersionOutput) ToDeviceDefinitionVersionOutputWithContext(ctx context.Context) DeviceDefinitionVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeviceDefinitionVersionOutput{})
 }

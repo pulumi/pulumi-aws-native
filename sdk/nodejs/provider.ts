@@ -38,10 +38,10 @@ export class Provider extends pulumi.ProviderResource {
     constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            if (!args || args.region === undefined) {
+            if ((!args || args.region === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'region'");
             }
-            if (!args || args.stack === undefined) {
+            if ((!args || args.stack === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stack'");
             }
             inputs["region"] = args ? args.region : undefined;

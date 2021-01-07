@@ -57,6 +57,18 @@ namespace Pulumi.Cloudformation.ImageBuilder.Inputs
         [Input("Name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("ResourceTags")]
+        private InputMap<string>? _ResourceTags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+        /// </summary>
+        public InputMap<string> ResourceTags
+        {
+            get => _ResourceTags ?? (_ResourceTags = new InputMap<string>());
+            set => _ResourceTags = value;
+        }
+
         [Input("SecurityGroupIds")]
         private InputList<string>? _SecurityGroupIds;
 

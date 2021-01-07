@@ -49,6 +49,10 @@ namespace Pulumi.Cloudformation.AppSync.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplates3location
         /// </summary>
         public readonly string? ResponseMappingTemplateS3Location;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig
+        /// </summary>
+        public readonly Outputs.FunctionConfigurationSyncConfig? SyncConfig;
 
         [OutputConstructor]
         private FunctionConfigurationProperties(
@@ -68,7 +72,9 @@ namespace Pulumi.Cloudformation.AppSync.Outputs
 
             string? ResponseMappingTemplate,
 
-            string? ResponseMappingTemplateS3Location)
+            string? ResponseMappingTemplateS3Location,
+
+            Outputs.FunctionConfigurationSyncConfig? SyncConfig)
         {
             this.ApiId = ApiId;
             this.DataSourceName = DataSourceName;
@@ -79,6 +85,7 @@ namespace Pulumi.Cloudformation.AppSync.Outputs
             this.RequestMappingTemplateS3Location = RequestMappingTemplateS3Location;
             this.ResponseMappingTemplate = ResponseMappingTemplate;
             this.ResponseMappingTemplateS3Location = ResponseMappingTemplateS3Location;
+            this.SyncConfig = SyncConfig;
         }
     }
 }

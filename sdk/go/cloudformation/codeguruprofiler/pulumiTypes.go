@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-cloudformation/sdk/go/cloudformation"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -136,12 +137,127 @@ func (o ProfilingGroupAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+type ProfilingGroupChannel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
+	ChannelId *string `pulumi:"channelId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
+	ChannelUri string `pulumi:"channelUri"`
+}
+
+// ProfilingGroupChannelInput is an input type that accepts ProfilingGroupChannelArgs and ProfilingGroupChannelOutput values.
+// You can construct a concrete instance of `ProfilingGroupChannelInput` via:
+//
+//          ProfilingGroupChannelArgs{...}
+type ProfilingGroupChannelInput interface {
+	pulumi.Input
+
+	ToProfilingGroupChannelOutput() ProfilingGroupChannelOutput
+	ToProfilingGroupChannelOutputWithContext(context.Context) ProfilingGroupChannelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+type ProfilingGroupChannelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
+	ChannelId pulumi.StringPtrInput `pulumi:"channelId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
+	ChannelUri pulumi.StringInput `pulumi:"channelUri"`
+}
+
+func (ProfilingGroupChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilingGroupChannel)(nil)).Elem()
+}
+
+func (i ProfilingGroupChannelArgs) ToProfilingGroupChannelOutput() ProfilingGroupChannelOutput {
+	return i.ToProfilingGroupChannelOutputWithContext(context.Background())
+}
+
+func (i ProfilingGroupChannelArgs) ToProfilingGroupChannelOutputWithContext(ctx context.Context) ProfilingGroupChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupChannelOutput)
+}
+
+// ProfilingGroupChannelArrayInput is an input type that accepts ProfilingGroupChannelArray and ProfilingGroupChannelArrayOutput values.
+// You can construct a concrete instance of `ProfilingGroupChannelArrayInput` via:
+//
+//          ProfilingGroupChannelArray{ ProfilingGroupChannelArgs{...} }
+type ProfilingGroupChannelArrayInput interface {
+	pulumi.Input
+
+	ToProfilingGroupChannelArrayOutput() ProfilingGroupChannelArrayOutput
+	ToProfilingGroupChannelArrayOutputWithContext(context.Context) ProfilingGroupChannelArrayOutput
+}
+
+type ProfilingGroupChannelArray []ProfilingGroupChannelInput
+
+func (ProfilingGroupChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfilingGroupChannel)(nil)).Elem()
+}
+
+func (i ProfilingGroupChannelArray) ToProfilingGroupChannelArrayOutput() ProfilingGroupChannelArrayOutput {
+	return i.ToProfilingGroupChannelArrayOutputWithContext(context.Background())
+}
+
+func (i ProfilingGroupChannelArray) ToProfilingGroupChannelArrayOutputWithContext(ctx context.Context) ProfilingGroupChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupChannelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+type ProfilingGroupChannelOutput struct{ *pulumi.OutputState }
+
+func (ProfilingGroupChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilingGroupChannel)(nil)).Elem()
+}
+
+func (o ProfilingGroupChannelOutput) ToProfilingGroupChannelOutput() ProfilingGroupChannelOutput {
+	return o
+}
+
+func (o ProfilingGroupChannelOutput) ToProfilingGroupChannelOutputWithContext(ctx context.Context) ProfilingGroupChannelOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
+func (o ProfilingGroupChannelOutput) ChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilingGroupChannel) *string { return v.ChannelId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
+func (o ProfilingGroupChannelOutput) ChannelUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfilingGroupChannel) string { return v.ChannelUri }).(pulumi.StringOutput)
+}
+
+type ProfilingGroupChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfilingGroupChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfilingGroupChannel)(nil)).Elem()
+}
+
+func (o ProfilingGroupChannelArrayOutput) ToProfilingGroupChannelArrayOutput() ProfilingGroupChannelArrayOutput {
+	return o
+}
+
+func (o ProfilingGroupChannelArrayOutput) ToProfilingGroupChannelArrayOutputWithContext(ctx context.Context) ProfilingGroupChannelArrayOutput {
+	return o
+}
+
+func (o ProfilingGroupChannelArrayOutput) Index(i pulumi.IntInput) ProfilingGroupChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfilingGroupChannel {
+		return vs[0].([]ProfilingGroupChannel)[vs[1].(int)]
+	}).(ProfilingGroupChannelOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
 type ProfilingGroupProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
 	AgentPermissions interface{} `pulumi:"AgentPermissions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+	AnomalyDetectionNotificationConfiguration []ProfilingGroupChannel `pulumi:"AnomalyDetectionNotificationConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+	ComputePlatform *string `pulumi:"ComputePlatform"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 	ProfilingGroupName string `pulumi:"ProfilingGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
 }
 
 // ProfilingGroupPropertiesInput is an input type that accepts ProfilingGroupPropertiesArgs and ProfilingGroupPropertiesOutput values.
@@ -159,8 +275,14 @@ type ProfilingGroupPropertiesInput interface {
 type ProfilingGroupPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
 	AgentPermissions pulumi.Input `pulumi:"AgentPermissions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+	AnomalyDetectionNotificationConfiguration ProfilingGroupChannelArrayInput `pulumi:"AnomalyDetectionNotificationConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+	ComputePlatform pulumi.StringPtrInput `pulumi:"ComputePlatform"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 	ProfilingGroupName pulumi.StringInput `pulumi:"ProfilingGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 }
 
 func (ProfilingGroupPropertiesArgs) ElementType() reflect.Type {
@@ -246,9 +368,26 @@ func (o ProfilingGroupPropertiesOutput) AgentPermissions() pulumi.AnyOutput {
 	return o.ApplyT(func(v ProfilingGroupProperties) interface{} { return v.AgentPermissions }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+func (o ProfilingGroupPropertiesOutput) AnomalyDetectionNotificationConfiguration() ProfilingGroupChannelArrayOutput {
+	return o.ApplyT(func(v ProfilingGroupProperties) []ProfilingGroupChannel {
+		return v.AnomalyDetectionNotificationConfiguration
+	}).(ProfilingGroupChannelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+func (o ProfilingGroupPropertiesOutput) ComputePlatform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilingGroupProperties) *string { return v.ComputePlatform }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 func (o ProfilingGroupPropertiesOutput) ProfilingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfilingGroupProperties) string { return v.ProfilingGroupName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+func (o ProfilingGroupPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v ProfilingGroupProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
 }
 
 type ProfilingGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -279,6 +418,26 @@ func (o ProfilingGroupPropertiesPtrOutput) AgentPermissions() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+func (o ProfilingGroupPropertiesPtrOutput) AnomalyDetectionNotificationConfiguration() ProfilingGroupChannelArrayOutput {
+	return o.ApplyT(func(v *ProfilingGroupProperties) []ProfilingGroupChannel {
+		if v == nil {
+			return nil
+		}
+		return v.AnomalyDetectionNotificationConfiguration
+	}).(ProfilingGroupChannelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+func (o ProfilingGroupPropertiesPtrOutput) ComputePlatform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilingGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputePlatform
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 func (o ProfilingGroupPropertiesPtrOutput) ProfilingGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfilingGroupProperties) *string {
@@ -289,9 +448,21 @@ func (o ProfilingGroupPropertiesPtrOutput) ProfilingGroupName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+func (o ProfilingGroupPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *ProfilingGroupProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfilingGroupAttributesOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ProfilingGroupChannelOutput{})
+	pulumi.RegisterOutputType(ProfilingGroupChannelArrayOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupPropertiesOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupPropertiesPtrOutput{})
 }

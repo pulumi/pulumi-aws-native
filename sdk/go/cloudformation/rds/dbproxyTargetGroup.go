@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBProxyTargetGroup struct {
 // NewDBProxyTargetGroup registers a new resource with the given unique name, arguments, and options.
 func NewDBProxyTargetGroup(ctx *pulumi.Context,
 	name string, args *DBProxyTargetGroupArgs, opts ...pulumi.ResourceOption) (*DBProxyTargetGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBProxyTargetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBProxyTargetGroup
 	err := ctx.RegisterResource("cloudformation:RDS:DBProxyTargetGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBProxyTargetGroupArgs struct {
 
 func (DBProxyTargetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbproxyTargetGroupArgs)(nil)).Elem()
+}
+
+type DBProxyTargetGroupInput interface {
+	pulumi.Input
+
+	ToDBProxyTargetGroupOutput() DBProxyTargetGroupOutput
+	ToDBProxyTargetGroupOutputWithContext(ctx context.Context) DBProxyTargetGroupOutput
+}
+
+func (*DBProxyTargetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxyTargetGroup)(nil))
+}
+
+func (i *DBProxyTargetGroup) ToDBProxyTargetGroupOutput() DBProxyTargetGroupOutput {
+	return i.ToDBProxyTargetGroupOutputWithContext(context.Background())
+}
+
+func (i *DBProxyTargetGroup) ToDBProxyTargetGroupOutputWithContext(ctx context.Context) DBProxyTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupOutput)
+}
+
+type DBProxyTargetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBProxyTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxyTargetGroup)(nil))
+}
+
+func (o DBProxyTargetGroupOutput) ToDBProxyTargetGroupOutput() DBProxyTargetGroupOutput {
+	return o
+}
+
+func (o DBProxyTargetGroupOutput) ToDBProxyTargetGroupOutputWithContext(ctx context.Context) DBProxyTargetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBProxyTargetGroupOutput{})
 }

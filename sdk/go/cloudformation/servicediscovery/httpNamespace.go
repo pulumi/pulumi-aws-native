@@ -4,6 +4,7 @@
 package servicediscovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type HttpNamespace struct {
 // NewHttpNamespace registers a new resource with the given unique name, arguments, and options.
 func NewHttpNamespace(ctx *pulumi.Context,
 	name string, args *HttpNamespaceArgs, opts ...pulumi.ResourceOption) (*HttpNamespace, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &HttpNamespaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource HttpNamespace
 	err := ctx.RegisterResource("cloudformation:ServiceDiscovery:HttpNamespace", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type HttpNamespaceArgs struct {
 
 func (HttpNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*httpNamespaceArgs)(nil)).Elem()
+}
+
+type HttpNamespaceInput interface {
+	pulumi.Input
+
+	ToHttpNamespaceOutput() HttpNamespaceOutput
+	ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput
+}
+
+func (*HttpNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpNamespace)(nil))
+}
+
+func (i *HttpNamespace) ToHttpNamespaceOutput() HttpNamespaceOutput {
+	return i.ToHttpNamespaceOutputWithContext(context.Background())
+}
+
+func (i *HttpNamespace) ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceOutput)
+}
+
+type HttpNamespaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (HttpNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpNamespace)(nil))
+}
+
+func (o HttpNamespaceOutput) ToHttpNamespaceOutput() HttpNamespaceOutput {
+	return o
+}
+
+func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HttpNamespaceOutput{})
 }

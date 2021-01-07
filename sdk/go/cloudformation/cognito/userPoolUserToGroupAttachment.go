@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolUserToGroupAttachment struct {
 // NewUserPoolUserToGroupAttachment registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolUserToGroupAttachment(ctx *pulumi.Context,
 	name string, args *UserPoolUserToGroupAttachmentArgs, opts ...pulumi.ResourceOption) (*UserPoolUserToGroupAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolUserToGroupAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolUserToGroupAttachment
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolUserToGroupAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolUserToGroupAttachmentArgs struct {
 
 func (UserPoolUserToGroupAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolUserToGroupAttachmentArgs)(nil)).Elem()
+}
+
+type UserPoolUserToGroupAttachmentInput interface {
+	pulumi.Input
+
+	ToUserPoolUserToGroupAttachmentOutput() UserPoolUserToGroupAttachmentOutput
+	ToUserPoolUserToGroupAttachmentOutputWithContext(ctx context.Context) UserPoolUserToGroupAttachmentOutput
+}
+
+func (*UserPoolUserToGroupAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUserToGroupAttachment)(nil))
+}
+
+func (i *UserPoolUserToGroupAttachment) ToUserPoolUserToGroupAttachmentOutput() UserPoolUserToGroupAttachmentOutput {
+	return i.ToUserPoolUserToGroupAttachmentOutputWithContext(context.Background())
+}
+
+func (i *UserPoolUserToGroupAttachment) ToUserPoolUserToGroupAttachmentOutputWithContext(ctx context.Context) UserPoolUserToGroupAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserToGroupAttachmentOutput)
+}
+
+type UserPoolUserToGroupAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolUserToGroupAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUserToGroupAttachment)(nil))
+}
+
+func (o UserPoolUserToGroupAttachmentOutput) ToUserPoolUserToGroupAttachmentOutput() UserPoolUserToGroupAttachmentOutput {
+	return o
+}
+
+func (o UserPoolUserToGroupAttachmentOutput) ToUserPoolUserToGroupAttachmentOutputWithContext(ctx context.Context) UserPoolUserToGroupAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolUserToGroupAttachmentOutput{})
 }

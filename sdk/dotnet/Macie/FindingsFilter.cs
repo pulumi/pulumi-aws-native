@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Macie
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Macie:FindingsFilter")]
     public partial class FindingsFilter : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppConfig
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppConfig:HostedConfigurationVersion")]
     public partial class HostedConfigurationVersion : Pulumi.CustomResource
     {
         /// <summary>

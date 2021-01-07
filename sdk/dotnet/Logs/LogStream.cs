@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Logs
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Logs:LogStream")]
     public partial class LogStream : Pulumi.CustomResource
     {
         /// <summary>

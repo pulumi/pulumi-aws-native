@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeBuild
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeBuild:SourceCredential")]
     public partial class SourceCredential : Pulumi.CustomResource
     {
         /// <summary>

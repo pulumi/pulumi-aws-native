@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Account
 	err := ctx.RegisterResource("cloudformation:ApiGateway:Account", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AccountArgs struct {
 
 func (AccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountArgs)(nil)).Elem()
+}
+
+type AccountInput interface {
+	pulumi.Input
+
+	ToAccountOutput() AccountOutput
+	ToAccountOutputWithContext(ctx context.Context) AccountOutput
+}
+
+func (*Account) ElementType() reflect.Type {
+	return reflect.TypeOf((*Account)(nil))
+}
+
+func (i *Account) ToAccountOutput() AccountOutput {
+	return i.ToAccountOutputWithContext(context.Background())
+}
+
+func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
+}
+
+type AccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Account)(nil))
+}
+
+func (o AccountOutput) ToAccountOutput() AccountOutput {
+	return o
+}
+
+func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountOutput{})
 }

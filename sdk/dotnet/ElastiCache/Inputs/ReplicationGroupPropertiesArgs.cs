@@ -82,6 +82,12 @@ namespace Pulumi.Cloudformation.ElastiCache.Inputs
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-globalreplicationgroupid
+        /// </summary>
+        [Input("GlobalReplicationGroupId")]
+        public Input<string>? GlobalReplicationGroupId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-kmskeyid
         /// </summary>
         [Input("KmsKeyId")]
@@ -236,6 +242,18 @@ namespace Pulumi.Cloudformation.ElastiCache.Inputs
         /// </summary>
         [Input("TransitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
+
+        [Input("UserGroupIds")]
+        private InputList<string>? _UserGroupIds;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-usergroupids
+        /// </summary>
+        public InputList<string> UserGroupIds
+        {
+            get => _UserGroupIds ?? (_UserGroupIds = new InputList<string>());
+            set => _UserGroupIds = value;
+        }
 
         public ReplicationGroupPropertiesArgs()
         {

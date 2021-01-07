@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DMS:ReplicationSubnetGroup")]
     public partial class ReplicationSubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

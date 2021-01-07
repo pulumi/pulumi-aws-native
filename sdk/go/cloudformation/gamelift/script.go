@@ -4,6 +4,7 @@
 package gamelift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Script struct {
 // NewScript registers a new resource with the given unique name, arguments, and options.
 func NewScript(ctx *pulumi.Context,
 	name string, args *ScriptArgs, opts ...pulumi.ResourceOption) (*Script, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ScriptArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Script
 	err := ctx.RegisterResource("cloudformation:GameLift:Script", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ScriptArgs struct {
 
 func (ScriptArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scriptArgs)(nil)).Elem()
+}
+
+type ScriptInput interface {
+	pulumi.Input
+
+	ToScriptOutput() ScriptOutput
+	ToScriptOutputWithContext(ctx context.Context) ScriptOutput
+}
+
+func (*Script) ElementType() reflect.Type {
+	return reflect.TypeOf((*Script)(nil))
+}
+
+func (i *Script) ToScriptOutput() ScriptOutput {
+	return i.ToScriptOutputWithContext(context.Background())
+}
+
+func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptOutput)
+}
+
+type ScriptOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Script)(nil))
+}
+
+func (o ScriptOutput) ToScriptOutput() ScriptOutput {
+	return o
+}
+
+func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScriptOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GameLift:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>

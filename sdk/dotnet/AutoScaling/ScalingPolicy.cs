@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AutoScaling
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AutoScaling:ScalingPolicy")]
     public partial class ScalingPolicy : Pulumi.CustomResource
     {
         /// <summary>

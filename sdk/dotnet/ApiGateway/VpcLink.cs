@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:VpcLink")]
     public partial class VpcLink : Pulumi.CustomResource
     {
         /// <summary>

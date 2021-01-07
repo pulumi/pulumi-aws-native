@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConnectorDefinition struct {
 // NewConnectorDefinition registers a new resource with the given unique name, arguments, and options.
 func NewConnectorDefinition(ctx *pulumi.Context,
 	name string, args *ConnectorDefinitionArgs, opts ...pulumi.ResourceOption) (*ConnectorDefinition, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConnectorDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConnectorDefinition
 	err := ctx.RegisterResource("cloudformation:Greengrass:ConnectorDefinition", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConnectorDefinitionArgs struct {
 
 func (ConnectorDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorDefinitionArgs)(nil)).Elem()
+}
+
+type ConnectorDefinitionInput interface {
+	pulumi.Input
+
+	ToConnectorDefinitionOutput() ConnectorDefinitionOutput
+	ToConnectorDefinitionOutputWithContext(ctx context.Context) ConnectorDefinitionOutput
+}
+
+func (*ConnectorDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinition)(nil))
+}
+
+func (i *ConnectorDefinition) ToConnectorDefinitionOutput() ConnectorDefinitionOutput {
+	return i.ToConnectorDefinitionOutputWithContext(context.Background())
+}
+
+func (i *ConnectorDefinition) ToConnectorDefinitionOutputWithContext(ctx context.Context) ConnectorDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionOutput)
+}
+
+type ConnectorDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectorDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinition)(nil))
+}
+
+func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutput() ConnectorDefinitionOutput {
+	return o
+}
+
+func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutputWithContext(ctx context.Context) ConnectorDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectorDefinitionOutput{})
 }

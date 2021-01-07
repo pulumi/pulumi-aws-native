@@ -18,8 +18,8 @@ namespace Pulumi.Cloudformation.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
         /// </summary>
-        [Input("Destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
+        [Input("Destination")]
+        public Input<string>? Destination { get; set; }
 
         public EventSourceMappingOnFailureArgs()
         {

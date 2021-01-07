@@ -4,6 +4,7 @@
 package elasticsearch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -29,11 +30,12 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Domain
 	err := ctx.RegisterResource("cloudformation:Elasticsearch:Domain", name, args, &resource, opts...)
@@ -119,4 +121,43 @@ type DomainArgs struct {
 
 func (DomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainArgs)(nil)).Elem()
+}
+
+type DomainInput interface {
+	pulumi.Input
+
+	ToDomainOutput() DomainOutput
+	ToDomainOutputWithContext(ctx context.Context) DomainOutput
+}
+
+func (*Domain) ElementType() reflect.Type {
+	return reflect.TypeOf((*Domain)(nil))
+}
+
+func (i *Domain) ToDomainOutput() DomainOutput {
+	return i.ToDomainOutputWithContext(context.Background())
+}
+
+func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
+}
+
+type DomainOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Domain)(nil))
+}
+
+func (o DomainOutput) ToDomainOutput() DomainOutput {
+	return o
+}
+
+func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainOutput{})
 }

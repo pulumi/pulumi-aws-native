@@ -1061,6 +1061,589 @@ func (o AliasVersionWeightArrayOutput) Index(i pulumi.IntInput) AliasVersionWeig
 	}).(AliasVersionWeightOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html
+type CodeSigningConfigAllowedPublishers struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
+	SigningProfileVersionArns []string `pulumi:"SigningProfileVersionArns"`
+}
+
+// CodeSigningConfigAllowedPublishersInput is an input type that accepts CodeSigningConfigAllowedPublishersArgs and CodeSigningConfigAllowedPublishersOutput values.
+// You can construct a concrete instance of `CodeSigningConfigAllowedPublishersInput` via:
+//
+//          CodeSigningConfigAllowedPublishersArgs{...}
+type CodeSigningConfigAllowedPublishersInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigAllowedPublishersOutput() CodeSigningConfigAllowedPublishersOutput
+	ToCodeSigningConfigAllowedPublishersOutputWithContext(context.Context) CodeSigningConfigAllowedPublishersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html
+type CodeSigningConfigAllowedPublishersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
+	SigningProfileVersionArns pulumi.StringArrayInput `pulumi:"SigningProfileVersionArns"`
+}
+
+func (CodeSigningConfigAllowedPublishersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersOutput() CodeSigningConfigAllowedPublishersOutput {
+	return i.ToCodeSigningConfigAllowedPublishersOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput)
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput).ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx)
+}
+
+// CodeSigningConfigAllowedPublishersPtrInput is an input type that accepts CodeSigningConfigAllowedPublishersArgs, CodeSigningConfigAllowedPublishersPtr and CodeSigningConfigAllowedPublishersPtrOutput values.
+// You can construct a concrete instance of `CodeSigningConfigAllowedPublishersPtrInput` via:
+//
+//          CodeSigningConfigAllowedPublishersArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeSigningConfigAllowedPublishersPtrInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput
+	ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Context) CodeSigningConfigAllowedPublishersPtrOutput
+}
+
+type codeSigningConfigAllowedPublishersPtrType CodeSigningConfigAllowedPublishersArgs
+
+func CodeSigningConfigAllowedPublishersPtr(v *CodeSigningConfigAllowedPublishersArgs) CodeSigningConfigAllowedPublishersPtrInput {
+	return (*codeSigningConfigAllowedPublishersPtrType)(v)
+}
+
+func (*codeSigningConfigAllowedPublishersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html
+type CodeSigningConfigAllowedPublishersOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigAllowedPublishersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersOutput() CodeSigningConfigAllowedPublishersOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return o.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) *CodeSigningConfigAllowedPublishers {
+		return &v
+	}).(CodeSigningConfigAllowedPublishersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
+func (o CodeSigningConfigAllowedPublishersOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
+}
+
+type CodeSigningConfigAllowedPublishersPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigAllowedPublishersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAllowedPublishersOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) CodeSigningConfigAllowedPublishers { return *v }).(CodeSigningConfigAllowedPublishersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
+func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningProfileVersionArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type CodeSigningConfigAttributes struct {
+	CodeSigningConfigArn string `pulumi:"CodeSigningConfigArn"`
+	CodeSigningConfigId  string `pulumi:"CodeSigningConfigId"`
+}
+
+// CodeSigningConfigAttributesInput is an input type that accepts CodeSigningConfigAttributesArgs and CodeSigningConfigAttributesOutput values.
+// You can construct a concrete instance of `CodeSigningConfigAttributesInput` via:
+//
+//          CodeSigningConfigAttributesArgs{...}
+type CodeSigningConfigAttributesInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigAttributesOutput() CodeSigningConfigAttributesOutput
+	ToCodeSigningConfigAttributesOutputWithContext(context.Context) CodeSigningConfigAttributesOutput
+}
+
+type CodeSigningConfigAttributesArgs struct {
+	CodeSigningConfigArn pulumi.StringInput `pulumi:"CodeSigningConfigArn"`
+	CodeSigningConfigId  pulumi.StringInput `pulumi:"CodeSigningConfigId"`
+}
+
+func (CodeSigningConfigAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigAttributes)(nil)).Elem()
+}
+
+func (i CodeSigningConfigAttributesArgs) ToCodeSigningConfigAttributesOutput() CodeSigningConfigAttributesOutput {
+	return i.ToCodeSigningConfigAttributesOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigAttributesArgs) ToCodeSigningConfigAttributesOutputWithContext(ctx context.Context) CodeSigningConfigAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAttributesOutput)
+}
+
+func (i CodeSigningConfigAttributesArgs) ToCodeSigningConfigAttributesPtrOutput() CodeSigningConfigAttributesPtrOutput {
+	return i.ToCodeSigningConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigAttributesArgs) ToCodeSigningConfigAttributesPtrOutputWithContext(ctx context.Context) CodeSigningConfigAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAttributesOutput).ToCodeSigningConfigAttributesPtrOutputWithContext(ctx)
+}
+
+// CodeSigningConfigAttributesPtrInput is an input type that accepts CodeSigningConfigAttributesArgs, CodeSigningConfigAttributesPtr and CodeSigningConfigAttributesPtrOutput values.
+// You can construct a concrete instance of `CodeSigningConfigAttributesPtrInput` via:
+//
+//          CodeSigningConfigAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeSigningConfigAttributesPtrInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigAttributesPtrOutput() CodeSigningConfigAttributesPtrOutput
+	ToCodeSigningConfigAttributesPtrOutputWithContext(context.Context) CodeSigningConfigAttributesPtrOutput
+}
+
+type codeSigningConfigAttributesPtrType CodeSigningConfigAttributesArgs
+
+func CodeSigningConfigAttributesPtr(v *CodeSigningConfigAttributesArgs) CodeSigningConfigAttributesPtrInput {
+	return (*codeSigningConfigAttributesPtrType)(v)
+}
+
+func (*codeSigningConfigAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigAttributes)(nil)).Elem()
+}
+
+func (i *codeSigningConfigAttributesPtrType) ToCodeSigningConfigAttributesPtrOutput() CodeSigningConfigAttributesPtrOutput {
+	return i.ToCodeSigningConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSigningConfigAttributesPtrType) ToCodeSigningConfigAttributesPtrOutputWithContext(ctx context.Context) CodeSigningConfigAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAttributesPtrOutput)
+}
+
+type CodeSigningConfigAttributesOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigAttributes)(nil)).Elem()
+}
+
+func (o CodeSigningConfigAttributesOutput) ToCodeSigningConfigAttributesOutput() CodeSigningConfigAttributesOutput {
+	return o
+}
+
+func (o CodeSigningConfigAttributesOutput) ToCodeSigningConfigAttributesOutputWithContext(ctx context.Context) CodeSigningConfigAttributesOutput {
+	return o
+}
+
+func (o CodeSigningConfigAttributesOutput) ToCodeSigningConfigAttributesPtrOutput() CodeSigningConfigAttributesPtrOutput {
+	return o.ToCodeSigningConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSigningConfigAttributesOutput) ToCodeSigningConfigAttributesPtrOutputWithContext(ctx context.Context) CodeSigningConfigAttributesPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigAttributes) *CodeSigningConfigAttributes {
+		return &v
+	}).(CodeSigningConfigAttributesPtrOutput)
+}
+func (o CodeSigningConfigAttributesOutput) CodeSigningConfigArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSigningConfigAttributes) string { return v.CodeSigningConfigArn }).(pulumi.StringOutput)
+}
+
+func (o CodeSigningConfigAttributesOutput) CodeSigningConfigId() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSigningConfigAttributes) string { return v.CodeSigningConfigId }).(pulumi.StringOutput)
+}
+
+type CodeSigningConfigAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigAttributes)(nil)).Elem()
+}
+
+func (o CodeSigningConfigAttributesPtrOutput) ToCodeSigningConfigAttributesPtrOutput() CodeSigningConfigAttributesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAttributesPtrOutput) ToCodeSigningConfigAttributesPtrOutputWithContext(ctx context.Context) CodeSigningConfigAttributesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigAttributesPtrOutput) Elem() CodeSigningConfigAttributesOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAttributes) CodeSigningConfigAttributes { return *v }).(CodeSigningConfigAttributesOutput)
+}
+
+func (o CodeSigningConfigAttributesPtrOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CodeSigningConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CodeSigningConfigAttributesPtrOutput) CodeSigningConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CodeSigningConfigId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
+type CodeSigningConfigCodeSigningPolicies struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
+	UntrustedArtifactOnDeployment string `pulumi:"UntrustedArtifactOnDeployment"`
+}
+
+// CodeSigningConfigCodeSigningPoliciesInput is an input type that accepts CodeSigningConfigCodeSigningPoliciesArgs and CodeSigningConfigCodeSigningPoliciesOutput values.
+// You can construct a concrete instance of `CodeSigningConfigCodeSigningPoliciesInput` via:
+//
+//          CodeSigningConfigCodeSigningPoliciesArgs{...}
+type CodeSigningConfigCodeSigningPoliciesInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigCodeSigningPoliciesOutput() CodeSigningConfigCodeSigningPoliciesOutput
+	ToCodeSigningConfigCodeSigningPoliciesOutputWithContext(context.Context) CodeSigningConfigCodeSigningPoliciesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
+type CodeSigningConfigCodeSigningPoliciesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
+	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"UntrustedArtifactOnDeployment"`
+}
+
+func (CodeSigningConfigCodeSigningPoliciesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigCodeSigningPolicies)(nil)).Elem()
+}
+
+func (i CodeSigningConfigCodeSigningPoliciesArgs) ToCodeSigningConfigCodeSigningPoliciesOutput() CodeSigningConfigCodeSigningPoliciesOutput {
+	return i.ToCodeSigningConfigCodeSigningPoliciesOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigCodeSigningPoliciesArgs) ToCodeSigningConfigCodeSigningPoliciesOutputWithContext(ctx context.Context) CodeSigningConfigCodeSigningPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigCodeSigningPoliciesOutput)
+}
+
+func (i CodeSigningConfigCodeSigningPoliciesArgs) ToCodeSigningConfigCodeSigningPoliciesPtrOutput() CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return i.ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigCodeSigningPoliciesArgs) ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigCodeSigningPoliciesOutput).ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(ctx)
+}
+
+// CodeSigningConfigCodeSigningPoliciesPtrInput is an input type that accepts CodeSigningConfigCodeSigningPoliciesArgs, CodeSigningConfigCodeSigningPoliciesPtr and CodeSigningConfigCodeSigningPoliciesPtrOutput values.
+// You can construct a concrete instance of `CodeSigningConfigCodeSigningPoliciesPtrInput` via:
+//
+//          CodeSigningConfigCodeSigningPoliciesArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeSigningConfigCodeSigningPoliciesPtrInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigCodeSigningPoliciesPtrOutput() CodeSigningConfigCodeSigningPoliciesPtrOutput
+	ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(context.Context) CodeSigningConfigCodeSigningPoliciesPtrOutput
+}
+
+type codeSigningConfigCodeSigningPoliciesPtrType CodeSigningConfigCodeSigningPoliciesArgs
+
+func CodeSigningConfigCodeSigningPoliciesPtr(v *CodeSigningConfigCodeSigningPoliciesArgs) CodeSigningConfigCodeSigningPoliciesPtrInput {
+	return (*codeSigningConfigCodeSigningPoliciesPtrType)(v)
+}
+
+func (*codeSigningConfigCodeSigningPoliciesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigCodeSigningPolicies)(nil)).Elem()
+}
+
+func (i *codeSigningConfigCodeSigningPoliciesPtrType) ToCodeSigningConfigCodeSigningPoliciesPtrOutput() CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return i.ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSigningConfigCodeSigningPoliciesPtrType) ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigCodeSigningPoliciesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
+type CodeSigningConfigCodeSigningPoliciesOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigCodeSigningPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigCodeSigningPolicies)(nil)).Elem()
+}
+
+func (o CodeSigningConfigCodeSigningPoliciesOutput) ToCodeSigningConfigCodeSigningPoliciesOutput() CodeSigningConfigCodeSigningPoliciesOutput {
+	return o
+}
+
+func (o CodeSigningConfigCodeSigningPoliciesOutput) ToCodeSigningConfigCodeSigningPoliciesOutputWithContext(ctx context.Context) CodeSigningConfigCodeSigningPoliciesOutput {
+	return o
+}
+
+func (o CodeSigningConfigCodeSigningPoliciesOutput) ToCodeSigningConfigCodeSigningPoliciesPtrOutput() CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return o.ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSigningConfigCodeSigningPoliciesOutput) ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigCodeSigningPolicies) *CodeSigningConfigCodeSigningPolicies {
+		return &v
+	}).(CodeSigningConfigCodeSigningPoliciesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
+func (o CodeSigningConfigCodeSigningPoliciesOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSigningConfigCodeSigningPolicies) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
+}
+
+type CodeSigningConfigCodeSigningPoliciesPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigCodeSigningPoliciesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigCodeSigningPolicies)(nil)).Elem()
+}
+
+func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) ToCodeSigningConfigCodeSigningPoliciesPtrOutput() CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) ToCodeSigningConfigCodeSigningPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) Elem() CodeSigningConfigCodeSigningPoliciesOutput {
+	return o.ApplyT(func(v *CodeSigningConfigCodeSigningPolicies) CodeSigningConfigCodeSigningPolicies { return *v }).(CodeSigningConfigCodeSigningPoliciesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
+func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigCodeSigningPolicies) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UntrustedArtifactOnDeployment
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+type CodeSigningConfigProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+	AllowedPublishers CodeSigningConfigAllowedPublishers `pulumi:"AllowedPublishers"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+	CodeSigningPolicies *CodeSigningConfigCodeSigningPolicies `pulumi:"CodeSigningPolicies"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+	Description *string `pulumi:"Description"`
+}
+
+// CodeSigningConfigPropertiesInput is an input type that accepts CodeSigningConfigPropertiesArgs and CodeSigningConfigPropertiesOutput values.
+// You can construct a concrete instance of `CodeSigningConfigPropertiesInput` via:
+//
+//          CodeSigningConfigPropertiesArgs{...}
+type CodeSigningConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigPropertiesOutput() CodeSigningConfigPropertiesOutput
+	ToCodeSigningConfigPropertiesOutputWithContext(context.Context) CodeSigningConfigPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+type CodeSigningConfigPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+	AllowedPublishers CodeSigningConfigAllowedPublishersInput `pulumi:"AllowedPublishers"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+	CodeSigningPolicies CodeSigningConfigCodeSigningPoliciesPtrInput `pulumi:"CodeSigningPolicies"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+	Description pulumi.StringPtrInput `pulumi:"Description"`
+}
+
+func (CodeSigningConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigProperties)(nil)).Elem()
+}
+
+func (i CodeSigningConfigPropertiesArgs) ToCodeSigningConfigPropertiesOutput() CodeSigningConfigPropertiesOutput {
+	return i.ToCodeSigningConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigPropertiesArgs) ToCodeSigningConfigPropertiesOutputWithContext(ctx context.Context) CodeSigningConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPropertiesOutput)
+}
+
+func (i CodeSigningConfigPropertiesArgs) ToCodeSigningConfigPropertiesPtrOutput() CodeSigningConfigPropertiesPtrOutput {
+	return i.ToCodeSigningConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigPropertiesArgs) ToCodeSigningConfigPropertiesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPropertiesOutput).ToCodeSigningConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// CodeSigningConfigPropertiesPtrInput is an input type that accepts CodeSigningConfigPropertiesArgs, CodeSigningConfigPropertiesPtr and CodeSigningConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `CodeSigningConfigPropertiesPtrInput` via:
+//
+//          CodeSigningConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeSigningConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigPropertiesPtrOutput() CodeSigningConfigPropertiesPtrOutput
+	ToCodeSigningConfigPropertiesPtrOutputWithContext(context.Context) CodeSigningConfigPropertiesPtrOutput
+}
+
+type codeSigningConfigPropertiesPtrType CodeSigningConfigPropertiesArgs
+
+func CodeSigningConfigPropertiesPtr(v *CodeSigningConfigPropertiesArgs) CodeSigningConfigPropertiesPtrInput {
+	return (*codeSigningConfigPropertiesPtrType)(v)
+}
+
+func (*codeSigningConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigProperties)(nil)).Elem()
+}
+
+func (i *codeSigningConfigPropertiesPtrType) ToCodeSigningConfigPropertiesPtrOutput() CodeSigningConfigPropertiesPtrOutput {
+	return i.ToCodeSigningConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSigningConfigPropertiesPtrType) ToCodeSigningConfigPropertiesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+type CodeSigningConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSigningConfigProperties)(nil)).Elem()
+}
+
+func (o CodeSigningConfigPropertiesOutput) ToCodeSigningConfigPropertiesOutput() CodeSigningConfigPropertiesOutput {
+	return o
+}
+
+func (o CodeSigningConfigPropertiesOutput) ToCodeSigningConfigPropertiesOutputWithContext(ctx context.Context) CodeSigningConfigPropertiesOutput {
+	return o
+}
+
+func (o CodeSigningConfigPropertiesOutput) ToCodeSigningConfigPropertiesPtrOutput() CodeSigningConfigPropertiesPtrOutput {
+	return o.ToCodeSigningConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSigningConfigPropertiesOutput) ToCodeSigningConfigPropertiesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigProperties) *CodeSigningConfigProperties {
+		return &v
+	}).(CodeSigningConfigPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+func (o CodeSigningConfigPropertiesOutput) AllowedPublishers() CodeSigningConfigAllowedPublishersOutput {
+	return o.ApplyT(func(v CodeSigningConfigProperties) CodeSigningConfigAllowedPublishers { return v.AllowedPublishers }).(CodeSigningConfigAllowedPublishersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+func (o CodeSigningConfigPropertiesOutput) CodeSigningPolicies() CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigProperties) *CodeSigningConfigCodeSigningPolicies {
+		return v.CodeSigningPolicies
+	}).(CodeSigningConfigCodeSigningPoliciesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+func (o CodeSigningConfigPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfigProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type CodeSigningConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfigProperties)(nil)).Elem()
+}
+
+func (o CodeSigningConfigPropertiesPtrOutput) ToCodeSigningConfigPropertiesPtrOutput() CodeSigningConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigPropertiesPtrOutput) ToCodeSigningConfigPropertiesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigPropertiesPtrOutput) Elem() CodeSigningConfigPropertiesOutput {
+	return o.ApplyT(func(v *CodeSigningConfigProperties) CodeSigningConfigProperties { return *v }).(CodeSigningConfigPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+func (o CodeSigningConfigPropertiesPtrOutput) AllowedPublishers() CodeSigningConfigAllowedPublishersPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigProperties) *CodeSigningConfigAllowedPublishers {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowedPublishers
+	}).(CodeSigningConfigAllowedPublishersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+func (o CodeSigningConfigPropertiesPtrOutput) CodeSigningPolicies() CodeSigningConfigCodeSigningPoliciesPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigProperties) *CodeSigningConfigCodeSigningPolicies {
+		if v == nil {
+			return nil
+		}
+		return v.CodeSigningPolicies
+	}).(CodeSigningConfigCodeSigningPoliciesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+func (o CodeSigningConfigPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventInvokeConfigAttributes struct {
 }
 
@@ -1805,6 +2388,7 @@ func (o EventInvokeConfigPropertiesPtrOutput) Qualifier() pulumi.StringPtrOutput
 }
 
 type EventSourceMappingAttributes struct {
+	Id string `pulumi:"Id"`
 }
 
 // EventSourceMappingAttributesInput is an input type that accepts EventSourceMappingAttributesArgs and EventSourceMappingAttributesOutput values.
@@ -1819,6 +2403,7 @@ type EventSourceMappingAttributesInput interface {
 }
 
 type EventSourceMappingAttributesArgs struct {
+	Id pulumi.StringInput `pulumi:"Id"`
 }
 
 func (EventSourceMappingAttributesArgs) ElementType() reflect.Type {
@@ -1897,6 +2482,9 @@ func (o EventSourceMappingAttributesOutput) ToEventSourceMappingAttributesPtrOut
 		return &v
 	}).(EventSourceMappingAttributesPtrOutput)
 }
+func (o EventSourceMappingAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSourceMappingAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
 
 type EventSourceMappingAttributesPtrOutput struct{ *pulumi.OutputState }
 
@@ -1916,10 +2504,19 @@ func (o EventSourceMappingAttributesPtrOutput) Elem() EventSourceMappingAttribut
 	return o.ApplyT(func(v *EventSourceMappingAttributes) EventSourceMappingAttributes { return *v }).(EventSourceMappingAttributesOutput)
 }
 
+func (o EventSourceMappingAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
 type EventSourceMappingDestinationConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
-	OnFailure EventSourceMappingOnFailure `pulumi:"OnFailure"`
+	OnFailure *EventSourceMappingOnFailure `pulumi:"OnFailure"`
 }
 
 // EventSourceMappingDestinationConfigInput is an input type that accepts EventSourceMappingDestinationConfigArgs and EventSourceMappingDestinationConfigOutput values.
@@ -1936,7 +2533,7 @@ type EventSourceMappingDestinationConfigInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
 type EventSourceMappingDestinationConfigArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
-	OnFailure EventSourceMappingOnFailureInput `pulumi:"OnFailure"`
+	OnFailure EventSourceMappingOnFailurePtrInput `pulumi:"OnFailure"`
 }
 
 func (EventSourceMappingDestinationConfigArgs) ElementType() reflect.Type {
@@ -2018,8 +2615,8 @@ func (o EventSourceMappingDestinationConfigOutput) ToEventSourceMappingDestinati
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
-func (o EventSourceMappingDestinationConfigOutput) OnFailure() EventSourceMappingOnFailureOutput {
-	return o.ApplyT(func(v EventSourceMappingDestinationConfig) EventSourceMappingOnFailure { return v.OnFailure }).(EventSourceMappingOnFailureOutput)
+func (o EventSourceMappingDestinationConfigOutput) OnFailure() EventSourceMappingOnFailurePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingDestinationConfig) *EventSourceMappingOnFailure { return v.OnFailure }).(EventSourceMappingOnFailurePtrOutput)
 }
 
 type EventSourceMappingDestinationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2046,14 +2643,148 @@ func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMap
 		if v == nil {
 			return nil
 		}
-		return &v.OnFailure
+		return v.OnFailure
 	}).(EventSourceMappingOnFailurePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
+type EventSourceMappingEndpoints struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
+	KafkaBootstrapServers []string `pulumi:"KafkaBootstrapServers"`
+}
+
+// EventSourceMappingEndpointsInput is an input type that accepts EventSourceMappingEndpointsArgs and EventSourceMappingEndpointsOutput values.
+// You can construct a concrete instance of `EventSourceMappingEndpointsInput` via:
+//
+//          EventSourceMappingEndpointsArgs{...}
+type EventSourceMappingEndpointsInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingEndpointsOutput() EventSourceMappingEndpointsOutput
+	ToEventSourceMappingEndpointsOutputWithContext(context.Context) EventSourceMappingEndpointsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
+type EventSourceMappingEndpointsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
+	KafkaBootstrapServers pulumi.StringArrayInput `pulumi:"KafkaBootstrapServers"`
+}
+
+func (EventSourceMappingEndpointsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingEndpoints)(nil)).Elem()
+}
+
+func (i EventSourceMappingEndpointsArgs) ToEventSourceMappingEndpointsOutput() EventSourceMappingEndpointsOutput {
+	return i.ToEventSourceMappingEndpointsOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingEndpointsArgs) ToEventSourceMappingEndpointsOutputWithContext(ctx context.Context) EventSourceMappingEndpointsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingEndpointsOutput)
+}
+
+func (i EventSourceMappingEndpointsArgs) ToEventSourceMappingEndpointsPtrOutput() EventSourceMappingEndpointsPtrOutput {
+	return i.ToEventSourceMappingEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingEndpointsArgs) ToEventSourceMappingEndpointsPtrOutputWithContext(ctx context.Context) EventSourceMappingEndpointsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingEndpointsOutput).ToEventSourceMappingEndpointsPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingEndpointsPtrInput is an input type that accepts EventSourceMappingEndpointsArgs, EventSourceMappingEndpointsPtr and EventSourceMappingEndpointsPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingEndpointsPtrInput` via:
+//
+//          EventSourceMappingEndpointsArgs{...}
+//
+//  or:
+//
+//          nil
+type EventSourceMappingEndpointsPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingEndpointsPtrOutput() EventSourceMappingEndpointsPtrOutput
+	ToEventSourceMappingEndpointsPtrOutputWithContext(context.Context) EventSourceMappingEndpointsPtrOutput
+}
+
+type eventSourceMappingEndpointsPtrType EventSourceMappingEndpointsArgs
+
+func EventSourceMappingEndpointsPtr(v *EventSourceMappingEndpointsArgs) EventSourceMappingEndpointsPtrInput {
+	return (*eventSourceMappingEndpointsPtrType)(v)
+}
+
+func (*eventSourceMappingEndpointsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingEndpoints)(nil)).Elem()
+}
+
+func (i *eventSourceMappingEndpointsPtrType) ToEventSourceMappingEndpointsPtrOutput() EventSourceMappingEndpointsPtrOutput {
+	return i.ToEventSourceMappingEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingEndpointsPtrType) ToEventSourceMappingEndpointsPtrOutputWithContext(ctx context.Context) EventSourceMappingEndpointsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingEndpointsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
+type EventSourceMappingEndpointsOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingEndpointsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingEndpoints)(nil)).Elem()
+}
+
+func (o EventSourceMappingEndpointsOutput) ToEventSourceMappingEndpointsOutput() EventSourceMappingEndpointsOutput {
+	return o
+}
+
+func (o EventSourceMappingEndpointsOutput) ToEventSourceMappingEndpointsOutputWithContext(ctx context.Context) EventSourceMappingEndpointsOutput {
+	return o
+}
+
+func (o EventSourceMappingEndpointsOutput) ToEventSourceMappingEndpointsPtrOutput() EventSourceMappingEndpointsPtrOutput {
+	return o.ToEventSourceMappingEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingEndpointsOutput) ToEventSourceMappingEndpointsPtrOutputWithContext(ctx context.Context) EventSourceMappingEndpointsPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingEndpoints) *EventSourceMappingEndpoints {
+		return &v
+	}).(EventSourceMappingEndpointsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
+func (o EventSourceMappingEndpointsOutput) KafkaBootstrapServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingEndpoints) []string { return v.KafkaBootstrapServers }).(pulumi.StringArrayOutput)
+}
+
+type EventSourceMappingEndpointsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingEndpointsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingEndpoints)(nil)).Elem()
+}
+
+func (o EventSourceMappingEndpointsPtrOutput) ToEventSourceMappingEndpointsPtrOutput() EventSourceMappingEndpointsPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingEndpointsPtrOutput) ToEventSourceMappingEndpointsPtrOutputWithContext(ctx context.Context) EventSourceMappingEndpointsPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingEndpointsPtrOutput) Elem() EventSourceMappingEndpointsOutput {
+	return o.ApplyT(func(v *EventSourceMappingEndpoints) EventSourceMappingEndpoints { return *v }).(EventSourceMappingEndpointsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
+func (o EventSourceMappingEndpointsPtrOutput) KafkaBootstrapServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingEndpoints) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KafkaBootstrapServers
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html
 type EventSourceMappingOnFailure struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
-	Destination string `pulumi:"Destination"`
+	Destination *string `pulumi:"Destination"`
 }
 
 // EventSourceMappingOnFailureInput is an input type that accepts EventSourceMappingOnFailureArgs and EventSourceMappingOnFailureOutput values.
@@ -2070,7 +2801,7 @@ type EventSourceMappingOnFailureInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html
 type EventSourceMappingOnFailureArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
-	Destination pulumi.StringInput `pulumi:"Destination"`
+	Destination pulumi.StringPtrInput `pulumi:"Destination"`
 }
 
 func (EventSourceMappingOnFailureArgs) ElementType() reflect.Type {
@@ -2152,8 +2883,8 @@ func (o EventSourceMappingOnFailureOutput) ToEventSourceMappingOnFailurePtrOutpu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
-func (o EventSourceMappingOnFailureOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceMappingOnFailure) string { return v.Destination }).(pulumi.StringOutput)
+func (o EventSourceMappingOnFailureOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingOnFailure) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
 type EventSourceMappingOnFailurePtrOutput struct{ *pulumi.OutputState }
@@ -2180,7 +2911,7 @@ func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return &v.Destination
+		return v.Destination
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2195,9 +2926,11 @@ type EventSourceMappingProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
 	Enabled *bool `pulumi:"Enabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
-	EventSourceArn string `pulumi:"EventSourceArn"`
+	EventSourceArn *string `pulumi:"EventSourceArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
 	FunctionName string `pulumi:"FunctionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+	FunctionResponseTypes []string `pulumi:"FunctionResponseTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
 	MaximumBatchingWindowInSeconds *int `pulumi:"MaximumBatchingWindowInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
@@ -2206,8 +2939,20 @@ type EventSourceMappingProperties struct {
 	MaximumRetryAttempts *int `pulumi:"MaximumRetryAttempts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
 	ParallelizationFactor *int `pulumi:"ParallelizationFactor"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+	PartialBatchResponse *bool `pulumi:"PartialBatchResponse"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+	Queues []string `pulumi:"Queues"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+	SelfManagedEventSource *EventSourceMappingSelfManagedEventSource `pulumi:"SelfManagedEventSource"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"SourceAccessConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
 	StartingPosition *string `pulumi:"StartingPosition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+	Topics []string `pulumi:"Topics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+	TumblingWindowInSeconds *int `pulumi:"TumblingWindowInSeconds"`
 }
 
 // EventSourceMappingPropertiesInput is an input type that accepts EventSourceMappingPropertiesArgs and EventSourceMappingPropertiesOutput values.
@@ -2232,9 +2977,11 @@ type EventSourceMappingPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
 	Enabled pulumi.BoolPtrInput `pulumi:"Enabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
-	EventSourceArn pulumi.StringInput `pulumi:"EventSourceArn"`
+	EventSourceArn pulumi.StringPtrInput `pulumi:"EventSourceArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
 	FunctionName pulumi.StringInput `pulumi:"FunctionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+	FunctionResponseTypes pulumi.StringArrayInput `pulumi:"FunctionResponseTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"MaximumBatchingWindowInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
@@ -2243,8 +2990,20 @@ type EventSourceMappingPropertiesArgs struct {
 	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"MaximumRetryAttempts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
 	ParallelizationFactor pulumi.IntPtrInput `pulumi:"ParallelizationFactor"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+	PartialBatchResponse pulumi.BoolPtrInput `pulumi:"PartialBatchResponse"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+	Queues pulumi.StringArrayInput `pulumi:"Queues"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrInput `pulumi:"SelfManagedEventSource"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayInput `pulumi:"SourceAccessConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
 	StartingPosition pulumi.StringPtrInput `pulumi:"StartingPosition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+	Topics pulumi.StringArrayInput `pulumi:"Topics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+	TumblingWindowInSeconds pulumi.IntPtrInput `pulumi:"TumblingWindowInSeconds"`
 }
 
 func (EventSourceMappingPropertiesArgs) ElementType() reflect.Type {
@@ -2346,13 +3105,18 @@ func (o EventSourceMappingPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
-func (o EventSourceMappingPropertiesOutput) EventSourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceMappingProperties) string { return v.EventSourceArn }).(pulumi.StringOutput)
+func (o EventSourceMappingPropertiesOutput) EventSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) *string { return v.EventSourceArn }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
 func (o EventSourceMappingPropertiesOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingProperties) string { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+func (o EventSourceMappingPropertiesOutput) FunctionResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) []string { return v.FunctionResponseTypes }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
@@ -2375,9 +3139,43 @@ func (o EventSourceMappingPropertiesOutput) ParallelizationFactor() pulumi.IntPt
 	return o.ApplyT(func(v EventSourceMappingProperties) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+func (o EventSourceMappingPropertiesOutput) PartialBatchResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) *bool { return v.PartialBatchResponse }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+func (o EventSourceMappingPropertiesOutput) Queues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) []string { return v.Queues }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+func (o EventSourceMappingPropertiesOutput) SelfManagedEventSource() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) *EventSourceMappingSelfManagedEventSource {
+		return v.SelfManagedEventSource
+	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+func (o EventSourceMappingPropertiesOutput) SourceAccessConfigurations() EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) []EventSourceMappingSourceAccessConfiguration {
+		return v.SourceAccessConfigurations
+	}).(EventSourceMappingSourceAccessConfigurationArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
 func (o EventSourceMappingPropertiesOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingProperties) *string { return v.StartingPosition }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+func (o EventSourceMappingPropertiesOutput) Topics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) []string { return v.Topics }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+func (o EventSourceMappingPropertiesOutput) TumblingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProperties) *int { return v.TumblingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
 type EventSourceMappingPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2444,7 +3242,7 @@ func (o EventSourceMappingPropertiesPtrOutput) EventSourceArn() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.EventSourceArn
+		return v.EventSourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2456,6 +3254,16 @@ func (o EventSourceMappingPropertiesPtrOutput) FunctionName() pulumi.StringPtrOu
 		}
 		return &v.FunctionName
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+func (o EventSourceMappingPropertiesPtrOutput) FunctionResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionResponseTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
@@ -2498,6 +3306,46 @@ func (o EventSourceMappingPropertiesPtrOutput) ParallelizationFactor() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+func (o EventSourceMappingPropertiesPtrOutput) PartialBatchResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PartialBatchResponse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+func (o EventSourceMappingPropertiesPtrOutput) Queues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Queues
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+func (o EventSourceMappingPropertiesPtrOutput) SelfManagedEventSource() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingProperties) *EventSourceMappingSelfManagedEventSource {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedEventSource
+	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+func (o EventSourceMappingPropertiesPtrOutput) SourceAccessConfigurations() EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingProperties) []EventSourceMappingSourceAccessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAccessConfigurations
+	}).(EventSourceMappingSourceAccessConfigurationArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
 func (o EventSourceMappingPropertiesPtrOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingProperties) *string {
@@ -2506,6 +3354,269 @@ func (o EventSourceMappingPropertiesPtrOutput) StartingPosition() pulumi.StringP
 		}
 		return v.StartingPosition
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+func (o EventSourceMappingPropertiesPtrOutput) Topics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Topics
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+func (o EventSourceMappingPropertiesPtrOutput) TumblingWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TumblingWindowInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
+type EventSourceMappingSelfManagedEventSource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+	Endpoints *EventSourceMappingEndpoints `pulumi:"Endpoints"`
+}
+
+// EventSourceMappingSelfManagedEventSourceInput is an input type that accepts EventSourceMappingSelfManagedEventSourceArgs and EventSourceMappingSelfManagedEventSourceOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedEventSourceInput` via:
+//
+//          EventSourceMappingSelfManagedEventSourceArgs{...}
+type EventSourceMappingSelfManagedEventSourceInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedEventSourceOutput() EventSourceMappingSelfManagedEventSourceOutput
+	ToEventSourceMappingSelfManagedEventSourceOutputWithContext(context.Context) EventSourceMappingSelfManagedEventSourceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
+type EventSourceMappingSelfManagedEventSourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+	Endpoints EventSourceMappingEndpointsPtrInput `pulumi:"Endpoints"`
+}
+
+func (EventSourceMappingSelfManagedEventSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourceOutput() EventSourceMappingSelfManagedEventSourceOutput {
+	return i.ToEventSourceMappingSelfManagedEventSourceOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourceOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourceOutput)
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return i.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourceOutput).ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingSelfManagedEventSourcePtrInput is an input type that accepts EventSourceMappingSelfManagedEventSourceArgs, EventSourceMappingSelfManagedEventSourcePtr and EventSourceMappingSelfManagedEventSourcePtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedEventSourcePtrInput` via:
+//
+//          EventSourceMappingSelfManagedEventSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type EventSourceMappingSelfManagedEventSourcePtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput
+	ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput
+}
+
+type eventSourceMappingSelfManagedEventSourcePtrType EventSourceMappingSelfManagedEventSourceArgs
+
+func EventSourceMappingSelfManagedEventSourcePtr(v *EventSourceMappingSelfManagedEventSourceArgs) EventSourceMappingSelfManagedEventSourcePtrInput {
+	return (*eventSourceMappingSelfManagedEventSourcePtrType)(v)
+}
+
+func (*eventSourceMappingSelfManagedEventSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (i *eventSourceMappingSelfManagedEventSourcePtrType) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return i.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingSelfManagedEventSourcePtrType) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
+type EventSourceMappingSelfManagedEventSourceOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedEventSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourceOutput() EventSourceMappingSelfManagedEventSourceOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourceOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourceOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) *EventSourceMappingSelfManagedEventSource {
+		return &v
+	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+func (o EventSourceMappingSelfManagedEventSourceOutput) Endpoints() EventSourceMappingEndpointsPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) *EventSourceMappingEndpoints { return v.Endpoints }).(EventSourceMappingEndpointsPtrOutput)
+}
+
+type EventSourceMappingSelfManagedEventSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedEventSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Elem() EventSourceMappingSelfManagedEventSourceOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) EventSourceMappingSelfManagedEventSource { return *v }).(EventSourceMappingSelfManagedEventSourceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() EventSourceMappingEndpointsPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) *EventSourceMappingEndpoints {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(EventSourceMappingEndpointsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
+type EventSourceMappingSourceAccessConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
+	Type *string `pulumi:"Type"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
+	URI *string `pulumi:"URI"`
+}
+
+// EventSourceMappingSourceAccessConfigurationInput is an input type that accepts EventSourceMappingSourceAccessConfigurationArgs and EventSourceMappingSourceAccessConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceMappingSourceAccessConfigurationInput` via:
+//
+//          EventSourceMappingSourceAccessConfigurationArgs{...}
+type EventSourceMappingSourceAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSourceAccessConfigurationOutput() EventSourceMappingSourceAccessConfigurationOutput
+	ToEventSourceMappingSourceAccessConfigurationOutputWithContext(context.Context) EventSourceMappingSourceAccessConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
+type EventSourceMappingSourceAccessConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
+	Type pulumi.StringPtrInput `pulumi:"Type"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
+	URI pulumi.StringPtrInput `pulumi:"URI"`
+}
+
+func (EventSourceMappingSourceAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArgs) ToEventSourceMappingSourceAccessConfigurationOutput() EventSourceMappingSourceAccessConfigurationOutput {
+	return i.ToEventSourceMappingSourceAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArgs) ToEventSourceMappingSourceAccessConfigurationOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSourceAccessConfigurationOutput)
+}
+
+// EventSourceMappingSourceAccessConfigurationArrayInput is an input type that accepts EventSourceMappingSourceAccessConfigurationArray and EventSourceMappingSourceAccessConfigurationArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingSourceAccessConfigurationArrayInput` via:
+//
+//          EventSourceMappingSourceAccessConfigurationArray{ EventSourceMappingSourceAccessConfigurationArgs{...} }
+type EventSourceMappingSourceAccessConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSourceAccessConfigurationArrayOutput() EventSourceMappingSourceAccessConfigurationArrayOutput
+	ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(context.Context) EventSourceMappingSourceAccessConfigurationArrayOutput
+}
+
+type EventSourceMappingSourceAccessConfigurationArray []EventSourceMappingSourceAccessConfigurationInput
+
+func (EventSourceMappingSourceAccessConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArray) ToEventSourceMappingSourceAccessConfigurationArrayOutput() EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return i.ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArray) ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSourceAccessConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
+type EventSourceMappingSourceAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSourceAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingSourceAccessConfigurationOutput() EventSourceMappingSourceAccessConfigurationOutput {
+	return o
+}
+
+func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingSourceAccessConfigurationOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
+func (o EventSourceMappingSourceAccessConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
+func (o EventSourceMappingSourceAccessConfigurationOutput) URI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *string { return v.URI }).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSourceAccessConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSourceAccessConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceMappingSourceAccessConfigurationArrayOutput) ToEventSourceMappingSourceAccessConfigurationArrayOutput() EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSourceAccessConfigurationArrayOutput) ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.IntInput) EventSourceMappingSourceAccessConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSourceAccessConfiguration {
+		return vs[0].([]EventSourceMappingSourceAccessConfiguration)[vs[1].(int)]
+	}).(EventSourceMappingSourceAccessConfigurationOutput)
 }
 
 type FunctionAttributes struct {
@@ -2636,6 +3747,8 @@ func (o FunctionAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
 type FunctionCode struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+	ImageUri *string `pulumi:"ImageUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
 	S3Bucket *string `pulumi:"S3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
@@ -2659,6 +3772,8 @@ type FunctionCodeInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
 type FunctionCodeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+	ImageUri pulumi.StringPtrInput `pulumi:"ImageUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
 	S3Bucket pulumi.StringPtrInput `pulumi:"S3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
@@ -2747,6 +3862,11 @@ func (o FunctionCodeOutput) ToFunctionCodePtrOutputWithContext(ctx context.Conte
 	}).(FunctionCodePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+func (o FunctionCodeOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionCode) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
 func (o FunctionCodeOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
@@ -2783,6 +3903,16 @@ func (o FunctionCodePtrOutput) ToFunctionCodePtrOutputWithContext(ctx context.Co
 
 func (o FunctionCodePtrOutput) Elem() FunctionCodeOutput {
 	return o.ApplyT(func(v *FunctionCode) FunctionCode { return *v }).(FunctionCodeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+func (o FunctionCodePtrOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionCode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
@@ -3093,32 +4223,321 @@ func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
+type FunctionFileSystemConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
+	Arn string `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+	LocalMountPath string `pulumi:"LocalMountPath"`
+}
+
+// FunctionFileSystemConfigInput is an input type that accepts FunctionFileSystemConfigArgs and FunctionFileSystemConfigOutput values.
+// You can construct a concrete instance of `FunctionFileSystemConfigInput` via:
+//
+//          FunctionFileSystemConfigArgs{...}
+type FunctionFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput
+	ToFunctionFileSystemConfigOutputWithContext(context.Context) FunctionFileSystemConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
+type FunctionFileSystemConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
+	Arn pulumi.StringInput `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+	LocalMountPath pulumi.StringInput `pulumi:"LocalMountPath"`
+}
+
+func (FunctionFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput {
+	return i.ToFunctionFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutputWithContext(ctx context.Context) FunctionFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigOutput)
+}
+
+// FunctionFileSystemConfigArrayInput is an input type that accepts FunctionFileSystemConfigArray and FunctionFileSystemConfigArrayOutput values.
+// You can construct a concrete instance of `FunctionFileSystemConfigArrayInput` via:
+//
+//          FunctionFileSystemConfigArray{ FunctionFileSystemConfigArgs{...} }
+type FunctionFileSystemConfigArrayInput interface {
+	pulumi.Input
+
+	ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput
+	ToFunctionFileSystemConfigArrayOutputWithContext(context.Context) FunctionFileSystemConfigArrayOutput
+}
+
+type FunctionFileSystemConfigArray []FunctionFileSystemConfigInput
+
+func (FunctionFileSystemConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput {
+	return i.ToFunctionFileSystemConfigArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) FunctionFileSystemConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
+type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutputWithContext(ctx context.Context) FunctionFileSystemConfigOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
+func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
+}
+
+type FunctionFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionFileSystemConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o FunctionFileSystemConfigArrayOutput) ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigArrayOutput) ToFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) FunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) FunctionFileSystemConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionFileSystemConfig {
+		return vs[0].([]FunctionFileSystemConfig)[vs[1].(int)]
+	}).(FunctionFileSystemConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
+type FunctionImageConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+	Command []string `pulumi:"Command"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+	EntryPoint []string `pulumi:"EntryPoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+	WorkingDirectory *string `pulumi:"WorkingDirectory"`
+}
+
+// FunctionImageConfigInput is an input type that accepts FunctionImageConfigArgs and FunctionImageConfigOutput values.
+// You can construct a concrete instance of `FunctionImageConfigInput` via:
+//
+//          FunctionImageConfigArgs{...}
+type FunctionImageConfigInput interface {
+	pulumi.Input
+
+	ToFunctionImageConfigOutput() FunctionImageConfigOutput
+	ToFunctionImageConfigOutputWithContext(context.Context) FunctionImageConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
+type FunctionImageConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+	Command pulumi.StringArrayInput `pulumi:"Command"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+	EntryPoint pulumi.StringArrayInput `pulumi:"EntryPoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+	WorkingDirectory pulumi.StringPtrInput `pulumi:"WorkingDirectory"`
+}
+
+func (FunctionImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionImageConfig)(nil)).Elem()
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigOutput() FunctionImageConfigOutput {
+	return i.ToFunctionImageConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigOutputWithContext(ctx context.Context) FunctionImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigOutput)
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return i.ToFunctionImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionImageConfigArgs) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigOutput).ToFunctionImageConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionImageConfigPtrInput is an input type that accepts FunctionImageConfigArgs, FunctionImageConfigPtr and FunctionImageConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionImageConfigPtrInput` via:
+//
+//          FunctionImageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput
+	ToFunctionImageConfigPtrOutputWithContext(context.Context) FunctionImageConfigPtrOutput
+}
+
+type functionImageConfigPtrType FunctionImageConfigArgs
+
+func FunctionImageConfigPtr(v *FunctionImageConfigArgs) FunctionImageConfigPtrInput {
+	return (*functionImageConfigPtrType)(v)
+}
+
+func (*functionImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionImageConfig)(nil)).Elem()
+}
+
+func (i *functionImageConfigPtrType) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return i.ToFunctionImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionImageConfigPtrType) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
+type FunctionImageConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionImageConfig)(nil)).Elem()
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigOutput() FunctionImageConfigOutput {
+	return o
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigOutputWithContext(ctx context.Context) FunctionImageConfigOutput {
+	return o
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return o.ToFunctionImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return o.ApplyT(func(v FunctionImageConfig) *FunctionImageConfig {
+		return &v
+	}).(FunctionImageConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+func (o FunctionImageConfigOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionImageConfig) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+func (o FunctionImageConfigOutput) EntryPoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionImageConfig) []string { return v.EntryPoint }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+func (o FunctionImageConfigOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionImageConfig) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
+type FunctionImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionImageConfig)(nil)).Elem()
+}
+
+func (o FunctionImageConfigPtrOutput) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
+	return o
+}
+
+func (o FunctionImageConfigPtrOutput) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
+	return o
+}
+
+func (o FunctionImageConfigPtrOutput) Elem() FunctionImageConfigOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) FunctionImageConfig { return *v }).(FunctionImageConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+func (o FunctionImageConfigPtrOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+func (o FunctionImageConfigPtrOutput) EntryPoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPoint
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionImageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkingDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
 type FunctionProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
 	Code FunctionCode `pulumi:"Code"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+	CodeSigningConfigArn *string `pulumi:"CodeSigningConfigArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"DeadLetterConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
 	Description *string `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
 	Environment *FunctionEnvironment `pulumi:"Environment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"FileSystemConfigs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 	FunctionName *string `pulumi:"FunctionName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
-	Handler string `pulumi:"Handler"`
+	Handler *string `pulumi:"Handler"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+	ImageConfig *FunctionImageConfig `pulumi:"ImageConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
 	KmsKeyArn *string `pulumi:"KmsKeyArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
 	Layers []string `pulumi:"Layers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
 	MemorySize *int `pulumi:"MemorySize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+	PackageType *string `pulumi:"PackageType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
 	ReservedConcurrentExecutions *int `pulumi:"ReservedConcurrentExecutions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
 	Role string `pulumi:"Role"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
-	Runtime string `pulumi:"Runtime"`
+	Runtime *string `pulumi:"Runtime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
 	Tags []cloudformation.Tag `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
@@ -3144,28 +4563,36 @@ type FunctionPropertiesInput interface {
 type FunctionPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
 	Code FunctionCodeInput `pulumi:"Code"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+	CodeSigningConfigArn pulumi.StringPtrInput `pulumi:"CodeSigningConfigArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
 	DeadLetterConfig FunctionDeadLetterConfigPtrInput `pulumi:"DeadLetterConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
 	Description pulumi.StringPtrInput `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
 	Environment FunctionEnvironmentPtrInput `pulumi:"Environment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+	FileSystemConfigs FunctionFileSystemConfigArrayInput `pulumi:"FileSystemConfigs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 	FunctionName pulumi.StringPtrInput `pulumi:"FunctionName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
-	Handler pulumi.StringInput `pulumi:"Handler"`
+	Handler pulumi.StringPtrInput `pulumi:"Handler"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+	ImageConfig FunctionImageConfigPtrInput `pulumi:"ImageConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"KmsKeyArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
 	Layers pulumi.StringArrayInput `pulumi:"Layers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
 	MemorySize pulumi.IntPtrInput `pulumi:"MemorySize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+	PackageType pulumi.StringPtrInput `pulumi:"PackageType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
 	ReservedConcurrentExecutions pulumi.IntPtrInput `pulumi:"ReservedConcurrentExecutions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
 	Role pulumi.StringInput `pulumi:"Role"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
-	Runtime pulumi.StringInput `pulumi:"Runtime"`
+	Runtime pulumi.StringPtrInput `pulumi:"Runtime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
 	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
@@ -3259,6 +4686,11 @@ func (o FunctionPropertiesOutput) Code() FunctionCodeOutput {
 	return o.ApplyT(func(v FunctionProperties) FunctionCode { return v.Code }).(FunctionCodeOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+func (o FunctionPropertiesOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionProperties) *string { return v.CodeSigningConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
 func (o FunctionPropertiesOutput) DeadLetterConfig() FunctionDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v FunctionProperties) *FunctionDeadLetterConfig { return v.DeadLetterConfig }).(FunctionDeadLetterConfigPtrOutput)
@@ -3274,14 +4706,24 @@ func (o FunctionPropertiesOutput) Environment() FunctionEnvironmentPtrOutput {
 	return o.ApplyT(func(v FunctionProperties) *FunctionEnvironment { return v.Environment }).(FunctionEnvironmentPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+func (o FunctionPropertiesOutput) FileSystemConfigs() FunctionFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v FunctionProperties) []FunctionFileSystemConfig { return v.FileSystemConfigs }).(FunctionFileSystemConfigArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 func (o FunctionPropertiesOutput) FunctionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionProperties) *string { return v.FunctionName }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
-func (o FunctionPropertiesOutput) Handler() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionProperties) string { return v.Handler }).(pulumi.StringOutput)
+func (o FunctionPropertiesOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionProperties) *string { return v.Handler }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+func (o FunctionPropertiesOutput) ImageConfig() FunctionImageConfigPtrOutput {
+	return o.ApplyT(func(v FunctionProperties) *FunctionImageConfig { return v.ImageConfig }).(FunctionImageConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
@@ -3299,6 +4741,11 @@ func (o FunctionPropertiesOutput) MemorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionProperties) *int { return v.MemorySize }).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+func (o FunctionPropertiesOutput) PackageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionProperties) *string { return v.PackageType }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
 func (o FunctionPropertiesOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionProperties) *int { return v.ReservedConcurrentExecutions }).(pulumi.IntPtrOutput)
@@ -3310,8 +4757,8 @@ func (o FunctionPropertiesOutput) Role() pulumi.StringOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
-func (o FunctionPropertiesOutput) Runtime() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionProperties) string { return v.Runtime }).(pulumi.StringOutput)
+func (o FunctionPropertiesOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionProperties) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
@@ -3362,6 +4809,16 @@ func (o FunctionPropertiesPtrOutput) Code() FunctionCodePtrOutput {
 	}).(FunctionCodePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+func (o FunctionPropertiesPtrOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CodeSigningConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
 func (o FunctionPropertiesPtrOutput) DeadLetterConfig() FunctionDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionProperties) *FunctionDeadLetterConfig {
@@ -3392,6 +4849,16 @@ func (o FunctionPropertiesPtrOutput) Environment() FunctionEnvironmentPtrOutput 
 	}).(FunctionEnvironmentPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+func (o FunctionPropertiesPtrOutput) FileSystemConfigs() FunctionFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v *FunctionProperties) []FunctionFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemConfigs
+	}).(FunctionFileSystemConfigArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 func (o FunctionPropertiesPtrOutput) FunctionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionProperties) *string {
@@ -3408,8 +4875,18 @@ func (o FunctionPropertiesPtrOutput) Handler() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Handler
+		return v.Handler
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+func (o FunctionPropertiesPtrOutput) ImageConfig() FunctionImageConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionProperties) *FunctionImageConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ImageConfig
+	}).(FunctionImageConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
@@ -3442,6 +4919,16 @@ func (o FunctionPropertiesPtrOutput) MemorySize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+func (o FunctionPropertiesPtrOutput) PackageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PackageType
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
 func (o FunctionPropertiesPtrOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionProperties) *int {
@@ -3468,7 +4955,7 @@ func (o FunctionPropertiesPtrOutput) Runtime() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Runtime
+		return v.Runtime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5407,6 +6894,14 @@ func init() {
 	pulumi.RegisterOutputType(AliasUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigAttributesOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigAttributesPtrOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EventInvokeConfigAttributesOutput{})
 	pulumi.RegisterOutputType(EventInvokeConfigAttributesPtrOutput{})
 	pulumi.RegisterOutputType(EventInvokeConfigDestinationConfigOutput{})
@@ -5421,10 +6916,16 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingAttributesPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingEndpointsOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingEndpointsPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailureOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingPropertiesOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAttributesOutput{})
 	pulumi.RegisterOutputType(FunctionAttributesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCodeOutput{})
@@ -5433,6 +6934,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FunctionFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
+	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
+	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionPropertiesOutput{})
 	pulumi.RegisterOutputType(FunctionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})

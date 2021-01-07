@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SecretsManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SecretsManager:RotationSchedule")]
     public partial class RotationSchedule : Pulumi.CustomResource
     {
         /// <summary>

@@ -34,6 +34,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         public Input<string> ClientCidrBlock { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
+        /// </summary>
+        [Input("ClientConnectOptions")]
+        public Input<Inputs.ClientVpnEndpointClientConnectOptionsArgs>? ClientConnectOptions { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
         /// </summary>
         [Input("ConnectionLogOptions", required: true)]
@@ -68,6 +74,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
             get => _SecurityGroupIds ?? (_SecurityGroupIds = new InputList<string>());
             set => _SecurityGroupIds = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-selfserviceportal
+        /// </summary>
+        [Input("SelfServicePortal")]
+        public Input<string>? SelfServicePortal { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn

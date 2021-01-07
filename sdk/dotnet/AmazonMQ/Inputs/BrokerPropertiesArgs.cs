@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.AmazonMQ.Inputs
     public sealed class BrokerPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
+        /// </summary>
+        [Input("AuthenticationStrategy")]
+        public Input<string>? AuthenticationStrategy { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
         /// </summary>
         [Input("AutoMinorVersionUpgrade", required: true)]
@@ -62,6 +68,12 @@ namespace Pulumi.Cloudformation.AmazonMQ.Inputs
         /// </summary>
         [Input("HostInstanceType", required: true)]
         public Input<string> HostInstanceType { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
+        /// </summary>
+        [Input("LdapServerMetadata")]
+        public Input<Inputs.BrokerLdapServerMetadataArgs>? LdapServerMetadata { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs

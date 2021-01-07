@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ReceiptFilter struct {
 // NewReceiptFilter registers a new resource with the given unique name, arguments, and options.
 func NewReceiptFilter(ctx *pulumi.Context,
 	name string, args *ReceiptFilterArgs, opts ...pulumi.ResourceOption) (*ReceiptFilter, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ReceiptFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ReceiptFilter
 	err := ctx.RegisterResource("cloudformation:SES:ReceiptFilter", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ReceiptFilterArgs struct {
 
 func (ReceiptFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptFilterArgs)(nil)).Elem()
+}
+
+type ReceiptFilterInput interface {
+	pulumi.Input
+
+	ToReceiptFilterOutput() ReceiptFilterOutput
+	ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput
+}
+
+func (*ReceiptFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilter)(nil))
+}
+
+func (i *ReceiptFilter) ToReceiptFilterOutput() ReceiptFilterOutput {
+	return i.ToReceiptFilterOutputWithContext(context.Background())
+}
+
+func (i *ReceiptFilter) ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterOutput)
+}
+
+type ReceiptFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReceiptFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilter)(nil))
+}
+
+func (o ReceiptFilterOutput) ToReceiptFilterOutput() ReceiptFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReceiptFilterOutput{})
 }

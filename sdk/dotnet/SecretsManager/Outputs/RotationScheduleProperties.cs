@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.SecretsManager.Outputs
     public sealed class RotationScheduleProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
+        /// </summary>
+        public readonly Outputs.RotationScheduleHostedRotationLambda? HostedRotationLambda;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
         /// </summary>
         public readonly string? RotationLambdaARN;
@@ -28,12 +32,15 @@ namespace Pulumi.Cloudformation.SecretsManager.Outputs
 
         [OutputConstructor]
         private RotationScheduleProperties(
+            Outputs.RotationScheduleHostedRotationLambda? HostedRotationLambda,
+
             string? RotationLambdaARN,
 
             Outputs.RotationScheduleRotationRules? RotationRules,
 
             string SecretId)
         {
+            this.HostedRotationLambda = HostedRotationLambda;
             this.RotationLambdaARN = RotationLambdaARN;
             this.RotationRules = RotationRules;
             this.SecretId = SecretId;

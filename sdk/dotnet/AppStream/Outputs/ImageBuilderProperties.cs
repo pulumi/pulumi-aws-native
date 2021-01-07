@@ -38,6 +38,10 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
         /// </summary>
         public readonly bool? EnableDefaultInternetAccess;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn
+        /// </summary>
+        public readonly string? IamRoleArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
         /// </summary>
         public readonly string? ImageArn;
@@ -76,6 +80,8 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
 
             bool? EnableDefaultInternetAccess,
 
+            string? IamRoleArn,
+
             string? ImageArn,
 
             string? ImageName,
@@ -94,6 +100,7 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
             this.DisplayName = DisplayName;
             this.DomainJoinInfo = DomainJoinInfo;
             this.EnableDefaultInternetAccess = EnableDefaultInternetAccess;
+            this.IamRoleArn = IamRoleArn;
             this.ImageArn = ImageArn;
             this.ImageName = ImageName;
             this.InstanceType = InstanceType;

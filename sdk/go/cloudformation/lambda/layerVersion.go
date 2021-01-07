@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LayerVersion struct {
 // NewLayerVersion registers a new resource with the given unique name, arguments, and options.
 func NewLayerVersion(ctx *pulumi.Context,
 	name string, args *LayerVersionArgs, opts ...pulumi.ResourceOption) (*LayerVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LayerVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LayerVersion
 	err := ctx.RegisterResource("cloudformation:Lambda:LayerVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LayerVersionArgs struct {
 
 func (LayerVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerVersionArgs)(nil)).Elem()
+}
+
+type LayerVersionInput interface {
+	pulumi.Input
+
+	ToLayerVersionOutput() LayerVersionOutput
+	ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput
+}
+
+func (*LayerVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersion)(nil))
+}
+
+func (i *LayerVersion) ToLayerVersionOutput() LayerVersionOutput {
+	return i.ToLayerVersionOutputWithContext(context.Background())
+}
+
+func (i *LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionOutput)
+}
+
+type LayerVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (LayerVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersion)(nil))
+}
+
+func (o LayerVersionOutput) ToLayerVersionOutput() LayerVersionOutput {
+	return o
+}
+
+func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LayerVersionOutput{})
 }

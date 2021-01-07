@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RecordSet struct {
 // NewRecordSet registers a new resource with the given unique name, arguments, and options.
 func NewRecordSet(ctx *pulumi.Context,
 	name string, args *RecordSetArgs, opts ...pulumi.ResourceOption) (*RecordSet, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RecordSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RecordSet
 	err := ctx.RegisterResource("cloudformation:Route53:RecordSet", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RecordSetArgs struct {
 
 func (RecordSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordSetArgs)(nil)).Elem()
+}
+
+type RecordSetInput interface {
+	pulumi.Input
+
+	ToRecordSetOutput() RecordSetOutput
+	ToRecordSetOutputWithContext(ctx context.Context) RecordSetOutput
+}
+
+func (*RecordSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSet)(nil))
+}
+
+func (i *RecordSet) ToRecordSetOutput() RecordSetOutput {
+	return i.ToRecordSetOutputWithContext(context.Background())
+}
+
+func (i *RecordSet) ToRecordSetOutputWithContext(ctx context.Context) RecordSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetOutput)
+}
+
+type RecordSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecordSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSet)(nil))
+}
+
+func (o RecordSetOutput) ToRecordSetOutput() RecordSetOutput {
+	return o
+}
+
+func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) RecordSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RecordSetOutput{})
 }

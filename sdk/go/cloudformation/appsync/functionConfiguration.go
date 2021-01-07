@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type FunctionConfiguration struct {
 // NewFunctionConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewFunctionConfiguration(ctx *pulumi.Context,
 	name string, args *FunctionConfigurationArgs, opts ...pulumi.ResourceOption) (*FunctionConfiguration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FunctionConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource FunctionConfiguration
 	err := ctx.RegisterResource("cloudformation:AppSync:FunctionConfiguration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FunctionConfigurationArgs struct {
 
 func (FunctionConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionConfigurationArgs)(nil)).Elem()
+}
+
+type FunctionConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionConfigurationOutput() FunctionConfigurationOutput
+	ToFunctionConfigurationOutputWithContext(ctx context.Context) FunctionConfigurationOutput
+}
+
+func (*FunctionConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfiguration)(nil))
+}
+
+func (i *FunctionConfiguration) ToFunctionConfigurationOutput() FunctionConfigurationOutput {
+	return i.ToFunctionConfigurationOutputWithContext(context.Background())
+}
+
+func (i *FunctionConfiguration) ToFunctionConfigurationOutputWithContext(ctx context.Context) FunctionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationOutput)
+}
+
+type FunctionConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfiguration)(nil))
+}
+
+func (o FunctionConfigurationOutput) ToFunctionConfigurationOutput() FunctionConfigurationOutput {
+	return o
+}
+
+func (o FunctionConfigurationOutput) ToFunctionConfigurationOutputWithContext(ctx context.Context) FunctionConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionConfigurationOutput{})
 }

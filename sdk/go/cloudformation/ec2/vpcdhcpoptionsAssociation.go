@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPCDHCPOptionsAssociation struct {
 // NewVPCDHCPOptionsAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVPCDHCPOptionsAssociation(ctx *pulumi.Context,
 	name string, args *VPCDHCPOptionsAssociationArgs, opts ...pulumi.ResourceOption) (*VPCDHCPOptionsAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCDHCPOptionsAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPCDHCPOptionsAssociation
 	err := ctx.RegisterResource("cloudformation:EC2:VPCDHCPOptionsAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCDHCPOptionsAssociationArgs struct {
 
 func (VPCDHCPOptionsAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcdhcpoptionsAssociationArgs)(nil)).Elem()
+}
+
+type VPCDHCPOptionsAssociationInput interface {
+	pulumi.Input
+
+	ToVPCDHCPOptionsAssociationOutput() VPCDHCPOptionsAssociationOutput
+	ToVPCDHCPOptionsAssociationOutputWithContext(ctx context.Context) VPCDHCPOptionsAssociationOutput
+}
+
+func (*VPCDHCPOptionsAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCDHCPOptionsAssociation)(nil))
+}
+
+func (i *VPCDHCPOptionsAssociation) ToVPCDHCPOptionsAssociationOutput() VPCDHCPOptionsAssociationOutput {
+	return i.ToVPCDHCPOptionsAssociationOutputWithContext(context.Background())
+}
+
+func (i *VPCDHCPOptionsAssociation) ToVPCDHCPOptionsAssociationOutputWithContext(ctx context.Context) VPCDHCPOptionsAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCDHCPOptionsAssociationOutput)
+}
+
+type VPCDHCPOptionsAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCDHCPOptionsAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCDHCPOptionsAssociation)(nil))
+}
+
+func (o VPCDHCPOptionsAssociationOutput) ToVPCDHCPOptionsAssociationOutput() VPCDHCPOptionsAssociationOutput {
+	return o
+}
+
+func (o VPCDHCPOptionsAssociationOutput) ToVPCDHCPOptionsAssociationOutputWithContext(ctx context.Context) VPCDHCPOptionsAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCDHCPOptionsAssociationOutput{})
 }

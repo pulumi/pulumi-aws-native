@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IAM:UserToGroupAddition")]
     public partial class UserToGroupAddition : Pulumi.CustomResource
     {
         /// <summary>

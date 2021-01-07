@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolResourceServer struct {
 // NewUserPoolResourceServer registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolResourceServer(ctx *pulumi.Context,
 	name string, args *UserPoolResourceServerArgs, opts ...pulumi.ResourceOption) (*UserPoolResourceServer, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolResourceServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolResourceServer
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolResourceServer", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolResourceServerArgs struct {
 
 func (UserPoolResourceServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolResourceServerArgs)(nil)).Elem()
+}
+
+type UserPoolResourceServerInput interface {
+	pulumi.Input
+
+	ToUserPoolResourceServerOutput() UserPoolResourceServerOutput
+	ToUserPoolResourceServerOutputWithContext(ctx context.Context) UserPoolResourceServerOutput
+}
+
+func (*UserPoolResourceServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolResourceServer)(nil))
+}
+
+func (i *UserPoolResourceServer) ToUserPoolResourceServerOutput() UserPoolResourceServerOutput {
+	return i.ToUserPoolResourceServerOutputWithContext(context.Background())
+}
+
+func (i *UserPoolResourceServer) ToUserPoolResourceServerOutputWithContext(ctx context.Context) UserPoolResourceServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolResourceServerOutput)
+}
+
+type UserPoolResourceServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolResourceServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolResourceServer)(nil))
+}
+
+func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutput() UserPoolResourceServerOutput {
+	return o
+}
+
+func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutputWithContext(ctx context.Context) UserPoolResourceServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolResourceServerOutput{})
 }

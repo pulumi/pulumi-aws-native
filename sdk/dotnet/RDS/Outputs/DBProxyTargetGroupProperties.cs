@@ -29,6 +29,10 @@ namespace Pulumi.Cloudformation.RDS.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         /// </summary>
         public readonly string DBProxyName;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+        /// </summary>
+        public readonly string TargetGroupName;
 
         [OutputConstructor]
         private DBProxyTargetGroupProperties(
@@ -38,12 +42,15 @@ namespace Pulumi.Cloudformation.RDS.Outputs
 
             ImmutableArray<string> DBInstanceIdentifiers,
 
-            string DBProxyName)
+            string DBProxyName,
+
+            string TargetGroupName)
         {
             this.ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo;
             this.DBClusterIdentifiers = DBClusterIdentifiers;
             this.DBInstanceIdentifiers = DBInstanceIdentifiers;
             this.DBProxyName = DBProxyName;
+            this.TargetGroupName = TargetGroupName;
         }
     }
 }

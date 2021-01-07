@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.ECS.Inputs
     public sealed class ServiceDeploymentConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
+        /// </summary>
+        [Input("DeploymentCircuitBreaker")]
+        public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
         /// </summary>
         [Input("MaximumPercent")]

@@ -5,15 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'ImportValueResult',
+    'AwaitableImportValueResult',
+    'import_value',
+]
 
+@pulumi.output_type
 class ImportValueResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, dict):
             raise TypeError("Expected argument 'value' to be a dict")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        return pulumi.get(self, "value")
 
 
 class AwaitableImportValueResult(ImportValueResult):
@@ -25,7 +36,8 @@ class AwaitableImportValueResult(ImportValueResult):
             value=self.value)
 
 
-def import_value(name=None, opts=None):
+def import_value(name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableImportValueResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -34,8 +46,8 @@ def import_value(name=None, opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('cloudformation:index:importValue', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('cloudformation:index:importValue', __args__, opts=opts, typ=ImportValueResult).value
 
     return AwaitableImportValueResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

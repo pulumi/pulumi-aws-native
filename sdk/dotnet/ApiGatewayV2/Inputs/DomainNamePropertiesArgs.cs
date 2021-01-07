@@ -34,6 +34,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
+        /// </summary>
+        [Input("MutualTlsAuthentication")]
+        public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
         /// </summary>
         [Input("Tags")]

@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
         /// </summary>
         public readonly string? DistributionConfigurationArn;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+        /// </summary>
+        public readonly bool? EnhancedImageMetadataEnabled;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
         /// </summary>
         public readonly string ImageRecipeArn;
@@ -56,6 +60,8 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
 
             string? DistributionConfigurationArn,
 
+            bool? EnhancedImageMetadataEnabled,
+
             string ImageRecipeArn,
 
             Outputs.ImagePipelineImageTestsConfiguration? ImageTestsConfiguration,
@@ -72,6 +78,7 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
         {
             this.Description = Description;
             this.DistributionConfigurationArn = DistributionConfigurationArn;
+            this.EnhancedImageMetadataEnabled = EnhancedImageMetadataEnabled;
             this.ImageRecipeArn = ImageRecipeArn;
             this.ImageTestsConfiguration = ImageTestsConfiguration;
             this.InfrastructureConfigurationArn = InfrastructureConfigurationArn;

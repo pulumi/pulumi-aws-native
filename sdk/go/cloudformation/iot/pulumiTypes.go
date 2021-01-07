@@ -10,8 +10,632 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AuthorizerAttributes struct {
+	Arn string `pulumi:"Arn"`
+}
+
+// AuthorizerAttributesInput is an input type that accepts AuthorizerAttributesArgs and AuthorizerAttributesOutput values.
+// You can construct a concrete instance of `AuthorizerAttributesInput` via:
+//
+//          AuthorizerAttributesArgs{...}
+type AuthorizerAttributesInput interface {
+	pulumi.Input
+
+	ToAuthorizerAttributesOutput() AuthorizerAttributesOutput
+	ToAuthorizerAttributesOutputWithContext(context.Context) AuthorizerAttributesOutput
+}
+
+type AuthorizerAttributesArgs struct {
+	Arn pulumi.StringInput `pulumi:"Arn"`
+}
+
+func (AuthorizerAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerAttributes)(nil)).Elem()
+}
+
+func (i AuthorizerAttributesArgs) ToAuthorizerAttributesOutput() AuthorizerAttributesOutput {
+	return i.ToAuthorizerAttributesOutputWithContext(context.Background())
+}
+
+func (i AuthorizerAttributesArgs) ToAuthorizerAttributesOutputWithContext(ctx context.Context) AuthorizerAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerAttributesOutput)
+}
+
+func (i AuthorizerAttributesArgs) ToAuthorizerAttributesPtrOutput() AuthorizerAttributesPtrOutput {
+	return i.ToAuthorizerAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i AuthorizerAttributesArgs) ToAuthorizerAttributesPtrOutputWithContext(ctx context.Context) AuthorizerAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerAttributesOutput).ToAuthorizerAttributesPtrOutputWithContext(ctx)
+}
+
+// AuthorizerAttributesPtrInput is an input type that accepts AuthorizerAttributesArgs, AuthorizerAttributesPtr and AuthorizerAttributesPtrOutput values.
+// You can construct a concrete instance of `AuthorizerAttributesPtrInput` via:
+//
+//          AuthorizerAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type AuthorizerAttributesPtrInput interface {
+	pulumi.Input
+
+	ToAuthorizerAttributesPtrOutput() AuthorizerAttributesPtrOutput
+	ToAuthorizerAttributesPtrOutputWithContext(context.Context) AuthorizerAttributesPtrOutput
+}
+
+type authorizerAttributesPtrType AuthorizerAttributesArgs
+
+func AuthorizerAttributesPtr(v *AuthorizerAttributesArgs) AuthorizerAttributesPtrInput {
+	return (*authorizerAttributesPtrType)(v)
+}
+
+func (*authorizerAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerAttributes)(nil)).Elem()
+}
+
+func (i *authorizerAttributesPtrType) ToAuthorizerAttributesPtrOutput() AuthorizerAttributesPtrOutput {
+	return i.ToAuthorizerAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *authorizerAttributesPtrType) ToAuthorizerAttributesPtrOutputWithContext(ctx context.Context) AuthorizerAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerAttributesPtrOutput)
+}
+
+type AuthorizerAttributesOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerAttributes)(nil)).Elem()
+}
+
+func (o AuthorizerAttributesOutput) ToAuthorizerAttributesOutput() AuthorizerAttributesOutput {
+	return o
+}
+
+func (o AuthorizerAttributesOutput) ToAuthorizerAttributesOutputWithContext(ctx context.Context) AuthorizerAttributesOutput {
+	return o
+}
+
+func (o AuthorizerAttributesOutput) ToAuthorizerAttributesPtrOutput() AuthorizerAttributesPtrOutput {
+	return o.ToAuthorizerAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizerAttributesOutput) ToAuthorizerAttributesPtrOutputWithContext(ctx context.Context) AuthorizerAttributesPtrOutput {
+	return o.ApplyT(func(v AuthorizerAttributes) *AuthorizerAttributes {
+		return &v
+	}).(AuthorizerAttributesPtrOutput)
+}
+func (o AuthorizerAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizerAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type AuthorizerAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerAttributes)(nil)).Elem()
+}
+
+func (o AuthorizerAttributesPtrOutput) ToAuthorizerAttributesPtrOutput() AuthorizerAttributesPtrOutput {
+	return o
+}
+
+func (o AuthorizerAttributesPtrOutput) ToAuthorizerAttributesPtrOutputWithContext(ctx context.Context) AuthorizerAttributesPtrOutput {
+	return o
+}
+
+func (o AuthorizerAttributesPtrOutput) Elem() AuthorizerAttributesOutput {
+	return o.ApplyT(func(v *AuthorizerAttributes) AuthorizerAttributes { return *v }).(AuthorizerAttributesOutput)
+}
+
+func (o AuthorizerAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizerAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
+type AuthorizerProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
+	AuthorizerFunctionArn string `pulumi:"AuthorizerFunctionArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
+	AuthorizerName *string `pulumi:"AuthorizerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
+	SigningDisabled *bool `pulumi:"SigningDisabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
+	Status *string `pulumi:"Status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
+	Tags *AuthorizerTags `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+	TokenKeyName *string `pulumi:"TokenKeyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
+	TokenSigningPublicKeys *AuthorizerTokenSigningPublicKeys `pulumi:"TokenSigningPublicKeys"`
+}
+
+// AuthorizerPropertiesInput is an input type that accepts AuthorizerPropertiesArgs and AuthorizerPropertiesOutput values.
+// You can construct a concrete instance of `AuthorizerPropertiesInput` via:
+//
+//          AuthorizerPropertiesArgs{...}
+type AuthorizerPropertiesInput interface {
+	pulumi.Input
+
+	ToAuthorizerPropertiesOutput() AuthorizerPropertiesOutput
+	ToAuthorizerPropertiesOutputWithContext(context.Context) AuthorizerPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
+type AuthorizerPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
+	AuthorizerFunctionArn pulumi.StringInput `pulumi:"AuthorizerFunctionArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
+	AuthorizerName pulumi.StringPtrInput `pulumi:"AuthorizerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
+	SigningDisabled pulumi.BoolPtrInput `pulumi:"SigningDisabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
+	Status pulumi.StringPtrInput `pulumi:"Status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
+	Tags AuthorizerTagsPtrInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+	TokenKeyName pulumi.StringPtrInput `pulumi:"TokenKeyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
+	TokenSigningPublicKeys AuthorizerTokenSigningPublicKeysPtrInput `pulumi:"TokenSigningPublicKeys"`
+}
+
+func (AuthorizerPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerProperties)(nil)).Elem()
+}
+
+func (i AuthorizerPropertiesArgs) ToAuthorizerPropertiesOutput() AuthorizerPropertiesOutput {
+	return i.ToAuthorizerPropertiesOutputWithContext(context.Background())
+}
+
+func (i AuthorizerPropertiesArgs) ToAuthorizerPropertiesOutputWithContext(ctx context.Context) AuthorizerPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerPropertiesOutput)
+}
+
+func (i AuthorizerPropertiesArgs) ToAuthorizerPropertiesPtrOutput() AuthorizerPropertiesPtrOutput {
+	return i.ToAuthorizerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AuthorizerPropertiesArgs) ToAuthorizerPropertiesPtrOutputWithContext(ctx context.Context) AuthorizerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerPropertiesOutput).ToAuthorizerPropertiesPtrOutputWithContext(ctx)
+}
+
+// AuthorizerPropertiesPtrInput is an input type that accepts AuthorizerPropertiesArgs, AuthorizerPropertiesPtr and AuthorizerPropertiesPtrOutput values.
+// You can construct a concrete instance of `AuthorizerPropertiesPtrInput` via:
+//
+//          AuthorizerPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AuthorizerPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAuthorizerPropertiesPtrOutput() AuthorizerPropertiesPtrOutput
+	ToAuthorizerPropertiesPtrOutputWithContext(context.Context) AuthorizerPropertiesPtrOutput
+}
+
+type authorizerPropertiesPtrType AuthorizerPropertiesArgs
+
+func AuthorizerPropertiesPtr(v *AuthorizerPropertiesArgs) AuthorizerPropertiesPtrInput {
+	return (*authorizerPropertiesPtrType)(v)
+}
+
+func (*authorizerPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerProperties)(nil)).Elem()
+}
+
+func (i *authorizerPropertiesPtrType) ToAuthorizerPropertiesPtrOutput() AuthorizerPropertiesPtrOutput {
+	return i.ToAuthorizerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *authorizerPropertiesPtrType) ToAuthorizerPropertiesPtrOutputWithContext(ctx context.Context) AuthorizerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
+type AuthorizerPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerProperties)(nil)).Elem()
+}
+
+func (o AuthorizerPropertiesOutput) ToAuthorizerPropertiesOutput() AuthorizerPropertiesOutput {
+	return o
+}
+
+func (o AuthorizerPropertiesOutput) ToAuthorizerPropertiesOutputWithContext(ctx context.Context) AuthorizerPropertiesOutput {
+	return o
+}
+
+func (o AuthorizerPropertiesOutput) ToAuthorizerPropertiesPtrOutput() AuthorizerPropertiesPtrOutput {
+	return o.ToAuthorizerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizerPropertiesOutput) ToAuthorizerPropertiesPtrOutputWithContext(ctx context.Context) AuthorizerPropertiesPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *AuthorizerProperties {
+		return &v
+	}).(AuthorizerPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
+func (o AuthorizerPropertiesOutput) AuthorizerFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizerProperties) string { return v.AuthorizerFunctionArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
+func (o AuthorizerPropertiesOutput) AuthorizerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *string { return v.AuthorizerName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
+func (o AuthorizerPropertiesOutput) SigningDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *bool { return v.SigningDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
+func (o AuthorizerPropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
+func (o AuthorizerPropertiesOutput) Tags() AuthorizerTagsPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *AuthorizerTags { return v.Tags }).(AuthorizerTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+func (o AuthorizerPropertiesOutput) TokenKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *string { return v.TokenKeyName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
+func (o AuthorizerPropertiesOutput) TokenSigningPublicKeys() AuthorizerTokenSigningPublicKeysPtrOutput {
+	return o.ApplyT(func(v AuthorizerProperties) *AuthorizerTokenSigningPublicKeys { return v.TokenSigningPublicKeys }).(AuthorizerTokenSigningPublicKeysPtrOutput)
+}
+
+type AuthorizerPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerProperties)(nil)).Elem()
+}
+
+func (o AuthorizerPropertiesPtrOutput) ToAuthorizerPropertiesPtrOutput() AuthorizerPropertiesPtrOutput {
+	return o
+}
+
+func (o AuthorizerPropertiesPtrOutput) ToAuthorizerPropertiesPtrOutputWithContext(ctx context.Context) AuthorizerPropertiesPtrOutput {
+	return o
+}
+
+func (o AuthorizerPropertiesPtrOutput) Elem() AuthorizerPropertiesOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) AuthorizerProperties { return *v }).(AuthorizerPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
+func (o AuthorizerPropertiesPtrOutput) AuthorizerFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizerFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
+func (o AuthorizerPropertiesPtrOutput) AuthorizerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
+func (o AuthorizerPropertiesPtrOutput) SigningDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SigningDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
+func (o AuthorizerPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
+func (o AuthorizerPropertiesPtrOutput) Tags() AuthorizerTagsPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *AuthorizerTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(AuthorizerTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+func (o AuthorizerPropertiesPtrOutput) TokenKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenKeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
+func (o AuthorizerPropertiesPtrOutput) TokenSigningPublicKeys() AuthorizerTokenSigningPublicKeysPtrOutput {
+	return o.ApplyT(func(v *AuthorizerProperties) *AuthorizerTokenSigningPublicKeys {
+		if v == nil {
+			return nil
+		}
+		return v.TokenSigningPublicKeys
+	}).(AuthorizerTokenSigningPublicKeysPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html
+type AuthorizerTags struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
+	Tags []interface{} `pulumi:"Tags"`
+}
+
+// AuthorizerTagsInput is an input type that accepts AuthorizerTagsArgs and AuthorizerTagsOutput values.
+// You can construct a concrete instance of `AuthorizerTagsInput` via:
+//
+//          AuthorizerTagsArgs{...}
+type AuthorizerTagsInput interface {
+	pulumi.Input
+
+	ToAuthorizerTagsOutput() AuthorizerTagsOutput
+	ToAuthorizerTagsOutputWithContext(context.Context) AuthorizerTagsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html
+type AuthorizerTagsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
+	Tags pulumi.ArrayInput `pulumi:"Tags"`
+}
+
+func (AuthorizerTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerTags)(nil)).Elem()
+}
+
+func (i AuthorizerTagsArgs) ToAuthorizerTagsOutput() AuthorizerTagsOutput {
+	return i.ToAuthorizerTagsOutputWithContext(context.Background())
+}
+
+func (i AuthorizerTagsArgs) ToAuthorizerTagsOutputWithContext(ctx context.Context) AuthorizerTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTagsOutput)
+}
+
+func (i AuthorizerTagsArgs) ToAuthorizerTagsPtrOutput() AuthorizerTagsPtrOutput {
+	return i.ToAuthorizerTagsPtrOutputWithContext(context.Background())
+}
+
+func (i AuthorizerTagsArgs) ToAuthorizerTagsPtrOutputWithContext(ctx context.Context) AuthorizerTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTagsOutput).ToAuthorizerTagsPtrOutputWithContext(ctx)
+}
+
+// AuthorizerTagsPtrInput is an input type that accepts AuthorizerTagsArgs, AuthorizerTagsPtr and AuthorizerTagsPtrOutput values.
+// You can construct a concrete instance of `AuthorizerTagsPtrInput` via:
+//
+//          AuthorizerTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type AuthorizerTagsPtrInput interface {
+	pulumi.Input
+
+	ToAuthorizerTagsPtrOutput() AuthorizerTagsPtrOutput
+	ToAuthorizerTagsPtrOutputWithContext(context.Context) AuthorizerTagsPtrOutput
+}
+
+type authorizerTagsPtrType AuthorizerTagsArgs
+
+func AuthorizerTagsPtr(v *AuthorizerTagsArgs) AuthorizerTagsPtrInput {
+	return (*authorizerTagsPtrType)(v)
+}
+
+func (*authorizerTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerTags)(nil)).Elem()
+}
+
+func (i *authorizerTagsPtrType) ToAuthorizerTagsPtrOutput() AuthorizerTagsPtrOutput {
+	return i.ToAuthorizerTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *authorizerTagsPtrType) ToAuthorizerTagsPtrOutputWithContext(ctx context.Context) AuthorizerTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html
+type AuthorizerTagsOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerTags)(nil)).Elem()
+}
+
+func (o AuthorizerTagsOutput) ToAuthorizerTagsOutput() AuthorizerTagsOutput {
+	return o
+}
+
+func (o AuthorizerTagsOutput) ToAuthorizerTagsOutputWithContext(ctx context.Context) AuthorizerTagsOutput {
+	return o
+}
+
+func (o AuthorizerTagsOutput) ToAuthorizerTagsPtrOutput() AuthorizerTagsPtrOutput {
+	return o.ToAuthorizerTagsPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizerTagsOutput) ToAuthorizerTagsPtrOutputWithContext(ctx context.Context) AuthorizerTagsPtrOutput {
+	return o.ApplyT(func(v AuthorizerTags) *AuthorizerTags {
+		return &v
+	}).(AuthorizerTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
+func (o AuthorizerTagsOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v AuthorizerTags) []interface{} { return v.Tags }).(pulumi.ArrayOutput)
+}
+
+type AuthorizerTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerTags)(nil)).Elem()
+}
+
+func (o AuthorizerTagsPtrOutput) ToAuthorizerTagsPtrOutput() AuthorizerTagsPtrOutput {
+	return o
+}
+
+func (o AuthorizerTagsPtrOutput) ToAuthorizerTagsPtrOutputWithContext(ctx context.Context) AuthorizerTagsPtrOutput {
+	return o
+}
+
+func (o AuthorizerTagsPtrOutput) Elem() AuthorizerTagsOutput {
+	return o.ApplyT(func(v *AuthorizerTags) AuthorizerTags { return *v }).(AuthorizerTagsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
+func (o AuthorizerTagsPtrOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AuthorizerTags) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.ArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
+type AuthorizerTokenSigningPublicKeys struct {
+}
+
+// AuthorizerTokenSigningPublicKeysInput is an input type that accepts AuthorizerTokenSigningPublicKeysArgs and AuthorizerTokenSigningPublicKeysOutput values.
+// You can construct a concrete instance of `AuthorizerTokenSigningPublicKeysInput` via:
+//
+//          AuthorizerTokenSigningPublicKeysArgs{...}
+type AuthorizerTokenSigningPublicKeysInput interface {
+	pulumi.Input
+
+	ToAuthorizerTokenSigningPublicKeysOutput() AuthorizerTokenSigningPublicKeysOutput
+	ToAuthorizerTokenSigningPublicKeysOutputWithContext(context.Context) AuthorizerTokenSigningPublicKeysOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
+type AuthorizerTokenSigningPublicKeysArgs struct {
+}
+
+func (AuthorizerTokenSigningPublicKeysArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerTokenSigningPublicKeys)(nil)).Elem()
+}
+
+func (i AuthorizerTokenSigningPublicKeysArgs) ToAuthorizerTokenSigningPublicKeysOutput() AuthorizerTokenSigningPublicKeysOutput {
+	return i.ToAuthorizerTokenSigningPublicKeysOutputWithContext(context.Background())
+}
+
+func (i AuthorizerTokenSigningPublicKeysArgs) ToAuthorizerTokenSigningPublicKeysOutputWithContext(ctx context.Context) AuthorizerTokenSigningPublicKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTokenSigningPublicKeysOutput)
+}
+
+func (i AuthorizerTokenSigningPublicKeysArgs) ToAuthorizerTokenSigningPublicKeysPtrOutput() AuthorizerTokenSigningPublicKeysPtrOutput {
+	return i.ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(context.Background())
+}
+
+func (i AuthorizerTokenSigningPublicKeysArgs) ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(ctx context.Context) AuthorizerTokenSigningPublicKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTokenSigningPublicKeysOutput).ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(ctx)
+}
+
+// AuthorizerTokenSigningPublicKeysPtrInput is an input type that accepts AuthorizerTokenSigningPublicKeysArgs, AuthorizerTokenSigningPublicKeysPtr and AuthorizerTokenSigningPublicKeysPtrOutput values.
+// You can construct a concrete instance of `AuthorizerTokenSigningPublicKeysPtrInput` via:
+//
+//          AuthorizerTokenSigningPublicKeysArgs{...}
+//
+//  or:
+//
+//          nil
+type AuthorizerTokenSigningPublicKeysPtrInput interface {
+	pulumi.Input
+
+	ToAuthorizerTokenSigningPublicKeysPtrOutput() AuthorizerTokenSigningPublicKeysPtrOutput
+	ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(context.Context) AuthorizerTokenSigningPublicKeysPtrOutput
+}
+
+type authorizerTokenSigningPublicKeysPtrType AuthorizerTokenSigningPublicKeysArgs
+
+func AuthorizerTokenSigningPublicKeysPtr(v *AuthorizerTokenSigningPublicKeysArgs) AuthorizerTokenSigningPublicKeysPtrInput {
+	return (*authorizerTokenSigningPublicKeysPtrType)(v)
+}
+
+func (*authorizerTokenSigningPublicKeysPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerTokenSigningPublicKeys)(nil)).Elem()
+}
+
+func (i *authorizerTokenSigningPublicKeysPtrType) ToAuthorizerTokenSigningPublicKeysPtrOutput() AuthorizerTokenSigningPublicKeysPtrOutput {
+	return i.ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(context.Background())
+}
+
+func (i *authorizerTokenSigningPublicKeysPtrType) ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(ctx context.Context) AuthorizerTokenSigningPublicKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTokenSigningPublicKeysPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
+type AuthorizerTokenSigningPublicKeysOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerTokenSigningPublicKeysOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerTokenSigningPublicKeys)(nil)).Elem()
+}
+
+func (o AuthorizerTokenSigningPublicKeysOutput) ToAuthorizerTokenSigningPublicKeysOutput() AuthorizerTokenSigningPublicKeysOutput {
+	return o
+}
+
+func (o AuthorizerTokenSigningPublicKeysOutput) ToAuthorizerTokenSigningPublicKeysOutputWithContext(ctx context.Context) AuthorizerTokenSigningPublicKeysOutput {
+	return o
+}
+
+func (o AuthorizerTokenSigningPublicKeysOutput) ToAuthorizerTokenSigningPublicKeysPtrOutput() AuthorizerTokenSigningPublicKeysPtrOutput {
+	return o.ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizerTokenSigningPublicKeysOutput) ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(ctx context.Context) AuthorizerTokenSigningPublicKeysPtrOutput {
+	return o.ApplyT(func(v AuthorizerTokenSigningPublicKeys) *AuthorizerTokenSigningPublicKeys {
+		return &v
+	}).(AuthorizerTokenSigningPublicKeysPtrOutput)
+}
+
+type AuthorizerTokenSigningPublicKeysPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerTokenSigningPublicKeysPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerTokenSigningPublicKeys)(nil)).Elem()
+}
+
+func (o AuthorizerTokenSigningPublicKeysPtrOutput) ToAuthorizerTokenSigningPublicKeysPtrOutput() AuthorizerTokenSigningPublicKeysPtrOutput {
+	return o
+}
+
+func (o AuthorizerTokenSigningPublicKeysPtrOutput) ToAuthorizerTokenSigningPublicKeysPtrOutputWithContext(ctx context.Context) AuthorizerTokenSigningPublicKeysPtrOutput {
+	return o
+}
+
+func (o AuthorizerTokenSigningPublicKeysPtrOutput) Elem() AuthorizerTokenSigningPublicKeysOutput {
+	return o.ApplyT(func(v *AuthorizerTokenSigningPublicKeys) AuthorizerTokenSigningPublicKeys { return *v }).(AuthorizerTokenSigningPublicKeysOutput)
+}
+
 type CertificateAttributes struct {
 	Arn string `pulumi:"Arn"`
+	Id  string `pulumi:"Id"`
 }
 
 // CertificateAttributesInput is an input type that accepts CertificateAttributesArgs and CertificateAttributesOutput values.
@@ -27,6 +651,7 @@ type CertificateAttributesInput interface {
 
 type CertificateAttributesArgs struct {
 	Arn pulumi.StringInput `pulumi:"Arn"`
+	Id  pulumi.StringInput `pulumi:"Id"`
 }
 
 func (CertificateAttributesArgs) ElementType() reflect.Type {
@@ -109,6 +734,10 @@ func (o CertificateAttributesOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateAttributes) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o CertificateAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type CertificateAttributesPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAttributesPtrOutput) ElementType() reflect.Type {
@@ -136,10 +765,25 @@ func (o CertificateAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o CertificateAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
 type CertificateProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+	CACertificatePem *string `pulumi:"CACertificatePem"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
+	CertificateMode *string `pulumi:"CertificateMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+	CertificatePem *string `pulumi:"CertificatePem"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-	CertificateSigningRequest string `pulumi:"CertificateSigningRequest"`
+	CertificateSigningRequest *string `pulumi:"CertificateSigningRequest"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
 	Status string `pulumi:"Status"`
 }
@@ -157,8 +801,14 @@ type CertificatePropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
 type CertificatePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+	CACertificatePem pulumi.StringPtrInput `pulumi:"CACertificatePem"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
+	CertificateMode pulumi.StringPtrInput `pulumi:"CertificateMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+	CertificatePem pulumi.StringPtrInput `pulumi:"CertificatePem"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-	CertificateSigningRequest pulumi.StringInput `pulumi:"CertificateSigningRequest"`
+	CertificateSigningRequest pulumi.StringPtrInput `pulumi:"CertificateSigningRequest"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
 	Status pulumi.StringInput `pulumi:"Status"`
 }
@@ -241,9 +891,24 @@ func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext
 	}).(CertificatePropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+func (o CertificatePropertiesOutput) CACertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateProperties) *string { return v.CACertificatePem }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
+func (o CertificatePropertiesOutput) CertificateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateProperties) *string { return v.CertificateMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+func (o CertificatePropertiesOutput) CertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateProperties) *string { return v.CertificatePem }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-func (o CertificatePropertiesOutput) CertificateSigningRequest() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateProperties) string { return v.CertificateSigningRequest }).(pulumi.StringOutput)
+func (o CertificatePropertiesOutput) CertificateSigningRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateProperties) *string { return v.CertificateSigningRequest }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
@@ -269,13 +934,43 @@ func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
 	return o.ApplyT(func(v *CertificateProperties) CertificateProperties { return *v }).(CertificatePropertiesOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+func (o CertificatePropertiesPtrOutput) CACertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CACertificatePem
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
+func (o CertificatePropertiesPtrOutput) CertificateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+func (o CertificatePropertiesPtrOutput) CertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificatePem
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
 func (o CertificatePropertiesPtrOutput) CertificateSigningRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.CertificateSigningRequest
+		return v.CertificateSigningRequest
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -970,7 +1665,7 @@ type ProvisioningTemplateProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
 	ProvisioningRoleArn string `pulumi:"ProvisioningRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-	Tags []interface{} `pulumi:"Tags"`
+	Tags *ProvisioningTemplateTags `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
 	TemplateBody string `pulumi:"TemplateBody"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
@@ -999,7 +1694,7 @@ type ProvisioningTemplatePropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
 	ProvisioningRoleArn pulumi.StringInput `pulumi:"ProvisioningRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-	Tags pulumi.ArrayInput `pulumi:"Tags"`
+	Tags ProvisioningTemplateTagsPtrInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
 	TemplateBody pulumi.StringInput `pulumi:"TemplateBody"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
@@ -1107,8 +1802,8 @@ func (o ProvisioningTemplatePropertiesOutput) ProvisioningRoleArn() pulumi.Strin
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-func (o ProvisioningTemplatePropertiesOutput) Tags() pulumi.ArrayOutput {
-	return o.ApplyT(func(v ProvisioningTemplateProperties) []interface{} { return v.Tags }).(pulumi.ArrayOutput)
+func (o ProvisioningTemplatePropertiesOutput) Tags() ProvisioningTemplateTagsPtrOutput {
+	return o.ApplyT(func(v ProvisioningTemplateProperties) *ProvisioningTemplateTags { return v.Tags }).(ProvisioningTemplateTagsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
@@ -1180,13 +1875,13 @@ func (o ProvisioningTemplatePropertiesPtrOutput) ProvisioningRoleArn() pulumi.St
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-func (o ProvisioningTemplatePropertiesPtrOutput) Tags() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *ProvisioningTemplateProperties) []interface{} {
+func (o ProvisioningTemplatePropertiesPtrOutput) Tags() ProvisioningTemplateTagsPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplateProperties) *ProvisioningTemplateTags {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(pulumi.ArrayOutput)
+	}).(ProvisioningTemplateTagsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
@@ -1360,6 +2055,140 @@ func (o ProvisioningTemplateProvisioningHookPtrOutput) TargetArn() pulumi.String
 		}
 		return v.TargetArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html
+type ProvisioningTemplateTags struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
+	Tags []interface{} `pulumi:"Tags"`
+}
+
+// ProvisioningTemplateTagsInput is an input type that accepts ProvisioningTemplateTagsArgs and ProvisioningTemplateTagsOutput values.
+// You can construct a concrete instance of `ProvisioningTemplateTagsInput` via:
+//
+//          ProvisioningTemplateTagsArgs{...}
+type ProvisioningTemplateTagsInput interface {
+	pulumi.Input
+
+	ToProvisioningTemplateTagsOutput() ProvisioningTemplateTagsOutput
+	ToProvisioningTemplateTagsOutputWithContext(context.Context) ProvisioningTemplateTagsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html
+type ProvisioningTemplateTagsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
+	Tags pulumi.ArrayInput `pulumi:"Tags"`
+}
+
+func (ProvisioningTemplateTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplateTags)(nil)).Elem()
+}
+
+func (i ProvisioningTemplateTagsArgs) ToProvisioningTemplateTagsOutput() ProvisioningTemplateTagsOutput {
+	return i.ToProvisioningTemplateTagsOutputWithContext(context.Background())
+}
+
+func (i ProvisioningTemplateTagsArgs) ToProvisioningTemplateTagsOutputWithContext(ctx context.Context) ProvisioningTemplateTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateTagsOutput)
+}
+
+func (i ProvisioningTemplateTagsArgs) ToProvisioningTemplateTagsPtrOutput() ProvisioningTemplateTagsPtrOutput {
+	return i.ToProvisioningTemplateTagsPtrOutputWithContext(context.Background())
+}
+
+func (i ProvisioningTemplateTagsArgs) ToProvisioningTemplateTagsPtrOutputWithContext(ctx context.Context) ProvisioningTemplateTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateTagsOutput).ToProvisioningTemplateTagsPtrOutputWithContext(ctx)
+}
+
+// ProvisioningTemplateTagsPtrInput is an input type that accepts ProvisioningTemplateTagsArgs, ProvisioningTemplateTagsPtr and ProvisioningTemplateTagsPtrOutput values.
+// You can construct a concrete instance of `ProvisioningTemplateTagsPtrInput` via:
+//
+//          ProvisioningTemplateTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProvisioningTemplateTagsPtrInput interface {
+	pulumi.Input
+
+	ToProvisioningTemplateTagsPtrOutput() ProvisioningTemplateTagsPtrOutput
+	ToProvisioningTemplateTagsPtrOutputWithContext(context.Context) ProvisioningTemplateTagsPtrOutput
+}
+
+type provisioningTemplateTagsPtrType ProvisioningTemplateTagsArgs
+
+func ProvisioningTemplateTagsPtr(v *ProvisioningTemplateTagsArgs) ProvisioningTemplateTagsPtrInput {
+	return (*provisioningTemplateTagsPtrType)(v)
+}
+
+func (*provisioningTemplateTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisioningTemplateTags)(nil)).Elem()
+}
+
+func (i *provisioningTemplateTagsPtrType) ToProvisioningTemplateTagsPtrOutput() ProvisioningTemplateTagsPtrOutput {
+	return i.ToProvisioningTemplateTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *provisioningTemplateTagsPtrType) ToProvisioningTemplateTagsPtrOutputWithContext(ctx context.Context) ProvisioningTemplateTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html
+type ProvisioningTemplateTagsOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningTemplateTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplateTags)(nil)).Elem()
+}
+
+func (o ProvisioningTemplateTagsOutput) ToProvisioningTemplateTagsOutput() ProvisioningTemplateTagsOutput {
+	return o
+}
+
+func (o ProvisioningTemplateTagsOutput) ToProvisioningTemplateTagsOutputWithContext(ctx context.Context) ProvisioningTemplateTagsOutput {
+	return o
+}
+
+func (o ProvisioningTemplateTagsOutput) ToProvisioningTemplateTagsPtrOutput() ProvisioningTemplateTagsPtrOutput {
+	return o.ToProvisioningTemplateTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisioningTemplateTagsOutput) ToProvisioningTemplateTagsPtrOutputWithContext(ctx context.Context) ProvisioningTemplateTagsPtrOutput {
+	return o.ApplyT(func(v ProvisioningTemplateTags) *ProvisioningTemplateTags {
+		return &v
+	}).(ProvisioningTemplateTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
+func (o ProvisioningTemplateTagsOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ProvisioningTemplateTags) []interface{} { return v.Tags }).(pulumi.ArrayOutput)
+}
+
+type ProvisioningTemplateTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningTemplateTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisioningTemplateTags)(nil)).Elem()
+}
+
+func (o ProvisioningTemplateTagsPtrOutput) ToProvisioningTemplateTagsPtrOutput() ProvisioningTemplateTagsPtrOutput {
+	return o
+}
+
+func (o ProvisioningTemplateTagsPtrOutput) ToProvisioningTemplateTagsPtrOutputWithContext(ctx context.Context) ProvisioningTemplateTagsPtrOutput {
+	return o
+}
+
+func (o ProvisioningTemplateTagsPtrOutput) Elem() ProvisioningTemplateTagsOutput {
+	return o.ApplyT(func(v *ProvisioningTemplateTags) ProvisioningTemplateTags { return *v }).(ProvisioningTemplateTagsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
+func (o ProvisioningTemplateTagsPtrOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *ProvisioningTemplateTags) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.ArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
@@ -3316,6 +4145,652 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) RoleArn() pulumi.StringPtrOutp
 			return nil
 		}
 		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleDestinationAttributes struct {
+	Arn          string `pulumi:"Arn"`
+	StatusReason string `pulumi:"StatusReason"`
+}
+
+// TopicRuleDestinationAttributesInput is an input type that accepts TopicRuleDestinationAttributesArgs and TopicRuleDestinationAttributesOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationAttributesInput` via:
+//
+//          TopicRuleDestinationAttributesArgs{...}
+type TopicRuleDestinationAttributesInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationAttributesOutput() TopicRuleDestinationAttributesOutput
+	ToTopicRuleDestinationAttributesOutputWithContext(context.Context) TopicRuleDestinationAttributesOutput
+}
+
+type TopicRuleDestinationAttributesArgs struct {
+	Arn          pulumi.StringInput `pulumi:"Arn"`
+	StatusReason pulumi.StringInput `pulumi:"StatusReason"`
+}
+
+func (TopicRuleDestinationAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationAttributes)(nil)).Elem()
+}
+
+func (i TopicRuleDestinationAttributesArgs) ToTopicRuleDestinationAttributesOutput() TopicRuleDestinationAttributesOutput {
+	return i.ToTopicRuleDestinationAttributesOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationAttributesArgs) ToTopicRuleDestinationAttributesOutputWithContext(ctx context.Context) TopicRuleDestinationAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationAttributesOutput)
+}
+
+func (i TopicRuleDestinationAttributesArgs) ToTopicRuleDestinationAttributesPtrOutput() TopicRuleDestinationAttributesPtrOutput {
+	return i.ToTopicRuleDestinationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationAttributesArgs) ToTopicRuleDestinationAttributesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationAttributesOutput).ToTopicRuleDestinationAttributesPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDestinationAttributesPtrInput is an input type that accepts TopicRuleDestinationAttributesArgs, TopicRuleDestinationAttributesPtr and TopicRuleDestinationAttributesPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationAttributesPtrInput` via:
+//
+//          TopicRuleDestinationAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleDestinationAttributesPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationAttributesPtrOutput() TopicRuleDestinationAttributesPtrOutput
+	ToTopicRuleDestinationAttributesPtrOutputWithContext(context.Context) TopicRuleDestinationAttributesPtrOutput
+}
+
+type topicRuleDestinationAttributesPtrType TopicRuleDestinationAttributesArgs
+
+func TopicRuleDestinationAttributesPtr(v *TopicRuleDestinationAttributesArgs) TopicRuleDestinationAttributesPtrInput {
+	return (*topicRuleDestinationAttributesPtrType)(v)
+}
+
+func (*topicRuleDestinationAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationAttributes)(nil)).Elem()
+}
+
+func (i *topicRuleDestinationAttributesPtrType) ToTopicRuleDestinationAttributesPtrOutput() TopicRuleDestinationAttributesPtrOutput {
+	return i.ToTopicRuleDestinationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDestinationAttributesPtrType) ToTopicRuleDestinationAttributesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationAttributesPtrOutput)
+}
+
+type TopicRuleDestinationAttributesOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationAttributes)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationAttributesOutput) ToTopicRuleDestinationAttributesOutput() TopicRuleDestinationAttributesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationAttributesOutput) ToTopicRuleDestinationAttributesOutputWithContext(ctx context.Context) TopicRuleDestinationAttributesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationAttributesOutput) ToTopicRuleDestinationAttributesPtrOutput() TopicRuleDestinationAttributesPtrOutput {
+	return o.ToTopicRuleDestinationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDestinationAttributesOutput) ToTopicRuleDestinationAttributesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationAttributesPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationAttributes) *TopicRuleDestinationAttributes {
+		return &v
+	}).(TopicRuleDestinationAttributesPtrOutput)
+}
+func (o TopicRuleDestinationAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDestinationAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleDestinationAttributesOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDestinationAttributes) string { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+type TopicRuleDestinationAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationAttributes)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationAttributesPtrOutput) ToTopicRuleDestinationAttributesPtrOutput() TopicRuleDestinationAttributesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationAttributesPtrOutput) ToTopicRuleDestinationAttributesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationAttributesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationAttributesPtrOutput) Elem() TopicRuleDestinationAttributesOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationAttributes) TopicRuleDestinationAttributes { return *v }).(TopicRuleDestinationAttributesOutput)
+}
+
+func (o TopicRuleDestinationAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleDestinationAttributesPtrOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusReason
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
+type TopicRuleDestinationHttpUrlDestinationSummary struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
+	ConfirmationUrl *string `pulumi:"ConfirmationUrl"`
+}
+
+// TopicRuleDestinationHttpUrlDestinationSummaryInput is an input type that accepts TopicRuleDestinationHttpUrlDestinationSummaryArgs and TopicRuleDestinationHttpUrlDestinationSummaryOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationHttpUrlDestinationSummaryInput` via:
+//
+//          TopicRuleDestinationHttpUrlDestinationSummaryArgs{...}
+type TopicRuleDestinationHttpUrlDestinationSummaryInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationHttpUrlDestinationSummaryOutput() TopicRuleDestinationHttpUrlDestinationSummaryOutput
+	ToTopicRuleDestinationHttpUrlDestinationSummaryOutputWithContext(context.Context) TopicRuleDestinationHttpUrlDestinationSummaryOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
+type TopicRuleDestinationHttpUrlDestinationSummaryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
+	ConfirmationUrl pulumi.StringPtrInput `pulumi:"ConfirmationUrl"`
+}
+
+func (TopicRuleDestinationHttpUrlDestinationSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationHttpUrlDestinationSummary)(nil)).Elem()
+}
+
+func (i TopicRuleDestinationHttpUrlDestinationSummaryArgs) ToTopicRuleDestinationHttpUrlDestinationSummaryOutput() TopicRuleDestinationHttpUrlDestinationSummaryOutput {
+	return i.ToTopicRuleDestinationHttpUrlDestinationSummaryOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationHttpUrlDestinationSummaryArgs) ToTopicRuleDestinationHttpUrlDestinationSummaryOutputWithContext(ctx context.Context) TopicRuleDestinationHttpUrlDestinationSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationHttpUrlDestinationSummaryOutput)
+}
+
+func (i TopicRuleDestinationHttpUrlDestinationSummaryArgs) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutput() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return i.ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationHttpUrlDestinationSummaryArgs) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(ctx context.Context) TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationHttpUrlDestinationSummaryOutput).ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDestinationHttpUrlDestinationSummaryPtrInput is an input type that accepts TopicRuleDestinationHttpUrlDestinationSummaryArgs, TopicRuleDestinationHttpUrlDestinationSummaryPtr and TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationHttpUrlDestinationSummaryPtrInput` via:
+//
+//          TopicRuleDestinationHttpUrlDestinationSummaryArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleDestinationHttpUrlDestinationSummaryPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutput() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput
+	ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(context.Context) TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput
+}
+
+type topicRuleDestinationHttpUrlDestinationSummaryPtrType TopicRuleDestinationHttpUrlDestinationSummaryArgs
+
+func TopicRuleDestinationHttpUrlDestinationSummaryPtr(v *TopicRuleDestinationHttpUrlDestinationSummaryArgs) TopicRuleDestinationHttpUrlDestinationSummaryPtrInput {
+	return (*topicRuleDestinationHttpUrlDestinationSummaryPtrType)(v)
+}
+
+func (*topicRuleDestinationHttpUrlDestinationSummaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationHttpUrlDestinationSummary)(nil)).Elem()
+}
+
+func (i *topicRuleDestinationHttpUrlDestinationSummaryPtrType) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutput() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return i.ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDestinationHttpUrlDestinationSummaryPtrType) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(ctx context.Context) TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
+type TopicRuleDestinationHttpUrlDestinationSummaryOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationHttpUrlDestinationSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationHttpUrlDestinationSummary)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ToTopicRuleDestinationHttpUrlDestinationSummaryOutput() TopicRuleDestinationHttpUrlDestinationSummaryOutput {
+	return o
+}
+
+func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ToTopicRuleDestinationHttpUrlDestinationSummaryOutputWithContext(ctx context.Context) TopicRuleDestinationHttpUrlDestinationSummaryOutput {
+	return o
+}
+
+func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutput() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return o.ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(ctx context.Context) TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationHttpUrlDestinationSummary) *TopicRuleDestinationHttpUrlDestinationSummary {
+		return &v
+	}).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
+func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ConfirmationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationHttpUrlDestinationSummary) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationHttpUrlDestinationSummary)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutput() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ToTopicRuleDestinationHttpUrlDestinationSummaryPtrOutputWithContext(ctx context.Context) TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) Elem() TopicRuleDestinationHttpUrlDestinationSummaryOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationHttpUrlDestinationSummary) TopicRuleDestinationHttpUrlDestinationSummary {
+		return *v
+	}).(TopicRuleDestinationHttpUrlDestinationSummaryOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
+func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationHttpUrlDestinationSummary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfirmationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
+type TopicRuleDestinationProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+	HttpUrlProperties *TopicRuleDestinationHttpUrlDestinationSummary `pulumi:"HttpUrlProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+	Status *string `pulumi:"Status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+	VpcProperties *TopicRuleDestinationVpcDestinationProperties `pulumi:"VpcProperties"`
+}
+
+// TopicRuleDestinationPropertiesInput is an input type that accepts TopicRuleDestinationPropertiesArgs and TopicRuleDestinationPropertiesOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationPropertiesInput` via:
+//
+//          TopicRuleDestinationPropertiesArgs{...}
+type TopicRuleDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationPropertiesOutput() TopicRuleDestinationPropertiesOutput
+	ToTopicRuleDestinationPropertiesOutputWithContext(context.Context) TopicRuleDestinationPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
+type TopicRuleDestinationPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+	HttpUrlProperties TopicRuleDestinationHttpUrlDestinationSummaryPtrInput `pulumi:"HttpUrlProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+	Status pulumi.StringPtrInput `pulumi:"Status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+	VpcProperties TopicRuleDestinationVpcDestinationPropertiesPtrInput `pulumi:"VpcProperties"`
+}
+
+func (TopicRuleDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationProperties)(nil)).Elem()
+}
+
+func (i TopicRuleDestinationPropertiesArgs) ToTopicRuleDestinationPropertiesOutput() TopicRuleDestinationPropertiesOutput {
+	return i.ToTopicRuleDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationPropertiesArgs) ToTopicRuleDestinationPropertiesOutputWithContext(ctx context.Context) TopicRuleDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationPropertiesOutput)
+}
+
+func (i TopicRuleDestinationPropertiesArgs) ToTopicRuleDestinationPropertiesPtrOutput() TopicRuleDestinationPropertiesPtrOutput {
+	return i.ToTopicRuleDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationPropertiesArgs) ToTopicRuleDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationPropertiesOutput).ToTopicRuleDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDestinationPropertiesPtrInput is an input type that accepts TopicRuleDestinationPropertiesArgs, TopicRuleDestinationPropertiesPtr and TopicRuleDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationPropertiesPtrInput` via:
+//
+//          TopicRuleDestinationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationPropertiesPtrOutput() TopicRuleDestinationPropertiesPtrOutput
+	ToTopicRuleDestinationPropertiesPtrOutputWithContext(context.Context) TopicRuleDestinationPropertiesPtrOutput
+}
+
+type topicRuleDestinationPropertiesPtrType TopicRuleDestinationPropertiesArgs
+
+func TopicRuleDestinationPropertiesPtr(v *TopicRuleDestinationPropertiesArgs) TopicRuleDestinationPropertiesPtrInput {
+	return (*topicRuleDestinationPropertiesPtrType)(v)
+}
+
+func (*topicRuleDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationProperties)(nil)).Elem()
+}
+
+func (i *topicRuleDestinationPropertiesPtrType) ToTopicRuleDestinationPropertiesPtrOutput() TopicRuleDestinationPropertiesPtrOutput {
+	return i.ToTopicRuleDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDestinationPropertiesPtrType) ToTopicRuleDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
+type TopicRuleDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationProperties)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationPropertiesOutput) ToTopicRuleDestinationPropertiesOutput() TopicRuleDestinationPropertiesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationPropertiesOutput) ToTopicRuleDestinationPropertiesOutputWithContext(ctx context.Context) TopicRuleDestinationPropertiesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationPropertiesOutput) ToTopicRuleDestinationPropertiesPtrOutput() TopicRuleDestinationPropertiesPtrOutput {
+	return o.ToTopicRuleDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDestinationPropertiesOutput) ToTopicRuleDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationProperties) *TopicRuleDestinationProperties {
+		return &v
+	}).(TopicRuleDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+func (o TopicRuleDestinationPropertiesOutput) HttpUrlProperties() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationProperties) *TopicRuleDestinationHttpUrlDestinationSummary {
+		return v.HttpUrlProperties
+	}).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+func (o TopicRuleDestinationPropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+func (o TopicRuleDestinationPropertiesOutput) VpcProperties() TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationProperties) *TopicRuleDestinationVpcDestinationProperties {
+		return v.VpcProperties
+	}).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
+}
+
+type TopicRuleDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationProperties)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationPropertiesPtrOutput) ToTopicRuleDestinationPropertiesPtrOutput() TopicRuleDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationPropertiesPtrOutput) ToTopicRuleDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationPropertiesPtrOutput) Elem() TopicRuleDestinationPropertiesOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationProperties) TopicRuleDestinationProperties { return *v }).(TopicRuleDestinationPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+func (o TopicRuleDestinationPropertiesPtrOutput) HttpUrlProperties() TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationProperties) *TopicRuleDestinationHttpUrlDestinationSummary {
+		if v == nil {
+			return nil
+		}
+		return v.HttpUrlProperties
+	}).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+func (o TopicRuleDestinationPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+func (o TopicRuleDestinationPropertiesPtrOutput) VpcProperties() TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationProperties) *TopicRuleDestinationVpcDestinationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.VpcProperties
+	}).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
+type TopicRuleDestinationVpcDestinationProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
+	RoleArn *string `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
+	SecurityGroups []string `pulumi:"SecurityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
+	SubnetIds []string `pulumi:"SubnetIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
+	VpcId *string `pulumi:"VpcId"`
+}
+
+// TopicRuleDestinationVpcDestinationPropertiesInput is an input type that accepts TopicRuleDestinationVpcDestinationPropertiesArgs and TopicRuleDestinationVpcDestinationPropertiesOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationVpcDestinationPropertiesInput` via:
+//
+//          TopicRuleDestinationVpcDestinationPropertiesArgs{...}
+type TopicRuleDestinationVpcDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationVpcDestinationPropertiesOutput() TopicRuleDestinationVpcDestinationPropertiesOutput
+	ToTopicRuleDestinationVpcDestinationPropertiesOutputWithContext(context.Context) TopicRuleDestinationVpcDestinationPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
+type TopicRuleDestinationVpcDestinationPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
+	RoleArn pulumi.StringPtrInput `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
+	SecurityGroups pulumi.StringArrayInput `pulumi:"SecurityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
+	SubnetIds pulumi.StringArrayInput `pulumi:"SubnetIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
+	VpcId pulumi.StringPtrInput `pulumi:"VpcId"`
+}
+
+func (TopicRuleDestinationVpcDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationVpcDestinationProperties)(nil)).Elem()
+}
+
+func (i TopicRuleDestinationVpcDestinationPropertiesArgs) ToTopicRuleDestinationVpcDestinationPropertiesOutput() TopicRuleDestinationVpcDestinationPropertiesOutput {
+	return i.ToTopicRuleDestinationVpcDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationVpcDestinationPropertiesArgs) ToTopicRuleDestinationVpcDestinationPropertiesOutputWithContext(ctx context.Context) TopicRuleDestinationVpcDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationVpcDestinationPropertiesOutput)
+}
+
+func (i TopicRuleDestinationVpcDestinationPropertiesArgs) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutput() TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return i.ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationVpcDestinationPropertiesArgs) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationVpcDestinationPropertiesOutput).ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDestinationVpcDestinationPropertiesPtrInput is an input type that accepts TopicRuleDestinationVpcDestinationPropertiesArgs, TopicRuleDestinationVpcDestinationPropertiesPtr and TopicRuleDestinationVpcDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationVpcDestinationPropertiesPtrInput` via:
+//
+//          TopicRuleDestinationVpcDestinationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleDestinationVpcDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationVpcDestinationPropertiesPtrOutput() TopicRuleDestinationVpcDestinationPropertiesPtrOutput
+	ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(context.Context) TopicRuleDestinationVpcDestinationPropertiesPtrOutput
+}
+
+type topicRuleDestinationVpcDestinationPropertiesPtrType TopicRuleDestinationVpcDestinationPropertiesArgs
+
+func TopicRuleDestinationVpcDestinationPropertiesPtr(v *TopicRuleDestinationVpcDestinationPropertiesArgs) TopicRuleDestinationVpcDestinationPropertiesPtrInput {
+	return (*topicRuleDestinationVpcDestinationPropertiesPtrType)(v)
+}
+
+func (*topicRuleDestinationVpcDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationVpcDestinationProperties)(nil)).Elem()
+}
+
+func (i *topicRuleDestinationVpcDestinationPropertiesPtrType) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutput() TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return i.ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDestinationVpcDestinationPropertiesPtrType) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
+type TopicRuleDestinationVpcDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationVpcDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationVpcDestinationProperties)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) ToTopicRuleDestinationVpcDestinationPropertiesOutput() TopicRuleDestinationVpcDestinationPropertiesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) ToTopicRuleDestinationVpcDestinationPropertiesOutputWithContext(ctx context.Context) TopicRuleDestinationVpcDestinationPropertiesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutput() TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return o.ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) *TopicRuleDestinationVpcDestinationProperties {
+		return &v
+	}).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
+func (o TopicRuleDestinationVpcDestinationPropertiesOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleDestinationVpcDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationVpcDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationVpcDestinationProperties)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutput() TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) ToTopicRuleDestinationVpcDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) Elem() TopicRuleDestinationVpcDestinationPropertiesOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) TopicRuleDestinationVpcDestinationProperties {
+		return *v
+	}).(TopicRuleDestinationVpcDestinationPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
+func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
+func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
+func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
+func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7045,6 +8520,14 @@ func (o TopicRuleTopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AuthorizerAttributesOutput{})
+	pulumi.RegisterOutputType(AuthorizerAttributesPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizerPropertiesOutput{})
+	pulumi.RegisterOutputType(AuthorizerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizerTagsOutput{})
+	pulumi.RegisterOutputType(AuthorizerTagsPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizerTokenSigningPublicKeysOutput{})
+	pulumi.RegisterOutputType(AuthorizerTokenSigningPublicKeysPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAttributesOutput{})
 	pulumi.RegisterOutputType(CertificateAttributesPtrOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesOutput{})
@@ -7063,6 +8546,8 @@ func init() {
 	pulumi.RegisterOutputType(ProvisioningTemplatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateProvisioningHookOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateProvisioningHookPtrOutput{})
+	pulumi.RegisterOutputType(ProvisioningTemplateTagsOutput{})
+	pulumi.RegisterOutputType(ProvisioningTemplateTagsPtrOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(ThingAttributesOutput{})
@@ -7086,6 +8571,14 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationAttributesOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationAttributesPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationHttpUrlDestinationSummaryOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationVpcDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationVpcDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamoDBActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamoDBActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamoDBv2ActionOutput{})

@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Stack struct {
 // NewStack registers a new resource with the given unique name, arguments, and options.
 func NewStack(ctx *pulumi.Context,
 	name string, args *StackArgs, opts ...pulumi.ResourceOption) (*Stack, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StackArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Stack
 	err := ctx.RegisterResource("cloudformation:CloudFormation:Stack", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StackArgs struct {
 
 func (StackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackArgs)(nil)).Elem()
+}
+
+type StackInput interface {
+	pulumi.Input
+
+	ToStackOutput() StackOutput
+	ToStackOutputWithContext(ctx context.Context) StackOutput
+}
+
+func (*Stack) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stack)(nil))
+}
+
+func (i *Stack) ToStackOutput() StackOutput {
+	return i.ToStackOutputWithContext(context.Background())
+}
+
+func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackOutput)
+}
+
+type StackOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stack)(nil))
+}
+
+func (o StackOutput) ToStackOutput() StackOutput {
+	return o
+}
+
+func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackOutput{})
 }

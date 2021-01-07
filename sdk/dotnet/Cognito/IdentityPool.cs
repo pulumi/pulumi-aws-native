@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cognito
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cognito:IdentityPool")]
     public partial class IdentityPool : Pulumi.CustomResource
     {
         /// <summary>

@@ -11,30 +11,30 @@ namespace Pulumi.Cloudformation.ECS.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html
+    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
     /// </summary>
     public sealed class ServiceLoadBalancerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-containername
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
         /// </summary>
         [Input("ContainerName")]
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-containerport
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
         /// </summary>
-        [Input("ContainerPort", required: true)]
-        public Input<int> ContainerPort { get; set; } = null!;
+        [Input("ContainerPort")]
+        public Input<int>? ContainerPort { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-loadbalancername
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername
         /// </summary>
         [Input("LoadBalancerName")]
         public Input<string>? LoadBalancerName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-targetgrouparn
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
         /// </summary>
         [Input("TargetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RoboMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RoboMaker:RobotApplicationVersion")]
     public partial class RobotApplicationVersion : Pulumi.CustomResource
     {
         /// <summary>

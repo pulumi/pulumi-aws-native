@@ -26,9 +26,17 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly string? LogDestinationType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+        /// </summary>
+        public readonly string? LogFormat;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
         /// </summary>
         public readonly string? LogGroupName;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+        /// </summary>
+        public readonly int? MaxAggregationInterval;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
         /// </summary>
@@ -37,6 +45,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
         /// </summary>
         public readonly string ResourceType;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
         /// </summary>
@@ -50,20 +62,29 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? LogDestinationType,
 
+            string? LogFormat,
+
             string? LogGroupName,
+
+            int? MaxAggregationInterval,
 
             string ResourceId,
 
             string ResourceType,
+
+            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
 
             string TrafficType)
         {
             this.DeliverLogsPermissionArn = DeliverLogsPermissionArn;
             this.LogDestination = LogDestination;
             this.LogDestinationType = LogDestinationType;
+            this.LogFormat = LogFormat;
             this.LogGroupName = LogGroupName;
+            this.MaxAggregationInterval = MaxAggregationInterval;
             this.ResourceId = ResourceId;
             this.ResourceType = ResourceType;
+            this.Tags = Tags;
             this.TrafficType = TrafficType;
         }
     }

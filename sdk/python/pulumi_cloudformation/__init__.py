@@ -15,6 +15,8 @@ from .get_stack_name import *
 from .get_url_suffix import *
 from .import_value import *
 from .provider import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 from . import (
@@ -25,12 +27,15 @@ from . import (
     apigateway,
     apigatewayv2,
     appconfig,
+    appflow,
     applicationautoscaling,
+    applicationinsights,
     appmesh,
     appstream,
     appsync,
     ask,
     athena,
+    auditmanager,
     autoscaling,
     autoscalingplans,
     backup,
@@ -44,10 +49,12 @@ from . import (
     cloudfront,
     cloudtrail,
     cloudwatch,
+    codeartifact,
     codebuild,
     codecommit,
     codedeploy,
     codeguruprofiler,
+    codegurureviewer,
     codepipeline,
     codestar,
     codestarconnections,
@@ -55,9 +62,11 @@ from . import (
     cognito,
     config,
     configuration,
+    databrew,
     datapipeline,
     dax,
     detective,
+    devopsguru,
     directoryservice,
     dlm,
     dms,
@@ -82,6 +91,7 @@ from . import (
     globalaccelerator,
     glue,
     greengrass,
+    greengrassv2,
     groundstation,
     guardduty,
     iam,
@@ -91,7 +101,10 @@ from . import (
     iot1click,
     iotanalytics,
     iotevents,
+    iotsitewise,
     iotthingsgraph,
+    ivs,
+    kendra,
     kinesis,
     kinesisanalytics,
     kinesisanalyticsv2,
@@ -99,14 +112,18 @@ from . import (
     kms,
     lakeformation,
     lambda_,
+    licensemanager,
     logs,
     macie,
     managedblockchain,
     mediaconvert,
     medialive,
+    mediapackage,
     mediastore,
     msk,
+    mwaa,
     neptune,
+    networkfirewall,
     networkmanager,
     opsworks,
     opsworkscm,
@@ -128,14 +145,38 @@ from . import (
     servicecatalog,
     servicediscovery,
     ses,
+    signer,
     sns,
     sqs,
     ssm,
+    sso,
     stepfunctions,
     synthetics,
+    timestream,
     transfer,
     waf,
     wafregional,
     wafv2,
     workspaces,
 )
+
+def _register_module():
+    import pulumi
+    from . import _utilities
+
+
+    class Package(pulumi.runtime.ResourcePackage):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Package._version
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:cloudformation":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("cloudformation", Package())
+
+_register_module()

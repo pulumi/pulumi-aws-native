@@ -4,6 +4,7 @@
 package directoryservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SimpleAD struct {
 // NewSimpleAD registers a new resource with the given unique name, arguments, and options.
 func NewSimpleAD(ctx *pulumi.Context,
 	name string, args *SimpleADArgs, opts ...pulumi.ResourceOption) (*SimpleAD, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SimpleADArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SimpleAD
 	err := ctx.RegisterResource("cloudformation:DirectoryService:SimpleAD", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SimpleADArgs struct {
 
 func (SimpleADArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*simpleADArgs)(nil)).Elem()
+}
+
+type SimpleADInput interface {
+	pulumi.Input
+
+	ToSimpleADOutput() SimpleADOutput
+	ToSimpleADOutputWithContext(ctx context.Context) SimpleADOutput
+}
+
+func (*SimpleAD) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleAD)(nil))
+}
+
+func (i *SimpleAD) ToSimpleADOutput() SimpleADOutput {
+	return i.ToSimpleADOutputWithContext(context.Background())
+}
+
+func (i *SimpleAD) ToSimpleADOutputWithContext(ctx context.Context) SimpleADOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimpleADOutput)
+}
+
+type SimpleADOutput struct {
+	*pulumi.OutputState
+}
+
+func (SimpleADOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleAD)(nil))
+}
+
+func (o SimpleADOutput) ToSimpleADOutput() SimpleADOutput {
+	return o
+}
+
+func (o SimpleADOutput) ToSimpleADOutputWithContext(ctx context.Context) SimpleADOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SimpleADOutput{})
 }

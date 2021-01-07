@@ -24,8 +24,8 @@ namespace Pulumi.Cloudformation.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-hostpath
         /// </summary>
-        [Input("HostPath", required: true)]
-        public Input<string> HostPath { get; set; } = null!;
+        [Input("HostPath")]
+        public Input<string>? HostPath { get; set; }
 
         [Input("Permissions")]
         private InputList<string>? _Permissions;

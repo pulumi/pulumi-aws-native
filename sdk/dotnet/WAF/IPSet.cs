@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAF
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAF:IPSet")]
     public partial class IPSet : Pulumi.CustomResource
     {
         /// <summary>

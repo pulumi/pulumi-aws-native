@@ -16,10 +16,22 @@ namespace Pulumi.Cloudformation.AppMesh.Inputs
     public sealed class VirtualNodeListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-connectionpool
+        /// </summary>
+        [Input("ConnectionPool")]
+        public Input<Inputs.VirtualNodeVirtualNodeConnectionPoolArgs>? ConnectionPool { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
         /// </summary>
         [Input("HealthCheck")]
         public Input<Inputs.VirtualNodeHealthCheckArgs>? HealthCheck { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-outlierdetection
+        /// </summary>
+        [Input("OutlierDetection")]
+        public Input<Inputs.VirtualNodeOutlierDetectionArgs>? OutlierDetection { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Configuration:RemediationConfiguration")]
     public partial class RemediationConfiguration : Pulumi.CustomResource
     {
         /// <summary>

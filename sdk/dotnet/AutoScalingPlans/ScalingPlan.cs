@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AutoScalingPlans
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AutoScalingPlans:ScalingPlan")]
     public partial class ScalingPlan : Pulumi.CustomResource
     {
         /// <summary>

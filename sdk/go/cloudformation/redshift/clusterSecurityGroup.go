@@ -4,6 +4,7 @@
 package redshift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClusterSecurityGroup struct {
 // NewClusterSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewClusterSecurityGroup(ctx *pulumi.Context,
 	name string, args *ClusterSecurityGroupArgs, opts ...pulumi.ResourceOption) (*ClusterSecurityGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClusterSecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClusterSecurityGroup
 	err := ctx.RegisterResource("cloudformation:Redshift:ClusterSecurityGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClusterSecurityGroupArgs struct {
 
 func (ClusterSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSecurityGroupArgs)(nil)).Elem()
+}
+
+type ClusterSecurityGroupInput interface {
+	pulumi.Input
+
+	ToClusterSecurityGroupOutput() ClusterSecurityGroupOutput
+	ToClusterSecurityGroupOutputWithContext(ctx context.Context) ClusterSecurityGroupOutput
+}
+
+func (*ClusterSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSecurityGroup)(nil))
+}
+
+func (i *ClusterSecurityGroup) ToClusterSecurityGroupOutput() ClusterSecurityGroupOutput {
+	return i.ToClusterSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i *ClusterSecurityGroup) ToClusterSecurityGroupOutputWithContext(ctx context.Context) ClusterSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupOutput)
+}
+
+type ClusterSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSecurityGroup)(nil))
+}
+
+func (o ClusterSecurityGroupOutput) ToClusterSecurityGroupOutput() ClusterSecurityGroupOutput {
+	return o
+}
+
+func (o ClusterSecurityGroupOutput) ToClusterSecurityGroupOutputWithContext(ctx context.Context) ClusterSecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterSecurityGroupOutput{})
 }

@@ -4,6 +4,7 @@
 package cloudfront
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CloudFrontOriginAccessIdentity struct {
 // NewCloudFrontOriginAccessIdentity registers a new resource with the given unique name, arguments, and options.
 func NewCloudFrontOriginAccessIdentity(ctx *pulumi.Context,
 	name string, args *CloudFrontOriginAccessIdentityArgs, opts ...pulumi.ResourceOption) (*CloudFrontOriginAccessIdentity, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CloudFrontOriginAccessIdentityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CloudFrontOriginAccessIdentity
 	err := ctx.RegisterResource("cloudformation:CloudFront:CloudFrontOriginAccessIdentity", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CloudFrontOriginAccessIdentityArgs struct {
 
 func (CloudFrontOriginAccessIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFrontOriginAccessIdentityArgs)(nil)).Elem()
+}
+
+type CloudFrontOriginAccessIdentityInput interface {
+	pulumi.Input
+
+	ToCloudFrontOriginAccessIdentityOutput() CloudFrontOriginAccessIdentityOutput
+	ToCloudFrontOriginAccessIdentityOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityOutput
+}
+
+func (*CloudFrontOriginAccessIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFrontOriginAccessIdentity)(nil))
+}
+
+func (i *CloudFrontOriginAccessIdentity) ToCloudFrontOriginAccessIdentityOutput() CloudFrontOriginAccessIdentityOutput {
+	return i.ToCloudFrontOriginAccessIdentityOutputWithContext(context.Background())
+}
+
+func (i *CloudFrontOriginAccessIdentity) ToCloudFrontOriginAccessIdentityOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityOutput)
+}
+
+type CloudFrontOriginAccessIdentityOutput struct {
+	*pulumi.OutputState
+}
+
+func (CloudFrontOriginAccessIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFrontOriginAccessIdentity)(nil))
+}
+
+func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOutput() CloudFrontOriginAccessIdentityOutput {
+	return o
+}
+
+func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityOutput{})
 }

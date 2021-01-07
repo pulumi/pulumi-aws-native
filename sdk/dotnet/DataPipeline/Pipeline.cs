@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DataPipeline
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DataPipeline:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>

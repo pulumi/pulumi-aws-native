@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Redshift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Redshift:ClusterSecurityGroup")]
     public partial class ClusterSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

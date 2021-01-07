@@ -14,6 +14,7 @@ import (
 type ServerAttributes struct {
 	Arn      string `pulumi:"Arn"`
 	Endpoint string `pulumi:"Endpoint"`
+	Id       string `pulumi:"Id"`
 }
 
 // ServerAttributesInput is an input type that accepts ServerAttributesArgs and ServerAttributesOutput values.
@@ -30,6 +31,7 @@ type ServerAttributesInput interface {
 type ServerAttributesArgs struct {
 	Arn      pulumi.StringInput `pulumi:"Arn"`
 	Endpoint pulumi.StringInput `pulumi:"Endpoint"`
+	Id       pulumi.StringInput `pulumi:"Id"`
 }
 
 func (ServerAttributesArgs) ElementType() reflect.Type {
@@ -116,6 +118,10 @@ func (o ServerAttributesOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerAttributes) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+func (o ServerAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type ServerAttributesPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerAttributesPtrOutput) ElementType() reflect.Type {
@@ -149,6 +155,15 @@ func (o ServerAttributesPtrOutput) Endpoint() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 

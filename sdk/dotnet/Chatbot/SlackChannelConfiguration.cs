@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Chatbot
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Chatbot:SlackChannelConfiguration")]
     public partial class SlackChannelConfiguration : Pulumi.CustomResource
     {
         /// <summary>

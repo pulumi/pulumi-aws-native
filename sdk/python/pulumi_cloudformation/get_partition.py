@@ -5,15 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetPartitionResult',
+    'AwaitableGetPartitionResult',
+    'get_partition',
+]
 
+@pulumi.output_type
 class GetPartitionResult:
     def __init__(__self__, partition=None):
         if partition and not isinstance(partition, str):
             raise TypeError("Expected argument 'partition' to be a str")
-        __self__.partition = partition
+        pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> str:
+        return pulumi.get(self, "partition")
 
 
 class AwaitableGetPartitionResult(GetPartitionResult):
@@ -25,7 +36,7 @@ class AwaitableGetPartitionResult(GetPartitionResult):
             partition=self.partition)
 
 
-def get_partition(opts=None):
+def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartitionResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -33,8 +44,8 @@ def get_partition(opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('cloudformation:index:getPartition', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('cloudformation:index:getPartition', __args__, opts=opts, typ=GetPartitionResult).value
 
     return AwaitableGetPartitionResult(
-        partition=__ret__.get('partition'))
+        partition=__ret__.partition)

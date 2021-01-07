@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Athena
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Athena:WorkGroup")]
     public partial class WorkGroup : Pulumi.CustomResource
     {
         /// <summary>

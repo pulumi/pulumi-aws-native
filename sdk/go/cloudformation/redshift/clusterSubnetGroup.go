@@ -4,6 +4,7 @@
 package redshift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClusterSubnetGroup struct {
 // NewClusterSubnetGroup registers a new resource with the given unique name, arguments, and options.
 func NewClusterSubnetGroup(ctx *pulumi.Context,
 	name string, args *ClusterSubnetGroupArgs, opts ...pulumi.ResourceOption) (*ClusterSubnetGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClusterSubnetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClusterSubnetGroup
 	err := ctx.RegisterResource("cloudformation:Redshift:ClusterSubnetGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClusterSubnetGroupArgs struct {
 
 func (ClusterSubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSubnetGroupArgs)(nil)).Elem()
+}
+
+type ClusterSubnetGroupInput interface {
+	pulumi.Input
+
+	ToClusterSubnetGroupOutput() ClusterSubnetGroupOutput
+	ToClusterSubnetGroupOutputWithContext(ctx context.Context) ClusterSubnetGroupOutput
+}
+
+func (*ClusterSubnetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSubnetGroup)(nil))
+}
+
+func (i *ClusterSubnetGroup) ToClusterSubnetGroupOutput() ClusterSubnetGroupOutput {
+	return i.ToClusterSubnetGroupOutputWithContext(context.Background())
+}
+
+func (i *ClusterSubnetGroup) ToClusterSubnetGroupOutputWithContext(ctx context.Context) ClusterSubnetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSubnetGroupOutput)
+}
+
+type ClusterSubnetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterSubnetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSubnetGroup)(nil))
+}
+
+func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutput() ClusterSubnetGroupOutput {
+	return o
+}
+
+func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutputWithContext(ctx context.Context) ClusterSubnetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterSubnetGroupOutput{})
 }

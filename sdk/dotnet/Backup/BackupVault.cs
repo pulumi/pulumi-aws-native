@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Backup
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Backup:BackupVault")]
     public partial class BackupVault : Pulumi.CustomResource
     {
         /// <summary>

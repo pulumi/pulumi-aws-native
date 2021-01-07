@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IAM:InstanceProfile")]
     public partial class InstanceProfile : Pulumi.CustomResource
     {
         /// <summary>

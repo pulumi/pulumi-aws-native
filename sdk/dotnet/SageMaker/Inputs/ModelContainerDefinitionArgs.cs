@@ -34,6 +34,12 @@ namespace Pulumi.Cloudformation.SageMaker.Inputs
         public Input<string>? Image { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-imageconfig
+        /// </summary>
+        [Input("ImageConfig")]
+        public Input<Inputs.ModelImageConfigArgs>? ImageConfig { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
         /// </summary>
         [Input("Mode")]
@@ -50,6 +56,12 @@ namespace Pulumi.Cloudformation.SageMaker.Inputs
         /// </summary>
         [Input("ModelPackageName")]
         public Input<string>? ModelPackageName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-multimodelconfig
+        /// </summary>
+        [Input("MultiModelConfig")]
+        public Input<Inputs.ModelMultiModelConfigArgs>? MultiModelConfig { get; set; }
 
         public ModelContainerDefinitionArgs()
         {

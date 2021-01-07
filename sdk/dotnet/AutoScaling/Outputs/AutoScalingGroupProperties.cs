@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-capacityrebalance
+        /// </summary>
+        public readonly bool? CapacityRebalance;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
         /// </summary>
         public readonly string? Cooldown;
@@ -78,6 +82,10 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
         /// </summary>
         public readonly Outputs.AutoScalingGroupMixedInstancesPolicy? MixedInstancesPolicy;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein
+        /// </summary>
+        public readonly bool? NewInstancesProtectedFromScaleIn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoScalingGroupNotificationConfiguration> NotificationConfigurations;
@@ -112,6 +120,8 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
 
             ImmutableArray<string> AvailabilityZones,
 
+            bool? CapacityRebalance,
+
             string? Cooldown,
 
             string? DesiredCapacity,
@@ -140,6 +150,8 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
 
             Outputs.AutoScalingGroupMixedInstancesPolicy? MixedInstancesPolicy,
 
+            bool? NewInstancesProtectedFromScaleIn,
+
             ImmutableArray<Outputs.AutoScalingGroupNotificationConfiguration> NotificationConfigurations,
 
             string? PlacementGroup,
@@ -156,6 +168,7 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
         {
             this.AutoScalingGroupName = AutoScalingGroupName;
             this.AvailabilityZones = AvailabilityZones;
+            this.CapacityRebalance = CapacityRebalance;
             this.Cooldown = Cooldown;
             this.DesiredCapacity = DesiredCapacity;
             this.HealthCheckGracePeriod = HealthCheckGracePeriod;
@@ -170,6 +183,7 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
             this.MetricsCollection = MetricsCollection;
             this.MinSize = MinSize;
             this.MixedInstancesPolicy = MixedInstancesPolicy;
+            this.NewInstancesProtectedFromScaleIn = NewInstancesProtectedFromScaleIn;
             this.NotificationConfigurations = NotificationConfigurations;
             this.PlacementGroup = PlacementGroup;
             this.ServiceLinkedRoleARN = ServiceLinkedRoleARN;

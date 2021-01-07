@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DocDB
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DocDB:DBClusterParameterGroup")]
     public partial class DBClusterParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

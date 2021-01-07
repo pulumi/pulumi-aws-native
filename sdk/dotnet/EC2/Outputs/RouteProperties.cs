@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
     public sealed class RouteProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
+        /// </summary>
+        public readonly string? CarrierGatewayId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
         /// </summary>
         public readonly string? DestinationCidrBlock;
@@ -34,6 +38,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly string? InstanceId;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
+        /// </summary>
+        public readonly string? LocalGatewayId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
         /// </summary>
         public readonly string? NatGatewayId;
@@ -50,12 +58,18 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly string? TransitGatewayId;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
+        /// </summary>
+        public readonly string? VpcEndpointId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid
         /// </summary>
         public readonly string? VpcPeeringConnectionId;
 
         [OutputConstructor]
         private RouteProperties(
+            string? CarrierGatewayId,
+
             string? DestinationCidrBlock,
 
             string? DestinationIpv6CidrBlock,
@@ -66,6 +80,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? InstanceId,
 
+            string? LocalGatewayId,
+
             string? NatGatewayId,
 
             string? NetworkInterfaceId,
@@ -74,17 +90,22 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? TransitGatewayId,
 
+            string? VpcEndpointId,
+
             string? VpcPeeringConnectionId)
         {
+            this.CarrierGatewayId = CarrierGatewayId;
             this.DestinationCidrBlock = DestinationCidrBlock;
             this.DestinationIpv6CidrBlock = DestinationIpv6CidrBlock;
             this.EgressOnlyInternetGatewayId = EgressOnlyInternetGatewayId;
             this.GatewayId = GatewayId;
             this.InstanceId = InstanceId;
+            this.LocalGatewayId = LocalGatewayId;
             this.NatGatewayId = NatGatewayId;
             this.NetworkInterfaceId = NetworkInterfaceId;
             this.RouteTableId = RouteTableId;
             this.TransitGatewayId = TransitGatewayId;
+            this.VpcEndpointId = VpcEndpointId;
             this.VpcPeeringConnectionId = VpcPeeringConnectionId;
         }
     }

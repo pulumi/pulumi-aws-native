@@ -4,6 +4,7 @@
 package stepfunctions
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Activity struct {
 // NewActivity registers a new resource with the given unique name, arguments, and options.
 func NewActivity(ctx *pulumi.Context,
 	name string, args *ActivityArgs, opts ...pulumi.ResourceOption) (*Activity, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ActivityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Activity
 	err := ctx.RegisterResource("cloudformation:StepFunctions:Activity", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ActivityArgs struct {
 
 func (ActivityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityArgs)(nil)).Elem()
+}
+
+type ActivityInput interface {
+	pulumi.Input
+
+	ToActivityOutput() ActivityOutput
+	ToActivityOutputWithContext(ctx context.Context) ActivityOutput
+}
+
+func (*Activity) ElementType() reflect.Type {
+	return reflect.TypeOf((*Activity)(nil))
+}
+
+func (i *Activity) ToActivityOutput() ActivityOutput {
+	return i.ToActivityOutputWithContext(context.Background())
+}
+
+func (i *Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityOutput)
+}
+
+type ActivityOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Activity)(nil))
+}
+
+func (o ActivityOutput) ToActivityOutput() ActivityOutput {
+	return o
+}
+
+func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActivityOutput{})
 }

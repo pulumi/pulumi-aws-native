@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudWatch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudWatch:InsightRule")]
     public partial class InsightRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -7,3 +7,34 @@ from .configuration_set import *
 from .configuration_set_event_destination import *
 from .dedicated_ip_pool import *
 from .identity import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:PinpointEmail:ConfigurationSet":
+                return ConfigurationSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:PinpointEmail:ConfigurationSetEventDestination":
+                return ConfigurationSetEventDestination(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:PinpointEmail:DedicatedIpPool":
+                return DedicatedIpPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:PinpointEmail:Identity":
+                return Identity(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "PinpointEmail", _module_instance)
+
+_register_module()

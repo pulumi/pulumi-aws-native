@@ -46,6 +46,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateLaunchTemplateElasticInferenceAccelerator> ElasticInferenceAccelerators;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+        /// </summary>
+        public readonly Outputs.LaunchTemplateEnclaveOptions? EnclaveOptions;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
         /// </summary>
         public readonly Outputs.LaunchTemplateHibernationOptions? HibernationOptions;
@@ -136,6 +140,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             ImmutableArray<Outputs.LaunchTemplateLaunchTemplateElasticInferenceAccelerator> ElasticInferenceAccelerators,
 
+            Outputs.LaunchTemplateEnclaveOptions? EnclaveOptions,
+
             Outputs.LaunchTemplateHibernationOptions? HibernationOptions,
 
             Outputs.LaunchTemplateIamInstanceProfile? IamInstanceProfile,
@@ -180,6 +186,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             this.EbsOptimized = EbsOptimized;
             this.ElasticGpuSpecifications = ElasticGpuSpecifications;
             this.ElasticInferenceAccelerators = ElasticInferenceAccelerators;
+            this.EnclaveOptions = EnclaveOptions;
             this.HibernationOptions = HibernationOptions;
             this.IamInstanceProfile = IamInstanceProfile;
             this.ImageId = ImageId;

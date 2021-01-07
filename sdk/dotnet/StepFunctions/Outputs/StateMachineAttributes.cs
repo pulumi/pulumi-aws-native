@@ -13,11 +13,16 @@ namespace Pulumi.Cloudformation.StepFunctions.Outputs
     [OutputType]
     public sealed class StateMachineAttributes
     {
+        public readonly string Arn;
         public readonly string Name;
 
         [OutputConstructor]
-        private StateMachineAttributes(string Name)
+        private StateMachineAttributes(
+            string Arn,
+
+            string Name)
         {
+            this.Arn = Arn;
             this.Name = Name;
         }
     }

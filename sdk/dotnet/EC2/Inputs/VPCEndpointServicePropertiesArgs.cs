@@ -21,7 +21,19 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         [Input("AcceptanceRequired")]
         public Input<bool>? AcceptanceRequired { get; set; }
 
-        [Input("NetworkLoadBalancerArns", required: true)]
+        [Input("GatewayLoadBalancerArns")]
+        private InputList<string>? _GatewayLoadBalancerArns;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-gatewayloadbalancerarns
+        /// </summary>
+        public InputList<string> GatewayLoadBalancerArns
+        {
+            get => _GatewayLoadBalancerArns ?? (_GatewayLoadBalancerArns = new InputList<string>());
+            set => _GatewayLoadBalancerArns = value;
+        }
+
+        [Input("NetworkLoadBalancerArns")]
         private InputList<string>? _NetworkLoadBalancerArns;
 
         /// <summary>

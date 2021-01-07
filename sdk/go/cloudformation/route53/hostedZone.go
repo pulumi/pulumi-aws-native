@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type HostedZone struct {
 // NewHostedZone registers a new resource with the given unique name, arguments, and options.
 func NewHostedZone(ctx *pulumi.Context,
 	name string, args *HostedZoneArgs, opts ...pulumi.ResourceOption) (*HostedZone, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &HostedZoneArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource HostedZone
 	err := ctx.RegisterResource("cloudformation:Route53:HostedZone", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type HostedZoneArgs struct {
 
 func (HostedZoneArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedZoneArgs)(nil)).Elem()
+}
+
+type HostedZoneInput interface {
+	pulumi.Input
+
+	ToHostedZoneOutput() HostedZoneOutput
+	ToHostedZoneOutputWithContext(ctx context.Context) HostedZoneOutput
+}
+
+func (*HostedZone) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZone)(nil))
+}
+
+func (i *HostedZone) ToHostedZoneOutput() HostedZoneOutput {
+	return i.ToHostedZoneOutputWithContext(context.Background())
+}
+
+func (i *HostedZone) ToHostedZoneOutputWithContext(ctx context.Context) HostedZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneOutput)
+}
+
+type HostedZoneOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZone)(nil))
+}
+
+func (o HostedZoneOutput) ToHostedZoneOutput() HostedZoneOutput {
+	return o
+}
+
+func (o HostedZoneOutput) ToHostedZoneOutputWithContext(ctx context.Context) HostedZoneOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostedZoneOutput{})
 }

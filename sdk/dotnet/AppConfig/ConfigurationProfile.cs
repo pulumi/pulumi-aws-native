@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppConfig
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppConfig:ConfigurationProfile")]
     public partial class ConfigurationProfile : Pulumi.CustomResource
     {
         /// <summary>

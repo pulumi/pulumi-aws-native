@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeGuruProfiler
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeGuruProfiler:ProfilingGroup")]
     public partial class ProfilingGroup : Pulumi.CustomResource
     {
         /// <summary>

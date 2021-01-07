@@ -5,15 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'CidrResult',
+    'AwaitableCidrResult',
+    'cidr',
+]
 
+@pulumi.output_type
 class CidrResult:
     def __init__(__self__, subnets=None):
         if subnets and not isinstance(subnets, list):
             raise TypeError("Expected argument 'subnets' to be a list")
-        __self__.subnets = subnets
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        return pulumi.get(self, "subnets")
 
 
 class AwaitableCidrResult(CidrResult):
@@ -25,7 +36,10 @@ class AwaitableCidrResult(CidrResult):
             subnets=self.subnets)
 
 
-def cidr(cidr_bits=None, count=None, ip_block=None, opts=None):
+def cidr(cidr_bits: Optional[int] = None,
+         count: Optional[int] = None,
+         ip_block: Optional[str] = None,
+         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableCidrResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -36,8 +50,8 @@ def cidr(cidr_bits=None, count=None, ip_block=None, opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('cloudformation:index:cidr', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('cloudformation:index:cidr', __args__, opts=opts, typ=CidrResult).value
 
     return AwaitableCidrResult(
-        subnets=__ret__.get('subnets'))
+        subnets=__ret__.subnets)

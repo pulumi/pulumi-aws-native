@@ -182,6 +182,115 @@ func (o DBClusterAttributesPtrOutput) ReadEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html
+type DBClusterDBClusterRole struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html#cfn-neptune-dbcluster-dbclusterrole-featurename
+	FeatureName *string `pulumi:"FeatureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html#cfn-neptune-dbcluster-dbclusterrole-rolearn
+	RoleArn string `pulumi:"RoleArn"`
+}
+
+// DBClusterDBClusterRoleInput is an input type that accepts DBClusterDBClusterRoleArgs and DBClusterDBClusterRoleOutput values.
+// You can construct a concrete instance of `DBClusterDBClusterRoleInput` via:
+//
+//          DBClusterDBClusterRoleArgs{...}
+type DBClusterDBClusterRoleInput interface {
+	pulumi.Input
+
+	ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput
+	ToDBClusterDBClusterRoleOutputWithContext(context.Context) DBClusterDBClusterRoleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html
+type DBClusterDBClusterRoleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html#cfn-neptune-dbcluster-dbclusterrole-featurename
+	FeatureName pulumi.StringPtrInput `pulumi:"FeatureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html#cfn-neptune-dbcluster-dbclusterrole-rolearn
+	RoleArn pulumi.StringInput `pulumi:"RoleArn"`
+}
+
+func (DBClusterDBClusterRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (i DBClusterDBClusterRoleArgs) ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput {
+	return i.ToDBClusterDBClusterRoleOutputWithContext(context.Background())
+}
+
+func (i DBClusterDBClusterRoleArgs) ToDBClusterDBClusterRoleOutputWithContext(ctx context.Context) DBClusterDBClusterRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterDBClusterRoleOutput)
+}
+
+// DBClusterDBClusterRoleArrayInput is an input type that accepts DBClusterDBClusterRoleArray and DBClusterDBClusterRoleArrayOutput values.
+// You can construct a concrete instance of `DBClusterDBClusterRoleArrayInput` via:
+//
+//          DBClusterDBClusterRoleArray{ DBClusterDBClusterRoleArgs{...} }
+type DBClusterDBClusterRoleArrayInput interface {
+	pulumi.Input
+
+	ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput
+	ToDBClusterDBClusterRoleArrayOutputWithContext(context.Context) DBClusterDBClusterRoleArrayOutput
+}
+
+type DBClusterDBClusterRoleArray []DBClusterDBClusterRoleInput
+
+func (DBClusterDBClusterRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (i DBClusterDBClusterRoleArray) ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput {
+	return i.ToDBClusterDBClusterRoleArrayOutputWithContext(context.Background())
+}
+
+func (i DBClusterDBClusterRoleArray) ToDBClusterDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterDBClusterRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterDBClusterRoleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html
+type DBClusterDBClusterRoleOutput struct{ *pulumi.OutputState }
+
+func (DBClusterDBClusterRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (o DBClusterDBClusterRoleOutput) ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput {
+	return o
+}
+
+func (o DBClusterDBClusterRoleOutput) ToDBClusterDBClusterRoleOutputWithContext(ctx context.Context) DBClusterDBClusterRoleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html#cfn-neptune-dbcluster-dbclusterrole-featurename
+func (o DBClusterDBClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterDBClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html#cfn-neptune-dbcluster-dbclusterrole-rolearn
+func (o DBClusterDBClusterRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DBClusterDBClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DBClusterDBClusterRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (DBClusterDBClusterRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (o DBClusterDBClusterRoleArrayOutput) ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput {
+	return o
+}
+
+func (o DBClusterDBClusterRoleArrayOutput) ToDBClusterDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterDBClusterRoleArrayOutput {
+	return o
+}
+
+func (o DBClusterDBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterDBClusterRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterDBClusterRole {
+		return vs[0].([]DBClusterDBClusterRole)[vs[1].(int)]
+	}).(DBClusterDBClusterRoleOutput)
+}
+
 type DBClusterParameterGroupAttributes struct {
 }
 
@@ -506,6 +615,8 @@ func (o DBClusterParameterGroupPropertiesPtrOutput) Tags() cloudformation.TagArr
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html
 type DBClusterProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+	AssociatedRoles []DBClusterDBClusterRole `pulumi:"AssociatedRoles"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
 	AvailabilityZones []string `pulumi:"AvailabilityZones"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backupretentionperiod
@@ -563,6 +674,8 @@ type DBClusterPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html
 type DBClusterPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+	AssociatedRoles DBClusterDBClusterRoleArrayInput `pulumi:"AssociatedRoles"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"AvailabilityZones"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backupretentionperiod
@@ -683,6 +796,11 @@ func (o DBClusterPropertiesOutput) ToDBClusterPropertiesPtrOutputWithContext(ctx
 	return o.ApplyT(func(v DBClusterProperties) *DBClusterProperties {
 		return &v
 	}).(DBClusterPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+func (o DBClusterPropertiesOutput) AssociatedRoles() DBClusterDBClusterRoleArrayOutput {
+	return o.ApplyT(func(v DBClusterProperties) []DBClusterDBClusterRole { return v.AssociatedRoles }).(DBClusterDBClusterRoleArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
@@ -806,6 +924,16 @@ func (o DBClusterPropertiesPtrOutput) ToDBClusterPropertiesPtrOutputWithContext(
 
 func (o DBClusterPropertiesPtrOutput) Elem() DBClusterPropertiesOutput {
 	return o.ApplyT(func(v *DBClusterProperties) DBClusterProperties { return *v }).(DBClusterPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+func (o DBClusterPropertiesPtrOutput) AssociatedRoles() DBClusterDBClusterRoleArrayOutput {
+	return o.ApplyT(func(v *DBClusterProperties) []DBClusterDBClusterRole {
+		if v == nil {
+			return nil
+		}
+		return v.AssociatedRoles
+	}).(DBClusterDBClusterRoleArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
@@ -2111,6 +2239,8 @@ func (o DBSubnetGroupPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
 func init() {
 	pulumi.RegisterOutputType(DBClusterAttributesOutput{})
 	pulumi.RegisterOutputType(DBClusterAttributesPtrOutput{})
+	pulumi.RegisterOutputType(DBClusterDBClusterRoleOutput{})
+	pulumi.RegisterOutputType(DBClusterDBClusterRoleArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupAttributesOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupAttributesPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupPropertiesOutput{})

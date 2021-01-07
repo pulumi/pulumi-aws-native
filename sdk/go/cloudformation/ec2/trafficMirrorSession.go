@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TrafficMirrorSession struct {
 // NewTrafficMirrorSession registers a new resource with the given unique name, arguments, and options.
 func NewTrafficMirrorSession(ctx *pulumi.Context,
 	name string, args *TrafficMirrorSessionArgs, opts ...pulumi.ResourceOption) (*TrafficMirrorSession, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TrafficMirrorSessionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TrafficMirrorSession
 	err := ctx.RegisterResource("cloudformation:EC2:TrafficMirrorSession", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TrafficMirrorSessionArgs struct {
 
 func (TrafficMirrorSessionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorSessionArgs)(nil)).Elem()
+}
+
+type TrafficMirrorSessionInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput
+	ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput
+}
+
+func (*TrafficMirrorSession) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorSession)(nil))
+}
+
+func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
+	return i.ToTrafficMirrorSessionOutputWithContext(context.Background())
+}
+
+func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionOutput)
+}
+
+type TrafficMirrorSessionOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrafficMirrorSessionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorSession)(nil))
+}
+
+func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
+	return o
+}
+
+func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrafficMirrorSessionOutput{})
 }

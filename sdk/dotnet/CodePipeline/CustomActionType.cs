@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodePipeline
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodePipeline:CustomActionType")]
     public partial class CustomActionType : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TransitGatewayRouteTablePropagation struct {
 // NewTransitGatewayRouteTablePropagation registers a new resource with the given unique name, arguments, and options.
 func NewTransitGatewayRouteTablePropagation(ctx *pulumi.Context,
 	name string, args *TransitGatewayRouteTablePropagationArgs, opts ...pulumi.ResourceOption) (*TransitGatewayRouteTablePropagation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TransitGatewayRouteTablePropagationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TransitGatewayRouteTablePropagation
 	err := ctx.RegisterResource("cloudformation:EC2:TransitGatewayRouteTablePropagation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TransitGatewayRouteTablePropagationArgs struct {
 
 func (TransitGatewayRouteTablePropagationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRouteTablePropagationArgs)(nil)).Elem()
+}
+
+type TransitGatewayRouteTablePropagationInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTablePropagationOutput() TransitGatewayRouteTablePropagationOutput
+	ToTransitGatewayRouteTablePropagationOutputWithContext(ctx context.Context) TransitGatewayRouteTablePropagationOutput
+}
+
+func (*TransitGatewayRouteTablePropagation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTablePropagation)(nil))
+}
+
+func (i *TransitGatewayRouteTablePropagation) ToTransitGatewayRouteTablePropagationOutput() TransitGatewayRouteTablePropagationOutput {
+	return i.ToTransitGatewayRouteTablePropagationOutputWithContext(context.Background())
+}
+
+func (i *TransitGatewayRouteTablePropagation) ToTransitGatewayRouteTablePropagationOutputWithContext(ctx context.Context) TransitGatewayRouteTablePropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTablePropagationOutput)
+}
+
+type TransitGatewayRouteTablePropagationOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayRouteTablePropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTablePropagation)(nil))
+}
+
+func (o TransitGatewayRouteTablePropagationOutput) ToTransitGatewayRouteTablePropagationOutput() TransitGatewayRouteTablePropagationOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTablePropagationOutput) ToTransitGatewayRouteTablePropagationOutputWithContext(ctx context.Context) TransitGatewayRouteTablePropagationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitGatewayRouteTablePropagationOutput{})
 }

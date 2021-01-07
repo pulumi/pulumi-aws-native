@@ -4,6 +4,7 @@
 package redshift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ClusterSecurityGroupIngress struct {
 // NewClusterSecurityGroupIngress registers a new resource with the given unique name, arguments, and options.
 func NewClusterSecurityGroupIngress(ctx *pulumi.Context,
 	name string, args *ClusterSecurityGroupIngressArgs, opts ...pulumi.ResourceOption) (*ClusterSecurityGroupIngress, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ClusterSecurityGroupIngressArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ClusterSecurityGroupIngress
 	err := ctx.RegisterResource("cloudformation:Redshift:ClusterSecurityGroupIngress", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ClusterSecurityGroupIngressArgs struct {
 
 func (ClusterSecurityGroupIngressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSecurityGroupIngressArgs)(nil)).Elem()
+}
+
+type ClusterSecurityGroupIngressInput interface {
+	pulumi.Input
+
+	ToClusterSecurityGroupIngressOutput() ClusterSecurityGroupIngressOutput
+	ToClusterSecurityGroupIngressOutputWithContext(ctx context.Context) ClusterSecurityGroupIngressOutput
+}
+
+func (*ClusterSecurityGroupIngress) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSecurityGroupIngress)(nil))
+}
+
+func (i *ClusterSecurityGroupIngress) ToClusterSecurityGroupIngressOutput() ClusterSecurityGroupIngressOutput {
+	return i.ToClusterSecurityGroupIngressOutputWithContext(context.Background())
+}
+
+func (i *ClusterSecurityGroupIngress) ToClusterSecurityGroupIngressOutputWithContext(ctx context.Context) ClusterSecurityGroupIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupIngressOutput)
+}
+
+type ClusterSecurityGroupIngressOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterSecurityGroupIngressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSecurityGroupIngress)(nil))
+}
+
+func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutput() ClusterSecurityGroupIngressOutput {
+	return o
+}
+
+func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutputWithContext(ctx context.Context) ClusterSecurityGroupIngressOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterSecurityGroupIngressOutput{})
 }

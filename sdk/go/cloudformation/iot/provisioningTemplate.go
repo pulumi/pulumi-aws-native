@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ProvisioningTemplate struct {
 // NewProvisioningTemplate registers a new resource with the given unique name, arguments, and options.
 func NewProvisioningTemplate(ctx *pulumi.Context,
 	name string, args *ProvisioningTemplateArgs, opts ...pulumi.ResourceOption) (*ProvisioningTemplate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ProvisioningTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ProvisioningTemplate
 	err := ctx.RegisterResource("cloudformation:IoT:ProvisioningTemplate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ProvisioningTemplateArgs struct {
 
 func (ProvisioningTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisioningTemplateArgs)(nil)).Elem()
+}
+
+type ProvisioningTemplateInput interface {
+	pulumi.Input
+
+	ToProvisioningTemplateOutput() ProvisioningTemplateOutput
+	ToProvisioningTemplateOutputWithContext(ctx context.Context) ProvisioningTemplateOutput
+}
+
+func (*ProvisioningTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplate)(nil))
+}
+
+func (i *ProvisioningTemplate) ToProvisioningTemplateOutput() ProvisioningTemplateOutput {
+	return i.ToProvisioningTemplateOutputWithContext(context.Background())
+}
+
+func (i *ProvisioningTemplate) ToProvisioningTemplateOutputWithContext(ctx context.Context) ProvisioningTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateOutput)
+}
+
+type ProvisioningTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProvisioningTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplate)(nil))
+}
+
+func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutput() ProvisioningTemplateOutput {
+	return o
+}
+
+func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutputWithContext(ctx context.Context) ProvisioningTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProvisioningTemplateOutput{})
 }

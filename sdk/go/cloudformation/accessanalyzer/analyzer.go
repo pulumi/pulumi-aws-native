@@ -4,6 +4,7 @@
 package accessanalyzer
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Analyzer struct {
 // NewAnalyzer registers a new resource with the given unique name, arguments, and options.
 func NewAnalyzer(ctx *pulumi.Context,
 	name string, args *AnalyzerArgs, opts ...pulumi.ResourceOption) (*Analyzer, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AnalyzerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Analyzer
 	err := ctx.RegisterResource("cloudformation:AccessAnalyzer:Analyzer", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AnalyzerArgs struct {
 
 func (AnalyzerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyzerArgs)(nil)).Elem()
+}
+
+type AnalyzerInput interface {
+	pulumi.Input
+
+	ToAnalyzerOutput() AnalyzerOutput
+	ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput
+}
+
+func (*Analyzer) ElementType() reflect.Type {
+	return reflect.TypeOf((*Analyzer)(nil))
+}
+
+func (i *Analyzer) ToAnalyzerOutput() AnalyzerOutput {
+	return i.ToAnalyzerOutputWithContext(context.Background())
+}
+
+func (i *Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerOutput)
+}
+
+type AnalyzerOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyzerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Analyzer)(nil))
+}
+
+func (o AnalyzerOutput) ToAnalyzerOutput() AnalyzerOutput {
+	return o
+}
+
+func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyzerOutput{})
 }

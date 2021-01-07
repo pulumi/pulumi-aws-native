@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

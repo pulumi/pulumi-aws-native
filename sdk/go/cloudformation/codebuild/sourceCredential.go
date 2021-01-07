@@ -4,6 +4,7 @@
 package codebuild
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SourceCredential struct {
 // NewSourceCredential registers a new resource with the given unique name, arguments, and options.
 func NewSourceCredential(ctx *pulumi.Context,
 	name string, args *SourceCredentialArgs, opts ...pulumi.ResourceOption) (*SourceCredential, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SourceCredentialArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SourceCredential
 	err := ctx.RegisterResource("cloudformation:CodeBuild:SourceCredential", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SourceCredentialArgs struct {
 
 func (SourceCredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceCredentialArgs)(nil)).Elem()
+}
+
+type SourceCredentialInput interface {
+	pulumi.Input
+
+	ToSourceCredentialOutput() SourceCredentialOutput
+	ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput
+}
+
+func (*SourceCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCredential)(nil))
+}
+
+func (i *SourceCredential) ToSourceCredentialOutput() SourceCredentialOutput {
+	return i.ToSourceCredentialOutputWithContext(context.Background())
+}
+
+func (i *SourceCredential) ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCredentialOutput)
+}
+
+type SourceCredentialOutput struct {
+	*pulumi.OutputState
+}
+
+func (SourceCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCredential)(nil))
+}
+
+func (o SourceCredentialOutput) ToSourceCredentialOutput() SourceCredentialOutput {
+	return o
+}
+
+func (o SourceCredentialOutput) ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SourceCredentialOutput{})
 }

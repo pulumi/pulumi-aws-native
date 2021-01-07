@@ -4,6 +4,7 @@
 package sns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Subscription struct {
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSubscription(ctx *pulumi.Context,
 	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOption) (*Subscription, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Subscription
 	err := ctx.RegisterResource("cloudformation:SNS:Subscription", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SubscriptionArgs struct {
 
 func (SubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionArgs)(nil)).Elem()
+}
+
+type SubscriptionInput interface {
+	pulumi.Input
+
+	ToSubscriptionOutput() SubscriptionOutput
+	ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput
+}
+
+func (*Subscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subscription)(nil))
+}
+
+func (i *Subscription) ToSubscriptionOutput() SubscriptionOutput {
+	return i.ToSubscriptionOutputWithContext(context.Background())
+}
+
+func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
+}
+
+type SubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subscription)(nil))
+}
+
+func (o SubscriptionOutput) ToSubscriptionOutput() SubscriptionOutput {
+	return o
+}
+
+func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionOutput{})
 }

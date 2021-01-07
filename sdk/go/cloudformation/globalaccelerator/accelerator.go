@@ -4,6 +4,7 @@
 package globalaccelerator
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Accelerator struct {
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
 func NewAccelerator(ctx *pulumi.Context,
 	name string, args *AcceleratorArgs, opts ...pulumi.ResourceOption) (*Accelerator, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AcceleratorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Accelerator
 	err := ctx.RegisterResource("cloudformation:GlobalAccelerator:Accelerator", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AcceleratorArgs struct {
 
 func (AcceleratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*acceleratorArgs)(nil)).Elem()
+}
+
+type AcceleratorInput interface {
+	pulumi.Input
+
+	ToAcceleratorOutput() AcceleratorOutput
+	ToAcceleratorOutputWithContext(ctx context.Context) AcceleratorOutput
+}
+
+func (*Accelerator) ElementType() reflect.Type {
+	return reflect.TypeOf((*Accelerator)(nil))
+}
+
+func (i *Accelerator) ToAcceleratorOutput() AcceleratorOutput {
+	return i.ToAcceleratorOutputWithContext(context.Background())
+}
+
+func (i *Accelerator) ToAcceleratorOutputWithContext(ctx context.Context) AcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorOutput)
+}
+
+type AcceleratorOutput struct {
+	*pulumi.OutputState
+}
+
+func (AcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Accelerator)(nil))
+}
+
+func (o AcceleratorOutput) ToAcceleratorOutput() AcceleratorOutput {
+	return o
+}
+
+func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) AcceleratorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AcceleratorOutput{})
 }

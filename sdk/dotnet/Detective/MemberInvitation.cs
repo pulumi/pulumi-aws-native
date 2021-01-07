@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Detective
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Detective:MemberInvitation")]
     public partial class MemberInvitation : Pulumi.CustomResource
     {
         /// <summary>

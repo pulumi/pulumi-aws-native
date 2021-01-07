@@ -579,6 +579,674 @@ func (o MacroPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ModuleDefaultVersionAttributes struct {
+}
+
+// ModuleDefaultVersionAttributesInput is an input type that accepts ModuleDefaultVersionAttributesArgs and ModuleDefaultVersionAttributesOutput values.
+// You can construct a concrete instance of `ModuleDefaultVersionAttributesInput` via:
+//
+//          ModuleDefaultVersionAttributesArgs{...}
+type ModuleDefaultVersionAttributesInput interface {
+	pulumi.Input
+
+	ToModuleDefaultVersionAttributesOutput() ModuleDefaultVersionAttributesOutput
+	ToModuleDefaultVersionAttributesOutputWithContext(context.Context) ModuleDefaultVersionAttributesOutput
+}
+
+type ModuleDefaultVersionAttributesArgs struct {
+}
+
+func (ModuleDefaultVersionAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleDefaultVersionAttributes)(nil)).Elem()
+}
+
+func (i ModuleDefaultVersionAttributesArgs) ToModuleDefaultVersionAttributesOutput() ModuleDefaultVersionAttributesOutput {
+	return i.ToModuleDefaultVersionAttributesOutputWithContext(context.Background())
+}
+
+func (i ModuleDefaultVersionAttributesArgs) ToModuleDefaultVersionAttributesOutputWithContext(ctx context.Context) ModuleDefaultVersionAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleDefaultVersionAttributesOutput)
+}
+
+func (i ModuleDefaultVersionAttributesArgs) ToModuleDefaultVersionAttributesPtrOutput() ModuleDefaultVersionAttributesPtrOutput {
+	return i.ToModuleDefaultVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ModuleDefaultVersionAttributesArgs) ToModuleDefaultVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleDefaultVersionAttributesOutput).ToModuleDefaultVersionAttributesPtrOutputWithContext(ctx)
+}
+
+// ModuleDefaultVersionAttributesPtrInput is an input type that accepts ModuleDefaultVersionAttributesArgs, ModuleDefaultVersionAttributesPtr and ModuleDefaultVersionAttributesPtrOutput values.
+// You can construct a concrete instance of `ModuleDefaultVersionAttributesPtrInput` via:
+//
+//          ModuleDefaultVersionAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModuleDefaultVersionAttributesPtrInput interface {
+	pulumi.Input
+
+	ToModuleDefaultVersionAttributesPtrOutput() ModuleDefaultVersionAttributesPtrOutput
+	ToModuleDefaultVersionAttributesPtrOutputWithContext(context.Context) ModuleDefaultVersionAttributesPtrOutput
+}
+
+type moduleDefaultVersionAttributesPtrType ModuleDefaultVersionAttributesArgs
+
+func ModuleDefaultVersionAttributesPtr(v *ModuleDefaultVersionAttributesArgs) ModuleDefaultVersionAttributesPtrInput {
+	return (*moduleDefaultVersionAttributesPtrType)(v)
+}
+
+func (*moduleDefaultVersionAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleDefaultVersionAttributes)(nil)).Elem()
+}
+
+func (i *moduleDefaultVersionAttributesPtrType) ToModuleDefaultVersionAttributesPtrOutput() ModuleDefaultVersionAttributesPtrOutput {
+	return i.ToModuleDefaultVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *moduleDefaultVersionAttributesPtrType) ToModuleDefaultVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleDefaultVersionAttributesPtrOutput)
+}
+
+type ModuleDefaultVersionAttributesOutput struct{ *pulumi.OutputState }
+
+func (ModuleDefaultVersionAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleDefaultVersionAttributes)(nil)).Elem()
+}
+
+func (o ModuleDefaultVersionAttributesOutput) ToModuleDefaultVersionAttributesOutput() ModuleDefaultVersionAttributesOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionAttributesOutput) ToModuleDefaultVersionAttributesOutputWithContext(ctx context.Context) ModuleDefaultVersionAttributesOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionAttributesOutput) ToModuleDefaultVersionAttributesPtrOutput() ModuleDefaultVersionAttributesPtrOutput {
+	return o.ToModuleDefaultVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ModuleDefaultVersionAttributesOutput) ToModuleDefaultVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionAttributesPtrOutput {
+	return o.ApplyT(func(v ModuleDefaultVersionAttributes) *ModuleDefaultVersionAttributes {
+		return &v
+	}).(ModuleDefaultVersionAttributesPtrOutput)
+}
+
+type ModuleDefaultVersionAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModuleDefaultVersionAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleDefaultVersionAttributes)(nil)).Elem()
+}
+
+func (o ModuleDefaultVersionAttributesPtrOutput) ToModuleDefaultVersionAttributesPtrOutput() ModuleDefaultVersionAttributesPtrOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionAttributesPtrOutput) ToModuleDefaultVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionAttributesPtrOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionAttributesPtrOutput) Elem() ModuleDefaultVersionAttributesOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersionAttributes) ModuleDefaultVersionAttributes { return *v }).(ModuleDefaultVersionAttributesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+type ModuleDefaultVersionProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+	Arn *string `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+	ModuleName *string `pulumi:"ModuleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+	VersionId *string `pulumi:"VersionId"`
+}
+
+// ModuleDefaultVersionPropertiesInput is an input type that accepts ModuleDefaultVersionPropertiesArgs and ModuleDefaultVersionPropertiesOutput values.
+// You can construct a concrete instance of `ModuleDefaultVersionPropertiesInput` via:
+//
+//          ModuleDefaultVersionPropertiesArgs{...}
+type ModuleDefaultVersionPropertiesInput interface {
+	pulumi.Input
+
+	ToModuleDefaultVersionPropertiesOutput() ModuleDefaultVersionPropertiesOutput
+	ToModuleDefaultVersionPropertiesOutputWithContext(context.Context) ModuleDefaultVersionPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+type ModuleDefaultVersionPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+	Arn pulumi.StringPtrInput `pulumi:"Arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+	ModuleName pulumi.StringPtrInput `pulumi:"ModuleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+	VersionId pulumi.StringPtrInput `pulumi:"VersionId"`
+}
+
+func (ModuleDefaultVersionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleDefaultVersionProperties)(nil)).Elem()
+}
+
+func (i ModuleDefaultVersionPropertiesArgs) ToModuleDefaultVersionPropertiesOutput() ModuleDefaultVersionPropertiesOutput {
+	return i.ToModuleDefaultVersionPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModuleDefaultVersionPropertiesArgs) ToModuleDefaultVersionPropertiesOutputWithContext(ctx context.Context) ModuleDefaultVersionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleDefaultVersionPropertiesOutput)
+}
+
+func (i ModuleDefaultVersionPropertiesArgs) ToModuleDefaultVersionPropertiesPtrOutput() ModuleDefaultVersionPropertiesPtrOutput {
+	return i.ToModuleDefaultVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModuleDefaultVersionPropertiesArgs) ToModuleDefaultVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleDefaultVersionPropertiesOutput).ToModuleDefaultVersionPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModuleDefaultVersionPropertiesPtrInput is an input type that accepts ModuleDefaultVersionPropertiesArgs, ModuleDefaultVersionPropertiesPtr and ModuleDefaultVersionPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModuleDefaultVersionPropertiesPtrInput` via:
+//
+//          ModuleDefaultVersionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModuleDefaultVersionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModuleDefaultVersionPropertiesPtrOutput() ModuleDefaultVersionPropertiesPtrOutput
+	ToModuleDefaultVersionPropertiesPtrOutputWithContext(context.Context) ModuleDefaultVersionPropertiesPtrOutput
+}
+
+type moduleDefaultVersionPropertiesPtrType ModuleDefaultVersionPropertiesArgs
+
+func ModuleDefaultVersionPropertiesPtr(v *ModuleDefaultVersionPropertiesArgs) ModuleDefaultVersionPropertiesPtrInput {
+	return (*moduleDefaultVersionPropertiesPtrType)(v)
+}
+
+func (*moduleDefaultVersionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleDefaultVersionProperties)(nil)).Elem()
+}
+
+func (i *moduleDefaultVersionPropertiesPtrType) ToModuleDefaultVersionPropertiesPtrOutput() ModuleDefaultVersionPropertiesPtrOutput {
+	return i.ToModuleDefaultVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *moduleDefaultVersionPropertiesPtrType) ToModuleDefaultVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleDefaultVersionPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+type ModuleDefaultVersionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModuleDefaultVersionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleDefaultVersionProperties)(nil)).Elem()
+}
+
+func (o ModuleDefaultVersionPropertiesOutput) ToModuleDefaultVersionPropertiesOutput() ModuleDefaultVersionPropertiesOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionPropertiesOutput) ToModuleDefaultVersionPropertiesOutputWithContext(ctx context.Context) ModuleDefaultVersionPropertiesOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionPropertiesOutput) ToModuleDefaultVersionPropertiesPtrOutput() ModuleDefaultVersionPropertiesPtrOutput {
+	return o.ToModuleDefaultVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModuleDefaultVersionPropertiesOutput) ToModuleDefaultVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionPropertiesPtrOutput {
+	return o.ApplyT(func(v ModuleDefaultVersionProperties) *ModuleDefaultVersionProperties {
+		return &v
+	}).(ModuleDefaultVersionPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+func (o ModuleDefaultVersionPropertiesOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleDefaultVersionProperties) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+func (o ModuleDefaultVersionPropertiesOutput) ModuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleDefaultVersionProperties) *string { return v.ModuleName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+func (o ModuleDefaultVersionPropertiesOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleDefaultVersionProperties) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type ModuleDefaultVersionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModuleDefaultVersionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleDefaultVersionProperties)(nil)).Elem()
+}
+
+func (o ModuleDefaultVersionPropertiesPtrOutput) ToModuleDefaultVersionPropertiesPtrOutput() ModuleDefaultVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionPropertiesPtrOutput) ToModuleDefaultVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleDefaultVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o ModuleDefaultVersionPropertiesPtrOutput) Elem() ModuleDefaultVersionPropertiesOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersionProperties) ModuleDefaultVersionProperties { return *v }).(ModuleDefaultVersionPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+func (o ModuleDefaultVersionPropertiesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+func (o ModuleDefaultVersionPropertiesPtrOutput) ModuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModuleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+func (o ModuleDefaultVersionPropertiesPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleDefaultVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModuleVersionAttributes struct {
+	Arn              string `pulumi:"Arn"`
+	Description      string `pulumi:"Description"`
+	DocumentationUrl string `pulumi:"DocumentationUrl"`
+	IsDefaultVersion bool   `pulumi:"IsDefaultVersion"`
+	Schema           string `pulumi:"Schema"`
+	TimeCreated      string `pulumi:"TimeCreated"`
+	VersionId        string `pulumi:"VersionId"`
+	Visibility       string `pulumi:"Visibility"`
+}
+
+// ModuleVersionAttributesInput is an input type that accepts ModuleVersionAttributesArgs and ModuleVersionAttributesOutput values.
+// You can construct a concrete instance of `ModuleVersionAttributesInput` via:
+//
+//          ModuleVersionAttributesArgs{...}
+type ModuleVersionAttributesInput interface {
+	pulumi.Input
+
+	ToModuleVersionAttributesOutput() ModuleVersionAttributesOutput
+	ToModuleVersionAttributesOutputWithContext(context.Context) ModuleVersionAttributesOutput
+}
+
+type ModuleVersionAttributesArgs struct {
+	Arn              pulumi.StringInput `pulumi:"Arn"`
+	Description      pulumi.StringInput `pulumi:"Description"`
+	DocumentationUrl pulumi.StringInput `pulumi:"DocumentationUrl"`
+	IsDefaultVersion pulumi.BoolInput   `pulumi:"IsDefaultVersion"`
+	Schema           pulumi.StringInput `pulumi:"Schema"`
+	TimeCreated      pulumi.StringInput `pulumi:"TimeCreated"`
+	VersionId        pulumi.StringInput `pulumi:"VersionId"`
+	Visibility       pulumi.StringInput `pulumi:"Visibility"`
+}
+
+func (ModuleVersionAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleVersionAttributes)(nil)).Elem()
+}
+
+func (i ModuleVersionAttributesArgs) ToModuleVersionAttributesOutput() ModuleVersionAttributesOutput {
+	return i.ToModuleVersionAttributesOutputWithContext(context.Background())
+}
+
+func (i ModuleVersionAttributesArgs) ToModuleVersionAttributesOutputWithContext(ctx context.Context) ModuleVersionAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleVersionAttributesOutput)
+}
+
+func (i ModuleVersionAttributesArgs) ToModuleVersionAttributesPtrOutput() ModuleVersionAttributesPtrOutput {
+	return i.ToModuleVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ModuleVersionAttributesArgs) ToModuleVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleVersionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleVersionAttributesOutput).ToModuleVersionAttributesPtrOutputWithContext(ctx)
+}
+
+// ModuleVersionAttributesPtrInput is an input type that accepts ModuleVersionAttributesArgs, ModuleVersionAttributesPtr and ModuleVersionAttributesPtrOutput values.
+// You can construct a concrete instance of `ModuleVersionAttributesPtrInput` via:
+//
+//          ModuleVersionAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModuleVersionAttributesPtrInput interface {
+	pulumi.Input
+
+	ToModuleVersionAttributesPtrOutput() ModuleVersionAttributesPtrOutput
+	ToModuleVersionAttributesPtrOutputWithContext(context.Context) ModuleVersionAttributesPtrOutput
+}
+
+type moduleVersionAttributesPtrType ModuleVersionAttributesArgs
+
+func ModuleVersionAttributesPtr(v *ModuleVersionAttributesArgs) ModuleVersionAttributesPtrInput {
+	return (*moduleVersionAttributesPtrType)(v)
+}
+
+func (*moduleVersionAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleVersionAttributes)(nil)).Elem()
+}
+
+func (i *moduleVersionAttributesPtrType) ToModuleVersionAttributesPtrOutput() ModuleVersionAttributesPtrOutput {
+	return i.ToModuleVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *moduleVersionAttributesPtrType) ToModuleVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleVersionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleVersionAttributesPtrOutput)
+}
+
+type ModuleVersionAttributesOutput struct{ *pulumi.OutputState }
+
+func (ModuleVersionAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleVersionAttributes)(nil)).Elem()
+}
+
+func (o ModuleVersionAttributesOutput) ToModuleVersionAttributesOutput() ModuleVersionAttributesOutput {
+	return o
+}
+
+func (o ModuleVersionAttributesOutput) ToModuleVersionAttributesOutputWithContext(ctx context.Context) ModuleVersionAttributesOutput {
+	return o
+}
+
+func (o ModuleVersionAttributesOutput) ToModuleVersionAttributesPtrOutput() ModuleVersionAttributesPtrOutput {
+	return o.ToModuleVersionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ModuleVersionAttributesOutput) ToModuleVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleVersionAttributesPtrOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) *ModuleVersionAttributes {
+		return &v
+	}).(ModuleVersionAttributesPtrOutput)
+}
+func (o ModuleVersionAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ModuleVersionAttributesOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ModuleVersionAttributesOutput) DocumentationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) string { return v.DocumentationUrl }).(pulumi.StringOutput)
+}
+
+func (o ModuleVersionAttributesOutput) IsDefaultVersion() pulumi.BoolOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) bool { return v.IsDefaultVersion }).(pulumi.BoolOutput)
+}
+
+func (o ModuleVersionAttributesOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func (o ModuleVersionAttributesOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+func (o ModuleVersionAttributesOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+func (o ModuleVersionAttributesOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionAttributes) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+type ModuleVersionAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModuleVersionAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleVersionAttributes)(nil)).Elem()
+}
+
+func (o ModuleVersionAttributesPtrOutput) ToModuleVersionAttributesPtrOutput() ModuleVersionAttributesPtrOutput {
+	return o
+}
+
+func (o ModuleVersionAttributesPtrOutput) ToModuleVersionAttributesPtrOutputWithContext(ctx context.Context) ModuleVersionAttributesPtrOutput {
+	return o
+}
+
+func (o ModuleVersionAttributesPtrOutput) Elem() ModuleVersionAttributesOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) ModuleVersionAttributes { return *v }).(ModuleVersionAttributesOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) DocumentationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DocumentationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) IsDefaultVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsDefaultVersion
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) TimeCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeCreated
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModuleVersionAttributesPtrOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Visibility
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
+type ModuleVersionProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+	ModuleName string `pulumi:"ModuleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+	ModulePackage *string `pulumi:"ModulePackage"`
+}
+
+// ModuleVersionPropertiesInput is an input type that accepts ModuleVersionPropertiesArgs and ModuleVersionPropertiesOutput values.
+// You can construct a concrete instance of `ModuleVersionPropertiesInput` via:
+//
+//          ModuleVersionPropertiesArgs{...}
+type ModuleVersionPropertiesInput interface {
+	pulumi.Input
+
+	ToModuleVersionPropertiesOutput() ModuleVersionPropertiesOutput
+	ToModuleVersionPropertiesOutputWithContext(context.Context) ModuleVersionPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
+type ModuleVersionPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+	ModuleName pulumi.StringInput `pulumi:"ModuleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+	ModulePackage pulumi.StringPtrInput `pulumi:"ModulePackage"`
+}
+
+func (ModuleVersionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleVersionProperties)(nil)).Elem()
+}
+
+func (i ModuleVersionPropertiesArgs) ToModuleVersionPropertiesOutput() ModuleVersionPropertiesOutput {
+	return i.ToModuleVersionPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModuleVersionPropertiesArgs) ToModuleVersionPropertiesOutputWithContext(ctx context.Context) ModuleVersionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleVersionPropertiesOutput)
+}
+
+func (i ModuleVersionPropertiesArgs) ToModuleVersionPropertiesPtrOutput() ModuleVersionPropertiesPtrOutput {
+	return i.ToModuleVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModuleVersionPropertiesArgs) ToModuleVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleVersionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleVersionPropertiesOutput).ToModuleVersionPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModuleVersionPropertiesPtrInput is an input type that accepts ModuleVersionPropertiesArgs, ModuleVersionPropertiesPtr and ModuleVersionPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModuleVersionPropertiesPtrInput` via:
+//
+//          ModuleVersionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ModuleVersionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModuleVersionPropertiesPtrOutput() ModuleVersionPropertiesPtrOutput
+	ToModuleVersionPropertiesPtrOutputWithContext(context.Context) ModuleVersionPropertiesPtrOutput
+}
+
+type moduleVersionPropertiesPtrType ModuleVersionPropertiesArgs
+
+func ModuleVersionPropertiesPtr(v *ModuleVersionPropertiesArgs) ModuleVersionPropertiesPtrInput {
+	return (*moduleVersionPropertiesPtrType)(v)
+}
+
+func (*moduleVersionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleVersionProperties)(nil)).Elem()
+}
+
+func (i *moduleVersionPropertiesPtrType) ToModuleVersionPropertiesPtrOutput() ModuleVersionPropertiesPtrOutput {
+	return i.ToModuleVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *moduleVersionPropertiesPtrType) ToModuleVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleVersionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleVersionPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
+type ModuleVersionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModuleVersionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleVersionProperties)(nil)).Elem()
+}
+
+func (o ModuleVersionPropertiesOutput) ToModuleVersionPropertiesOutput() ModuleVersionPropertiesOutput {
+	return o
+}
+
+func (o ModuleVersionPropertiesOutput) ToModuleVersionPropertiesOutputWithContext(ctx context.Context) ModuleVersionPropertiesOutput {
+	return o
+}
+
+func (o ModuleVersionPropertiesOutput) ToModuleVersionPropertiesPtrOutput() ModuleVersionPropertiesPtrOutput {
+	return o.ToModuleVersionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModuleVersionPropertiesOutput) ToModuleVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleVersionPropertiesPtrOutput {
+	return o.ApplyT(func(v ModuleVersionProperties) *ModuleVersionProperties {
+		return &v
+	}).(ModuleVersionPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+func (o ModuleVersionPropertiesOutput) ModuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleVersionProperties) string { return v.ModuleName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+func (o ModuleVersionPropertiesOutput) ModulePackage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleVersionProperties) *string { return v.ModulePackage }).(pulumi.StringPtrOutput)
+}
+
+type ModuleVersionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModuleVersionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleVersionProperties)(nil)).Elem()
+}
+
+func (o ModuleVersionPropertiesPtrOutput) ToModuleVersionPropertiesPtrOutput() ModuleVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o ModuleVersionPropertiesPtrOutput) ToModuleVersionPropertiesPtrOutputWithContext(ctx context.Context) ModuleVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o ModuleVersionPropertiesPtrOutput) Elem() ModuleVersionPropertiesOutput {
+	return o.ApplyT(func(v *ModuleVersionProperties) ModuleVersionProperties { return *v }).(ModuleVersionPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+func (o ModuleVersionPropertiesPtrOutput) ModuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModuleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+func (o ModuleVersionPropertiesPtrOutput) ModulePackage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModulePackage
+	}).(pulumi.StringPtrOutput)
+}
+
 type StackAttributes struct {
 }
 
@@ -899,6 +1567,1148 @@ func (o StackPropertiesPtrOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
 		}
 		return v.TimeoutInMinutes
 	}).(pulumi.IntPtrOutput)
+}
+
+type StackSetAttributes struct {
+	StackSetId string `pulumi:"StackSetId"`
+}
+
+// StackSetAttributesInput is an input type that accepts StackSetAttributesArgs and StackSetAttributesOutput values.
+// You can construct a concrete instance of `StackSetAttributesInput` via:
+//
+//          StackSetAttributesArgs{...}
+type StackSetAttributesInput interface {
+	pulumi.Input
+
+	ToStackSetAttributesOutput() StackSetAttributesOutput
+	ToStackSetAttributesOutputWithContext(context.Context) StackSetAttributesOutput
+}
+
+type StackSetAttributesArgs struct {
+	StackSetId pulumi.StringInput `pulumi:"StackSetId"`
+}
+
+func (StackSetAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetAttributes)(nil)).Elem()
+}
+
+func (i StackSetAttributesArgs) ToStackSetAttributesOutput() StackSetAttributesOutput {
+	return i.ToStackSetAttributesOutputWithContext(context.Background())
+}
+
+func (i StackSetAttributesArgs) ToStackSetAttributesOutputWithContext(ctx context.Context) StackSetAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetAttributesOutput)
+}
+
+func (i StackSetAttributesArgs) ToStackSetAttributesPtrOutput() StackSetAttributesPtrOutput {
+	return i.ToStackSetAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetAttributesArgs) ToStackSetAttributesPtrOutputWithContext(ctx context.Context) StackSetAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetAttributesOutput).ToStackSetAttributesPtrOutputWithContext(ctx)
+}
+
+// StackSetAttributesPtrInput is an input type that accepts StackSetAttributesArgs, StackSetAttributesPtr and StackSetAttributesPtrOutput values.
+// You can construct a concrete instance of `StackSetAttributesPtrInput` via:
+//
+//          StackSetAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type StackSetAttributesPtrInput interface {
+	pulumi.Input
+
+	ToStackSetAttributesPtrOutput() StackSetAttributesPtrOutput
+	ToStackSetAttributesPtrOutputWithContext(context.Context) StackSetAttributesPtrOutput
+}
+
+type stackSetAttributesPtrType StackSetAttributesArgs
+
+func StackSetAttributesPtr(v *StackSetAttributesArgs) StackSetAttributesPtrInput {
+	return (*stackSetAttributesPtrType)(v)
+}
+
+func (*stackSetAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetAttributes)(nil)).Elem()
+}
+
+func (i *stackSetAttributesPtrType) ToStackSetAttributesPtrOutput() StackSetAttributesPtrOutput {
+	return i.ToStackSetAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetAttributesPtrType) ToStackSetAttributesPtrOutputWithContext(ctx context.Context) StackSetAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetAttributesPtrOutput)
+}
+
+type StackSetAttributesOutput struct{ *pulumi.OutputState }
+
+func (StackSetAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetAttributes)(nil)).Elem()
+}
+
+func (o StackSetAttributesOutput) ToStackSetAttributesOutput() StackSetAttributesOutput {
+	return o
+}
+
+func (o StackSetAttributesOutput) ToStackSetAttributesOutputWithContext(ctx context.Context) StackSetAttributesOutput {
+	return o
+}
+
+func (o StackSetAttributesOutput) ToStackSetAttributesPtrOutput() StackSetAttributesPtrOutput {
+	return o.ToStackSetAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetAttributesOutput) ToStackSetAttributesPtrOutputWithContext(ctx context.Context) StackSetAttributesPtrOutput {
+	return o.ApplyT(func(v StackSetAttributes) *StackSetAttributes {
+		return &v
+	}).(StackSetAttributesPtrOutput)
+}
+func (o StackSetAttributesOutput) StackSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v StackSetAttributes) string { return v.StackSetId }).(pulumi.StringOutput)
+}
+
+type StackSetAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetAttributes)(nil)).Elem()
+}
+
+func (o StackSetAttributesPtrOutput) ToStackSetAttributesPtrOutput() StackSetAttributesPtrOutput {
+	return o
+}
+
+func (o StackSetAttributesPtrOutput) ToStackSetAttributesPtrOutputWithContext(ctx context.Context) StackSetAttributesPtrOutput {
+	return o
+}
+
+func (o StackSetAttributesPtrOutput) Elem() StackSetAttributesOutput {
+	return o.ApplyT(func(v *StackSetAttributes) StackSetAttributes { return *v }).(StackSetAttributesOutput)
+}
+
+func (o StackSetAttributesPtrOutput) StackSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StackSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
+type StackSetAutoDeployment struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+	Enabled *bool `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+	RetainStacksOnAccountRemoval *bool `pulumi:"RetainStacksOnAccountRemoval"`
+}
+
+// StackSetAutoDeploymentInput is an input type that accepts StackSetAutoDeploymentArgs and StackSetAutoDeploymentOutput values.
+// You can construct a concrete instance of `StackSetAutoDeploymentInput` via:
+//
+//          StackSetAutoDeploymentArgs{...}
+type StackSetAutoDeploymentInput interface {
+	pulumi.Input
+
+	ToStackSetAutoDeploymentOutput() StackSetAutoDeploymentOutput
+	ToStackSetAutoDeploymentOutputWithContext(context.Context) StackSetAutoDeploymentOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
+type StackSetAutoDeploymentArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+	RetainStacksOnAccountRemoval pulumi.BoolPtrInput `pulumi:"RetainStacksOnAccountRemoval"`
+}
+
+func (StackSetAutoDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetAutoDeployment)(nil)).Elem()
+}
+
+func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentOutput() StackSetAutoDeploymentOutput {
+	return i.ToStackSetAutoDeploymentOutputWithContext(context.Background())
+}
+
+func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentOutputWithContext(ctx context.Context) StackSetAutoDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentOutput)
+}
+
+func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentPtrOutput() StackSetAutoDeploymentPtrOutput {
+	return i.ToStackSetAutoDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentPtrOutputWithContext(ctx context.Context) StackSetAutoDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentOutput).ToStackSetAutoDeploymentPtrOutputWithContext(ctx)
+}
+
+// StackSetAutoDeploymentPtrInput is an input type that accepts StackSetAutoDeploymentArgs, StackSetAutoDeploymentPtr and StackSetAutoDeploymentPtrOutput values.
+// You can construct a concrete instance of `StackSetAutoDeploymentPtrInput` via:
+//
+//          StackSetAutoDeploymentArgs{...}
+//
+//  or:
+//
+//          nil
+type StackSetAutoDeploymentPtrInput interface {
+	pulumi.Input
+
+	ToStackSetAutoDeploymentPtrOutput() StackSetAutoDeploymentPtrOutput
+	ToStackSetAutoDeploymentPtrOutputWithContext(context.Context) StackSetAutoDeploymentPtrOutput
+}
+
+type stackSetAutoDeploymentPtrType StackSetAutoDeploymentArgs
+
+func StackSetAutoDeploymentPtr(v *StackSetAutoDeploymentArgs) StackSetAutoDeploymentPtrInput {
+	return (*stackSetAutoDeploymentPtrType)(v)
+}
+
+func (*stackSetAutoDeploymentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetAutoDeployment)(nil)).Elem()
+}
+
+func (i *stackSetAutoDeploymentPtrType) ToStackSetAutoDeploymentPtrOutput() StackSetAutoDeploymentPtrOutput {
+	return i.ToStackSetAutoDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetAutoDeploymentPtrType) ToStackSetAutoDeploymentPtrOutputWithContext(ctx context.Context) StackSetAutoDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
+type StackSetAutoDeploymentOutput struct{ *pulumi.OutputState }
+
+func (StackSetAutoDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetAutoDeployment)(nil)).Elem()
+}
+
+func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentOutput() StackSetAutoDeploymentOutput {
+	return o
+}
+
+func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentOutputWithContext(ctx context.Context) StackSetAutoDeploymentOutput {
+	return o
+}
+
+func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutput() StackSetAutoDeploymentPtrOutput {
+	return o.ToStackSetAutoDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutputWithContext(ctx context.Context) StackSetAutoDeploymentPtrOutput {
+	return o.ApplyT(func(v StackSetAutoDeployment) *StackSetAutoDeployment {
+		return &v
+	}).(StackSetAutoDeploymentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+func (o StackSetAutoDeploymentOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+func (o StackSetAutoDeploymentOutput) RetainStacksOnAccountRemoval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.RetainStacksOnAccountRemoval }).(pulumi.BoolPtrOutput)
+}
+
+type StackSetAutoDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetAutoDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetAutoDeployment)(nil)).Elem()
+}
+
+func (o StackSetAutoDeploymentPtrOutput) ToStackSetAutoDeploymentPtrOutput() StackSetAutoDeploymentPtrOutput {
+	return o
+}
+
+func (o StackSetAutoDeploymentPtrOutput) ToStackSetAutoDeploymentPtrOutputWithContext(ctx context.Context) StackSetAutoDeploymentPtrOutput {
+	return o
+}
+
+func (o StackSetAutoDeploymentPtrOutput) Elem() StackSetAutoDeploymentOutput {
+	return o.ApplyT(func(v *StackSetAutoDeployment) StackSetAutoDeployment { return *v }).(StackSetAutoDeploymentOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+func (o StackSetAutoDeploymentPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackSetAutoDeployment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+func (o StackSetAutoDeploymentPtrOutput) RetainStacksOnAccountRemoval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackSetAutoDeployment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RetainStacksOnAccountRemoval
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+type StackSetDeploymentTargets struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+	Accounts []string `pulumi:"Accounts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+	OrganizationalUnitIds []string `pulumi:"OrganizationalUnitIds"`
+}
+
+// StackSetDeploymentTargetsInput is an input type that accepts StackSetDeploymentTargetsArgs and StackSetDeploymentTargetsOutput values.
+// You can construct a concrete instance of `StackSetDeploymentTargetsInput` via:
+//
+//          StackSetDeploymentTargetsArgs{...}
+type StackSetDeploymentTargetsInput interface {
+	pulumi.Input
+
+	ToStackSetDeploymentTargetsOutput() StackSetDeploymentTargetsOutput
+	ToStackSetDeploymentTargetsOutputWithContext(context.Context) StackSetDeploymentTargetsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+type StackSetDeploymentTargetsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+	Accounts pulumi.StringArrayInput `pulumi:"Accounts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"OrganizationalUnitIds"`
+}
+
+func (StackSetDeploymentTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetDeploymentTargets)(nil)).Elem()
+}
+
+func (i StackSetDeploymentTargetsArgs) ToStackSetDeploymentTargetsOutput() StackSetDeploymentTargetsOutput {
+	return i.ToStackSetDeploymentTargetsOutputWithContext(context.Background())
+}
+
+func (i StackSetDeploymentTargetsArgs) ToStackSetDeploymentTargetsOutputWithContext(ctx context.Context) StackSetDeploymentTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetDeploymentTargetsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+type StackSetDeploymentTargetsOutput struct{ *pulumi.OutputState }
+
+func (StackSetDeploymentTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetDeploymentTargets)(nil)).Elem()
+}
+
+func (o StackSetDeploymentTargetsOutput) ToStackSetDeploymentTargetsOutput() StackSetDeploymentTargetsOutput {
+	return o
+}
+
+func (o StackSetDeploymentTargetsOutput) ToStackSetDeploymentTargetsOutputWithContext(ctx context.Context) StackSetDeploymentTargetsOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+func (o StackSetDeploymentTargetsOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetDeploymentTargets) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+func (o StackSetDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetDeploymentTargets) []string { return v.OrganizationalUnitIds }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
+type StackSetOperationPreferences struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
+	FailureToleranceCount *int `pulumi:"FailureToleranceCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
+	FailureTolerancePercentage *int `pulumi:"FailureTolerancePercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
+	MaxConcurrentCount *int `pulumi:"MaxConcurrentCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
+	MaxConcurrentPercentage *int `pulumi:"MaxConcurrentPercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
+	RegionOrder []string `pulumi:"RegionOrder"`
+}
+
+// StackSetOperationPreferencesInput is an input type that accepts StackSetOperationPreferencesArgs and StackSetOperationPreferencesOutput values.
+// You can construct a concrete instance of `StackSetOperationPreferencesInput` via:
+//
+//          StackSetOperationPreferencesArgs{...}
+type StackSetOperationPreferencesInput interface {
+	pulumi.Input
+
+	ToStackSetOperationPreferencesOutput() StackSetOperationPreferencesOutput
+	ToStackSetOperationPreferencesOutputWithContext(context.Context) StackSetOperationPreferencesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
+type StackSetOperationPreferencesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
+	FailureToleranceCount pulumi.IntPtrInput `pulumi:"FailureToleranceCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
+	FailureTolerancePercentage pulumi.IntPtrInput `pulumi:"FailureTolerancePercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
+	MaxConcurrentCount pulumi.IntPtrInput `pulumi:"MaxConcurrentCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
+	MaxConcurrentPercentage pulumi.IntPtrInput `pulumi:"MaxConcurrentPercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
+	RegionOrder pulumi.StringArrayInput `pulumi:"RegionOrder"`
+}
+
+func (StackSetOperationPreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesOutput() StackSetOperationPreferencesOutput {
+	return i.ToStackSetOperationPreferencesOutputWithContext(context.Background())
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesOutputWithContext(ctx context.Context) StackSetOperationPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesOutput)
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return i.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesOutput).ToStackSetOperationPreferencesPtrOutputWithContext(ctx)
+}
+
+// StackSetOperationPreferencesPtrInput is an input type that accepts StackSetOperationPreferencesArgs, StackSetOperationPreferencesPtr and StackSetOperationPreferencesPtrOutput values.
+// You can construct a concrete instance of `StackSetOperationPreferencesPtrInput` via:
+//
+//          StackSetOperationPreferencesArgs{...}
+//
+//  or:
+//
+//          nil
+type StackSetOperationPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput
+	ToStackSetOperationPreferencesPtrOutputWithContext(context.Context) StackSetOperationPreferencesPtrOutput
+}
+
+type stackSetOperationPreferencesPtrType StackSetOperationPreferencesArgs
+
+func StackSetOperationPreferencesPtr(v *StackSetOperationPreferencesArgs) StackSetOperationPreferencesPtrInput {
+	return (*stackSetOperationPreferencesPtrType)(v)
+}
+
+func (*stackSetOperationPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (i *stackSetOperationPreferencesPtrType) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return i.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetOperationPreferencesPtrType) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
+type StackSetOperationPreferencesOutput struct{ *pulumi.OutputState }
+
+func (StackSetOperationPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesOutput() StackSetOperationPreferencesOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesOutputWithContext(ctx context.Context) StackSetOperationPreferencesOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return o.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *StackSetOperationPreferences {
+		return &v
+	}).(StackSetOperationPreferencesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
+func (o StackSetOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
+func (o StackSetOperationPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
+func (o StackSetOperationPreferencesOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
+func (o StackSetOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
+func (o StackSetOperationPreferencesOutput) RegionOrder() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) []string { return v.RegionOrder }).(pulumi.StringArrayOutput)
+}
+
+type StackSetOperationPreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetOperationPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesPtrOutput) Elem() StackSetOperationPreferencesOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) StackSetOperationPreferences { return *v }).(StackSetOperationPreferencesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
+func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureToleranceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
+func (o StackSetOperationPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureTolerancePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
+func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
+func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
+func (o StackSetOperationPreferencesPtrOutput) RegionOrder() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionOrder
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
+type StackSetParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
+	ParameterKey string `pulumi:"ParameterKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+	ParameterValue string `pulumi:"ParameterValue"`
+}
+
+// StackSetParameterInput is an input type that accepts StackSetParameterArgs and StackSetParameterOutput values.
+// You can construct a concrete instance of `StackSetParameterInput` via:
+//
+//          StackSetParameterArgs{...}
+type StackSetParameterInput interface {
+	pulumi.Input
+
+	ToStackSetParameterOutput() StackSetParameterOutput
+	ToStackSetParameterOutputWithContext(context.Context) StackSetParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
+type StackSetParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
+	ParameterKey pulumi.StringInput `pulumi:"ParameterKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+	ParameterValue pulumi.StringInput `pulumi:"ParameterValue"`
+}
+
+func (StackSetParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetParameter)(nil)).Elem()
+}
+
+func (i StackSetParameterArgs) ToStackSetParameterOutput() StackSetParameterOutput {
+	return i.ToStackSetParameterOutputWithContext(context.Background())
+}
+
+func (i StackSetParameterArgs) ToStackSetParameterOutputWithContext(ctx context.Context) StackSetParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetParameterOutput)
+}
+
+// StackSetParameterArrayInput is an input type that accepts StackSetParameterArray and StackSetParameterArrayOutput values.
+// You can construct a concrete instance of `StackSetParameterArrayInput` via:
+//
+//          StackSetParameterArray{ StackSetParameterArgs{...} }
+type StackSetParameterArrayInput interface {
+	pulumi.Input
+
+	ToStackSetParameterArrayOutput() StackSetParameterArrayOutput
+	ToStackSetParameterArrayOutputWithContext(context.Context) StackSetParameterArrayOutput
+}
+
+type StackSetParameterArray []StackSetParameterInput
+
+func (StackSetParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetParameter)(nil)).Elem()
+}
+
+func (i StackSetParameterArray) ToStackSetParameterArrayOutput() StackSetParameterArrayOutput {
+	return i.ToStackSetParameterArrayOutputWithContext(context.Background())
+}
+
+func (i StackSetParameterArray) ToStackSetParameterArrayOutputWithContext(ctx context.Context) StackSetParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
+type StackSetParameterOutput struct{ *pulumi.OutputState }
+
+func (StackSetParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetParameter)(nil)).Elem()
+}
+
+func (o StackSetParameterOutput) ToStackSetParameterOutput() StackSetParameterOutput {
+	return o
+}
+
+func (o StackSetParameterOutput) ToStackSetParameterOutputWithContext(ctx context.Context) StackSetParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
+func (o StackSetParameterOutput) ParameterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StackSetParameter) string { return v.ParameterKey }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+func (o StackSetParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v StackSetParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
+}
+
+type StackSetParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (StackSetParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetParameter)(nil)).Elem()
+}
+
+func (o StackSetParameterArrayOutput) ToStackSetParameterArrayOutput() StackSetParameterArrayOutput {
+	return o
+}
+
+func (o StackSetParameterArrayOutput) ToStackSetParameterArrayOutputWithContext(ctx context.Context) StackSetParameterArrayOutput {
+	return o
+}
+
+func (o StackSetParameterArrayOutput) Index(i pulumi.IntInput) StackSetParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSetParameter {
+		return vs[0].([]StackSetParameter)[vs[1].(int)]
+	}).(StackSetParameterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+type StackSetProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+	AdministrationRoleARN *string `pulumi:"AdministrationRoleARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+	AutoDeployment *StackSetAutoDeployment `pulumi:"AutoDeployment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+	Capabilities []string `pulumi:"Capabilities"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+	ExecutionRoleName *string `pulumi:"ExecutionRoleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+	OperationPreferences *StackSetOperationPreferences `pulumi:"OperationPreferences"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+	Parameters []StackSetParameter `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+	PermissionModel string `pulumi:"PermissionModel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+	StackInstancesGroup []StackSetStackInstances `pulumi:"StackInstancesGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+	StackSetName string `pulumi:"StackSetName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+	TemplateBody *string `pulumi:"TemplateBody"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+	TemplateURL *string `pulumi:"TemplateURL"`
+}
+
+// StackSetPropertiesInput is an input type that accepts StackSetPropertiesArgs and StackSetPropertiesOutput values.
+// You can construct a concrete instance of `StackSetPropertiesInput` via:
+//
+//          StackSetPropertiesArgs{...}
+type StackSetPropertiesInput interface {
+	pulumi.Input
+
+	ToStackSetPropertiesOutput() StackSetPropertiesOutput
+	ToStackSetPropertiesOutputWithContext(context.Context) StackSetPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+type StackSetPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+	AdministrationRoleARN pulumi.StringPtrInput `pulumi:"AdministrationRoleARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+	AutoDeployment StackSetAutoDeploymentPtrInput `pulumi:"AutoDeployment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+	Capabilities pulumi.StringArrayInput `pulumi:"Capabilities"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+	ExecutionRoleName pulumi.StringPtrInput `pulumi:"ExecutionRoleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+	OperationPreferences StackSetOperationPreferencesPtrInput `pulumi:"OperationPreferences"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+	Parameters StackSetParameterArrayInput `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+	PermissionModel pulumi.StringInput `pulumi:"PermissionModel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+	StackInstancesGroup StackSetStackInstancesArrayInput `pulumi:"StackInstancesGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+	StackSetName pulumi.StringInput `pulumi:"StackSetName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+	TemplateBody pulumi.StringPtrInput `pulumi:"TemplateBody"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+	TemplateURL pulumi.StringPtrInput `pulumi:"TemplateURL"`
+}
+
+func (StackSetPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetProperties)(nil)).Elem()
+}
+
+func (i StackSetPropertiesArgs) ToStackSetPropertiesOutput() StackSetPropertiesOutput {
+	return i.ToStackSetPropertiesOutputWithContext(context.Background())
+}
+
+func (i StackSetPropertiesArgs) ToStackSetPropertiesOutputWithContext(ctx context.Context) StackSetPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetPropertiesOutput)
+}
+
+func (i StackSetPropertiesArgs) ToStackSetPropertiesPtrOutput() StackSetPropertiesPtrOutput {
+	return i.ToStackSetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetPropertiesArgs) ToStackSetPropertiesPtrOutputWithContext(ctx context.Context) StackSetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetPropertiesOutput).ToStackSetPropertiesPtrOutputWithContext(ctx)
+}
+
+// StackSetPropertiesPtrInput is an input type that accepts StackSetPropertiesArgs, StackSetPropertiesPtr and StackSetPropertiesPtrOutput values.
+// You can construct a concrete instance of `StackSetPropertiesPtrInput` via:
+//
+//          StackSetPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type StackSetPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStackSetPropertiesPtrOutput() StackSetPropertiesPtrOutput
+	ToStackSetPropertiesPtrOutputWithContext(context.Context) StackSetPropertiesPtrOutput
+}
+
+type stackSetPropertiesPtrType StackSetPropertiesArgs
+
+func StackSetPropertiesPtr(v *StackSetPropertiesArgs) StackSetPropertiesPtrInput {
+	return (*stackSetPropertiesPtrType)(v)
+}
+
+func (*stackSetPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetProperties)(nil)).Elem()
+}
+
+func (i *stackSetPropertiesPtrType) ToStackSetPropertiesPtrOutput() StackSetPropertiesPtrOutput {
+	return i.ToStackSetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetPropertiesPtrType) ToStackSetPropertiesPtrOutputWithContext(ctx context.Context) StackSetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+type StackSetPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StackSetPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetProperties)(nil)).Elem()
+}
+
+func (o StackSetPropertiesOutput) ToStackSetPropertiesOutput() StackSetPropertiesOutput {
+	return o
+}
+
+func (o StackSetPropertiesOutput) ToStackSetPropertiesOutputWithContext(ctx context.Context) StackSetPropertiesOutput {
+	return o
+}
+
+func (o StackSetPropertiesOutput) ToStackSetPropertiesPtrOutput() StackSetPropertiesPtrOutput {
+	return o.ToStackSetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetPropertiesOutput) ToStackSetPropertiesPtrOutputWithContext(ctx context.Context) StackSetPropertiesPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *StackSetProperties {
+		return &v
+	}).(StackSetPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+func (o StackSetPropertiesOutput) AdministrationRoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *string { return v.AdministrationRoleARN }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+func (o StackSetPropertiesOutput) AutoDeployment() StackSetAutoDeploymentPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *StackSetAutoDeployment { return v.AutoDeployment }).(StackSetAutoDeploymentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+func (o StackSetPropertiesOutput) Capabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetProperties) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+func (o StackSetPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+func (o StackSetPropertiesOutput) ExecutionRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *string { return v.ExecutionRoleName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+func (o StackSetPropertiesOutput) OperationPreferences() StackSetOperationPreferencesPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *StackSetOperationPreferences { return v.OperationPreferences }).(StackSetOperationPreferencesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+func (o StackSetPropertiesOutput) Parameters() StackSetParameterArrayOutput {
+	return o.ApplyT(func(v StackSetProperties) []StackSetParameter { return v.Parameters }).(StackSetParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+func (o StackSetPropertiesOutput) PermissionModel() pulumi.StringOutput {
+	return o.ApplyT(func(v StackSetProperties) string { return v.PermissionModel }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+func (o StackSetPropertiesOutput) StackInstancesGroup() StackSetStackInstancesArrayOutput {
+	return o.ApplyT(func(v StackSetProperties) []StackSetStackInstances { return v.StackInstancesGroup }).(StackSetStackInstancesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+func (o StackSetPropertiesOutput) StackSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v StackSetProperties) string { return v.StackSetName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+func (o StackSetPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v StackSetProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+func (o StackSetPropertiesOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+func (o StackSetPropertiesOutput) TemplateURL() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetProperties) *string { return v.TemplateURL }).(pulumi.StringPtrOutput)
+}
+
+type StackSetPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetProperties)(nil)).Elem()
+}
+
+func (o StackSetPropertiesPtrOutput) ToStackSetPropertiesPtrOutput() StackSetPropertiesPtrOutput {
+	return o
+}
+
+func (o StackSetPropertiesPtrOutput) ToStackSetPropertiesPtrOutputWithContext(ctx context.Context) StackSetPropertiesPtrOutput {
+	return o
+}
+
+func (o StackSetPropertiesPtrOutput) Elem() StackSetPropertiesOutput {
+	return o.ApplyT(func(v *StackSetProperties) StackSetProperties { return *v }).(StackSetPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+func (o StackSetPropertiesPtrOutput) AdministrationRoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdministrationRoleARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+func (o StackSetPropertiesPtrOutput) AutoDeployment() StackSetAutoDeploymentPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *StackSetAutoDeployment {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDeployment
+	}).(StackSetAutoDeploymentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+func (o StackSetPropertiesPtrOutput) Capabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Capabilities
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+func (o StackSetPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+func (o StackSetPropertiesPtrOutput) ExecutionRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+func (o StackSetPropertiesPtrOutput) OperationPreferences() StackSetOperationPreferencesPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *StackSetOperationPreferences {
+		if v == nil {
+			return nil
+		}
+		return v.OperationPreferences
+	}).(StackSetOperationPreferencesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+func (o StackSetPropertiesPtrOutput) Parameters() StackSetParameterArrayOutput {
+	return o.ApplyT(func(v *StackSetProperties) []StackSetParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(StackSetParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+func (o StackSetPropertiesPtrOutput) PermissionModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PermissionModel
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+func (o StackSetPropertiesPtrOutput) StackInstancesGroup() StackSetStackInstancesArrayOutput {
+	return o.ApplyT(func(v *StackSetProperties) []StackSetStackInstances {
+		if v == nil {
+			return nil
+		}
+		return v.StackInstancesGroup
+	}).(StackSetStackInstancesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+func (o StackSetPropertiesPtrOutput) StackSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StackSetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+func (o StackSetPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *StackSetProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+func (o StackSetPropertiesPtrOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateBody
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+func (o StackSetPropertiesPtrOutput) TemplateURL() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateURL
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+type StackSetStackInstances struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
+	DeploymentTargets StackSetDeploymentTargets `pulumi:"DeploymentTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+	ParameterOverrides []StackSetParameter `pulumi:"ParameterOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+	Regions []string `pulumi:"Regions"`
+}
+
+// StackSetStackInstancesInput is an input type that accepts StackSetStackInstancesArgs and StackSetStackInstancesOutput values.
+// You can construct a concrete instance of `StackSetStackInstancesInput` via:
+//
+//          StackSetStackInstancesArgs{...}
+type StackSetStackInstancesInput interface {
+	pulumi.Input
+
+	ToStackSetStackInstancesOutput() StackSetStackInstancesOutput
+	ToStackSetStackInstancesOutputWithContext(context.Context) StackSetStackInstancesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+type StackSetStackInstancesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
+	DeploymentTargets StackSetDeploymentTargetsInput `pulumi:"DeploymentTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+	ParameterOverrides StackSetParameterArrayInput `pulumi:"ParameterOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+	Regions pulumi.StringArrayInput `pulumi:"Regions"`
+}
+
+func (StackSetStackInstancesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetStackInstances)(nil)).Elem()
+}
+
+func (i StackSetStackInstancesArgs) ToStackSetStackInstancesOutput() StackSetStackInstancesOutput {
+	return i.ToStackSetStackInstancesOutputWithContext(context.Background())
+}
+
+func (i StackSetStackInstancesArgs) ToStackSetStackInstancesOutputWithContext(ctx context.Context) StackSetStackInstancesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetStackInstancesOutput)
+}
+
+// StackSetStackInstancesArrayInput is an input type that accepts StackSetStackInstancesArray and StackSetStackInstancesArrayOutput values.
+// You can construct a concrete instance of `StackSetStackInstancesArrayInput` via:
+//
+//          StackSetStackInstancesArray{ StackSetStackInstancesArgs{...} }
+type StackSetStackInstancesArrayInput interface {
+	pulumi.Input
+
+	ToStackSetStackInstancesArrayOutput() StackSetStackInstancesArrayOutput
+	ToStackSetStackInstancesArrayOutputWithContext(context.Context) StackSetStackInstancesArrayOutput
+}
+
+type StackSetStackInstancesArray []StackSetStackInstancesInput
+
+func (StackSetStackInstancesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetStackInstances)(nil)).Elem()
+}
+
+func (i StackSetStackInstancesArray) ToStackSetStackInstancesArrayOutput() StackSetStackInstancesArrayOutput {
+	return i.ToStackSetStackInstancesArrayOutputWithContext(context.Background())
+}
+
+func (i StackSetStackInstancesArray) ToStackSetStackInstancesArrayOutputWithContext(ctx context.Context) StackSetStackInstancesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetStackInstancesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+type StackSetStackInstancesOutput struct{ *pulumi.OutputState }
+
+func (StackSetStackInstancesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetStackInstances)(nil)).Elem()
+}
+
+func (o StackSetStackInstancesOutput) ToStackSetStackInstancesOutput() StackSetStackInstancesOutput {
+	return o
+}
+
+func (o StackSetStackInstancesOutput) ToStackSetStackInstancesOutputWithContext(ctx context.Context) StackSetStackInstancesOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
+func (o StackSetStackInstancesOutput) DeploymentTargets() StackSetDeploymentTargetsOutput {
+	return o.ApplyT(func(v StackSetStackInstances) StackSetDeploymentTargets { return v.DeploymentTargets }).(StackSetDeploymentTargetsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+func (o StackSetStackInstancesOutput) ParameterOverrides() StackSetParameterArrayOutput {
+	return o.ApplyT(func(v StackSetStackInstances) []StackSetParameter { return v.ParameterOverrides }).(StackSetParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+func (o StackSetStackInstancesOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetStackInstances) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type StackSetStackInstancesArrayOutput struct{ *pulumi.OutputState }
+
+func (StackSetStackInstancesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetStackInstances)(nil)).Elem()
+}
+
+func (o StackSetStackInstancesArrayOutput) ToStackSetStackInstancesArrayOutput() StackSetStackInstancesArrayOutput {
+	return o
+}
+
+func (o StackSetStackInstancesArrayOutput) ToStackSetStackInstancesArrayOutputWithContext(ctx context.Context) StackSetStackInstancesArrayOutput {
+	return o
+}
+
+func (o StackSetStackInstancesArrayOutput) Index(i pulumi.IntInput) StackSetStackInstancesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSetStackInstances {
+		return vs[0].([]StackSetStackInstances)[vs[1].(int)]
+	}).(StackSetStackInstancesOutput)
 }
 
 type WaitConditionAttributes struct {
@@ -1435,10 +3245,31 @@ func init() {
 	pulumi.RegisterOutputType(MacroAttributesPtrOutput{})
 	pulumi.RegisterOutputType(MacroPropertiesOutput{})
 	pulumi.RegisterOutputType(MacroPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModuleDefaultVersionAttributesOutput{})
+	pulumi.RegisterOutputType(ModuleDefaultVersionAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ModuleDefaultVersionPropertiesOutput{})
+	pulumi.RegisterOutputType(ModuleDefaultVersionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModuleVersionAttributesOutput{})
+	pulumi.RegisterOutputType(ModuleVersionAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ModuleVersionPropertiesOutput{})
+	pulumi.RegisterOutputType(ModuleVersionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StackAttributesOutput{})
 	pulumi.RegisterOutputType(StackAttributesPtrOutput{})
 	pulumi.RegisterOutputType(StackPropertiesOutput{})
 	pulumi.RegisterOutputType(StackPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetAttributesOutput{})
+	pulumi.RegisterOutputType(StackSetAttributesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})
+	pulumi.RegisterOutputType(StackSetAutoDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(StackSetDeploymentTargetsOutput{})
+	pulumi.RegisterOutputType(StackSetOperationPreferencesOutput{})
+	pulumi.RegisterOutputType(StackSetOperationPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetParameterOutput{})
+	pulumi.RegisterOutputType(StackSetParameterArrayOutput{})
+	pulumi.RegisterOutputType(StackSetPropertiesOutput{})
+	pulumi.RegisterOutputType(StackSetPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetStackInstancesOutput{})
+	pulumi.RegisterOutputType(StackSetStackInstancesArrayOutput{})
 	pulumi.RegisterOutputType(WaitConditionAttributesOutput{})
 	pulumi.RegisterOutputType(WaitConditionAttributesPtrOutput{})
 	pulumi.RegisterOutputType(WaitConditionHandleAttributesOutput{})

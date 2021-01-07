@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:DBSecurityGroupIngress")]
     public partial class DBSecurityGroupIngress : Pulumi.CustomResource
     {
         /// <summary>

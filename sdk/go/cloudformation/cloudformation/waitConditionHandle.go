@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type WaitConditionHandle struct {
 // NewWaitConditionHandle registers a new resource with the given unique name, arguments, and options.
 func NewWaitConditionHandle(ctx *pulumi.Context,
 	name string, args *WaitConditionHandleArgs, opts ...pulumi.ResourceOption) (*WaitConditionHandle, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &WaitConditionHandleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource WaitConditionHandle
 	err := ctx.RegisterResource("cloudformation:CloudFormation:WaitConditionHandle", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type WaitConditionHandleArgs struct {
 
 func (WaitConditionHandleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*waitConditionHandleArgs)(nil)).Elem()
+}
+
+type WaitConditionHandleInput interface {
+	pulumi.Input
+
+	ToWaitConditionHandleOutput() WaitConditionHandleOutput
+	ToWaitConditionHandleOutputWithContext(ctx context.Context) WaitConditionHandleOutput
+}
+
+func (*WaitConditionHandle) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitConditionHandle)(nil))
+}
+
+func (i *WaitConditionHandle) ToWaitConditionHandleOutput() WaitConditionHandleOutput {
+	return i.ToWaitConditionHandleOutputWithContext(context.Background())
+}
+
+func (i *WaitConditionHandle) ToWaitConditionHandleOutputWithContext(ctx context.Context) WaitConditionHandleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitConditionHandleOutput)
+}
+
+type WaitConditionHandleOutput struct {
+	*pulumi.OutputState
+}
+
+func (WaitConditionHandleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitConditionHandle)(nil))
+}
+
+func (o WaitConditionHandleOutput) ToWaitConditionHandleOutput() WaitConditionHandleOutput {
+	return o
+}
+
+func (o WaitConditionHandleOutput) ToWaitConditionHandleOutputWithContext(ctx context.Context) WaitConditionHandleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WaitConditionHandleOutput{})
 }

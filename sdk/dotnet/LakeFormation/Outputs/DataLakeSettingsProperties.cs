@@ -17,11 +17,19 @@ namespace Pulumi.Cloudformation.LakeFormation.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-admins
         /// </summary>
         public readonly Outputs.DataLakeSettingsAdmins? Admins;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
+        /// </summary>
+        public readonly ImmutableArray<string> TrustedResourceOwners;
 
         [OutputConstructor]
-        private DataLakeSettingsProperties(Outputs.DataLakeSettingsAdmins? Admins)
+        private DataLakeSettingsProperties(
+            Outputs.DataLakeSettingsAdmins? Admins,
+
+            ImmutableArray<string> TrustedResourceOwners)
         {
             this.Admins = Admins;
+            this.TrustedResourceOwners = TrustedResourceOwners;
         }
     }
 }

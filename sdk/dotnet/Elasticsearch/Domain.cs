@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Elasticsearch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Elasticsearch:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

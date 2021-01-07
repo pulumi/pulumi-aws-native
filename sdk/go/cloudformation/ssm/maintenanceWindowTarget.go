@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MaintenanceWindowTarget struct {
 // NewMaintenanceWindowTarget registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceWindowTarget(ctx *pulumi.Context,
 	name string, args *MaintenanceWindowTargetArgs, opts ...pulumi.ResourceOption) (*MaintenanceWindowTarget, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MaintenanceWindowTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MaintenanceWindowTarget
 	err := ctx.RegisterResource("cloudformation:SSM:MaintenanceWindowTarget", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MaintenanceWindowTargetArgs struct {
 
 func (MaintenanceWindowTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowTargetArgs)(nil)).Elem()
+}
+
+type MaintenanceWindowTargetInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetOutput() MaintenanceWindowTargetOutput
+	ToMaintenanceWindowTargetOutputWithContext(ctx context.Context) MaintenanceWindowTargetOutput
+}
+
+func (*MaintenanceWindowTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTarget)(nil))
+}
+
+func (i *MaintenanceWindowTarget) ToMaintenanceWindowTargetOutput() MaintenanceWindowTargetOutput {
+	return i.ToMaintenanceWindowTargetOutputWithContext(context.Background())
+}
+
+func (i *MaintenanceWindowTarget) ToMaintenanceWindowTargetOutputWithContext(ctx context.Context) MaintenanceWindowTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetOutput)
+}
+
+type MaintenanceWindowTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (MaintenanceWindowTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTarget)(nil))
+}
+
+func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutput() MaintenanceWindowTargetOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutputWithContext(ctx context.Context) MaintenanceWindowTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MaintenanceWindowTargetOutput{})
 }

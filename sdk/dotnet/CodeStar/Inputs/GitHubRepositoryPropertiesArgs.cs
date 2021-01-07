@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.CodeStar.Inputs
         public Input<Inputs.GitHubRepositoryCodeArgs>? Code { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-connectionarn
+        /// </summary>
+        [Input("ConnectionArn")]
+        public Input<string>? ConnectionArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-enableissues
         /// </summary>
         [Input("EnableIssues")]
@@ -36,8 +42,8 @@ namespace Pulumi.Cloudformation.CodeStar.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryaccesstoken
         /// </summary>
-        [Input("RepositoryAccessToken", required: true)]
-        public Input<string> RepositoryAccessToken { get; set; } = null!;
+        [Input("RepositoryAccessToken")]
+        public Input<string>? RepositoryAccessToken { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositorydescription

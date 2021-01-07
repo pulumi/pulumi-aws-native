@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SES
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SES:Template")]
     public partial class Template : Pulumi.CustomResource
     {
         /// <summary>

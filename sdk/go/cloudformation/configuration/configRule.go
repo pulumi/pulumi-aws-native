@@ -4,6 +4,7 @@
 package configuration
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConfigRule struct {
 // NewConfigRule registers a new resource with the given unique name, arguments, and options.
 func NewConfigRule(ctx *pulumi.Context,
 	name string, args *ConfigRuleArgs, opts ...pulumi.ResourceOption) (*ConfigRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConfigRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConfigRule
 	err := ctx.RegisterResource("cloudformation:Configuration:ConfigRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConfigRuleArgs struct {
 
 func (ConfigRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configRuleArgs)(nil)).Elem()
+}
+
+type ConfigRuleInput interface {
+	pulumi.Input
+
+	ToConfigRuleOutput() ConfigRuleOutput
+	ToConfigRuleOutputWithContext(ctx context.Context) ConfigRuleOutput
+}
+
+func (*ConfigRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRule)(nil))
+}
+
+func (i *ConfigRule) ToConfigRuleOutput() ConfigRuleOutput {
+	return i.ToConfigRuleOutputWithContext(context.Background())
+}
+
+func (i *ConfigRule) ToConfigRuleOutputWithContext(ctx context.Context) ConfigRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleOutput)
+}
+
+type ConfigRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRule)(nil))
+}
+
+func (o ConfigRuleOutput) ToConfigRuleOutput() ConfigRuleOutput {
+	return o
+}
+
+func (o ConfigRuleOutput) ToConfigRuleOutputWithContext(ctx context.Context) ConfigRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigRuleOutput{})
 }

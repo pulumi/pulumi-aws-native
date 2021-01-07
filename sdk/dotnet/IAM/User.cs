@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IAM:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

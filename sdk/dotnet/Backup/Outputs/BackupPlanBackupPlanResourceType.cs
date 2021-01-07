@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.Backup.Outputs
     public sealed class BackupPlanBackupPlanResourceType
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BackupPlanAdvancedBackupSettingResourceType> AdvancedBackupSettings;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
         /// </summary>
         public readonly string BackupPlanName;
@@ -24,10 +28,13 @@ namespace Pulumi.Cloudformation.Backup.Outputs
 
         [OutputConstructor]
         private BackupPlanBackupPlanResourceType(
+            ImmutableArray<Outputs.BackupPlanAdvancedBackupSettingResourceType> AdvancedBackupSettings,
+
             string BackupPlanName,
 
             ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> BackupPlanRule)
         {
+            this.AdvancedBackupSettings = AdvancedBackupSettings;
             this.BackupPlanName = BackupPlanName;
             this.BackupPlanRule = BackupPlanRule;
         }

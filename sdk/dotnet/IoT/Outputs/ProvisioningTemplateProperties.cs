@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.IoT.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
         /// </summary>
-        public readonly ImmutableArray<object> Tags;
+        public readonly Outputs.ProvisioningTemplateTags? Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Cloudformation.IoT.Outputs
 
             string ProvisioningRoleArn,
 
-            ImmutableArray<object> Tags,
+            Outputs.ProvisioningTemplateTags? Tags,
 
             string TemplateBody,
 

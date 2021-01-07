@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Glue:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

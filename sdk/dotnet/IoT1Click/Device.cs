@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT1Click
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT1Click:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>

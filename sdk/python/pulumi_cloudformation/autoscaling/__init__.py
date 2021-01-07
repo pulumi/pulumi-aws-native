@@ -8,3 +8,36 @@ from .launch_configuration import *
 from .lifecycle_hook import *
 from .scaling_policy import *
 from .scheduled_action import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:AutoScaling:AutoScalingGroup":
+                return AutoScalingGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AutoScaling:LaunchConfiguration":
+                return LaunchConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AutoScaling:LifecycleHook":
+                return LifecycleHook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AutoScaling:ScalingPolicy":
+                return ScalingPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:AutoScaling:ScheduledAction":
+                return ScheduledAction(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "AutoScaling", _module_instance)
+
+_register_module()

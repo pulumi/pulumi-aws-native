@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EIPAssociation struct {
 // NewEIPAssociation registers a new resource with the given unique name, arguments, and options.
 func NewEIPAssociation(ctx *pulumi.Context,
 	name string, args *EIPAssociationArgs, opts ...pulumi.ResourceOption) (*EIPAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EIPAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EIPAssociation
 	err := ctx.RegisterResource("cloudformation:EC2:EIPAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EIPAssociationArgs struct {
 
 func (EIPAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipassociationArgs)(nil)).Elem()
+}
+
+type EIPAssociationInput interface {
+	pulumi.Input
+
+	ToEIPAssociationOutput() EIPAssociationOutput
+	ToEIPAssociationOutputWithContext(ctx context.Context) EIPAssociationOutput
+}
+
+func (*EIPAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*EIPAssociation)(nil))
+}
+
+func (i *EIPAssociation) ToEIPAssociationOutput() EIPAssociationOutput {
+	return i.ToEIPAssociationOutputWithContext(context.Background())
+}
+
+func (i *EIPAssociation) ToEIPAssociationOutputWithContext(ctx context.Context) EIPAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EIPAssociationOutput)
+}
+
+type EIPAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (EIPAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EIPAssociation)(nil))
+}
+
+func (o EIPAssociationOutput) ToEIPAssociationOutput() EIPAssociationOutput {
+	return o
+}
+
+func (o EIPAssociationOutput) ToEIPAssociationOutputWithContext(ctx context.Context) EIPAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EIPAssociationOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DocDB
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DocDB:DBSubnetGroup")]
     public partial class DBSubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.KinesisAnalyticsV2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:KinesisAnalyticsV2:ApplicationReferenceDataSource")]
     public partial class ApplicationReferenceDataSource : Pulumi.CustomResource
     {
         /// <summary>

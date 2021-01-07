@@ -17,11 +17,19 @@ namespace Pulumi.Cloudformation.DLM.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
         /// </summary>
         public readonly bool? ExcludeBootVolume;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot
+        /// </summary>
+        public readonly bool? NoReboot;
 
         [OutputConstructor]
-        private LifecyclePolicyParameters(bool? ExcludeBootVolume)
+        private LifecyclePolicyParameters(
+            bool? ExcludeBootVolume,
+
+            bool? NoReboot)
         {
             this.ExcludeBootVolume = ExcludeBootVolume;
+            this.NoReboot = NoReboot;
         }
     }
 }

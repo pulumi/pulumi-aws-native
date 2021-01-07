@@ -49,7 +49,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessiontimeout
         /// </summary>
         [Input("SessionTimeout")]
-        public Input<int>? SessionTimeout { get; set; }
+        public Input<string>? SessionTimeout { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolarn

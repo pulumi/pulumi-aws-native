@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
         /// </summary>
         public readonly string? IntegrationMethod;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
+        /// </summary>
+        public readonly string? IntegrationSubtype;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
         /// </summary>
         public readonly string IntegrationType;
@@ -94,6 +98,8 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
 
             string? IntegrationMethod,
 
+            string? IntegrationSubtype,
+
             string IntegrationType,
 
             string? IntegrationUri,
@@ -119,6 +125,7 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
             this.CredentialsArn = CredentialsArn;
             this.Description = Description;
             this.IntegrationMethod = IntegrationMethod;
+            this.IntegrationSubtype = IntegrationSubtype;
             this.IntegrationType = IntegrationType;
             this.IntegrationUri = IntegrationUri;
             this.PassthroughBehavior = PassthroughBehavior;

@@ -4,6 +4,7 @@
 package appconfig
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type HostedConfigurationVersion struct {
 // NewHostedConfigurationVersion registers a new resource with the given unique name, arguments, and options.
 func NewHostedConfigurationVersion(ctx *pulumi.Context,
 	name string, args *HostedConfigurationVersionArgs, opts ...pulumi.ResourceOption) (*HostedConfigurationVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &HostedConfigurationVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource HostedConfigurationVersion
 	err := ctx.RegisterResource("cloudformation:AppConfig:HostedConfigurationVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type HostedConfigurationVersionArgs struct {
 
 func (HostedConfigurationVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedConfigurationVersionArgs)(nil)).Elem()
+}
+
+type HostedConfigurationVersionInput interface {
+	pulumi.Input
+
+	ToHostedConfigurationVersionOutput() HostedConfigurationVersionOutput
+	ToHostedConfigurationVersionOutputWithContext(ctx context.Context) HostedConfigurationVersionOutput
+}
+
+func (*HostedConfigurationVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedConfigurationVersion)(nil))
+}
+
+func (i *HostedConfigurationVersion) ToHostedConfigurationVersionOutput() HostedConfigurationVersionOutput {
+	return i.ToHostedConfigurationVersionOutputWithContext(context.Background())
+}
+
+func (i *HostedConfigurationVersion) ToHostedConfigurationVersionOutputWithContext(ctx context.Context) HostedConfigurationVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedConfigurationVersionOutput)
+}
+
+type HostedConfigurationVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedConfigurationVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedConfigurationVersion)(nil))
+}
+
+func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutput() HostedConfigurationVersionOutput {
+	return o
+}
+
+func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWithContext(ctx context.Context) HostedConfigurationVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostedConfigurationVersionOutput{})
 }

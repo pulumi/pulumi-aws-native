@@ -14,13 +14,21 @@ namespace Pulumi.Cloudformation.S3.Outputs
     public sealed class BucketServerSideEncryptionRule
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+        /// </summary>
+        public readonly bool? BucketKeyEnabled;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
         /// </summary>
         public readonly Outputs.BucketServerSideEncryptionByDefault? ServerSideEncryptionByDefault;
 
         [OutputConstructor]
-        private BucketServerSideEncryptionRule(Outputs.BucketServerSideEncryptionByDefault? ServerSideEncryptionByDefault)
+        private BucketServerSideEncryptionRule(
+            bool? BucketKeyEnabled,
+
+            Outputs.BucketServerSideEncryptionByDefault? ServerSideEncryptionByDefault)
         {
+            this.BucketKeyEnabled = BucketKeyEnabled;
             this.ServerSideEncryptionByDefault = ServerSideEncryptionByDefault;
         }
     }

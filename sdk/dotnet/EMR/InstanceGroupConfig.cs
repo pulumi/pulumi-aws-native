@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EMR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EMR:InstanceGroupConfig")]
     public partial class InstanceGroupConfig : Pulumi.CustomResource
     {
         /// <summary>

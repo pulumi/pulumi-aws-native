@@ -5,15 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetSsmParameterListResult',
+    'AwaitableGetSsmParameterListResult',
+    'get_ssm_parameter_list',
+]
 
+@pulumi.output_type
 class GetSsmParameterListResult:
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
-        __self__.value = value
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        return pulumi.get(self, "value")
 
 
 class AwaitableGetSsmParameterListResult(GetSsmParameterListResult):
@@ -25,7 +36,8 @@ class AwaitableGetSsmParameterListResult(GetSsmParameterListResult):
             value=self.value)
 
 
-def get_ssm_parameter_list(name=None, opts=None):
+def get_ssm_parameter_list(name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsmParameterListResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -34,8 +46,8 @@ def get_ssm_parameter_list(name=None, opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('cloudformation:index:getSsmParameterList', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('cloudformation:index:getSsmParameterList', __args__, opts=opts, typ=GetSsmParameterListResult).value
 
     return AwaitableGetSsmParameterListResult(
-        value=__ret__.get('value'))
+        value=__ret__.value)

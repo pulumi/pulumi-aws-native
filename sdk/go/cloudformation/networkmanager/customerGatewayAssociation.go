@@ -4,6 +4,7 @@
 package networkmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CustomerGatewayAssociation struct {
 // NewCustomerGatewayAssociation registers a new resource with the given unique name, arguments, and options.
 func NewCustomerGatewayAssociation(ctx *pulumi.Context,
 	name string, args *CustomerGatewayAssociationArgs, opts ...pulumi.ResourceOption) (*CustomerGatewayAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CustomerGatewayAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CustomerGatewayAssociation
 	err := ctx.RegisterResource("cloudformation:NetworkManager:CustomerGatewayAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CustomerGatewayAssociationArgs struct {
 
 func (CustomerGatewayAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerGatewayAssociationArgs)(nil)).Elem()
+}
+
+type CustomerGatewayAssociationInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayAssociationOutput() CustomerGatewayAssociationOutput
+	ToCustomerGatewayAssociationOutputWithContext(ctx context.Context) CustomerGatewayAssociationOutput
+}
+
+func (*CustomerGatewayAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGatewayAssociation)(nil))
+}
+
+func (i *CustomerGatewayAssociation) ToCustomerGatewayAssociationOutput() CustomerGatewayAssociationOutput {
+	return i.ToCustomerGatewayAssociationOutputWithContext(context.Background())
+}
+
+func (i *CustomerGatewayAssociation) ToCustomerGatewayAssociationOutputWithContext(ctx context.Context) CustomerGatewayAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayAssociationOutput)
+}
+
+type CustomerGatewayAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomerGatewayAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGatewayAssociation)(nil))
+}
+
+func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutput() CustomerGatewayAssociationOutput {
+	return o
+}
+
+func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutputWithContext(ctx context.Context) CustomerGatewayAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomerGatewayAssociationOutput{})
 }

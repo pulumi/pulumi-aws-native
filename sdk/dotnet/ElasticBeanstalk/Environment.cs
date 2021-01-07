@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElasticBeanstalk
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElasticBeanstalk:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>

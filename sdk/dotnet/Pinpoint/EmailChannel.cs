@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:EmailChannel")]
     public partial class EmailChannel : Pulumi.CustomResource
     {
         /// <summary>

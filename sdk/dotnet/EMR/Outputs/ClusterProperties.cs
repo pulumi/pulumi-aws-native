@@ -54,9 +54,17 @@ namespace Pulumi.Cloudformation.EMR.Outputs
         /// </summary>
         public readonly Outputs.ClusterKerberosAttributes? KerberosAttributes;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-logencryptionkmskeyid
+        /// </summary>
+        public readonly string? LogEncryptionKmsKeyId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
         /// </summary>
         public readonly string? LogUri;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-managedscalingpolicy
+        /// </summary>
+        public readonly Outputs.ClusterManagedScalingPolicy? ManagedScalingPolicy;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-name
         /// </summary>
@@ -77,6 +85,10 @@ namespace Pulumi.Cloudformation.EMR.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
         /// </summary>
         public readonly string ServiceRole;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-stepconcurrencylevel
+        /// </summary>
+        public readonly int? StepConcurrencyLevel;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
         /// </summary>
@@ -112,7 +124,11 @@ namespace Pulumi.Cloudformation.EMR.Outputs
 
             Outputs.ClusterKerberosAttributes? KerberosAttributes,
 
+            string? LogEncryptionKmsKeyId,
+
             string? LogUri,
+
+            Outputs.ClusterManagedScalingPolicy? ManagedScalingPolicy,
 
             string Name,
 
@@ -123,6 +139,8 @@ namespace Pulumi.Cloudformation.EMR.Outputs
             string? SecurityConfiguration,
 
             string ServiceRole,
+
+            int? StepConcurrencyLevel,
 
             ImmutableArray<Outputs.ClusterStepConfig> Steps,
 
@@ -140,12 +158,15 @@ namespace Pulumi.Cloudformation.EMR.Outputs
             this.Instances = Instances;
             this.JobFlowRole = JobFlowRole;
             this.KerberosAttributes = KerberosAttributes;
+            this.LogEncryptionKmsKeyId = LogEncryptionKmsKeyId;
             this.LogUri = LogUri;
+            this.ManagedScalingPolicy = ManagedScalingPolicy;
             this.Name = Name;
             this.ReleaseLabel = ReleaseLabel;
             this.ScaleDownBehavior = ScaleDownBehavior;
             this.SecurityConfiguration = SecurityConfiguration;
             this.ServiceRole = ServiceRole;
+            this.StepConcurrencyLevel = StepConcurrencyLevel;
             this.Steps = Steps;
             this.Tags = Tags;
             this.VisibleToAllUsers = VisibleToAllUsers;

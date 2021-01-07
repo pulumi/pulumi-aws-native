@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
         /// </summary>
         public readonly string? FleetType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+        /// </summary>
+        public readonly string? IamRoleArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
         /// </summary>
         public readonly int? IdleDisconnectTimeoutInSeconds;
@@ -65,6 +69,10 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+        /// </summary>
+        public readonly string? StreamView;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
         /// </summary>
@@ -90,6 +98,8 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
 
             string? FleetType,
 
+            string? IamRoleArn,
+
             int? IdleDisconnectTimeoutInSeconds,
 
             string? ImageArn,
@@ -102,6 +112,8 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
 
             string Name,
 
+            string? StreamView,
+
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
 
             Outputs.FleetVpcConfig? VpcConfig)
@@ -113,12 +125,14 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
             this.DomainJoinInfo = DomainJoinInfo;
             this.EnableDefaultInternetAccess = EnableDefaultInternetAccess;
             this.FleetType = FleetType;
+            this.IamRoleArn = IamRoleArn;
             this.IdleDisconnectTimeoutInSeconds = IdleDisconnectTimeoutInSeconds;
             this.ImageArn = ImageArn;
             this.ImageName = ImageName;
             this.InstanceType = InstanceType;
             this.MaxUserDurationInSeconds = MaxUserDurationInSeconds;
             this.Name = Name;
+            this.StreamView = StreamView;
             this.Tags = Tags;
             this.VpcConfig = VpcConfig;
         }

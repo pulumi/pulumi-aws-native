@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResourceDataSync struct {
 // NewResourceDataSync registers a new resource with the given unique name, arguments, and options.
 func NewResourceDataSync(ctx *pulumi.Context,
 	name string, args *ResourceDataSyncArgs, opts ...pulumi.ResourceOption) (*ResourceDataSync, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResourceDataSyncArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResourceDataSync
 	err := ctx.RegisterResource("cloudformation:SSM:ResourceDataSync", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResourceDataSyncArgs struct {
 
 func (ResourceDataSyncArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDataSyncArgs)(nil)).Elem()
+}
+
+type ResourceDataSyncInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncOutput() ResourceDataSyncOutput
+	ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput
+}
+
+func (*ResourceDataSync) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDataSync)(nil))
+}
+
+func (i *ResourceDataSync) ToResourceDataSyncOutput() ResourceDataSyncOutput {
+	return i.ToResourceDataSyncOutputWithContext(context.Background())
+}
+
+func (i *ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncOutput)
+}
+
+type ResourceDataSyncOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceDataSyncOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDataSync)(nil))
+}
+
+func (o ResourceDataSyncOutput) ToResourceDataSyncOutput() ResourceDataSyncOutput {
+	return o
+}
+
+func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceDataSyncOutput{})
 }

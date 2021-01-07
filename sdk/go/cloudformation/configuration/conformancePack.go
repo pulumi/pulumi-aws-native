@@ -4,6 +4,7 @@
 package configuration
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConformancePack struct {
 // NewConformancePack registers a new resource with the given unique name, arguments, and options.
 func NewConformancePack(ctx *pulumi.Context,
 	name string, args *ConformancePackArgs, opts ...pulumi.ResourceOption) (*ConformancePack, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConformancePackArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConformancePack
 	err := ctx.RegisterResource("cloudformation:Configuration:ConformancePack", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConformancePackArgs struct {
 
 func (ConformancePackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*conformancePackArgs)(nil)).Elem()
+}
+
+type ConformancePackInput interface {
+	pulumi.Input
+
+	ToConformancePackOutput() ConformancePackOutput
+	ToConformancePackOutputWithContext(ctx context.Context) ConformancePackOutput
+}
+
+func (*ConformancePack) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePack)(nil))
+}
+
+func (i *ConformancePack) ToConformancePackOutput() ConformancePackOutput {
+	return i.ToConformancePackOutputWithContext(context.Background())
+}
+
+func (i *ConformancePack) ToConformancePackOutputWithContext(ctx context.Context) ConformancePackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackOutput)
+}
+
+type ConformancePackOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConformancePackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePack)(nil))
+}
+
+func (o ConformancePackOutput) ToConformancePackOutput() ConformancePackOutput {
+	return o
+}
+
+func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Context) ConformancePackOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConformancePackOutput{})
 }

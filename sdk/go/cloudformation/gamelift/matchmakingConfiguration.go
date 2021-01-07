@@ -4,6 +4,7 @@
 package gamelift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MatchmakingConfiguration struct {
 // NewMatchmakingConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewMatchmakingConfiguration(ctx *pulumi.Context,
 	name string, args *MatchmakingConfigurationArgs, opts ...pulumi.ResourceOption) (*MatchmakingConfiguration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MatchmakingConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MatchmakingConfiguration
 	err := ctx.RegisterResource("cloudformation:GameLift:MatchmakingConfiguration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MatchmakingConfigurationArgs struct {
 
 func (MatchmakingConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*matchmakingConfigurationArgs)(nil)).Elem()
+}
+
+type MatchmakingConfigurationInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationOutput() MatchmakingConfigurationOutput
+	ToMatchmakingConfigurationOutputWithContext(ctx context.Context) MatchmakingConfigurationOutput
+}
+
+func (*MatchmakingConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfiguration)(nil))
+}
+
+func (i *MatchmakingConfiguration) ToMatchmakingConfigurationOutput() MatchmakingConfigurationOutput {
+	return i.ToMatchmakingConfigurationOutputWithContext(context.Background())
+}
+
+func (i *MatchmakingConfiguration) ToMatchmakingConfigurationOutputWithContext(ctx context.Context) MatchmakingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationOutput)
+}
+
+type MatchmakingConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (MatchmakingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfiguration)(nil))
+}
+
+func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutput() MatchmakingConfigurationOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutputWithContext(ctx context.Context) MatchmakingConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MatchmakingConfigurationOutput{})
 }

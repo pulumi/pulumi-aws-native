@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.LakeFormation.Inputs
     public sealed class PermissionsDatabaseResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-catalogid
+        /// </summary>
+        [Input("CatalogId")]
+        public Input<string>? CatalogId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-name
         /// </summary>
         [Input("Name")]

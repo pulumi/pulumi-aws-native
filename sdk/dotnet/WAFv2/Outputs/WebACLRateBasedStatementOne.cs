@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.WAFv2.Outputs
         /// </summary>
         public readonly string AggregateKeyType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+        /// </summary>
+        public readonly Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
         /// </summary>
         public readonly int Limit;
@@ -30,11 +34,14 @@ namespace Pulumi.Cloudformation.WAFv2.Outputs
         private WebACLRateBasedStatementOne(
             string AggregateKeyType,
 
+            Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig,
+
             int Limit,
 
             Outputs.WebACLStatementTwo? ScopeDownStatement)
         {
             this.AggregateKeyType = AggregateKeyType;
+            this.ForwardedIPConfig = ForwardedIPConfig;
             this.Limit = Limit;
             this.ScopeDownStatement = ScopeDownStatement;
         }

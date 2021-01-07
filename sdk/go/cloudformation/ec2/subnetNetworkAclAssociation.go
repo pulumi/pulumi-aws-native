@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SubnetNetworkAclAssociation struct {
 // NewSubnetNetworkAclAssociation registers a new resource with the given unique name, arguments, and options.
 func NewSubnetNetworkAclAssociation(ctx *pulumi.Context,
 	name string, args *SubnetNetworkAclAssociationArgs, opts ...pulumi.ResourceOption) (*SubnetNetworkAclAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SubnetNetworkAclAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SubnetNetworkAclAssociation
 	err := ctx.RegisterResource("cloudformation:EC2:SubnetNetworkAclAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SubnetNetworkAclAssociationArgs struct {
 
 func (SubnetNetworkAclAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNetworkAclAssociationArgs)(nil)).Elem()
+}
+
+type SubnetNetworkAclAssociationInput interface {
+	pulumi.Input
+
+	ToSubnetNetworkAclAssociationOutput() SubnetNetworkAclAssociationOutput
+	ToSubnetNetworkAclAssociationOutputWithContext(ctx context.Context) SubnetNetworkAclAssociationOutput
+}
+
+func (*SubnetNetworkAclAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetNetworkAclAssociation)(nil))
+}
+
+func (i *SubnetNetworkAclAssociation) ToSubnetNetworkAclAssociationOutput() SubnetNetworkAclAssociationOutput {
+	return i.ToSubnetNetworkAclAssociationOutputWithContext(context.Background())
+}
+
+func (i *SubnetNetworkAclAssociation) ToSubnetNetworkAclAssociationOutputWithContext(ctx context.Context) SubnetNetworkAclAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkAclAssociationOutput)
+}
+
+type SubnetNetworkAclAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetNetworkAclAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetNetworkAclAssociation)(nil))
+}
+
+func (o SubnetNetworkAclAssociationOutput) ToSubnetNetworkAclAssociationOutput() SubnetNetworkAclAssociationOutput {
+	return o
+}
+
+func (o SubnetNetworkAclAssociationOutput) ToSubnetNetworkAclAssociationOutputWithContext(ctx context.Context) SubnetNetworkAclAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubnetNetworkAclAssociationOutput{})
 }

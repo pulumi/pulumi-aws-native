@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Macie
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Macie:Session")]
     public partial class Session : Pulumi.CustomResource
     {
         /// <summary>

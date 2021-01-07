@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.FSx
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:FSx:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
     {
         /// <summary>

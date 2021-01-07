@@ -4,6 +4,7 @@
 package codestarnotifications
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NotificationRule struct {
 // NewNotificationRule registers a new resource with the given unique name, arguments, and options.
 func NewNotificationRule(ctx *pulumi.Context,
 	name string, args *NotificationRuleArgs, opts ...pulumi.ResourceOption) (*NotificationRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NotificationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NotificationRule
 	err := ctx.RegisterResource("cloudformation:CodeStarNotifications:NotificationRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NotificationRuleArgs struct {
 
 func (NotificationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationRuleArgs)(nil)).Elem()
+}
+
+type NotificationRuleInput interface {
+	pulumi.Input
+
+	ToNotificationRuleOutput() NotificationRuleOutput
+	ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput
+}
+
+func (*NotificationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationRule)(nil))
+}
+
+func (i *NotificationRule) ToNotificationRuleOutput() NotificationRuleOutput {
+	return i.ToNotificationRuleOutputWithContext(context.Background())
+}
+
+func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
+}
+
+type NotificationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationRule)(nil))
+}
+
+func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutput {
+	return o
+}
+
+func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotificationRuleOutput{})
 }

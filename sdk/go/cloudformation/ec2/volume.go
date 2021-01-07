@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Volume struct {
 // NewVolume registers a new resource with the given unique name, arguments, and options.
 func NewVolume(ctx *pulumi.Context,
 	name string, args *VolumeArgs, opts ...pulumi.ResourceOption) (*Volume, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VolumeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Volume
 	err := ctx.RegisterResource("cloudformation:EC2:Volume", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VolumeArgs struct {
 
 func (VolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeArgs)(nil)).Elem()
+}
+
+type VolumeInput interface {
+	pulumi.Input
+
+	ToVolumeOutput() VolumeOutput
+	ToVolumeOutputWithContext(ctx context.Context) VolumeOutput
+}
+
+func (*Volume) ElementType() reflect.Type {
+	return reflect.TypeOf((*Volume)(nil))
+}
+
+func (i *Volume) ToVolumeOutput() VolumeOutput {
+	return i.ToVolumeOutputWithContext(context.Background())
+}
+
+func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
+}
+
+type VolumeOutput struct {
+	*pulumi.OutputState
+}
+
+func (VolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Volume)(nil))
+}
+
+func (o VolumeOutput) ToVolumeOutput() VolumeOutput {
+	return o
+}
+
+func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VolumeOutput{})
 }

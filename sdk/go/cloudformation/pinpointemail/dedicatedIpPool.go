@@ -4,6 +4,7 @@
 package pinpointemail
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DedicatedIpPool struct {
 // NewDedicatedIpPool registers a new resource with the given unique name, arguments, and options.
 func NewDedicatedIpPool(ctx *pulumi.Context,
 	name string, args *DedicatedIpPoolArgs, opts ...pulumi.ResourceOption) (*DedicatedIpPool, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DedicatedIpPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DedicatedIpPool
 	err := ctx.RegisterResource("cloudformation:PinpointEmail:DedicatedIpPool", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DedicatedIpPoolArgs struct {
 
 func (DedicatedIpPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedIpPoolArgs)(nil)).Elem()
+}
+
+type DedicatedIpPoolInput interface {
+	pulumi.Input
+
+	ToDedicatedIpPoolOutput() DedicatedIpPoolOutput
+	ToDedicatedIpPoolOutputWithContext(ctx context.Context) DedicatedIpPoolOutput
+}
+
+func (*DedicatedIpPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedIpPool)(nil))
+}
+
+func (i *DedicatedIpPool) ToDedicatedIpPoolOutput() DedicatedIpPoolOutput {
+	return i.ToDedicatedIpPoolOutputWithContext(context.Background())
+}
+
+func (i *DedicatedIpPool) ToDedicatedIpPoolOutputWithContext(ctx context.Context) DedicatedIpPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolOutput)
+}
+
+type DedicatedIpPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (DedicatedIpPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedIpPool)(nil))
+}
+
+func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutput() DedicatedIpPoolOutput {
+	return o
+}
+
+func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Context) DedicatedIpPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DedicatedIpPoolOutput{})
 }

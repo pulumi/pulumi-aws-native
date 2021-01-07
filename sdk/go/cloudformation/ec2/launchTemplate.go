@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LaunchTemplate struct {
 // NewLaunchTemplate registers a new resource with the given unique name, arguments, and options.
 func NewLaunchTemplate(ctx *pulumi.Context,
 	name string, args *LaunchTemplateArgs, opts ...pulumi.ResourceOption) (*LaunchTemplate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LaunchTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LaunchTemplate
 	err := ctx.RegisterResource("cloudformation:EC2:LaunchTemplate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LaunchTemplateArgs struct {
 
 func (LaunchTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchTemplateArgs)(nil)).Elem()
+}
+
+type LaunchTemplateInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateOutput() LaunchTemplateOutput
+	ToLaunchTemplateOutputWithContext(ctx context.Context) LaunchTemplateOutput
+}
+
+func (*LaunchTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplate)(nil))
+}
+
+func (i *LaunchTemplate) ToLaunchTemplateOutput() LaunchTemplateOutput {
+	return i.ToLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i *LaunchTemplate) ToLaunchTemplateOutputWithContext(ctx context.Context) LaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateOutput)
+}
+
+type LaunchTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplate)(nil))
+}
+
+func (o LaunchTemplateOutput) ToLaunchTemplateOutput() LaunchTemplateOutput {
+	return o
+}
+
+func (o LaunchTemplateOutput) ToLaunchTemplateOutputWithContext(ctx context.Context) LaunchTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LaunchTemplateOutput{})
 }

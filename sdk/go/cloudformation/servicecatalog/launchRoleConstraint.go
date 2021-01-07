@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LaunchRoleConstraint struct {
 // NewLaunchRoleConstraint registers a new resource with the given unique name, arguments, and options.
 func NewLaunchRoleConstraint(ctx *pulumi.Context,
 	name string, args *LaunchRoleConstraintArgs, opts ...pulumi.ResourceOption) (*LaunchRoleConstraint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LaunchRoleConstraintArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LaunchRoleConstraint
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:LaunchRoleConstraint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LaunchRoleConstraintArgs struct {
 
 func (LaunchRoleConstraintArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchRoleConstraintArgs)(nil)).Elem()
+}
+
+type LaunchRoleConstraintInput interface {
+	pulumi.Input
+
+	ToLaunchRoleConstraintOutput() LaunchRoleConstraintOutput
+	ToLaunchRoleConstraintOutputWithContext(ctx context.Context) LaunchRoleConstraintOutput
+}
+
+func (*LaunchRoleConstraint) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchRoleConstraint)(nil))
+}
+
+func (i *LaunchRoleConstraint) ToLaunchRoleConstraintOutput() LaunchRoleConstraintOutput {
+	return i.ToLaunchRoleConstraintOutputWithContext(context.Background())
+}
+
+func (i *LaunchRoleConstraint) ToLaunchRoleConstraintOutputWithContext(ctx context.Context) LaunchRoleConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchRoleConstraintOutput)
+}
+
+type LaunchRoleConstraintOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchRoleConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchRoleConstraint)(nil))
+}
+
+func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutput() LaunchRoleConstraintOutput {
+	return o
+}
+
+func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutputWithContext(ctx context.Context) LaunchRoleConstraintOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LaunchRoleConstraintOutput{})
 }

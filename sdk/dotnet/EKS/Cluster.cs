@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EKS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EKS:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

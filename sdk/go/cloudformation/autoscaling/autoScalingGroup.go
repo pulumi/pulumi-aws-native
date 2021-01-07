@@ -4,6 +4,7 @@
 package autoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -32,11 +33,12 @@ type AutoScalingGroup struct {
 // NewAutoScalingGroup registers a new resource with the given unique name, arguments, and options.
 func NewAutoScalingGroup(ctx *pulumi.Context,
 	name string, args *AutoScalingGroupArgs, opts ...pulumi.ResourceOption) (*AutoScalingGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AutoScalingGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource AutoScalingGroup
 	err := ctx.RegisterResource("cloudformation:AutoScaling:AutoScalingGroup", name, args, &resource, opts...)
@@ -130,4 +132,43 @@ type AutoScalingGroupArgs struct {
 
 func (AutoScalingGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoScalingGroupArgs)(nil)).Elem()
+}
+
+type AutoScalingGroupInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupOutput() AutoScalingGroupOutput
+	ToAutoScalingGroupOutputWithContext(ctx context.Context) AutoScalingGroupOutput
+}
+
+func (*AutoScalingGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroup)(nil))
+}
+
+func (i *AutoScalingGroup) ToAutoScalingGroupOutput() AutoScalingGroupOutput {
+	return i.ToAutoScalingGroupOutputWithContext(context.Background())
+}
+
+func (i *AutoScalingGroup) ToAutoScalingGroupOutputWithContext(ctx context.Context) AutoScalingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupOutput)
+}
+
+type AutoScalingGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (AutoScalingGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroup)(nil))
+}
+
+func (o AutoScalingGroupOutput) ToAutoScalingGroupOutput() AutoScalingGroupOutput {
+	return o
+}
+
+func (o AutoScalingGroupOutput) ToAutoScalingGroupOutputWithContext(ctx context.Context) AutoScalingGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AutoScalingGroupOutput{})
 }

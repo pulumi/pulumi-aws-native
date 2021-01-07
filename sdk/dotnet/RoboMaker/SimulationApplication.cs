@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RoboMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RoboMaker:SimulationApplication")]
     public partial class SimulationApplication : Pulumi.CustomResource
     {
         /// <summary>

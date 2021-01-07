@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPool struct {
 // NewUserPool registers a new resource with the given unique name, arguments, and options.
 func NewUserPool(ctx *pulumi.Context,
 	name string, args *UserPoolArgs, opts ...pulumi.ResourceOption) (*UserPool, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPool
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPool", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolArgs struct {
 
 func (UserPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolArgs)(nil)).Elem()
+}
+
+type UserPoolInput interface {
+	pulumi.Input
+
+	ToUserPoolOutput() UserPoolOutput
+	ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput
+}
+
+func (*UserPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPool)(nil))
+}
+
+func (i *UserPool) ToUserPoolOutput() UserPoolOutput {
+	return i.ToUserPoolOutputWithContext(context.Background())
+}
+
+func (i *UserPool) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolOutput)
+}
+
+type UserPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPool)(nil))
+}
+
+func (o UserPoolOutput) ToUserPoolOutput() UserPoolOutput {
+	return o
+}
+
+func (o UserPoolOutput) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolOutput{})
 }

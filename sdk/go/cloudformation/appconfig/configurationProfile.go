@@ -4,6 +4,7 @@
 package appconfig
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConfigurationProfile struct {
 // NewConfigurationProfile registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationProfile(ctx *pulumi.Context,
 	name string, args *ConfigurationProfileArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfile, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConfigurationProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConfigurationProfile
 	err := ctx.RegisterResource("cloudformation:AppConfig:ConfigurationProfile", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConfigurationProfileArgs struct {
 
 func (ConfigurationProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationProfileArgs)(nil)).Elem()
+}
+
+type ConfigurationProfileInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileOutput() ConfigurationProfileOutput
+	ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput
+}
+
+func (*ConfigurationProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfile)(nil))
+}
+
+func (i *ConfigurationProfile) ToConfigurationProfileOutput() ConfigurationProfileOutput {
+	return i.ToConfigurationProfileOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileOutput)
+}
+
+type ConfigurationProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfile)(nil))
+}
+
+func (o ConfigurationProfileOutput) ToConfigurationProfileOutput() ConfigurationProfileOutput {
+	return o
+}
+
+func (o ConfigurationProfileOutput) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationProfileOutput{})
 }

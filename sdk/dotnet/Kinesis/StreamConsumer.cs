@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Kinesis
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Kinesis:StreamConsumer")]
     public partial class StreamConsumer : Pulumi.CustomResource
     {
         /// <summary>

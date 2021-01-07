@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppStream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppStream:ImageBuilder")]
     public partial class ImageBuilder : Pulumi.CustomResource
     {
         /// <summary>

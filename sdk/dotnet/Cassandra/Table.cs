@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cassandra
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cassandra:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>

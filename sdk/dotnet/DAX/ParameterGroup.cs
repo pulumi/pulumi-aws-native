@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DAX
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DAX:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package lakeformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DataLakeSettings struct {
 // NewDataLakeSettings registers a new resource with the given unique name, arguments, and options.
 func NewDataLakeSettings(ctx *pulumi.Context,
 	name string, args *DataLakeSettingsArgs, opts ...pulumi.ResourceOption) (*DataLakeSettings, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DataLakeSettingsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DataLakeSettings
 	err := ctx.RegisterResource("cloudformation:LakeFormation:DataLakeSettings", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DataLakeSettingsArgs struct {
 
 func (DataLakeSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeSettingsArgs)(nil)).Elem()
+}
+
+type DataLakeSettingsInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsOutput() DataLakeSettingsOutput
+	ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput
+}
+
+func (*DataLakeSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettings)(nil))
+}
+
+func (i *DataLakeSettings) ToDataLakeSettingsOutput() DataLakeSettingsOutput {
+	return i.ToDataLakeSettingsOutputWithContext(context.Background())
+}
+
+func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsOutput)
+}
+
+type DataLakeSettingsOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataLakeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettings)(nil))
+}
+
+func (o DataLakeSettingsOutput) ToDataLakeSettingsOutput() DataLakeSettingsOutput {
+	return o
+}
+
+func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataLakeSettingsOutput{})
 }

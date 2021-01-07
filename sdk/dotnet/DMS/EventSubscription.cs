@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DMS:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>

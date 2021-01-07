@@ -36,7 +36,7 @@ namespace Pulumi.Cloudformation.Synthetics.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
         /// </summary>
-        public readonly Outputs.CanaryRunConfig RunConfig;
+        public readonly Outputs.CanaryRunConfig? RunConfig;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Cloudformation.Synthetics.Outputs
 
             string Name,
 
-            Outputs.CanaryRunConfig RunConfig,
+            Outputs.CanaryRunConfig? RunConfig,
 
             string RuntimeVersion,
 

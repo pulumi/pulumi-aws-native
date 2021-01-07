@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type InsightRule struct {
 // NewInsightRule registers a new resource with the given unique name, arguments, and options.
 func NewInsightRule(ctx *pulumi.Context,
 	name string, args *InsightRuleArgs, opts ...pulumi.ResourceOption) (*InsightRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InsightRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource InsightRule
 	err := ctx.RegisterResource("cloudformation:CloudWatch:InsightRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InsightRuleArgs struct {
 
 func (InsightRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*insightRuleArgs)(nil)).Elem()
+}
+
+type InsightRuleInput interface {
+	pulumi.Input
+
+	ToInsightRuleOutput() InsightRuleOutput
+	ToInsightRuleOutputWithContext(ctx context.Context) InsightRuleOutput
+}
+
+func (*InsightRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightRule)(nil))
+}
+
+func (i *InsightRule) ToInsightRuleOutput() InsightRuleOutput {
+	return i.ToInsightRuleOutputWithContext(context.Background())
+}
+
+func (i *InsightRule) ToInsightRuleOutputWithContext(ctx context.Context) InsightRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightRuleOutput)
+}
+
+type InsightRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (InsightRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightRule)(nil))
+}
+
+func (o InsightRuleOutput) ToInsightRuleOutput() InsightRuleOutput {
+	return o
+}
+
+func (o InsightRuleOutput) ToInsightRuleOutputWithContext(ctx context.Context) InsightRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InsightRuleOutput{})
 }

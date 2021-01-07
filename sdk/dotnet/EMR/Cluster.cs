@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EMR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EMR:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

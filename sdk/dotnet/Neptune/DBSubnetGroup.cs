@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Neptune
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Neptune:DBSubnetGroup")]
     public partial class DBSubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

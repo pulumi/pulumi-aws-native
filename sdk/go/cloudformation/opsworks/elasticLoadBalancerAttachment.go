@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ElasticLoadBalancerAttachment struct {
 // NewElasticLoadBalancerAttachment registers a new resource with the given unique name, arguments, and options.
 func NewElasticLoadBalancerAttachment(ctx *pulumi.Context,
 	name string, args *ElasticLoadBalancerAttachmentArgs, opts ...pulumi.ResourceOption) (*ElasticLoadBalancerAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ElasticLoadBalancerAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ElasticLoadBalancerAttachment
 	err := ctx.RegisterResource("cloudformation:OpsWorks:ElasticLoadBalancerAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ElasticLoadBalancerAttachmentArgs struct {
 
 func (ElasticLoadBalancerAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticLoadBalancerAttachmentArgs)(nil)).Elem()
+}
+
+type ElasticLoadBalancerAttachmentInput interface {
+	pulumi.Input
+
+	ToElasticLoadBalancerAttachmentOutput() ElasticLoadBalancerAttachmentOutput
+	ToElasticLoadBalancerAttachmentOutputWithContext(ctx context.Context) ElasticLoadBalancerAttachmentOutput
+}
+
+func (*ElasticLoadBalancerAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticLoadBalancerAttachment)(nil))
+}
+
+func (i *ElasticLoadBalancerAttachment) ToElasticLoadBalancerAttachmentOutput() ElasticLoadBalancerAttachmentOutput {
+	return i.ToElasticLoadBalancerAttachmentOutputWithContext(context.Background())
+}
+
+func (i *ElasticLoadBalancerAttachment) ToElasticLoadBalancerAttachmentOutputWithContext(ctx context.Context) ElasticLoadBalancerAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticLoadBalancerAttachmentOutput)
+}
+
+type ElasticLoadBalancerAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ElasticLoadBalancerAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticLoadBalancerAttachment)(nil))
+}
+
+func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutput() ElasticLoadBalancerAttachmentOutput {
+	return o
+}
+
+func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutputWithContext(ctx context.Context) ElasticLoadBalancerAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ElasticLoadBalancerAttachmentOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AmazonMQ
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AmazonMQ:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>

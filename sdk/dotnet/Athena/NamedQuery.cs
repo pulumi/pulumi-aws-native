@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Athena
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Athena:NamedQuery")]
     public partial class NamedQuery : Pulumi.CustomResource
     {
         /// <summary>

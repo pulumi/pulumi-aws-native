@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SNS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SNS:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>

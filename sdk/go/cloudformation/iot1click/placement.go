@@ -4,6 +4,7 @@
 package iot1click
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Placement struct {
 // NewPlacement registers a new resource with the given unique name, arguments, and options.
 func NewPlacement(ctx *pulumi.Context,
 	name string, args *PlacementArgs, opts ...pulumi.ResourceOption) (*Placement, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PlacementArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Placement
 	err := ctx.RegisterResource("cloudformation:IoT1Click:Placement", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PlacementArgs struct {
 
 func (PlacementArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementArgs)(nil)).Elem()
+}
+
+type PlacementInput interface {
+	pulumi.Input
+
+	ToPlacementOutput() PlacementOutput
+	ToPlacementOutputWithContext(ctx context.Context) PlacementOutput
+}
+
+func (*Placement) ElementType() reflect.Type {
+	return reflect.TypeOf((*Placement)(nil))
+}
+
+func (i *Placement) ToPlacementOutput() PlacementOutput {
+	return i.ToPlacementOutputWithContext(context.Background())
+}
+
+func (i *Placement) ToPlacementOutputWithContext(ctx context.Context) PlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlacementOutput)
+}
+
+type PlacementOutput struct {
+	*pulumi.OutputState
+}
+
+func (PlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Placement)(nil))
+}
+
+func (o PlacementOutput) ToPlacementOutput() PlacementOutput {
+	return o
+}
+
+func (o PlacementOutput) ToPlacementOutputWithContext(ctx context.Context) PlacementOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PlacementOutput{})
 }

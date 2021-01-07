@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:DBProxyTargetGroup")]
     public partial class DBProxyTargetGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -21,6 +21,18 @@ namespace Pulumi.Cloudformation.LakeFormation.Inputs
         [Input("Admins")]
         public Input<Inputs.DataLakeSettingsAdminsArgs>? Admins { get; set; }
 
+        [Input("TrustedResourceOwners")]
+        private InputList<string>? _TrustedResourceOwners;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-trustedresourceowners
+        /// </summary>
+        public InputList<string> TrustedResourceOwners
+        {
+            get => _TrustedResourceOwners ?? (_TrustedResourceOwners = new InputList<string>());
+            set => _TrustedResourceOwners = value;
+        }
+
         public DataLakeSettingsPropertiesArgs()
         {
         }

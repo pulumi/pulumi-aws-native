@@ -17,11 +17,19 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
         /// </summary>
         public readonly string SAMLProviderArn;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+        /// </summary>
+        public readonly string? SelfServiceSAMLProviderArn;
 
         [OutputConstructor]
-        private ClientVpnEndpointFederatedAuthenticationRequest(string SAMLProviderArn)
+        private ClientVpnEndpointFederatedAuthenticationRequest(
+            string SAMLProviderArn,
+
+            string? SelfServiceSAMLProviderArn)
         {
             this.SAMLProviderArn = SAMLProviderArn;
+            this.SelfServiceSAMLProviderArn = SelfServiceSAMLProviderArn;
         }
     }
 }

@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SMSChannel struct {
 // NewSMSChannel registers a new resource with the given unique name, arguments, and options.
 func NewSMSChannel(ctx *pulumi.Context,
 	name string, args *SMSChannelArgs, opts ...pulumi.ResourceOption) (*SMSChannel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SMSChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SMSChannel
 	err := ctx.RegisterResource("cloudformation:Pinpoint:SMSChannel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SMSChannelArgs struct {
 
 func (SMSChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smschannelArgs)(nil)).Elem()
+}
+
+type SMSChannelInput interface {
+	pulumi.Input
+
+	ToSMSChannelOutput() SMSChannelOutput
+	ToSMSChannelOutputWithContext(ctx context.Context) SMSChannelOutput
+}
+
+func (*SMSChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*SMSChannel)(nil))
+}
+
+func (i *SMSChannel) ToSMSChannelOutput() SMSChannelOutput {
+	return i.ToSMSChannelOutputWithContext(context.Background())
+}
+
+func (i *SMSChannel) ToSMSChannelOutputWithContext(ctx context.Context) SMSChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SMSChannelOutput)
+}
+
+type SMSChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (SMSChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SMSChannel)(nil))
+}
+
+func (o SMSChannelOutput) ToSMSChannelOutput() SMSChannelOutput {
+	return o
+}
+
+func (o SMSChannelOutput) ToSMSChannelOutputWithContext(ctx context.Context) SMSChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SMSChannelOutput{})
 }

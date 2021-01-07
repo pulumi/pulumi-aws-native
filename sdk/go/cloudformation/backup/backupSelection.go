@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type BackupSelection struct {
 // NewBackupSelection registers a new resource with the given unique name, arguments, and options.
 func NewBackupSelection(ctx *pulumi.Context,
 	name string, args *BackupSelectionArgs, opts ...pulumi.ResourceOption) (*BackupSelection, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &BackupSelectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource BackupSelection
 	err := ctx.RegisterResource("cloudformation:Backup:BackupSelection", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type BackupSelectionArgs struct {
 
 func (BackupSelectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupSelectionArgs)(nil)).Elem()
+}
+
+type BackupSelectionInput interface {
+	pulumi.Input
+
+	ToBackupSelectionOutput() BackupSelectionOutput
+	ToBackupSelectionOutputWithContext(ctx context.Context) BackupSelectionOutput
+}
+
+func (*BackupSelection) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSelection)(nil))
+}
+
+func (i *BackupSelection) ToBackupSelectionOutput() BackupSelectionOutput {
+	return i.ToBackupSelectionOutputWithContext(context.Background())
+}
+
+func (i *BackupSelection) ToBackupSelectionOutputWithContext(ctx context.Context) BackupSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionOutput)
+}
+
+type BackupSelectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (BackupSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSelection)(nil))
+}
+
+func (o BackupSelectionOutput) ToBackupSelectionOutput() BackupSelectionOutput {
+	return o
+}
+
+func (o BackupSelectionOutput) ToBackupSelectionOutputWithContext(ctx context.Context) BackupSelectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackupSelectionOutput{})
 }

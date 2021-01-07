@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElastiCache:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

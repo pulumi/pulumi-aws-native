@@ -37,7 +37,7 @@ namespace Pulumi.Cloudformation.MediaLive.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
         /// </summary>
         [Input("EncoderSettings")]
-        public InputUnion<System.Text.Json.JsonElement, string>? EncoderSettings { get; set; }
+        public Input<Inputs.ChannelEncoderSettingsArgs>? EncoderSettings { get; set; }
 
         [Input("InputAttachments")]
         private InputList<Inputs.ChannelInputAttachmentArgs>? _InputAttachments;

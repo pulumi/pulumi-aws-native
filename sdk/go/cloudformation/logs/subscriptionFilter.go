@@ -4,6 +4,7 @@
 package logs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SubscriptionFilter struct {
 // NewSubscriptionFilter registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionFilter(ctx *pulumi.Context,
 	name string, args *SubscriptionFilterArgs, opts ...pulumi.ResourceOption) (*SubscriptionFilter, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SubscriptionFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SubscriptionFilter
 	err := ctx.RegisterResource("cloudformation:Logs:SubscriptionFilter", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SubscriptionFilterArgs struct {
 
 func (SubscriptionFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionFilterArgs)(nil)).Elem()
+}
+
+type SubscriptionFilterInput interface {
+	pulumi.Input
+
+	ToSubscriptionFilterOutput() SubscriptionFilterOutput
+	ToSubscriptionFilterOutputWithContext(ctx context.Context) SubscriptionFilterOutput
+}
+
+func (*SubscriptionFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionFilter)(nil))
+}
+
+func (i *SubscriptionFilter) ToSubscriptionFilterOutput() SubscriptionFilterOutput {
+	return i.ToSubscriptionFilterOutputWithContext(context.Background())
+}
+
+func (i *SubscriptionFilter) ToSubscriptionFilterOutputWithContext(ctx context.Context) SubscriptionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionFilterOutput)
+}
+
+type SubscriptionFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionFilter)(nil))
+}
+
+func (o SubscriptionFilterOutput) ToSubscriptionFilterOutput() SubscriptionFilterOutput {
+	return o
+}
+
+func (o SubscriptionFilterOutput) ToSubscriptionFilterOutputWithContext(ctx context.Context) SubscriptionFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionFilterOutput{})
 }

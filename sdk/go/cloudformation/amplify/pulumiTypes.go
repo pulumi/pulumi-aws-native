@@ -194,6 +194,8 @@ type AppAutoBranchCreationConfig struct {
 	EnableAutoBranchCreation *bool `pulumi:"EnableAutoBranchCreation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
 	EnableAutoBuild *bool `pulumi:"EnableAutoBuild"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
+	EnablePerformanceMode *bool `pulumi:"EnablePerformanceMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
 	EnablePullRequestPreview *bool `pulumi:"EnablePullRequestPreview"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
@@ -227,6 +229,8 @@ type AppAutoBranchCreationConfigArgs struct {
 	EnableAutoBranchCreation pulumi.BoolPtrInput `pulumi:"EnableAutoBranchCreation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
 	EnableAutoBuild pulumi.BoolPtrInput `pulumi:"EnableAutoBuild"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
+	EnablePerformanceMode pulumi.BoolPtrInput `pulumi:"EnablePerformanceMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
 	EnablePullRequestPreview pulumi.BoolPtrInput `pulumi:"EnablePullRequestPreview"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
@@ -340,6 +344,11 @@ func (o AppAutoBranchCreationConfigOutput) EnableAutoBuild() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnableAutoBuild }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
+func (o AppAutoBranchCreationConfigOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePerformanceMode }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
 func (o AppAutoBranchCreationConfigOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
@@ -425,6 +434,16 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBuild() pulumi.BoolPtrOu
 			return nil
 		}
 		return v.EnableAutoBuild
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
+func (o AppAutoBranchCreationConfigPtrOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePerformanceMode
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -886,10 +905,14 @@ type AppProperties struct {
 	BasicAuthConfig *AppBasicAuthConfig `pulumi:"BasicAuthConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
 	BuildSpec *string `pulumi:"BuildSpec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+	CustomHeaders *string `pulumi:"CustomHeaders"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
 	CustomRules []AppCustomRule `pulumi:"CustomRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
 	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+	EnableBranchAutoDeletion *bool `pulumi:"EnableBranchAutoDeletion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
 	EnvironmentVariables []AppEnvironmentVariable `pulumi:"EnvironmentVariables"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
@@ -925,10 +948,14 @@ type AppPropertiesArgs struct {
 	BasicAuthConfig AppBasicAuthConfigPtrInput `pulumi:"BasicAuthConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
 	BuildSpec pulumi.StringPtrInput `pulumi:"BuildSpec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+	CustomHeaders pulumi.StringPtrInput `pulumi:"CustomHeaders"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
 	CustomRules AppCustomRuleArrayInput `pulumi:"CustomRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
 	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+	EnableBranchAutoDeletion pulumi.BoolPtrInput `pulumi:"EnableBranchAutoDeletion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
 	EnvironmentVariables AppEnvironmentVariableArrayInput `pulumi:"EnvironmentVariables"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
@@ -1041,6 +1068,11 @@ func (o AppPropertiesOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProperties) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+func (o AppPropertiesOutput) CustomHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppProperties) *string { return v.CustomHeaders }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
 func (o AppPropertiesOutput) CustomRules() AppCustomRuleArrayOutput {
 	return o.ApplyT(func(v AppProperties) []AppCustomRule { return v.CustomRules }).(AppCustomRuleArrayOutput)
@@ -1049,6 +1081,11 @@ func (o AppPropertiesOutput) CustomRules() AppCustomRuleArrayOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
 func (o AppPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+func (o AppPropertiesOutput) EnableBranchAutoDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppProperties) *bool { return v.EnableBranchAutoDeletion }).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
@@ -1139,6 +1176,16 @@ func (o AppPropertiesPtrOutput) BuildSpec() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+func (o AppPropertiesPtrOutput) CustomHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomHeaders
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
 func (o AppPropertiesPtrOutput) CustomRules() AppCustomRuleArrayOutput {
 	return o.ApplyT(func(v *AppProperties) []AppCustomRule {
@@ -1157,6 +1204,16 @@ func (o AppPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+func (o AppPropertiesPtrOutput) EnableBranchAutoDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableBranchAutoDeletion
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
@@ -1655,6 +1712,8 @@ type BranchProperties struct {
 	Description *string `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
 	EnableAutoBuild *bool `pulumi:"EnableAutoBuild"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
+	EnablePerformanceMode *bool `pulumi:"EnablePerformanceMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
 	EnablePullRequestPreview *bool `pulumi:"EnablePullRequestPreview"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
@@ -1692,6 +1751,8 @@ type BranchPropertiesArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"Description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
 	EnableAutoBuild pulumi.BoolPtrInput `pulumi:"EnableAutoBuild"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
+	EnablePerformanceMode pulumi.BoolPtrInput `pulumi:"EnablePerformanceMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
 	EnablePullRequestPreview pulumi.BoolPtrInput `pulumi:"EnablePullRequestPreview"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
@@ -1812,6 +1873,11 @@ func (o BranchPropertiesOutput) EnableAutoBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProperties) *bool { return v.EnableAutoBuild }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
+func (o BranchPropertiesOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProperties) *bool { return v.EnablePerformanceMode }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
 func (o BranchPropertiesOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProperties) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
@@ -1915,6 +1981,16 @@ func (o BranchPropertiesPtrOutput) EnableAutoBuild() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
+func (o BranchPropertiesPtrOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePerformanceMode
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
 func (o BranchPropertiesPtrOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProperties) *bool {
@@ -1966,11 +2042,14 @@ func (o BranchPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
 }
 
 type DomainAttributes struct {
-	Arn               string `pulumi:"Arn"`
-	CertificateRecord string `pulumi:"CertificateRecord"`
-	DomainName        string `pulumi:"DomainName"`
-	DomainStatus      string `pulumi:"DomainStatus"`
-	StatusReason      string `pulumi:"StatusReason"`
+	Arn                           string   `pulumi:"Arn"`
+	AutoSubDomainCreationPatterns []string `pulumi:"AutoSubDomainCreationPatterns"`
+	AutoSubDomainIAMRole          string   `pulumi:"AutoSubDomainIAMRole"`
+	CertificateRecord             string   `pulumi:"CertificateRecord"`
+	DomainName                    string   `pulumi:"DomainName"`
+	DomainStatus                  string   `pulumi:"DomainStatus"`
+	EnableAutoSubDomain           bool     `pulumi:"EnableAutoSubDomain"`
+	StatusReason                  string   `pulumi:"StatusReason"`
 }
 
 // DomainAttributesInput is an input type that accepts DomainAttributesArgs and DomainAttributesOutput values.
@@ -1985,11 +2064,14 @@ type DomainAttributesInput interface {
 }
 
 type DomainAttributesArgs struct {
-	Arn               pulumi.StringInput `pulumi:"Arn"`
-	CertificateRecord pulumi.StringInput `pulumi:"CertificateRecord"`
-	DomainName        pulumi.StringInput `pulumi:"DomainName"`
-	DomainStatus      pulumi.StringInput `pulumi:"DomainStatus"`
-	StatusReason      pulumi.StringInput `pulumi:"StatusReason"`
+	Arn                           pulumi.StringInput      `pulumi:"Arn"`
+	AutoSubDomainCreationPatterns pulumi.StringArrayInput `pulumi:"AutoSubDomainCreationPatterns"`
+	AutoSubDomainIAMRole          pulumi.StringInput      `pulumi:"AutoSubDomainIAMRole"`
+	CertificateRecord             pulumi.StringInput      `pulumi:"CertificateRecord"`
+	DomainName                    pulumi.StringInput      `pulumi:"DomainName"`
+	DomainStatus                  pulumi.StringInput      `pulumi:"DomainStatus"`
+	EnableAutoSubDomain           pulumi.BoolInput        `pulumi:"EnableAutoSubDomain"`
+	StatusReason                  pulumi.StringInput      `pulumi:"StatusReason"`
 }
 
 func (DomainAttributesArgs) ElementType() reflect.Type {
@@ -2072,6 +2154,14 @@ func (o DomainAttributesOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainAttributes) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o DomainAttributesOutput) AutoSubDomainCreationPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainAttributes) []string { return v.AutoSubDomainCreationPatterns }).(pulumi.StringArrayOutput)
+}
+
+func (o DomainAttributesOutput) AutoSubDomainIAMRole() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAttributes) string { return v.AutoSubDomainIAMRole }).(pulumi.StringOutput)
+}
+
 func (o DomainAttributesOutput) CertificateRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainAttributes) string { return v.CertificateRecord }).(pulumi.StringOutput)
 }
@@ -2082,6 +2172,10 @@ func (o DomainAttributesOutput) DomainName() pulumi.StringOutput {
 
 func (o DomainAttributesOutput) DomainStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainAttributes) string { return v.DomainStatus }).(pulumi.StringOutput)
+}
+
+func (o DomainAttributesOutput) EnableAutoSubDomain() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainAttributes) bool { return v.EnableAutoSubDomain }).(pulumi.BoolOutput)
 }
 
 func (o DomainAttributesOutput) StatusReason() pulumi.StringOutput {
@@ -2115,6 +2209,24 @@ func (o DomainAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o DomainAttributesPtrOutput) AutoSubDomainCreationPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainAttributes) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSubDomainCreationPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DomainAttributesPtrOutput) AutoSubDomainIAMRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoSubDomainIAMRole
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o DomainAttributesPtrOutput) CertificateRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAttributes) *string {
 		if v == nil {
@@ -2142,6 +2254,15 @@ func (o DomainAttributesPtrOutput) DomainStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o DomainAttributesPtrOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableAutoSubDomain
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o DomainAttributesPtrOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAttributes) *string {
 		if v == nil {
@@ -2155,8 +2276,14 @@ func (o DomainAttributesPtrOutput) StatusReason() pulumi.StringPtrOutput {
 type DomainProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
 	AppId string `pulumi:"AppId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
+	AutoSubDomainCreationPatterns []string `pulumi:"AutoSubDomainCreationPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
+	AutoSubDomainIAMRole *string `pulumi:"AutoSubDomainIAMRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
 	DomainName string `pulumi:"DomainName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
+	EnableAutoSubDomain *bool `pulumi:"EnableAutoSubDomain"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
 	SubDomainSettings []DomainSubDomainSetting `pulumi:"SubDomainSettings"`
 }
@@ -2176,8 +2303,14 @@ type DomainPropertiesInput interface {
 type DomainPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
 	AppId pulumi.StringInput `pulumi:"AppId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
+	AutoSubDomainCreationPatterns pulumi.StringArrayInput `pulumi:"AutoSubDomainCreationPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
+	AutoSubDomainIAMRole pulumi.StringPtrInput `pulumi:"AutoSubDomainIAMRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
 	DomainName pulumi.StringInput `pulumi:"DomainName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
+	EnableAutoSubDomain pulumi.BoolPtrInput `pulumi:"EnableAutoSubDomain"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
 	SubDomainSettings DomainSubDomainSettingArrayInput `pulumi:"SubDomainSettings"`
 }
@@ -2265,9 +2398,24 @@ func (o DomainPropertiesOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainProperties) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
+func (o DomainPropertiesOutput) AutoSubDomainCreationPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainProperties) []string { return v.AutoSubDomainCreationPatterns }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
+func (o DomainPropertiesOutput) AutoSubDomainIAMRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainProperties) *string { return v.AutoSubDomainIAMRole }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
 func (o DomainPropertiesOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainProperties) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
+func (o DomainPropertiesOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainProperties) *bool { return v.EnableAutoSubDomain }).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
@@ -2303,6 +2451,26 @@ func (o DomainPropertiesPtrOutput) AppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
+func (o DomainPropertiesPtrOutput) AutoSubDomainCreationPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSubDomainCreationPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
+func (o DomainPropertiesPtrOutput) AutoSubDomainIAMRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSubDomainIAMRole
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
 func (o DomainPropertiesPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainProperties) *string {
@@ -2311,6 +2479,16 @@ func (o DomainPropertiesPtrOutput) DomainName() pulumi.StringPtrOutput {
 		}
 		return &v.DomainName
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
+func (o DomainPropertiesPtrOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAutoSubDomain
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings

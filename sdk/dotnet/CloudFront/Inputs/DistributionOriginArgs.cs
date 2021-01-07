@@ -64,6 +64,12 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
         public Input<string>? OriginPath { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+        /// </summary>
+        [Input("OriginShield")]
+        public Input<Inputs.DistributionOriginShieldArgs>? OriginShield { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
         /// </summary>
         [Input("S3OriginConfig")]

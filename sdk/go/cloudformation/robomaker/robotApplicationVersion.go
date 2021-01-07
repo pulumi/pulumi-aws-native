@@ -4,6 +4,7 @@
 package robomaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RobotApplicationVersion struct {
 // NewRobotApplicationVersion registers a new resource with the given unique name, arguments, and options.
 func NewRobotApplicationVersion(ctx *pulumi.Context,
 	name string, args *RobotApplicationVersionArgs, opts ...pulumi.ResourceOption) (*RobotApplicationVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RobotApplicationVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RobotApplicationVersion
 	err := ctx.RegisterResource("cloudformation:RoboMaker:RobotApplicationVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RobotApplicationVersionArgs struct {
 
 func (RobotApplicationVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*robotApplicationVersionArgs)(nil)).Elem()
+}
+
+type RobotApplicationVersionInput interface {
+	pulumi.Input
+
+	ToRobotApplicationVersionOutput() RobotApplicationVersionOutput
+	ToRobotApplicationVersionOutputWithContext(ctx context.Context) RobotApplicationVersionOutput
+}
+
+func (*RobotApplicationVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationVersion)(nil))
+}
+
+func (i *RobotApplicationVersion) ToRobotApplicationVersionOutput() RobotApplicationVersionOutput {
+	return i.ToRobotApplicationVersionOutputWithContext(context.Background())
+}
+
+func (i *RobotApplicationVersion) ToRobotApplicationVersionOutputWithContext(ctx context.Context) RobotApplicationVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationVersionOutput)
+}
+
+type RobotApplicationVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (RobotApplicationVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotApplicationVersion)(nil))
+}
+
+func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutput() RobotApplicationVersionOutput {
+	return o
+}
+
+func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutputWithContext(ctx context.Context) RobotApplicationVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RobotApplicationVersionOutput{})
 }

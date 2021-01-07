@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Configuration:DeliveryChannel")]
     public partial class DeliveryChannel : Pulumi.CustomResource
     {
         /// <summary>

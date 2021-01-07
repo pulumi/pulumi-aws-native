@@ -4,6 +4,7 @@
 package acmpca
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CertificateAuthorityActivation struct {
 // NewCertificateAuthorityActivation registers a new resource with the given unique name, arguments, and options.
 func NewCertificateAuthorityActivation(ctx *pulumi.Context,
 	name string, args *CertificateAuthorityActivationArgs, opts ...pulumi.ResourceOption) (*CertificateAuthorityActivation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CertificateAuthorityActivationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CertificateAuthorityActivation
 	err := ctx.RegisterResource("cloudformation:ACMPCA:CertificateAuthorityActivation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CertificateAuthorityActivationArgs struct {
 
 func (CertificateAuthorityActivationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateAuthorityActivationArgs)(nil)).Elem()
+}
+
+type CertificateAuthorityActivationInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityActivationOutput() CertificateAuthorityActivationOutput
+	ToCertificateAuthorityActivationOutputWithContext(ctx context.Context) CertificateAuthorityActivationOutput
+}
+
+func (*CertificateAuthorityActivation) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityActivation)(nil))
+}
+
+func (i *CertificateAuthorityActivation) ToCertificateAuthorityActivationOutput() CertificateAuthorityActivationOutput {
+	return i.ToCertificateAuthorityActivationOutputWithContext(context.Background())
+}
+
+func (i *CertificateAuthorityActivation) ToCertificateAuthorityActivationOutputWithContext(ctx context.Context) CertificateAuthorityActivationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityActivationOutput)
+}
+
+type CertificateAuthorityActivationOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateAuthorityActivationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityActivation)(nil))
+}
+
+func (o CertificateAuthorityActivationOutput) ToCertificateAuthorityActivationOutput() CertificateAuthorityActivationOutput {
+	return o
+}
+
+func (o CertificateAuthorityActivationOutput) ToCertificateAuthorityActivationOutputWithContext(ctx context.Context) CertificateAuthorityActivationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateAuthorityActivationOutput{})
 }

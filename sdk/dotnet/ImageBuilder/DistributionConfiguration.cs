@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ImageBuilder:DistributionConfiguration")]
     public partial class DistributionConfiguration : Pulumi.CustomResource
     {
         /// <summary>

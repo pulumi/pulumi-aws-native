@@ -4,6 +4,7 @@
 package appmesh
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Mesh struct {
 // NewMesh registers a new resource with the given unique name, arguments, and options.
 func NewMesh(ctx *pulumi.Context,
 	name string, args *MeshArgs, opts ...pulumi.ResourceOption) (*Mesh, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MeshArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Mesh
 	err := ctx.RegisterResource("cloudformation:AppMesh:Mesh", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MeshArgs struct {
 
 func (MeshArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*meshArgs)(nil)).Elem()
+}
+
+type MeshInput interface {
+	pulumi.Input
+
+	ToMeshOutput() MeshOutput
+	ToMeshOutputWithContext(ctx context.Context) MeshOutput
+}
+
+func (*Mesh) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mesh)(nil))
+}
+
+func (i *Mesh) ToMeshOutput() MeshOutput {
+	return i.ToMeshOutputWithContext(context.Background())
+}
+
+func (i *Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshOutput)
+}
+
+type MeshOutput struct {
+	*pulumi.OutputState
+}
+
+func (MeshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mesh)(nil))
+}
+
+func (o MeshOutput) ToMeshOutput() MeshOutput {
+	return o
+}
+
+func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MeshOutput{})
 }

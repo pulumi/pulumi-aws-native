@@ -22,10 +22,16 @@ namespace Pulumi.Cloudformation.CodeStarConnections.Inputs
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+        /// </summary>
+        [Input("HostArn")]
+        public Input<string>? HostArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
         /// </summary>
-        [Input("ProviderType", required: true)]
-        public Input<string> ProviderType { get; set; } = null!;
+        [Input("ProviderType")]
+        public Input<string>? ProviderType { get; set; }
 
         [Input("Tags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;

@@ -4,6 +4,7 @@
 package eks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Nodegroup struct {
 // NewNodegroup registers a new resource with the given unique name, arguments, and options.
 func NewNodegroup(ctx *pulumi.Context,
 	name string, args *NodegroupArgs, opts ...pulumi.ResourceOption) (*Nodegroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NodegroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Nodegroup
 	err := ctx.RegisterResource("cloudformation:EKS:Nodegroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NodegroupArgs struct {
 
 func (NodegroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodegroupArgs)(nil)).Elem()
+}
+
+type NodegroupInput interface {
+	pulumi.Input
+
+	ToNodegroupOutput() NodegroupOutput
+	ToNodegroupOutputWithContext(ctx context.Context) NodegroupOutput
+}
+
+func (*Nodegroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nodegroup)(nil))
+}
+
+func (i *Nodegroup) ToNodegroupOutput() NodegroupOutput {
+	return i.ToNodegroupOutputWithContext(context.Background())
+}
+
+func (i *Nodegroup) ToNodegroupOutputWithContext(ctx context.Context) NodegroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupOutput)
+}
+
+type NodegroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (NodegroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nodegroup)(nil))
+}
+
+func (o NodegroupOutput) ToNodegroupOutput() NodegroupOutput {
+	return o
+}
+
+func (o NodegroupOutput) ToNodegroupOutputWithContext(ctx context.Context) NodegroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NodegroupOutput{})
 }

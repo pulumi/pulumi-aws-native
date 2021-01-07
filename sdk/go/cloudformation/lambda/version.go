@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Version struct {
 // NewVersion registers a new resource with the given unique name, arguments, and options.
 func NewVersion(ctx *pulumi.Context,
 	name string, args *VersionArgs, opts ...pulumi.ResourceOption) (*Version, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Version
 	err := ctx.RegisterResource("cloudformation:Lambda:Version", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VersionArgs struct {
 
 func (VersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*versionArgs)(nil)).Elem()
+}
+
+type VersionInput interface {
+	pulumi.Input
+
+	ToVersionOutput() VersionOutput
+	ToVersionOutputWithContext(ctx context.Context) VersionOutput
+}
+
+func (*Version) ElementType() reflect.Type {
+	return reflect.TypeOf((*Version)(nil))
+}
+
+func (i *Version) ToVersionOutput() VersionOutput {
+	return i.ToVersionOutputWithContext(context.Background())
+}
+
+func (i *Version) ToVersionOutputWithContext(ctx context.Context) VersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionOutput)
+}
+
+type VersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Version)(nil))
+}
+
+func (o VersionOutput) ToVersionOutput() VersionOutput {
+	return o
+}
+
+func (o VersionOutput) ToVersionOutputWithContext(ctx context.Context) VersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VersionOutput{})
 }

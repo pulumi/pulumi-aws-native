@@ -4,6 +4,7 @@
 package fms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type NotificationChannel struct {
 // NewNotificationChannel registers a new resource with the given unique name, arguments, and options.
 func NewNotificationChannel(ctx *pulumi.Context,
 	name string, args *NotificationChannelArgs, opts ...pulumi.ResourceOption) (*NotificationChannel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &NotificationChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource NotificationChannel
 	err := ctx.RegisterResource("cloudformation:FMS:NotificationChannel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type NotificationChannelArgs struct {
 
 func (NotificationChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationChannelArgs)(nil)).Elem()
+}
+
+type NotificationChannelInput interface {
+	pulumi.Input
+
+	ToNotificationChannelOutput() NotificationChannelOutput
+	ToNotificationChannelOutputWithContext(ctx context.Context) NotificationChannelOutput
+}
+
+func (*NotificationChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannel)(nil))
+}
+
+func (i *NotificationChannel) ToNotificationChannelOutput() NotificationChannelOutput {
+	return i.ToNotificationChannelOutputWithContext(context.Background())
+}
+
+func (i *NotificationChannel) ToNotificationChannelOutputWithContext(ctx context.Context) NotificationChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelOutput)
+}
+
+type NotificationChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannel)(nil))
+}
+
+func (o NotificationChannelOutput) ToNotificationChannelOutput() NotificationChannelOutput {
+	return o
+}
+
+func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx context.Context) NotificationChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotificationChannelOutput{})
 }

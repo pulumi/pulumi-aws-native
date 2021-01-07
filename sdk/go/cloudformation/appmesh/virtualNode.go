@@ -4,6 +4,7 @@
 package appmesh
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VirtualNode struct {
 // NewVirtualNode registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNode(ctx *pulumi.Context,
 	name string, args *VirtualNodeArgs, opts ...pulumi.ResourceOption) (*VirtualNode, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VirtualNodeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VirtualNode
 	err := ctx.RegisterResource("cloudformation:AppMesh:VirtualNode", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VirtualNodeArgs struct {
 
 func (VirtualNodeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNodeArgs)(nil)).Elem()
+}
+
+type VirtualNodeInput interface {
+	pulumi.Input
+
+	ToVirtualNodeOutput() VirtualNodeOutput
+	ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput
+}
+
+func (*VirtualNode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNode)(nil))
+}
+
+func (i *VirtualNode) ToVirtualNodeOutput() VirtualNodeOutput {
+	return i.ToVirtualNodeOutputWithContext(context.Background())
+}
+
+func (i *VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutput)
+}
+
+type VirtualNodeOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNode)(nil))
+}
+
+func (o VirtualNodeOutput) ToVirtualNodeOutput() VirtualNodeOutput {
+	return o
+}
+
+func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNodeOutput{})
 }

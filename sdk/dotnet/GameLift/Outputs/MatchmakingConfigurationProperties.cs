@@ -38,6 +38,10 @@ namespace Pulumi.Cloudformation.GameLift.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+        /// </summary>
+        public readonly string? FlexMatchMode;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gameproperties
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchmakingConfigurationGameProperty> GameProperties;
@@ -80,6 +84,8 @@ namespace Pulumi.Cloudformation.GameLift.Outputs
 
             string? Description,
 
+            string? FlexMatchMode,
+
             ImmutableArray<Outputs.MatchmakingConfigurationGameProperty> GameProperties,
 
             string? GameSessionData,
@@ -100,6 +106,7 @@ namespace Pulumi.Cloudformation.GameLift.Outputs
             this.BackfillMode = BackfillMode;
             this.CustomEventData = CustomEventData;
             this.Description = Description;
+            this.FlexMatchMode = FlexMatchMode;
             this.GameProperties = GameProperties;
             this.GameSessionData = GameSessionData;
             this.GameSessionQueueArns = GameSessionQueueArns;

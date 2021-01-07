@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DocDB
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DocDB:DBInstance")]
     public partial class DBInstance : Pulumi.CustomResource
     {
         /// <summary>

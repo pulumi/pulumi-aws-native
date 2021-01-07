@@ -4,6 +4,7 @@
 package elasticbeanstalk
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApplicationVersion struct {
 // NewApplicationVersion registers a new resource with the given unique name, arguments, and options.
 func NewApplicationVersion(ctx *pulumi.Context,
 	name string, args *ApplicationVersionArgs, opts ...pulumi.ResourceOption) (*ApplicationVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApplicationVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApplicationVersion
 	err := ctx.RegisterResource("cloudformation:ElasticBeanstalk:ApplicationVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApplicationVersionArgs struct {
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationVersionArgs)(nil)).Elem()
+}
+
+type ApplicationVersionInput interface {
+	pulumi.Input
+
+	ToApplicationVersionOutput() ApplicationVersionOutput
+	ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput
+}
+
+func (*ApplicationVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersion)(nil))
+}
+
+func (i *ApplicationVersion) ToApplicationVersionOutput() ApplicationVersionOutput {
+	return i.ToApplicationVersionOutputWithContext(context.Background())
+}
+
+func (i *ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionOutput)
+}
+
+type ApplicationVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersion)(nil))
+}
+
+func (o ApplicationVersionOutput) ToApplicationVersionOutput() ApplicationVersionOutput {
+	return o
+}
+
+func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationVersionOutput{})
 }

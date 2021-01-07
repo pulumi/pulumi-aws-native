@@ -139,6 +139,8 @@ type SubscriptionProperties struct {
 	RedrivePolicy interface{} `pulumi:"RedrivePolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
 	Region *string `pulumi:"Region"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
+	SubscriptionRoleArn *string `pulumi:"SubscriptionRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
 	TopicArn string `pulumi:"TopicArn"`
 }
@@ -170,6 +172,8 @@ type SubscriptionPropertiesArgs struct {
 	RedrivePolicy pulumi.Input `pulumi:"RedrivePolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
 	Region pulumi.StringPtrInput `pulumi:"Region"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
+	SubscriptionRoleArn pulumi.StringPtrInput `pulumi:"SubscriptionRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
 	TopicArn pulumi.StringInput `pulumi:"TopicArn"`
 }
@@ -287,6 +291,11 @@ func (o SubscriptionPropertiesOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionProperties) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
+func (o SubscriptionPropertiesOutput) SubscriptionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionProperties) *string { return v.SubscriptionRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
 func (o SubscriptionPropertiesOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionProperties) string { return v.TopicArn }).(pulumi.StringOutput)
@@ -377,6 +386,16 @@ func (o SubscriptionPropertiesPtrOutput) Region() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
+func (o SubscriptionPropertiesPtrOutput) SubscriptionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 

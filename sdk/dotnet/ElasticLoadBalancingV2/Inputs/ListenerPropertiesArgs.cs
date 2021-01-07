@@ -15,6 +15,18 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("AlpnPolicy")]
+        private InputList<string>? _AlpnPolicy;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+        /// </summary>
+        public InputList<string> AlpnPolicy
+        {
+            get => _AlpnPolicy ?? (_AlpnPolicy = new InputList<string>());
+            set => _AlpnPolicy = value;
+        }
+
         [Input("Certificates")]
         private InputList<Inputs.ListenerCertificateArgs>? _Certificates;
 
@@ -48,14 +60,14 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
         /// </summary>
-        [Input("Port", required: true)]
-        public Input<int> Port { get; set; } = null!;
+        [Input("Port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
         /// </summary>
-        [Input("Protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        [Input("Protocol")]
+        public Input<string>? Protocol { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy

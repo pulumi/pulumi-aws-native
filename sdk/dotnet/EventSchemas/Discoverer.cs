@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EventSchemas
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EventSchemas:Discoverer")]
     public partial class Discoverer : Pulumi.CustomResource
     {
         /// <summary>

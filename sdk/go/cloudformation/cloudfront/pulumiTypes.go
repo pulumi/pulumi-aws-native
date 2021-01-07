@@ -11,6 +11,1189 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type CachePolicyAttributes struct {
+	Id               string `pulumi:"Id"`
+	LastModifiedTime string `pulumi:"LastModifiedTime"`
+}
+
+// CachePolicyAttributesInput is an input type that accepts CachePolicyAttributesArgs and CachePolicyAttributesOutput values.
+// You can construct a concrete instance of `CachePolicyAttributesInput` via:
+//
+//          CachePolicyAttributesArgs{...}
+type CachePolicyAttributesInput interface {
+	pulumi.Input
+
+	ToCachePolicyAttributesOutput() CachePolicyAttributesOutput
+	ToCachePolicyAttributesOutputWithContext(context.Context) CachePolicyAttributesOutput
+}
+
+type CachePolicyAttributesArgs struct {
+	Id               pulumi.StringInput `pulumi:"Id"`
+	LastModifiedTime pulumi.StringInput `pulumi:"LastModifiedTime"`
+}
+
+func (CachePolicyAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyAttributes)(nil)).Elem()
+}
+
+func (i CachePolicyAttributesArgs) ToCachePolicyAttributesOutput() CachePolicyAttributesOutput {
+	return i.ToCachePolicyAttributesOutputWithContext(context.Background())
+}
+
+func (i CachePolicyAttributesArgs) ToCachePolicyAttributesOutputWithContext(ctx context.Context) CachePolicyAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyAttributesOutput)
+}
+
+func (i CachePolicyAttributesArgs) ToCachePolicyAttributesPtrOutput() CachePolicyAttributesPtrOutput {
+	return i.ToCachePolicyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyAttributesArgs) ToCachePolicyAttributesPtrOutputWithContext(ctx context.Context) CachePolicyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyAttributesOutput).ToCachePolicyAttributesPtrOutputWithContext(ctx)
+}
+
+// CachePolicyAttributesPtrInput is an input type that accepts CachePolicyAttributesArgs, CachePolicyAttributesPtr and CachePolicyAttributesPtrOutput values.
+// You can construct a concrete instance of `CachePolicyAttributesPtrInput` via:
+//
+//          CachePolicyAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyAttributesPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyAttributesPtrOutput() CachePolicyAttributesPtrOutput
+	ToCachePolicyAttributesPtrOutputWithContext(context.Context) CachePolicyAttributesPtrOutput
+}
+
+type cachePolicyAttributesPtrType CachePolicyAttributesArgs
+
+func CachePolicyAttributesPtr(v *CachePolicyAttributesArgs) CachePolicyAttributesPtrInput {
+	return (*cachePolicyAttributesPtrType)(v)
+}
+
+func (*cachePolicyAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyAttributes)(nil)).Elem()
+}
+
+func (i *cachePolicyAttributesPtrType) ToCachePolicyAttributesPtrOutput() CachePolicyAttributesPtrOutput {
+	return i.ToCachePolicyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyAttributesPtrType) ToCachePolicyAttributesPtrOutputWithContext(ctx context.Context) CachePolicyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyAttributesPtrOutput)
+}
+
+type CachePolicyAttributesOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyAttributes)(nil)).Elem()
+}
+
+func (o CachePolicyAttributesOutput) ToCachePolicyAttributesOutput() CachePolicyAttributesOutput {
+	return o
+}
+
+func (o CachePolicyAttributesOutput) ToCachePolicyAttributesOutputWithContext(ctx context.Context) CachePolicyAttributesOutput {
+	return o
+}
+
+func (o CachePolicyAttributesOutput) ToCachePolicyAttributesPtrOutput() CachePolicyAttributesPtrOutput {
+	return o.ToCachePolicyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyAttributesOutput) ToCachePolicyAttributesPtrOutputWithContext(ctx context.Context) CachePolicyAttributesPtrOutput {
+	return o.ApplyT(func(v CachePolicyAttributes) *CachePolicyAttributes {
+		return &v
+	}).(CachePolicyAttributesPtrOutput)
+}
+func (o CachePolicyAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o CachePolicyAttributesOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyAttributes) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+type CachePolicyAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyAttributes)(nil)).Elem()
+}
+
+func (o CachePolicyAttributesPtrOutput) ToCachePolicyAttributesPtrOutput() CachePolicyAttributesPtrOutput {
+	return o
+}
+
+func (o CachePolicyAttributesPtrOutput) ToCachePolicyAttributesPtrOutputWithContext(ctx context.Context) CachePolicyAttributesPtrOutput {
+	return o
+}
+
+func (o CachePolicyAttributesPtrOutput) Elem() CachePolicyAttributesOutput {
+	return o.ApplyT(func(v *CachePolicyAttributes) CachePolicyAttributes { return *v }).(CachePolicyAttributesOutput)
+}
+
+func (o CachePolicyAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyAttributesPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
+type CachePolicyCachePolicyConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
+	Comment *string `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
+	DefaultTTL float64 `pulumi:"DefaultTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
+	MaxTTL float64 `pulumi:"MaxTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
+	MinTTL float64 `pulumi:"MinTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
+	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
+	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"ParametersInCacheKeyAndForwardedToOrigin"`
+}
+
+// CachePolicyCachePolicyConfigInput is an input type that accepts CachePolicyCachePolicyConfigArgs and CachePolicyCachePolicyConfigOutput values.
+// You can construct a concrete instance of `CachePolicyCachePolicyConfigInput` via:
+//
+//          CachePolicyCachePolicyConfigArgs{...}
+type CachePolicyCachePolicyConfigInput interface {
+	pulumi.Input
+
+	ToCachePolicyCachePolicyConfigOutput() CachePolicyCachePolicyConfigOutput
+	ToCachePolicyCachePolicyConfigOutputWithContext(context.Context) CachePolicyCachePolicyConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
+type CachePolicyCachePolicyConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
+	Comment pulumi.StringPtrInput `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
+	DefaultTTL pulumi.Float64Input `pulumi:"DefaultTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
+	MaxTTL pulumi.Float64Input `pulumi:"MaxTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
+	MinTTL pulumi.Float64Input `pulumi:"MinTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
+	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
+	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginInput `pulumi:"ParametersInCacheKeyAndForwardedToOrigin"`
+}
+
+func (CachePolicyCachePolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyCachePolicyConfig)(nil)).Elem()
+}
+
+func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigOutput() CachePolicyCachePolicyConfigOutput {
+	return i.ToCachePolicyCachePolicyConfigOutputWithContext(context.Background())
+}
+
+func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCachePolicyConfigOutput)
+}
+
+func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
+	return i.ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCachePolicyConfigOutput).ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx)
+}
+
+// CachePolicyCachePolicyConfigPtrInput is an input type that accepts CachePolicyCachePolicyConfigArgs, CachePolicyCachePolicyConfigPtr and CachePolicyCachePolicyConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyCachePolicyConfigPtrInput` via:
+//
+//          CachePolicyCachePolicyConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyCachePolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput
+	ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Context) CachePolicyCachePolicyConfigPtrOutput
+}
+
+type cachePolicyCachePolicyConfigPtrType CachePolicyCachePolicyConfigArgs
+
+func CachePolicyCachePolicyConfigPtr(v *CachePolicyCachePolicyConfigArgs) CachePolicyCachePolicyConfigPtrInput {
+	return (*cachePolicyCachePolicyConfigPtrType)(v)
+}
+
+func (*cachePolicyCachePolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyCachePolicyConfig)(nil)).Elem()
+}
+
+func (i *cachePolicyCachePolicyConfigPtrType) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
+	return i.ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyCachePolicyConfigPtrType) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCachePolicyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
+type CachePolicyCachePolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyCachePolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyCachePolicyConfig)(nil)).Elem()
+}
+
+func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigOutput() CachePolicyCachePolicyConfigOutput {
+	return o
+}
+
+func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigOutput {
+	return o
+}
+
+func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
+	return o.ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
+	return o.ApplyT(func(v CachePolicyCachePolicyConfig) *CachePolicyCachePolicyConfig {
+		return &v
+	}).(CachePolicyCachePolicyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
+func (o CachePolicyCachePolicyConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CachePolicyCachePolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
+func (o CachePolicyCachePolicyConfigOutput) DefaultTTL() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.DefaultTTL }).(pulumi.Float64Output)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
+func (o CachePolicyCachePolicyConfigOutput) MaxTTL() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.MaxTTL }).(pulumi.Float64Output)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
+func (o CachePolicyCachePolicyConfigOutput) MinTTL() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.MinTTL }).(pulumi.Float64Output)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
+func (o CachePolicyCachePolicyConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyCachePolicyConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
+func (o CachePolicyCachePolicyConfigOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o.ApplyT(func(v CachePolicyCachePolicyConfig) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		return v.ParametersInCacheKeyAndForwardedToOrigin
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+type CachePolicyCachePolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyCachePolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyCachePolicyConfig)(nil)).Elem()
+}
+
+func (o CachePolicyCachePolicyConfigPtrOutput) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyCachePolicyConfigPtrOutput) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyCachePolicyConfigPtrOutput) Elem() CachePolicyCachePolicyConfigOutput {
+	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) CachePolicyCachePolicyConfig { return *v }).(CachePolicyCachePolicyConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
+func (o CachePolicyCachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
+func (o CachePolicyCachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultTTL
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
+func (o CachePolicyCachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxTTL
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
+func (o CachePolicyCachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinTTL
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
+func (o CachePolicyCachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
+func (o CachePolicyCachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		if v == nil {
+			return nil
+		}
+		return &v.ParametersInCacheKeyAndForwardedToOrigin
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
+type CachePolicyCookiesConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
+	CookieBehavior string `pulumi:"CookieBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
+	Cookies []string `pulumi:"Cookies"`
+}
+
+// CachePolicyCookiesConfigInput is an input type that accepts CachePolicyCookiesConfigArgs and CachePolicyCookiesConfigOutput values.
+// You can construct a concrete instance of `CachePolicyCookiesConfigInput` via:
+//
+//          CachePolicyCookiesConfigArgs{...}
+type CachePolicyCookiesConfigInput interface {
+	pulumi.Input
+
+	ToCachePolicyCookiesConfigOutput() CachePolicyCookiesConfigOutput
+	ToCachePolicyCookiesConfigOutputWithContext(context.Context) CachePolicyCookiesConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
+type CachePolicyCookiesConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
+	CookieBehavior pulumi.StringInput `pulumi:"CookieBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
+	Cookies pulumi.StringArrayInput `pulumi:"Cookies"`
+}
+
+func (CachePolicyCookiesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i CachePolicyCookiesConfigArgs) ToCachePolicyCookiesConfigOutput() CachePolicyCookiesConfigOutput {
+	return i.ToCachePolicyCookiesConfigOutputWithContext(context.Background())
+}
+
+func (i CachePolicyCookiesConfigArgs) ToCachePolicyCookiesConfigOutputWithContext(ctx context.Context) CachePolicyCookiesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCookiesConfigOutput)
+}
+
+func (i CachePolicyCookiesConfigArgs) ToCachePolicyCookiesConfigPtrOutput() CachePolicyCookiesConfigPtrOutput {
+	return i.ToCachePolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyCookiesConfigArgs) ToCachePolicyCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCookiesConfigOutput).ToCachePolicyCookiesConfigPtrOutputWithContext(ctx)
+}
+
+// CachePolicyCookiesConfigPtrInput is an input type that accepts CachePolicyCookiesConfigArgs, CachePolicyCookiesConfigPtr and CachePolicyCookiesConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyCookiesConfigPtrInput` via:
+//
+//          CachePolicyCookiesConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyCookiesConfigPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyCookiesConfigPtrOutput() CachePolicyCookiesConfigPtrOutput
+	ToCachePolicyCookiesConfigPtrOutputWithContext(context.Context) CachePolicyCookiesConfigPtrOutput
+}
+
+type cachePolicyCookiesConfigPtrType CachePolicyCookiesConfigArgs
+
+func CachePolicyCookiesConfigPtr(v *CachePolicyCookiesConfigArgs) CachePolicyCookiesConfigPtrInput {
+	return (*cachePolicyCookiesConfigPtrType)(v)
+}
+
+func (*cachePolicyCookiesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i *cachePolicyCookiesConfigPtrType) ToCachePolicyCookiesConfigPtrOutput() CachePolicyCookiesConfigPtrOutput {
+	return i.ToCachePolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyCookiesConfigPtrType) ToCachePolicyCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCookiesConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
+type CachePolicyCookiesConfigOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyCookiesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o CachePolicyCookiesConfigOutput) ToCachePolicyCookiesConfigOutput() CachePolicyCookiesConfigOutput {
+	return o
+}
+
+func (o CachePolicyCookiesConfigOutput) ToCachePolicyCookiesConfigOutputWithContext(ctx context.Context) CachePolicyCookiesConfigOutput {
+	return o
+}
+
+func (o CachePolicyCookiesConfigOutput) ToCachePolicyCookiesConfigPtrOutput() CachePolicyCookiesConfigPtrOutput {
+	return o.ToCachePolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyCookiesConfigOutput) ToCachePolicyCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v CachePolicyCookiesConfig) *CachePolicyCookiesConfig {
+		return &v
+	}).(CachePolicyCookiesConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
+func (o CachePolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
+func (o CachePolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CachePolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyCookiesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyCookiesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) ToCachePolicyCookiesConfigPtrOutput() CachePolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) ToCachePolicyCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) Elem() CachePolicyCookiesConfigOutput {
+	return o.ApplyT(func(v *CachePolicyCookiesConfig) CachePolicyCookiesConfig { return *v }).(CachePolicyCookiesConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
+func (o CachePolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyCookiesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CookieBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
+func (o CachePolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyCookiesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
+type CachePolicyHeadersConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
+	HeaderBehavior string `pulumi:"HeaderBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
+	Headers []string `pulumi:"Headers"`
+}
+
+// CachePolicyHeadersConfigInput is an input type that accepts CachePolicyHeadersConfigArgs and CachePolicyHeadersConfigOutput values.
+// You can construct a concrete instance of `CachePolicyHeadersConfigInput` via:
+//
+//          CachePolicyHeadersConfigArgs{...}
+type CachePolicyHeadersConfigInput interface {
+	pulumi.Input
+
+	ToCachePolicyHeadersConfigOutput() CachePolicyHeadersConfigOutput
+	ToCachePolicyHeadersConfigOutputWithContext(context.Context) CachePolicyHeadersConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
+type CachePolicyHeadersConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
+	HeaderBehavior pulumi.StringInput `pulumi:"HeaderBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
+	Headers pulumi.StringArrayInput `pulumi:"Headers"`
+}
+
+func (CachePolicyHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i CachePolicyHeadersConfigArgs) ToCachePolicyHeadersConfigOutput() CachePolicyHeadersConfigOutput {
+	return i.ToCachePolicyHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i CachePolicyHeadersConfigArgs) ToCachePolicyHeadersConfigOutputWithContext(ctx context.Context) CachePolicyHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyHeadersConfigOutput)
+}
+
+func (i CachePolicyHeadersConfigArgs) ToCachePolicyHeadersConfigPtrOutput() CachePolicyHeadersConfigPtrOutput {
+	return i.ToCachePolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyHeadersConfigArgs) ToCachePolicyHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyHeadersConfigOutput).ToCachePolicyHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// CachePolicyHeadersConfigPtrInput is an input type that accepts CachePolicyHeadersConfigArgs, CachePolicyHeadersConfigPtr and CachePolicyHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyHeadersConfigPtrInput` via:
+//
+//          CachePolicyHeadersConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyHeadersConfigPtrOutput() CachePolicyHeadersConfigPtrOutput
+	ToCachePolicyHeadersConfigPtrOutputWithContext(context.Context) CachePolicyHeadersConfigPtrOutput
+}
+
+type cachePolicyHeadersConfigPtrType CachePolicyHeadersConfigArgs
+
+func CachePolicyHeadersConfigPtr(v *CachePolicyHeadersConfigArgs) CachePolicyHeadersConfigPtrInput {
+	return (*cachePolicyHeadersConfigPtrType)(v)
+}
+
+func (*cachePolicyHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i *cachePolicyHeadersConfigPtrType) ToCachePolicyHeadersConfigPtrOutput() CachePolicyHeadersConfigPtrOutput {
+	return i.ToCachePolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyHeadersConfigPtrType) ToCachePolicyHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyHeadersConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
+type CachePolicyHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o CachePolicyHeadersConfigOutput) ToCachePolicyHeadersConfigOutput() CachePolicyHeadersConfigOutput {
+	return o
+}
+
+func (o CachePolicyHeadersConfigOutput) ToCachePolicyHeadersConfigOutputWithContext(ctx context.Context) CachePolicyHeadersConfigOutput {
+	return o
+}
+
+func (o CachePolicyHeadersConfigOutput) ToCachePolicyHeadersConfigPtrOutput() CachePolicyHeadersConfigPtrOutput {
+	return o.ToCachePolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyHeadersConfigOutput) ToCachePolicyHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v CachePolicyHeadersConfig) *CachePolicyHeadersConfig {
+		return &v
+	}).(CachePolicyHeadersConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
+func (o CachePolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyHeadersConfig) string { return v.HeaderBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
+func (o CachePolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CachePolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) ToCachePolicyHeadersConfigPtrOutput() CachePolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) ToCachePolicyHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) Elem() CachePolicyHeadersConfigOutput {
+	return o.ApplyT(func(v *CachePolicyHeadersConfig) CachePolicyHeadersConfig { return *v }).(CachePolicyHeadersConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
+func (o CachePolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyHeadersConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
+func (o CachePolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyHeadersConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
+type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
+	CookiesConfig CachePolicyCookiesConfig `pulumi:"CookiesConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
+	EnableAcceptEncodingBrotli *bool `pulumi:"EnableAcceptEncodingBrotli"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
+	EnableAcceptEncodingGzip bool `pulumi:"EnableAcceptEncodingGzip"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
+	HeadersConfig CachePolicyHeadersConfig `pulumi:"HeadersConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
+	QueryStringsConfig CachePolicyQueryStringsConfig `pulumi:"QueryStringsConfig"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
+type CachePolicyParametersInCacheKeyAndForwardedToOriginArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
+	CookiesConfig CachePolicyCookiesConfigInput `pulumi:"CookiesConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
+	EnableAcceptEncodingBrotli pulumi.BoolPtrInput `pulumi:"EnableAcceptEncodingBrotli"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
+	EnableAcceptEncodingGzip pulumi.BoolInput `pulumi:"EnableAcceptEncodingGzip"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
+	HeadersConfig CachePolicyHeadersConfigInput `pulumi:"HeadersConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
+	QueryStringsConfig CachePolicyQueryStringsConfigInput `pulumi:"QueryStringsConfig"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
+type CachePolicyParametersInCacheKeyAndForwardedToOriginOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) CookiesConfig() CachePolicyCookiesConfigOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyCookiesConfig {
+		return v.CookiesConfig
+	}).(CachePolicyCookiesConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool { return v.EnableAcceptEncodingBrotli }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingGzip() pulumi.BoolOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) bool { return v.EnableAcceptEncodingGzip }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) HeadersConfig() CachePolicyHeadersConfigOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyHeadersConfig {
+		return v.HeadersConfig
+	}).(CachePolicyHeadersConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsConfig() CachePolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyQueryStringsConfig {
+		return v.QueryStringsConfig
+	}).(CachePolicyQueryStringsConfigOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesConfig() CachePolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyCookiesConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CookiesConfig
+	}).(CachePolicyCookiesConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAcceptEncodingBrotli
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableAcceptEncodingGzip
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersConfig() CachePolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.HeadersConfig
+	}).(CachePolicyHeadersConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStringsConfig() CachePolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyQueryStringsConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringsConfig
+	}).(CachePolicyQueryStringsConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+type CachePolicyProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
+	CachePolicyConfig CachePolicyCachePolicyConfig `pulumi:"CachePolicyConfig"`
+}
+
+// CachePolicyPropertiesInput is an input type that accepts CachePolicyPropertiesArgs and CachePolicyPropertiesOutput values.
+// You can construct a concrete instance of `CachePolicyPropertiesInput` via:
+//
+//          CachePolicyPropertiesArgs{...}
+type CachePolicyPropertiesInput interface {
+	pulumi.Input
+
+	ToCachePolicyPropertiesOutput() CachePolicyPropertiesOutput
+	ToCachePolicyPropertiesOutputWithContext(context.Context) CachePolicyPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+type CachePolicyPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
+	CachePolicyConfig CachePolicyCachePolicyConfigInput `pulumi:"CachePolicyConfig"`
+}
+
+func (CachePolicyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyProperties)(nil)).Elem()
+}
+
+func (i CachePolicyPropertiesArgs) ToCachePolicyPropertiesOutput() CachePolicyPropertiesOutput {
+	return i.ToCachePolicyPropertiesOutputWithContext(context.Background())
+}
+
+func (i CachePolicyPropertiesArgs) ToCachePolicyPropertiesOutputWithContext(ctx context.Context) CachePolicyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyPropertiesOutput)
+}
+
+func (i CachePolicyPropertiesArgs) ToCachePolicyPropertiesPtrOutput() CachePolicyPropertiesPtrOutput {
+	return i.ToCachePolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyPropertiesArgs) ToCachePolicyPropertiesPtrOutputWithContext(ctx context.Context) CachePolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyPropertiesOutput).ToCachePolicyPropertiesPtrOutputWithContext(ctx)
+}
+
+// CachePolicyPropertiesPtrInput is an input type that accepts CachePolicyPropertiesArgs, CachePolicyPropertiesPtr and CachePolicyPropertiesPtrOutput values.
+// You can construct a concrete instance of `CachePolicyPropertiesPtrInput` via:
+//
+//          CachePolicyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyPropertiesPtrOutput() CachePolicyPropertiesPtrOutput
+	ToCachePolicyPropertiesPtrOutputWithContext(context.Context) CachePolicyPropertiesPtrOutput
+}
+
+type cachePolicyPropertiesPtrType CachePolicyPropertiesArgs
+
+func CachePolicyPropertiesPtr(v *CachePolicyPropertiesArgs) CachePolicyPropertiesPtrInput {
+	return (*cachePolicyPropertiesPtrType)(v)
+}
+
+func (*cachePolicyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyProperties)(nil)).Elem()
+}
+
+func (i *cachePolicyPropertiesPtrType) ToCachePolicyPropertiesPtrOutput() CachePolicyPropertiesPtrOutput {
+	return i.ToCachePolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyPropertiesPtrType) ToCachePolicyPropertiesPtrOutputWithContext(ctx context.Context) CachePolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+type CachePolicyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyProperties)(nil)).Elem()
+}
+
+func (o CachePolicyPropertiesOutput) ToCachePolicyPropertiesOutput() CachePolicyPropertiesOutput {
+	return o
+}
+
+func (o CachePolicyPropertiesOutput) ToCachePolicyPropertiesOutputWithContext(ctx context.Context) CachePolicyPropertiesOutput {
+	return o
+}
+
+func (o CachePolicyPropertiesOutput) ToCachePolicyPropertiesPtrOutput() CachePolicyPropertiesPtrOutput {
+	return o.ToCachePolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyPropertiesOutput) ToCachePolicyPropertiesPtrOutputWithContext(ctx context.Context) CachePolicyPropertiesPtrOutput {
+	return o.ApplyT(func(v CachePolicyProperties) *CachePolicyProperties {
+		return &v
+	}).(CachePolicyPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
+func (o CachePolicyPropertiesOutput) CachePolicyConfig() CachePolicyCachePolicyConfigOutput {
+	return o.ApplyT(func(v CachePolicyProperties) CachePolicyCachePolicyConfig { return v.CachePolicyConfig }).(CachePolicyCachePolicyConfigOutput)
+}
+
+type CachePolicyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyProperties)(nil)).Elem()
+}
+
+func (o CachePolicyPropertiesPtrOutput) ToCachePolicyPropertiesPtrOutput() CachePolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o CachePolicyPropertiesPtrOutput) ToCachePolicyPropertiesPtrOutputWithContext(ctx context.Context) CachePolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o CachePolicyPropertiesPtrOutput) Elem() CachePolicyPropertiesOutput {
+	return o.ApplyT(func(v *CachePolicyProperties) CachePolicyProperties { return *v }).(CachePolicyPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
+func (o CachePolicyPropertiesPtrOutput) CachePolicyConfig() CachePolicyCachePolicyConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyProperties) *CachePolicyCachePolicyConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CachePolicyConfig
+	}).(CachePolicyCachePolicyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
+type CachePolicyQueryStringsConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
+	QueryStringBehavior string `pulumi:"QueryStringBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
+	QueryStrings []string `pulumi:"QueryStrings"`
+}
+
+// CachePolicyQueryStringsConfigInput is an input type that accepts CachePolicyQueryStringsConfigArgs and CachePolicyQueryStringsConfigOutput values.
+// You can construct a concrete instance of `CachePolicyQueryStringsConfigInput` via:
+//
+//          CachePolicyQueryStringsConfigArgs{...}
+type CachePolicyQueryStringsConfigInput interface {
+	pulumi.Input
+
+	ToCachePolicyQueryStringsConfigOutput() CachePolicyQueryStringsConfigOutput
+	ToCachePolicyQueryStringsConfigOutputWithContext(context.Context) CachePolicyQueryStringsConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
+type CachePolicyQueryStringsConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
+	QueryStringBehavior pulumi.StringInput `pulumi:"QueryStringBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
+	QueryStrings pulumi.StringArrayInput `pulumi:"QueryStrings"`
+}
+
+func (CachePolicyQueryStringsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i CachePolicyQueryStringsConfigArgs) ToCachePolicyQueryStringsConfigOutput() CachePolicyQueryStringsConfigOutput {
+	return i.ToCachePolicyQueryStringsConfigOutputWithContext(context.Background())
+}
+
+func (i CachePolicyQueryStringsConfigArgs) ToCachePolicyQueryStringsConfigOutputWithContext(ctx context.Context) CachePolicyQueryStringsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyQueryStringsConfigOutput)
+}
+
+func (i CachePolicyQueryStringsConfigArgs) ToCachePolicyQueryStringsConfigPtrOutput() CachePolicyQueryStringsConfigPtrOutput {
+	return i.ToCachePolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyQueryStringsConfigArgs) ToCachePolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyQueryStringsConfigOutput).ToCachePolicyQueryStringsConfigPtrOutputWithContext(ctx)
+}
+
+// CachePolicyQueryStringsConfigPtrInput is an input type that accepts CachePolicyQueryStringsConfigArgs, CachePolicyQueryStringsConfigPtr and CachePolicyQueryStringsConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyQueryStringsConfigPtrInput` via:
+//
+//          CachePolicyQueryStringsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyQueryStringsConfigPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyQueryStringsConfigPtrOutput() CachePolicyQueryStringsConfigPtrOutput
+	ToCachePolicyQueryStringsConfigPtrOutputWithContext(context.Context) CachePolicyQueryStringsConfigPtrOutput
+}
+
+type cachePolicyQueryStringsConfigPtrType CachePolicyQueryStringsConfigArgs
+
+func CachePolicyQueryStringsConfigPtr(v *CachePolicyQueryStringsConfigArgs) CachePolicyQueryStringsConfigPtrInput {
+	return (*cachePolicyQueryStringsConfigPtrType)(v)
+}
+
+func (*cachePolicyQueryStringsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i *cachePolicyQueryStringsConfigPtrType) ToCachePolicyQueryStringsConfigPtrOutput() CachePolicyQueryStringsConfigPtrOutput {
+	return i.ToCachePolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyQueryStringsConfigPtrType) ToCachePolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyQueryStringsConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
+type CachePolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyQueryStringsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o CachePolicyQueryStringsConfigOutput) ToCachePolicyQueryStringsConfigOutput() CachePolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o CachePolicyQueryStringsConfigOutput) ToCachePolicyQueryStringsConfigOutputWithContext(ctx context.Context) CachePolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o CachePolicyQueryStringsConfigOutput) ToCachePolicyQueryStringsConfigPtrOutput() CachePolicyQueryStringsConfigPtrOutput {
+	return o.ToCachePolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyQueryStringsConfigOutput) ToCachePolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v CachePolicyQueryStringsConfig) *CachePolicyQueryStringsConfig {
+		return &v
+	}).(CachePolicyQueryStringsConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
+func (o CachePolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
+func (o CachePolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CachePolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyQueryStringsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) ToCachePolicyQueryStringsConfigPtrOutput() CachePolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) ToCachePolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) Elem() CachePolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) CachePolicyQueryStringsConfig { return *v }).(CachePolicyQueryStringsConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
+func (o CachePolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
+func (o CachePolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(pulumi.StringArrayOutput)
+}
+
 type CloudFrontOriginAccessIdentityAttributes struct {
 	S3CanonicalUserId string `pulumi:"S3CanonicalUserId"`
 }
@@ -539,6 +1722,8 @@ func (o DistributionAttributesPtrOutput) DomainName() pulumi.StringPtrOutput {
 type DistributionCacheBehavior struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
 	AllowedMethods []string `pulumi:"AllowedMethods"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+	CachePolicyId *string `pulumi:"CachePolicyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
 	CachedMethods []string `pulumi:"CachedMethods"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
@@ -548,19 +1733,25 @@ type DistributionCacheBehavior struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
 	FieldLevelEncryptionId *string `pulumi:"FieldLevelEncryptionId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
-	ForwardedValues DistributionForwardedValues `pulumi:"ForwardedValues"`
+	ForwardedValues *DistributionForwardedValues `pulumi:"ForwardedValues"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"LambdaFunctionAssociations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
 	MaxTTL *float64 `pulumi:"MaxTTL"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
 	MinTTL *float64 `pulumi:"MinTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+	OriginRequestPolicyId *string `pulumi:"OriginRequestPolicyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
 	PathPattern string `pulumi:"PathPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+	RealtimeLogConfigArn *string `pulumi:"RealtimeLogConfigArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
 	SmoothStreaming *bool `pulumi:"SmoothStreaming"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
 	TargetOriginId string `pulumi:"TargetOriginId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+	TrustedKeyGroups []string `pulumi:"TrustedKeyGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
 	TrustedSigners []string `pulumi:"TrustedSigners"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
@@ -582,6 +1773,8 @@ type DistributionCacheBehaviorInput interface {
 type DistributionCacheBehaviorArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
 	AllowedMethods pulumi.StringArrayInput `pulumi:"AllowedMethods"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+	CachePolicyId pulumi.StringPtrInput `pulumi:"CachePolicyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
 	CachedMethods pulumi.StringArrayInput `pulumi:"CachedMethods"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
@@ -591,19 +1784,25 @@ type DistributionCacheBehaviorArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"FieldLevelEncryptionId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
-	ForwardedValues DistributionForwardedValuesInput `pulumi:"ForwardedValues"`
+	ForwardedValues DistributionForwardedValuesPtrInput `pulumi:"ForwardedValues"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"LambdaFunctionAssociations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
 	MaxTTL pulumi.Float64PtrInput `pulumi:"MaxTTL"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
 	MinTTL pulumi.Float64PtrInput `pulumi:"MinTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"OriginRequestPolicyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
 	PathPattern pulumi.StringInput `pulumi:"PathPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"RealtimeLogConfigArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
 	SmoothStreaming pulumi.BoolPtrInput `pulumi:"SmoothStreaming"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
 	TargetOriginId pulumi.StringInput `pulumi:"TargetOriginId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"TrustedKeyGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
 	TrustedSigners pulumi.StringArrayInput `pulumi:"TrustedSigners"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
@@ -667,6 +1866,11 @@ func (o DistributionCacheBehaviorOutput) AllowedMethods() pulumi.StringArrayOutp
 	return o.ApplyT(func(v DistributionCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+func (o DistributionCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
 func (o DistributionCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
@@ -688,8 +1892,8 @@ func (o DistributionCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringP
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
-func (o DistributionCacheBehaviorOutput) ForwardedValues() DistributionForwardedValuesOutput {
-	return o.ApplyT(func(v DistributionCacheBehavior) DistributionForwardedValues { return v.ForwardedValues }).(DistributionForwardedValuesOutput)
+func (o DistributionCacheBehaviorOutput) ForwardedValues() DistributionForwardedValuesPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *DistributionForwardedValues { return v.ForwardedValues }).(DistributionForwardedValuesPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
@@ -709,9 +1913,19 @@ func (o DistributionCacheBehaviorOutput) MinTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MinTTL }).(pulumi.Float64PtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+func (o DistributionCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
 func (o DistributionCacheBehaviorOutput) PathPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.PathPattern }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+func (o DistributionCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
@@ -722,6 +1936,11 @@ func (o DistributionCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
 func (o DistributionCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+func (o DistributionCacheBehaviorOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) []string { return v.TrustedKeyGroups }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
@@ -1267,6 +2486,8 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginSSLProtocols() pulumi.Str
 type DistributionDefaultCacheBehavior struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
 	AllowedMethods []string `pulumi:"AllowedMethods"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+	CachePolicyId *string `pulumi:"CachePolicyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
 	CachedMethods []string `pulumi:"CachedMethods"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
@@ -1276,17 +2497,23 @@ type DistributionDefaultCacheBehavior struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
 	FieldLevelEncryptionId *string `pulumi:"FieldLevelEncryptionId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
-	ForwardedValues DistributionForwardedValues `pulumi:"ForwardedValues"`
+	ForwardedValues *DistributionForwardedValues `pulumi:"ForwardedValues"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"LambdaFunctionAssociations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
 	MaxTTL *float64 `pulumi:"MaxTTL"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
 	MinTTL *float64 `pulumi:"MinTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+	OriginRequestPolicyId *string `pulumi:"OriginRequestPolicyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+	RealtimeLogConfigArn *string `pulumi:"RealtimeLogConfigArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 	SmoothStreaming *bool `pulumi:"SmoothStreaming"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
 	TargetOriginId string `pulumi:"TargetOriginId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+	TrustedKeyGroups []string `pulumi:"TrustedKeyGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
 	TrustedSigners []string `pulumi:"TrustedSigners"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
@@ -1308,6 +2535,8 @@ type DistributionDefaultCacheBehaviorInput interface {
 type DistributionDefaultCacheBehaviorArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
 	AllowedMethods pulumi.StringArrayInput `pulumi:"AllowedMethods"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+	CachePolicyId pulumi.StringPtrInput `pulumi:"CachePolicyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
 	CachedMethods pulumi.StringArrayInput `pulumi:"CachedMethods"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
@@ -1317,17 +2546,23 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"FieldLevelEncryptionId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
-	ForwardedValues DistributionForwardedValuesInput `pulumi:"ForwardedValues"`
+	ForwardedValues DistributionForwardedValuesPtrInput `pulumi:"ForwardedValues"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"LambdaFunctionAssociations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
 	MaxTTL pulumi.Float64PtrInput `pulumi:"MaxTTL"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
 	MinTTL pulumi.Float64PtrInput `pulumi:"MinTTL"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"OriginRequestPolicyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"RealtimeLogConfigArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 	SmoothStreaming pulumi.BoolPtrInput `pulumi:"SmoothStreaming"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
 	TargetOriginId pulumi.StringInput `pulumi:"TargetOriginId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"TrustedKeyGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
 	TrustedSigners pulumi.StringArrayInput `pulumi:"TrustedSigners"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
@@ -1417,6 +2652,11 @@ func (o DistributionDefaultCacheBehaviorOutput) AllowedMethods() pulumi.StringAr
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+func (o DistributionDefaultCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
 func (o DistributionDefaultCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
@@ -1438,8 +2678,8 @@ func (o DistributionDefaultCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
-func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionForwardedValuesOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehavior) DistributionForwardedValues { return v.ForwardedValues }).(DistributionForwardedValuesOutput)
+func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionForwardedValuesPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionForwardedValues { return v.ForwardedValues }).(DistributionForwardedValuesPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
@@ -1459,6 +2699,16 @@ func (o DistributionDefaultCacheBehaviorOutput) MinTTL() pulumi.Float64PtrOutput
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MinTTL }).(pulumi.Float64PtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+func (o DistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+func (o DistributionDefaultCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 func (o DistributionDefaultCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
@@ -1467,6 +2717,11 @@ func (o DistributionDefaultCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtr
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
 func (o DistributionDefaultCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+func (o DistributionDefaultCacheBehaviorOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.TrustedKeyGroups }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
@@ -1505,6 +2760,16 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() pulumi.Strin
 		}
 		return v.AllowedMethods
 	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+func (o DistributionDefaultCacheBehaviorPtrOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CachePolicyId
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
@@ -1553,7 +2818,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() Distributio
 		if v == nil {
 			return nil
 		}
-		return &v.ForwardedValues
+		return v.ForwardedValues
 	}).(DistributionForwardedValuesPtrOutput)
 }
 
@@ -1587,6 +2852,26 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) MinTTL() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+func (o DistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginRequestPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+func (o DistributionDefaultCacheBehaviorPtrOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RealtimeLogConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 func (o DistributionDefaultCacheBehaviorPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *bool {
@@ -1605,6 +2890,16 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.Strin
 		}
 		return &v.TargetOriginId
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedKeyGroups
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
@@ -2700,6 +3995,8 @@ type DistributionOrigin struct {
 	OriginCustomHeaders []DistributionOriginCustomHeader `pulumi:"OriginCustomHeaders"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
 	OriginPath *string `pulumi:"OriginPath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+	OriginShield *DistributionOriginShield `pulumi:"OriginShield"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
 	S3OriginConfig *DistributionS3OriginConfig `pulumi:"S3OriginConfig"`
 }
@@ -2731,6 +4028,8 @@ type DistributionOriginArgs struct {
 	OriginCustomHeaders DistributionOriginCustomHeaderArrayInput `pulumi:"OriginCustomHeaders"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
 	OriginPath pulumi.StringPtrInput `pulumi:"OriginPath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+	OriginShield DistributionOriginShieldPtrInput `pulumi:"OriginShield"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
 	S3OriginConfig DistributionS3OriginConfigPtrInput `pulumi:"S3OriginConfig"`
 }
@@ -2820,6 +4119,11 @@ func (o DistributionOriginOutput) OriginCustomHeaders() DistributionOriginCustom
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
 func (o DistributionOriginOutput) OriginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+func (o DistributionOriginOutput) OriginShield() DistributionOriginShieldPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginShield { return v.OriginShield }).(DistributionOriginShieldPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
@@ -3444,6 +4748,159 @@ func (o DistributionOriginGroupsPtrOutput) Quantity() pulumi.IntPtrOutput {
 		}
 		return &v.Quantity
 	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
+type DistributionOriginShield struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
+	Enabled bool `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+	OriginShieldRegion *string `pulumi:"OriginShieldRegion"`
+}
+
+// DistributionOriginShieldInput is an input type that accepts DistributionOriginShieldArgs and DistributionOriginShieldOutput values.
+// You can construct a concrete instance of `DistributionOriginShieldInput` via:
+//
+//          DistributionOriginShieldArgs{...}
+type DistributionOriginShieldInput interface {
+	pulumi.Input
+
+	ToDistributionOriginShieldOutput() DistributionOriginShieldOutput
+	ToDistributionOriginShieldOutputWithContext(context.Context) DistributionOriginShieldOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
+type DistributionOriginShieldArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
+	Enabled pulumi.BoolInput `pulumi:"Enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+	OriginShieldRegion pulumi.StringPtrInput `pulumi:"OriginShieldRegion"`
+}
+
+func (DistributionOriginShieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginShield)(nil)).Elem()
+}
+
+func (i DistributionOriginShieldArgs) ToDistributionOriginShieldOutput() DistributionOriginShieldOutput {
+	return i.ToDistributionOriginShieldOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginShieldArgs) ToDistributionOriginShieldOutputWithContext(ctx context.Context) DistributionOriginShieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginShieldOutput)
+}
+
+func (i DistributionOriginShieldArgs) ToDistributionOriginShieldPtrOutput() DistributionOriginShieldPtrOutput {
+	return i.ToDistributionOriginShieldPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginShieldArgs) ToDistributionOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginShieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginShieldOutput).ToDistributionOriginShieldPtrOutputWithContext(ctx)
+}
+
+// DistributionOriginShieldPtrInput is an input type that accepts DistributionOriginShieldArgs, DistributionOriginShieldPtr and DistributionOriginShieldPtrOutput values.
+// You can construct a concrete instance of `DistributionOriginShieldPtrInput` via:
+//
+//          DistributionOriginShieldArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionOriginShieldPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOriginShieldPtrOutput() DistributionOriginShieldPtrOutput
+	ToDistributionOriginShieldPtrOutputWithContext(context.Context) DistributionOriginShieldPtrOutput
+}
+
+type distributionOriginShieldPtrType DistributionOriginShieldArgs
+
+func DistributionOriginShieldPtr(v *DistributionOriginShieldArgs) DistributionOriginShieldPtrInput {
+	return (*distributionOriginShieldPtrType)(v)
+}
+
+func (*distributionOriginShieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginShield)(nil)).Elem()
+}
+
+func (i *distributionOriginShieldPtrType) ToDistributionOriginShieldPtrOutput() DistributionOriginShieldPtrOutput {
+	return i.ToDistributionOriginShieldPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOriginShieldPtrType) ToDistributionOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginShieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginShieldPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
+type DistributionOriginShieldOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginShieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginShield)(nil)).Elem()
+}
+
+func (o DistributionOriginShieldOutput) ToDistributionOriginShieldOutput() DistributionOriginShieldOutput {
+	return o
+}
+
+func (o DistributionOriginShieldOutput) ToDistributionOriginShieldOutputWithContext(ctx context.Context) DistributionOriginShieldOutput {
+	return o
+}
+
+func (o DistributionOriginShieldOutput) ToDistributionOriginShieldPtrOutput() DistributionOriginShieldPtrOutput {
+	return o.ToDistributionOriginShieldPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginShieldOutput) ToDistributionOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginShieldPtrOutput {
+	return o.ApplyT(func(v DistributionOriginShield) *DistributionOriginShield {
+		return &v
+	}).(DistributionOriginShieldPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
+func (o DistributionOriginShieldOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DistributionOriginShield) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+func (o DistributionOriginShieldOutput) OriginShieldRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOriginShield) *string { return v.OriginShieldRegion }).(pulumi.StringPtrOutput)
+}
+
+type DistributionOriginShieldPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginShieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginShield)(nil)).Elem()
+}
+
+func (o DistributionOriginShieldPtrOutput) ToDistributionOriginShieldPtrOutput() DistributionOriginShieldPtrOutput {
+	return o
+}
+
+func (o DistributionOriginShieldPtrOutput) ToDistributionOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginShieldPtrOutput {
+	return o
+}
+
+func (o DistributionOriginShieldPtrOutput) Elem() DistributionOriginShieldOutput {
+	return o.ApplyT(func(v *DistributionOriginShield) DistributionOriginShield { return *v }).(DistributionOriginShieldOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
+func (o DistributionOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginShield) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+func (o DistributionOriginShieldPtrOutput) OriginShieldRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginShield) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginShieldRegion
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
@@ -4139,6 +5596,2363 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 		}
 		return v.SslSupportMethod
 	}).(pulumi.StringPtrOutput)
+}
+
+type KeyGroupAttributes struct {
+	Id               string `pulumi:"Id"`
+	LastModifiedTime string `pulumi:"LastModifiedTime"`
+}
+
+// KeyGroupAttributesInput is an input type that accepts KeyGroupAttributesArgs and KeyGroupAttributesOutput values.
+// You can construct a concrete instance of `KeyGroupAttributesInput` via:
+//
+//          KeyGroupAttributesArgs{...}
+type KeyGroupAttributesInput interface {
+	pulumi.Input
+
+	ToKeyGroupAttributesOutput() KeyGroupAttributesOutput
+	ToKeyGroupAttributesOutputWithContext(context.Context) KeyGroupAttributesOutput
+}
+
+type KeyGroupAttributesArgs struct {
+	Id               pulumi.StringInput `pulumi:"Id"`
+	LastModifiedTime pulumi.StringInput `pulumi:"LastModifiedTime"`
+}
+
+func (KeyGroupAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupAttributes)(nil)).Elem()
+}
+
+func (i KeyGroupAttributesArgs) ToKeyGroupAttributesOutput() KeyGroupAttributesOutput {
+	return i.ToKeyGroupAttributesOutputWithContext(context.Background())
+}
+
+func (i KeyGroupAttributesArgs) ToKeyGroupAttributesOutputWithContext(ctx context.Context) KeyGroupAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupAttributesOutput)
+}
+
+func (i KeyGroupAttributesArgs) ToKeyGroupAttributesPtrOutput() KeyGroupAttributesPtrOutput {
+	return i.ToKeyGroupAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyGroupAttributesArgs) ToKeyGroupAttributesPtrOutputWithContext(ctx context.Context) KeyGroupAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupAttributesOutput).ToKeyGroupAttributesPtrOutputWithContext(ctx)
+}
+
+// KeyGroupAttributesPtrInput is an input type that accepts KeyGroupAttributesArgs, KeyGroupAttributesPtr and KeyGroupAttributesPtrOutput values.
+// You can construct a concrete instance of `KeyGroupAttributesPtrInput` via:
+//
+//          KeyGroupAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyGroupAttributesPtrInput interface {
+	pulumi.Input
+
+	ToKeyGroupAttributesPtrOutput() KeyGroupAttributesPtrOutput
+	ToKeyGroupAttributesPtrOutputWithContext(context.Context) KeyGroupAttributesPtrOutput
+}
+
+type keyGroupAttributesPtrType KeyGroupAttributesArgs
+
+func KeyGroupAttributesPtr(v *KeyGroupAttributesArgs) KeyGroupAttributesPtrInput {
+	return (*keyGroupAttributesPtrType)(v)
+}
+
+func (*keyGroupAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupAttributes)(nil)).Elem()
+}
+
+func (i *keyGroupAttributesPtrType) ToKeyGroupAttributesPtrOutput() KeyGroupAttributesPtrOutput {
+	return i.ToKeyGroupAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyGroupAttributesPtrType) ToKeyGroupAttributesPtrOutputWithContext(ctx context.Context) KeyGroupAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupAttributesPtrOutput)
+}
+
+type KeyGroupAttributesOutput struct{ *pulumi.OutputState }
+
+func (KeyGroupAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupAttributes)(nil)).Elem()
+}
+
+func (o KeyGroupAttributesOutput) ToKeyGroupAttributesOutput() KeyGroupAttributesOutput {
+	return o
+}
+
+func (o KeyGroupAttributesOutput) ToKeyGroupAttributesOutputWithContext(ctx context.Context) KeyGroupAttributesOutput {
+	return o
+}
+
+func (o KeyGroupAttributesOutput) ToKeyGroupAttributesPtrOutput() KeyGroupAttributesPtrOutput {
+	return o.ToKeyGroupAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyGroupAttributesOutput) ToKeyGroupAttributesPtrOutputWithContext(ctx context.Context) KeyGroupAttributesPtrOutput {
+	return o.ApplyT(func(v KeyGroupAttributes) *KeyGroupAttributes {
+		return &v
+	}).(KeyGroupAttributesPtrOutput)
+}
+func (o KeyGroupAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyGroupAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o KeyGroupAttributesOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyGroupAttributes) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+type KeyGroupAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyGroupAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupAttributes)(nil)).Elem()
+}
+
+func (o KeyGroupAttributesPtrOutput) ToKeyGroupAttributesPtrOutput() KeyGroupAttributesPtrOutput {
+	return o
+}
+
+func (o KeyGroupAttributesPtrOutput) ToKeyGroupAttributesPtrOutputWithContext(ctx context.Context) KeyGroupAttributesPtrOutput {
+	return o
+}
+
+func (o KeyGroupAttributesPtrOutput) Elem() KeyGroupAttributesOutput {
+	return o.ApplyT(func(v *KeyGroupAttributes) KeyGroupAttributes { return *v }).(KeyGroupAttributesOutput)
+}
+
+func (o KeyGroupAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyGroupAttributesPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
+type KeyGroupKeyGroupConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
+	Comment *string `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
+	Items []string `pulumi:"Items"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
+	Name string `pulumi:"Name"`
+}
+
+// KeyGroupKeyGroupConfigInput is an input type that accepts KeyGroupKeyGroupConfigArgs and KeyGroupKeyGroupConfigOutput values.
+// You can construct a concrete instance of `KeyGroupKeyGroupConfigInput` via:
+//
+//          KeyGroupKeyGroupConfigArgs{...}
+type KeyGroupKeyGroupConfigInput interface {
+	pulumi.Input
+
+	ToKeyGroupKeyGroupConfigOutput() KeyGroupKeyGroupConfigOutput
+	ToKeyGroupKeyGroupConfigOutputWithContext(context.Context) KeyGroupKeyGroupConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
+type KeyGroupKeyGroupConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
+	Comment pulumi.StringPtrInput `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
+	Items pulumi.StringArrayInput `pulumi:"Items"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
+	Name pulumi.StringInput `pulumi:"Name"`
+}
+
+func (KeyGroupKeyGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupKeyGroupConfig)(nil)).Elem()
+}
+
+func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigOutput() KeyGroupKeyGroupConfigOutput {
+	return i.ToKeyGroupKeyGroupConfigOutputWithContext(context.Background())
+}
+
+func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupKeyGroupConfigOutput)
+}
+
+func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
+	return i.ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupKeyGroupConfigOutput).ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx)
+}
+
+// KeyGroupKeyGroupConfigPtrInput is an input type that accepts KeyGroupKeyGroupConfigArgs, KeyGroupKeyGroupConfigPtr and KeyGroupKeyGroupConfigPtrOutput values.
+// You can construct a concrete instance of `KeyGroupKeyGroupConfigPtrInput` via:
+//
+//          KeyGroupKeyGroupConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyGroupKeyGroupConfigPtrInput interface {
+	pulumi.Input
+
+	ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput
+	ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Context) KeyGroupKeyGroupConfigPtrOutput
+}
+
+type keyGroupKeyGroupConfigPtrType KeyGroupKeyGroupConfigArgs
+
+func KeyGroupKeyGroupConfigPtr(v *KeyGroupKeyGroupConfigArgs) KeyGroupKeyGroupConfigPtrInput {
+	return (*keyGroupKeyGroupConfigPtrType)(v)
+}
+
+func (*keyGroupKeyGroupConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupKeyGroupConfig)(nil)).Elem()
+}
+
+func (i *keyGroupKeyGroupConfigPtrType) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
+	return i.ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *keyGroupKeyGroupConfigPtrType) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupKeyGroupConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
+type KeyGroupKeyGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (KeyGroupKeyGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupKeyGroupConfig)(nil)).Elem()
+}
+
+func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigOutput() KeyGroupKeyGroupConfigOutput {
+	return o
+}
+
+func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigOutput {
+	return o
+}
+
+func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
+	return o.ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
+	return o.ApplyT(func(v KeyGroupKeyGroupConfig) *KeyGroupKeyGroupConfig {
+		return &v
+	}).(KeyGroupKeyGroupConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
+func (o KeyGroupKeyGroupConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyGroupKeyGroupConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
+func (o KeyGroupKeyGroupConfigOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KeyGroupKeyGroupConfig) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
+func (o KeyGroupKeyGroupConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyGroupKeyGroupConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type KeyGroupKeyGroupConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyGroupKeyGroupConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupKeyGroupConfig)(nil)).Elem()
+}
+
+func (o KeyGroupKeyGroupConfigPtrOutput) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
+	return o
+}
+
+func (o KeyGroupKeyGroupConfigPtrOutput) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
+	return o
+}
+
+func (o KeyGroupKeyGroupConfigPtrOutput) Elem() KeyGroupKeyGroupConfigOutput {
+	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) KeyGroupKeyGroupConfig { return *v }).(KeyGroupKeyGroupConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
+func (o KeyGroupKeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
+func (o KeyGroupKeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
+func (o KeyGroupKeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+type KeyGroupProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
+	KeyGroupConfig KeyGroupKeyGroupConfig `pulumi:"KeyGroupConfig"`
+}
+
+// KeyGroupPropertiesInput is an input type that accepts KeyGroupPropertiesArgs and KeyGroupPropertiesOutput values.
+// You can construct a concrete instance of `KeyGroupPropertiesInput` via:
+//
+//          KeyGroupPropertiesArgs{...}
+type KeyGroupPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyGroupPropertiesOutput() KeyGroupPropertiesOutput
+	ToKeyGroupPropertiesOutputWithContext(context.Context) KeyGroupPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+type KeyGroupPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
+	KeyGroupConfig KeyGroupKeyGroupConfigInput `pulumi:"KeyGroupConfig"`
+}
+
+func (KeyGroupPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupProperties)(nil)).Elem()
+}
+
+func (i KeyGroupPropertiesArgs) ToKeyGroupPropertiesOutput() KeyGroupPropertiesOutput {
+	return i.ToKeyGroupPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyGroupPropertiesArgs) ToKeyGroupPropertiesOutputWithContext(ctx context.Context) KeyGroupPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupPropertiesOutput)
+}
+
+func (i KeyGroupPropertiesArgs) ToKeyGroupPropertiesPtrOutput() KeyGroupPropertiesPtrOutput {
+	return i.ToKeyGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyGroupPropertiesArgs) ToKeyGroupPropertiesPtrOutputWithContext(ctx context.Context) KeyGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupPropertiesOutput).ToKeyGroupPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyGroupPropertiesPtrInput is an input type that accepts KeyGroupPropertiesArgs, KeyGroupPropertiesPtr and KeyGroupPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyGroupPropertiesPtrInput` via:
+//
+//          KeyGroupPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyGroupPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyGroupPropertiesPtrOutput() KeyGroupPropertiesPtrOutput
+	ToKeyGroupPropertiesPtrOutputWithContext(context.Context) KeyGroupPropertiesPtrOutput
+}
+
+type keyGroupPropertiesPtrType KeyGroupPropertiesArgs
+
+func KeyGroupPropertiesPtr(v *KeyGroupPropertiesArgs) KeyGroupPropertiesPtrInput {
+	return (*keyGroupPropertiesPtrType)(v)
+}
+
+func (*keyGroupPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupProperties)(nil)).Elem()
+}
+
+func (i *keyGroupPropertiesPtrType) ToKeyGroupPropertiesPtrOutput() KeyGroupPropertiesPtrOutput {
+	return i.ToKeyGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyGroupPropertiesPtrType) ToKeyGroupPropertiesPtrOutputWithContext(ctx context.Context) KeyGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+type KeyGroupPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyGroupPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupProperties)(nil)).Elem()
+}
+
+func (o KeyGroupPropertiesOutput) ToKeyGroupPropertiesOutput() KeyGroupPropertiesOutput {
+	return o
+}
+
+func (o KeyGroupPropertiesOutput) ToKeyGroupPropertiesOutputWithContext(ctx context.Context) KeyGroupPropertiesOutput {
+	return o
+}
+
+func (o KeyGroupPropertiesOutput) ToKeyGroupPropertiesPtrOutput() KeyGroupPropertiesPtrOutput {
+	return o.ToKeyGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyGroupPropertiesOutput) ToKeyGroupPropertiesPtrOutputWithContext(ctx context.Context) KeyGroupPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyGroupProperties) *KeyGroupProperties {
+		return &v
+	}).(KeyGroupPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
+func (o KeyGroupPropertiesOutput) KeyGroupConfig() KeyGroupKeyGroupConfigOutput {
+	return o.ApplyT(func(v KeyGroupProperties) KeyGroupKeyGroupConfig { return v.KeyGroupConfig }).(KeyGroupKeyGroupConfigOutput)
+}
+
+type KeyGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyGroupPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupProperties)(nil)).Elem()
+}
+
+func (o KeyGroupPropertiesPtrOutput) ToKeyGroupPropertiesPtrOutput() KeyGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyGroupPropertiesPtrOutput) ToKeyGroupPropertiesPtrOutputWithContext(ctx context.Context) KeyGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyGroupPropertiesPtrOutput) Elem() KeyGroupPropertiesOutput {
+	return o.ApplyT(func(v *KeyGroupProperties) KeyGroupProperties { return *v }).(KeyGroupPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
+func (o KeyGroupPropertiesPtrOutput) KeyGroupConfig() KeyGroupKeyGroupConfigPtrOutput {
+	return o.ApplyT(func(v *KeyGroupProperties) *KeyGroupKeyGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyGroupConfig
+	}).(KeyGroupKeyGroupConfigPtrOutput)
+}
+
+type OriginRequestPolicyAttributes struct {
+	Id               string `pulumi:"Id"`
+	LastModifiedTime string `pulumi:"LastModifiedTime"`
+}
+
+// OriginRequestPolicyAttributesInput is an input type that accepts OriginRequestPolicyAttributesArgs and OriginRequestPolicyAttributesOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyAttributesInput` via:
+//
+//          OriginRequestPolicyAttributesArgs{...}
+type OriginRequestPolicyAttributesInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyAttributesOutput() OriginRequestPolicyAttributesOutput
+	ToOriginRequestPolicyAttributesOutputWithContext(context.Context) OriginRequestPolicyAttributesOutput
+}
+
+type OriginRequestPolicyAttributesArgs struct {
+	Id               pulumi.StringInput `pulumi:"Id"`
+	LastModifiedTime pulumi.StringInput `pulumi:"LastModifiedTime"`
+}
+
+func (OriginRequestPolicyAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyAttributes)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyAttributesArgs) ToOriginRequestPolicyAttributesOutput() OriginRequestPolicyAttributesOutput {
+	return i.ToOriginRequestPolicyAttributesOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyAttributesArgs) ToOriginRequestPolicyAttributesOutputWithContext(ctx context.Context) OriginRequestPolicyAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyAttributesOutput)
+}
+
+func (i OriginRequestPolicyAttributesArgs) ToOriginRequestPolicyAttributesPtrOutput() OriginRequestPolicyAttributesPtrOutput {
+	return i.ToOriginRequestPolicyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyAttributesArgs) ToOriginRequestPolicyAttributesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyAttributesOutput).ToOriginRequestPolicyAttributesPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyAttributesPtrInput is an input type that accepts OriginRequestPolicyAttributesArgs, OriginRequestPolicyAttributesPtr and OriginRequestPolicyAttributesPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyAttributesPtrInput` via:
+//
+//          OriginRequestPolicyAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyAttributesPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyAttributesPtrOutput() OriginRequestPolicyAttributesPtrOutput
+	ToOriginRequestPolicyAttributesPtrOutputWithContext(context.Context) OriginRequestPolicyAttributesPtrOutput
+}
+
+type originRequestPolicyAttributesPtrType OriginRequestPolicyAttributesArgs
+
+func OriginRequestPolicyAttributesPtr(v *OriginRequestPolicyAttributesArgs) OriginRequestPolicyAttributesPtrInput {
+	return (*originRequestPolicyAttributesPtrType)(v)
+}
+
+func (*originRequestPolicyAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyAttributes)(nil)).Elem()
+}
+
+func (i *originRequestPolicyAttributesPtrType) ToOriginRequestPolicyAttributesPtrOutput() OriginRequestPolicyAttributesPtrOutput {
+	return i.ToOriginRequestPolicyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyAttributesPtrType) ToOriginRequestPolicyAttributesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyAttributesPtrOutput)
+}
+
+type OriginRequestPolicyAttributesOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyAttributes)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyAttributesOutput) ToOriginRequestPolicyAttributesOutput() OriginRequestPolicyAttributesOutput {
+	return o
+}
+
+func (o OriginRequestPolicyAttributesOutput) ToOriginRequestPolicyAttributesOutputWithContext(ctx context.Context) OriginRequestPolicyAttributesOutput {
+	return o
+}
+
+func (o OriginRequestPolicyAttributesOutput) ToOriginRequestPolicyAttributesPtrOutput() OriginRequestPolicyAttributesPtrOutput {
+	return o.ToOriginRequestPolicyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyAttributesOutput) ToOriginRequestPolicyAttributesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyAttributesPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyAttributes) *OriginRequestPolicyAttributes {
+		return &v
+	}).(OriginRequestPolicyAttributesPtrOutput)
+}
+func (o OriginRequestPolicyAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o OriginRequestPolicyAttributesOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyAttributes) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+type OriginRequestPolicyAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyAttributes)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyAttributesPtrOutput) ToOriginRequestPolicyAttributesPtrOutput() OriginRequestPolicyAttributesPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyAttributesPtrOutput) ToOriginRequestPolicyAttributesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyAttributesPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyAttributesPtrOutput) Elem() OriginRequestPolicyAttributesOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyAttributes) OriginRequestPolicyAttributes { return *v }).(OriginRequestPolicyAttributesOutput)
+}
+
+func (o OriginRequestPolicyAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyAttributesPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
+type OriginRequestPolicyCookiesConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
+	CookieBehavior string `pulumi:"CookieBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
+	Cookies []string `pulumi:"Cookies"`
+}
+
+// OriginRequestPolicyCookiesConfigInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs and OriginRequestPolicyCookiesConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyCookiesConfigInput` via:
+//
+//          OriginRequestPolicyCookiesConfigArgs{...}
+type OriginRequestPolicyCookiesConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyCookiesConfigOutput() OriginRequestPolicyCookiesConfigOutput
+	ToOriginRequestPolicyCookiesConfigOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
+type OriginRequestPolicyCookiesConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
+	CookieBehavior pulumi.StringInput `pulumi:"CookieBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
+	Cookies pulumi.StringArrayInput `pulumi:"Cookies"`
+}
+
+func (OriginRequestPolicyCookiesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigOutput() OriginRequestPolicyCookiesConfigOutput {
+	return i.ToOriginRequestPolicyCookiesConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigOutput)
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return i.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigOutput).ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyCookiesConfigPtrInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs, OriginRequestPolicyCookiesConfigPtr and OriginRequestPolicyCookiesConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyCookiesConfigPtrInput` via:
+//
+//          OriginRequestPolicyCookiesConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyCookiesConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput
+	ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigPtrOutput
+}
+
+type originRequestPolicyCookiesConfigPtrType OriginRequestPolicyCookiesConfigArgs
+
+func OriginRequestPolicyCookiesConfigPtr(v *OriginRequestPolicyCookiesConfigArgs) OriginRequestPolicyCookiesConfigPtrInput {
+	return (*originRequestPolicyCookiesConfigPtrType)(v)
+}
+
+func (*originRequestPolicyCookiesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyCookiesConfigPtrType) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return i.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyCookiesConfigPtrType) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
+type OriginRequestPolicyCookiesConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyCookiesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigOutput() OriginRequestPolicyCookiesConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfig {
+		return &v
+	}).(OriginRequestPolicyCookiesConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
+func (o OriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
+func (o OriginRequestPolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyCookiesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyCookiesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) Elem() OriginRequestPolicyCookiesConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) OriginRequestPolicyCookiesConfig { return *v }).(OriginRequestPolicyCookiesConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
+func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CookieBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
+func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
+type OriginRequestPolicyHeadersConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
+	HeaderBehavior string `pulumi:"HeaderBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
+	Headers []string `pulumi:"Headers"`
+}
+
+// OriginRequestPolicyHeadersConfigInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs and OriginRequestPolicyHeadersConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyHeadersConfigInput` via:
+//
+//          OriginRequestPolicyHeadersConfigArgs{...}
+type OriginRequestPolicyHeadersConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyHeadersConfigOutput() OriginRequestPolicyHeadersConfigOutput
+	ToOriginRequestPolicyHeadersConfigOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
+type OriginRequestPolicyHeadersConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
+	HeaderBehavior pulumi.StringInput `pulumi:"HeaderBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
+	Headers pulumi.StringArrayInput `pulumi:"Headers"`
+}
+
+func (OriginRequestPolicyHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigOutput() OriginRequestPolicyHeadersConfigOutput {
+	return i.ToOriginRequestPolicyHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigOutput)
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return i.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigOutput).ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyHeadersConfigPtrInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs, OriginRequestPolicyHeadersConfigPtr and OriginRequestPolicyHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyHeadersConfigPtrInput` via:
+//
+//          OriginRequestPolicyHeadersConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput
+	ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigPtrOutput
+}
+
+type originRequestPolicyHeadersConfigPtrType OriginRequestPolicyHeadersConfigArgs
+
+func OriginRequestPolicyHeadersConfigPtr(v *OriginRequestPolicyHeadersConfigArgs) OriginRequestPolicyHeadersConfigPtrInput {
+	return (*originRequestPolicyHeadersConfigPtrType)(v)
+}
+
+func (*originRequestPolicyHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyHeadersConfigPtrType) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return i.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyHeadersConfigPtrType) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
+type OriginRequestPolicyHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigOutput() OriginRequestPolicyHeadersConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfig {
+		return &v
+	}).(OriginRequestPolicyHeadersConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
+func (o OriginRequestPolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) string { return v.HeaderBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
+func (o OriginRequestPolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) Elem() OriginRequestPolicyHeadersConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) OriginRequestPolicyHeadersConfig { return *v }).(OriginRequestPolicyHeadersConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
+func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
+func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
+type OriginRequestPolicyOriginRequestPolicyConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
+	Comment *string `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
+	CookiesConfig OriginRequestPolicyCookiesConfig `pulumi:"CookiesConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
+	HeadersConfig OriginRequestPolicyHeadersConfig `pulumi:"HeadersConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
+	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+	QueryStringsConfig OriginRequestPolicyQueryStringsConfig `pulumi:"QueryStringsConfig"`
+}
+
+// OriginRequestPolicyOriginRequestPolicyConfigInput is an input type that accepts OriginRequestPolicyOriginRequestPolicyConfigArgs and OriginRequestPolicyOriginRequestPolicyConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyOriginRequestPolicyConfigInput` via:
+//
+//          OriginRequestPolicyOriginRequestPolicyConfigArgs{...}
+type OriginRequestPolicyOriginRequestPolicyConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyOriginRequestPolicyConfigOutput() OriginRequestPolicyOriginRequestPolicyConfigOutput
+	ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(context.Context) OriginRequestPolicyOriginRequestPolicyConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
+type OriginRequestPolicyOriginRequestPolicyConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
+	Comment pulumi.StringPtrInput `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
+	CookiesConfig OriginRequestPolicyCookiesConfigInput `pulumi:"CookiesConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
+	HeadersConfig OriginRequestPolicyHeadersConfigInput `pulumi:"HeadersConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
+	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+	QueryStringsConfig OriginRequestPolicyQueryStringsConfigInput `pulumi:"QueryStringsConfig"`
+}
+
+func (OriginRequestPolicyOriginRequestPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigOutput() OriginRequestPolicyOriginRequestPolicyConfigOutput {
+	return i.ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOriginRequestPolicyConfigOutput)
+}
+
+func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return i.ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOriginRequestPolicyConfigOutput).ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyOriginRequestPolicyConfigPtrInput is an input type that accepts OriginRequestPolicyOriginRequestPolicyConfigArgs, OriginRequestPolicyOriginRequestPolicyConfigPtr and OriginRequestPolicyOriginRequestPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyOriginRequestPolicyConfigPtrInput` via:
+//
+//          OriginRequestPolicyOriginRequestPolicyConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyOriginRequestPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput
+	ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput
+}
+
+type originRequestPolicyOriginRequestPolicyConfigPtrType OriginRequestPolicyOriginRequestPolicyConfigArgs
+
+func OriginRequestPolicyOriginRequestPolicyConfigPtr(v *OriginRequestPolicyOriginRequestPolicyConfigArgs) OriginRequestPolicyOriginRequestPolicyConfigPtrInput {
+	return (*originRequestPolicyOriginRequestPolicyConfigPtrType)(v)
+}
+
+func (*originRequestPolicyOriginRequestPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyOriginRequestPolicyConfigPtrType) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return i.ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyOriginRequestPolicyConfigPtrType) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
+type OriginRequestPolicyOriginRequestPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyOriginRequestPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigOutput() OriginRequestPolicyOriginRequestPolicyConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return o.ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyOriginRequestPolicyConfig {
+		return &v
+	}).(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) CookiesConfig() OriginRequestPolicyCookiesConfigOutput {
+	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyCookiesConfig {
+		return v.CookiesConfig
+	}).(OriginRequestPolicyCookiesConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) HeadersConfig() OriginRequestPolicyHeadersConfigOutput {
+	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyHeadersConfig {
+		return v.HeadersConfig
+	}).(OriginRequestPolicyHeadersConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyQueryStringsConfig {
+		return v.QueryStringsConfig
+	}).(OriginRequestPolicyQueryStringsConfigOutput)
+}
+
+type OriginRequestPolicyOriginRequestPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Elem() OriginRequestPolicyOriginRequestPolicyConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyOriginRequestPolicyConfig {
+		return *v
+	}).(OriginRequestPolicyOriginRequestPolicyConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) CookiesConfig() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyCookiesConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CookiesConfig
+	}).(OriginRequestPolicyCookiesConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) HeadersConfig() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.HeadersConfig
+	}).(OriginRequestPolicyHeadersConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyQueryStringsConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringsConfig
+	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+type OriginRequestPolicyProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfig `pulumi:"OriginRequestPolicyConfig"`
+}
+
+// OriginRequestPolicyPropertiesInput is an input type that accepts OriginRequestPolicyPropertiesArgs and OriginRequestPolicyPropertiesOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyPropertiesInput` via:
+//
+//          OriginRequestPolicyPropertiesArgs{...}
+type OriginRequestPolicyPropertiesInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyPropertiesOutput() OriginRequestPolicyPropertiesOutput
+	ToOriginRequestPolicyPropertiesOutputWithContext(context.Context) OriginRequestPolicyPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+type OriginRequestPolicyPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfigInput `pulumi:"OriginRequestPolicyConfig"`
+}
+
+func (OriginRequestPolicyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyProperties)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyPropertiesArgs) ToOriginRequestPolicyPropertiesOutput() OriginRequestPolicyPropertiesOutput {
+	return i.ToOriginRequestPolicyPropertiesOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyPropertiesArgs) ToOriginRequestPolicyPropertiesOutputWithContext(ctx context.Context) OriginRequestPolicyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyPropertiesOutput)
+}
+
+func (i OriginRequestPolicyPropertiesArgs) ToOriginRequestPolicyPropertiesPtrOutput() OriginRequestPolicyPropertiesPtrOutput {
+	return i.ToOriginRequestPolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyPropertiesArgs) ToOriginRequestPolicyPropertiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyPropertiesOutput).ToOriginRequestPolicyPropertiesPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyPropertiesPtrInput is an input type that accepts OriginRequestPolicyPropertiesArgs, OriginRequestPolicyPropertiesPtr and OriginRequestPolicyPropertiesPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyPropertiesPtrInput` via:
+//
+//          OriginRequestPolicyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyPropertiesPtrOutput() OriginRequestPolicyPropertiesPtrOutput
+	ToOriginRequestPolicyPropertiesPtrOutputWithContext(context.Context) OriginRequestPolicyPropertiesPtrOutput
+}
+
+type originRequestPolicyPropertiesPtrType OriginRequestPolicyPropertiesArgs
+
+func OriginRequestPolicyPropertiesPtr(v *OriginRequestPolicyPropertiesArgs) OriginRequestPolicyPropertiesPtrInput {
+	return (*originRequestPolicyPropertiesPtrType)(v)
+}
+
+func (*originRequestPolicyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyProperties)(nil)).Elem()
+}
+
+func (i *originRequestPolicyPropertiesPtrType) ToOriginRequestPolicyPropertiesPtrOutput() OriginRequestPolicyPropertiesPtrOutput {
+	return i.ToOriginRequestPolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyPropertiesPtrType) ToOriginRequestPolicyPropertiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+type OriginRequestPolicyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyProperties)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyPropertiesOutput) ToOriginRequestPolicyPropertiesOutput() OriginRequestPolicyPropertiesOutput {
+	return o
+}
+
+func (o OriginRequestPolicyPropertiesOutput) ToOriginRequestPolicyPropertiesOutputWithContext(ctx context.Context) OriginRequestPolicyPropertiesOutput {
+	return o
+}
+
+func (o OriginRequestPolicyPropertiesOutput) ToOriginRequestPolicyPropertiesPtrOutput() OriginRequestPolicyPropertiesPtrOutput {
+	return o.ToOriginRequestPolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyPropertiesOutput) ToOriginRequestPolicyPropertiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyPropertiesPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyProperties) *OriginRequestPolicyProperties {
+		return &v
+	}).(OriginRequestPolicyPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+func (o OriginRequestPolicyPropertiesOutput) OriginRequestPolicyConfig() OriginRequestPolicyOriginRequestPolicyConfigOutput {
+	return o.ApplyT(func(v OriginRequestPolicyProperties) OriginRequestPolicyOriginRequestPolicyConfig {
+		return v.OriginRequestPolicyConfig
+	}).(OriginRequestPolicyOriginRequestPolicyConfigOutput)
+}
+
+type OriginRequestPolicyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyProperties)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyPropertiesPtrOutput) ToOriginRequestPolicyPropertiesPtrOutput() OriginRequestPolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyPropertiesPtrOutput) ToOriginRequestPolicyPropertiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyPropertiesPtrOutput) Elem() OriginRequestPolicyPropertiesOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyProperties) OriginRequestPolicyProperties { return *v }).(OriginRequestPolicyPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+func (o OriginRequestPolicyPropertiesPtrOutput) OriginRequestPolicyConfig() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyProperties) *OriginRequestPolicyOriginRequestPolicyConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.OriginRequestPolicyConfig
+	}).(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
+type OriginRequestPolicyQueryStringsConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
+	QueryStringBehavior string `pulumi:"QueryStringBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
+	QueryStrings []string `pulumi:"QueryStrings"`
+}
+
+// OriginRequestPolicyQueryStringsConfigInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs and OriginRequestPolicyQueryStringsConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigInput` via:
+//
+//          OriginRequestPolicyQueryStringsConfigArgs{...}
+type OriginRequestPolicyQueryStringsConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyQueryStringsConfigOutput() OriginRequestPolicyQueryStringsConfigOutput
+	ToOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
+type OriginRequestPolicyQueryStringsConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
+	QueryStringBehavior pulumi.StringInput `pulumi:"QueryStringBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
+	QueryStrings pulumi.StringArrayInput `pulumi:"QueryStrings"`
+}
+
+func (OriginRequestPolicyQueryStringsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigOutput() OriginRequestPolicyQueryStringsConfigOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigOutput)
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigOutput).ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyQueryStringsConfigPtrInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs, OriginRequestPolicyQueryStringsConfigPtr and OriginRequestPolicyQueryStringsConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigPtrInput` via:
+//
+//          OriginRequestPolicyQueryStringsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyQueryStringsConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput
+	ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput
+}
+
+type originRequestPolicyQueryStringsConfigPtrType OriginRequestPolicyQueryStringsConfigArgs
+
+func OriginRequestPolicyQueryStringsConfigPtr(v *OriginRequestPolicyQueryStringsConfigArgs) OriginRequestPolicyQueryStringsConfigPtrInput {
+	return (*originRequestPolicyQueryStringsConfigPtrType)(v)
+}
+
+func (*originRequestPolicyQueryStringsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyQueryStringsConfigPtrType) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyQueryStringsConfigPtrType) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
+type OriginRequestPolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyQueryStringsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigOutput() OriginRequestPolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfig {
+		return &v
+	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
+func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
+func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyQueryStringsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) Elem() OriginRequestPolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) OriginRequestPolicyQueryStringsConfig { return *v }).(OriginRequestPolicyQueryStringsConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(pulumi.StringArrayOutput)
+}
+
+type PublicKeyAttributes struct {
+	CreatedTime string `pulumi:"CreatedTime"`
+	Id          string `pulumi:"Id"`
+}
+
+// PublicKeyAttributesInput is an input type that accepts PublicKeyAttributesArgs and PublicKeyAttributesOutput values.
+// You can construct a concrete instance of `PublicKeyAttributesInput` via:
+//
+//          PublicKeyAttributesArgs{...}
+type PublicKeyAttributesInput interface {
+	pulumi.Input
+
+	ToPublicKeyAttributesOutput() PublicKeyAttributesOutput
+	ToPublicKeyAttributesOutputWithContext(context.Context) PublicKeyAttributesOutput
+}
+
+type PublicKeyAttributesArgs struct {
+	CreatedTime pulumi.StringInput `pulumi:"CreatedTime"`
+	Id          pulumi.StringInput `pulumi:"Id"`
+}
+
+func (PublicKeyAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyAttributes)(nil)).Elem()
+}
+
+func (i PublicKeyAttributesArgs) ToPublicKeyAttributesOutput() PublicKeyAttributesOutput {
+	return i.ToPublicKeyAttributesOutputWithContext(context.Background())
+}
+
+func (i PublicKeyAttributesArgs) ToPublicKeyAttributesOutputWithContext(ctx context.Context) PublicKeyAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyAttributesOutput)
+}
+
+func (i PublicKeyAttributesArgs) ToPublicKeyAttributesPtrOutput() PublicKeyAttributesPtrOutput {
+	return i.ToPublicKeyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i PublicKeyAttributesArgs) ToPublicKeyAttributesPtrOutputWithContext(ctx context.Context) PublicKeyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyAttributesOutput).ToPublicKeyAttributesPtrOutputWithContext(ctx)
+}
+
+// PublicKeyAttributesPtrInput is an input type that accepts PublicKeyAttributesArgs, PublicKeyAttributesPtr and PublicKeyAttributesPtrOutput values.
+// You can construct a concrete instance of `PublicKeyAttributesPtrInput` via:
+//
+//          PublicKeyAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type PublicKeyAttributesPtrInput interface {
+	pulumi.Input
+
+	ToPublicKeyAttributesPtrOutput() PublicKeyAttributesPtrOutput
+	ToPublicKeyAttributesPtrOutputWithContext(context.Context) PublicKeyAttributesPtrOutput
+}
+
+type publicKeyAttributesPtrType PublicKeyAttributesArgs
+
+func PublicKeyAttributesPtr(v *PublicKeyAttributesArgs) PublicKeyAttributesPtrInput {
+	return (*publicKeyAttributesPtrType)(v)
+}
+
+func (*publicKeyAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyAttributes)(nil)).Elem()
+}
+
+func (i *publicKeyAttributesPtrType) ToPublicKeyAttributesPtrOutput() PublicKeyAttributesPtrOutput {
+	return i.ToPublicKeyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *publicKeyAttributesPtrType) ToPublicKeyAttributesPtrOutputWithContext(ctx context.Context) PublicKeyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyAttributesPtrOutput)
+}
+
+type PublicKeyAttributesOutput struct{ *pulumi.OutputState }
+
+func (PublicKeyAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyAttributes)(nil)).Elem()
+}
+
+func (o PublicKeyAttributesOutput) ToPublicKeyAttributesOutput() PublicKeyAttributesOutput {
+	return o
+}
+
+func (o PublicKeyAttributesOutput) ToPublicKeyAttributesOutputWithContext(ctx context.Context) PublicKeyAttributesOutput {
+	return o
+}
+
+func (o PublicKeyAttributesOutput) ToPublicKeyAttributesPtrOutput() PublicKeyAttributesPtrOutput {
+	return o.ToPublicKeyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o PublicKeyAttributesOutput) ToPublicKeyAttributesPtrOutputWithContext(ctx context.Context) PublicKeyAttributesPtrOutput {
+	return o.ApplyT(func(v PublicKeyAttributes) *PublicKeyAttributes {
+		return &v
+	}).(PublicKeyAttributesPtrOutput)
+}
+func (o PublicKeyAttributesOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyAttributes) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+func (o PublicKeyAttributesOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyAttributes) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PublicKeyAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (PublicKeyAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyAttributes)(nil)).Elem()
+}
+
+func (o PublicKeyAttributesPtrOutput) ToPublicKeyAttributesPtrOutput() PublicKeyAttributesPtrOutput {
+	return o
+}
+
+func (o PublicKeyAttributesPtrOutput) ToPublicKeyAttributesPtrOutputWithContext(ctx context.Context) PublicKeyAttributesPtrOutput {
+	return o
+}
+
+func (o PublicKeyAttributesPtrOutput) Elem() PublicKeyAttributesOutput {
+	return o.ApplyT(func(v *PublicKeyAttributes) PublicKeyAttributes { return *v }).(PublicKeyAttributesOutput)
+}
+
+func (o PublicKeyAttributesPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PublicKeyAttributesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+type PublicKeyProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
+	PublicKeyConfig PublicKeyPublicKeyConfig `pulumi:"PublicKeyConfig"`
+}
+
+// PublicKeyPropertiesInput is an input type that accepts PublicKeyPropertiesArgs and PublicKeyPropertiesOutput values.
+// You can construct a concrete instance of `PublicKeyPropertiesInput` via:
+//
+//          PublicKeyPropertiesArgs{...}
+type PublicKeyPropertiesInput interface {
+	pulumi.Input
+
+	ToPublicKeyPropertiesOutput() PublicKeyPropertiesOutput
+	ToPublicKeyPropertiesOutputWithContext(context.Context) PublicKeyPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+type PublicKeyPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
+	PublicKeyConfig PublicKeyPublicKeyConfigInput `pulumi:"PublicKeyConfig"`
+}
+
+func (PublicKeyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyProperties)(nil)).Elem()
+}
+
+func (i PublicKeyPropertiesArgs) ToPublicKeyPropertiesOutput() PublicKeyPropertiesOutput {
+	return i.ToPublicKeyPropertiesOutputWithContext(context.Background())
+}
+
+func (i PublicKeyPropertiesArgs) ToPublicKeyPropertiesOutputWithContext(ctx context.Context) PublicKeyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPropertiesOutput)
+}
+
+func (i PublicKeyPropertiesArgs) ToPublicKeyPropertiesPtrOutput() PublicKeyPropertiesPtrOutput {
+	return i.ToPublicKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PublicKeyPropertiesArgs) ToPublicKeyPropertiesPtrOutputWithContext(ctx context.Context) PublicKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPropertiesOutput).ToPublicKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// PublicKeyPropertiesPtrInput is an input type that accepts PublicKeyPropertiesArgs, PublicKeyPropertiesPtr and PublicKeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `PublicKeyPropertiesPtrInput` via:
+//
+//          PublicKeyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PublicKeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPublicKeyPropertiesPtrOutput() PublicKeyPropertiesPtrOutput
+	ToPublicKeyPropertiesPtrOutputWithContext(context.Context) PublicKeyPropertiesPtrOutput
+}
+
+type publicKeyPropertiesPtrType PublicKeyPropertiesArgs
+
+func PublicKeyPropertiesPtr(v *PublicKeyPropertiesArgs) PublicKeyPropertiesPtrInput {
+	return (*publicKeyPropertiesPtrType)(v)
+}
+
+func (*publicKeyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyProperties)(nil)).Elem()
+}
+
+func (i *publicKeyPropertiesPtrType) ToPublicKeyPropertiesPtrOutput() PublicKeyPropertiesPtrOutput {
+	return i.ToPublicKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *publicKeyPropertiesPtrType) ToPublicKeyPropertiesPtrOutputWithContext(ctx context.Context) PublicKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+type PublicKeyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PublicKeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyProperties)(nil)).Elem()
+}
+
+func (o PublicKeyPropertiesOutput) ToPublicKeyPropertiesOutput() PublicKeyPropertiesOutput {
+	return o
+}
+
+func (o PublicKeyPropertiesOutput) ToPublicKeyPropertiesOutputWithContext(ctx context.Context) PublicKeyPropertiesOutput {
+	return o
+}
+
+func (o PublicKeyPropertiesOutput) ToPublicKeyPropertiesPtrOutput() PublicKeyPropertiesPtrOutput {
+	return o.ToPublicKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PublicKeyPropertiesOutput) ToPublicKeyPropertiesPtrOutputWithContext(ctx context.Context) PublicKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v PublicKeyProperties) *PublicKeyProperties {
+		return &v
+	}).(PublicKeyPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
+func (o PublicKeyPropertiesOutput) PublicKeyConfig() PublicKeyPublicKeyConfigOutput {
+	return o.ApplyT(func(v PublicKeyProperties) PublicKeyPublicKeyConfig { return v.PublicKeyConfig }).(PublicKeyPublicKeyConfigOutput)
+}
+
+type PublicKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PublicKeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyProperties)(nil)).Elem()
+}
+
+func (o PublicKeyPropertiesPtrOutput) ToPublicKeyPropertiesPtrOutput() PublicKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o PublicKeyPropertiesPtrOutput) ToPublicKeyPropertiesPtrOutputWithContext(ctx context.Context) PublicKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o PublicKeyPropertiesPtrOutput) Elem() PublicKeyPropertiesOutput {
+	return o.ApplyT(func(v *PublicKeyProperties) PublicKeyProperties { return *v }).(PublicKeyPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
+func (o PublicKeyPropertiesPtrOutput) PublicKeyConfig() PublicKeyPublicKeyConfigPtrOutput {
+	return o.ApplyT(func(v *PublicKeyProperties) *PublicKeyPublicKeyConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicKeyConfig
+	}).(PublicKeyPublicKeyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
+type PublicKeyPublicKeyConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
+	CallerReference string `pulumi:"CallerReference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
+	Comment *string `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
+	EncodedKey string `pulumi:"EncodedKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
+	Name string `pulumi:"Name"`
+}
+
+// PublicKeyPublicKeyConfigInput is an input type that accepts PublicKeyPublicKeyConfigArgs and PublicKeyPublicKeyConfigOutput values.
+// You can construct a concrete instance of `PublicKeyPublicKeyConfigInput` via:
+//
+//          PublicKeyPublicKeyConfigArgs{...}
+type PublicKeyPublicKeyConfigInput interface {
+	pulumi.Input
+
+	ToPublicKeyPublicKeyConfigOutput() PublicKeyPublicKeyConfigOutput
+	ToPublicKeyPublicKeyConfigOutputWithContext(context.Context) PublicKeyPublicKeyConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
+type PublicKeyPublicKeyConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
+	CallerReference pulumi.StringInput `pulumi:"CallerReference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
+	Comment pulumi.StringPtrInput `pulumi:"Comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
+	EncodedKey pulumi.StringInput `pulumi:"EncodedKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
+	Name pulumi.StringInput `pulumi:"Name"`
+}
+
+func (PublicKeyPublicKeyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyPublicKeyConfig)(nil)).Elem()
+}
+
+func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigOutput() PublicKeyPublicKeyConfigOutput {
+	return i.ToPublicKeyPublicKeyConfigOutputWithContext(context.Background())
+}
+
+func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPublicKeyConfigOutput)
+}
+
+func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
+	return i.ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPublicKeyConfigOutput).ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx)
+}
+
+// PublicKeyPublicKeyConfigPtrInput is an input type that accepts PublicKeyPublicKeyConfigArgs, PublicKeyPublicKeyConfigPtr and PublicKeyPublicKeyConfigPtrOutput values.
+// You can construct a concrete instance of `PublicKeyPublicKeyConfigPtrInput` via:
+//
+//          PublicKeyPublicKeyConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type PublicKeyPublicKeyConfigPtrInput interface {
+	pulumi.Input
+
+	ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput
+	ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Context) PublicKeyPublicKeyConfigPtrOutput
+}
+
+type publicKeyPublicKeyConfigPtrType PublicKeyPublicKeyConfigArgs
+
+func PublicKeyPublicKeyConfigPtr(v *PublicKeyPublicKeyConfigArgs) PublicKeyPublicKeyConfigPtrInput {
+	return (*publicKeyPublicKeyConfigPtrType)(v)
+}
+
+func (*publicKeyPublicKeyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyPublicKeyConfig)(nil)).Elem()
+}
+
+func (i *publicKeyPublicKeyConfigPtrType) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
+	return i.ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *publicKeyPublicKeyConfigPtrType) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPublicKeyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
+type PublicKeyPublicKeyConfigOutput struct{ *pulumi.OutputState }
+
+func (PublicKeyPublicKeyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyPublicKeyConfig)(nil)).Elem()
+}
+
+func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigOutput() PublicKeyPublicKeyConfigOutput {
+	return o
+}
+
+func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigOutput {
+	return o
+}
+
+func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
+	return o.ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
+	return o.ApplyT(func(v PublicKeyPublicKeyConfig) *PublicKeyPublicKeyConfig {
+		return &v
+	}).(PublicKeyPublicKeyConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
+func (o PublicKeyPublicKeyConfigOutput) CallerReference() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.CallerReference }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
+func (o PublicKeyPublicKeyConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicKeyPublicKeyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
+func (o PublicKeyPublicKeyConfigOutput) EncodedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.EncodedKey }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
+func (o PublicKeyPublicKeyConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PublicKeyPublicKeyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PublicKeyPublicKeyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyPublicKeyConfig)(nil)).Elem()
+}
+
+func (o PublicKeyPublicKeyConfigPtrOutput) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
+	return o
+}
+
+func (o PublicKeyPublicKeyConfigPtrOutput) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
+	return o
+}
+
+func (o PublicKeyPublicKeyConfigPtrOutput) Elem() PublicKeyPublicKeyConfigOutput {
+	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) PublicKeyPublicKeyConfig { return *v }).(PublicKeyPublicKeyConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
+func (o PublicKeyPublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CallerReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
+func (o PublicKeyPublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
+func (o PublicKeyPublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncodedKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
+func (o PublicKeyPublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type RealtimeLogConfigAttributes struct {
+	Arn string `pulumi:"Arn"`
+}
+
+// RealtimeLogConfigAttributesInput is an input type that accepts RealtimeLogConfigAttributesArgs and RealtimeLogConfigAttributesOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigAttributesInput` via:
+//
+//          RealtimeLogConfigAttributesArgs{...}
+type RealtimeLogConfigAttributesInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigAttributesOutput() RealtimeLogConfigAttributesOutput
+	ToRealtimeLogConfigAttributesOutputWithContext(context.Context) RealtimeLogConfigAttributesOutput
+}
+
+type RealtimeLogConfigAttributesArgs struct {
+	Arn pulumi.StringInput `pulumi:"Arn"`
+}
+
+func (RealtimeLogConfigAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigAttributes)(nil)).Elem()
+}
+
+func (i RealtimeLogConfigAttributesArgs) ToRealtimeLogConfigAttributesOutput() RealtimeLogConfigAttributesOutput {
+	return i.ToRealtimeLogConfigAttributesOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigAttributesArgs) ToRealtimeLogConfigAttributesOutputWithContext(ctx context.Context) RealtimeLogConfigAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigAttributesOutput)
+}
+
+func (i RealtimeLogConfigAttributesArgs) ToRealtimeLogConfigAttributesPtrOutput() RealtimeLogConfigAttributesPtrOutput {
+	return i.ToRealtimeLogConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigAttributesArgs) ToRealtimeLogConfigAttributesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigAttributesOutput).ToRealtimeLogConfigAttributesPtrOutputWithContext(ctx)
+}
+
+// RealtimeLogConfigAttributesPtrInput is an input type that accepts RealtimeLogConfigAttributesArgs, RealtimeLogConfigAttributesPtr and RealtimeLogConfigAttributesPtrOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigAttributesPtrInput` via:
+//
+//          RealtimeLogConfigAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type RealtimeLogConfigAttributesPtrInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigAttributesPtrOutput() RealtimeLogConfigAttributesPtrOutput
+	ToRealtimeLogConfigAttributesPtrOutputWithContext(context.Context) RealtimeLogConfigAttributesPtrOutput
+}
+
+type realtimeLogConfigAttributesPtrType RealtimeLogConfigAttributesArgs
+
+func RealtimeLogConfigAttributesPtr(v *RealtimeLogConfigAttributesArgs) RealtimeLogConfigAttributesPtrInput {
+	return (*realtimeLogConfigAttributesPtrType)(v)
+}
+
+func (*realtimeLogConfigAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigAttributes)(nil)).Elem()
+}
+
+func (i *realtimeLogConfigAttributesPtrType) ToRealtimeLogConfigAttributesPtrOutput() RealtimeLogConfigAttributesPtrOutput {
+	return i.ToRealtimeLogConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *realtimeLogConfigAttributesPtrType) ToRealtimeLogConfigAttributesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigAttributesPtrOutput)
+}
+
+type RealtimeLogConfigAttributesOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigAttributes)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigAttributesOutput) ToRealtimeLogConfigAttributesOutput() RealtimeLogConfigAttributesOutput {
+	return o
+}
+
+func (o RealtimeLogConfigAttributesOutput) ToRealtimeLogConfigAttributesOutputWithContext(ctx context.Context) RealtimeLogConfigAttributesOutput {
+	return o
+}
+
+func (o RealtimeLogConfigAttributesOutput) ToRealtimeLogConfigAttributesPtrOutput() RealtimeLogConfigAttributesPtrOutput {
+	return o.ToRealtimeLogConfigAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o RealtimeLogConfigAttributesOutput) ToRealtimeLogConfigAttributesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigAttributesPtrOutput {
+	return o.ApplyT(func(v RealtimeLogConfigAttributes) *RealtimeLogConfigAttributes {
+		return &v
+	}).(RealtimeLogConfigAttributesPtrOutput)
+}
+func (o RealtimeLogConfigAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type RealtimeLogConfigAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigAttributes)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigAttributesPtrOutput) ToRealtimeLogConfigAttributesPtrOutput() RealtimeLogConfigAttributesPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigAttributesPtrOutput) ToRealtimeLogConfigAttributesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigAttributesPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigAttributesPtrOutput) Elem() RealtimeLogConfigAttributesOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigAttributes) RealtimeLogConfigAttributes { return *v }).(RealtimeLogConfigAttributesOutput)
+}
+
+func (o RealtimeLogConfigAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
+type RealtimeLogConfigEndPoint struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
+	KinesisStreamConfig RealtimeLogConfigKinesisStreamConfig `pulumi:"KinesisStreamConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
+	StreamType string `pulumi:"StreamType"`
+}
+
+// RealtimeLogConfigEndPointInput is an input type that accepts RealtimeLogConfigEndPointArgs and RealtimeLogConfigEndPointOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigEndPointInput` via:
+//
+//          RealtimeLogConfigEndPointArgs{...}
+type RealtimeLogConfigEndPointInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigEndPointOutput() RealtimeLogConfigEndPointOutput
+	ToRealtimeLogConfigEndPointOutputWithContext(context.Context) RealtimeLogConfigEndPointOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
+type RealtimeLogConfigEndPointArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
+	KinesisStreamConfig RealtimeLogConfigKinesisStreamConfigInput `pulumi:"KinesisStreamConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
+	StreamType pulumi.StringInput `pulumi:"StreamType"`
+}
+
+func (RealtimeLogConfigEndPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigEndPoint)(nil)).Elem()
+}
+
+func (i RealtimeLogConfigEndPointArgs) ToRealtimeLogConfigEndPointOutput() RealtimeLogConfigEndPointOutput {
+	return i.ToRealtimeLogConfigEndPointOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigEndPointArgs) ToRealtimeLogConfigEndPointOutputWithContext(ctx context.Context) RealtimeLogConfigEndPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndPointOutput)
+}
+
+// RealtimeLogConfigEndPointArrayInput is an input type that accepts RealtimeLogConfigEndPointArray and RealtimeLogConfigEndPointArrayOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigEndPointArrayInput` via:
+//
+//          RealtimeLogConfigEndPointArray{ RealtimeLogConfigEndPointArgs{...} }
+type RealtimeLogConfigEndPointArrayInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigEndPointArrayOutput() RealtimeLogConfigEndPointArrayOutput
+	ToRealtimeLogConfigEndPointArrayOutputWithContext(context.Context) RealtimeLogConfigEndPointArrayOutput
+}
+
+type RealtimeLogConfigEndPointArray []RealtimeLogConfigEndPointInput
+
+func (RealtimeLogConfigEndPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RealtimeLogConfigEndPoint)(nil)).Elem()
+}
+
+func (i RealtimeLogConfigEndPointArray) ToRealtimeLogConfigEndPointArrayOutput() RealtimeLogConfigEndPointArrayOutput {
+	return i.ToRealtimeLogConfigEndPointArrayOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigEndPointArray) ToRealtimeLogConfigEndPointArrayOutputWithContext(ctx context.Context) RealtimeLogConfigEndPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndPointArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
+type RealtimeLogConfigEndPointOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigEndPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigEndPoint)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigEndPointOutput) ToRealtimeLogConfigEndPointOutput() RealtimeLogConfigEndPointOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndPointOutput) ToRealtimeLogConfigEndPointOutputWithContext(ctx context.Context) RealtimeLogConfigEndPointOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
+func (o RealtimeLogConfigEndPointOutput) KinesisStreamConfig() RealtimeLogConfigKinesisStreamConfigOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndPoint) RealtimeLogConfigKinesisStreamConfig { return v.KinesisStreamConfig }).(RealtimeLogConfigKinesisStreamConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
+func (o RealtimeLogConfigEndPointOutput) StreamType() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndPoint) string { return v.StreamType }).(pulumi.StringOutput)
+}
+
+type RealtimeLogConfigEndPointArrayOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigEndPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RealtimeLogConfigEndPoint)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigEndPointArrayOutput) ToRealtimeLogConfigEndPointArrayOutput() RealtimeLogConfigEndPointArrayOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndPointArrayOutput) ToRealtimeLogConfigEndPointArrayOutputWithContext(ctx context.Context) RealtimeLogConfigEndPointArrayOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndPointArrayOutput) Index(i pulumi.IntInput) RealtimeLogConfigEndPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RealtimeLogConfigEndPoint {
+		return vs[0].([]RealtimeLogConfigEndPoint)[vs[1].(int)]
+	}).(RealtimeLogConfigEndPointOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
+type RealtimeLogConfigKinesisStreamConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
+	RoleArn string `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
+	StreamArn string `pulumi:"StreamArn"`
+}
+
+// RealtimeLogConfigKinesisStreamConfigInput is an input type that accepts RealtimeLogConfigKinesisStreamConfigArgs and RealtimeLogConfigKinesisStreamConfigOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigKinesisStreamConfigInput` via:
+//
+//          RealtimeLogConfigKinesisStreamConfigArgs{...}
+type RealtimeLogConfigKinesisStreamConfigInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigKinesisStreamConfigOutput() RealtimeLogConfigKinesisStreamConfigOutput
+	ToRealtimeLogConfigKinesisStreamConfigOutputWithContext(context.Context) RealtimeLogConfigKinesisStreamConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
+type RealtimeLogConfigKinesisStreamConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
+	RoleArn pulumi.StringInput `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
+	StreamArn pulumi.StringInput `pulumi:"StreamArn"`
+}
+
+func (RealtimeLogConfigKinesisStreamConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigKinesisStreamConfig)(nil)).Elem()
+}
+
+func (i RealtimeLogConfigKinesisStreamConfigArgs) ToRealtimeLogConfigKinesisStreamConfigOutput() RealtimeLogConfigKinesisStreamConfigOutput {
+	return i.ToRealtimeLogConfigKinesisStreamConfigOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigKinesisStreamConfigArgs) ToRealtimeLogConfigKinesisStreamConfigOutputWithContext(ctx context.Context) RealtimeLogConfigKinesisStreamConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigKinesisStreamConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
+type RealtimeLogConfigKinesisStreamConfigOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigKinesisStreamConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigKinesisStreamConfig)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigKinesisStreamConfigOutput) ToRealtimeLogConfigKinesisStreamConfigOutput() RealtimeLogConfigKinesisStreamConfigOutput {
+	return o
+}
+
+func (o RealtimeLogConfigKinesisStreamConfigOutput) ToRealtimeLogConfigKinesisStreamConfigOutputWithContext(ctx context.Context) RealtimeLogConfigKinesisStreamConfigOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
+func (o RealtimeLogConfigKinesisStreamConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
+func (o RealtimeLogConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+type RealtimeLogConfigProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
+	EndPoints []RealtimeLogConfigEndPoint `pulumi:"EndPoints"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
+	Fields []string `pulumi:"Fields"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
+	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
+	SamplingRate float64 `pulumi:"SamplingRate"`
+}
+
+// RealtimeLogConfigPropertiesInput is an input type that accepts RealtimeLogConfigPropertiesArgs and RealtimeLogConfigPropertiesOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigPropertiesInput` via:
+//
+//          RealtimeLogConfigPropertiesArgs{...}
+type RealtimeLogConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigPropertiesOutput() RealtimeLogConfigPropertiesOutput
+	ToRealtimeLogConfigPropertiesOutputWithContext(context.Context) RealtimeLogConfigPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+type RealtimeLogConfigPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
+	EndPoints RealtimeLogConfigEndPointArrayInput `pulumi:"EndPoints"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
+	Fields pulumi.StringArrayInput `pulumi:"Fields"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
+	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
+	SamplingRate pulumi.Float64Input `pulumi:"SamplingRate"`
+}
+
+func (RealtimeLogConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigProperties)(nil)).Elem()
+}
+
+func (i RealtimeLogConfigPropertiesArgs) ToRealtimeLogConfigPropertiesOutput() RealtimeLogConfigPropertiesOutput {
+	return i.ToRealtimeLogConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigPropertiesArgs) ToRealtimeLogConfigPropertiesOutputWithContext(ctx context.Context) RealtimeLogConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigPropertiesOutput)
+}
+
+func (i RealtimeLogConfigPropertiesArgs) ToRealtimeLogConfigPropertiesPtrOutput() RealtimeLogConfigPropertiesPtrOutput {
+	return i.ToRealtimeLogConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigPropertiesArgs) ToRealtimeLogConfigPropertiesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigPropertiesOutput).ToRealtimeLogConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// RealtimeLogConfigPropertiesPtrInput is an input type that accepts RealtimeLogConfigPropertiesArgs, RealtimeLogConfigPropertiesPtr and RealtimeLogConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigPropertiesPtrInput` via:
+//
+//          RealtimeLogConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RealtimeLogConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigPropertiesPtrOutput() RealtimeLogConfigPropertiesPtrOutput
+	ToRealtimeLogConfigPropertiesPtrOutputWithContext(context.Context) RealtimeLogConfigPropertiesPtrOutput
+}
+
+type realtimeLogConfigPropertiesPtrType RealtimeLogConfigPropertiesArgs
+
+func RealtimeLogConfigPropertiesPtr(v *RealtimeLogConfigPropertiesArgs) RealtimeLogConfigPropertiesPtrInput {
+	return (*realtimeLogConfigPropertiesPtrType)(v)
+}
+
+func (*realtimeLogConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigProperties)(nil)).Elem()
+}
+
+func (i *realtimeLogConfigPropertiesPtrType) ToRealtimeLogConfigPropertiesPtrOutput() RealtimeLogConfigPropertiesPtrOutput {
+	return i.ToRealtimeLogConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *realtimeLogConfigPropertiesPtrType) ToRealtimeLogConfigPropertiesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+type RealtimeLogConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigProperties)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigPropertiesOutput) ToRealtimeLogConfigPropertiesOutput() RealtimeLogConfigPropertiesOutput {
+	return o
+}
+
+func (o RealtimeLogConfigPropertiesOutput) ToRealtimeLogConfigPropertiesOutputWithContext(ctx context.Context) RealtimeLogConfigPropertiesOutput {
+	return o
+}
+
+func (o RealtimeLogConfigPropertiesOutput) ToRealtimeLogConfigPropertiesPtrOutput() RealtimeLogConfigPropertiesPtrOutput {
+	return o.ToRealtimeLogConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RealtimeLogConfigPropertiesOutput) ToRealtimeLogConfigPropertiesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v RealtimeLogConfigProperties) *RealtimeLogConfigProperties {
+		return &v
+	}).(RealtimeLogConfigPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
+func (o RealtimeLogConfigPropertiesOutput) EndPoints() RealtimeLogConfigEndPointArrayOutput {
+	return o.ApplyT(func(v RealtimeLogConfigProperties) []RealtimeLogConfigEndPoint { return v.EndPoints }).(RealtimeLogConfigEndPointArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
+func (o RealtimeLogConfigPropertiesOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RealtimeLogConfigProperties) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
+func (o RealtimeLogConfigPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
+func (o RealtimeLogConfigPropertiesOutput) SamplingRate() pulumi.Float64Output {
+	return o.ApplyT(func(v RealtimeLogConfigProperties) float64 { return v.SamplingRate }).(pulumi.Float64Output)
+}
+
+type RealtimeLogConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigProperties)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigPropertiesPtrOutput) ToRealtimeLogConfigPropertiesPtrOutput() RealtimeLogConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigPropertiesPtrOutput) ToRealtimeLogConfigPropertiesPtrOutputWithContext(ctx context.Context) RealtimeLogConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigPropertiesPtrOutput) Elem() RealtimeLogConfigPropertiesOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigProperties) RealtimeLogConfigProperties { return *v }).(RealtimeLogConfigPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
+func (o RealtimeLogConfigPropertiesPtrOutput) EndPoints() RealtimeLogConfigEndPointArrayOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigProperties) []RealtimeLogConfigEndPoint {
+		if v == nil {
+			return nil
+		}
+		return v.EndPoints
+	}).(RealtimeLogConfigEndPointArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
+func (o RealtimeLogConfigPropertiesPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
+func (o RealtimeLogConfigPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
+func (o RealtimeLogConfigPropertiesPtrOutput) SamplingRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.SamplingRate
+	}).(pulumi.Float64PtrOutput)
 }
 
 type StreamingDistributionAttributes struct {
@@ -5157,6 +8971,20 @@ func (o StreamingDistributionTrustedSignersPtrOutput) Enabled() pulumi.BoolPtrOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(CachePolicyAttributesOutput{})
+	pulumi.RegisterOutputType(CachePolicyAttributesPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyCookiesConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyCookiesConfigPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyHeadersConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyHeadersConfigPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyPropertiesOutput{})
+	pulumi.RegisterOutputType(CachePolicyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityAttributesOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityAttributesPtrOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput{})
@@ -5197,6 +9025,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOriginGroupMembersOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupsOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupsPtrOutput{})
+	pulumi.RegisterOutputType(DistributionOriginShieldOutput{})
+	pulumi.RegisterOutputType(DistributionOriginShieldPtrOutput{})
 	pulumi.RegisterOutputType(DistributionPropertiesOutput{})
 	pulumi.RegisterOutputType(DistributionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsOutput{})
@@ -5206,6 +9036,37 @@ func init() {
 	pulumi.RegisterOutputType(DistributionStatusCodesOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(KeyGroupAttributesOutput{})
+	pulumi.RegisterOutputType(KeyGroupAttributesPtrOutput{})
+	pulumi.RegisterOutputType(KeyGroupKeyGroupConfigOutput{})
+	pulumi.RegisterOutputType(KeyGroupKeyGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(KeyGroupPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyGroupPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyAttributesOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyAttributesPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyOriginRequestPolicyConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyPropertiesOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigPtrOutput{})
+	pulumi.RegisterOutputType(PublicKeyAttributesOutput{})
+	pulumi.RegisterOutputType(PublicKeyAttributesPtrOutput{})
+	pulumi.RegisterOutputType(PublicKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(PublicKeyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PublicKeyPublicKeyConfigOutput{})
+	pulumi.RegisterOutputType(PublicKeyPublicKeyConfigPtrOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigAttributesOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigAttributesPtrOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigEndPointOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigEndPointArrayOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigKinesisStreamConfigOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionAttributesOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionAttributesPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionLoggingOutput{})

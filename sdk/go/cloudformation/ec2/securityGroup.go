@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SecurityGroup struct {
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewSecurityGroup(ctx *pulumi.Context,
 	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SecurityGroup
 	err := ctx.RegisterResource("cloudformation:EC2:SecurityGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SecurityGroupArgs struct {
 
 func (SecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupArgs)(nil)).Elem()
+}
+
+type SecurityGroupInput interface {
+	pulumi.Input
+
+	ToSecurityGroupOutput() SecurityGroupOutput
+	ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput
+}
+
+func (*SecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroup)(nil))
+}
+
+func (i *SecurityGroup) ToSecurityGroupOutput() SecurityGroupOutput {
+	return i.ToSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i *SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupOutput)
+}
+
+type SecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroup)(nil))
+}
+
+func (o SecurityGroupOutput) ToSecurityGroupOutput() SecurityGroupOutput {
+	return o
+}
+
+func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurityGroupOutput{})
 }

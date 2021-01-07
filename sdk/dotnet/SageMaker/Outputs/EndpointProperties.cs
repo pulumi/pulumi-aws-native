@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
     public sealed class EndpointProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-deploymentconfig
+        /// </summary>
+        public readonly Outputs.EndpointDeploymentConfig? DeploymentConfig;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointconfigname
         /// </summary>
         public readonly string EndpointConfigName;
@@ -36,6 +40,8 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
 
         [OutputConstructor]
         private EndpointProperties(
+            Outputs.EndpointDeploymentConfig? DeploymentConfig,
+
             string EndpointConfigName,
 
             string? EndpointName,
@@ -46,6 +52,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
         {
+            this.DeploymentConfig = DeploymentConfig;
             this.EndpointConfigName = EndpointConfigName;
             this.EndpointName = EndpointName;
             this.ExcludeRetainedVariantProperties = ExcludeRetainedVariantProperties;

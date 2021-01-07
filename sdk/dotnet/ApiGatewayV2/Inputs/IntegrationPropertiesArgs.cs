@@ -58,6 +58,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Inputs
         public Input<string>? IntegrationMethod { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
+        /// </summary>
+        [Input("IntegrationSubtype")]
+        public Input<string>? IntegrationSubtype { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
         /// </summary>
         [Input("IntegrationType", required: true)]

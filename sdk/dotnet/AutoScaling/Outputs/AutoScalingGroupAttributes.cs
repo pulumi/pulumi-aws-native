@@ -13,9 +13,29 @@ namespace Pulumi.Cloudformation.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupAttributes
     {
+        public readonly string LaunchConfigurationName;
+        public readonly string LaunchTemplateSpecification;
+        public readonly string MixedInstancesPolicy;
+        public readonly string PlacementGroup;
+        public readonly string VPCZoneIdentifier;
+
         [OutputConstructor]
-        private AutoScalingGroupAttributes()
+        private AutoScalingGroupAttributes(
+            string LaunchConfigurationName,
+
+            string LaunchTemplateSpecification,
+
+            string MixedInstancesPolicy,
+
+            string PlacementGroup,
+
+            string VPCZoneIdentifier)
         {
+            this.LaunchConfigurationName = LaunchConfigurationName;
+            this.LaunchTemplateSpecification = LaunchTemplateSpecification;
+            this.MixedInstancesPolicy = MixedInstancesPolicy;
+            this.PlacementGroup = PlacementGroup;
+            this.VPCZoneIdentifier = VPCZoneIdentifier;
         }
     }
 }

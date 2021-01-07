@@ -4,6 +4,7 @@
 package macie
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type FindingsFilter struct {
 // NewFindingsFilter registers a new resource with the given unique name, arguments, and options.
 func NewFindingsFilter(ctx *pulumi.Context,
 	name string, args *FindingsFilterArgs, opts ...pulumi.ResourceOption) (*FindingsFilter, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FindingsFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource FindingsFilter
 	err := ctx.RegisterResource("cloudformation:Macie:FindingsFilter", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FindingsFilterArgs struct {
 
 func (FindingsFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*findingsFilterArgs)(nil)).Elem()
+}
+
+type FindingsFilterInput interface {
+	pulumi.Input
+
+	ToFindingsFilterOutput() FindingsFilterOutput
+	ToFindingsFilterOutputWithContext(ctx context.Context) FindingsFilterOutput
+}
+
+func (*FindingsFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilter)(nil))
+}
+
+func (i *FindingsFilter) ToFindingsFilterOutput() FindingsFilterOutput {
+	return i.ToFindingsFilterOutputWithContext(context.Background())
+}
+
+func (i *FindingsFilter) ToFindingsFilterOutputWithContext(ctx context.Context) FindingsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterOutput)
+}
+
+type FindingsFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (FindingsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilter)(nil))
+}
+
+func (o FindingsFilterOutput) ToFindingsFilterOutput() FindingsFilterOutput {
+	return o
+}
+
+func (o FindingsFilterOutput) ToFindingsFilterOutputWithContext(ctx context.Context) FindingsFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FindingsFilterOutput{})
 }

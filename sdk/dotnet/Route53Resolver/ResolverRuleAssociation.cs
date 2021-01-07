@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Route53Resolver
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Route53Resolver:ResolverRuleAssociation")]
     public partial class ResolverRuleAssociation : Pulumi.CustomResource
     {
         /// <summary>

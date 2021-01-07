@@ -10,6 +10,357 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ArchiveAttributes struct {
+	ArchiveName string `pulumi:"ArchiveName"`
+	Arn         string `pulumi:"Arn"`
+}
+
+// ArchiveAttributesInput is an input type that accepts ArchiveAttributesArgs and ArchiveAttributesOutput values.
+// You can construct a concrete instance of `ArchiveAttributesInput` via:
+//
+//          ArchiveAttributesArgs{...}
+type ArchiveAttributesInput interface {
+	pulumi.Input
+
+	ToArchiveAttributesOutput() ArchiveAttributesOutput
+	ToArchiveAttributesOutputWithContext(context.Context) ArchiveAttributesOutput
+}
+
+type ArchiveAttributesArgs struct {
+	ArchiveName pulumi.StringInput `pulumi:"ArchiveName"`
+	Arn         pulumi.StringInput `pulumi:"Arn"`
+}
+
+func (ArchiveAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveAttributes)(nil)).Elem()
+}
+
+func (i ArchiveAttributesArgs) ToArchiveAttributesOutput() ArchiveAttributesOutput {
+	return i.ToArchiveAttributesOutputWithContext(context.Background())
+}
+
+func (i ArchiveAttributesArgs) ToArchiveAttributesOutputWithContext(ctx context.Context) ArchiveAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveAttributesOutput)
+}
+
+func (i ArchiveAttributesArgs) ToArchiveAttributesPtrOutput() ArchiveAttributesPtrOutput {
+	return i.ToArchiveAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ArchiveAttributesArgs) ToArchiveAttributesPtrOutputWithContext(ctx context.Context) ArchiveAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveAttributesOutput).ToArchiveAttributesPtrOutputWithContext(ctx)
+}
+
+// ArchiveAttributesPtrInput is an input type that accepts ArchiveAttributesArgs, ArchiveAttributesPtr and ArchiveAttributesPtrOutput values.
+// You can construct a concrete instance of `ArchiveAttributesPtrInput` via:
+//
+//          ArchiveAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type ArchiveAttributesPtrInput interface {
+	pulumi.Input
+
+	ToArchiveAttributesPtrOutput() ArchiveAttributesPtrOutput
+	ToArchiveAttributesPtrOutputWithContext(context.Context) ArchiveAttributesPtrOutput
+}
+
+type archiveAttributesPtrType ArchiveAttributesArgs
+
+func ArchiveAttributesPtr(v *ArchiveAttributesArgs) ArchiveAttributesPtrInput {
+	return (*archiveAttributesPtrType)(v)
+}
+
+func (*archiveAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchiveAttributes)(nil)).Elem()
+}
+
+func (i *archiveAttributesPtrType) ToArchiveAttributesPtrOutput() ArchiveAttributesPtrOutput {
+	return i.ToArchiveAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *archiveAttributesPtrType) ToArchiveAttributesPtrOutputWithContext(ctx context.Context) ArchiveAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveAttributesPtrOutput)
+}
+
+type ArchiveAttributesOutput struct{ *pulumi.OutputState }
+
+func (ArchiveAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveAttributes)(nil)).Elem()
+}
+
+func (o ArchiveAttributesOutput) ToArchiveAttributesOutput() ArchiveAttributesOutput {
+	return o
+}
+
+func (o ArchiveAttributesOutput) ToArchiveAttributesOutputWithContext(ctx context.Context) ArchiveAttributesOutput {
+	return o
+}
+
+func (o ArchiveAttributesOutput) ToArchiveAttributesPtrOutput() ArchiveAttributesPtrOutput {
+	return o.ToArchiveAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ArchiveAttributesOutput) ToArchiveAttributesPtrOutputWithContext(ctx context.Context) ArchiveAttributesPtrOutput {
+	return o.ApplyT(func(v ArchiveAttributes) *ArchiveAttributes {
+		return &v
+	}).(ArchiveAttributesPtrOutput)
+}
+func (o ArchiveAttributesOutput) ArchiveName() pulumi.StringOutput {
+	return o.ApplyT(func(v ArchiveAttributes) string { return v.ArchiveName }).(pulumi.StringOutput)
+}
+
+func (o ArchiveAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ArchiveAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type ArchiveAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ArchiveAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchiveAttributes)(nil)).Elem()
+}
+
+func (o ArchiveAttributesPtrOutput) ToArchiveAttributesPtrOutput() ArchiveAttributesPtrOutput {
+	return o
+}
+
+func (o ArchiveAttributesPtrOutput) ToArchiveAttributesPtrOutputWithContext(ctx context.Context) ArchiveAttributesPtrOutput {
+	return o
+}
+
+func (o ArchiveAttributesPtrOutput) Elem() ArchiveAttributesOutput {
+	return o.ApplyT(func(v *ArchiveAttributes) ArchiveAttributes { return *v }).(ArchiveAttributesOutput)
+}
+
+func (o ArchiveAttributesPtrOutput) ArchiveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArchiveAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ArchiveName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArchiveAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArchiveAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
+type ArchiveProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
+	ArchiveName *string `pulumi:"ArchiveName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
+	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
+	EventPattern interface{} `pulumi:"EventPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
+	RetentionDays *int `pulumi:"RetentionDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
+	SourceArn string `pulumi:"SourceArn"`
+}
+
+// ArchivePropertiesInput is an input type that accepts ArchivePropertiesArgs and ArchivePropertiesOutput values.
+// You can construct a concrete instance of `ArchivePropertiesInput` via:
+//
+//          ArchivePropertiesArgs{...}
+type ArchivePropertiesInput interface {
+	pulumi.Input
+
+	ToArchivePropertiesOutput() ArchivePropertiesOutput
+	ToArchivePropertiesOutputWithContext(context.Context) ArchivePropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
+type ArchivePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
+	ArchiveName pulumi.StringPtrInput `pulumi:"ArchiveName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
+	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
+	EventPattern pulumi.Input `pulumi:"EventPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
+	RetentionDays pulumi.IntPtrInput `pulumi:"RetentionDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
+	SourceArn pulumi.StringInput `pulumi:"SourceArn"`
+}
+
+func (ArchivePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveProperties)(nil)).Elem()
+}
+
+func (i ArchivePropertiesArgs) ToArchivePropertiesOutput() ArchivePropertiesOutput {
+	return i.ToArchivePropertiesOutputWithContext(context.Background())
+}
+
+func (i ArchivePropertiesArgs) ToArchivePropertiesOutputWithContext(ctx context.Context) ArchivePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchivePropertiesOutput)
+}
+
+func (i ArchivePropertiesArgs) ToArchivePropertiesPtrOutput() ArchivePropertiesPtrOutput {
+	return i.ToArchivePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ArchivePropertiesArgs) ToArchivePropertiesPtrOutputWithContext(ctx context.Context) ArchivePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchivePropertiesOutput).ToArchivePropertiesPtrOutputWithContext(ctx)
+}
+
+// ArchivePropertiesPtrInput is an input type that accepts ArchivePropertiesArgs, ArchivePropertiesPtr and ArchivePropertiesPtrOutput values.
+// You can construct a concrete instance of `ArchivePropertiesPtrInput` via:
+//
+//          ArchivePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ArchivePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToArchivePropertiesPtrOutput() ArchivePropertiesPtrOutput
+	ToArchivePropertiesPtrOutputWithContext(context.Context) ArchivePropertiesPtrOutput
+}
+
+type archivePropertiesPtrType ArchivePropertiesArgs
+
+func ArchivePropertiesPtr(v *ArchivePropertiesArgs) ArchivePropertiesPtrInput {
+	return (*archivePropertiesPtrType)(v)
+}
+
+func (*archivePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchiveProperties)(nil)).Elem()
+}
+
+func (i *archivePropertiesPtrType) ToArchivePropertiesPtrOutput() ArchivePropertiesPtrOutput {
+	return i.ToArchivePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *archivePropertiesPtrType) ToArchivePropertiesPtrOutputWithContext(ctx context.Context) ArchivePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchivePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
+type ArchivePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ArchivePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveProperties)(nil)).Elem()
+}
+
+func (o ArchivePropertiesOutput) ToArchivePropertiesOutput() ArchivePropertiesOutput {
+	return o
+}
+
+func (o ArchivePropertiesOutput) ToArchivePropertiesOutputWithContext(ctx context.Context) ArchivePropertiesOutput {
+	return o
+}
+
+func (o ArchivePropertiesOutput) ToArchivePropertiesPtrOutput() ArchivePropertiesPtrOutput {
+	return o.ToArchivePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ArchivePropertiesOutput) ToArchivePropertiesPtrOutputWithContext(ctx context.Context) ArchivePropertiesPtrOutput {
+	return o.ApplyT(func(v ArchiveProperties) *ArchiveProperties {
+		return &v
+	}).(ArchivePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
+func (o ArchivePropertiesOutput) ArchiveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArchiveProperties) *string { return v.ArchiveName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
+func (o ArchivePropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArchiveProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
+func (o ArchivePropertiesOutput) EventPattern() pulumi.AnyOutput {
+	return o.ApplyT(func(v ArchiveProperties) interface{} { return v.EventPattern }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
+func (o ArchivePropertiesOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArchiveProperties) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
+func (o ArchivePropertiesOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ArchiveProperties) string { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+type ArchivePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ArchivePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchiveProperties)(nil)).Elem()
+}
+
+func (o ArchivePropertiesPtrOutput) ToArchivePropertiesPtrOutput() ArchivePropertiesPtrOutput {
+	return o
+}
+
+func (o ArchivePropertiesPtrOutput) ToArchivePropertiesPtrOutputWithContext(ctx context.Context) ArchivePropertiesPtrOutput {
+	return o
+}
+
+func (o ArchivePropertiesPtrOutput) Elem() ArchivePropertiesOutput {
+	return o.ApplyT(func(v *ArchiveProperties) ArchiveProperties { return *v }).(ArchivePropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
+func (o ArchivePropertiesPtrOutput) ArchiveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArchiveProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
+func (o ArchivePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArchiveProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
+func (o ArchivePropertiesPtrOutput) EventPattern() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ArchiveProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.EventPattern
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
+func (o ArchivePropertiesPtrOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArchiveProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
+func (o ArchivePropertiesPtrOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArchiveProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventBusAttributes struct {
 	Arn    string `pulumi:"Arn"`
 	Name   string `pulumi:"Name"`
@@ -453,13 +804,15 @@ func (o EventBusPolicyConditionPtrOutput) Value() pulumi.StringPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html
 type EventBusPolicyProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
-	Action string `pulumi:"Action"`
+	Action *string `pulumi:"Action"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
 	Condition *EventBusPolicyCondition `pulumi:"Condition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-eventbusname
 	EventBusName *string `pulumi:"EventBusName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
-	Principal string `pulumi:"Principal"`
+	Principal *string `pulumi:"Principal"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement
+	Statement interface{} `pulumi:"Statement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
 	StatementId string `pulumi:"StatementId"`
 }
@@ -478,13 +831,15 @@ type EventBusPolicyPropertiesInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html
 type EventBusPolicyPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
-	Action pulumi.StringInput `pulumi:"Action"`
+	Action pulumi.StringPtrInput `pulumi:"Action"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
 	Condition EventBusPolicyConditionPtrInput `pulumi:"Condition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-eventbusname
 	EventBusName pulumi.StringPtrInput `pulumi:"EventBusName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
-	Principal pulumi.StringInput `pulumi:"Principal"`
+	Principal pulumi.StringPtrInput `pulumi:"Principal"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement
+	Statement pulumi.Input `pulumi:"Statement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
 	StatementId pulumi.StringInput `pulumi:"StatementId"`
 }
@@ -568,8 +923,8 @@ func (o EventBusPolicyPropertiesOutput) ToEventBusPolicyPropertiesPtrOutputWithC
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
-func (o EventBusPolicyPropertiesOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v EventBusPolicyProperties) string { return v.Action }).(pulumi.StringOutput)
+func (o EventBusPolicyPropertiesOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusPolicyProperties) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
@@ -583,8 +938,13 @@ func (o EventBusPolicyPropertiesOutput) EventBusName() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
-func (o EventBusPolicyPropertiesOutput) Principal() pulumi.StringOutput {
-	return o.ApplyT(func(v EventBusPolicyProperties) string { return v.Principal }).(pulumi.StringOutput)
+func (o EventBusPolicyPropertiesOutput) Principal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusPolicyProperties) *string { return v.Principal }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement
+func (o EventBusPolicyPropertiesOutput) Statement() pulumi.AnyOutput {
+	return o.ApplyT(func(v EventBusPolicyProperties) interface{} { return v.Statement }).(pulumi.AnyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
@@ -616,7 +976,7 @@ func (o EventBusPolicyPropertiesPtrOutput) Action() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Action
+		return v.Action
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -646,8 +1006,18 @@ func (o EventBusPolicyPropertiesPtrOutput) Principal() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Principal
+		return v.Principal
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statement
+func (o EventBusPolicyPropertiesPtrOutput) Statement() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EventBusPolicyProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Statement
+	}).(pulumi.AnyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
@@ -1568,6 +1938,140 @@ func (o RuleBatchRetryStrategyPtrOutput) Attempts() pulumi.IntPtrOutput {
 		}
 		return v.Attempts
 	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html
+type RuleDeadLetterConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html#cfn-events-rule-deadletterconfig-arn
+	Arn *string `pulumi:"Arn"`
+}
+
+// RuleDeadLetterConfigInput is an input type that accepts RuleDeadLetterConfigArgs and RuleDeadLetterConfigOutput values.
+// You can construct a concrete instance of `RuleDeadLetterConfigInput` via:
+//
+//          RuleDeadLetterConfigArgs{...}
+type RuleDeadLetterConfigInput interface {
+	pulumi.Input
+
+	ToRuleDeadLetterConfigOutput() RuleDeadLetterConfigOutput
+	ToRuleDeadLetterConfigOutputWithContext(context.Context) RuleDeadLetterConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html
+type RuleDeadLetterConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html#cfn-events-rule-deadletterconfig-arn
+	Arn pulumi.StringPtrInput `pulumi:"Arn"`
+}
+
+func (RuleDeadLetterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleDeadLetterConfig)(nil)).Elem()
+}
+
+func (i RuleDeadLetterConfigArgs) ToRuleDeadLetterConfigOutput() RuleDeadLetterConfigOutput {
+	return i.ToRuleDeadLetterConfigOutputWithContext(context.Background())
+}
+
+func (i RuleDeadLetterConfigArgs) ToRuleDeadLetterConfigOutputWithContext(ctx context.Context) RuleDeadLetterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleDeadLetterConfigOutput)
+}
+
+func (i RuleDeadLetterConfigArgs) ToRuleDeadLetterConfigPtrOutput() RuleDeadLetterConfigPtrOutput {
+	return i.ToRuleDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuleDeadLetterConfigArgs) ToRuleDeadLetterConfigPtrOutputWithContext(ctx context.Context) RuleDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleDeadLetterConfigOutput).ToRuleDeadLetterConfigPtrOutputWithContext(ctx)
+}
+
+// RuleDeadLetterConfigPtrInput is an input type that accepts RuleDeadLetterConfigArgs, RuleDeadLetterConfigPtr and RuleDeadLetterConfigPtrOutput values.
+// You can construct a concrete instance of `RuleDeadLetterConfigPtrInput` via:
+//
+//          RuleDeadLetterConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleDeadLetterConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuleDeadLetterConfigPtrOutput() RuleDeadLetterConfigPtrOutput
+	ToRuleDeadLetterConfigPtrOutputWithContext(context.Context) RuleDeadLetterConfigPtrOutput
+}
+
+type ruleDeadLetterConfigPtrType RuleDeadLetterConfigArgs
+
+func RuleDeadLetterConfigPtr(v *RuleDeadLetterConfigArgs) RuleDeadLetterConfigPtrInput {
+	return (*ruleDeadLetterConfigPtrType)(v)
+}
+
+func (*ruleDeadLetterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleDeadLetterConfig)(nil)).Elem()
+}
+
+func (i *ruleDeadLetterConfigPtrType) ToRuleDeadLetterConfigPtrOutput() RuleDeadLetterConfigPtrOutput {
+	return i.ToRuleDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleDeadLetterConfigPtrType) ToRuleDeadLetterConfigPtrOutputWithContext(ctx context.Context) RuleDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleDeadLetterConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html
+type RuleDeadLetterConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleDeadLetterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleDeadLetterConfig)(nil)).Elem()
+}
+
+func (o RuleDeadLetterConfigOutput) ToRuleDeadLetterConfigOutput() RuleDeadLetterConfigOutput {
+	return o
+}
+
+func (o RuleDeadLetterConfigOutput) ToRuleDeadLetterConfigOutputWithContext(ctx context.Context) RuleDeadLetterConfigOutput {
+	return o
+}
+
+func (o RuleDeadLetterConfigOutput) ToRuleDeadLetterConfigPtrOutput() RuleDeadLetterConfigPtrOutput {
+	return o.ToRuleDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuleDeadLetterConfigOutput) ToRuleDeadLetterConfigPtrOutputWithContext(ctx context.Context) RuleDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v RuleDeadLetterConfig) *RuleDeadLetterConfig {
+		return &v
+	}).(RuleDeadLetterConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html#cfn-events-rule-deadletterconfig-arn
+func (o RuleDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type RuleDeadLetterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleDeadLetterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleDeadLetterConfig)(nil)).Elem()
+}
+
+func (o RuleDeadLetterConfigPtrOutput) ToRuleDeadLetterConfigPtrOutput() RuleDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o RuleDeadLetterConfigPtrOutput) ToRuleDeadLetterConfigPtrOutputWithContext(ctx context.Context) RuleDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o RuleDeadLetterConfigPtrOutput) Elem() RuleDeadLetterConfigOutput {
+	return o.ApplyT(func(v *RuleDeadLetterConfig) RuleDeadLetterConfig { return *v }).(RuleDeadLetterConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html#cfn-events-rule-deadletterconfig-arn
+func (o RuleDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleDeadLetterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html
@@ -2659,6 +3163,388 @@ func (o RulePropertiesPtrOutput) Targets() RuleTargetArrayOutput {
 	}).(RuleTargetArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html
+type RuleRedshiftDataParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
+	Database string `pulumi:"Database"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-dbuser
+	DbUser *string `pulumi:"DbUser"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
+	SecretManagerArn *string `pulumi:"SecretManagerArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
+	Sql string `pulumi:"Sql"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-statementname
+	StatementName *string `pulumi:"StatementName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-withevent
+	WithEvent *bool `pulumi:"WithEvent"`
+}
+
+// RuleRedshiftDataParametersInput is an input type that accepts RuleRedshiftDataParametersArgs and RuleRedshiftDataParametersOutput values.
+// You can construct a concrete instance of `RuleRedshiftDataParametersInput` via:
+//
+//          RuleRedshiftDataParametersArgs{...}
+type RuleRedshiftDataParametersInput interface {
+	pulumi.Input
+
+	ToRuleRedshiftDataParametersOutput() RuleRedshiftDataParametersOutput
+	ToRuleRedshiftDataParametersOutputWithContext(context.Context) RuleRedshiftDataParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html
+type RuleRedshiftDataParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
+	Database pulumi.StringInput `pulumi:"Database"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-dbuser
+	DbUser pulumi.StringPtrInput `pulumi:"DbUser"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
+	SecretManagerArn pulumi.StringPtrInput `pulumi:"SecretManagerArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
+	Sql pulumi.StringInput `pulumi:"Sql"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-statementname
+	StatementName pulumi.StringPtrInput `pulumi:"StatementName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-withevent
+	WithEvent pulumi.BoolPtrInput `pulumi:"WithEvent"`
+}
+
+func (RuleRedshiftDataParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleRedshiftDataParameters)(nil)).Elem()
+}
+
+func (i RuleRedshiftDataParametersArgs) ToRuleRedshiftDataParametersOutput() RuleRedshiftDataParametersOutput {
+	return i.ToRuleRedshiftDataParametersOutputWithContext(context.Background())
+}
+
+func (i RuleRedshiftDataParametersArgs) ToRuleRedshiftDataParametersOutputWithContext(ctx context.Context) RuleRedshiftDataParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRedshiftDataParametersOutput)
+}
+
+func (i RuleRedshiftDataParametersArgs) ToRuleRedshiftDataParametersPtrOutput() RuleRedshiftDataParametersPtrOutput {
+	return i.ToRuleRedshiftDataParametersPtrOutputWithContext(context.Background())
+}
+
+func (i RuleRedshiftDataParametersArgs) ToRuleRedshiftDataParametersPtrOutputWithContext(ctx context.Context) RuleRedshiftDataParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRedshiftDataParametersOutput).ToRuleRedshiftDataParametersPtrOutputWithContext(ctx)
+}
+
+// RuleRedshiftDataParametersPtrInput is an input type that accepts RuleRedshiftDataParametersArgs, RuleRedshiftDataParametersPtr and RuleRedshiftDataParametersPtrOutput values.
+// You can construct a concrete instance of `RuleRedshiftDataParametersPtrInput` via:
+//
+//          RuleRedshiftDataParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleRedshiftDataParametersPtrInput interface {
+	pulumi.Input
+
+	ToRuleRedshiftDataParametersPtrOutput() RuleRedshiftDataParametersPtrOutput
+	ToRuleRedshiftDataParametersPtrOutputWithContext(context.Context) RuleRedshiftDataParametersPtrOutput
+}
+
+type ruleRedshiftDataParametersPtrType RuleRedshiftDataParametersArgs
+
+func RuleRedshiftDataParametersPtr(v *RuleRedshiftDataParametersArgs) RuleRedshiftDataParametersPtrInput {
+	return (*ruleRedshiftDataParametersPtrType)(v)
+}
+
+func (*ruleRedshiftDataParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleRedshiftDataParameters)(nil)).Elem()
+}
+
+func (i *ruleRedshiftDataParametersPtrType) ToRuleRedshiftDataParametersPtrOutput() RuleRedshiftDataParametersPtrOutput {
+	return i.ToRuleRedshiftDataParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleRedshiftDataParametersPtrType) ToRuleRedshiftDataParametersPtrOutputWithContext(ctx context.Context) RuleRedshiftDataParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRedshiftDataParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html
+type RuleRedshiftDataParametersOutput struct{ *pulumi.OutputState }
+
+func (RuleRedshiftDataParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleRedshiftDataParameters)(nil)).Elem()
+}
+
+func (o RuleRedshiftDataParametersOutput) ToRuleRedshiftDataParametersOutput() RuleRedshiftDataParametersOutput {
+	return o
+}
+
+func (o RuleRedshiftDataParametersOutput) ToRuleRedshiftDataParametersOutputWithContext(ctx context.Context) RuleRedshiftDataParametersOutput {
+	return o
+}
+
+func (o RuleRedshiftDataParametersOutput) ToRuleRedshiftDataParametersPtrOutput() RuleRedshiftDataParametersPtrOutput {
+	return o.ToRuleRedshiftDataParametersPtrOutputWithContext(context.Background())
+}
+
+func (o RuleRedshiftDataParametersOutput) ToRuleRedshiftDataParametersPtrOutputWithContext(ctx context.Context) RuleRedshiftDataParametersPtrOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) *RuleRedshiftDataParameters {
+		return &v
+	}).(RuleRedshiftDataParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
+func (o RuleRedshiftDataParametersOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-dbuser
+func (o RuleRedshiftDataParametersOutput) DbUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) *string { return v.DbUser }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
+func (o RuleRedshiftDataParametersOutput) SecretManagerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) *string { return v.SecretManagerArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
+func (o RuleRedshiftDataParametersOutput) Sql() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) string { return v.Sql }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-statementname
+func (o RuleRedshiftDataParametersOutput) StatementName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) *string { return v.StatementName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-withevent
+func (o RuleRedshiftDataParametersOutput) WithEvent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RuleRedshiftDataParameters) *bool { return v.WithEvent }).(pulumi.BoolPtrOutput)
+}
+
+type RuleRedshiftDataParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleRedshiftDataParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleRedshiftDataParameters)(nil)).Elem()
+}
+
+func (o RuleRedshiftDataParametersPtrOutput) ToRuleRedshiftDataParametersPtrOutput() RuleRedshiftDataParametersPtrOutput {
+	return o
+}
+
+func (o RuleRedshiftDataParametersPtrOutput) ToRuleRedshiftDataParametersPtrOutputWithContext(ctx context.Context) RuleRedshiftDataParametersPtrOutput {
+	return o
+}
+
+func (o RuleRedshiftDataParametersPtrOutput) Elem() RuleRedshiftDataParametersOutput {
+	return o.ApplyT(func(v *RuleRedshiftDataParameters) RuleRedshiftDataParameters { return *v }).(RuleRedshiftDataParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-database
+func (o RuleRedshiftDataParametersPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedshiftDataParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-dbuser
+func (o RuleRedshiftDataParametersPtrOutput) DbUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedshiftDataParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DbUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-secretmanagerarn
+func (o RuleRedshiftDataParametersPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedshiftDataParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretManagerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-sql
+func (o RuleRedshiftDataParametersPtrOutput) Sql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedshiftDataParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sql
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-statementname
+func (o RuleRedshiftDataParametersPtrOutput) StatementName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedshiftDataParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatementName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html#cfn-events-rule-redshiftdataparameters-withevent
+func (o RuleRedshiftDataParametersPtrOutput) WithEvent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RuleRedshiftDataParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WithEvent
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html
+type RuleRetryPolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumeventageinseconds
+	MaximumEventAgeInSeconds *int `pulumi:"MaximumEventAgeInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumretryattempts
+	MaximumRetryAttempts *int `pulumi:"MaximumRetryAttempts"`
+}
+
+// RuleRetryPolicyInput is an input type that accepts RuleRetryPolicyArgs and RuleRetryPolicyOutput values.
+// You can construct a concrete instance of `RuleRetryPolicyInput` via:
+//
+//          RuleRetryPolicyArgs{...}
+type RuleRetryPolicyInput interface {
+	pulumi.Input
+
+	ToRuleRetryPolicyOutput() RuleRetryPolicyOutput
+	ToRuleRetryPolicyOutputWithContext(context.Context) RuleRetryPolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html
+type RuleRetryPolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumeventageinseconds
+	MaximumEventAgeInSeconds pulumi.IntPtrInput `pulumi:"MaximumEventAgeInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumretryattempts
+	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"MaximumRetryAttempts"`
+}
+
+func (RuleRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleRetryPolicy)(nil)).Elem()
+}
+
+func (i RuleRetryPolicyArgs) ToRuleRetryPolicyOutput() RuleRetryPolicyOutput {
+	return i.ToRuleRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i RuleRetryPolicyArgs) ToRuleRetryPolicyOutputWithContext(ctx context.Context) RuleRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRetryPolicyOutput)
+}
+
+func (i RuleRetryPolicyArgs) ToRuleRetryPolicyPtrOutput() RuleRetryPolicyPtrOutput {
+	return i.ToRuleRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RuleRetryPolicyArgs) ToRuleRetryPolicyPtrOutputWithContext(ctx context.Context) RuleRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRetryPolicyOutput).ToRuleRetryPolicyPtrOutputWithContext(ctx)
+}
+
+// RuleRetryPolicyPtrInput is an input type that accepts RuleRetryPolicyArgs, RuleRetryPolicyPtr and RuleRetryPolicyPtrOutput values.
+// You can construct a concrete instance of `RuleRetryPolicyPtrInput` via:
+//
+//          RuleRetryPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleRetryPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRuleRetryPolicyPtrOutput() RuleRetryPolicyPtrOutput
+	ToRuleRetryPolicyPtrOutputWithContext(context.Context) RuleRetryPolicyPtrOutput
+}
+
+type ruleRetryPolicyPtrType RuleRetryPolicyArgs
+
+func RuleRetryPolicyPtr(v *RuleRetryPolicyArgs) RuleRetryPolicyPtrInput {
+	return (*ruleRetryPolicyPtrType)(v)
+}
+
+func (*ruleRetryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleRetryPolicy)(nil)).Elem()
+}
+
+func (i *ruleRetryPolicyPtrType) ToRuleRetryPolicyPtrOutput() RuleRetryPolicyPtrOutput {
+	return i.ToRuleRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleRetryPolicyPtrType) ToRuleRetryPolicyPtrOutputWithContext(ctx context.Context) RuleRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRetryPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html
+type RuleRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (RuleRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleRetryPolicy)(nil)).Elem()
+}
+
+func (o RuleRetryPolicyOutput) ToRuleRetryPolicyOutput() RuleRetryPolicyOutput {
+	return o
+}
+
+func (o RuleRetryPolicyOutput) ToRuleRetryPolicyOutputWithContext(ctx context.Context) RuleRetryPolicyOutput {
+	return o
+}
+
+func (o RuleRetryPolicyOutput) ToRuleRetryPolicyPtrOutput() RuleRetryPolicyPtrOutput {
+	return o.ToRuleRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RuleRetryPolicyOutput) ToRuleRetryPolicyPtrOutputWithContext(ctx context.Context) RuleRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RuleRetryPolicy) *RuleRetryPolicy {
+		return &v
+	}).(RuleRetryPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumeventageinseconds
+func (o RuleRetryPolicyOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RuleRetryPolicy) *int { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumretryattempts
+func (o RuleRetryPolicyOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RuleRetryPolicy) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
+}
+
+type RuleRetryPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleRetryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleRetryPolicy)(nil)).Elem()
+}
+
+func (o RuleRetryPolicyPtrOutput) ToRuleRetryPolicyPtrOutput() RuleRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RuleRetryPolicyPtrOutput) ToRuleRetryPolicyPtrOutputWithContext(ctx context.Context) RuleRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RuleRetryPolicyPtrOutput) Elem() RuleRetryPolicyOutput {
+	return o.ApplyT(func(v *RuleRetryPolicy) RuleRetryPolicy { return *v }).(RuleRetryPolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumeventageinseconds
+func (o RuleRetryPolicyPtrOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumEventAgeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html#cfn-events-rule-retrypolicy-maximumretryattempts
+func (o RuleRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumRetryAttempts
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html
 type RuleRunCommandParameters struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets
@@ -3042,6 +3928,8 @@ type RuleTarget struct {
 	Arn string `pulumi:"Arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
 	BatchParameters *RuleBatchParameters `pulumi:"BatchParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
+	DeadLetterConfig *RuleDeadLetterConfig `pulumi:"DeadLetterConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
 	EcsParameters *RuleEcsParameters `pulumi:"EcsParameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-httpparameters
@@ -3056,6 +3944,10 @@ type RuleTarget struct {
 	InputTransformer *RuleInputTransformer `pulumi:"InputTransformer"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
 	KinesisParameters *RuleKinesisParameters `pulumi:"KinesisParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+	RedshiftDataParameters *RuleRedshiftDataParameters `pulumi:"RedshiftDataParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+	RetryPolicy *RuleRetryPolicy `pulumi:"RetryPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
 	RoleArn *string `pulumi:"RoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
@@ -3081,6 +3973,8 @@ type RuleTargetArgs struct {
 	Arn pulumi.StringInput `pulumi:"Arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
 	BatchParameters RuleBatchParametersPtrInput `pulumi:"BatchParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
+	DeadLetterConfig RuleDeadLetterConfigPtrInput `pulumi:"DeadLetterConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
 	EcsParameters RuleEcsParametersPtrInput `pulumi:"EcsParameters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-httpparameters
@@ -3095,6 +3989,10 @@ type RuleTargetArgs struct {
 	InputTransformer RuleInputTransformerPtrInput `pulumi:"InputTransformer"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
 	KinesisParameters RuleKinesisParametersPtrInput `pulumi:"KinesisParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+	RedshiftDataParameters RuleRedshiftDataParametersPtrInput `pulumi:"RedshiftDataParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+	RetryPolicy RuleRetryPolicyPtrInput `pulumi:"RetryPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
 	RoleArn pulumi.StringPtrInput `pulumi:"RoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
@@ -3165,6 +4063,11 @@ func (o RuleTargetOutput) BatchParameters() RuleBatchParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleBatchParameters { return v.BatchParameters }).(RuleBatchParametersPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig
+func (o RuleTargetOutput) DeadLetterConfig() RuleDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v RuleTarget) *RuleDeadLetterConfig { return v.DeadLetterConfig }).(RuleDeadLetterConfigPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
 func (o RuleTargetOutput) EcsParameters() RuleEcsParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleEcsParameters { return v.EcsParameters }).(RuleEcsParametersPtrOutput)
@@ -3198,6 +4101,16 @@ func (o RuleTargetOutput) InputTransformer() RuleInputTransformerPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
 func (o RuleTargetOutput) KinesisParameters() RuleKinesisParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleKinesisParameters { return v.KinesisParameters }).(RuleKinesisParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
+func (o RuleTargetOutput) RedshiftDataParameters() RuleRedshiftDataParametersPtrOutput {
+	return o.ApplyT(func(v RuleTarget) *RuleRedshiftDataParameters { return v.RedshiftDataParameters }).(RuleRedshiftDataParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
+func (o RuleTargetOutput) RetryPolicy() RuleRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RuleTarget) *RuleRetryPolicy { return v.RetryPolicy }).(RuleRetryPolicyPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
@@ -3236,6 +4149,10 @@ func (o RuleTargetArrayOutput) Index(i pulumi.IntInput) RuleTargetOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ArchiveAttributesOutput{})
+	pulumi.RegisterOutputType(ArchiveAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ArchivePropertiesOutput{})
+	pulumi.RegisterOutputType(ArchivePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EventBusAttributesOutput{})
 	pulumi.RegisterOutputType(EventBusAttributesPtrOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyAttributesOutput{})
@@ -3256,6 +4173,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleBatchParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleBatchRetryStrategyOutput{})
 	pulumi.RegisterOutputType(RuleBatchRetryStrategyPtrOutput{})
+	pulumi.RegisterOutputType(RuleDeadLetterConfigOutput{})
+	pulumi.RegisterOutputType(RuleDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleEcsParametersOutput{})
 	pulumi.RegisterOutputType(RuleEcsParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleHttpParametersOutput{})
@@ -3268,6 +4187,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RulePropertiesOutput{})
 	pulumi.RegisterOutputType(RulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RuleRedshiftDataParametersOutput{})
+	pulumi.RegisterOutputType(RuleRedshiftDataParametersPtrOutput{})
+	pulumi.RegisterOutputType(RuleRetryPolicyOutput{})
+	pulumi.RegisterOutputType(RuleRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RuleRunCommandParametersOutput{})
 	pulumi.RegisterOutputType(RuleRunCommandParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleRunCommandTargetOutput{})

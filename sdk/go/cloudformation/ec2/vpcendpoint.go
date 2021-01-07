@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPCEndpoint struct {
 // NewVPCEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewVPCEndpoint(ctx *pulumi.Context,
 	name string, args *VPCEndpointArgs, opts ...pulumi.ResourceOption) (*VPCEndpoint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPCEndpoint
 	err := ctx.RegisterResource("cloudformation:EC2:VPCEndpoint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCEndpointArgs struct {
 
 func (VPCEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcendpointArgs)(nil)).Elem()
+}
+
+type VPCEndpointInput interface {
+	pulumi.Input
+
+	ToVPCEndpointOutput() VPCEndpointOutput
+	ToVPCEndpointOutputWithContext(ctx context.Context) VPCEndpointOutput
+}
+
+func (*VPCEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpoint)(nil))
+}
+
+func (i *VPCEndpoint) ToVPCEndpointOutput() VPCEndpointOutput {
+	return i.ToVPCEndpointOutputWithContext(context.Background())
+}
+
+func (i *VPCEndpoint) ToVPCEndpointOutputWithContext(ctx context.Context) VPCEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCEndpointOutput)
+}
+
+type VPCEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpoint)(nil))
+}
+
+func (o VPCEndpointOutput) ToVPCEndpointOutput() VPCEndpointOutput {
+	return o
+}
+
+func (o VPCEndpointOutput) ToVPCEndpointOutputWithContext(ctx context.Context) VPCEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCEndpointOutput{})
 }

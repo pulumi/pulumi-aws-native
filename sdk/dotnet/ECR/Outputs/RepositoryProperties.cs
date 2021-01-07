@@ -14,6 +14,14 @@ namespace Pulumi.Cloudformation.ECR.Outputs
     public sealed class RepositoryProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+        /// </summary>
+        public readonly Union<System.Text.Json.JsonElement, string>? ImageScanningConfiguration;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+        /// </summary>
+        public readonly string? ImageTagMutability;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
         /// </summary>
         public readonly Outputs.RepositoryLifecyclePolicy? LifecyclePolicy;
@@ -24,7 +32,7 @@ namespace Pulumi.Cloudformation.ECR.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? RepositoryPolicyText;
+        public readonly object? RepositoryPolicyText;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
         /// </summary>
@@ -32,14 +40,20 @@ namespace Pulumi.Cloudformation.ECR.Outputs
 
         [OutputConstructor]
         private RepositoryProperties(
+            Union<System.Text.Json.JsonElement, string>? ImageScanningConfiguration,
+
+            string? ImageTagMutability,
+
             Outputs.RepositoryLifecyclePolicy? LifecyclePolicy,
 
             string? RepositoryName,
 
-            Union<System.Text.Json.JsonElement, string>? RepositoryPolicyText,
+            object? RepositoryPolicyText,
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
         {
+            this.ImageScanningConfiguration = ImageScanningConfiguration;
+            this.ImageTagMutability = ImageTagMutability;
             this.LifecyclePolicy = LifecyclePolicy;
             this.RepositoryName = RepositoryName;
             this.RepositoryPolicyText = RepositoryPolicyText;

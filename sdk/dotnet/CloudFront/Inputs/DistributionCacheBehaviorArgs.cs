@@ -27,6 +27,12 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
             set => _AllowedMethods = value;
         }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+        /// </summary>
+        [Input("CachePolicyId")]
+        public Input<string>? CachePolicyId { get; set; }
+
         [Input("CachedMethods")]
         private InputList<string>? _CachedMethods;
 
@@ -60,8 +66,8 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
         /// </summary>
-        [Input("ForwardedValues", required: true)]
-        public Input<Inputs.DistributionForwardedValuesArgs> ForwardedValues { get; set; } = null!;
+        [Input("ForwardedValues")]
+        public Input<Inputs.DistributionForwardedValuesArgs>? ForwardedValues { get; set; }
 
         [Input("LambdaFunctionAssociations")]
         private InputList<Inputs.DistributionLambdaFunctionAssociationArgs>? _LambdaFunctionAssociations;
@@ -88,10 +94,22 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
         public Input<double>? MinTTL { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+        /// </summary>
+        [Input("OriginRequestPolicyId")]
+        public Input<string>? OriginRequestPolicyId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
         /// </summary>
         [Input("PathPattern", required: true)]
         public Input<string> PathPattern { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+        /// </summary>
+        [Input("RealtimeLogConfigArn")]
+        public Input<string>? RealtimeLogConfigArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
@@ -104,6 +122,18 @@ namespace Pulumi.Cloudformation.CloudFront.Inputs
         /// </summary>
         [Input("TargetOriginId", required: true)]
         public Input<string> TargetOriginId { get; set; } = null!;
+
+        [Input("TrustedKeyGroups")]
+        private InputList<string>? _TrustedKeyGroups;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+        /// </summary>
+        public InputList<string> TrustedKeyGroups
+        {
+            get => _TrustedKeyGroups ?? (_TrustedKeyGroups = new InputList<string>());
+            set => _TrustedKeyGroups = value;
+        }
 
         [Input("TrustedSigners")]
         private InputList<string>? _TrustedSigners;

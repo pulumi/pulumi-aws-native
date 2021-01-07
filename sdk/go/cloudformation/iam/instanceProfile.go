@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type InstanceProfile struct {
 // NewInstanceProfile registers a new resource with the given unique name, arguments, and options.
 func NewInstanceProfile(ctx *pulumi.Context,
 	name string, args *InstanceProfileArgs, opts ...pulumi.ResourceOption) (*InstanceProfile, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InstanceProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource InstanceProfile
 	err := ctx.RegisterResource("cloudformation:IAM:InstanceProfile", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InstanceProfileArgs struct {
 
 func (InstanceProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileArgs)(nil)).Elem()
+}
+
+type InstanceProfileInput interface {
+	pulumi.Input
+
+	ToInstanceProfileOutput() InstanceProfileOutput
+	ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput
+}
+
+func (*InstanceProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceProfile)(nil))
+}
+
+func (i *InstanceProfile) ToInstanceProfileOutput() InstanceProfileOutput {
+	return i.ToInstanceProfileOutputWithContext(context.Background())
+}
+
+func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileOutput)
+}
+
+type InstanceProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceProfile)(nil))
+}
+
+func (o InstanceProfileOutput) ToInstanceProfileOutput() InstanceProfileOutput {
+	return o
+}
+
+func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstanceProfileOutput{})
 }

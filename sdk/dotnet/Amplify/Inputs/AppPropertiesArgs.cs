@@ -39,6 +39,12 @@ namespace Pulumi.Cloudformation.Amplify.Inputs
         [Input("BuildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
+        /// </summary>
+        [Input("CustomHeaders")]
+        public Input<string>? CustomHeaders { get; set; }
+
         [Input("CustomRules")]
         private InputList<Inputs.AppCustomRuleArgs>? _CustomRules;
 
@@ -56,6 +62,12 @@ namespace Pulumi.Cloudformation.Amplify.Inputs
         /// </summary>
         [Input("Description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+        /// </summary>
+        [Input("EnableBranchAutoDeletion")]
+        public Input<bool>? EnableBranchAutoDeletion { get; set; }
 
         [Input("EnvironmentVariables")]
         private InputList<Inputs.AppEnvironmentVariableArgs>? _EnvironmentVariables;

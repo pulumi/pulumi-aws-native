@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGatewayV2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGatewayV2:Model")]
     public partial class Model : Pulumi.CustomResource
     {
         /// <summary>

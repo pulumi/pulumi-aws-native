@@ -16,10 +16,16 @@ namespace Pulumi.Cloudformation.EMR.Inputs
     public sealed class InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-ondemandspecification
+        /// </summary>
+        [Input("OnDemandSpecification")]
+        public Input<Inputs.InstanceFleetConfigOnDemandProvisioningSpecificationArgs>? OnDemandSpecification { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
         /// </summary>
-        [Input("SpotSpecification", required: true)]
-        public Input<Inputs.InstanceFleetConfigSpotProvisioningSpecificationArgs> SpotSpecification { get; set; } = null!;
+        [Input("SpotSpecification")]
+        public Input<Inputs.InstanceFleetConfigSpotProvisioningSpecificationArgs>? SpotSpecification { get; set; }
 
         public InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs()
         {

@@ -30,6 +30,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly string? InstanceInterruptionBehavior;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+        /// </summary>
+        public readonly int? InstancePoolsToUseCount;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
         /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetSpotFleetLaunchSpecification> LaunchSpecifications;
@@ -42,9 +46,29 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly Outputs.SpotFleetLoadBalancersConfig? LoadBalancersConfig;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+        /// </summary>
+        public readonly string? OnDemandAllocationStrategy;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+        /// </summary>
+        public readonly string? OnDemandMaxTotalPrice;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+        /// </summary>
+        public readonly int? OnDemandTargetCapacity;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
         /// </summary>
         public readonly bool? ReplaceUnhealthyInstances;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+        /// </summary>
+        public readonly Outputs.SpotFleetSpotMaintenanceStrategies? SpotMaintenanceStrategies;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+        /// </summary>
+        public readonly string? SpotMaxTotalPrice;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
         /// </summary>
@@ -80,13 +104,25 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? InstanceInterruptionBehavior,
 
+            int? InstancePoolsToUseCount,
+
             ImmutableArray<Outputs.SpotFleetSpotFleetLaunchSpecification> LaunchSpecifications,
 
             ImmutableArray<Outputs.SpotFleetLaunchTemplateConfig> LaunchTemplateConfigs,
 
             Outputs.SpotFleetLoadBalancersConfig? LoadBalancersConfig,
 
+            string? OnDemandAllocationStrategy,
+
+            string? OnDemandMaxTotalPrice,
+
+            int? OnDemandTargetCapacity,
+
             bool? ReplaceUnhealthyInstances,
+
+            Outputs.SpotFleetSpotMaintenanceStrategies? SpotMaintenanceStrategies,
+
+            string? SpotMaxTotalPrice,
 
             string? SpotPrice,
 
@@ -104,10 +140,16 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             this.ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy;
             this.IamFleetRole = IamFleetRole;
             this.InstanceInterruptionBehavior = InstanceInterruptionBehavior;
+            this.InstancePoolsToUseCount = InstancePoolsToUseCount;
             this.LaunchSpecifications = LaunchSpecifications;
             this.LaunchTemplateConfigs = LaunchTemplateConfigs;
             this.LoadBalancersConfig = LoadBalancersConfig;
+            this.OnDemandAllocationStrategy = OnDemandAllocationStrategy;
+            this.OnDemandMaxTotalPrice = OnDemandMaxTotalPrice;
+            this.OnDemandTargetCapacity = OnDemandTargetCapacity;
             this.ReplaceUnhealthyInstances = ReplaceUnhealthyInstances;
+            this.SpotMaintenanceStrategies = SpotMaintenanceStrategies;
+            this.SpotMaxTotalPrice = SpotMaxTotalPrice;
             this.SpotPrice = SpotPrice;
             this.TargetCapacity = TargetCapacity;
             this.TerminateInstancesWithExpiration = TerminateInstancesWithExpiration;

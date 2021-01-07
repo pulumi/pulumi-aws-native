@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudFront:CloudFrontOriginAccessIdentity")]
     public partial class CloudFrontOriginAccessIdentity : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IAM:Role")]
     public partial class Role : Pulumi.CustomResource
     {
         /// <summary>

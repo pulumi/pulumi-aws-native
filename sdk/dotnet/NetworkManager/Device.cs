@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:NetworkManager:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>

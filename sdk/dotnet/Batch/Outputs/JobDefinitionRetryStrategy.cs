@@ -17,11 +17,19 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-attempts
         /// </summary>
         public readonly int? Attempts;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
+        /// </summary>
+        public readonly ImmutableArray<Outputs.JobDefinitionEvaluateOnExit> EvaluateOnExit;
 
         [OutputConstructor]
-        private JobDefinitionRetryStrategy(int? Attempts)
+        private JobDefinitionRetryStrategy(
+            int? Attempts,
+
+            ImmutableArray<Outputs.JobDefinitionEvaluateOnExit> EvaluateOnExit)
         {
             this.Attempts = Attempts;
+            this.EvaluateOnExit = EvaluateOnExit;
         }
     }
 }

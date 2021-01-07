@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServerProtocol> Protocols;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+        /// </summary>
+        public readonly string? SecurityPolicyName;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
         /// </summary>
         public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
@@ -62,6 +66,8 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
 
             ImmutableArray<Outputs.ServerProtocol> Protocols,
 
+            string? SecurityPolicyName,
+
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
         {
             this.Certificate = Certificate;
@@ -71,6 +77,7 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
             this.IdentityProviderType = IdentityProviderType;
             this.LoggingRole = LoggingRole;
             this.Protocols = Protocols;
+            this.SecurityPolicyName = SecurityPolicyName;
             this.Tags = Tags;
         }
     }

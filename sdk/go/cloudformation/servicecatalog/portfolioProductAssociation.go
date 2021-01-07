@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PortfolioProductAssociation struct {
 // NewPortfolioProductAssociation registers a new resource with the given unique name, arguments, and options.
 func NewPortfolioProductAssociation(ctx *pulumi.Context,
 	name string, args *PortfolioProductAssociationArgs, opts ...pulumi.ResourceOption) (*PortfolioProductAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PortfolioProductAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PortfolioProductAssociation
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:PortfolioProductAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PortfolioProductAssociationArgs struct {
 
 func (PortfolioProductAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioProductAssociationArgs)(nil)).Elem()
+}
+
+type PortfolioProductAssociationInput interface {
+	pulumi.Input
+
+	ToPortfolioProductAssociationOutput() PortfolioProductAssociationOutput
+	ToPortfolioProductAssociationOutputWithContext(ctx context.Context) PortfolioProductAssociationOutput
+}
+
+func (*PortfolioProductAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortfolioProductAssociation)(nil))
+}
+
+func (i *PortfolioProductAssociation) ToPortfolioProductAssociationOutput() PortfolioProductAssociationOutput {
+	return i.ToPortfolioProductAssociationOutputWithContext(context.Background())
+}
+
+func (i *PortfolioProductAssociation) ToPortfolioProductAssociationOutputWithContext(ctx context.Context) PortfolioProductAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioProductAssociationOutput)
+}
+
+type PortfolioProductAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (PortfolioProductAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortfolioProductAssociation)(nil))
+}
+
+func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutput() PortfolioProductAssociationOutput {
+	return o
+}
+
+func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutputWithContext(ctx context.Context) PortfolioProductAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PortfolioProductAssociationOutput{})
 }

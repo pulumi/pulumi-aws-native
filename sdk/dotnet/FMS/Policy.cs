@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.FMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:FMS:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

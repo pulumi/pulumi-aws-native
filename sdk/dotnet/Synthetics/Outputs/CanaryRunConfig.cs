@@ -14,13 +14,35 @@ namespace Pulumi.Cloudformation.Synthetics.Outputs
     public sealed class CanaryRunConfig
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+        /// </summary>
+        public readonly bool? ActiveTracing;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+        /// </summary>
+        public readonly int? MemoryInMB;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
         /// </summary>
         public readonly int TimeoutInSeconds;
 
         [OutputConstructor]
-        private CanaryRunConfig(int TimeoutInSeconds)
+        private CanaryRunConfig(
+            bool? ActiveTracing,
+
+            ImmutableDictionary<string, string>? EnvironmentVariables,
+
+            int? MemoryInMB,
+
+            int TimeoutInSeconds)
         {
+            this.ActiveTracing = ActiveTracing;
+            this.EnvironmentVariables = EnvironmentVariables;
+            this.MemoryInMB = MemoryInMB;
             this.TimeoutInSeconds = TimeoutInSeconds;
         }
     }

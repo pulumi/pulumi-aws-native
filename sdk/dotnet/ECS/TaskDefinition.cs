@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ECS:TaskDefinition")]
     public partial class TaskDefinition : Pulumi.CustomResource
     {
         /// <summary>

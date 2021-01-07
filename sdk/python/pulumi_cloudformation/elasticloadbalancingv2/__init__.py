@@ -8,3 +8,36 @@ from .listener_certificate import *
 from .listener_rule import *
 from .load_balancer import *
 from .target_group import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:ElasticLoadBalancingV2:Listener":
+                return Listener(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ElasticLoadBalancingV2:ListenerCertificate":
+                return ListenerCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ElasticLoadBalancingV2:ListenerRule":
+                return ListenerRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ElasticLoadBalancingV2:LoadBalancer":
+                return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ElasticLoadBalancingV2:TargetGroup":
+                return TargetGroup(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "ElasticLoadBalancingV2", _module_instance)
+
+_register_module()

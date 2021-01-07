@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
         /// </summary>
-        public readonly Outputs.NetworkInterfaceInstanceIpv6Address? Ipv6Addresses;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceInstanceIpv6Address> Ipv6Addresses;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             int? Ipv6AddressCount,
 
-            Outputs.NetworkInterfaceInstanceIpv6Address? Ipv6Addresses,
+            ImmutableArray<Outputs.NetworkInterfaceInstanceIpv6Address> Ipv6Addresses,
 
             string? PrivateIpAddress,
 

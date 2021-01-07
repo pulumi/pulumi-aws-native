@@ -14,20 +14,27 @@ namespace Pulumi.Cloudformation.Logs.Outputs
     public sealed class LogGroupProperties
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-loggroupname
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+        /// </summary>
+        public readonly string? KmsKeyId;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
         /// </summary>
         public readonly string? LogGroupName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
         /// </summary>
         public readonly int? RetentionInDays;
 
         [OutputConstructor]
         private LogGroupProperties(
+            string? KmsKeyId,
+
             string? LogGroupName,
 
             int? RetentionInDays)
         {
+            this.KmsKeyId = KmsKeyId;
             this.LogGroupName = LogGroupName;
             this.RetentionInDays = RetentionInDays;
         }

@@ -21,6 +21,12 @@ namespace Pulumi.Cloudformation.WAFv2.Inputs
         [Input("Arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+        /// </summary>
+        [Input("IPSetForwardedIPConfig")]
+        public Input<Inputs.RuleGroupIPSetForwardedIPConfigurationArgs>? IPSetForwardedIPConfig { get; set; }
+
         public RuleGroupIPSetReferenceStatementArgs()
         {
         }

@@ -4,6 +4,7 @@
 package imagebuilder
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DistributionConfiguration struct {
 // NewDistributionConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDistributionConfiguration(ctx *pulumi.Context,
 	name string, args *DistributionConfigurationArgs, opts ...pulumi.ResourceOption) (*DistributionConfiguration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DistributionConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DistributionConfiguration
 	err := ctx.RegisterResource("cloudformation:ImageBuilder:DistributionConfiguration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DistributionConfigurationArgs struct {
 
 func (DistributionConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionConfigurationArgs)(nil)).Elem()
+}
+
+type DistributionConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationOutput() DistributionConfigurationOutput
+	ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput
+}
+
+func (*DistributionConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfiguration)(nil))
+}
+
+func (i *DistributionConfiguration) ToDistributionConfigurationOutput() DistributionConfigurationOutput {
+	return i.ToDistributionConfigurationOutputWithContext(context.Background())
+}
+
+func (i *DistributionConfiguration) ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationOutput)
+}
+
+type DistributionConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DistributionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfiguration)(nil))
+}
+
+func (o DistributionConfigurationOutput) ToDistributionConfigurationOutput() DistributionConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DistributionConfigurationOutput{})
 }

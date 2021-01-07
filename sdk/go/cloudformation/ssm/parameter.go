@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Parameter struct {
 // NewParameter registers a new resource with the given unique name, arguments, and options.
 func NewParameter(ctx *pulumi.Context,
 	name string, args *ParameterArgs, opts ...pulumi.ResourceOption) (*Parameter, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ParameterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Parameter
 	err := ctx.RegisterResource("cloudformation:SSM:Parameter", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ParameterArgs struct {
 
 func (ParameterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*parameterArgs)(nil)).Elem()
+}
+
+type ParameterInput interface {
+	pulumi.Input
+
+	ToParameterOutput() ParameterOutput
+	ToParameterOutputWithContext(ctx context.Context) ParameterOutput
+}
+
+func (*Parameter) ElementType() reflect.Type {
+	return reflect.TypeOf((*Parameter)(nil))
+}
+
+func (i *Parameter) ToParameterOutput() ParameterOutput {
+	return i.ToParameterOutputWithContext(context.Background())
+}
+
+func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterOutput)
+}
+
+type ParameterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Parameter)(nil))
+}
+
+func (o ParameterOutput) ToParameterOutput() ParameterOutput {
+	return o
+}
+
+func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ParameterOutput{})
 }

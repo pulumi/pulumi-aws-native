@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPCEndpointService struct {
 // NewVPCEndpointService registers a new resource with the given unique name, arguments, and options.
 func NewVPCEndpointService(ctx *pulumi.Context,
 	name string, args *VPCEndpointServiceArgs, opts ...pulumi.ResourceOption) (*VPCEndpointService, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCEndpointServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPCEndpointService
 	err := ctx.RegisterResource("cloudformation:EC2:VPCEndpointService", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCEndpointServiceArgs struct {
 
 func (VPCEndpointServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcendpointServiceArgs)(nil)).Elem()
+}
+
+type VPCEndpointServiceInput interface {
+	pulumi.Input
+
+	ToVPCEndpointServiceOutput() VPCEndpointServiceOutput
+	ToVPCEndpointServiceOutputWithContext(ctx context.Context) VPCEndpointServiceOutput
+}
+
+func (*VPCEndpointService) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpointService)(nil))
+}
+
+func (i *VPCEndpointService) ToVPCEndpointServiceOutput() VPCEndpointServiceOutput {
+	return i.ToVPCEndpointServiceOutputWithContext(context.Background())
+}
+
+func (i *VPCEndpointService) ToVPCEndpointServiceOutputWithContext(ctx context.Context) VPCEndpointServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCEndpointServiceOutput)
+}
+
+type VPCEndpointServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCEndpointServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpointService)(nil))
+}
+
+func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutput() VPCEndpointServiceOutput {
+	return o
+}
+
+func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutputWithContext(ctx context.Context) VPCEndpointServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCEndpointServiceOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Configuration:ConfigurationAggregator")]
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {
         /// <summary>

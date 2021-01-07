@@ -70,6 +70,12 @@ namespace Pulumi.Cloudformation.MediaLive.Inputs
         public Input<Inputs.ChannelNetworkInputSettingsArgs>? NetworkInputSettings { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-smpte2038datapreference
+        /// </summary>
+        [Input("Smpte2038DataPreference")]
+        public Input<string>? Smpte2038DataPreference { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-sourceendbehavior
         /// </summary>
         [Input("SourceEndBehavior")]

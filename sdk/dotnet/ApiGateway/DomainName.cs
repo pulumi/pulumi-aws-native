@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:DomainName")]
     public partial class DomainName : Pulumi.CustomResource
     {
         /// <summary>

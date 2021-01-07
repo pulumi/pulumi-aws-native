@@ -4,6 +4,7 @@
 package codedeploy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DeploymentConfig struct {
 // NewDeploymentConfig registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentConfig(ctx *pulumi.Context,
 	name string, args *DeploymentConfigArgs, opts ...pulumi.ResourceOption) (*DeploymentConfig, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeploymentConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DeploymentConfig
 	err := ctx.RegisterResource("cloudformation:CodeDeploy:DeploymentConfig", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DeploymentConfigArgs struct {
 
 func (DeploymentConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentConfigArgs)(nil)).Elem()
+}
+
+type DeploymentConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigOutput() DeploymentConfigOutput
+	ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput
+}
+
+func (*DeploymentConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfig)(nil))
+}
+
+func (i *DeploymentConfig) ToDeploymentConfigOutput() DeploymentConfigOutput {
+	return i.ToDeploymentConfigOutputWithContext(context.Background())
+}
+
+func (i *DeploymentConfig) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigOutput)
+}
+
+type DeploymentConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfig)(nil))
+}
+
+func (o DeploymentConfigOutput) ToDeploymentConfigOutput() DeploymentConfigOutput {
+	return o
+}
+
+func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentConfigOutput{})
 }

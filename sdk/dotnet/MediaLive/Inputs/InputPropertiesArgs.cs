@@ -27,6 +27,18 @@ namespace Pulumi.Cloudformation.MediaLive.Inputs
             set => _Destinations = value;
         }
 
+        [Input("InputDevices")]
+        private InputList<Inputs.InputInputDeviceSettingsArgs>? _InputDevices;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
+        /// </summary>
+        public InputList<Inputs.InputInputDeviceSettingsArgs> InputDevices
+        {
+            get => _InputDevices ?? (_InputDevices = new InputList<Inputs.InputInputDeviceSettingsArgs>());
+            set => _InputDevices = value;
+        }
+
         [Input("InputSecurityGroups")]
         private InputList<string>? _InputSecurityGroups;
 

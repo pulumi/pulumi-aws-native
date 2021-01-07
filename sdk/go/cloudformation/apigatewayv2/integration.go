@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Integration struct {
 // NewIntegration registers a new resource with the given unique name, arguments, and options.
 func NewIntegration(ctx *pulumi.Context,
 	name string, args *IntegrationArgs, opts ...pulumi.ResourceOption) (*Integration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &IntegrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Integration
 	err := ctx.RegisterResource("cloudformation:ApiGatewayV2:Integration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type IntegrationArgs struct {
 
 func (IntegrationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationArgs)(nil)).Elem()
+}
+
+type IntegrationInput interface {
+	pulumi.Input
+
+	ToIntegrationOutput() IntegrationOutput
+	ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput
+}
+
+func (*Integration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Integration)(nil))
+}
+
+func (i *Integration) ToIntegrationOutput() IntegrationOutput {
+	return i.ToIntegrationOutputWithContext(context.Background())
+}
+
+func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOutput)
+}
+
+type IntegrationOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Integration)(nil))
+}
+
+func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
+	return o
+}
+
+func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationOutput{})
 }

@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
         /// </summary>
-        public readonly string HttpCode;
+        public readonly string? HttpCode;
 
         [OutputConstructor]
-        private TargetGroupMatcher(string HttpCode)
+        private TargetGroupMatcher(string? HttpCode)
         {
             this.HttpCode = HttpCode;
         }

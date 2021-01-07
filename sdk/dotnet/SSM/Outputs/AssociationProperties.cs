@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.SSM.Outputs
     public sealed class AssociationProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
+        /// </summary>
+        public readonly bool? ApplyOnlyAtCronInterval;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
         /// </summary>
         public readonly string? AssociationName;
@@ -52,7 +56,7 @@ namespace Pulumi.Cloudformation.SSM.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.AssociationParameterValues>? Parameters;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
         /// </summary>
@@ -72,6 +76,8 @@ namespace Pulumi.Cloudformation.SSM.Outputs
 
         [OutputConstructor]
         private AssociationProperties(
+            bool? ApplyOnlyAtCronInterval,
+
             string? AssociationName,
 
             string? AutomationTargetParameterName,
@@ -90,7 +96,7 @@ namespace Pulumi.Cloudformation.SSM.Outputs
 
             Outputs.AssociationInstanceAssociationOutputLocation? OutputLocation,
 
-            ImmutableDictionary<string, object>? Parameters,
+            ImmutableDictionary<string, Outputs.AssociationParameterValues>? Parameters,
 
             string? ScheduleExpression,
 
@@ -100,6 +106,7 @@ namespace Pulumi.Cloudformation.SSM.Outputs
 
             int? WaitForSuccessTimeoutSeconds)
         {
+            this.ApplyOnlyAtCronInterval = ApplyOnlyAtCronInterval;
             this.AssociationName = AssociationName;
             this.AutomationTargetParameterName = AutomationTargetParameterName;
             this.ComplianceSeverity = ComplianceSeverity;

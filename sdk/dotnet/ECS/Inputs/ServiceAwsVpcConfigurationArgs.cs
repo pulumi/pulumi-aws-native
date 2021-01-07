@@ -33,7 +33,7 @@ namespace Pulumi.Cloudformation.ECS.Inputs
             set => _SecurityGroups = value;
         }
 
-        [Input("Subnets", required: true)]
+        [Input("Subnets")]
         private InputList<string>? _Subnets;
 
         /// <summary>

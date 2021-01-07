@@ -20,13 +20,13 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private TaskDefinitionFirelensConfiguration(
             ImmutableDictionary<string, string>? Options,
 
-            string Type)
+            string? Type)
         {
             this.Options = Options;
             this.Type = Type;

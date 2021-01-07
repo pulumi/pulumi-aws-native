@@ -58,6 +58,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
+        /// </summary>
+        [Input("DisableExecuteApiEndpoint")]
+        public Input<bool>? DisableExecuteApiEndpoint { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
         /// </summary>
         [Input("DisableSchemaValidation")]

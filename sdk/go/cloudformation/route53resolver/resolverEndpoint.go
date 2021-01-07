@@ -4,6 +4,7 @@
 package route53resolver
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResolverEndpoint struct {
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewResolverEndpoint(ctx *pulumi.Context,
 	name string, args *ResolverEndpointArgs, opts ...pulumi.ResourceOption) (*ResolverEndpoint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResolverEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResolverEndpoint
 	err := ctx.RegisterResource("cloudformation:Route53Resolver:ResolverEndpoint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResolverEndpointArgs struct {
 
 func (ResolverEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverEndpointArgs)(nil)).Elem()
+}
+
+type ResolverEndpointInput interface {
+	pulumi.Input
+
+	ToResolverEndpointOutput() ResolverEndpointOutput
+	ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput
+}
+
+func (*ResolverEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpoint)(nil))
+}
+
+func (i *ResolverEndpoint) ToResolverEndpointOutput() ResolverEndpointOutput {
+	return i.ToResolverEndpointOutputWithContext(context.Background())
+}
+
+func (i *ResolverEndpoint) ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointOutput)
+}
+
+type ResolverEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpoint)(nil))
+}
+
+func (o ResolverEndpointOutput) ToResolverEndpointOutput() ResolverEndpointOutput {
+	return o
+}
+
+func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResolverEndpointOutput{})
 }

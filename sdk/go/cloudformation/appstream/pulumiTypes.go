@@ -865,6 +865,8 @@ type FleetProperties struct {
 	EnableDefaultInternetAccess *bool `pulumi:"EnableDefaultInternetAccess"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
 	FleetType *string `pulumi:"FleetType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+	IamRoleArn *string `pulumi:"IamRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
 	IdleDisconnectTimeoutInSeconds *int `pulumi:"IdleDisconnectTimeoutInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
@@ -877,6 +879,8 @@ type FleetProperties struct {
 	MaxUserDurationInSeconds *int `pulumi:"MaxUserDurationInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+	StreamView *string `pulumi:"StreamView"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
 	Tags []cloudformation.Tag `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
@@ -910,6 +914,8 @@ type FleetPropertiesArgs struct {
 	EnableDefaultInternetAccess pulumi.BoolPtrInput `pulumi:"EnableDefaultInternetAccess"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
 	FleetType pulumi.StringPtrInput `pulumi:"FleetType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+	IamRoleArn pulumi.StringPtrInput `pulumi:"IamRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
 	IdleDisconnectTimeoutInSeconds pulumi.IntPtrInput `pulumi:"IdleDisconnectTimeoutInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
@@ -922,6 +928,8 @@ type FleetPropertiesArgs struct {
 	MaxUserDurationInSeconds pulumi.IntPtrInput `pulumi:"MaxUserDurationInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+	StreamView pulumi.StringPtrInput `pulumi:"StreamView"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
 	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
@@ -1041,6 +1049,11 @@ func (o FleetPropertiesOutput) FleetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetProperties) *string { return v.FleetType }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+func (o FleetPropertiesOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetProperties) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
 func (o FleetPropertiesOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetProperties) *int { return v.IdleDisconnectTimeoutInSeconds }).(pulumi.IntPtrOutput)
@@ -1069,6 +1082,11 @@ func (o FleetPropertiesOutput) MaxUserDurationInSeconds() pulumi.IntPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 func (o FleetPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+func (o FleetPropertiesOutput) StreamView() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetProperties) *string { return v.StreamView }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
@@ -1169,6 +1187,16 @@ func (o FleetPropertiesPtrOutput) FleetType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-iamrolearn
+func (o FleetPropertiesPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
 func (o FleetPropertiesPtrOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetProperties) *int {
@@ -1226,6 +1254,16 @@ func (o FleetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview
+func (o FleetPropertiesPtrOutput) StreamView() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamView
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1804,6 +1842,8 @@ type ImageBuilderProperties struct {
 	DomainJoinInfo *ImageBuilderDomainJoinInfo `pulumi:"DomainJoinInfo"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-enabledefaultinternetaccess
 	EnableDefaultInternetAccess *bool `pulumi:"EnableDefaultInternetAccess"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn
+	IamRoleArn *string `pulumi:"IamRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
 	ImageArn *string `pulumi:"ImageArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename
@@ -1843,6 +1883,8 @@ type ImageBuilderPropertiesArgs struct {
 	DomainJoinInfo ImageBuilderDomainJoinInfoPtrInput `pulumi:"DomainJoinInfo"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-enabledefaultinternetaccess
 	EnableDefaultInternetAccess pulumi.BoolPtrInput `pulumi:"EnableDefaultInternetAccess"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn
+	IamRoleArn pulumi.StringPtrInput `pulumi:"IamRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
 	ImageArn pulumi.StringPtrInput `pulumi:"ImageArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename
@@ -1965,6 +2007,11 @@ func (o ImageBuilderPropertiesOutput) EnableDefaultInternetAccess() pulumi.BoolP
 	return o.ApplyT(func(v ImageBuilderProperties) *bool { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn
+func (o ImageBuilderPropertiesOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageBuilderProperties) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
 func (o ImageBuilderPropertiesOutput) ImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderProperties) *string { return v.ImageArn }).(pulumi.StringPtrOutput)
@@ -2071,6 +2118,16 @@ func (o ImageBuilderPropertiesPtrOutput) EnableDefaultInternetAccess() pulumi.Bo
 		}
 		return v.EnableDefaultInternetAccess
 	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-iamrolearn
+func (o ImageBuilderPropertiesPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ECS:CapacityProvider")]
     public partial class CapacityProvider : Pulumi.CustomResource
     {
         /// <summary>

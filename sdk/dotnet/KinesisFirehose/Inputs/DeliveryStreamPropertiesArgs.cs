@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Inputs
     public sealed class DeliveryStreamPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+        /// </summary>
+        [Input("DeliveryStreamEncryptionConfigurationInput")]
+        public Input<Inputs.DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs>? DeliveryStreamEncryptionConfigurationInput { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
         /// </summary>
         [Input("DeliveryStreamName")]
@@ -40,6 +46,12 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamExtendedS3DestinationConfigurationArgs>? ExtendedS3DestinationConfiguration { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+        /// </summary>
+        [Input("HttpEndpointDestinationConfiguration")]
+        public Input<Inputs.DeliveryStreamHttpEndpointDestinationConfigurationArgs>? HttpEndpointDestinationConfiguration { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
         /// </summary>
         [Input("KinesisStreamSourceConfiguration")]
@@ -62,6 +74,18 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Inputs
         /// </summary>
         [Input("SplunkDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamSplunkDestinationConfigurationArgs>? SplunkDestinationConfiguration { get; set; }
+
+        [Input("Tags")]
+        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+        /// </summary>
+        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public DeliveryStreamPropertiesArgs()
         {

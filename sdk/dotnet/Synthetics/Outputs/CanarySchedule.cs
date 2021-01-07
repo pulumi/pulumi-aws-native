@@ -16,7 +16,7 @@ namespace Pulumi.Cloudformation.Synthetics.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
         /// </summary>
-        public readonly string DurationInSeconds;
+        public readonly string? DurationInSeconds;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.Synthetics.Outputs
 
         [OutputConstructor]
         private CanarySchedule(
-            string DurationInSeconds,
+            string? DurationInSeconds,
 
             string Expression)
         {

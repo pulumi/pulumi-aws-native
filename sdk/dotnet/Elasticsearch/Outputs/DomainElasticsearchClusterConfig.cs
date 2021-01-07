@@ -34,6 +34,18 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmcount
+        /// </summary>
+        public readonly int? WarmCount;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmenabled
+        /// </summary>
+        public readonly bool? WarmEnabled;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-warmtype
+        /// </summary>
+        public readonly string? WarmType;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-zoneawarenessconfig
         /// </summary>
         public readonly Outputs.DomainZoneAwarenessConfig? ZoneAwarenessConfig;
@@ -54,6 +66,12 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
 
             string? InstanceType,
 
+            int? WarmCount,
+
+            bool? WarmEnabled,
+
+            string? WarmType,
+
             Outputs.DomainZoneAwarenessConfig? ZoneAwarenessConfig,
 
             bool? ZoneAwarenessEnabled)
@@ -63,6 +81,9 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
             this.DedicatedMasterType = DedicatedMasterType;
             this.InstanceCount = InstanceCount;
             this.InstanceType = InstanceType;
+            this.WarmCount = WarmCount;
+            this.WarmEnabled = WarmEnabled;
+            this.WarmType = WarmType;
             this.ZoneAwarenessConfig = ZoneAwarenessConfig;
             this.ZoneAwarenessEnabled = ZoneAwarenessEnabled;
         }

@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Trigger struct {
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
 func NewTrigger(ctx *pulumi.Context,
 	name string, args *TriggerArgs, opts ...pulumi.ResourceOption) (*Trigger, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TriggerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Trigger
 	err := ctx.RegisterResource("cloudformation:Glue:Trigger", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TriggerArgs struct {
 
 func (TriggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerArgs)(nil)).Elem()
+}
+
+type TriggerInput interface {
+	pulumi.Input
+
+	ToTriggerOutput() TriggerOutput
+	ToTriggerOutputWithContext(ctx context.Context) TriggerOutput
+}
+
+func (*Trigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*Trigger)(nil))
+}
+
+func (i *Trigger) ToTriggerOutput() TriggerOutput {
+	return i.ToTriggerOutputWithContext(context.Background())
+}
+
+func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
+}
+
+type TriggerOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Trigger)(nil))
+}
+
+func (o TriggerOutput) ToTriggerOutput() TriggerOutput {
+	return o
+}
+
+func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TriggerOutput{})
 }

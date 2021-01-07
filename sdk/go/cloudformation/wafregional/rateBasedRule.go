@@ -4,6 +4,7 @@
 package wafregional
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RateBasedRule struct {
 // NewRateBasedRule registers a new resource with the given unique name, arguments, and options.
 func NewRateBasedRule(ctx *pulumi.Context,
 	name string, args *RateBasedRuleArgs, opts ...pulumi.ResourceOption) (*RateBasedRule, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RateBasedRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RateBasedRule
 	err := ctx.RegisterResource("cloudformation:WAFRegional:RateBasedRule", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RateBasedRuleArgs struct {
 
 func (RateBasedRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rateBasedRuleArgs)(nil)).Elem()
+}
+
+type RateBasedRuleInput interface {
+	pulumi.Input
+
+	ToRateBasedRuleOutput() RateBasedRuleOutput
+	ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput
+}
+
+func (*RateBasedRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateBasedRule)(nil))
+}
+
+func (i *RateBasedRule) ToRateBasedRuleOutput() RateBasedRuleOutput {
+	return i.ToRateBasedRuleOutputWithContext(context.Background())
+}
+
+func (i *RateBasedRule) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleOutput)
+}
+
+type RateBasedRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RateBasedRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateBasedRule)(nil))
+}
+
+func (o RateBasedRuleOutput) ToRateBasedRuleOutput() RateBasedRuleOutput {
+	return o
+}
+
+func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RateBasedRuleOutput{})
 }

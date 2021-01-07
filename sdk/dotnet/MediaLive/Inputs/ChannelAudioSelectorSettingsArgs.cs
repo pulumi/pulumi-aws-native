@@ -27,6 +27,12 @@ namespace Pulumi.Cloudformation.MediaLive.Inputs
         [Input("AudioPidSelection")]
         public Input<Inputs.ChannelAudioPidSelectionArgs>? AudioPidSelection { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html#cfn-medialive-channel-audioselectorsettings-audiotrackselection
+        /// </summary>
+        [Input("AudioTrackSelection")]
+        public Input<Inputs.ChannelAudioTrackSelectionArgs>? AudioTrackSelection { get; set; }
+
         public ChannelAudioSelectorSettingsArgs()
         {
         }

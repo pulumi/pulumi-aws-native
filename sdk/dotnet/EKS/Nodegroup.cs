@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EKS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EKS:Nodegroup")]
     public partial class Nodegroup : Pulumi.CustomResource
     {
         /// <summary>

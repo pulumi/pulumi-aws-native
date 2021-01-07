@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Backup
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Backup:BackupPlan")]
     public partial class BackupPlan : Pulumi.CustomResource
     {
         /// <summary>

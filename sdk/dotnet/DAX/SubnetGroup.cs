@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DAX
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DAX:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

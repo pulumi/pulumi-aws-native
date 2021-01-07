@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ADMChannel struct {
 // NewADMChannel registers a new resource with the given unique name, arguments, and options.
 func NewADMChannel(ctx *pulumi.Context,
 	name string, args *ADMChannelArgs, opts ...pulumi.ResourceOption) (*ADMChannel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ADMChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ADMChannel
 	err := ctx.RegisterResource("cloudformation:Pinpoint:ADMChannel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ADMChannelArgs struct {
 
 func (ADMChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*admchannelArgs)(nil)).Elem()
+}
+
+type ADMChannelInput interface {
+	pulumi.Input
+
+	ToADMChannelOutput() ADMChannelOutput
+	ToADMChannelOutputWithContext(ctx context.Context) ADMChannelOutput
+}
+
+func (*ADMChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADMChannel)(nil))
+}
+
+func (i *ADMChannel) ToADMChannelOutput() ADMChannelOutput {
+	return i.ToADMChannelOutputWithContext(context.Background())
+}
+
+func (i *ADMChannel) ToADMChannelOutputWithContext(ctx context.Context) ADMChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ADMChannelOutput)
+}
+
+type ADMChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ADMChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADMChannel)(nil))
+}
+
+func (o ADMChannelOutput) ToADMChannelOutput() ADMChannelOutput {
+	return o
+}
+
+func (o ADMChannelOutput) ToADMChannelOutputWithContext(ctx context.Context) ADMChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ADMChannelOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DMS:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

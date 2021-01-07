@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudFormation:Macro")]
     public partial class Macro : Pulumi.CustomResource
     {
         /// <summary>

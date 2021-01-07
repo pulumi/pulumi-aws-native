@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.GameLift.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private AliasRoutingStrategy(
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.GameLift.Outputs
 
             string? Message,
 
-            string Type)
+            string? Type)
         {
             this.FleetId = FleetId;
             this.Message = Message;

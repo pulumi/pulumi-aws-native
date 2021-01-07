@@ -24,14 +24,20 @@ namespace Pulumi.Cloudformation.ApiGateway.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
         /// </summary>
-        [Input("DomainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("DomainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
         /// </summary>
         [Input("EndpointConfiguration")]
         public Input<Inputs.DomainNameEndpointConfigurationArgs>? EndpointConfiguration { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+        /// </summary>
+        [Input("MutualTlsAuthentication")]
+        public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn

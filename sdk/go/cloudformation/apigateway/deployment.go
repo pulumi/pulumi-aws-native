@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Deployment struct {
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
 func NewDeployment(ctx *pulumi.Context,
 	name string, args *DeploymentArgs, opts ...pulumi.ResourceOption) (*Deployment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeploymentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Deployment
 	err := ctx.RegisterResource("cloudformation:ApiGateway:Deployment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DeploymentArgs struct {
 
 func (DeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentArgs)(nil)).Elem()
+}
+
+type DeploymentInput interface {
+	pulumi.Input
+
+	ToDeploymentOutput() DeploymentOutput
+	ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput
+}
+
+func (*Deployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Deployment)(nil))
+}
+
+func (i *Deployment) ToDeploymentOutput() DeploymentOutput {
+	return i.ToDeploymentOutputWithContext(context.Background())
+}
+
+func (i *Deployment) ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentOutput)
+}
+
+type DeploymentOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Deployment)(nil))
+}
+
+func (o DeploymentOutput) ToDeploymentOutput() DeploymentOutput {
+	return o
+}
+
+func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentOutput{})
 }

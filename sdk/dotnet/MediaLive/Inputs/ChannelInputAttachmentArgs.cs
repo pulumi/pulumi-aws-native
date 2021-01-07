@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.MediaLive.Inputs
     public sealed class ChannelInputAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-automaticinputfailoversettings
+        /// </summary>
+        [Input("AutomaticInputFailoverSettings")]
+        public Input<Inputs.ChannelAutomaticInputFailoverSettingsArgs>? AutomaticInputFailoverSettings { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputattachmentname
         /// </summary>
         [Input("InputAttachmentName")]

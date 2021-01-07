@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Lambda:Permission")]
     public partial class Permission : Pulumi.CustomResource
     {
         /// <summary>

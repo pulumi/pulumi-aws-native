@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LoggerDefinitionVersion struct {
 // NewLoggerDefinitionVersion registers a new resource with the given unique name, arguments, and options.
 func NewLoggerDefinitionVersion(ctx *pulumi.Context,
 	name string, args *LoggerDefinitionVersionArgs, opts ...pulumi.ResourceOption) (*LoggerDefinitionVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LoggerDefinitionVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LoggerDefinitionVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:LoggerDefinitionVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LoggerDefinitionVersionArgs struct {
 
 func (LoggerDefinitionVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggerDefinitionVersionArgs)(nil)).Elem()
+}
+
+type LoggerDefinitionVersionInput interface {
+	pulumi.Input
+
+	ToLoggerDefinitionVersionOutput() LoggerDefinitionVersionOutput
+	ToLoggerDefinitionVersionOutputWithContext(ctx context.Context) LoggerDefinitionVersionOutput
+}
+
+func (*LoggerDefinitionVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerDefinitionVersion)(nil))
+}
+
+func (i *LoggerDefinitionVersion) ToLoggerDefinitionVersionOutput() LoggerDefinitionVersionOutput {
+	return i.ToLoggerDefinitionVersionOutputWithContext(context.Background())
+}
+
+func (i *LoggerDefinitionVersion) ToLoggerDefinitionVersionOutputWithContext(ctx context.Context) LoggerDefinitionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionOutput)
+}
+
+type LoggerDefinitionVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoggerDefinitionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerDefinitionVersion)(nil))
+}
+
+func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutput() LoggerDefinitionVersionOutput {
+	return o
+}
+
+func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutputWithContext(ctx context.Context) LoggerDefinitionVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoggerDefinitionVersionOutput{})
 }

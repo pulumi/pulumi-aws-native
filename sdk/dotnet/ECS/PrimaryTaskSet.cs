@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ECS:PrimaryTaskSet")]
     public partial class PrimaryTaskSet : Pulumi.CustomResource
     {
         /// <summary>

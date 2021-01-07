@@ -28,6 +28,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Inputs
         public Input<string>? AuthorizerCredentialsArn { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+        /// </summary>
+        [Input("AuthorizerPayloadFormatVersion")]
+        public Input<string>? AuthorizerPayloadFormatVersion { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
         /// </summary>
         [Input("AuthorizerResultTtlInSeconds")]
@@ -44,6 +50,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Inputs
         /// </summary>
         [Input("AuthorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+        /// </summary>
+        [Input("EnableSimpleResponses")]
+        public Input<bool>? EnableSimpleResponses { get; set; }
 
         [Input("IdentitySource", required: true)]
         private InputList<string>? _IdentitySource;

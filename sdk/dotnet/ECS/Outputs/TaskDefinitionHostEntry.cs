@@ -16,17 +16,17 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
         /// </summary>
-        public readonly string Hostname;
+        public readonly string? Hostname;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-ipaddress
         /// </summary>
-        public readonly string IpAddress;
+        public readonly string? IpAddress;
 
         [OutputConstructor]
         private TaskDefinitionHostEntry(
-            string Hostname,
+            string? Hostname,
 
-            string IpAddress)
+            string? IpAddress)
         {
             this.Hostname = Hostname;
             this.IpAddress = IpAddress;

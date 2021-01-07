@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .alias import *
+from .code_signing_config import *
 from .event_invoke_config import *
 from .event_source_mapping import *
 from .function import *
@@ -11,3 +12,44 @@ from .layer_version import *
 from .layer_version_permission import *
 from .permission import *
 from .version import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:Lambda:Alias":
+                return Alias(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:CodeSigningConfig":
+                return CodeSigningConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:EventInvokeConfig":
+                return EventInvokeConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:EventSourceMapping":
+                return EventSourceMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:Function":
+                return Function(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:LayerVersion":
+                return LayerVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:LayerVersionPermission":
+                return LayerVersionPermission(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:Permission":
+                return Permission(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:Lambda:Version":
+                return Version(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "Lambda", _module_instance)
+
+_register_module()

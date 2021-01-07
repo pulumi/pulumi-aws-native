@@ -39,11 +39,35 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         [Input("Parameters")]
         public InputUnion<System.Text.Json.JsonElement, string>? Parameters { get; set; }
 
+        [Input("PlatformCapabilities")]
+        private InputList<string>? _PlatformCapabilities;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
+        /// </summary>
+        public InputList<string> PlatformCapabilities
+        {
+            get => _PlatformCapabilities ?? (_PlatformCapabilities = new InputList<string>());
+            set => _PlatformCapabilities = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
+        /// </summary>
+        [Input("PropagateTags")]
+        public Input<bool>? PropagateTags { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
         /// </summary>
         [Input("RetryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
+        /// </summary>
+        [Input("Tags")]
+        public InputUnion<System.Text.Json.JsonElement, string>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout

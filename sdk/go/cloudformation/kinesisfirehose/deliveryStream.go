@@ -4,6 +4,7 @@
 package kinesisfirehose
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DeliveryStream struct {
 // NewDeliveryStream registers a new resource with the given unique name, arguments, and options.
 func NewDeliveryStream(ctx *pulumi.Context,
 	name string, args *DeliveryStreamArgs, opts ...pulumi.ResourceOption) (*DeliveryStream, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeliveryStreamArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DeliveryStream
 	err := ctx.RegisterResource("cloudformation:KinesisFirehose:DeliveryStream", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DeliveryStreamArgs struct {
 
 func (DeliveryStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliveryStreamArgs)(nil)).Elem()
+}
+
+type DeliveryStreamInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamOutput() DeliveryStreamOutput
+	ToDeliveryStreamOutputWithContext(ctx context.Context) DeliveryStreamOutput
+}
+
+func (*DeliveryStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStream)(nil))
+}
+
+func (i *DeliveryStream) ToDeliveryStreamOutput() DeliveryStreamOutput {
+	return i.ToDeliveryStreamOutputWithContext(context.Background())
+}
+
+func (i *DeliveryStream) ToDeliveryStreamOutputWithContext(ctx context.Context) DeliveryStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamOutput)
+}
+
+type DeliveryStreamOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeliveryStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStream)(nil))
+}
+
+func (o DeliveryStreamOutput) ToDeliveryStreamOutput() DeliveryStreamOutput {
+	return o
+}
+
+func (o DeliveryStreamOutput) ToDeliveryStreamOutputWithContext(ctx context.Context) DeliveryStreamOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeliveryStreamOutput{})
 }

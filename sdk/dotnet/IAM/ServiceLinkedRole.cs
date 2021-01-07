@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IAM:ServiceLinkedRole")]
     public partial class ServiceLinkedRole : Pulumi.CustomResource
     {
         /// <summary>

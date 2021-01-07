@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:RequestValidator")]
     public partial class RequestValidator : Pulumi.CustomResource
     {
         /// <summary>

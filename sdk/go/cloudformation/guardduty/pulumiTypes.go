@@ -122,8 +122,278 @@ func (o DetectorAttributesPtrOutput) Elem() DetectorAttributesOutput {
 	return o.ApplyT(func(v *DetectorAttributes) DetectorAttributes { return *v }).(DetectorAttributesOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html
+type DetectorCFNDataSourceConfigurations struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-s3logs
+	S3Logs *DetectorCFNS3LogsConfiguration `pulumi:"S3Logs"`
+}
+
+// DetectorCFNDataSourceConfigurationsInput is an input type that accepts DetectorCFNDataSourceConfigurationsArgs and DetectorCFNDataSourceConfigurationsOutput values.
+// You can construct a concrete instance of `DetectorCFNDataSourceConfigurationsInput` via:
+//
+//          DetectorCFNDataSourceConfigurationsArgs{...}
+type DetectorCFNDataSourceConfigurationsInput interface {
+	pulumi.Input
+
+	ToDetectorCFNDataSourceConfigurationsOutput() DetectorCFNDataSourceConfigurationsOutput
+	ToDetectorCFNDataSourceConfigurationsOutputWithContext(context.Context) DetectorCFNDataSourceConfigurationsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html
+type DetectorCFNDataSourceConfigurationsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-s3logs
+	S3Logs DetectorCFNS3LogsConfigurationPtrInput `pulumi:"S3Logs"`
+}
+
+func (DetectorCFNDataSourceConfigurationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNDataSourceConfigurations)(nil)).Elem()
+}
+
+func (i DetectorCFNDataSourceConfigurationsArgs) ToDetectorCFNDataSourceConfigurationsOutput() DetectorCFNDataSourceConfigurationsOutput {
+	return i.ToDetectorCFNDataSourceConfigurationsOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNDataSourceConfigurationsArgs) ToDetectorCFNDataSourceConfigurationsOutputWithContext(ctx context.Context) DetectorCFNDataSourceConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNDataSourceConfigurationsOutput)
+}
+
+func (i DetectorCFNDataSourceConfigurationsArgs) ToDetectorCFNDataSourceConfigurationsPtrOutput() DetectorCFNDataSourceConfigurationsPtrOutput {
+	return i.ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNDataSourceConfigurationsArgs) ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(ctx context.Context) DetectorCFNDataSourceConfigurationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNDataSourceConfigurationsOutput).ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(ctx)
+}
+
+// DetectorCFNDataSourceConfigurationsPtrInput is an input type that accepts DetectorCFNDataSourceConfigurationsArgs, DetectorCFNDataSourceConfigurationsPtr and DetectorCFNDataSourceConfigurationsPtrOutput values.
+// You can construct a concrete instance of `DetectorCFNDataSourceConfigurationsPtrInput` via:
+//
+//          DetectorCFNDataSourceConfigurationsArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorCFNDataSourceConfigurationsPtrInput interface {
+	pulumi.Input
+
+	ToDetectorCFNDataSourceConfigurationsPtrOutput() DetectorCFNDataSourceConfigurationsPtrOutput
+	ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(context.Context) DetectorCFNDataSourceConfigurationsPtrOutput
+}
+
+type detectorCFNDataSourceConfigurationsPtrType DetectorCFNDataSourceConfigurationsArgs
+
+func DetectorCFNDataSourceConfigurationsPtr(v *DetectorCFNDataSourceConfigurationsArgs) DetectorCFNDataSourceConfigurationsPtrInput {
+	return (*detectorCFNDataSourceConfigurationsPtrType)(v)
+}
+
+func (*detectorCFNDataSourceConfigurationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNDataSourceConfigurations)(nil)).Elem()
+}
+
+func (i *detectorCFNDataSourceConfigurationsPtrType) ToDetectorCFNDataSourceConfigurationsPtrOutput() DetectorCFNDataSourceConfigurationsPtrOutput {
+	return i.ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorCFNDataSourceConfigurationsPtrType) ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(ctx context.Context) DetectorCFNDataSourceConfigurationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNDataSourceConfigurationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html
+type DetectorCFNDataSourceConfigurationsOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNDataSourceConfigurationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNDataSourceConfigurations)(nil)).Elem()
+}
+
+func (o DetectorCFNDataSourceConfigurationsOutput) ToDetectorCFNDataSourceConfigurationsOutput() DetectorCFNDataSourceConfigurationsOutput {
+	return o
+}
+
+func (o DetectorCFNDataSourceConfigurationsOutput) ToDetectorCFNDataSourceConfigurationsOutputWithContext(ctx context.Context) DetectorCFNDataSourceConfigurationsOutput {
+	return o
+}
+
+func (o DetectorCFNDataSourceConfigurationsOutput) ToDetectorCFNDataSourceConfigurationsPtrOutput() DetectorCFNDataSourceConfigurationsPtrOutput {
+	return o.ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorCFNDataSourceConfigurationsOutput) ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(ctx context.Context) DetectorCFNDataSourceConfigurationsPtrOutput {
+	return o.ApplyT(func(v DetectorCFNDataSourceConfigurations) *DetectorCFNDataSourceConfigurations {
+		return &v
+	}).(DetectorCFNDataSourceConfigurationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-s3logs
+func (o DetectorCFNDataSourceConfigurationsOutput) S3Logs() DetectorCFNS3LogsConfigurationPtrOutput {
+	return o.ApplyT(func(v DetectorCFNDataSourceConfigurations) *DetectorCFNS3LogsConfiguration { return v.S3Logs }).(DetectorCFNS3LogsConfigurationPtrOutput)
+}
+
+type DetectorCFNDataSourceConfigurationsPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNDataSourceConfigurationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNDataSourceConfigurations)(nil)).Elem()
+}
+
+func (o DetectorCFNDataSourceConfigurationsPtrOutput) ToDetectorCFNDataSourceConfigurationsPtrOutput() DetectorCFNDataSourceConfigurationsPtrOutput {
+	return o
+}
+
+func (o DetectorCFNDataSourceConfigurationsPtrOutput) ToDetectorCFNDataSourceConfigurationsPtrOutputWithContext(ctx context.Context) DetectorCFNDataSourceConfigurationsPtrOutput {
+	return o
+}
+
+func (o DetectorCFNDataSourceConfigurationsPtrOutput) Elem() DetectorCFNDataSourceConfigurationsOutput {
+	return o.ApplyT(func(v *DetectorCFNDataSourceConfigurations) DetectorCFNDataSourceConfigurations { return *v }).(DetectorCFNDataSourceConfigurationsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html#cfn-guardduty-detector-cfndatasourceconfigurations-s3logs
+func (o DetectorCFNDataSourceConfigurationsPtrOutput) S3Logs() DetectorCFNS3LogsConfigurationPtrOutput {
+	return o.ApplyT(func(v *DetectorCFNDataSourceConfigurations) *DetectorCFNS3LogsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3Logs
+	}).(DetectorCFNS3LogsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html
+type DetectorCFNS3LogsConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable
+	Enable *bool `pulumi:"Enable"`
+}
+
+// DetectorCFNS3LogsConfigurationInput is an input type that accepts DetectorCFNS3LogsConfigurationArgs and DetectorCFNS3LogsConfigurationOutput values.
+// You can construct a concrete instance of `DetectorCFNS3LogsConfigurationInput` via:
+//
+//          DetectorCFNS3LogsConfigurationArgs{...}
+type DetectorCFNS3LogsConfigurationInput interface {
+	pulumi.Input
+
+	ToDetectorCFNS3LogsConfigurationOutput() DetectorCFNS3LogsConfigurationOutput
+	ToDetectorCFNS3LogsConfigurationOutputWithContext(context.Context) DetectorCFNS3LogsConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html
+type DetectorCFNS3LogsConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable
+	Enable pulumi.BoolPtrInput `pulumi:"Enable"`
+}
+
+func (DetectorCFNS3LogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNS3LogsConfiguration)(nil)).Elem()
+}
+
+func (i DetectorCFNS3LogsConfigurationArgs) ToDetectorCFNS3LogsConfigurationOutput() DetectorCFNS3LogsConfigurationOutput {
+	return i.ToDetectorCFNS3LogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNS3LogsConfigurationArgs) ToDetectorCFNS3LogsConfigurationOutputWithContext(ctx context.Context) DetectorCFNS3LogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNS3LogsConfigurationOutput)
+}
+
+func (i DetectorCFNS3LogsConfigurationArgs) ToDetectorCFNS3LogsConfigurationPtrOutput() DetectorCFNS3LogsConfigurationPtrOutput {
+	return i.ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorCFNS3LogsConfigurationArgs) ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNS3LogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNS3LogsConfigurationOutput).ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// DetectorCFNS3LogsConfigurationPtrInput is an input type that accepts DetectorCFNS3LogsConfigurationArgs, DetectorCFNS3LogsConfigurationPtr and DetectorCFNS3LogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `DetectorCFNS3LogsConfigurationPtrInput` via:
+//
+//          DetectorCFNS3LogsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorCFNS3LogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDetectorCFNS3LogsConfigurationPtrOutput() DetectorCFNS3LogsConfigurationPtrOutput
+	ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(context.Context) DetectorCFNS3LogsConfigurationPtrOutput
+}
+
+type detectorCFNS3LogsConfigurationPtrType DetectorCFNS3LogsConfigurationArgs
+
+func DetectorCFNS3LogsConfigurationPtr(v *DetectorCFNS3LogsConfigurationArgs) DetectorCFNS3LogsConfigurationPtrInput {
+	return (*detectorCFNS3LogsConfigurationPtrType)(v)
+}
+
+func (*detectorCFNS3LogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNS3LogsConfiguration)(nil)).Elem()
+}
+
+func (i *detectorCFNS3LogsConfigurationPtrType) ToDetectorCFNS3LogsConfigurationPtrOutput() DetectorCFNS3LogsConfigurationPtrOutput {
+	return i.ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorCFNS3LogsConfigurationPtrType) ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNS3LogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorCFNS3LogsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html
+type DetectorCFNS3LogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNS3LogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorCFNS3LogsConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCFNS3LogsConfigurationOutput) ToDetectorCFNS3LogsConfigurationOutput() DetectorCFNS3LogsConfigurationOutput {
+	return o
+}
+
+func (o DetectorCFNS3LogsConfigurationOutput) ToDetectorCFNS3LogsConfigurationOutputWithContext(ctx context.Context) DetectorCFNS3LogsConfigurationOutput {
+	return o
+}
+
+func (o DetectorCFNS3LogsConfigurationOutput) ToDetectorCFNS3LogsConfigurationPtrOutput() DetectorCFNS3LogsConfigurationPtrOutput {
+	return o.ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorCFNS3LogsConfigurationOutput) ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNS3LogsConfigurationPtrOutput {
+	return o.ApplyT(func(v DetectorCFNS3LogsConfiguration) *DetectorCFNS3LogsConfiguration {
+		return &v
+	}).(DetectorCFNS3LogsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable
+func (o DetectorCFNS3LogsConfigurationOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DetectorCFNS3LogsConfiguration) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+type DetectorCFNS3LogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorCFNS3LogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorCFNS3LogsConfiguration)(nil)).Elem()
+}
+
+func (o DetectorCFNS3LogsConfigurationPtrOutput) ToDetectorCFNS3LogsConfigurationPtrOutput() DetectorCFNS3LogsConfigurationPtrOutput {
+	return o
+}
+
+func (o DetectorCFNS3LogsConfigurationPtrOutput) ToDetectorCFNS3LogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCFNS3LogsConfigurationPtrOutput {
+	return o
+}
+
+func (o DetectorCFNS3LogsConfigurationPtrOutput) Elem() DetectorCFNS3LogsConfigurationOutput {
+	return o.ApplyT(func(v *DetectorCFNS3LogsConfiguration) DetectorCFNS3LogsConfiguration { return *v }).(DetectorCFNS3LogsConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html#cfn-guardduty-detector-cfns3logsconfiguration-enable
+func (o DetectorCFNS3LogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DetectorCFNS3LogsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
 type DetectorProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+	DataSources *DetectorCFNDataSourceConfigurations `pulumi:"DataSources"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
 	Enable bool `pulumi:"Enable"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
@@ -143,6 +413,8 @@ type DetectorPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
 type DetectorPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+	DataSources DetectorCFNDataSourceConfigurationsPtrInput `pulumi:"DataSources"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
 	Enable pulumi.BoolInput `pulumi:"Enable"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
@@ -227,6 +499,11 @@ func (o DetectorPropertiesOutput) ToDetectorPropertiesPtrOutputWithContext(ctx c
 	}).(DetectorPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+func (o DetectorPropertiesOutput) DataSources() DetectorCFNDataSourceConfigurationsPtrOutput {
+	return o.ApplyT(func(v DetectorProperties) *DetectorCFNDataSourceConfigurations { return v.DataSources }).(DetectorCFNDataSourceConfigurationsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
 func (o DetectorPropertiesOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorProperties) bool { return v.Enable }).(pulumi.BoolOutput)
@@ -253,6 +530,16 @@ func (o DetectorPropertiesPtrOutput) ToDetectorPropertiesPtrOutputWithContext(ct
 
 func (o DetectorPropertiesPtrOutput) Elem() DetectorPropertiesOutput {
 	return o.ApplyT(func(v *DetectorProperties) DetectorProperties { return *v }).(DetectorPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+func (o DetectorPropertiesPtrOutput) DataSources() DetectorCFNDataSourceConfigurationsPtrOutput {
+	return o.ApplyT(func(v *DetectorProperties) *DetectorCFNDataSourceConfigurations {
+		if v == nil {
+			return nil
+		}
+		return v.DataSources
+	}).(DetectorCFNDataSourceConfigurationsPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
@@ -2251,6 +2538,10 @@ func (o ThreatIntelSetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(DetectorAttributesOutput{})
 	pulumi.RegisterOutputType(DetectorAttributesPtrOutput{})
+	pulumi.RegisterOutputType(DetectorCFNDataSourceConfigurationsOutput{})
+	pulumi.RegisterOutputType(DetectorCFNDataSourceConfigurationsPtrOutput{})
+	pulumi.RegisterOutputType(DetectorCFNS3LogsConfigurationOutput{})
+	pulumi.RegisterOutputType(DetectorCFNS3LogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DetectorPropertiesOutput{})
 	pulumi.RegisterOutputType(DetectorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FilterAttributesOutput{})

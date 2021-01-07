@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IAM:AccessKey")]
     public partial class AccessKey : Pulumi.CustomResource
     {
         /// <summary>

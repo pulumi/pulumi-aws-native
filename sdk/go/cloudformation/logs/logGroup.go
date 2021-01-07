@@ -4,6 +4,7 @@
 package logs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LogGroup struct {
 // NewLogGroup registers a new resource with the given unique name, arguments, and options.
 func NewLogGroup(ctx *pulumi.Context,
 	name string, args *LogGroupArgs, opts ...pulumi.ResourceOption) (*LogGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LogGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LogGroup
 	err := ctx.RegisterResource("cloudformation:Logs:LogGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LogGroupArgs struct {
 
 func (LogGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logGroupArgs)(nil)).Elem()
+}
+
+type LogGroupInput interface {
+	pulumi.Input
+
+	ToLogGroupOutput() LogGroupOutput
+	ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput
+}
+
+func (*LogGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogGroup)(nil))
+}
+
+func (i *LogGroup) ToLogGroupOutput() LogGroupOutput {
+	return i.ToLogGroupOutputWithContext(context.Background())
+}
+
+func (i *LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogGroupOutput)
+}
+
+type LogGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogGroup)(nil))
+}
+
+func (o LogGroupOutput) ToLogGroupOutput() LogGroupOutput {
+	return o
+}
+
+func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogGroupOutput{})
 }

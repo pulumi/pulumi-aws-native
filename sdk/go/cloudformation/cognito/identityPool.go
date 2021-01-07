@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type IdentityPool struct {
 // NewIdentityPool registers a new resource with the given unique name, arguments, and options.
 func NewIdentityPool(ctx *pulumi.Context,
 	name string, args *IdentityPoolArgs, opts ...pulumi.ResourceOption) (*IdentityPool, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &IdentityPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource IdentityPool
 	err := ctx.RegisterResource("cloudformation:Cognito:IdentityPool", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type IdentityPoolArgs struct {
 
 func (IdentityPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolArgs)(nil)).Elem()
+}
+
+type IdentityPoolInput interface {
+	pulumi.Input
+
+	ToIdentityPoolOutput() IdentityPoolOutput
+	ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput
+}
+
+func (*IdentityPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPool)(nil))
+}
+
+func (i *IdentityPool) ToIdentityPoolOutput() IdentityPoolOutput {
+	return i.ToIdentityPoolOutputWithContext(context.Background())
+}
+
+func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolOutput)
+}
+
+type IdentityPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPool)(nil))
+}
+
+func (o IdentityPoolOutput) ToIdentityPoolOutput() IdentityPoolOutput {
+	return o
+}
+
+func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityPoolOutput{})
 }

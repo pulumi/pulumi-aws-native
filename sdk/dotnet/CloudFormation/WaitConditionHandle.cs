@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudFormation:WaitConditionHandle")]
     public partial class WaitConditionHandle : Pulumi.CustomResource
     {
         /// <summary>

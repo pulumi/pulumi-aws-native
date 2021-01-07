@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SSM:PatchBaseline")]
     public partial class PatchBaseline : Pulumi.CustomResource
     {
         /// <summary>

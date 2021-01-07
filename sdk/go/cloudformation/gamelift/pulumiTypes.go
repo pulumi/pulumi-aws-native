@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-cloudformation/sdk/go/cloudformation"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AliasAttributes struct {
+	AliasId string `pulumi:"AliasId"`
 }
 
 // AliasAttributesInput is an input type that accepts AliasAttributesArgs and AliasAttributesOutput values.
@@ -25,6 +27,7 @@ type AliasAttributesInput interface {
 }
 
 type AliasAttributesArgs struct {
+	AliasId pulumi.StringInput `pulumi:"AliasId"`
 }
 
 func (AliasAttributesArgs) ElementType() reflect.Type {
@@ -103,6 +106,9 @@ func (o AliasAttributesOutput) ToAliasAttributesPtrOutputWithContext(ctx context
 		return &v
 	}).(AliasAttributesPtrOutput)
 }
+func (o AliasAttributesOutput) AliasId() pulumi.StringOutput {
+	return o.ApplyT(func(v AliasAttributes) string { return v.AliasId }).(pulumi.StringOutput)
+}
 
 type AliasAttributesPtrOutput struct{ *pulumi.OutputState }
 
@@ -120,6 +126,15 @@ func (o AliasAttributesPtrOutput) ToAliasAttributesPtrOutputWithContext(ctx cont
 
 func (o AliasAttributesPtrOutput) Elem() AliasAttributesOutput {
 	return o.ApplyT(func(v *AliasAttributes) AliasAttributes { return *v }).(AliasAttributesOutput)
+}
+
+func (o AliasAttributesPtrOutput) AliasId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AliasAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AliasId
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
@@ -301,7 +316,7 @@ type AliasRoutingStrategy struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
 	Message *string `pulumi:"Message"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-	Type string `pulumi:"Type"`
+	Type *string `pulumi:"Type"`
 }
 
 // AliasRoutingStrategyInput is an input type that accepts AliasRoutingStrategyArgs and AliasRoutingStrategyOutput values.
@@ -322,7 +337,7 @@ type AliasRoutingStrategyArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
 	Message pulumi.StringPtrInput `pulumi:"Message"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-	Type pulumi.StringInput `pulumi:"Type"`
+	Type pulumi.StringPtrInput `pulumi:"Type"`
 }
 
 func (AliasRoutingStrategyArgs) ElementType() reflect.Type {
@@ -414,8 +429,8 @@ func (o AliasRoutingStrategyOutput) Message() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-func (o AliasRoutingStrategyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
+func (o AliasRoutingStrategyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type AliasRoutingStrategyPtrOutput struct{ *pulumi.OutputState }
@@ -462,7 +477,7 @@ func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2290,6 +2305,1466 @@ func (o FleetServerProcessArrayOutput) Index(i pulumi.IntInput) FleetServerProce
 	}).(FleetServerProcessOutput)
 }
 
+type GameServerGroupAttributes struct {
+	AutoScalingGroupArn string `pulumi:"AutoScalingGroupArn"`
+	GameServerGroupArn  string `pulumi:"GameServerGroupArn"`
+}
+
+// GameServerGroupAttributesInput is an input type that accepts GameServerGroupAttributesArgs and GameServerGroupAttributesOutput values.
+// You can construct a concrete instance of `GameServerGroupAttributesInput` via:
+//
+//          GameServerGroupAttributesArgs{...}
+type GameServerGroupAttributesInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAttributesOutput() GameServerGroupAttributesOutput
+	ToGameServerGroupAttributesOutputWithContext(context.Context) GameServerGroupAttributesOutput
+}
+
+type GameServerGroupAttributesArgs struct {
+	AutoScalingGroupArn pulumi.StringInput `pulumi:"AutoScalingGroupArn"`
+	GameServerGroupArn  pulumi.StringInput `pulumi:"GameServerGroupArn"`
+}
+
+func (GameServerGroupAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAttributes)(nil)).Elem()
+}
+
+func (i GameServerGroupAttributesArgs) ToGameServerGroupAttributesOutput() GameServerGroupAttributesOutput {
+	return i.ToGameServerGroupAttributesOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAttributesArgs) ToGameServerGroupAttributesOutputWithContext(ctx context.Context) GameServerGroupAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAttributesOutput)
+}
+
+func (i GameServerGroupAttributesArgs) ToGameServerGroupAttributesPtrOutput() GameServerGroupAttributesPtrOutput {
+	return i.ToGameServerGroupAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAttributesArgs) ToGameServerGroupAttributesPtrOutputWithContext(ctx context.Context) GameServerGroupAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAttributesOutput).ToGameServerGroupAttributesPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupAttributesPtrInput is an input type that accepts GameServerGroupAttributesArgs, GameServerGroupAttributesPtr and GameServerGroupAttributesPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupAttributesPtrInput` via:
+//
+//          GameServerGroupAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupAttributesPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAttributesPtrOutput() GameServerGroupAttributesPtrOutput
+	ToGameServerGroupAttributesPtrOutputWithContext(context.Context) GameServerGroupAttributesPtrOutput
+}
+
+type gameServerGroupAttributesPtrType GameServerGroupAttributesArgs
+
+func GameServerGroupAttributesPtr(v *GameServerGroupAttributesArgs) GameServerGroupAttributesPtrInput {
+	return (*gameServerGroupAttributesPtrType)(v)
+}
+
+func (*gameServerGroupAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAttributes)(nil)).Elem()
+}
+
+func (i *gameServerGroupAttributesPtrType) ToGameServerGroupAttributesPtrOutput() GameServerGroupAttributesPtrOutput {
+	return i.ToGameServerGroupAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupAttributesPtrType) ToGameServerGroupAttributesPtrOutputWithContext(ctx context.Context) GameServerGroupAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAttributesPtrOutput)
+}
+
+type GameServerGroupAttributesOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAttributes)(nil)).Elem()
+}
+
+func (o GameServerGroupAttributesOutput) ToGameServerGroupAttributesOutput() GameServerGroupAttributesOutput {
+	return o
+}
+
+func (o GameServerGroupAttributesOutput) ToGameServerGroupAttributesOutputWithContext(ctx context.Context) GameServerGroupAttributesOutput {
+	return o
+}
+
+func (o GameServerGroupAttributesOutput) ToGameServerGroupAttributesPtrOutput() GameServerGroupAttributesPtrOutput {
+	return o.ToGameServerGroupAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupAttributesOutput) ToGameServerGroupAttributesPtrOutputWithContext(ctx context.Context) GameServerGroupAttributesPtrOutput {
+	return o.ApplyT(func(v GameServerGroupAttributes) *GameServerGroupAttributes {
+		return &v
+	}).(GameServerGroupAttributesPtrOutput)
+}
+func (o GameServerGroupAttributesOutput) AutoScalingGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GameServerGroupAttributes) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
+}
+
+func (o GameServerGroupAttributesOutput) GameServerGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GameServerGroupAttributes) string { return v.GameServerGroupArn }).(pulumi.StringOutput)
+}
+
+type GameServerGroupAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAttributes)(nil)).Elem()
+}
+
+func (o GameServerGroupAttributesPtrOutput) ToGameServerGroupAttributesPtrOutput() GameServerGroupAttributesPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAttributesPtrOutput) ToGameServerGroupAttributesPtrOutputWithContext(ctx context.Context) GameServerGroupAttributesPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAttributesPtrOutput) Elem() GameServerGroupAttributesOutput {
+	return o.ApplyT(func(v *GameServerGroupAttributes) GameServerGroupAttributes { return *v }).(GameServerGroupAttributesOutput)
+}
+
+func (o GameServerGroupAttributesPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoScalingGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GameServerGroupAttributesPtrOutput) GameServerGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GameServerGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+type GameServerGroupAutoScalingPolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
+	EstimatedInstanceWarmup *float64 `pulumi:"EstimatedInstanceWarmup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
+	TargetTrackingConfiguration GameServerGroupTargetTrackingConfiguration `pulumi:"TargetTrackingConfiguration"`
+}
+
+// GameServerGroupAutoScalingPolicyInput is an input type that accepts GameServerGroupAutoScalingPolicyArgs and GameServerGroupAutoScalingPolicyOutput values.
+// You can construct a concrete instance of `GameServerGroupAutoScalingPolicyInput` via:
+//
+//          GameServerGroupAutoScalingPolicyArgs{...}
+type GameServerGroupAutoScalingPolicyInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAutoScalingPolicyOutput() GameServerGroupAutoScalingPolicyOutput
+	ToGameServerGroupAutoScalingPolicyOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+type GameServerGroupAutoScalingPolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
+	EstimatedInstanceWarmup pulumi.Float64PtrInput `pulumi:"EstimatedInstanceWarmup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
+	TargetTrackingConfiguration GameServerGroupTargetTrackingConfigurationInput `pulumi:"TargetTrackingConfiguration"`
+}
+
+func (GameServerGroupAutoScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyOutput() GameServerGroupAutoScalingPolicyOutput {
+	return i.ToGameServerGroupAutoScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyOutput)
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return i.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyOutput).ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupAutoScalingPolicyPtrInput is an input type that accepts GameServerGroupAutoScalingPolicyArgs, GameServerGroupAutoScalingPolicyPtr and GameServerGroupAutoScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupAutoScalingPolicyPtrInput` via:
+//
+//          GameServerGroupAutoScalingPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupAutoScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput
+	ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyPtrOutput
+}
+
+type gameServerGroupAutoScalingPolicyPtrType GameServerGroupAutoScalingPolicyArgs
+
+func GameServerGroupAutoScalingPolicyPtr(v *GameServerGroupAutoScalingPolicyArgs) GameServerGroupAutoScalingPolicyPtrInput {
+	return (*gameServerGroupAutoScalingPolicyPtrType)(v)
+}
+
+func (*gameServerGroupAutoScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i *gameServerGroupAutoScalingPolicyPtrType) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return i.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupAutoScalingPolicyPtrType) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+type GameServerGroupAutoScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAutoScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyOutput() GameServerGroupAutoScalingPolicyOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return o.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) *GameServerGroupAutoScalingPolicy {
+		return &v
+	}).(GameServerGroupAutoScalingPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
+func (o GameServerGroupAutoScalingPolicyOutput) EstimatedInstanceWarmup() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) *float64 { return v.EstimatedInstanceWarmup }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
+func (o GameServerGroupAutoScalingPolicyOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationOutput {
+	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) GameServerGroupTargetTrackingConfiguration {
+		return v.TargetTrackingConfiguration
+	}).(GameServerGroupTargetTrackingConfigurationOutput)
+}
+
+type GameServerGroupAutoScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAutoScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o GameServerGroupAutoScalingPolicyPtrOutput) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyPtrOutput) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyPtrOutput) Elem() GameServerGroupAutoScalingPolicyOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) GameServerGroupAutoScalingPolicy { return *v }).(GameServerGroupAutoScalingPolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
+func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.EstimatedInstanceWarmup
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
+func (o GameServerGroupAutoScalingPolicyPtrOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *GameServerGroupTargetTrackingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetTrackingConfiguration
+	}).(GameServerGroupTargetTrackingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+type GameServerGroupInstanceDefinition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
+	InstanceType string `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
+	WeightedCapacity *string `pulumi:"WeightedCapacity"`
+}
+
+// GameServerGroupInstanceDefinitionInput is an input type that accepts GameServerGroupInstanceDefinitionArgs and GameServerGroupInstanceDefinitionOutput values.
+// You can construct a concrete instance of `GameServerGroupInstanceDefinitionInput` via:
+//
+//          GameServerGroupInstanceDefinitionArgs{...}
+type GameServerGroupInstanceDefinitionInput interface {
+	pulumi.Input
+
+	ToGameServerGroupInstanceDefinitionOutput() GameServerGroupInstanceDefinitionOutput
+	ToGameServerGroupInstanceDefinitionOutputWithContext(context.Context) GameServerGroupInstanceDefinitionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+type GameServerGroupInstanceDefinitionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
+	InstanceType pulumi.StringInput `pulumi:"InstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
+	WeightedCapacity pulumi.StringPtrInput `pulumi:"WeightedCapacity"`
+}
+
+func (GameServerGroupInstanceDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (i GameServerGroupInstanceDefinitionArgs) ToGameServerGroupInstanceDefinitionOutput() GameServerGroupInstanceDefinitionOutput {
+	return i.ToGameServerGroupInstanceDefinitionOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupInstanceDefinitionArgs) ToGameServerGroupInstanceDefinitionOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionOutput)
+}
+
+// GameServerGroupInstanceDefinitionArrayInput is an input type that accepts GameServerGroupInstanceDefinitionArray and GameServerGroupInstanceDefinitionArrayOutput values.
+// You can construct a concrete instance of `GameServerGroupInstanceDefinitionArrayInput` via:
+//
+//          GameServerGroupInstanceDefinitionArray{ GameServerGroupInstanceDefinitionArgs{...} }
+type GameServerGroupInstanceDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGameServerGroupInstanceDefinitionArrayOutput() GameServerGroupInstanceDefinitionArrayOutput
+	ToGameServerGroupInstanceDefinitionArrayOutputWithContext(context.Context) GameServerGroupInstanceDefinitionArrayOutput
+}
+
+type GameServerGroupInstanceDefinitionArray []GameServerGroupInstanceDefinitionInput
+
+func (GameServerGroupInstanceDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (i GameServerGroupInstanceDefinitionArray) ToGameServerGroupInstanceDefinitionArrayOutput() GameServerGroupInstanceDefinitionArrayOutput {
+	return i.ToGameServerGroupInstanceDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupInstanceDefinitionArray) ToGameServerGroupInstanceDefinitionArrayOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+type GameServerGroupInstanceDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupInstanceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefinitionOutput() GameServerGroupInstanceDefinitionOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefinitionOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
+func (o GameServerGroupInstanceDefinitionOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GameServerGroupInstanceDefinition) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
+func (o GameServerGroupInstanceDefinitionOutput) WeightedCapacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupInstanceDefinition) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
+}
+
+type GameServerGroupInstanceDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupInstanceDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (o GameServerGroupInstanceDefinitionArrayOutput) ToGameServerGroupInstanceDefinitionArrayOutput() GameServerGroupInstanceDefinitionArrayOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionArrayOutput) ToGameServerGroupInstanceDefinitionArrayOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionArrayOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) GameServerGroupInstanceDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameServerGroupInstanceDefinition {
+		return vs[0].([]GameServerGroupInstanceDefinition)[vs[1].(int)]
+	}).(GameServerGroupInstanceDefinitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
+type GameServerGroupInstanceDefinitions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
+	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"InstanceDefinitions"`
+}
+
+// GameServerGroupInstanceDefinitionsInput is an input type that accepts GameServerGroupInstanceDefinitionsArgs and GameServerGroupInstanceDefinitionsOutput values.
+// You can construct a concrete instance of `GameServerGroupInstanceDefinitionsInput` via:
+//
+//          GameServerGroupInstanceDefinitionsArgs{...}
+type GameServerGroupInstanceDefinitionsInput interface {
+	pulumi.Input
+
+	ToGameServerGroupInstanceDefinitionsOutput() GameServerGroupInstanceDefinitionsOutput
+	ToGameServerGroupInstanceDefinitionsOutputWithContext(context.Context) GameServerGroupInstanceDefinitionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
+type GameServerGroupInstanceDefinitionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
+	InstanceDefinitions GameServerGroupInstanceDefinitionArrayInput `pulumi:"InstanceDefinitions"`
+}
+
+func (GameServerGroupInstanceDefinitionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupInstanceDefinitions)(nil)).Elem()
+}
+
+func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsOutput() GameServerGroupInstanceDefinitionsOutput {
+	return i.ToGameServerGroupInstanceDefinitionsOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionsOutput)
+}
+
+func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
+	return i.ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionsOutput).ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupInstanceDefinitionsPtrInput is an input type that accepts GameServerGroupInstanceDefinitionsArgs, GameServerGroupInstanceDefinitionsPtr and GameServerGroupInstanceDefinitionsPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupInstanceDefinitionsPtrInput` via:
+//
+//          GameServerGroupInstanceDefinitionsArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupInstanceDefinitionsPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput
+	ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Context) GameServerGroupInstanceDefinitionsPtrOutput
+}
+
+type gameServerGroupInstanceDefinitionsPtrType GameServerGroupInstanceDefinitionsArgs
+
+func GameServerGroupInstanceDefinitionsPtr(v *GameServerGroupInstanceDefinitionsArgs) GameServerGroupInstanceDefinitionsPtrInput {
+	return (*gameServerGroupInstanceDefinitionsPtrType)(v)
+}
+
+func (*gameServerGroupInstanceDefinitionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupInstanceDefinitions)(nil)).Elem()
+}
+
+func (i *gameServerGroupInstanceDefinitionsPtrType) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
+	return i.ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupInstanceDefinitionsPtrType) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
+type GameServerGroupInstanceDefinitionsOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupInstanceDefinitionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupInstanceDefinitions)(nil)).Elem()
+}
+
+func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsOutput() GameServerGroupInstanceDefinitionsOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
+	return o.ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
+	return o.ApplyT(func(v GameServerGroupInstanceDefinitions) *GameServerGroupInstanceDefinitions {
+		return &v
+	}).(GameServerGroupInstanceDefinitionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
+func (o GameServerGroupInstanceDefinitionsOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionArrayOutput {
+	return o.ApplyT(func(v GameServerGroupInstanceDefinitions) []GameServerGroupInstanceDefinition {
+		return v.InstanceDefinitions
+	}).(GameServerGroupInstanceDefinitionArrayOutput)
+}
+
+type GameServerGroupInstanceDefinitionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupInstanceDefinitionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupInstanceDefinitions)(nil)).Elem()
+}
+
+func (o GameServerGroupInstanceDefinitionsPtrOutput) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionsPtrOutput) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionsPtrOutput) Elem() GameServerGroupInstanceDefinitionsOutput {
+	return o.ApplyT(func(v *GameServerGroupInstanceDefinitions) GameServerGroupInstanceDefinitions { return *v }).(GameServerGroupInstanceDefinitionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
+func (o GameServerGroupInstanceDefinitionsPtrOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionArrayOutput {
+	return o.ApplyT(func(v *GameServerGroupInstanceDefinitions) []GameServerGroupInstanceDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceDefinitions
+	}).(GameServerGroupInstanceDefinitionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+type GameServerGroupLaunchTemplate struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
+	LaunchTemplateId *string `pulumi:"LaunchTemplateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
+	LaunchTemplateName *string `pulumi:"LaunchTemplateName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
+	Version *string `pulumi:"Version"`
+}
+
+// GameServerGroupLaunchTemplateInput is an input type that accepts GameServerGroupLaunchTemplateArgs and GameServerGroupLaunchTemplateOutput values.
+// You can construct a concrete instance of `GameServerGroupLaunchTemplateInput` via:
+//
+//          GameServerGroupLaunchTemplateArgs{...}
+type GameServerGroupLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToGameServerGroupLaunchTemplateOutput() GameServerGroupLaunchTemplateOutput
+	ToGameServerGroupLaunchTemplateOutputWithContext(context.Context) GameServerGroupLaunchTemplateOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+type GameServerGroupLaunchTemplateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"LaunchTemplateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"LaunchTemplateName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
+	Version pulumi.StringPtrInput `pulumi:"Version"`
+}
+
+func (GameServerGroupLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplateOutput() GameServerGroupLaunchTemplateOutput {
+	return i.ToGameServerGroupLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplateOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput)
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput).ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// GameServerGroupLaunchTemplatePtrInput is an input type that accepts GameServerGroupLaunchTemplateArgs, GameServerGroupLaunchTemplatePtr and GameServerGroupLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `GameServerGroupLaunchTemplatePtrInput` via:
+//
+//          GameServerGroupLaunchTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput
+	ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Context) GameServerGroupLaunchTemplatePtrOutput
+}
+
+type gameServerGroupLaunchTemplatePtrType GameServerGroupLaunchTemplateArgs
+
+func GameServerGroupLaunchTemplatePtr(v *GameServerGroupLaunchTemplateArgs) GameServerGroupLaunchTemplatePtrInput {
+	return (*gameServerGroupLaunchTemplatePtrType)(v)
+}
+
+func (*gameServerGroupLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+type GameServerGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplateOutput() GameServerGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplateOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return o.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *GameServerGroupLaunchTemplate {
+		return &v
+	}).(GameServerGroupLaunchTemplatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
+func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
+func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
+func (o GameServerGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type GameServerGroupLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemplateOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) GameServerGroupLaunchTemplate { return *v }).(GameServerGroupLaunchTemplateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
+func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
+func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
+func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+type GameServerGroupProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+	AutoScalingPolicy *GameServerGroupAutoScalingPolicy `pulumi:"AutoScalingPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+	BalancingStrategy *string `pulumi:"BalancingStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+	DeleteOption *string `pulumi:"DeleteOption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+	GameServerGroupName string `pulumi:"GameServerGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+	GameServerProtectionPolicy *string `pulumi:"GameServerProtectionPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+	InstanceDefinitions GameServerGroupInstanceDefinitions `pulumi:"InstanceDefinitions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+	LaunchTemplate GameServerGroupLaunchTemplate `pulumi:"LaunchTemplate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+	MaxSize *float64 `pulumi:"MaxSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+	MinSize *float64 `pulumi:"MinSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+	RoleArn string `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+	Tags *GameServerGroupTags `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+	VpcSubnets *GameServerGroupVpcSubnets `pulumi:"VpcSubnets"`
+}
+
+// GameServerGroupPropertiesInput is an input type that accepts GameServerGroupPropertiesArgs and GameServerGroupPropertiesOutput values.
+// You can construct a concrete instance of `GameServerGroupPropertiesInput` via:
+//
+//          GameServerGroupPropertiesArgs{...}
+type GameServerGroupPropertiesInput interface {
+	pulumi.Input
+
+	ToGameServerGroupPropertiesOutput() GameServerGroupPropertiesOutput
+	ToGameServerGroupPropertiesOutputWithContext(context.Context) GameServerGroupPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+type GameServerGroupPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+	AutoScalingPolicy GameServerGroupAutoScalingPolicyPtrInput `pulumi:"AutoScalingPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+	BalancingStrategy pulumi.StringPtrInput `pulumi:"BalancingStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+	DeleteOption pulumi.StringPtrInput `pulumi:"DeleteOption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+	GameServerGroupName pulumi.StringInput `pulumi:"GameServerGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+	GameServerProtectionPolicy pulumi.StringPtrInput `pulumi:"GameServerProtectionPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+	InstanceDefinitions GameServerGroupInstanceDefinitionsInput `pulumi:"InstanceDefinitions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+	LaunchTemplate GameServerGroupLaunchTemplateInput `pulumi:"LaunchTemplate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+	MaxSize pulumi.Float64PtrInput `pulumi:"MaxSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+	MinSize pulumi.Float64PtrInput `pulumi:"MinSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+	RoleArn pulumi.StringInput `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+	Tags GameServerGroupTagsPtrInput `pulumi:"Tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+	VpcSubnets GameServerGroupVpcSubnetsPtrInput `pulumi:"VpcSubnets"`
+}
+
+func (GameServerGroupPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupProperties)(nil)).Elem()
+}
+
+func (i GameServerGroupPropertiesArgs) ToGameServerGroupPropertiesOutput() GameServerGroupPropertiesOutput {
+	return i.ToGameServerGroupPropertiesOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupPropertiesArgs) ToGameServerGroupPropertiesOutputWithContext(ctx context.Context) GameServerGroupPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupPropertiesOutput)
+}
+
+func (i GameServerGroupPropertiesArgs) ToGameServerGroupPropertiesPtrOutput() GameServerGroupPropertiesPtrOutput {
+	return i.ToGameServerGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupPropertiesArgs) ToGameServerGroupPropertiesPtrOutputWithContext(ctx context.Context) GameServerGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupPropertiesOutput).ToGameServerGroupPropertiesPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupPropertiesPtrInput is an input type that accepts GameServerGroupPropertiesArgs, GameServerGroupPropertiesPtr and GameServerGroupPropertiesPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupPropertiesPtrInput` via:
+//
+//          GameServerGroupPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupPropertiesPtrOutput() GameServerGroupPropertiesPtrOutput
+	ToGameServerGroupPropertiesPtrOutputWithContext(context.Context) GameServerGroupPropertiesPtrOutput
+}
+
+type gameServerGroupPropertiesPtrType GameServerGroupPropertiesArgs
+
+func GameServerGroupPropertiesPtr(v *GameServerGroupPropertiesArgs) GameServerGroupPropertiesPtrInput {
+	return (*gameServerGroupPropertiesPtrType)(v)
+}
+
+func (*gameServerGroupPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupProperties)(nil)).Elem()
+}
+
+func (i *gameServerGroupPropertiesPtrType) ToGameServerGroupPropertiesPtrOutput() GameServerGroupPropertiesPtrOutput {
+	return i.ToGameServerGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupPropertiesPtrType) ToGameServerGroupPropertiesPtrOutputWithContext(ctx context.Context) GameServerGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+type GameServerGroupPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupProperties)(nil)).Elem()
+}
+
+func (o GameServerGroupPropertiesOutput) ToGameServerGroupPropertiesOutput() GameServerGroupPropertiesOutput {
+	return o
+}
+
+func (o GameServerGroupPropertiesOutput) ToGameServerGroupPropertiesOutputWithContext(ctx context.Context) GameServerGroupPropertiesOutput {
+	return o
+}
+
+func (o GameServerGroupPropertiesOutput) ToGameServerGroupPropertiesPtrOutput() GameServerGroupPropertiesPtrOutput {
+	return o.ToGameServerGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupPropertiesOutput) ToGameServerGroupPropertiesPtrOutputWithContext(ctx context.Context) GameServerGroupPropertiesPtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *GameServerGroupProperties {
+		return &v
+	}).(GameServerGroupPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+func (o GameServerGroupPropertiesOutput) AutoScalingPolicy() GameServerGroupAutoScalingPolicyPtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *GameServerGroupAutoScalingPolicy { return v.AutoScalingPolicy }).(GameServerGroupAutoScalingPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+func (o GameServerGroupPropertiesOutput) BalancingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *string { return v.BalancingStrategy }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+func (o GameServerGroupPropertiesOutput) DeleteOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *string { return v.DeleteOption }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+func (o GameServerGroupPropertiesOutput) GameServerGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) string { return v.GameServerGroupName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+func (o GameServerGroupPropertiesOutput) GameServerProtectionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *string { return v.GameServerProtectionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+func (o GameServerGroupPropertiesOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionsOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) GameServerGroupInstanceDefinitions { return v.InstanceDefinitions }).(GameServerGroupInstanceDefinitionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+func (o GameServerGroupPropertiesOutput) LaunchTemplate() GameServerGroupLaunchTemplateOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) GameServerGroupLaunchTemplate { return v.LaunchTemplate }).(GameServerGroupLaunchTemplateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+func (o GameServerGroupPropertiesOutput) MaxSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *float64 { return v.MaxSize }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+func (o GameServerGroupPropertiesOutput) MinSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *float64 { return v.MinSize }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+func (o GameServerGroupPropertiesOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+func (o GameServerGroupPropertiesOutput) Tags() GameServerGroupTagsPtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *GameServerGroupTags { return v.Tags }).(GameServerGroupTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+func (o GameServerGroupPropertiesOutput) VpcSubnets() GameServerGroupVpcSubnetsPtrOutput {
+	return o.ApplyT(func(v GameServerGroupProperties) *GameServerGroupVpcSubnets { return v.VpcSubnets }).(GameServerGroupVpcSubnetsPtrOutput)
+}
+
+type GameServerGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupProperties)(nil)).Elem()
+}
+
+func (o GameServerGroupPropertiesPtrOutput) ToGameServerGroupPropertiesPtrOutput() GameServerGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o GameServerGroupPropertiesPtrOutput) ToGameServerGroupPropertiesPtrOutputWithContext(ctx context.Context) GameServerGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o GameServerGroupPropertiesPtrOutput) Elem() GameServerGroupPropertiesOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) GameServerGroupProperties { return *v }).(GameServerGroupPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+func (o GameServerGroupPropertiesPtrOutput) AutoScalingPolicy() GameServerGroupAutoScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *GameServerGroupAutoScalingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingPolicy
+	}).(GameServerGroupAutoScalingPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+func (o GameServerGroupPropertiesPtrOutput) BalancingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BalancingStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+func (o GameServerGroupPropertiesPtrOutput) DeleteOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+func (o GameServerGroupPropertiesPtrOutput) GameServerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GameServerGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+func (o GameServerGroupPropertiesPtrOutput) GameServerProtectionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GameServerProtectionPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+func (o GameServerGroupPropertiesPtrOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionsPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *GameServerGroupInstanceDefinitions {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceDefinitions
+	}).(GameServerGroupInstanceDefinitionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+func (o GameServerGroupPropertiesPtrOutput) LaunchTemplate() GameServerGroupLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *GameServerGroupLaunchTemplate {
+		if v == nil {
+			return nil
+		}
+		return &v.LaunchTemplate
+	}).(GameServerGroupLaunchTemplatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+func (o GameServerGroupPropertiesPtrOutput) MaxSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+func (o GameServerGroupPropertiesPtrOutput) MinSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+func (o GameServerGroupPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+func (o GameServerGroupPropertiesPtrOutput) Tags() GameServerGroupTagsPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *GameServerGroupTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(GameServerGroupTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+func (o GameServerGroupPropertiesPtrOutput) VpcSubnets() GameServerGroupVpcSubnetsPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupProperties) *GameServerGroupVpcSubnets {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSubnets
+	}).(GameServerGroupVpcSubnetsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
+type GameServerGroupTags struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// GameServerGroupTagsInput is an input type that accepts GameServerGroupTagsArgs and GameServerGroupTagsOutput values.
+// You can construct a concrete instance of `GameServerGroupTagsInput` via:
+//
+//          GameServerGroupTagsArgs{...}
+type GameServerGroupTagsInput interface {
+	pulumi.Input
+
+	ToGameServerGroupTagsOutput() GameServerGroupTagsOutput
+	ToGameServerGroupTagsOutputWithContext(context.Context) GameServerGroupTagsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
+type GameServerGroupTagsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (GameServerGroupTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupTags)(nil)).Elem()
+}
+
+func (i GameServerGroupTagsArgs) ToGameServerGroupTagsOutput() GameServerGroupTagsOutput {
+	return i.ToGameServerGroupTagsOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupTagsArgs) ToGameServerGroupTagsOutputWithContext(ctx context.Context) GameServerGroupTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagsOutput)
+}
+
+func (i GameServerGroupTagsArgs) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
+	return i.ToGameServerGroupTagsPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupTagsArgs) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagsOutput).ToGameServerGroupTagsPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupTagsPtrInput is an input type that accepts GameServerGroupTagsArgs, GameServerGroupTagsPtr and GameServerGroupTagsPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupTagsPtrInput` via:
+//
+//          GameServerGroupTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupTagsPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput
+	ToGameServerGroupTagsPtrOutputWithContext(context.Context) GameServerGroupTagsPtrOutput
+}
+
+type gameServerGroupTagsPtrType GameServerGroupTagsArgs
+
+func GameServerGroupTagsPtr(v *GameServerGroupTagsArgs) GameServerGroupTagsPtrInput {
+	return (*gameServerGroupTagsPtrType)(v)
+}
+
+func (*gameServerGroupTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupTags)(nil)).Elem()
+}
+
+func (i *gameServerGroupTagsPtrType) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
+	return i.ToGameServerGroupTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupTagsPtrType) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
+type GameServerGroupTagsOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupTags)(nil)).Elem()
+}
+
+func (o GameServerGroupTagsOutput) ToGameServerGroupTagsOutput() GameServerGroupTagsOutput {
+	return o
+}
+
+func (o GameServerGroupTagsOutput) ToGameServerGroupTagsOutputWithContext(ctx context.Context) GameServerGroupTagsOutput {
+	return o
+}
+
+func (o GameServerGroupTagsOutput) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
+	return o.ToGameServerGroupTagsPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupTagsOutput) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
+	return o.ApplyT(func(v GameServerGroupTags) *GameServerGroupTags {
+		return &v
+	}).(GameServerGroupTagsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
+func (o GameServerGroupTagsOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v GameServerGroupTags) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type GameServerGroupTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupTags)(nil)).Elem()
+}
+
+func (o GameServerGroupTagsPtrOutput) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
+	return o
+}
+
+func (o GameServerGroupTagsPtrOutput) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
+	return o
+}
+
+func (o GameServerGroupTagsPtrOutput) Elem() GameServerGroupTagsOutput {
+	return o.ApplyT(func(v *GameServerGroupTags) GameServerGroupTags { return *v }).(GameServerGroupTagsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
+func (o GameServerGroupTagsPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *GameServerGroupTags) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+type GameServerGroupTargetTrackingConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
+	TargetValue float64 `pulumi:"TargetValue"`
+}
+
+// GameServerGroupTargetTrackingConfigurationInput is an input type that accepts GameServerGroupTargetTrackingConfigurationArgs and GameServerGroupTargetTrackingConfigurationOutput values.
+// You can construct a concrete instance of `GameServerGroupTargetTrackingConfigurationInput` via:
+//
+//          GameServerGroupTargetTrackingConfigurationArgs{...}
+type GameServerGroupTargetTrackingConfigurationInput interface {
+	pulumi.Input
+
+	ToGameServerGroupTargetTrackingConfigurationOutput() GameServerGroupTargetTrackingConfigurationOutput
+	ToGameServerGroupTargetTrackingConfigurationOutputWithContext(context.Context) GameServerGroupTargetTrackingConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+type GameServerGroupTargetTrackingConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
+	TargetValue pulumi.Float64Input `pulumi:"TargetValue"`
+}
+
+func (GameServerGroupTargetTrackingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (i GameServerGroupTargetTrackingConfigurationArgs) ToGameServerGroupTargetTrackingConfigurationOutput() GameServerGroupTargetTrackingConfigurationOutput {
+	return i.ToGameServerGroupTargetTrackingConfigurationOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupTargetTrackingConfigurationArgs) ToGameServerGroupTargetTrackingConfigurationOutputWithContext(ctx context.Context) GameServerGroupTargetTrackingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTargetTrackingConfigurationOutput)
+}
+
+func (i GameServerGroupTargetTrackingConfigurationArgs) ToGameServerGroupTargetTrackingConfigurationPtrOutput() GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return i.ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupTargetTrackingConfigurationArgs) ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTargetTrackingConfigurationOutput).ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupTargetTrackingConfigurationPtrInput is an input type that accepts GameServerGroupTargetTrackingConfigurationArgs, GameServerGroupTargetTrackingConfigurationPtr and GameServerGroupTargetTrackingConfigurationPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupTargetTrackingConfigurationPtrInput` via:
+//
+//          GameServerGroupTargetTrackingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupTargetTrackingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupTargetTrackingConfigurationPtrOutput() GameServerGroupTargetTrackingConfigurationPtrOutput
+	ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(context.Context) GameServerGroupTargetTrackingConfigurationPtrOutput
+}
+
+type gameServerGroupTargetTrackingConfigurationPtrType GameServerGroupTargetTrackingConfigurationArgs
+
+func GameServerGroupTargetTrackingConfigurationPtr(v *GameServerGroupTargetTrackingConfigurationArgs) GameServerGroupTargetTrackingConfigurationPtrInput {
+	return (*gameServerGroupTargetTrackingConfigurationPtrType)(v)
+}
+
+func (*gameServerGroupTargetTrackingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (i *gameServerGroupTargetTrackingConfigurationPtrType) ToGameServerGroupTargetTrackingConfigurationPtrOutput() GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return i.ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupTargetTrackingConfigurationPtrType) ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTargetTrackingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+type GameServerGroupTargetTrackingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupTargetTrackingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (o GameServerGroupTargetTrackingConfigurationOutput) ToGameServerGroupTargetTrackingConfigurationOutput() GameServerGroupTargetTrackingConfigurationOutput {
+	return o
+}
+
+func (o GameServerGroupTargetTrackingConfigurationOutput) ToGameServerGroupTargetTrackingConfigurationOutputWithContext(ctx context.Context) GameServerGroupTargetTrackingConfigurationOutput {
+	return o
+}
+
+func (o GameServerGroupTargetTrackingConfigurationOutput) ToGameServerGroupTargetTrackingConfigurationPtrOutput() GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return o.ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupTargetTrackingConfigurationOutput) ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return o.ApplyT(func(v GameServerGroupTargetTrackingConfiguration) *GameServerGroupTargetTrackingConfiguration {
+		return &v
+	}).(GameServerGroupTargetTrackingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
+func (o GameServerGroupTargetTrackingConfigurationOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v GameServerGroupTargetTrackingConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type GameServerGroupTargetTrackingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupTargetTrackingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (o GameServerGroupTargetTrackingConfigurationPtrOutput) ToGameServerGroupTargetTrackingConfigurationPtrOutput() GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return o
+}
+
+func (o GameServerGroupTargetTrackingConfigurationPtrOutput) ToGameServerGroupTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupTargetTrackingConfigurationPtrOutput {
+	return o
+}
+
+func (o GameServerGroupTargetTrackingConfigurationPtrOutput) Elem() GameServerGroupTargetTrackingConfigurationOutput {
+	return o.ApplyT(func(v *GameServerGroupTargetTrackingConfiguration) GameServerGroupTargetTrackingConfiguration {
+		return *v
+	}).(GameServerGroupTargetTrackingConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
+func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GameServerGroupTargetTrackingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
+type GameServerGroupVpcSubnets struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
+	VpcSubnets []string `pulumi:"VpcSubnets"`
+}
+
+// GameServerGroupVpcSubnetsInput is an input type that accepts GameServerGroupVpcSubnetsArgs and GameServerGroupVpcSubnetsOutput values.
+// You can construct a concrete instance of `GameServerGroupVpcSubnetsInput` via:
+//
+//          GameServerGroupVpcSubnetsArgs{...}
+type GameServerGroupVpcSubnetsInput interface {
+	pulumi.Input
+
+	ToGameServerGroupVpcSubnetsOutput() GameServerGroupVpcSubnetsOutput
+	ToGameServerGroupVpcSubnetsOutputWithContext(context.Context) GameServerGroupVpcSubnetsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
+type GameServerGroupVpcSubnetsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
+	VpcSubnets pulumi.StringArrayInput `pulumi:"VpcSubnets"`
+}
+
+func (GameServerGroupVpcSubnetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupVpcSubnets)(nil)).Elem()
+}
+
+func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsOutput() GameServerGroupVpcSubnetsOutput {
+	return i.ToGameServerGroupVpcSubnetsOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupVpcSubnetsOutput)
+}
+
+func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
+	return i.ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupVpcSubnetsOutput).ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupVpcSubnetsPtrInput is an input type that accepts GameServerGroupVpcSubnetsArgs, GameServerGroupVpcSubnetsPtr and GameServerGroupVpcSubnetsPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupVpcSubnetsPtrInput` via:
+//
+//          GameServerGroupVpcSubnetsArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupVpcSubnetsPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput
+	ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Context) GameServerGroupVpcSubnetsPtrOutput
+}
+
+type gameServerGroupVpcSubnetsPtrType GameServerGroupVpcSubnetsArgs
+
+func GameServerGroupVpcSubnetsPtr(v *GameServerGroupVpcSubnetsArgs) GameServerGroupVpcSubnetsPtrInput {
+	return (*gameServerGroupVpcSubnetsPtrType)(v)
+}
+
+func (*gameServerGroupVpcSubnetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupVpcSubnets)(nil)).Elem()
+}
+
+func (i *gameServerGroupVpcSubnetsPtrType) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
+	return i.ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupVpcSubnetsPtrType) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupVpcSubnetsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
+type GameServerGroupVpcSubnetsOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupVpcSubnetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupVpcSubnets)(nil)).Elem()
+}
+
+func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsOutput() GameServerGroupVpcSubnetsOutput {
+	return o
+}
+
+func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsOutput {
+	return o
+}
+
+func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
+	return o.ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
+	return o.ApplyT(func(v GameServerGroupVpcSubnets) *GameServerGroupVpcSubnets {
+		return &v
+	}).(GameServerGroupVpcSubnetsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
+func (o GameServerGroupVpcSubnetsOutput) VpcSubnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GameServerGroupVpcSubnets) []string { return v.VpcSubnets }).(pulumi.StringArrayOutput)
+}
+
+type GameServerGroupVpcSubnetsPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupVpcSubnetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupVpcSubnets)(nil)).Elem()
+}
+
+func (o GameServerGroupVpcSubnetsPtrOutput) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
+	return o
+}
+
+func (o GameServerGroupVpcSubnetsPtrOutput) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
+	return o
+}
+
+func (o GameServerGroupVpcSubnetsPtrOutput) Elem() GameServerGroupVpcSubnetsOutput {
+	return o.ApplyT(func(v *GameServerGroupVpcSubnets) GameServerGroupVpcSubnets { return *v }).(GameServerGroupVpcSubnetsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
+func (o GameServerGroupVpcSubnetsPtrOutput) VpcSubnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GameServerGroupVpcSubnets) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSubnets
+	}).(pulumi.StringArrayOutput)
+}
+
 type GameSessionQueueAttributes struct {
 	Arn  string `pulumi:"Arn"`
 	Name string `pulumi:"Name"`
@@ -3097,6 +4572,8 @@ type MatchmakingConfigurationProperties struct {
 	CustomEventData *string `pulumi:"CustomEventData"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-description
 	Description *string `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+	FlexMatchMode *string `pulumi:"FlexMatchMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gameproperties
 	GameProperties []MatchmakingConfigurationGameProperty `pulumi:"GameProperties"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gamesessiondata
@@ -3138,6 +4615,8 @@ type MatchmakingConfigurationPropertiesArgs struct {
 	CustomEventData pulumi.StringPtrInput `pulumi:"CustomEventData"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-description
 	Description pulumi.StringPtrInput `pulumi:"Description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+	FlexMatchMode pulumi.StringPtrInput `pulumi:"FlexMatchMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gameproperties
 	GameProperties MatchmakingConfigurationGamePropertyArrayInput `pulumi:"GameProperties"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gamesessiondata
@@ -3262,6 +4741,11 @@ func (o MatchmakingConfigurationPropertiesOutput) Description() pulumi.StringPtr
 	return o.ApplyT(func(v MatchmakingConfigurationProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+func (o MatchmakingConfigurationPropertiesOutput) FlexMatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchmakingConfigurationProperties) *string { return v.FlexMatchMode }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-gameproperties
 func (o MatchmakingConfigurationPropertiesOutput) GameProperties() MatchmakingConfigurationGamePropertyArrayOutput {
 	return o.ApplyT(func(v MatchmakingConfigurationProperties) []MatchmakingConfigurationGameProperty {
@@ -3374,6 +4858,16 @@ func (o MatchmakingConfigurationPropertiesPtrOutput) Description() pulumi.String
 			return nil
 		}
 		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+func (o MatchmakingConfigurationPropertiesPtrOutput) FlexMatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlexMatchMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4272,6 +5766,24 @@ func init() {
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetServerProcessOutput{})
 	pulumi.RegisterOutputType(FleetServerProcessArrayOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAttributesOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAttributesPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionOutput{})
+	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionsOutput{})
+	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionsPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupPropertiesOutput{})
+	pulumi.RegisterOutputType(GameServerGroupPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupTagsOutput{})
+	pulumi.RegisterOutputType(GameServerGroupTagsPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
+	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupVpcSubnetsOutput{})
+	pulumi.RegisterOutputType(GameServerGroupVpcSubnetsPtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueAttributesOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueAttributesPtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueDestinationOutput{})

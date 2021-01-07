@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Outputs
     public sealed class DeliveryStreamProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+        /// </summary>
+        public readonly Outputs.DeliveryStreamDeliveryStreamEncryptionConfigurationInput? DeliveryStreamEncryptionConfigurationInput;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
         /// </summary>
         public readonly string? DeliveryStreamName;
@@ -30,6 +34,10 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Outputs
         /// </summary>
         public readonly Outputs.DeliveryStreamExtendedS3DestinationConfiguration? ExtendedS3DestinationConfiguration;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+        /// </summary>
+        public readonly Outputs.DeliveryStreamHttpEndpointDestinationConfiguration? HttpEndpointDestinationConfiguration;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
         /// </summary>
         public readonly Outputs.DeliveryStreamKinesisStreamSourceConfiguration? KinesisStreamSourceConfiguration;
@@ -45,9 +53,15 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
         /// </summary>
         public readonly Outputs.DeliveryStreamSplunkDestinationConfiguration? SplunkDestinationConfiguration;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private DeliveryStreamProperties(
+            Outputs.DeliveryStreamDeliveryStreamEncryptionConfigurationInput? DeliveryStreamEncryptionConfigurationInput,
+
             string? DeliveryStreamName,
 
             string? DeliveryStreamType,
@@ -56,22 +70,29 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamExtendedS3DestinationConfiguration? ExtendedS3DestinationConfiguration,
 
+            Outputs.DeliveryStreamHttpEndpointDestinationConfiguration? HttpEndpointDestinationConfiguration,
+
             Outputs.DeliveryStreamKinesisStreamSourceConfiguration? KinesisStreamSourceConfiguration,
 
             Outputs.DeliveryStreamRedshiftDestinationConfiguration? RedshiftDestinationConfiguration,
 
             Outputs.DeliveryStreamS3DestinationConfiguration? S3DestinationConfiguration,
 
-            Outputs.DeliveryStreamSplunkDestinationConfiguration? SplunkDestinationConfiguration)
+            Outputs.DeliveryStreamSplunkDestinationConfiguration? SplunkDestinationConfiguration,
+
+            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
         {
+            this.DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfigurationInput;
             this.DeliveryStreamName = DeliveryStreamName;
             this.DeliveryStreamType = DeliveryStreamType;
             this.ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfiguration;
             this.ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration;
+            this.HttpEndpointDestinationConfiguration = HttpEndpointDestinationConfiguration;
             this.KinesisStreamSourceConfiguration = KinesisStreamSourceConfiguration;
             this.RedshiftDestinationConfiguration = RedshiftDestinationConfiguration;
             this.S3DestinationConfiguration = S3DestinationConfiguration;
             this.SplunkDestinationConfiguration = SplunkDestinationConfiguration;
+            this.Tags = Tags;
         }
     }
 }

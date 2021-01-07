@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GuardDuty
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GuardDuty:Filter")]
     public partial class Filter : Pulumi.CustomResource
     {
         /// <summary>

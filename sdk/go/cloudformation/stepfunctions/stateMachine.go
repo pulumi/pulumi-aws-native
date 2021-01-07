@@ -4,6 +4,7 @@
 package stepfunctions
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type StateMachine struct {
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
 func NewStateMachine(ctx *pulumi.Context,
 	name string, args *StateMachineArgs, opts ...pulumi.ResourceOption) (*StateMachine, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StateMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource StateMachine
 	err := ctx.RegisterResource("cloudformation:StepFunctions:StateMachine", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StateMachineArgs struct {
 
 func (StateMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stateMachineArgs)(nil)).Elem()
+}
+
+type StateMachineInput interface {
+	pulumi.Input
+
+	ToStateMachineOutput() StateMachineOutput
+	ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput
+}
+
+func (*StateMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachine)(nil))
+}
+
+func (i *StateMachine) ToStateMachineOutput() StateMachineOutput {
+	return i.ToStateMachineOutputWithContext(context.Background())
+}
+
+func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
+}
+
+type StateMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (StateMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachine)(nil))
+}
+
+func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {
+	return o
+}
+
+func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StateMachineOutput{})
 }

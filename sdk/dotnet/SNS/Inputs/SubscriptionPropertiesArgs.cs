@@ -58,6 +58,12 @@ namespace Pulumi.Cloudformation.SNS.Inputs
         public Input<string>? Region { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
+        /// </summary>
+        [Input("SubscriptionRoleArn")]
+        public Input<string>? SubscriptionRoleArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
         /// </summary>
         [Input("TopicArn", required: true)]

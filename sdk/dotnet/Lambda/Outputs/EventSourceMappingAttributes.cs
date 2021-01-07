@@ -13,9 +13,12 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingAttributes
     {
+        public readonly string Id;
+
         [OutputConstructor]
-        private EventSourceMappingAttributes()
+        private EventSourceMappingAttributes(string Id)
         {
+            this.Id = Id;
         }
     }
 }

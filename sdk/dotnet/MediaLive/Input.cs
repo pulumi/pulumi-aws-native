@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MediaLive
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MediaLive:Input")]
     public partial class Input : Pulumi.CustomResource
     {
         /// <summary>

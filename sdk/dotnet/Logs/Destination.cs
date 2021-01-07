@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Logs
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Logs:Destination")]
     public partial class Destination : Pulumi.CustomResource
     {
         /// <summary>

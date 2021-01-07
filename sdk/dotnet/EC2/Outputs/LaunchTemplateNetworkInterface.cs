@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
     public sealed class LaunchTemplateNetworkInterface
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+        /// </summary>
+        public readonly bool? AssociateCarrierIpAddress;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
         /// </summary>
         public readonly bool? AssociatePublicIpAddress;
@@ -46,6 +50,10 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv6Add> Ipv6Addresses;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+        /// </summary>
+        public readonly int? NetworkCardIndex;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
         /// </summary>
         public readonly string? NetworkInterfaceId;
@@ -68,6 +76,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
         [OutputConstructor]
         private LaunchTemplateNetworkInterface(
+            bool? AssociateCarrierIpAddress,
+
             bool? AssociatePublicIpAddress,
 
             bool? DeleteOnTermination,
@@ -84,6 +94,8 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             ImmutableArray<Outputs.LaunchTemplateIpv6Add> Ipv6Addresses,
 
+            int? NetworkCardIndex,
+
             string? NetworkInterfaceId,
 
             string? PrivateIpAddress,
@@ -94,6 +106,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? SubnetId)
         {
+            this.AssociateCarrierIpAddress = AssociateCarrierIpAddress;
             this.AssociatePublicIpAddress = AssociatePublicIpAddress;
             this.DeleteOnTermination = DeleteOnTermination;
             this.Description = Description;
@@ -102,6 +115,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
             this.InterfaceType = InterfaceType;
             this.Ipv6AddressCount = Ipv6AddressCount;
             this.Ipv6Addresses = Ipv6Addresses;
+            this.NetworkCardIndex = NetworkCardIndex;
             this.NetworkInterfaceId = NetworkInterfaceId;
             this.PrivateIpAddress = PrivateIpAddress;
             this.PrivateIpAddresses = PrivateIpAddresses;

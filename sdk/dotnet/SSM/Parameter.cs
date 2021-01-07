@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SSM:Parameter")]
     public partial class Parameter : Pulumi.CustomResource
     {
         /// <summary>

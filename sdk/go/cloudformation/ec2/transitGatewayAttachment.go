@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TransitGatewayAttachment struct {
 // NewTransitGatewayAttachment registers a new resource with the given unique name, arguments, and options.
 func NewTransitGatewayAttachment(ctx *pulumi.Context,
 	name string, args *TransitGatewayAttachmentArgs, opts ...pulumi.ResourceOption) (*TransitGatewayAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TransitGatewayAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TransitGatewayAttachment
 	err := ctx.RegisterResource("cloudformation:EC2:TransitGatewayAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TransitGatewayAttachmentArgs struct {
 
 func (TransitGatewayAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayAttachmentArgs)(nil)).Elem()
+}
+
+type TransitGatewayAttachmentInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentOutput() TransitGatewayAttachmentOutput
+	ToTransitGatewayAttachmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentOutput
+}
+
+func (*TransitGatewayAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachment)(nil))
+}
+
+func (i *TransitGatewayAttachment) ToTransitGatewayAttachmentOutput() TransitGatewayAttachmentOutput {
+	return i.ToTransitGatewayAttachmentOutputWithContext(context.Background())
+}
+
+func (i *TransitGatewayAttachment) ToTransitGatewayAttachmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentOutput)
+}
+
+type TransitGatewayAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachment)(nil))
+}
+
+func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutput() TransitGatewayAttachmentOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitGatewayAttachmentOutput{})
 }

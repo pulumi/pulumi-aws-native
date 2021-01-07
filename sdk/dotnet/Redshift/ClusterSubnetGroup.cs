@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Redshift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Redshift:ClusterSubnetGroup")]
     public partial class ClusterSubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

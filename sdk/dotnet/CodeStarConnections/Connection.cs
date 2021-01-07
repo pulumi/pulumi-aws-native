@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeStarConnections
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeStarConnections:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>

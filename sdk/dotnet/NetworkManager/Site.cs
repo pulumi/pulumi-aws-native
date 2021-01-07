@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:NetworkManager:Site")]
     public partial class Site : Pulumi.CustomResource
     {
         /// <summary>

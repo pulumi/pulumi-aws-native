@@ -46,6 +46,10 @@ namespace Pulumi.Cloudformation.Glue.Outputs
         /// </summary>
         public readonly string? TableType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+        /// </summary>
+        public readonly Outputs.TableTableIdentifier? TargetTable;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
         /// </summary>
         public readonly string? ViewExpandedText;
@@ -72,6 +76,8 @@ namespace Pulumi.Cloudformation.Glue.Outputs
 
             string? TableType,
 
+            Outputs.TableTableIdentifier? TargetTable,
+
             string? ViewExpandedText,
 
             string? ViewOriginalText)
@@ -84,6 +90,7 @@ namespace Pulumi.Cloudformation.Glue.Outputs
             this.Retention = Retention;
             this.StorageDescriptor = StorageDescriptor;
             this.TableType = TableType;
+            this.TargetTable = TargetTable;
             this.ViewExpandedText = ViewExpandedText;
             this.ViewOriginalText = ViewOriginalText;
         }

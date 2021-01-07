@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainNameDomainNameConfiguration> DomainNameConfigurations;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
+        /// </summary>
+        public readonly Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? Tags;
@@ -32,10 +36,13 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
 
             ImmutableArray<Outputs.DomainNameDomainNameConfiguration> DomainNameConfigurations,
 
+            Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication,
+
             Union<System.Text.Json.JsonElement, string>? Tags)
         {
             this.DomainName = DomainName;
             this.DomainNameConfigurations = DomainNameConfigurations;
+            this.MutualTlsAuthentication = MutualTlsAuthentication;
             this.Tags = Tags;
         }
     }

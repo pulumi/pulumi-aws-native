@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SecretsManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SecretsManager:SecretTargetAttachment")]
     public partial class SecretTargetAttachment : Pulumi.CustomResource
     {
         /// <summary>

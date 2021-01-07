@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancing
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElasticLoadBalancing:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

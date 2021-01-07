@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? EncoderSettings;
+        public readonly Outputs.ChannelEncoderSettings? EncoderSettings;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputattachments
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
 
             ImmutableArray<Outputs.ChannelOutputDestination> Destinations,
 
-            Union<System.Text.Json.JsonElement, string>? EncoderSettings,
+            Outputs.ChannelEncoderSettings? EncoderSettings,
 
             ImmutableArray<Outputs.ChannelInputAttachment> InputAttachments,
 

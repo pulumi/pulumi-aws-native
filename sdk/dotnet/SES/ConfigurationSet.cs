@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SES
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SES:ConfigurationSet")]
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
         /// <summary>

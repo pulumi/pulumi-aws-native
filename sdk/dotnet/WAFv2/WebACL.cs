@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFv2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFv2:WebACL")]
     public partial class WebACL : Pulumi.CustomResource
     {
         /// <summary>

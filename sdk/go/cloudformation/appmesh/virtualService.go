@@ -4,6 +4,7 @@
 package appmesh
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VirtualService struct {
 // NewVirtualService registers a new resource with the given unique name, arguments, and options.
 func NewVirtualService(ctx *pulumi.Context,
 	name string, args *VirtualServiceArgs, opts ...pulumi.ResourceOption) (*VirtualService, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VirtualServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VirtualService
 	err := ctx.RegisterResource("cloudformation:AppMesh:VirtualService", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VirtualServiceArgs struct {
 
 func (VirtualServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualServiceArgs)(nil)).Elem()
+}
+
+type VirtualServiceInput interface {
+	pulumi.Input
+
+	ToVirtualServiceOutput() VirtualServiceOutput
+	ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput
+}
+
+func (*VirtualService) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualService)(nil))
+}
+
+func (i *VirtualService) ToVirtualServiceOutput() VirtualServiceOutput {
+	return i.ToVirtualServiceOutputWithContext(context.Background())
+}
+
+func (i *VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceOutput)
+}
+
+type VirtualServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualService)(nil))
+}
+
+func (o VirtualServiceOutput) ToVirtualServiceOutput() VirtualServiceOutput {
+	return o
+}
+
+func (o VirtualServiceOutput) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualServiceOutput{})
 }

@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Workflow struct {
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
 func NewWorkflow(ctx *pulumi.Context,
 	name string, args *WorkflowArgs, opts ...pulumi.ResourceOption) (*Workflow, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &WorkflowArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Workflow
 	err := ctx.RegisterResource("cloudformation:Glue:Workflow", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type WorkflowArgs struct {
 
 func (WorkflowArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowArgs)(nil)).Elem()
+}
+
+type WorkflowInput interface {
+	pulumi.Input
+
+	ToWorkflowOutput() WorkflowOutput
+	ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput
+}
+
+func (*Workflow) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workflow)(nil))
+}
+
+func (i *Workflow) ToWorkflowOutput() WorkflowOutput {
+	return i.ToWorkflowOutputWithContext(context.Background())
+}
+
+func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
+}
+
+type WorkflowOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkflowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workflow)(nil))
+}
+
+func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {
+	return o
+}
+
+func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkflowOutput{})
 }

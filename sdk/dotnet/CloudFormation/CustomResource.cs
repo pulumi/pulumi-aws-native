@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudFormation:CustomResource")]
     public partial class CustomResource : Pulumi.CustomResource
     {
         /// <summary>

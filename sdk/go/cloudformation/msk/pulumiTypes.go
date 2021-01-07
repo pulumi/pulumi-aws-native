@@ -506,6 +506,8 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterStorageInfoPtr
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html
 type ClusterClientAuthentication struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
+	Sasl *ClusterSasl `pulumi:"Sasl"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
 	Tls *ClusterTls `pulumi:"Tls"`
 }
@@ -523,6 +525,8 @@ type ClusterClientAuthenticationInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html
 type ClusterClientAuthenticationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
+	Sasl ClusterSaslPtrInput `pulumi:"Sasl"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
 	Tls ClusterTlsPtrInput `pulumi:"Tls"`
 }
@@ -605,6 +609,11 @@ func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationPtrOutpu
 	}).(ClusterClientAuthenticationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
+func (o ClusterClientAuthenticationOutput) Sasl() ClusterSaslPtrOutput {
+	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterSasl { return v.Sasl }).(ClusterSaslPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
 func (o ClusterClientAuthenticationOutput) Tls() ClusterTlsPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterTls { return v.Tls }).(ClusterTlsPtrOutput)
@@ -626,6 +635,16 @@ func (o ClusterClientAuthenticationPtrOutput) ToClusterClientAuthenticationPtrOu
 
 func (o ClusterClientAuthenticationPtrOutput) Elem() ClusterClientAuthenticationOutput {
 	return o.ApplyT(func(v *ClusterClientAuthentication) ClusterClientAuthentication { return *v }).(ClusterClientAuthenticationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
+func (o ClusterClientAuthenticationPtrOutput) Sasl() ClusterSaslPtrOutput {
+	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterSasl {
+		if v == nil {
+			return nil
+		}
+		return v.Sasl
+	}).(ClusterSaslPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
@@ -2856,6 +2875,274 @@ func (o ClusterS3PtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html
+type ClusterSasl struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-scram
+	Scram ClusterScram `pulumi:"Scram"`
+}
+
+// ClusterSaslInput is an input type that accepts ClusterSaslArgs and ClusterSaslOutput values.
+// You can construct a concrete instance of `ClusterSaslInput` via:
+//
+//          ClusterSaslArgs{...}
+type ClusterSaslInput interface {
+	pulumi.Input
+
+	ToClusterSaslOutput() ClusterSaslOutput
+	ToClusterSaslOutputWithContext(context.Context) ClusterSaslOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html
+type ClusterSaslArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-scram
+	Scram ClusterScramInput `pulumi:"Scram"`
+}
+
+func (ClusterSaslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSasl)(nil)).Elem()
+}
+
+func (i ClusterSaslArgs) ToClusterSaslOutput() ClusterSaslOutput {
+	return i.ToClusterSaslOutputWithContext(context.Background())
+}
+
+func (i ClusterSaslArgs) ToClusterSaslOutputWithContext(ctx context.Context) ClusterSaslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSaslOutput)
+}
+
+func (i ClusterSaslArgs) ToClusterSaslPtrOutput() ClusterSaslPtrOutput {
+	return i.ToClusterSaslPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSaslArgs) ToClusterSaslPtrOutputWithContext(ctx context.Context) ClusterSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSaslOutput).ToClusterSaslPtrOutputWithContext(ctx)
+}
+
+// ClusterSaslPtrInput is an input type that accepts ClusterSaslArgs, ClusterSaslPtr and ClusterSaslPtrOutput values.
+// You can construct a concrete instance of `ClusterSaslPtrInput` via:
+//
+//          ClusterSaslArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterSaslPtrInput interface {
+	pulumi.Input
+
+	ToClusterSaslPtrOutput() ClusterSaslPtrOutput
+	ToClusterSaslPtrOutputWithContext(context.Context) ClusterSaslPtrOutput
+}
+
+type clusterSaslPtrType ClusterSaslArgs
+
+func ClusterSaslPtr(v *ClusterSaslArgs) ClusterSaslPtrInput {
+	return (*clusterSaslPtrType)(v)
+}
+
+func (*clusterSaslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSasl)(nil)).Elem()
+}
+
+func (i *clusterSaslPtrType) ToClusterSaslPtrOutput() ClusterSaslPtrOutput {
+	return i.ToClusterSaslPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSaslPtrType) ToClusterSaslPtrOutputWithContext(ctx context.Context) ClusterSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSaslPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html
+type ClusterSaslOutput struct{ *pulumi.OutputState }
+
+func (ClusterSaslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSasl)(nil)).Elem()
+}
+
+func (o ClusterSaslOutput) ToClusterSaslOutput() ClusterSaslOutput {
+	return o
+}
+
+func (o ClusterSaslOutput) ToClusterSaslOutputWithContext(ctx context.Context) ClusterSaslOutput {
+	return o
+}
+
+func (o ClusterSaslOutput) ToClusterSaslPtrOutput() ClusterSaslPtrOutput {
+	return o.ToClusterSaslPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSaslOutput) ToClusterSaslPtrOutputWithContext(ctx context.Context) ClusterSaslPtrOutput {
+	return o.ApplyT(func(v ClusterSasl) *ClusterSasl {
+		return &v
+	}).(ClusterSaslPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-scram
+func (o ClusterSaslOutput) Scram() ClusterScramOutput {
+	return o.ApplyT(func(v ClusterSasl) ClusterScram { return v.Scram }).(ClusterScramOutput)
+}
+
+type ClusterSaslPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSaslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSasl)(nil)).Elem()
+}
+
+func (o ClusterSaslPtrOutput) ToClusterSaslPtrOutput() ClusterSaslPtrOutput {
+	return o
+}
+
+func (o ClusterSaslPtrOutput) ToClusterSaslPtrOutputWithContext(ctx context.Context) ClusterSaslPtrOutput {
+	return o
+}
+
+func (o ClusterSaslPtrOutput) Elem() ClusterSaslOutput {
+	return o.ApplyT(func(v *ClusterSasl) ClusterSasl { return *v }).(ClusterSaslOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html#cfn-msk-cluster-sasl-scram
+func (o ClusterSaslPtrOutput) Scram() ClusterScramPtrOutput {
+	return o.ApplyT(func(v *ClusterSasl) *ClusterScram {
+		if v == nil {
+			return nil
+		}
+		return &v.Scram
+	}).(ClusterScramPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html
+type ClusterScram struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html#cfn-msk-cluster-scram-enabled
+	Enabled bool `pulumi:"Enabled"`
+}
+
+// ClusterScramInput is an input type that accepts ClusterScramArgs and ClusterScramOutput values.
+// You can construct a concrete instance of `ClusterScramInput` via:
+//
+//          ClusterScramArgs{...}
+type ClusterScramInput interface {
+	pulumi.Input
+
+	ToClusterScramOutput() ClusterScramOutput
+	ToClusterScramOutputWithContext(context.Context) ClusterScramOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html
+type ClusterScramArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html#cfn-msk-cluster-scram-enabled
+	Enabled pulumi.BoolInput `pulumi:"Enabled"`
+}
+
+func (ClusterScramArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScram)(nil)).Elem()
+}
+
+func (i ClusterScramArgs) ToClusterScramOutput() ClusterScramOutput {
+	return i.ToClusterScramOutputWithContext(context.Background())
+}
+
+func (i ClusterScramArgs) ToClusterScramOutputWithContext(ctx context.Context) ClusterScramOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScramOutput)
+}
+
+func (i ClusterScramArgs) ToClusterScramPtrOutput() ClusterScramPtrOutput {
+	return i.ToClusterScramPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterScramArgs) ToClusterScramPtrOutputWithContext(ctx context.Context) ClusterScramPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScramOutput).ToClusterScramPtrOutputWithContext(ctx)
+}
+
+// ClusterScramPtrInput is an input type that accepts ClusterScramArgs, ClusterScramPtr and ClusterScramPtrOutput values.
+// You can construct a concrete instance of `ClusterScramPtrInput` via:
+//
+//          ClusterScramArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterScramPtrInput interface {
+	pulumi.Input
+
+	ToClusterScramPtrOutput() ClusterScramPtrOutput
+	ToClusterScramPtrOutputWithContext(context.Context) ClusterScramPtrOutput
+}
+
+type clusterScramPtrType ClusterScramArgs
+
+func ClusterScramPtr(v *ClusterScramArgs) ClusterScramPtrInput {
+	return (*clusterScramPtrType)(v)
+}
+
+func (*clusterScramPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScram)(nil)).Elem()
+}
+
+func (i *clusterScramPtrType) ToClusterScramPtrOutput() ClusterScramPtrOutput {
+	return i.ToClusterScramPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterScramPtrType) ToClusterScramPtrOutputWithContext(ctx context.Context) ClusterScramPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScramPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html
+type ClusterScramOutput struct{ *pulumi.OutputState }
+
+func (ClusterScramOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScram)(nil)).Elem()
+}
+
+func (o ClusterScramOutput) ToClusterScramOutput() ClusterScramOutput {
+	return o
+}
+
+func (o ClusterScramOutput) ToClusterScramOutputWithContext(ctx context.Context) ClusterScramOutput {
+	return o
+}
+
+func (o ClusterScramOutput) ToClusterScramPtrOutput() ClusterScramPtrOutput {
+	return o.ToClusterScramPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScramOutput) ToClusterScramPtrOutputWithContext(ctx context.Context) ClusterScramPtrOutput {
+	return o.ApplyT(func(v ClusterScram) *ClusterScram {
+		return &v
+	}).(ClusterScramPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html#cfn-msk-cluster-scram-enabled
+func (o ClusterScramOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterScram) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClusterScramPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterScramPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScram)(nil)).Elem()
+}
+
+func (o ClusterScramPtrOutput) ToClusterScramPtrOutput() ClusterScramPtrOutput {
+	return o
+}
+
+func (o ClusterScramPtrOutput) ToClusterScramPtrOutputWithContext(ctx context.Context) ClusterScramPtrOutput {
+	return o
+}
+
+func (o ClusterScramPtrOutput) Elem() ClusterScramOutput {
+	return o.ApplyT(func(v *ClusterScram) ClusterScram { return *v }).(ClusterScramOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html#cfn-msk-cluster-scram-enabled
+func (o ClusterScramPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterScram) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html
 type ClusterStorageInfo struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html#cfn-msk-cluster-storageinfo-ebsstorageinfo
@@ -3161,6 +3448,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterS3Output{})
 	pulumi.RegisterOutputType(ClusterS3PtrOutput{})
+	pulumi.RegisterOutputType(ClusterSaslOutput{})
+	pulumi.RegisterOutputType(ClusterSaslPtrOutput{})
+	pulumi.RegisterOutputType(ClusterScramOutput{})
+	pulumi.RegisterOutputType(ClusterScramPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageInfoOutput{})
 	pulumi.RegisterOutputType(ClusterStorageInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTlsOutput{})

@@ -10,6 +10,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
+type BackupPlanAdvancedBackupSettingResourceType struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
+	BackupOptions interface{} `pulumi:"BackupOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
+	ResourceType string `pulumi:"ResourceType"`
+}
+
+// BackupPlanAdvancedBackupSettingResourceTypeInput is an input type that accepts BackupPlanAdvancedBackupSettingResourceTypeArgs and BackupPlanAdvancedBackupSettingResourceTypeOutput values.
+// You can construct a concrete instance of `BackupPlanAdvancedBackupSettingResourceTypeInput` via:
+//
+//          BackupPlanAdvancedBackupSettingResourceTypeArgs{...}
+type BackupPlanAdvancedBackupSettingResourceTypeInput interface {
+	pulumi.Input
+
+	ToBackupPlanAdvancedBackupSettingResourceTypeOutput() BackupPlanAdvancedBackupSettingResourceTypeOutput
+	ToBackupPlanAdvancedBackupSettingResourceTypeOutputWithContext(context.Context) BackupPlanAdvancedBackupSettingResourceTypeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
+type BackupPlanAdvancedBackupSettingResourceTypeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
+	BackupOptions pulumi.Input `pulumi:"BackupOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
+	ResourceType pulumi.StringInput `pulumi:"ResourceType"`
+}
+
+func (BackupPlanAdvancedBackupSettingResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanAdvancedBackupSettingResourceTypeArgs) ToBackupPlanAdvancedBackupSettingResourceTypeOutput() BackupPlanAdvancedBackupSettingResourceTypeOutput {
+	return i.ToBackupPlanAdvancedBackupSettingResourceTypeOutputWithContext(context.Background())
+}
+
+func (i BackupPlanAdvancedBackupSettingResourceTypeArgs) ToBackupPlanAdvancedBackupSettingResourceTypeOutputWithContext(ctx context.Context) BackupPlanAdvancedBackupSettingResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanAdvancedBackupSettingResourceTypeOutput)
+}
+
+// BackupPlanAdvancedBackupSettingResourceTypeArrayInput is an input type that accepts BackupPlanAdvancedBackupSettingResourceTypeArray and BackupPlanAdvancedBackupSettingResourceTypeArrayOutput values.
+// You can construct a concrete instance of `BackupPlanAdvancedBackupSettingResourceTypeArrayInput` via:
+//
+//          BackupPlanAdvancedBackupSettingResourceTypeArray{ BackupPlanAdvancedBackupSettingResourceTypeArgs{...} }
+type BackupPlanAdvancedBackupSettingResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutput() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput
+	ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutputWithContext(context.Context) BackupPlanAdvancedBackupSettingResourceTypeArrayOutput
+}
+
+type BackupPlanAdvancedBackupSettingResourceTypeArray []BackupPlanAdvancedBackupSettingResourceTypeInput
+
+func (BackupPlanAdvancedBackupSettingResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanAdvancedBackupSettingResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanAdvancedBackupSettingResourceTypeArray) ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutput() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return i.ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPlanAdvancedBackupSettingResourceTypeArray) ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
+type BackupPlanAdvancedBackupSettingResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanAdvancedBackupSettingResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ToBackupPlanAdvancedBackupSettingResourceTypeOutput() BackupPlanAdvancedBackupSettingResourceTypeOutput {
+	return o
+}
+
+func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ToBackupPlanAdvancedBackupSettingResourceTypeOutputWithContext(ctx context.Context) BackupPlanAdvancedBackupSettingResourceTypeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
+func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) BackupOptions() pulumi.AnyOutput {
+	return o.ApplyT(func(v BackupPlanAdvancedBackupSettingResourceType) interface{} { return v.BackupOptions }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
+func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPlanAdvancedBackupSettingResourceType) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type BackupPlanAdvancedBackupSettingResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanAdvancedBackupSettingResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutput() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupPlanAdvancedBackupSettingResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPlanAdvancedBackupSettingResourceType {
+		return vs[0].([]BackupPlanAdvancedBackupSettingResourceType)[vs[1].(int)]
+	}).(BackupPlanAdvancedBackupSettingResourceTypeOutput)
+}
+
 type BackupPlanAttributes struct {
 	BackupPlanArn string `pulumi:"BackupPlanArn"`
 	BackupPlanId  string `pulumi:"BackupPlanId"`
@@ -168,6 +277,8 @@ func (o BackupPlanAttributesPtrOutput) VersionId() pulumi.StringPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
 type BackupPlanBackupPlanResourceType struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+	AdvancedBackupSettings []BackupPlanAdvancedBackupSettingResourceType `pulumi:"AdvancedBackupSettings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
 	BackupPlanName string `pulumi:"BackupPlanName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
@@ -187,6 +298,8 @@ type BackupPlanBackupPlanResourceTypeInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
 type BackupPlanBackupPlanResourceTypeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+	AdvancedBackupSettings BackupPlanAdvancedBackupSettingResourceTypeArrayInput `pulumi:"AdvancedBackupSettings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
 	BackupPlanName pulumi.StringInput `pulumi:"BackupPlanName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
@@ -271,6 +384,13 @@ func (o BackupPlanBackupPlanResourceTypeOutput) ToBackupPlanBackupPlanResourceTy
 	}).(BackupPlanBackupPlanResourceTypePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+func (o BackupPlanBackupPlanResourceTypeOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
+		return v.AdvancedBackupSettings
+	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
 func (o BackupPlanBackupPlanResourceTypeOutput) BackupPlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) string { return v.BackupPlanName }).(pulumi.StringOutput)
@@ -297,6 +417,16 @@ func (o BackupPlanBackupPlanResourceTypePtrOutput) ToBackupPlanBackupPlanResourc
 
 func (o BackupPlanBackupPlanResourceTypePtrOutput) Elem() BackupPlanBackupPlanResourceTypeOutput {
 	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) BackupPlanBackupPlanResourceType { return *v }).(BackupPlanBackupPlanResourceTypeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+func (o BackupPlanBackupPlanResourceTypePtrOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedBackupSettings
+	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
@@ -2009,6 +2139,8 @@ func (o BackupVaultPropertiesPtrOutput) Notifications() BackupVaultNotificationO
 }
 
 func init() {
+	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeOutput{})
+	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanAttributesOutput{})
 	pulumi.RegisterOutputType(BackupPlanAttributesPtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupPlanResourceTypeOutput{})

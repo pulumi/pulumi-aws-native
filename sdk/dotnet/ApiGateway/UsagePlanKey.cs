@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ApiGateway:UsagePlanKey")]
     public partial class UsagePlanKey : Pulumi.CustomResource
     {
         /// <summary>

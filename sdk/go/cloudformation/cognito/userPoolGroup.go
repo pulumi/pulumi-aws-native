@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolGroup struct {
 // NewUserPoolGroup registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolGroup(ctx *pulumi.Context,
 	name string, args *UserPoolGroupArgs, opts ...pulumi.ResourceOption) (*UserPoolGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolGroup
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolGroupArgs struct {
 
 func (UserPoolGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolGroupArgs)(nil)).Elem()
+}
+
+type UserPoolGroupInput interface {
+	pulumi.Input
+
+	ToUserPoolGroupOutput() UserPoolGroupOutput
+	ToUserPoolGroupOutputWithContext(ctx context.Context) UserPoolGroupOutput
+}
+
+func (*UserPoolGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolGroup)(nil))
+}
+
+func (i *UserPoolGroup) ToUserPoolGroupOutput() UserPoolGroupOutput {
+	return i.ToUserPoolGroupOutputWithContext(context.Background())
+}
+
+func (i *UserPoolGroup) ToUserPoolGroupOutputWithContext(ctx context.Context) UserPoolGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolGroupOutput)
+}
+
+type UserPoolGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolGroup)(nil))
+}
+
+func (o UserPoolGroupOutput) ToUserPoolGroupOutput() UserPoolGroupOutput {
+	return o
+}
+
+func (o UserPoolGroupOutput) ToUserPoolGroupOutputWithContext(ctx context.Context) UserPoolGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolGroupOutput{})
 }

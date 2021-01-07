@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ApiKey struct {
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
 func NewApiKey(ctx *pulumi.Context,
 	name string, args *ApiKeyArgs, opts ...pulumi.ResourceOption) (*ApiKey, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ApiKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ApiKey
 	err := ctx.RegisterResource("cloudformation:ApiGateway:ApiKey", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ApiKeyArgs struct {
 
 func (ApiKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyArgs)(nil)).Elem()
+}
+
+type ApiKeyInput interface {
+	pulumi.Input
+
+	ToApiKeyOutput() ApiKeyOutput
+	ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput
+}
+
+func (*ApiKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKey)(nil))
+}
+
+func (i *ApiKey) ToApiKeyOutput() ApiKeyOutput {
+	return i.ToApiKeyOutputWithContext(context.Background())
+}
+
+func (i *ApiKey) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyOutput)
+}
+
+type ApiKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKey)(nil))
+}
+
+func (o ApiKeyOutput) ToApiKeyOutput() ApiKeyOutput {
+	return o
+}
+
+func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiKeyOutput{})
 }

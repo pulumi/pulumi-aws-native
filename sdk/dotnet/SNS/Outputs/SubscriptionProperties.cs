@@ -42,6 +42,10 @@ namespace Pulumi.Cloudformation.SNS.Outputs
         /// </summary>
         public readonly string? Region;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
+        /// </summary>
+        public readonly string? SubscriptionRoleArn;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
         /// </summary>
         public readonly string TopicArn;
@@ -62,6 +66,8 @@ namespace Pulumi.Cloudformation.SNS.Outputs
 
             string? Region,
 
+            string? SubscriptionRoleArn,
+
             string TopicArn)
         {
             this.DeliveryPolicy = DeliveryPolicy;
@@ -71,6 +77,7 @@ namespace Pulumi.Cloudformation.SNS.Outputs
             this.RawMessageDelivery = RawMessageDelivery;
             this.RedrivePolicy = RedrivePolicy;
             this.Region = Region;
+            this.SubscriptionRoleArn = SubscriptionRoleArn;
             this.TopicArn = TopicArn;
         }
     }

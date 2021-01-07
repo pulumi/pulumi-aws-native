@@ -21,11 +21,41 @@ namespace Pulumi.Cloudformation.CodeGuruProfiler.Inputs
         [Input("AgentPermissions")]
         public InputUnion<System.Text.Json.JsonElement, string>? AgentPermissions { get; set; }
 
+        [Input("AnomalyDetectionNotificationConfiguration")]
+        private InputList<Inputs.ProfilingGroupChannelArgs>? _AnomalyDetectionNotificationConfiguration;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+        /// </summary>
+        public InputList<Inputs.ProfilingGroupChannelArgs> AnomalyDetectionNotificationConfiguration
+        {
+            get => _AnomalyDetectionNotificationConfiguration ?? (_AnomalyDetectionNotificationConfiguration = new InputList<Inputs.ProfilingGroupChannelArgs>());
+            set => _AnomalyDetectionNotificationConfiguration = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+        /// </summary>
+        [Input("ComputePlatform")]
+        public Input<string>? ComputePlatform { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
         /// </summary>
         [Input("ProfilingGroupName", required: true)]
         public Input<string> ProfilingGroupName { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+        /// </summary>
+        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public ProfilingGroupPropertiesArgs()
         {

@@ -4,6 +4,7 @@
 package cloudtrail
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Trail struct {
 // NewTrail registers a new resource with the given unique name, arguments, and options.
 func NewTrail(ctx *pulumi.Context,
 	name string, args *TrailArgs, opts ...pulumi.ResourceOption) (*Trail, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TrailArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Trail
 	err := ctx.RegisterResource("cloudformation:CloudTrail:Trail", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TrailArgs struct {
 
 func (TrailArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trailArgs)(nil)).Elem()
+}
+
+type TrailInput interface {
+	pulumi.Input
+
+	ToTrailOutput() TrailOutput
+	ToTrailOutputWithContext(ctx context.Context) TrailOutput
+}
+
+func (*Trail) ElementType() reflect.Type {
+	return reflect.TypeOf((*Trail)(nil))
+}
+
+func (i *Trail) ToTrailOutput() TrailOutput {
+	return i.ToTrailOutputWithContext(context.Background())
+}
+
+func (i *Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailOutput)
+}
+
+type TrailOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Trail)(nil))
+}
+
+func (o TrailOutput) ToTrailOutput() TrailOutput {
+	return o
+}
+
+func (o TrailOutput) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrailOutput{})
 }

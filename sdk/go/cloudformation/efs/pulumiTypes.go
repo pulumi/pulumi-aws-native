@@ -968,6 +968,7 @@ func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 type FileSystemAttributes struct {
+	Arn          string `pulumi:"Arn"`
 	FileSystemId string `pulumi:"FileSystemId"`
 }
 
@@ -983,6 +984,7 @@ type FileSystemAttributesInput interface {
 }
 
 type FileSystemAttributesArgs struct {
+	Arn          pulumi.StringInput `pulumi:"Arn"`
 	FileSystemId pulumi.StringInput `pulumi:"FileSystemId"`
 }
 
@@ -1062,6 +1064,10 @@ func (o FileSystemAttributesOutput) ToFileSystemAttributesPtrOutputWithContext(c
 		return &v
 	}).(FileSystemAttributesPtrOutput)
 }
+func (o FileSystemAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
 func (o FileSystemAttributesOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemAttributes) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
@@ -1084,12 +1090,155 @@ func (o FileSystemAttributesPtrOutput) Elem() FileSystemAttributesOutput {
 	return o.ApplyT(func(v *FileSystemAttributes) FileSystemAttributes { return *v }).(FileSystemAttributesOutput)
 }
 
+func (o FileSystemAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o FileSystemAttributesPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemAttributes) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
+type FileSystemBackupPolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
+	Status string `pulumi:"Status"`
+}
+
+// FileSystemBackupPolicyInput is an input type that accepts FileSystemBackupPolicyArgs and FileSystemBackupPolicyOutput values.
+// You can construct a concrete instance of `FileSystemBackupPolicyInput` via:
+//
+//          FileSystemBackupPolicyArgs{...}
+type FileSystemBackupPolicyInput interface {
+	pulumi.Input
+
+	ToFileSystemBackupPolicyOutput() FileSystemBackupPolicyOutput
+	ToFileSystemBackupPolicyOutputWithContext(context.Context) FileSystemBackupPolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
+type FileSystemBackupPolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
+	Status pulumi.StringInput `pulumi:"Status"`
+}
+
+func (FileSystemBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemBackupPolicy)(nil)).Elem()
+}
+
+func (i FileSystemBackupPolicyArgs) ToFileSystemBackupPolicyOutput() FileSystemBackupPolicyOutput {
+	return i.ToFileSystemBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i FileSystemBackupPolicyArgs) ToFileSystemBackupPolicyOutputWithContext(ctx context.Context) FileSystemBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemBackupPolicyOutput)
+}
+
+func (i FileSystemBackupPolicyArgs) ToFileSystemBackupPolicyPtrOutput() FileSystemBackupPolicyPtrOutput {
+	return i.ToFileSystemBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemBackupPolicyArgs) ToFileSystemBackupPolicyPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemBackupPolicyOutput).ToFileSystemBackupPolicyPtrOutputWithContext(ctx)
+}
+
+// FileSystemBackupPolicyPtrInput is an input type that accepts FileSystemBackupPolicyArgs, FileSystemBackupPolicyPtr and FileSystemBackupPolicyPtrOutput values.
+// You can construct a concrete instance of `FileSystemBackupPolicyPtrInput` via:
+//
+//          FileSystemBackupPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemBackupPolicyPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemBackupPolicyPtrOutput() FileSystemBackupPolicyPtrOutput
+	ToFileSystemBackupPolicyPtrOutputWithContext(context.Context) FileSystemBackupPolicyPtrOutput
+}
+
+type fileSystemBackupPolicyPtrType FileSystemBackupPolicyArgs
+
+func FileSystemBackupPolicyPtr(v *FileSystemBackupPolicyArgs) FileSystemBackupPolicyPtrInput {
+	return (*fileSystemBackupPolicyPtrType)(v)
+}
+
+func (*fileSystemBackupPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemBackupPolicy)(nil)).Elem()
+}
+
+func (i *fileSystemBackupPolicyPtrType) ToFileSystemBackupPolicyPtrOutput() FileSystemBackupPolicyPtrOutput {
+	return i.ToFileSystemBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemBackupPolicyPtrType) ToFileSystemBackupPolicyPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemBackupPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
+type FileSystemBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (FileSystemBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemBackupPolicy)(nil)).Elem()
+}
+
+func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyOutput() FileSystemBackupPolicyOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyOutputWithContext(ctx context.Context) FileSystemBackupPolicyOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyPtrOutput() FileSystemBackupPolicyPtrOutput {
+	return o.ToFileSystemBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyPtrOutput {
+	return o.ApplyT(func(v FileSystemBackupPolicy) *FileSystemBackupPolicy {
+		return &v
+	}).(FileSystemBackupPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
+func (o FileSystemBackupPolicyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type FileSystemBackupPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemBackupPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemBackupPolicy)(nil)).Elem()
+}
+
+func (o FileSystemBackupPolicyPtrOutput) ToFileSystemBackupPolicyPtrOutput() FileSystemBackupPolicyPtrOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyPtrOutput) ToFileSystemBackupPolicyPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyPtrOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyPtrOutput) Elem() FileSystemBackupPolicyOutput {
+	return o.ApplyT(func(v *FileSystemBackupPolicy) FileSystemBackupPolicy { return *v }).(FileSystemBackupPolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
+func (o FileSystemBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemBackupPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1304,6 +1453,8 @@ func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSyste
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 type FileSystemProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+	BackupPolicy *FileSystemBackupPolicy `pulumi:"BackupPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
 	Encrypted *bool `pulumi:"Encrypted"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
@@ -1335,6 +1486,8 @@ type FileSystemPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 type FileSystemPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+	BackupPolicy FileSystemBackupPolicyPtrInput `pulumi:"BackupPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
 	Encrypted pulumi.BoolPtrInput `pulumi:"Encrypted"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
@@ -1431,6 +1584,11 @@ func (o FileSystemPropertiesOutput) ToFileSystemPropertiesPtrOutputWithContext(c
 	}).(FileSystemPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+func (o FileSystemPropertiesOutput) BackupPolicy() FileSystemBackupPolicyPtrOutput {
+	return o.ApplyT(func(v FileSystemProperties) *FileSystemBackupPolicy { return v.BackupPolicy }).(FileSystemBackupPolicyPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
 func (o FileSystemPropertiesOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileSystemProperties) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
@@ -1487,6 +1645,16 @@ func (o FileSystemPropertiesPtrOutput) ToFileSystemPropertiesPtrOutputWithContex
 
 func (o FileSystemPropertiesPtrOutput) Elem() FileSystemPropertiesOutput {
 	return o.ApplyT(func(v *FileSystemProperties) FileSystemProperties { return *v }).(FileSystemPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+func (o FileSystemPropertiesPtrOutput) BackupPolicy() FileSystemBackupPolicyPtrOutput {
+	return o.ApplyT(func(v *FileSystemProperties) *FileSystemBackupPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.BackupPolicy
+	}).(FileSystemBackupPolicyPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
@@ -1901,6 +2069,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointRootDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemAttributesOutput{})
 	pulumi.RegisterOutputType(FileSystemAttributesPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemBackupPolicyOutput{})
+	pulumi.RegisterOutputType(FileSystemBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemElasticFileSystemTagOutput{})
 	pulumi.RegisterOutputType(FileSystemElasticFileSystemTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})

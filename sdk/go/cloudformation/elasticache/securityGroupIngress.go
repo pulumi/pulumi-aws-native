@@ -4,6 +4,7 @@
 package elasticache
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SecurityGroupIngress struct {
 // NewSecurityGroupIngress registers a new resource with the given unique name, arguments, and options.
 func NewSecurityGroupIngress(ctx *pulumi.Context,
 	name string, args *SecurityGroupIngressArgs, opts ...pulumi.ResourceOption) (*SecurityGroupIngress, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SecurityGroupIngressArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SecurityGroupIngress
 	err := ctx.RegisterResource("cloudformation:ElastiCache:SecurityGroupIngress", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SecurityGroupIngressArgs struct {
 
 func (SecurityGroupIngressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupIngressArgs)(nil)).Elem()
+}
+
+type SecurityGroupIngressInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressOutput() SecurityGroupIngressOutput
+	ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput
+}
+
+func (*SecurityGroupIngress) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngress)(nil))
+}
+
+func (i *SecurityGroupIngress) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
+	return i.ToSecurityGroupIngressOutputWithContext(context.Background())
+}
+
+func (i *SecurityGroupIngress) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
+}
+
+type SecurityGroupIngressOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityGroupIngressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngress)(nil))
+}
+
+func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
+	return o
+}
+
+func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeCommit
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeCommit:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>

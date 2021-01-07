@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Configuration:ConfigRule")]
     public partial class ConfigRule : Pulumi.CustomResource
     {
         /// <summary>

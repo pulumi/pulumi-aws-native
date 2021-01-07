@@ -51,6 +51,12 @@ namespace Pulumi.Cloudformation.GameLift.Inputs
         [Input("Description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-flexmatchmode
+        /// </summary>
+        [Input("FlexMatchMode")]
+        public Input<string>? FlexMatchMode { get; set; }
+
         [Input("GameProperties")]
         private InputList<Inputs.MatchmakingConfigurationGamePropertyArgs>? _GameProperties;
 
@@ -69,7 +75,7 @@ namespace Pulumi.Cloudformation.GameLift.Inputs
         [Input("GameSessionData")]
         public Input<string>? GameSessionData { get; set; }
 
-        [Input("GameSessionQueueArns", required: true)]
+        [Input("GameSessionQueueArns")]
         private InputList<string>? _GameSessionQueueArns;
 
         /// <summary>

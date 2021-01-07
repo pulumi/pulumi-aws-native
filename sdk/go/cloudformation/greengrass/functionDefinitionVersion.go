@@ -4,6 +4,7 @@
 package greengrass
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type FunctionDefinitionVersion struct {
 // NewFunctionDefinitionVersion registers a new resource with the given unique name, arguments, and options.
 func NewFunctionDefinitionVersion(ctx *pulumi.Context,
 	name string, args *FunctionDefinitionVersionArgs, opts ...pulumi.ResourceOption) (*FunctionDefinitionVersion, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &FunctionDefinitionVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource FunctionDefinitionVersion
 	err := ctx.RegisterResource("cloudformation:Greengrass:FunctionDefinitionVersion", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type FunctionDefinitionVersionArgs struct {
 
 func (FunctionDefinitionVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionDefinitionVersionArgs)(nil)).Elem()
+}
+
+type FunctionDefinitionVersionInput interface {
+	pulumi.Input
+
+	ToFunctionDefinitionVersionOutput() FunctionDefinitionVersionOutput
+	ToFunctionDefinitionVersionOutputWithContext(ctx context.Context) FunctionDefinitionVersionOutput
+}
+
+func (*FunctionDefinitionVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDefinitionVersion)(nil))
+}
+
+func (i *FunctionDefinitionVersion) ToFunctionDefinitionVersionOutput() FunctionDefinitionVersionOutput {
+	return i.ToFunctionDefinitionVersionOutputWithContext(context.Background())
+}
+
+func (i *FunctionDefinitionVersion) ToFunctionDefinitionVersionOutputWithContext(ctx context.Context) FunctionDefinitionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionOutput)
+}
+
+type FunctionDefinitionVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionDefinitionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDefinitionVersion)(nil))
+}
+
+func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutput() FunctionDefinitionVersionOutput {
+	return o
+}
+
+func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutputWithContext(ctx context.Context) FunctionDefinitionVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionDefinitionVersionOutput{})
 }

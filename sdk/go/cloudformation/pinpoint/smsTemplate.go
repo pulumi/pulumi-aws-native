@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SmsTemplate struct {
 // NewSmsTemplate registers a new resource with the given unique name, arguments, and options.
 func NewSmsTemplate(ctx *pulumi.Context,
 	name string, args *SmsTemplateArgs, opts ...pulumi.ResourceOption) (*SmsTemplate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SmsTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SmsTemplate
 	err := ctx.RegisterResource("cloudformation:Pinpoint:SmsTemplate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SmsTemplateArgs struct {
 
 func (SmsTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsTemplateArgs)(nil)).Elem()
+}
+
+type SmsTemplateInput interface {
+	pulumi.Input
+
+	ToSmsTemplateOutput() SmsTemplateOutput
+	ToSmsTemplateOutputWithContext(ctx context.Context) SmsTemplateOutput
+}
+
+func (*SmsTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsTemplate)(nil))
+}
+
+func (i *SmsTemplate) ToSmsTemplateOutput() SmsTemplateOutput {
+	return i.ToSmsTemplateOutputWithContext(context.Background())
+}
+
+func (i *SmsTemplate) ToSmsTemplateOutputWithContext(ctx context.Context) SmsTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsTemplateOutput)
+}
+
+type SmsTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (SmsTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsTemplate)(nil))
+}
+
+func (o SmsTemplateOutput) ToSmsTemplateOutput() SmsTemplateOutput {
+	return o
+}
+
+func (o SmsTemplateOutput) ToSmsTemplateOutputWithContext(ctx context.Context) SmsTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SmsTemplateOutput{})
 }

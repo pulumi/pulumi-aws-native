@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Greengrass
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Greengrass:DeviceDefinitionVersion")]
     public partial class DeviceDefinitionVersion : Pulumi.CustomResource
     {
         /// <summary>

@@ -18,18 +18,39 @@ namespace Pulumi.Cloudformation.CodeGuruProfiler.Outputs
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? AgentPermissions;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ProfilingGroupChannel> AnomalyDetectionNotificationConfiguration;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+        /// </summary>
+        public readonly string? ComputePlatform;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
         /// </summary>
         public readonly string ProfilingGroupName;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ProfilingGroupProperties(
             Union<System.Text.Json.JsonElement, string>? AgentPermissions,
 
-            string ProfilingGroupName)
+            ImmutableArray<Outputs.ProfilingGroupChannel> AnomalyDetectionNotificationConfiguration,
+
+            string? ComputePlatform,
+
+            string ProfilingGroupName,
+
+            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
         {
             this.AgentPermissions = AgentPermissions;
+            this.AnomalyDetectionNotificationConfiguration = AnomalyDetectionNotificationConfiguration;
+            this.ComputePlatform = ComputePlatform;
             this.ProfilingGroupName = ProfilingGroupName;
+            this.Tags = Tags;
         }
     }
 }

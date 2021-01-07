@@ -4,6 +4,7 @@
 package networkmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Link struct {
 // NewLink registers a new resource with the given unique name, arguments, and options.
 func NewLink(ctx *pulumi.Context,
 	name string, args *LinkArgs, opts ...pulumi.ResourceOption) (*Link, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LinkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Link
 	err := ctx.RegisterResource("cloudformation:NetworkManager:Link", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LinkArgs struct {
 
 func (LinkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkArgs)(nil)).Elem()
+}
+
+type LinkInput interface {
+	pulumi.Input
+
+	ToLinkOutput() LinkOutput
+	ToLinkOutputWithContext(ctx context.Context) LinkOutput
+}
+
+func (*Link) ElementType() reflect.Type {
+	return reflect.TypeOf((*Link)(nil))
+}
+
+func (i *Link) ToLinkOutput() LinkOutput {
+	return i.ToLinkOutputWithContext(context.Background())
+}
+
+func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
+}
+
+type LinkOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Link)(nil))
+}
+
+func (o LinkOutput) ToLinkOutput() LinkOutput {
+	return o
+}
+
+func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkOutput{})
 }

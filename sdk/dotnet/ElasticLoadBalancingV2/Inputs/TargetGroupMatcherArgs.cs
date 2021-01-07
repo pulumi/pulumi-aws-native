@@ -18,8 +18,8 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
         /// </summary>
-        [Input("HttpCode", required: true)]
-        public Input<string> HttpCode { get; set; } = null!;
+        [Input("HttpCode")]
+        public Input<string>? HttpCode { get; set; }
 
         public TargetGroupMatcherArgs()
         {

@@ -184,6 +184,8 @@ func (o RepositoryAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html
 type RepositoryCode struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname
+	BranchName *string `pulumi:"BranchName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3
 	S3 RepositoryS3 `pulumi:"S3"`
 }
@@ -201,6 +203,8 @@ type RepositoryCodeInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html
 type RepositoryCodeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname
+	BranchName pulumi.StringPtrInput `pulumi:"BranchName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3
 	S3 RepositoryS3Input `pulumi:"S3"`
 }
@@ -283,6 +287,11 @@ func (o RepositoryCodeOutput) ToRepositoryCodePtrOutputWithContext(ctx context.C
 	}).(RepositoryCodePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname
+func (o RepositoryCodeOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCode) *string { return v.BranchName }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3
 func (o RepositoryCodeOutput) S3() RepositoryS3Output {
 	return o.ApplyT(func(v RepositoryCode) RepositoryS3 { return v.S3 }).(RepositoryS3Output)
@@ -304,6 +313,16 @@ func (o RepositoryCodePtrOutput) ToRepositoryCodePtrOutputWithContext(ctx contex
 
 func (o RepositoryCodePtrOutput) Elem() RepositoryCodeOutput {
 	return o.ApplyT(func(v *RepositoryCode) RepositoryCode { return *v }).(RepositoryCodeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-branchname
+func (o RepositoryCodePtrOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryCode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BranchName
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html#cfn-codecommit-repository-code-s3

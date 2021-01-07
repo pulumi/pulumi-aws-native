@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EventSchemas
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EventSchemas:Schema")]
     public partial class Schema : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SDB
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simpledb.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SDB:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

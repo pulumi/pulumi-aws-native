@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+        /// </summary>
+        public readonly string? CachePolicyId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
         /// </summary>
         public readonly ImmutableArray<string> CachedMethods;
@@ -36,7 +40,7 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
         /// </summary>
-        public readonly Outputs.DistributionForwardedValues ForwardedValues;
+        public readonly Outputs.DistributionForwardedValues? ForwardedValues;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
         /// </summary>
@@ -50,9 +54,17 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
         /// </summary>
         public readonly double? MinTTL;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+        /// </summary>
+        public readonly string? OriginRequestPolicyId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
         /// </summary>
         public readonly string PathPattern;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+        /// </summary>
+        public readonly string? RealtimeLogConfigArn;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
         /// </summary>
@@ -61,6 +73,10 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
         /// </summary>
         public readonly string TargetOriginId;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+        /// </summary>
+        public readonly ImmutableArray<string> TrustedKeyGroups;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
         /// </summary>
@@ -74,6 +90,8 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
         private DistributionCacheBehavior(
             ImmutableArray<string> AllowedMethods,
 
+            string? CachePolicyId,
+
             ImmutableArray<string> CachedMethods,
 
             bool? Compress,
@@ -82,7 +100,7 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
 
             string? FieldLevelEncryptionId,
 
-            Outputs.DistributionForwardedValues ForwardedValues,
+            Outputs.DistributionForwardedValues? ForwardedValues,
 
             ImmutableArray<Outputs.DistributionLambdaFunctionAssociation> LambdaFunctionAssociations,
 
@@ -90,17 +108,24 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
 
             double? MinTTL,
 
+            string? OriginRequestPolicyId,
+
             string PathPattern,
+
+            string? RealtimeLogConfigArn,
 
             bool? SmoothStreaming,
 
             string TargetOriginId,
+
+            ImmutableArray<string> TrustedKeyGroups,
 
             ImmutableArray<string> TrustedSigners,
 
             string ViewerProtocolPolicy)
         {
             this.AllowedMethods = AllowedMethods;
+            this.CachePolicyId = CachePolicyId;
             this.CachedMethods = CachedMethods;
             this.Compress = Compress;
             this.DefaultTTL = DefaultTTL;
@@ -109,9 +134,12 @@ namespace Pulumi.Cloudformation.CloudFront.Outputs
             this.LambdaFunctionAssociations = LambdaFunctionAssociations;
             this.MaxTTL = MaxTTL;
             this.MinTTL = MinTTL;
+            this.OriginRequestPolicyId = OriginRequestPolicyId;
             this.PathPattern = PathPattern;
+            this.RealtimeLogConfigArn = RealtimeLogConfigArn;
             this.SmoothStreaming = SmoothStreaming;
             this.TargetOriginId = TargetOriginId;
+            this.TrustedKeyGroups = TrustedKeyGroups;
             this.TrustedSigners = TrustedSigners;
             this.ViewerProtocolPolicy = ViewerProtocolPolicy;
         }

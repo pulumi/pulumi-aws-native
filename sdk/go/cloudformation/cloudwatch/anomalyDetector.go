@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type AnomalyDetector struct {
 // NewAnomalyDetector registers a new resource with the given unique name, arguments, and options.
 func NewAnomalyDetector(ctx *pulumi.Context,
 	name string, args *AnomalyDetectorArgs, opts ...pulumi.ResourceOption) (*AnomalyDetector, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &AnomalyDetectorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource AnomalyDetector
 	err := ctx.RegisterResource("cloudformation:CloudWatch:AnomalyDetector", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type AnomalyDetectorArgs struct {
 
 func (AnomalyDetectorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*anomalyDetectorArgs)(nil)).Elem()
+}
+
+type AnomalyDetectorInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorOutput() AnomalyDetectorOutput
+	ToAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorOutput
+}
+
+func (*AnomalyDetector) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetector)(nil))
+}
+
+func (i *AnomalyDetector) ToAnomalyDetectorOutput() AnomalyDetectorOutput {
+	return i.ToAnomalyDetectorOutputWithContext(context.Background())
+}
+
+func (i *AnomalyDetector) ToAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorOutput)
+}
+
+type AnomalyDetectorOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnomalyDetectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetector)(nil))
+}
+
+func (o AnomalyDetectorOutput) ToAnomalyDetectorOutput() AnomalyDetectorOutput {
+	return o
+}
+
+func (o AnomalyDetectorOutput) ToAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnomalyDetectorOutput{})
 }

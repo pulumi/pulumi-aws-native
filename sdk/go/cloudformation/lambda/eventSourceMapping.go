@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EventSourceMapping struct {
 // NewEventSourceMapping registers a new resource with the given unique name, arguments, and options.
 func NewEventSourceMapping(ctx *pulumi.Context,
 	name string, args *EventSourceMappingArgs, opts ...pulumi.ResourceOption) (*EventSourceMapping, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EventSourceMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EventSourceMapping
 	err := ctx.RegisterResource("cloudformation:Lambda:EventSourceMapping", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EventSourceMappingArgs struct {
 
 func (EventSourceMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSourceMappingArgs)(nil)).Elem()
+}
+
+type EventSourceMappingInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingOutput() EventSourceMappingOutput
+	ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput
+}
+
+func (*EventSourceMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMapping)(nil))
+}
+
+func (i *EventSourceMapping) ToEventSourceMappingOutput() EventSourceMappingOutput {
+	return i.ToEventSourceMappingOutputWithContext(context.Background())
+}
+
+func (i *EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOutput)
+}
+
+type EventSourceMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventSourceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMapping)(nil))
+}
+
+func (o EventSourceMappingOutput) ToEventSourceMappingOutput() EventSourceMappingOutput {
+	return o
+}
+
+func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventSourceMappingOutput{})
 }

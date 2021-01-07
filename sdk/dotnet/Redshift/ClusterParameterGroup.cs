@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Redshift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Redshift:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

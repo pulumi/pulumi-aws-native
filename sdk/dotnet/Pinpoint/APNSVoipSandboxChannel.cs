@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnsvoipsandboxchannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:APNSVoipSandboxChannel")]
     public partial class APNSVoipSandboxChannel : Pulumi.CustomResource
     {
         /// <summary>

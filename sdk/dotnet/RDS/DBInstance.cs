@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:DBInstance")]
     public partial class DBInstance : Pulumi.CustomResource
     {
         /// <summary>

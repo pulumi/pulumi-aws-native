@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PortfolioPrincipalAssociation struct {
 // NewPortfolioPrincipalAssociation registers a new resource with the given unique name, arguments, and options.
 func NewPortfolioPrincipalAssociation(ctx *pulumi.Context,
 	name string, args *PortfolioPrincipalAssociationArgs, opts ...pulumi.ResourceOption) (*PortfolioPrincipalAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PortfolioPrincipalAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PortfolioPrincipalAssociation
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:PortfolioPrincipalAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PortfolioPrincipalAssociationArgs struct {
 
 func (PortfolioPrincipalAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioPrincipalAssociationArgs)(nil)).Elem()
+}
+
+type PortfolioPrincipalAssociationInput interface {
+	pulumi.Input
+
+	ToPortfolioPrincipalAssociationOutput() PortfolioPrincipalAssociationOutput
+	ToPortfolioPrincipalAssociationOutputWithContext(ctx context.Context) PortfolioPrincipalAssociationOutput
+}
+
+func (*PortfolioPrincipalAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortfolioPrincipalAssociation)(nil))
+}
+
+func (i *PortfolioPrincipalAssociation) ToPortfolioPrincipalAssociationOutput() PortfolioPrincipalAssociationOutput {
+	return i.ToPortfolioPrincipalAssociationOutputWithContext(context.Background())
+}
+
+func (i *PortfolioPrincipalAssociation) ToPortfolioPrincipalAssociationOutputWithContext(ctx context.Context) PortfolioPrincipalAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioPrincipalAssociationOutput)
+}
+
+type PortfolioPrincipalAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (PortfolioPrincipalAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortfolioPrincipalAssociation)(nil))
+}
+
+func (o PortfolioPrincipalAssociationOutput) ToPortfolioPrincipalAssociationOutput() PortfolioPrincipalAssociationOutput {
+	return o
+}
+
+func (o PortfolioPrincipalAssociationOutput) ToPortfolioPrincipalAssociationOutputWithContext(ctx context.Context) PortfolioPrincipalAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PortfolioPrincipalAssociationOutput{})
 }

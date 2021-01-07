@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Campaign struct {
 // NewCampaign registers a new resource with the given unique name, arguments, and options.
 func NewCampaign(ctx *pulumi.Context,
 	name string, args *CampaignArgs, opts ...pulumi.ResourceOption) (*Campaign, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CampaignArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Campaign
 	err := ctx.RegisterResource("cloudformation:Pinpoint:Campaign", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CampaignArgs struct {
 
 func (CampaignArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*campaignArgs)(nil)).Elem()
+}
+
+type CampaignInput interface {
+	pulumi.Input
+
+	ToCampaignOutput() CampaignOutput
+	ToCampaignOutputWithContext(ctx context.Context) CampaignOutput
+}
+
+func (*Campaign) ElementType() reflect.Type {
+	return reflect.TypeOf((*Campaign)(nil))
+}
+
+func (i *Campaign) ToCampaignOutput() CampaignOutput {
+	return i.ToCampaignOutputWithContext(context.Background())
+}
+
+func (i *Campaign) ToCampaignOutputWithContext(ctx context.Context) CampaignOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutput)
+}
+
+type CampaignOutput struct {
+	*pulumi.OutputState
+}
+
+func (CampaignOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Campaign)(nil))
+}
+
+func (o CampaignOutput) ToCampaignOutput() CampaignOutput {
+	return o
+}
+
+func (o CampaignOutput) ToCampaignOutputWithContext(ctx context.Context) CampaignOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CampaignOutput{})
 }

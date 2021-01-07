@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GameLift:Script")]
     public partial class Script : Pulumi.CustomResource
     {
         /// <summary>

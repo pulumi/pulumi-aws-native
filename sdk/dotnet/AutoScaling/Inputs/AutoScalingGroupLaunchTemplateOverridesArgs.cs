@@ -22,6 +22,12 @@ namespace Pulumi.Cloudformation.AutoScaling.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-launchtemplatespecification
+        /// </summary>
+        [Input("LaunchTemplateSpecification")]
+        public Input<Inputs.AutoScalingGroupLaunchTemplateSpecificationArgs>? LaunchTemplateSpecification { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-weightedcapacity
         /// </summary>
         [Input("WeightedCapacity")]

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Redshift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Redshift:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

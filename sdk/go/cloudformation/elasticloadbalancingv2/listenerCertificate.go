@@ -4,6 +4,7 @@
 package elasticloadbalancingv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ListenerCertificate struct {
 // NewListenerCertificate registers a new resource with the given unique name, arguments, and options.
 func NewListenerCertificate(ctx *pulumi.Context,
 	name string, args *ListenerCertificateArgs, opts ...pulumi.ResourceOption) (*ListenerCertificate, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ListenerCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ListenerCertificate
 	err := ctx.RegisterResource("cloudformation:ElasticLoadBalancingV2:ListenerCertificate", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ListenerCertificateArgs struct {
 
 func (ListenerCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerCertificateArgs)(nil)).Elem()
+}
+
+type ListenerCertificateInput interface {
+	pulumi.Input
+
+	ToListenerCertificateOutput() ListenerCertificateOutput
+	ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput
+}
+
+func (*ListenerCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificate)(nil))
+}
+
+func (i *ListenerCertificate) ToListenerCertificateOutput() ListenerCertificateOutput {
+	return i.ToListenerCertificateOutputWithContext(context.Background())
+}
+
+func (i *ListenerCertificate) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateOutput)
+}
+
+type ListenerCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificate)(nil))
+}
+
+func (o ListenerCertificateOutput) ToListenerCertificateOutput() ListenerCertificateOutput {
+	return o
+}
+
+func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListenerCertificateOutput{})
 }

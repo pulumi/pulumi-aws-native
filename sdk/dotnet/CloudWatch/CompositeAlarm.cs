@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudWatch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudWatch:CompositeAlarm")]
     public partial class CompositeAlarm : Pulumi.CustomResource
     {
         /// <summary>

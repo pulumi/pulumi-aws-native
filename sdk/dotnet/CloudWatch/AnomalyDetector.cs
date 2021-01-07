@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudWatch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudWatch:AnomalyDetector")]
     public partial class AnomalyDetector : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Host struct {
 // NewHost registers a new resource with the given unique name, arguments, and options.
 func NewHost(ctx *pulumi.Context,
 	name string, args *HostArgs, opts ...pulumi.ResourceOption) (*Host, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &HostArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Host
 	err := ctx.RegisterResource("cloudformation:EC2:Host", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type HostArgs struct {
 
 func (HostArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostArgs)(nil)).Elem()
+}
+
+type HostInput interface {
+	pulumi.Input
+
+	ToHostOutput() HostOutput
+	ToHostOutputWithContext(ctx context.Context) HostOutput
+}
+
+func (*Host) ElementType() reflect.Type {
+	return reflect.TypeOf((*Host)(nil))
+}
+
+func (i *Host) ToHostOutput() HostOutput {
+	return i.ToHostOutputWithContext(context.Background())
+}
+
+func (i *Host) ToHostOutputWithContext(ctx context.Context) HostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostOutput)
+}
+
+type HostOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Host)(nil))
+}
+
+func (o HostOutput) ToHostOutput() HostOutput {
+	return o
+}
+
+func (o HostOutput) ToHostOutputWithContext(ctx context.Context) HostOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostOutput{})
 }

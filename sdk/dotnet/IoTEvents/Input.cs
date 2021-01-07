@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoTEvents
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoTEvents:Input")]
     public partial class Input : Pulumi.CustomResource
     {
         /// <summary>

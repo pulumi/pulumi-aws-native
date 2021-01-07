@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EMR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EMR:Step")]
     public partial class Step : Pulumi.CustomResource
     {
         /// <summary>

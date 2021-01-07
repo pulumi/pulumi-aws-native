@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
     public sealed class RoutePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
+        /// </summary>
+        [Input("CarrierGatewayId")]
+        public Input<string>? CarrierGatewayId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
         /// </summary>
         [Input("DestinationCidrBlock")]
@@ -46,6 +52,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
+        /// </summary>
+        [Input("LocalGatewayId")]
+        public Input<string>? LocalGatewayId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
         /// </summary>
         [Input("NatGatewayId")]
@@ -68,6 +80,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         /// </summary>
         [Input("TransitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcendpointid
+        /// </summary>
+        [Input("VpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid

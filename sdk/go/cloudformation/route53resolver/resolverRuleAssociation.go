@@ -4,6 +4,7 @@
 package route53resolver
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResolverRuleAssociation struct {
 // NewResolverRuleAssociation registers a new resource with the given unique name, arguments, and options.
 func NewResolverRuleAssociation(ctx *pulumi.Context,
 	name string, args *ResolverRuleAssociationArgs, opts ...pulumi.ResourceOption) (*ResolverRuleAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResolverRuleAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResolverRuleAssociation
 	err := ctx.RegisterResource("cloudformation:Route53Resolver:ResolverRuleAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResolverRuleAssociationArgs struct {
 
 func (ResolverRuleAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleAssociationArgs)(nil)).Elem()
+}
+
+type ResolverRuleAssociationInput interface {
+	pulumi.Input
+
+	ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput
+	ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput
+}
+
+func (*ResolverRuleAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
+}
+
+func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
+	return i.ToResolverRuleAssociationOutputWithContext(context.Background())
+}
+
+func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationOutput)
+}
+
+type ResolverRuleAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverRuleAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
+}
+
+func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
+	return o
+}
+
+func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResolverRuleAssociationOutput{})
 }

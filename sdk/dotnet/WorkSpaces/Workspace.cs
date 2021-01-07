@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WorkSpaces
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WorkSpaces:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

@@ -11,18 +11,18 @@ namespace Pulumi.Cloudformation.Route53.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
+    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
     /// </summary>
     public sealed class HostedZoneVPCArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcid
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
         /// </summary>
         [Input("VPCId", required: true)]
         public Input<string> VPCId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcregion
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         /// </summary>
         [Input("VPCRegion", required: true)]
         public Input<string> VPCRegion { get; set; } = null!;

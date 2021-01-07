@@ -4,6 +4,7 @@
 package imagebuilder
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ImageRecipe struct {
 // NewImageRecipe registers a new resource with the given unique name, arguments, and options.
 func NewImageRecipe(ctx *pulumi.Context,
 	name string, args *ImageRecipeArgs, opts ...pulumi.ResourceOption) (*ImageRecipe, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ImageRecipeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ImageRecipe
 	err := ctx.RegisterResource("cloudformation:ImageBuilder:ImageRecipe", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ImageRecipeArgs struct {
 
 func (ImageRecipeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageRecipeArgs)(nil)).Elem()
+}
+
+type ImageRecipeInput interface {
+	pulumi.Input
+
+	ToImageRecipeOutput() ImageRecipeOutput
+	ToImageRecipeOutputWithContext(ctx context.Context) ImageRecipeOutput
+}
+
+func (*ImageRecipe) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipe)(nil))
+}
+
+func (i *ImageRecipe) ToImageRecipeOutput() ImageRecipeOutput {
+	return i.ToImageRecipeOutputWithContext(context.Background())
+}
+
+func (i *ImageRecipe) ToImageRecipeOutputWithContext(ctx context.Context) ImageRecipeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeOutput)
+}
+
+type ImageRecipeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ImageRecipeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipe)(nil))
+}
+
+func (o ImageRecipeOutput) ToImageRecipeOutput() ImageRecipeOutput {
+	return o
+}
+
+func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) ImageRecipeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ImageRecipeOutput{})
 }

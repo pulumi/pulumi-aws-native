@@ -37,7 +37,13 @@ namespace Pulumi.Cloudformation.KMS.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         /// </summary>
         [Input("KeyPolicy", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> KeyPolicy { get; set; } = null!;
+        public Input<object> KeyPolicy { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+        /// </summary>
+        [Input("KeySpec")]
+        public Input<string>? KeySpec { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage

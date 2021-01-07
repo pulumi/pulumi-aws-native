@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoTAnalytics:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         /// <summary>

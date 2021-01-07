@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeStar
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeStar:GitHubRepository")]
     public partial class GitHubRepository : Pulumi.CustomResource
     {
         /// <summary>

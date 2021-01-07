@@ -18,14 +18,14 @@ namespace Pulumi.Cloudformation.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
         /// </summary>
-        [Input("Hostname", required: true)]
-        public Input<string> Hostname { get; set; } = null!;
+        [Input("Hostname")]
+        public Input<string>? Hostname { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-ipaddress
         /// </summary>
-        [Input("IpAddress", required: true)]
-        public Input<string> IpAddress { get; set; } = null!;
+        [Input("IpAddress")]
+        public Input<string>? IpAddress { get; set; }
 
         public TaskDefinitionHostEntryArgs()
         {

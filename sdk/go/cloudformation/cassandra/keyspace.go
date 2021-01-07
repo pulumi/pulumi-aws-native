@@ -4,6 +4,7 @@
 package cassandra
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Keyspace struct {
 // NewKeyspace registers a new resource with the given unique name, arguments, and options.
 func NewKeyspace(ctx *pulumi.Context,
 	name string, args *KeyspaceArgs, opts ...pulumi.ResourceOption) (*Keyspace, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &KeyspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Keyspace
 	err := ctx.RegisterResource("cloudformation:Cassandra:Keyspace", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type KeyspaceArgs struct {
 
 func (KeyspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyspaceArgs)(nil)).Elem()
+}
+
+type KeyspaceInput interface {
+	pulumi.Input
+
+	ToKeyspaceOutput() KeyspaceOutput
+	ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutput
+}
+
+func (*Keyspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*Keyspace)(nil))
+}
+
+func (i *Keyspace) ToKeyspaceOutput() KeyspaceOutput {
+	return i.ToKeyspaceOutputWithContext(context.Background())
+}
+
+func (i *Keyspace) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceOutput)
+}
+
+type KeyspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (KeyspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Keyspace)(nil))
+}
+
+func (o KeyspaceOutput) ToKeyspaceOutput() KeyspaceOutput {
+	return o
+}
+
+func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(KeyspaceOutput{})
 }

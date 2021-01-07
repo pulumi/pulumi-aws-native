@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppStream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppStream:Stack")]
     public partial class Stack : Pulumi.CustomResource
     {
         /// <summary>

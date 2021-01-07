@@ -48,7 +48,7 @@ setup(name='pulumi_cloudformation',
       packages=find_packages(),
       package_data={
           'pulumi_cloudformation': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

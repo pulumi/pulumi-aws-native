@@ -30,9 +30,21 @@ namespace Pulumi.Cloudformation.Batch.Outputs
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? Parameters;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
+        /// </summary>
+        public readonly ImmutableArray<string> PlatformCapabilities;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
+        /// </summary>
+        public readonly bool? PropagateTags;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
         /// </summary>
         public readonly Outputs.JobDefinitionRetryStrategy? RetryStrategy;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
+        /// </summary>
+        public readonly Union<System.Text.Json.JsonElement, string>? Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
         /// </summary>
@@ -52,7 +64,13 @@ namespace Pulumi.Cloudformation.Batch.Outputs
 
             Union<System.Text.Json.JsonElement, string>? Parameters,
 
+            ImmutableArray<string> PlatformCapabilities,
+
+            bool? PropagateTags,
+
             Outputs.JobDefinitionRetryStrategy? RetryStrategy,
+
+            Union<System.Text.Json.JsonElement, string>? Tags,
 
             Outputs.JobDefinitionTimeout? Timeout,
 
@@ -62,7 +80,10 @@ namespace Pulumi.Cloudformation.Batch.Outputs
             this.JobDefinitionName = JobDefinitionName;
             this.NodeProperties = NodeProperties;
             this.Parameters = Parameters;
+            this.PlatformCapabilities = PlatformCapabilities;
+            this.PropagateTags = PropagateTags;
             this.RetryStrategy = RetryStrategy;
+            this.Tags = Tags;
             this.Timeout = Timeout;
             this.Type = Type;
         }

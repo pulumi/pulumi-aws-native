@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Cognito
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Cognito:UserPoolRiskConfigurationAttachment")]
     public partial class UserPoolRiskConfigurationAttachment : Pulumi.CustomResource
     {
         /// <summary>

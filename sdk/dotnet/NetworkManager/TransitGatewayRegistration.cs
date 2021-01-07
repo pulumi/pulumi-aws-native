@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:NetworkManager:TransitGatewayRegistration")]
     public partial class TransitGatewayRegistration : Pulumi.CustomResource
     {
         /// <summary>

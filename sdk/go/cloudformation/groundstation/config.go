@@ -4,6 +4,7 @@
 package groundstation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Config struct {
 // NewConfig registers a new resource with the given unique name, arguments, and options.
 func NewConfig(ctx *pulumi.Context,
 	name string, args *ConfigArgs, opts ...pulumi.ResourceOption) (*Config, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Config
 	err := ctx.RegisterResource("cloudformation:GroundStation:Config", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConfigArgs struct {
 
 func (ConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configArgs)(nil)).Elem()
+}
+
+type ConfigInput interface {
+	pulumi.Input
+
+	ToConfigOutput() ConfigOutput
+	ToConfigOutputWithContext(ctx context.Context) ConfigOutput
+}
+
+func (*Config) ElementType() reflect.Type {
+	return reflect.TypeOf((*Config)(nil))
+}
+
+func (i *Config) ToConfigOutput() ConfigOutput {
+	return i.ToConfigOutputWithContext(context.Background())
+}
+
+func (i *Config) ToConfigOutputWithContext(ctx context.Context) ConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigOutput)
+}
+
+type ConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Config)(nil))
+}
+
+func (o ConfigOutput) ToConfigOutput() ConfigOutput {
+	return o
+}
+
+func (o ConfigOutput) ToConfigOutputWithContext(ctx context.Context) ConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigOutput{})
 }

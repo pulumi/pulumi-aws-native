@@ -4,6 +4,7 @@
 package docdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBCluster struct {
 // NewDBCluster registers a new resource with the given unique name, arguments, and options.
 func NewDBCluster(ctx *pulumi.Context,
 	name string, args *DBClusterArgs, opts ...pulumi.ResourceOption) (*DBCluster, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBCluster
 	err := ctx.RegisterResource("cloudformation:DocDB:DBCluster", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBClusterArgs struct {
 
 func (DBClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbclusterArgs)(nil)).Elem()
+}
+
+type DBClusterInput interface {
+	pulumi.Input
+
+	ToDBClusterOutput() DBClusterOutput
+	ToDBClusterOutputWithContext(ctx context.Context) DBClusterOutput
+}
+
+func (*DBCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBCluster)(nil))
+}
+
+func (i *DBCluster) ToDBClusterOutput() DBClusterOutput {
+	return i.ToDBClusterOutputWithContext(context.Background())
+}
+
+func (i *DBCluster) ToDBClusterOutputWithContext(ctx context.Context) DBClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterOutput)
+}
+
+type DBClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBCluster)(nil))
+}
+
+func (o DBClusterOutput) ToDBClusterOutput() DBClusterOutput {
+	return o
+}
+
+func (o DBClusterOutput) ToDBClusterOutputWithContext(ctx context.Context) DBClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBClusterOutput{})
 }

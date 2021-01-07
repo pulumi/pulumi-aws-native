@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:PortfolioShare")]
     public partial class PortfolioShare : Pulumi.CustomResource
     {
         /// <summary>

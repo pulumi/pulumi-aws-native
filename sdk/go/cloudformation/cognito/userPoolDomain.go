@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UserPoolDomain struct {
 // NewUserPoolDomain registers a new resource with the given unique name, arguments, and options.
 func NewUserPoolDomain(ctx *pulumi.Context,
 	name string, args *UserPoolDomainArgs, opts ...pulumi.ResourceOption) (*UserPoolDomain, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UserPoolDomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UserPoolDomain
 	err := ctx.RegisterResource("cloudformation:Cognito:UserPoolDomain", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UserPoolDomainArgs struct {
 
 func (UserPoolDomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolDomainArgs)(nil)).Elem()
+}
+
+type UserPoolDomainInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainOutput() UserPoolDomainOutput
+	ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput
+}
+
+func (*UserPoolDomain) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDomain)(nil))
+}
+
+func (i *UserPoolDomain) ToUserPoolDomainOutput() UserPoolDomainOutput {
+	return i.ToUserPoolDomainOutputWithContext(context.Background())
+}
+
+func (i *UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainOutput)
+}
+
+type UserPoolDomainOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDomain)(nil))
+}
+
+func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {
+	return o
+}
+
+func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolDomainOutput{})
 }

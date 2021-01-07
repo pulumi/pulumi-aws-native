@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppConfig
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppConfig:DeploymentStrategy")]
     public partial class DeploymentStrategy : Pulumi.CustomResource
     {
         /// <summary>

@@ -16,10 +16,16 @@ namespace Pulumi.Cloudformation.S3.Inputs
     public sealed class BucketSourceSelectionCriteriaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+        /// </summary>
+        [Input("ReplicaModifications")]
+        public Input<Inputs.BucketReplicaModificationsArgs>? ReplicaModifications { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
         /// </summary>
-        [Input("SseKmsEncryptedObjects", required: true)]
-        public Input<Inputs.BucketSseKmsEncryptedObjectsArgs> SseKmsEncryptedObjects { get; set; } = null!;
+        [Input("SseKmsEncryptedObjects")]
+        public Input<Inputs.BucketSseKmsEncryptedObjectsArgs>? SseKmsEncryptedObjects { get; set; }
 
         public BucketSourceSelectionCriteriaArgs()
         {

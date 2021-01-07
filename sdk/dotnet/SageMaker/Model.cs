@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SageMaker:Model")]
     public partial class Model : Pulumi.CustomResource
     {
         /// <summary>

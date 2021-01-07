@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElastiCache:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

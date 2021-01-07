@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DHCPOptions struct {
 // NewDHCPOptions registers a new resource with the given unique name, arguments, and options.
 func NewDHCPOptions(ctx *pulumi.Context,
 	name string, args *DHCPOptionsArgs, opts ...pulumi.ResourceOption) (*DHCPOptions, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DHCPOptionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DHCPOptions
 	err := ctx.RegisterResource("cloudformation:EC2:DHCPOptions", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DHCPOptionsArgs struct {
 
 func (DHCPOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dhcpoptionsArgs)(nil)).Elem()
+}
+
+type DHCPOptionsInput interface {
+	pulumi.Input
+
+	ToDHCPOptionsOutput() DHCPOptionsOutput
+	ToDHCPOptionsOutputWithContext(ctx context.Context) DHCPOptionsOutput
+}
+
+func (*DHCPOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*DHCPOptions)(nil))
+}
+
+func (i *DHCPOptions) ToDHCPOptionsOutput() DHCPOptionsOutput {
+	return i.ToDHCPOptionsOutputWithContext(context.Background())
+}
+
+func (i *DHCPOptions) ToDHCPOptionsOutputWithContext(ctx context.Context) DHCPOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DHCPOptionsOutput)
+}
+
+type DHCPOptionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (DHCPOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DHCPOptions)(nil))
+}
+
+func (o DHCPOptionsOutput) ToDHCPOptionsOutput() DHCPOptionsOutput {
+	return o
+}
+
+func (o DHCPOptionsOutput) ToDHCPOptionsOutputWithContext(ctx context.Context) DHCPOptionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DHCPOptionsOutput{})
 }

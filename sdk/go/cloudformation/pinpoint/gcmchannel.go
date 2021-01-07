@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GCMChannel struct {
 // NewGCMChannel registers a new resource with the given unique name, arguments, and options.
 func NewGCMChannel(ctx *pulumi.Context,
 	name string, args *GCMChannelArgs, opts ...pulumi.ResourceOption) (*GCMChannel, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GCMChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GCMChannel
 	err := ctx.RegisterResource("cloudformation:Pinpoint:GCMChannel", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GCMChannelArgs struct {
 
 func (GCMChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gcmchannelArgs)(nil)).Elem()
+}
+
+type GCMChannelInput interface {
+	pulumi.Input
+
+	ToGCMChannelOutput() GCMChannelOutput
+	ToGCMChannelOutputWithContext(ctx context.Context) GCMChannelOutput
+}
+
+func (*GCMChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*GCMChannel)(nil))
+}
+
+func (i *GCMChannel) ToGCMChannelOutput() GCMChannelOutput {
+	return i.ToGCMChannelOutputWithContext(context.Background())
+}
+
+func (i *GCMChannel) ToGCMChannelOutputWithContext(ctx context.Context) GCMChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GCMChannelOutput)
+}
+
+type GCMChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (GCMChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GCMChannel)(nil))
+}
+
+func (o GCMChannelOutput) ToGCMChannelOutput() GCMChannelOutput {
+	return o
+}
+
+func (o GCMChannelOutput) ToGCMChannelOutputWithContext(ctx context.Context) GCMChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GCMChannelOutput{})
 }

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TrafficMirrorFilter struct {
 // NewTrafficMirrorFilter registers a new resource with the given unique name, arguments, and options.
 func NewTrafficMirrorFilter(ctx *pulumi.Context,
 	name string, args *TrafficMirrorFilterArgs, opts ...pulumi.ResourceOption) (*TrafficMirrorFilter, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TrafficMirrorFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TrafficMirrorFilter
 	err := ctx.RegisterResource("cloudformation:EC2:TrafficMirrorFilter", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TrafficMirrorFilterArgs struct {
 
 func (TrafficMirrorFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorFilterArgs)(nil)).Elem()
+}
+
+type TrafficMirrorFilterInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterOutput() TrafficMirrorFilterOutput
+	ToTrafficMirrorFilterOutputWithContext(ctx context.Context) TrafficMirrorFilterOutput
+}
+
+func (*TrafficMirrorFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilter)(nil))
+}
+
+func (i *TrafficMirrorFilter) ToTrafficMirrorFilterOutput() TrafficMirrorFilterOutput {
+	return i.ToTrafficMirrorFilterOutputWithContext(context.Background())
+}
+
+func (i *TrafficMirrorFilter) ToTrafficMirrorFilterOutputWithContext(ctx context.Context) TrafficMirrorFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterOutput)
+}
+
+type TrafficMirrorFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrafficMirrorFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilter)(nil))
+}
+
+func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutput() TrafficMirrorFilterOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutputWithContext(ctx context.Context) TrafficMirrorFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrafficMirrorFilterOutput{})
 }

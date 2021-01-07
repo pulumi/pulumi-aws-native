@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPCPeeringConnection struct {
 // NewVPCPeeringConnection registers a new resource with the given unique name, arguments, and options.
 func NewVPCPeeringConnection(ctx *pulumi.Context,
 	name string, args *VPCPeeringConnectionArgs, opts ...pulumi.ResourceOption) (*VPCPeeringConnection, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPCPeeringConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPCPeeringConnection
 	err := ctx.RegisterResource("cloudformation:EC2:VPCPeeringConnection", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPCPeeringConnectionArgs struct {
 
 func (VPCPeeringConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcpeeringConnectionArgs)(nil)).Elem()
+}
+
+type VPCPeeringConnectionInput interface {
+	pulumi.Input
+
+	ToVPCPeeringConnectionOutput() VPCPeeringConnectionOutput
+	ToVPCPeeringConnectionOutputWithContext(ctx context.Context) VPCPeeringConnectionOutput
+}
+
+func (*VPCPeeringConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCPeeringConnection)(nil))
+}
+
+func (i *VPCPeeringConnection) ToVPCPeeringConnectionOutput() VPCPeeringConnectionOutput {
+	return i.ToVPCPeeringConnectionOutputWithContext(context.Background())
+}
+
+func (i *VPCPeeringConnection) ToVPCPeeringConnectionOutputWithContext(ctx context.Context) VPCPeeringConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCPeeringConnectionOutput)
+}
+
+type VPCPeeringConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPCPeeringConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCPeeringConnection)(nil))
+}
+
+func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutput() VPCPeeringConnectionOutput {
+	return o
+}
+
+func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutputWithContext(ctx context.Context) VPCPeeringConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPCPeeringConnectionOutput{})
 }

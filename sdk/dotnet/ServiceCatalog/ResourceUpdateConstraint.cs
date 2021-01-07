@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:ResourceUpdateConstraint")]
     public partial class ResourceUpdateConstraint : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GatewayResponse struct {
 // NewGatewayResponse registers a new resource with the given unique name, arguments, and options.
 func NewGatewayResponse(ctx *pulumi.Context,
 	name string, args *GatewayResponseArgs, opts ...pulumi.ResourceOption) (*GatewayResponse, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GatewayResponseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GatewayResponse
 	err := ctx.RegisterResource("cloudformation:ApiGateway:GatewayResponse", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GatewayResponseArgs struct {
 
 func (GatewayResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayResponseArgs)(nil)).Elem()
+}
+
+type GatewayResponseInput interface {
+	pulumi.Input
+
+	ToGatewayResponseOutput() GatewayResponseOutput
+	ToGatewayResponseOutputWithContext(ctx context.Context) GatewayResponseOutput
+}
+
+func (*GatewayResponse) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayResponse)(nil))
+}
+
+func (i *GatewayResponse) ToGatewayResponseOutput() GatewayResponseOutput {
+	return i.ToGatewayResponseOutputWithContext(context.Background())
+}
+
+func (i *GatewayResponse) ToGatewayResponseOutputWithContext(ctx context.Context) GatewayResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayResponseOutput)
+}
+
+type GatewayResponseOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayResponse)(nil))
+}
+
+func (o GatewayResponseOutput) ToGatewayResponseOutput() GatewayResponseOutput {
+	return o
+}
+
+func (o GatewayResponseOutput) ToGatewayResponseOutputWithContext(ctx context.Context) GatewayResponseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GatewayResponseOutput{})
 }

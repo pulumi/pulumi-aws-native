@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .capacity_reservation import *
+from .carrier_gateway import *
 from .client_vpn_authorization_rule import *
 from .client_vpn_endpoint import *
 from .client_vpn_route import *
@@ -13,7 +14,7 @@ from .dhcp_options import *
 from .ec2_fleet import *
 from .egress_only_internet_gateway import *
 from .eip import *
-from .eip_association import *
+from .eipassociation import *
 from .flow_log import *
 from .gateway_route_table_association import *
 from .host import *
@@ -21,14 +22,17 @@ from .instance import *
 from .internet_gateway import *
 from .launch_template import *
 from .local_gateway_route import *
-from .local_gateway_route_table_vpc_association import *
+from .local_gateway_route_table_vpcassociation import *
 from .nat_gateway import *
 from .network_acl import *
 from .network_acl_entry import *
+from .network_insights_analysis import *
+from .network_insights_path import *
 from .network_interface import *
 from .network_interface_attachment import *
 from .network_interface_permission import *
 from .placement_group import *
+from .prefix_list import *
 from .route import *
 from .route_table import *
 from .security_group import *
@@ -63,3 +67,154 @@ from .vpn_connection import *
 from .vpn_connection_route import *
 from .vpn_gateway import *
 from .vpn_gateway_route_propagation import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:EC2:CapacityReservation":
+                return CapacityReservation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:CarrierGateway":
+                return CarrierGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:ClientVpnAuthorizationRule":
+                return ClientVpnAuthorizationRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:ClientVpnEndpoint":
+                return ClientVpnEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:ClientVpnRoute":
+                return ClientVpnRoute(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:ClientVpnTargetNetworkAssociation":
+                return ClientVpnTargetNetworkAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:CustomerGateway":
+                return CustomerGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:DHCPOptions":
+                return DHCPOptions(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:EC2Fleet":
+                return EC2Fleet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:EIP":
+                return EIP(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:EIPAssociation":
+                return EIPAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:EgressOnlyInternetGateway":
+                return EgressOnlyInternetGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:FlowLog":
+                return FlowLog(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:GatewayRouteTableAssociation":
+                return GatewayRouteTableAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:Host":
+                return Host(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:Instance":
+                return Instance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:InternetGateway":
+                return InternetGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:LaunchTemplate":
+                return LaunchTemplate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:LocalGatewayRoute":
+                return LocalGatewayRoute(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:LocalGatewayRouteTableVPCAssociation":
+                return LocalGatewayRouteTableVPCAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NatGateway":
+                return NatGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NetworkAcl":
+                return NetworkAcl(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NetworkAclEntry":
+                return NetworkAclEntry(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NetworkInsightsAnalysis":
+                return NetworkInsightsAnalysis(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NetworkInsightsPath":
+                return NetworkInsightsPath(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NetworkInterface":
+                return NetworkInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NetworkInterfaceAttachment":
+                return NetworkInterfaceAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:NetworkInterfacePermission":
+                return NetworkInterfacePermission(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:PlacementGroup":
+                return PlacementGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:PrefixList":
+                return PrefixList(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:Route":
+                return Route(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:RouteTable":
+                return RouteTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:SecurityGroup":
+                return SecurityGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:SecurityGroupEgress":
+                return SecurityGroupEgress(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:SecurityGroupIngress":
+                return SecurityGroupIngress(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:SpotFleet":
+                return SpotFleet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:Subnet":
+                return Subnet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:SubnetCidrBlock":
+                return SubnetCidrBlock(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:SubnetNetworkAclAssociation":
+                return SubnetNetworkAclAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:SubnetRouteTableAssociation":
+                return SubnetRouteTableAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TrafficMirrorFilter":
+                return TrafficMirrorFilter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TrafficMirrorFilterRule":
+                return TrafficMirrorFilterRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TrafficMirrorSession":
+                return TrafficMirrorSession(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TrafficMirrorTarget":
+                return TrafficMirrorTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TransitGateway":
+                return TransitGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TransitGatewayAttachment":
+                return TransitGatewayAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TransitGatewayRoute":
+                return TransitGatewayRoute(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TransitGatewayRouteTable":
+                return TransitGatewayRouteTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TransitGatewayRouteTableAssociation":
+                return TransitGatewayRouteTableAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:TransitGatewayRouteTablePropagation":
+                return TransitGatewayRouteTablePropagation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPC":
+                return VPC(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPCCidrBlock":
+                return VPCCidrBlock(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPCDHCPOptionsAssociation":
+                return VPCDHCPOptionsAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPCEndpoint":
+                return VPCEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPCEndpointService":
+                return VPCEndpointService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPCEndpointServicePermissions":
+                return VPCEndpointServicePermissions(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPCGatewayAttachment":
+                return VPCGatewayAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPCPeeringConnection":
+                return VPCPeeringConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPNConnection":
+                return VPNConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPNConnectionRoute":
+                return VPNConnectionRoute(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPNGateway":
+                return VPNGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VPNGatewayRoutePropagation":
+                return VPNGatewayRoutePropagation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:Volume":
+                return Volume(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:EC2:VolumeAttachment":
+                return VolumeAttachment(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "EC2", _module_instance)
+
+_register_module()

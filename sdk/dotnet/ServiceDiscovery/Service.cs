@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceDiscovery
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceDiscovery:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

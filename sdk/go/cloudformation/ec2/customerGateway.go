@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CustomerGateway struct {
 // NewCustomerGateway registers a new resource with the given unique name, arguments, and options.
 func NewCustomerGateway(ctx *pulumi.Context,
 	name string, args *CustomerGatewayArgs, opts ...pulumi.ResourceOption) (*CustomerGateway, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CustomerGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CustomerGateway
 	err := ctx.RegisterResource("cloudformation:EC2:CustomerGateway", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CustomerGatewayArgs struct {
 
 func (CustomerGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerGatewayArgs)(nil)).Elem()
+}
+
+type CustomerGatewayInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayOutput() CustomerGatewayOutput
+	ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput
+}
+
+func (*CustomerGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGateway)(nil))
+}
+
+func (i *CustomerGateway) ToCustomerGatewayOutput() CustomerGatewayOutput {
+	return i.ToCustomerGatewayOutputWithContext(context.Background())
+}
+
+func (i *CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayOutput)
+}
+
+type CustomerGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomerGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGateway)(nil))
+}
+
+func (o CustomerGatewayOutput) ToCustomerGatewayOutput() CustomerGatewayOutput {
+	return o
+}
+
+func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomerGatewayOutput{})
 }

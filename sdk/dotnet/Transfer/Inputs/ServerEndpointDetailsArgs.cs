@@ -27,6 +27,18 @@ namespace Pulumi.Cloudformation.Transfer.Inputs
             set => _AddressAllocationIds = value;
         }
 
+        [Input("SecurityGroupIds")]
+        private InputList<string>? _SecurityGroupIds;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-securitygroupids
+        /// </summary>
+        public InputList<string> SecurityGroupIds
+        {
+            get => _SecurityGroupIds ?? (_SecurityGroupIds = new InputList<string>());
+            set => _SecurityGroupIds = value;
+        }
+
         [Input("SubnetIds")]
         private InputList<string>? _SubnetIds;
 

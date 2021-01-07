@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MediaConvert
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MediaConvert:Preset")]
     public partial class Preset : Pulumi.CustomResource
     {
         /// <summary>

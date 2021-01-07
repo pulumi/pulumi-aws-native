@@ -4,6 +4,7 @@
 package qldb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Ledger struct {
 // NewLedger registers a new resource with the given unique name, arguments, and options.
 func NewLedger(ctx *pulumi.Context,
 	name string, args *LedgerArgs, opts ...pulumi.ResourceOption) (*Ledger, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LedgerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Ledger
 	err := ctx.RegisterResource("cloudformation:QLDB:Ledger", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LedgerArgs struct {
 
 func (LedgerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ledgerArgs)(nil)).Elem()
+}
+
+type LedgerInput interface {
+	pulumi.Input
+
+	ToLedgerOutput() LedgerOutput
+	ToLedgerOutputWithContext(ctx context.Context) LedgerOutput
+}
+
+func (*Ledger) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ledger)(nil))
+}
+
+func (i *Ledger) ToLedgerOutput() LedgerOutput {
+	return i.ToLedgerOutputWithContext(context.Background())
+}
+
+func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LedgerOutput)
+}
+
+type LedgerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LedgerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ledger)(nil))
+}
+
+func (o LedgerOutput) ToLedgerOutput() LedgerOutput {
+	return o
+}
+
+func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LedgerOutput{})
 }

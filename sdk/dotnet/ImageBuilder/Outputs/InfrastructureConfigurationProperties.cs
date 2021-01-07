@@ -38,6 +38,10 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ResourceTags;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -72,6 +76,8 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
 
             string Name,
 
+            ImmutableDictionary<string, string>? ResourceTags,
+
             ImmutableArray<string> SecurityGroupIds,
 
             string? SnsTopicArn,
@@ -88,6 +94,7 @@ namespace Pulumi.Cloudformation.ImageBuilder.Outputs
             this.KeyPair = KeyPair;
             this.Logging = Logging;
             this.Name = Name;
+            this.ResourceTags = ResourceTags;
             this.SecurityGroupIds = SecurityGroupIds;
             this.SnsTopicArn = SnsTopicArn;
             this.SubnetId = SubnetId;

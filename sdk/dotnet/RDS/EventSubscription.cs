@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>

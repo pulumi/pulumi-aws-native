@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:SMSChannel")]
     public partial class SMSChannel : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package lambda
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type LayerVersionPermission struct {
 // NewLayerVersionPermission registers a new resource with the given unique name, arguments, and options.
 func NewLayerVersionPermission(ctx *pulumi.Context,
 	name string, args *LayerVersionPermissionArgs, opts ...pulumi.ResourceOption) (*LayerVersionPermission, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &LayerVersionPermissionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource LayerVersionPermission
 	err := ctx.RegisterResource("cloudformation:Lambda:LayerVersionPermission", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type LayerVersionPermissionArgs struct {
 
 func (LayerVersionPermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerVersionPermissionArgs)(nil)).Elem()
+}
+
+type LayerVersionPermissionInput interface {
+	pulumi.Input
+
+	ToLayerVersionPermissionOutput() LayerVersionPermissionOutput
+	ToLayerVersionPermissionOutputWithContext(ctx context.Context) LayerVersionPermissionOutput
+}
+
+func (*LayerVersionPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersionPermission)(nil))
+}
+
+func (i *LayerVersionPermission) ToLayerVersionPermissionOutput() LayerVersionPermissionOutput {
+	return i.ToLayerVersionPermissionOutputWithContext(context.Background())
+}
+
+func (i *LayerVersionPermission) ToLayerVersionPermissionOutputWithContext(ctx context.Context) LayerVersionPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPermissionOutput)
+}
+
+type LayerVersionPermissionOutput struct {
+	*pulumi.OutputState
+}
+
+func (LayerVersionPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersionPermission)(nil))
+}
+
+func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutput() LayerVersionPermissionOutput {
+	return o
+}
+
+func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(ctx context.Context) LayerVersionPermissionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LayerVersionPermissionOutput{})
 }

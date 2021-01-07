@@ -4,6 +4,7 @@
 package logs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Destination struct {
 // NewDestination registers a new resource with the given unique name, arguments, and options.
 func NewDestination(ctx *pulumi.Context,
 	name string, args *DestinationArgs, opts ...pulumi.ResourceOption) (*Destination, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DestinationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Destination
 	err := ctx.RegisterResource("cloudformation:Logs:Destination", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DestinationArgs struct {
 
 func (DestinationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*destinationArgs)(nil)).Elem()
+}
+
+type DestinationInput interface {
+	pulumi.Input
+
+	ToDestinationOutput() DestinationOutput
+	ToDestinationOutputWithContext(ctx context.Context) DestinationOutput
+}
+
+func (*Destination) ElementType() reflect.Type {
+	return reflect.TypeOf((*Destination)(nil))
+}
+
+func (i *Destination) ToDestinationOutput() DestinationOutput {
+	return i.ToDestinationOutputWithContext(context.Background())
+}
+
+func (i *Destination) ToDestinationOutputWithContext(ctx context.Context) DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationOutput)
+}
+
+type DestinationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Destination)(nil))
+}
+
+func (o DestinationOutput) ToDestinationOutput() DestinationOutput {
+	return o
+}
+
+func (o DestinationOutput) ToDestinationOutputWithContext(ctx context.Context) DestinationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DestinationOutput{})
 }

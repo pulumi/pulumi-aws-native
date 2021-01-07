@@ -4,6 +4,7 @@
 package acmpca
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CertificateAuthority struct {
 // NewCertificateAuthority registers a new resource with the given unique name, arguments, and options.
 func NewCertificateAuthority(ctx *pulumi.Context,
 	name string, args *CertificateAuthorityArgs, opts ...pulumi.ResourceOption) (*CertificateAuthority, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CertificateAuthorityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CertificateAuthority
 	err := ctx.RegisterResource("cloudformation:ACMPCA:CertificateAuthority", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CertificateAuthorityArgs struct {
 
 func (CertificateAuthorityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateAuthorityArgs)(nil)).Elem()
+}
+
+type CertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityOutput() CertificateAuthorityOutput
+	ToCertificateAuthorityOutputWithContext(ctx context.Context) CertificateAuthorityOutput
+}
+
+func (*CertificateAuthority) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthority)(nil))
+}
+
+func (i *CertificateAuthority) ToCertificateAuthorityOutput() CertificateAuthorityOutput {
+	return i.ToCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i *CertificateAuthority) ToCertificateAuthorityOutputWithContext(ctx context.Context) CertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOutput)
+}
+
+type CertificateAuthorityOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthority)(nil))
+}
+
+func (o CertificateAuthorityOutput) ToCertificateAuthorityOutput() CertificateAuthorityOutput {
+	return o
+}
+
+func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx context.Context) CertificateAuthorityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateAuthorityOutput{})
 }

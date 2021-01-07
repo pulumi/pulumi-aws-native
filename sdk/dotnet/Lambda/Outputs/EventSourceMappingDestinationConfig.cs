@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
         /// </summary>
-        public readonly Outputs.EventSourceMappingOnFailure OnFailure;
+        public readonly Outputs.EventSourceMappingOnFailure? OnFailure;
 
         [OutputConstructor]
-        private EventSourceMappingDestinationConfig(Outputs.EventSourceMappingOnFailure OnFailure)
+        private EventSourceMappingDestinationConfig(Outputs.EventSourceMappingOnFailure? OnFailure)
         {
             this.OnFailure = OnFailure;
         }

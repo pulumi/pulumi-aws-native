@@ -4,6 +4,7 @@
 package docdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DBSubnetGroup struct {
 // NewDBSubnetGroup registers a new resource with the given unique name, arguments, and options.
 func NewDBSubnetGroup(ctx *pulumi.Context,
 	name string, args *DBSubnetGroupArgs, opts ...pulumi.ResourceOption) (*DBSubnetGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DBSubnetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DBSubnetGroup
 	err := ctx.RegisterResource("cloudformation:DocDB:DBSubnetGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DBSubnetGroupArgs struct {
 
 func (DBSubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbsubnetGroupArgs)(nil)).Elem()
+}
+
+type DBSubnetGroupInput interface {
+	pulumi.Input
+
+	ToDBSubnetGroupOutput() DBSubnetGroupOutput
+	ToDBSubnetGroupOutputWithContext(ctx context.Context) DBSubnetGroupOutput
+}
+
+func (*DBSubnetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBSubnetGroup)(nil))
+}
+
+func (i *DBSubnetGroup) ToDBSubnetGroupOutput() DBSubnetGroupOutput {
+	return i.ToDBSubnetGroupOutputWithContext(context.Background())
+}
+
+func (i *DBSubnetGroup) ToDBSubnetGroupOutputWithContext(ctx context.Context) DBSubnetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBSubnetGroupOutput)
+}
+
+type DBSubnetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DBSubnetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBSubnetGroup)(nil))
+}
+
+func (o DBSubnetGroupOutput) ToDBSubnetGroupOutput() DBSubnetGroupOutput {
+	return o
+}
+
+func (o DBSubnetGroupOutput) ToDBSubnetGroupOutputWithContext(ctx context.Context) DBSubnetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DBSubnetGroupOutput{})
 }

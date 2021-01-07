@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type GraphQLApi struct {
 // NewGraphQLApi registers a new resource with the given unique name, arguments, and options.
 func NewGraphQLApi(ctx *pulumi.Context,
 	name string, args *GraphQLApiArgs, opts ...pulumi.ResourceOption) (*GraphQLApi, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &GraphQLApiArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource GraphQLApi
 	err := ctx.RegisterResource("cloudformation:AppSync:GraphQLApi", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type GraphQLApiArgs struct {
 
 func (GraphQLApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphQLApiArgs)(nil)).Elem()
+}
+
+type GraphQLApiInput interface {
+	pulumi.Input
+
+	ToGraphQLApiOutput() GraphQLApiOutput
+	ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput
+}
+
+func (*GraphQLApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApi)(nil))
+}
+
+func (i *GraphQLApi) ToGraphQLApiOutput() GraphQLApiOutput {
+	return i.ToGraphQLApiOutputWithContext(context.Background())
+}
+
+func (i *GraphQLApi) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiOutput)
+}
+
+type GraphQLApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (GraphQLApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApi)(nil))
+}
+
+func (o GraphQLApiOutput) ToGraphQLApiOutput() GraphQLApiOutput {
+	return o
+}
+
+func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GraphQLApiOutput{})
 }

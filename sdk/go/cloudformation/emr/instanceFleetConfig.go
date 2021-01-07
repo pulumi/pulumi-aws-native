@@ -4,6 +4,7 @@
 package emr
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type InstanceFleetConfig struct {
 // NewInstanceFleetConfig registers a new resource with the given unique name, arguments, and options.
 func NewInstanceFleetConfig(ctx *pulumi.Context,
 	name string, args *InstanceFleetConfigArgs, opts ...pulumi.ResourceOption) (*InstanceFleetConfig, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &InstanceFleetConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource InstanceFleetConfig
 	err := ctx.RegisterResource("cloudformation:EMR:InstanceFleetConfig", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type InstanceFleetConfigArgs struct {
 
 func (InstanceFleetConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceFleetConfigArgs)(nil)).Elem()
+}
+
+type InstanceFleetConfigInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOutput() InstanceFleetConfigOutput
+	ToInstanceFleetConfigOutputWithContext(ctx context.Context) InstanceFleetConfigOutput
+}
+
+func (*InstanceFleetConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfig)(nil))
+}
+
+func (i *InstanceFleetConfig) ToInstanceFleetConfigOutput() InstanceFleetConfigOutput {
+	return i.ToInstanceFleetConfigOutputWithContext(context.Background())
+}
+
+func (i *InstanceFleetConfig) ToInstanceFleetConfigOutputWithContext(ctx context.Context) InstanceFleetConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOutput)
+}
+
+type InstanceFleetConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceFleetConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfig)(nil))
+}
+
+func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutput() InstanceFleetConfigOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutputWithContext(ctx context.Context) InstanceFleetConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstanceFleetConfigOutput{})
 }

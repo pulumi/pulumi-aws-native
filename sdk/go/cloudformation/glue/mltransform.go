@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MLTransform struct {
 // NewMLTransform registers a new resource with the given unique name, arguments, and options.
 func NewMLTransform(ctx *pulumi.Context,
 	name string, args *MLTransformArgs, opts ...pulumi.ResourceOption) (*MLTransform, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MLTransformArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MLTransform
 	err := ctx.RegisterResource("cloudformation:Glue:MLTransform", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MLTransformArgs struct {
 
 func (MLTransformArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mltransformArgs)(nil)).Elem()
+}
+
+type MLTransformInput interface {
+	pulumi.Input
+
+	ToMLTransformOutput() MLTransformOutput
+	ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput
+}
+
+func (*MLTransform) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransform)(nil))
+}
+
+func (i *MLTransform) ToMLTransformOutput() MLTransformOutput {
+	return i.ToMLTransformOutputWithContext(context.Background())
+}
+
+func (i *MLTransform) ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformOutput)
+}
+
+type MLTransformOutput struct {
+	*pulumi.OutputState
+}
+
+func (MLTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransform)(nil))
+}
+
+func (o MLTransformOutput) ToMLTransformOutput() MLTransformOutput {
+	return o
+}
+
+func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MLTransformOutput{})
 }

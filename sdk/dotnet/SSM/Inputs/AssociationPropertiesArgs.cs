@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.SSM.Inputs
     public sealed class AssociationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
+        /// </summary>
+        [Input("ApplyOnlyAtCronInterval")]
+        public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
         /// </summary>
         [Input("AssociationName")]
@@ -70,14 +76,14 @@ namespace Pulumi.Cloudformation.SSM.Inputs
         public Input<Inputs.AssociationInstanceAssociationOutputLocationArgs>? OutputLocation { get; set; }
 
         [Input("Parameters")]
-        private InputMap<object>? _Parameters;
+        private InputMap<Inputs.AssociationParameterValuesArgs>? _Parameters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
         /// </summary>
-        public InputMap<object> Parameters
+        public InputMap<Inputs.AssociationParameterValuesArgs> Parameters
         {
-            get => _Parameters ?? (_Parameters = new InputMap<object>());
+            get => _Parameters ?? (_Parameters = new InputMap<Inputs.AssociationParameterValuesArgs>());
             set => _Parameters = value;
         }
 

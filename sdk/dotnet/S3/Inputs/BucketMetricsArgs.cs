@@ -18,8 +18,8 @@ namespace Pulumi.Cloudformation.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
         /// </summary>
-        [Input("EventThreshold", required: true)]
-        public Input<Inputs.BucketReplicationTimeValueArgs> EventThreshold { get; set; } = null!;
+        [Input("EventThreshold")]
+        public Input<Inputs.BucketReplicationTimeValueArgs>? EventThreshold { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status

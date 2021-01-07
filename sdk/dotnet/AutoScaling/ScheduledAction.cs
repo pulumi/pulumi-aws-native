@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AutoScaling
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AutoScaling:ScheduledAction")]
     public partial class ScheduledAction : Pulumi.CustomResource
     {
         /// <summary>

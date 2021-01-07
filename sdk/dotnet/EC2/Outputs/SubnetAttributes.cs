@@ -16,6 +16,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         public readonly string AvailabilityZone;
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         public readonly string NetworkAclAssociationId;
+        public readonly string OutpostArn;
         public readonly string VpcId;
 
         [OutputConstructor]
@@ -26,11 +27,14 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string NetworkAclAssociationId,
 
+            string OutpostArn,
+
             string VpcId)
         {
             this.AvailabilityZone = AvailabilityZone;
             this.Ipv6CidrBlocks = Ipv6CidrBlocks;
             this.NetworkAclAssociationId = NetworkAclAssociationId;
+            this.OutpostArn = OutpostArn;
             this.VpcId = VpcId;
         }
     }

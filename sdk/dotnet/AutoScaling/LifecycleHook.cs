@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AutoScaling
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AutoScaling:LifecycleHook")]
     public partial class LifecycleHook : Pulumi.CustomResource
     {
         /// <summary>

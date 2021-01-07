@@ -4,6 +4,7 @@
 package dax
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type SubnetGroup struct {
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
 func NewSubnetGroup(ctx *pulumi.Context,
 	name string, args *SubnetGroupArgs, opts ...pulumi.ResourceOption) (*SubnetGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &SubnetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource SubnetGroup
 	err := ctx.RegisterResource("cloudformation:DAX:SubnetGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type SubnetGroupArgs struct {
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetGroupArgs)(nil)).Elem()
+}
+
+type SubnetGroupInput interface {
+	pulumi.Input
+
+	ToSubnetGroupOutput() SubnetGroupOutput
+	ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput
+}
+
+func (*SubnetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetGroup)(nil))
+}
+
+func (i *SubnetGroup) ToSubnetGroupOutput() SubnetGroupOutput {
+	return i.ToSubnetGroupOutputWithContext(context.Background())
+}
+
+func (i *SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupOutput)
+}
+
+type SubnetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetGroup)(nil))
+}
+
+func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {
+	return o
+}
+
+func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubnetGroupOutput{})
 }

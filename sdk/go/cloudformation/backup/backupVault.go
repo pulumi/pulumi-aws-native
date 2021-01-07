@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type BackupVault struct {
 // NewBackupVault registers a new resource with the given unique name, arguments, and options.
 func NewBackupVault(ctx *pulumi.Context,
 	name string, args *BackupVaultArgs, opts ...pulumi.ResourceOption) (*BackupVault, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &BackupVaultArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource BackupVault
 	err := ctx.RegisterResource("cloudformation:Backup:BackupVault", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type BackupVaultArgs struct {
 
 func (BackupVaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupVaultArgs)(nil)).Elem()
+}
+
+type BackupVaultInput interface {
+	pulumi.Input
+
+	ToBackupVaultOutput() BackupVaultOutput
+	ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput
+}
+
+func (*BackupVault) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVault)(nil))
+}
+
+func (i *BackupVault) ToBackupVaultOutput() BackupVaultOutput {
+	return i.ToBackupVaultOutputWithContext(context.Background())
+}
+
+func (i *BackupVault) ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultOutput)
+}
+
+type BackupVaultOutput struct {
+	*pulumi.OutputState
+}
+
+func (BackupVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVault)(nil))
+}
+
+func (o BackupVaultOutput) ToBackupVaultOutput() BackupVaultOutput {
+	return o
+}
+
+func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackupVaultOutput{})
 }

@@ -562,6 +562,330 @@ func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html
+type BrokerLdapServerMetadata struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-hosts
+	Hosts []string `pulumi:"Hosts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolebase
+	RoleBase string `pulumi:"RoleBase"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolename
+	RoleName *string `pulumi:"RoleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchmatching
+	RoleSearchMatching string `pulumi:"RoleSearchMatching"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchsubtree
+	RoleSearchSubtree *bool `pulumi:"RoleSearchSubtree"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword
+	ServiceAccountPassword string `pulumi:"ServiceAccountPassword"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountusername
+	ServiceAccountUsername string `pulumi:"ServiceAccountUsername"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userbase
+	UserBase string `pulumi:"UserBase"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userrolename
+	UserRoleName *string `pulumi:"UserRoleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchmatching
+	UserSearchMatching string `pulumi:"UserSearchMatching"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchsubtree
+	UserSearchSubtree *bool `pulumi:"UserSearchSubtree"`
+}
+
+// BrokerLdapServerMetadataInput is an input type that accepts BrokerLdapServerMetadataArgs and BrokerLdapServerMetadataOutput values.
+// You can construct a concrete instance of `BrokerLdapServerMetadataInput` via:
+//
+//          BrokerLdapServerMetadataArgs{...}
+type BrokerLdapServerMetadataInput interface {
+	pulumi.Input
+
+	ToBrokerLdapServerMetadataOutput() BrokerLdapServerMetadataOutput
+	ToBrokerLdapServerMetadataOutputWithContext(context.Context) BrokerLdapServerMetadataOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html
+type BrokerLdapServerMetadataArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-hosts
+	Hosts pulumi.StringArrayInput `pulumi:"Hosts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolebase
+	RoleBase pulumi.StringInput `pulumi:"RoleBase"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolename
+	RoleName pulumi.StringPtrInput `pulumi:"RoleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchmatching
+	RoleSearchMatching pulumi.StringInput `pulumi:"RoleSearchMatching"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchsubtree
+	RoleSearchSubtree pulumi.BoolPtrInput `pulumi:"RoleSearchSubtree"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword
+	ServiceAccountPassword pulumi.StringInput `pulumi:"ServiceAccountPassword"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountusername
+	ServiceAccountUsername pulumi.StringInput `pulumi:"ServiceAccountUsername"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userbase
+	UserBase pulumi.StringInput `pulumi:"UserBase"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userrolename
+	UserRoleName pulumi.StringPtrInput `pulumi:"UserRoleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchmatching
+	UserSearchMatching pulumi.StringInput `pulumi:"UserSearchMatching"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchsubtree
+	UserSearchSubtree pulumi.BoolPtrInput `pulumi:"UserSearchSubtree"`
+}
+
+func (BrokerLdapServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataOutput() BrokerLdapServerMetadataOutput {
+	return i.ToBrokerLdapServerMetadataOutputWithContext(context.Background())
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataOutputWithContext(ctx context.Context) BrokerLdapServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataOutput)
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return i.ToBrokerLdapServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataOutput).ToBrokerLdapServerMetadataPtrOutputWithContext(ctx)
+}
+
+// BrokerLdapServerMetadataPtrInput is an input type that accepts BrokerLdapServerMetadataArgs, BrokerLdapServerMetadataPtr and BrokerLdapServerMetadataPtrOutput values.
+// You can construct a concrete instance of `BrokerLdapServerMetadataPtrInput` via:
+//
+//          BrokerLdapServerMetadataArgs{...}
+//
+//  or:
+//
+//          nil
+type BrokerLdapServerMetadataPtrInput interface {
+	pulumi.Input
+
+	ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput
+	ToBrokerLdapServerMetadataPtrOutputWithContext(context.Context) BrokerLdapServerMetadataPtrOutput
+}
+
+type brokerLdapServerMetadataPtrType BrokerLdapServerMetadataArgs
+
+func BrokerLdapServerMetadataPtr(v *BrokerLdapServerMetadataArgs) BrokerLdapServerMetadataPtrInput {
+	return (*brokerLdapServerMetadataPtrType)(v)
+}
+
+func (*brokerLdapServerMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (i *brokerLdapServerMetadataPtrType) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return i.ToBrokerLdapServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *brokerLdapServerMetadataPtrType) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html
+type BrokerLdapServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (BrokerLdapServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataOutput() BrokerLdapServerMetadataOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataOutputWithContext(ctx context.Context) BrokerLdapServerMetadataOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return o.ToBrokerLdapServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *BrokerLdapServerMetadata {
+		return &v
+	}).(BrokerLdapServerMetadataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-hosts
+func (o BrokerLdapServerMetadataOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) []string { return v.Hosts }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolebase
+func (o BrokerLdapServerMetadataOutput) RoleBase() pulumi.StringOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.RoleBase }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolename
+func (o BrokerLdapServerMetadataOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchmatching
+func (o BrokerLdapServerMetadataOutput) RoleSearchMatching() pulumi.StringOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.RoleSearchMatching }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchsubtree
+func (o BrokerLdapServerMetadataOutput) RoleSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *bool { return v.RoleSearchSubtree }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword
+func (o BrokerLdapServerMetadataOutput) ServiceAccountPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.ServiceAccountPassword }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountusername
+func (o BrokerLdapServerMetadataOutput) ServiceAccountUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.ServiceAccountUsername }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userbase
+func (o BrokerLdapServerMetadataOutput) UserBase() pulumi.StringOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.UserBase }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userrolename
+func (o BrokerLdapServerMetadataOutput) UserRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.UserRoleName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchmatching
+func (o BrokerLdapServerMetadataOutput) UserSearchMatching() pulumi.StringOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.UserSearchMatching }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchsubtree
+func (o BrokerLdapServerMetadataOutput) UserSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *bool { return v.UserSearchSubtree }).(pulumi.BoolPtrOutput)
+}
+
+type BrokerLdapServerMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (BrokerLdapServerMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (o BrokerLdapServerMetadataPtrOutput) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataPtrOutput) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataPtrOutput) Elem() BrokerLdapServerMetadataOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) BrokerLdapServerMetadata { return *v }).(BrokerLdapServerMetadataOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-hosts
+func (o BrokerLdapServerMetadataPtrOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Hosts
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolebase
+func (o BrokerLdapServerMetadataPtrOutput) RoleBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleBase
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolename
+func (o BrokerLdapServerMetadataPtrOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchmatching
+func (o BrokerLdapServerMetadataPtrOutput) RoleSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleSearchMatching
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchsubtree
+func (o BrokerLdapServerMetadataPtrOutput) RoleSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RoleSearchSubtree
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword
+func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceAccountPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountusername
+func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceAccountUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userbase
+func (o BrokerLdapServerMetadataPtrOutput) UserBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserBase
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userrolename
+func (o BrokerLdapServerMetadataPtrOutput) UserRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserRoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchmatching
+func (o BrokerLdapServerMetadataPtrOutput) UserSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserSearchMatching
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-usersearchsubtree
+func (o BrokerLdapServerMetadataPtrOutput) UserSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserSearchSubtree
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html
 type BrokerLogList struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html#cfn-amazonmq-broker-loglist-audit
@@ -889,6 +1213,8 @@ func (o BrokerMaintenanceWindowPtrOutput) TimeZone() pulumi.StringPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
 type BrokerProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
+	AuthenticationStrategy *string `pulumi:"AuthenticationStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
 	AutoMinorVersionUpgrade bool `pulumi:"AutoMinorVersionUpgrade"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername
@@ -905,6 +1231,8 @@ type BrokerProperties struct {
 	EngineVersion string `pulumi:"EngineVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 	HostInstanceType string `pulumi:"HostInstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
+	LdapServerMetadata *BrokerLdapServerMetadata `pulumi:"LdapServerMetadata"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
 	Logs *BrokerLogList `pulumi:"Logs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
@@ -936,6 +1264,8 @@ type BrokerPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
 type BrokerPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
+	AuthenticationStrategy pulumi.StringPtrInput `pulumi:"AuthenticationStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
 	AutoMinorVersionUpgrade pulumi.BoolInput `pulumi:"AutoMinorVersionUpgrade"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername
@@ -952,6 +1282,8 @@ type BrokerPropertiesArgs struct {
 	EngineVersion pulumi.StringInput `pulumi:"EngineVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 	HostInstanceType pulumi.StringInput `pulumi:"HostInstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
+	LdapServerMetadata BrokerLdapServerMetadataPtrInput `pulumi:"LdapServerMetadata"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
 	Logs BrokerLogListPtrInput `pulumi:"Logs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
@@ -1048,6 +1380,11 @@ func (o BrokerPropertiesOutput) ToBrokerPropertiesPtrOutputWithContext(ctx conte
 	}).(BrokerPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
+func (o BrokerPropertiesOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerProperties) *string { return v.AuthenticationStrategy }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
 func (o BrokerPropertiesOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v BrokerProperties) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
@@ -1086,6 +1423,11 @@ func (o BrokerPropertiesOutput) EngineVersion() pulumi.StringOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 func (o BrokerPropertiesOutput) HostInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerProperties) string { return v.HostInstanceType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
+func (o BrokerPropertiesOutput) LdapServerMetadata() BrokerLdapServerMetadataPtrOutput {
+	return o.ApplyT(func(v BrokerProperties) *BrokerLdapServerMetadata { return v.LdapServerMetadata }).(BrokerLdapServerMetadataPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
@@ -1144,6 +1486,16 @@ func (o BrokerPropertiesPtrOutput) ToBrokerPropertiesPtrOutputWithContext(ctx co
 
 func (o BrokerPropertiesPtrOutput) Elem() BrokerPropertiesOutput {
 	return o.ApplyT(func(v *BrokerProperties) BrokerProperties { return *v }).(BrokerPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
+func (o BrokerPropertiesPtrOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
@@ -1224,6 +1576,16 @@ func (o BrokerPropertiesPtrOutput) HostInstanceType() pulumi.StringPtrOutput {
 		}
 		return &v.HostInstanceType
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
+func (o BrokerPropertiesPtrOutput) LdapServerMetadata() BrokerLdapServerMetadataPtrOutput {
+	return o.ApplyT(func(v *BrokerProperties) *BrokerLdapServerMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.LdapServerMetadata
+	}).(BrokerLdapServerMetadataPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
@@ -2463,6 +2825,8 @@ func init() {
 	pulumi.RegisterOutputType(BrokerConfigurationIdPtrOutput{})
 	pulumi.RegisterOutputType(BrokerEncryptionOptionsOutput{})
 	pulumi.RegisterOutputType(BrokerEncryptionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(BrokerLdapServerMetadataOutput{})
+	pulumi.RegisterOutputType(BrokerLdapServerMetadataPtrOutput{})
 	pulumi.RegisterOutputType(BrokerLogListOutput{})
 	pulumi.RegisterOutputType(BrokerLogListPtrOutput{})
 	pulumi.RegisterOutputType(BrokerMaintenanceWindowOutput{})

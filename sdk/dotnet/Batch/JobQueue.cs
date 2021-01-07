@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Batch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Batch:JobQueue")]
     public partial class JobQueue : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ECS:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

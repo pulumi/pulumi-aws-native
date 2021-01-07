@@ -4,6 +4,7 @@
 package secretsmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ResourcePolicy struct {
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
 func NewResourcePolicy(ctx *pulumi.Context,
 	name string, args *ResourcePolicyArgs, opts ...pulumi.ResourceOption) (*ResourcePolicy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ResourcePolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("cloudformation:SecretsManager:ResourcePolicy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ResourcePolicyArgs struct {
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyArgs)(nil)).Elem()
+}
+
+type ResourcePolicyInput interface {
+	pulumi.Input
+
+	ToResourcePolicyOutput() ResourcePolicyOutput
+	ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput
+}
+
+func (*ResourcePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicy)(nil))
+}
+
+func (i *ResourcePolicy) ToResourcePolicyOutput() ResourcePolicyOutput {
+	return i.ToResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyOutput)
+}
+
+type ResourcePolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicy)(nil))
+}
+
+func (o ResourcePolicyOutput) ToResourcePolicyOutput() ResourcePolicyOutput {
+	return o
+}
+
+func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourcePolicyOutput{})
 }

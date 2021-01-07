@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-cloudformation/sdk/go/cloudformation"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -3046,6 +3047,506 @@ func (o InsightRuleTagsPtrOutput) Elem() InsightRuleTagsOutput {
 	return o.ApplyT(func(v *InsightRuleTags) InsightRuleTags { return *v }).(InsightRuleTagsOutput)
 }
 
+type MetricStreamAttributes struct {
+	Arn            string `pulumi:"Arn"`
+	CreationDate   string `pulumi:"CreationDate"`
+	LastUpdateDate string `pulumi:"LastUpdateDate"`
+	State          string `pulumi:"State"`
+}
+
+// MetricStreamAttributesInput is an input type that accepts MetricStreamAttributesArgs and MetricStreamAttributesOutput values.
+// You can construct a concrete instance of `MetricStreamAttributesInput` via:
+//
+//          MetricStreamAttributesArgs{...}
+type MetricStreamAttributesInput interface {
+	pulumi.Input
+
+	ToMetricStreamAttributesOutput() MetricStreamAttributesOutput
+	ToMetricStreamAttributesOutputWithContext(context.Context) MetricStreamAttributesOutput
+}
+
+type MetricStreamAttributesArgs struct {
+	Arn            pulumi.StringInput `pulumi:"Arn"`
+	CreationDate   pulumi.StringInput `pulumi:"CreationDate"`
+	LastUpdateDate pulumi.StringInput `pulumi:"LastUpdateDate"`
+	State          pulumi.StringInput `pulumi:"State"`
+}
+
+func (MetricStreamAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamAttributes)(nil)).Elem()
+}
+
+func (i MetricStreamAttributesArgs) ToMetricStreamAttributesOutput() MetricStreamAttributesOutput {
+	return i.ToMetricStreamAttributesOutputWithContext(context.Background())
+}
+
+func (i MetricStreamAttributesArgs) ToMetricStreamAttributesOutputWithContext(ctx context.Context) MetricStreamAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamAttributesOutput)
+}
+
+func (i MetricStreamAttributesArgs) ToMetricStreamAttributesPtrOutput() MetricStreamAttributesPtrOutput {
+	return i.ToMetricStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i MetricStreamAttributesArgs) ToMetricStreamAttributesPtrOutputWithContext(ctx context.Context) MetricStreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamAttributesOutput).ToMetricStreamAttributesPtrOutputWithContext(ctx)
+}
+
+// MetricStreamAttributesPtrInput is an input type that accepts MetricStreamAttributesArgs, MetricStreamAttributesPtr and MetricStreamAttributesPtrOutput values.
+// You can construct a concrete instance of `MetricStreamAttributesPtrInput` via:
+//
+//          MetricStreamAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type MetricStreamAttributesPtrInput interface {
+	pulumi.Input
+
+	ToMetricStreamAttributesPtrOutput() MetricStreamAttributesPtrOutput
+	ToMetricStreamAttributesPtrOutputWithContext(context.Context) MetricStreamAttributesPtrOutput
+}
+
+type metricStreamAttributesPtrType MetricStreamAttributesArgs
+
+func MetricStreamAttributesPtr(v *MetricStreamAttributesArgs) MetricStreamAttributesPtrInput {
+	return (*metricStreamAttributesPtrType)(v)
+}
+
+func (*metricStreamAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricStreamAttributes)(nil)).Elem()
+}
+
+func (i *metricStreamAttributesPtrType) ToMetricStreamAttributesPtrOutput() MetricStreamAttributesPtrOutput {
+	return i.ToMetricStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *metricStreamAttributesPtrType) ToMetricStreamAttributesPtrOutputWithContext(ctx context.Context) MetricStreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamAttributesPtrOutput)
+}
+
+type MetricStreamAttributesOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamAttributes)(nil)).Elem()
+}
+
+func (o MetricStreamAttributesOutput) ToMetricStreamAttributesOutput() MetricStreamAttributesOutput {
+	return o
+}
+
+func (o MetricStreamAttributesOutput) ToMetricStreamAttributesOutputWithContext(ctx context.Context) MetricStreamAttributesOutput {
+	return o
+}
+
+func (o MetricStreamAttributesOutput) ToMetricStreamAttributesPtrOutput() MetricStreamAttributesPtrOutput {
+	return o.ToMetricStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o MetricStreamAttributesOutput) ToMetricStreamAttributesPtrOutputWithContext(ctx context.Context) MetricStreamAttributesPtrOutput {
+	return o.ApplyT(func(v MetricStreamAttributes) *MetricStreamAttributes {
+		return &v
+	}).(MetricStreamAttributesPtrOutput)
+}
+func (o MetricStreamAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o MetricStreamAttributesOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamAttributes) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+func (o MetricStreamAttributesOutput) LastUpdateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamAttributes) string { return v.LastUpdateDate }).(pulumi.StringOutput)
+}
+
+func (o MetricStreamAttributesOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamAttributes) string { return v.State }).(pulumi.StringOutput)
+}
+
+type MetricStreamAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricStreamAttributes)(nil)).Elem()
+}
+
+func (o MetricStreamAttributesPtrOutput) ToMetricStreamAttributesPtrOutput() MetricStreamAttributesPtrOutput {
+	return o
+}
+
+func (o MetricStreamAttributesPtrOutput) ToMetricStreamAttributesPtrOutputWithContext(ctx context.Context) MetricStreamAttributesPtrOutput {
+	return o
+}
+
+func (o MetricStreamAttributesPtrOutput) Elem() MetricStreamAttributesOutput {
+	return o.ApplyT(func(v *MetricStreamAttributes) MetricStreamAttributes { return *v }).(MetricStreamAttributesOutput)
+}
+
+func (o MetricStreamAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MetricStreamAttributesPtrOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MetricStreamAttributesPtrOutput) LastUpdateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdateDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MetricStreamAttributesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
+type MetricStreamMetricStreamFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+	Namespace string `pulumi:"Namespace"`
+}
+
+// MetricStreamMetricStreamFilterInput is an input type that accepts MetricStreamMetricStreamFilterArgs and MetricStreamMetricStreamFilterOutput values.
+// You can construct a concrete instance of `MetricStreamMetricStreamFilterInput` via:
+//
+//          MetricStreamMetricStreamFilterArgs{...}
+type MetricStreamMetricStreamFilterInput interface {
+	pulumi.Input
+
+	ToMetricStreamMetricStreamFilterOutput() MetricStreamMetricStreamFilterOutput
+	ToMetricStreamMetricStreamFilterOutputWithContext(context.Context) MetricStreamMetricStreamFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
+type MetricStreamMetricStreamFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+	Namespace pulumi.StringInput `pulumi:"Namespace"`
+}
+
+func (MetricStreamMetricStreamFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamMetricStreamFilter)(nil)).Elem()
+}
+
+func (i MetricStreamMetricStreamFilterArgs) ToMetricStreamMetricStreamFilterOutput() MetricStreamMetricStreamFilterOutput {
+	return i.ToMetricStreamMetricStreamFilterOutputWithContext(context.Background())
+}
+
+func (i MetricStreamMetricStreamFilterArgs) ToMetricStreamMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamMetricStreamFilterOutput)
+}
+
+// MetricStreamMetricStreamFilterArrayInput is an input type that accepts MetricStreamMetricStreamFilterArray and MetricStreamMetricStreamFilterArrayOutput values.
+// You can construct a concrete instance of `MetricStreamMetricStreamFilterArrayInput` via:
+//
+//          MetricStreamMetricStreamFilterArray{ MetricStreamMetricStreamFilterArgs{...} }
+type MetricStreamMetricStreamFilterArrayInput interface {
+	pulumi.Input
+
+	ToMetricStreamMetricStreamFilterArrayOutput() MetricStreamMetricStreamFilterArrayOutput
+	ToMetricStreamMetricStreamFilterArrayOutputWithContext(context.Context) MetricStreamMetricStreamFilterArrayOutput
+}
+
+type MetricStreamMetricStreamFilterArray []MetricStreamMetricStreamFilterInput
+
+func (MetricStreamMetricStreamFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamMetricStreamFilter)(nil)).Elem()
+}
+
+func (i MetricStreamMetricStreamFilterArray) ToMetricStreamMetricStreamFilterArrayOutput() MetricStreamMetricStreamFilterArrayOutput {
+	return i.ToMetricStreamMetricStreamFilterArrayOutputWithContext(context.Background())
+}
+
+func (i MetricStreamMetricStreamFilterArray) ToMetricStreamMetricStreamFilterArrayOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamMetricStreamFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
+type MetricStreamMetricStreamFilterOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamMetricStreamFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamMetricStreamFilter)(nil)).Elem()
+}
+
+func (o MetricStreamMetricStreamFilterOutput) ToMetricStreamMetricStreamFilterOutput() MetricStreamMetricStreamFilterOutput {
+	return o
+}
+
+func (o MetricStreamMetricStreamFilterOutput) ToMetricStreamMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+func (o MetricStreamMetricStreamFilterOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamMetricStreamFilter) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type MetricStreamMetricStreamFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamMetricStreamFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamMetricStreamFilter)(nil)).Elem()
+}
+
+func (o MetricStreamMetricStreamFilterArrayOutput) ToMetricStreamMetricStreamFilterArrayOutput() MetricStreamMetricStreamFilterArrayOutput {
+	return o
+}
+
+func (o MetricStreamMetricStreamFilterArrayOutput) ToMetricStreamMetricStreamFilterArrayOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterArrayOutput {
+	return o
+}
+
+func (o MetricStreamMetricStreamFilterArrayOutput) Index(i pulumi.IntInput) MetricStreamMetricStreamFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamMetricStreamFilter {
+		return vs[0].([]MetricStreamMetricStreamFilter)[vs[1].(int)]
+	}).(MetricStreamMetricStreamFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+type MetricStreamProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+	ExcludeFilters []MetricStreamMetricStreamFilter `pulumi:"ExcludeFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+	FirehoseArn string `pulumi:"FirehoseArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+	IncludeFilters []MetricStreamMetricStreamFilter `pulumi:"IncludeFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+	Name *string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+	RoleArn string `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// MetricStreamPropertiesInput is an input type that accepts MetricStreamPropertiesArgs and MetricStreamPropertiesOutput values.
+// You can construct a concrete instance of `MetricStreamPropertiesInput` via:
+//
+//          MetricStreamPropertiesArgs{...}
+type MetricStreamPropertiesInput interface {
+	pulumi.Input
+
+	ToMetricStreamPropertiesOutput() MetricStreamPropertiesOutput
+	ToMetricStreamPropertiesOutputWithContext(context.Context) MetricStreamPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+type MetricStreamPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+	ExcludeFilters MetricStreamMetricStreamFilterArrayInput `pulumi:"ExcludeFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+	FirehoseArn pulumi.StringInput `pulumi:"FirehoseArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+	IncludeFilters MetricStreamMetricStreamFilterArrayInput `pulumi:"IncludeFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+	Name pulumi.StringPtrInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+	RoleArn pulumi.StringInput `pulumi:"RoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (MetricStreamPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamProperties)(nil)).Elem()
+}
+
+func (i MetricStreamPropertiesArgs) ToMetricStreamPropertiesOutput() MetricStreamPropertiesOutput {
+	return i.ToMetricStreamPropertiesOutputWithContext(context.Background())
+}
+
+func (i MetricStreamPropertiesArgs) ToMetricStreamPropertiesOutputWithContext(ctx context.Context) MetricStreamPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamPropertiesOutput)
+}
+
+func (i MetricStreamPropertiesArgs) ToMetricStreamPropertiesPtrOutput() MetricStreamPropertiesPtrOutput {
+	return i.ToMetricStreamPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MetricStreamPropertiesArgs) ToMetricStreamPropertiesPtrOutputWithContext(ctx context.Context) MetricStreamPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamPropertiesOutput).ToMetricStreamPropertiesPtrOutputWithContext(ctx)
+}
+
+// MetricStreamPropertiesPtrInput is an input type that accepts MetricStreamPropertiesArgs, MetricStreamPropertiesPtr and MetricStreamPropertiesPtrOutput values.
+// You can construct a concrete instance of `MetricStreamPropertiesPtrInput` via:
+//
+//          MetricStreamPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type MetricStreamPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMetricStreamPropertiesPtrOutput() MetricStreamPropertiesPtrOutput
+	ToMetricStreamPropertiesPtrOutputWithContext(context.Context) MetricStreamPropertiesPtrOutput
+}
+
+type metricStreamPropertiesPtrType MetricStreamPropertiesArgs
+
+func MetricStreamPropertiesPtr(v *MetricStreamPropertiesArgs) MetricStreamPropertiesPtrInput {
+	return (*metricStreamPropertiesPtrType)(v)
+}
+
+func (*metricStreamPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricStreamProperties)(nil)).Elem()
+}
+
+func (i *metricStreamPropertiesPtrType) ToMetricStreamPropertiesPtrOutput() MetricStreamPropertiesPtrOutput {
+	return i.ToMetricStreamPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *metricStreamPropertiesPtrType) ToMetricStreamPropertiesPtrOutputWithContext(ctx context.Context) MetricStreamPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+type MetricStreamPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamProperties)(nil)).Elem()
+}
+
+func (o MetricStreamPropertiesOutput) ToMetricStreamPropertiesOutput() MetricStreamPropertiesOutput {
+	return o
+}
+
+func (o MetricStreamPropertiesOutput) ToMetricStreamPropertiesOutputWithContext(ctx context.Context) MetricStreamPropertiesOutput {
+	return o
+}
+
+func (o MetricStreamPropertiesOutput) ToMetricStreamPropertiesPtrOutput() MetricStreamPropertiesPtrOutput {
+	return o.ToMetricStreamPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MetricStreamPropertiesOutput) ToMetricStreamPropertiesPtrOutputWithContext(ctx context.Context) MetricStreamPropertiesPtrOutput {
+	return o.ApplyT(func(v MetricStreamProperties) *MetricStreamProperties {
+		return &v
+	}).(MetricStreamPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+func (o MetricStreamPropertiesOutput) ExcludeFilters() MetricStreamMetricStreamFilterArrayOutput {
+	return o.ApplyT(func(v MetricStreamProperties) []MetricStreamMetricStreamFilter { return v.ExcludeFilters }).(MetricStreamMetricStreamFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+func (o MetricStreamPropertiesOutput) FirehoseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamProperties) string { return v.FirehoseArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+func (o MetricStreamPropertiesOutput) IncludeFilters() MetricStreamMetricStreamFilterArrayOutput {
+	return o.ApplyT(func(v MetricStreamProperties) []MetricStreamMetricStreamFilter { return v.IncludeFilters }).(MetricStreamMetricStreamFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+func (o MetricStreamPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricStreamProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+func (o MetricStreamPropertiesOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+func (o MetricStreamPropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v MetricStreamProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type MetricStreamPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricStreamProperties)(nil)).Elem()
+}
+
+func (o MetricStreamPropertiesPtrOutput) ToMetricStreamPropertiesPtrOutput() MetricStreamPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricStreamPropertiesPtrOutput) ToMetricStreamPropertiesPtrOutputWithContext(ctx context.Context) MetricStreamPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricStreamPropertiesPtrOutput) Elem() MetricStreamPropertiesOutput {
+	return o.ApplyT(func(v *MetricStreamProperties) MetricStreamProperties { return *v }).(MetricStreamPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+func (o MetricStreamPropertiesPtrOutput) ExcludeFilters() MetricStreamMetricStreamFilterArrayOutput {
+	return o.ApplyT(func(v *MetricStreamProperties) []MetricStreamMetricStreamFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFilters
+	}).(MetricStreamMetricStreamFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+func (o MetricStreamPropertiesPtrOutput) FirehoseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirehoseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+func (o MetricStreamPropertiesPtrOutput) IncludeFilters() MetricStreamMetricStreamFilterArrayOutput {
+	return o.ApplyT(func(v *MetricStreamProperties) []MetricStreamMetricStreamFilter {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeFilters
+	}).(MetricStreamMetricStreamFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+func (o MetricStreamPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+func (o MetricStreamPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricStreamProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+func (o MetricStreamPropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *MetricStreamProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlarmAttributesOutput{})
 	pulumi.RegisterOutputType(AlarmAttributesPtrOutput{})
@@ -3083,4 +3584,10 @@ func init() {
 	pulumi.RegisterOutputType(InsightRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InsightRuleTagsOutput{})
 	pulumi.RegisterOutputType(InsightRuleTagsPtrOutput{})
+	pulumi.RegisterOutputType(MetricStreamAttributesOutput{})
+	pulumi.RegisterOutputType(MetricStreamAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MetricStreamMetricStreamFilterOutput{})
+	pulumi.RegisterOutputType(MetricStreamMetricStreamFilterArrayOutput{})
+	pulumi.RegisterOutputType(MetricStreamPropertiesOutput{})
+	pulumi.RegisterOutputType(MetricStreamPropertiesPtrOutput{})
 }

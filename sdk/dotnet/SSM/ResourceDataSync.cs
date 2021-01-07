@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SSM:ResourceDataSync")]
     public partial class ResourceDataSync : Pulumi.CustomResource
     {
         /// <summary>

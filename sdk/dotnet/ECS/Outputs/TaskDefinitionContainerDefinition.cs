@@ -54,6 +54,10 @@ namespace Pulumi.Cloudformation.ECS.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskDefinitionKeyValuePair> Environment;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TaskDefinitionEnvironmentFile> EnvironmentFiles;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
         /// </summary>
         public readonly bool? Essential;
@@ -188,6 +192,8 @@ namespace Pulumi.Cloudformation.ECS.Outputs
 
             ImmutableArray<Outputs.TaskDefinitionKeyValuePair> Environment,
 
+            ImmutableArray<Outputs.TaskDefinitionEnvironmentFile> EnvironmentFiles,
+
             bool? Essential,
 
             ImmutableArray<Outputs.TaskDefinitionHostEntry> ExtraHosts,
@@ -254,6 +260,7 @@ namespace Pulumi.Cloudformation.ECS.Outputs
             this.DockerSecurityOptions = DockerSecurityOptions;
             this.EntryPoint = EntryPoint;
             this.Environment = Environment;
+            this.EnvironmentFiles = EnvironmentFiles;
             this.Essential = Essential;
             this.ExtraHosts = ExtraHosts;
             this.FirelensConfiguration = FirelensConfiguration;

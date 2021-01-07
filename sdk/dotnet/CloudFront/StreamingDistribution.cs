@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CloudFront:StreamingDistribution")]
     public partial class StreamingDistribution : Pulumi.CustomResource
     {
         /// <summary>

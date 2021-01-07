@@ -8,3 +8,36 @@ from .instance import *
 from .private_dns_namespace import *
 from .public_dns_namespace import *
 from .service import *
+from ._inputs import *
+from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "cloudformation:ServiceDiscovery:HttpNamespace":
+                return HttpNamespace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ServiceDiscovery:Instance":
+                return Instance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ServiceDiscovery:PrivateDnsNamespace":
+                return PrivateDnsNamespace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ServiceDiscovery:PublicDnsNamespace":
+                return PublicDnsNamespace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "cloudformation:ServiceDiscovery:Service":
+                return Service(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("cloudformation", "ServiceDiscovery", _module_instance)
+
+_register_module()

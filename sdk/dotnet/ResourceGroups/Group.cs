@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ResourceGroups
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ResourceGroups:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

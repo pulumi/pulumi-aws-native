@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.EMR.Inputs
     public sealed class InstanceFleetConfigSpotProvisioningSpecificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-allocationstrategy
+        /// </summary>
+        [Input("AllocationStrategy")]
+        public Input<string>? AllocationStrategy { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html#cfn-elasticmapreduce-instancefleetconfig-spotprovisioningspecification-blockdurationminutes
         /// </summary>
         [Input("BlockDurationMinutes")]

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppSync:Resolver")]
     public partial class Resolver : Pulumi.CustomResource
     {
         /// <summary>

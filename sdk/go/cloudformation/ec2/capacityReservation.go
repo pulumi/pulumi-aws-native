@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CapacityReservation struct {
 // NewCapacityReservation registers a new resource with the given unique name, arguments, and options.
 func NewCapacityReservation(ctx *pulumi.Context,
 	name string, args *CapacityReservationArgs, opts ...pulumi.ResourceOption) (*CapacityReservation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CapacityReservationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CapacityReservation
 	err := ctx.RegisterResource("cloudformation:EC2:CapacityReservation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CapacityReservationArgs struct {
 
 func (CapacityReservationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityReservationArgs)(nil)).Elem()
+}
+
+type CapacityReservationInput interface {
+	pulumi.Input
+
+	ToCapacityReservationOutput() CapacityReservationOutput
+	ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput
+}
+
+func (*CapacityReservation) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservation)(nil))
+}
+
+func (i *CapacityReservation) ToCapacityReservationOutput() CapacityReservationOutput {
+	return i.ToCapacityReservationOutputWithContext(context.Background())
+}
+
+func (i *CapacityReservation) ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationOutput)
+}
+
+type CapacityReservationOutput struct {
+	*pulumi.OutputState
+}
+
+func (CapacityReservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservation)(nil))
+}
+
+func (o CapacityReservationOutput) ToCapacityReservationOutput() CapacityReservationOutput {
+	return o
+}
+
+func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CapacityReservationOutput{})
 }

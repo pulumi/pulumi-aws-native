@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
     public sealed class FunctionCode
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+        /// </summary>
+        public readonly string? ImageUri;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
         /// </summary>
         public readonly string? S3Bucket;
@@ -32,6 +36,8 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
 
         [OutputConstructor]
         private FunctionCode(
+            string? ImageUri,
+
             string? S3Bucket,
 
             string? S3Key,
@@ -40,6 +46,7 @@ namespace Pulumi.Cloudformation.Lambda.Outputs
 
             string? ZipFile)
         {
+            this.ImageUri = ImageUri;
             this.S3Bucket = S3Bucket;
             this.S3Key = S3Key;
             this.S3ObjectVersion = S3ObjectVersion;

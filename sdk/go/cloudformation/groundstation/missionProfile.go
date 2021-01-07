@@ -4,6 +4,7 @@
 package groundstation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type MissionProfile struct {
 // NewMissionProfile registers a new resource with the given unique name, arguments, and options.
 func NewMissionProfile(ctx *pulumi.Context,
 	name string, args *MissionProfileArgs, opts ...pulumi.ResourceOption) (*MissionProfile, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &MissionProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource MissionProfile
 	err := ctx.RegisterResource("cloudformation:GroundStation:MissionProfile", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type MissionProfileArgs struct {
 
 func (MissionProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*missionProfileArgs)(nil)).Elem()
+}
+
+type MissionProfileInput interface {
+	pulumi.Input
+
+	ToMissionProfileOutput() MissionProfileOutput
+	ToMissionProfileOutputWithContext(ctx context.Context) MissionProfileOutput
+}
+
+func (*MissionProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*MissionProfile)(nil))
+}
+
+func (i *MissionProfile) ToMissionProfileOutput() MissionProfileOutput {
+	return i.ToMissionProfileOutputWithContext(context.Background())
+}
+
+func (i *MissionProfile) ToMissionProfileOutputWithContext(ctx context.Context) MissionProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileOutput)
+}
+
+type MissionProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (MissionProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MissionProfile)(nil))
+}
+
+func (o MissionProfileOutput) ToMissionProfileOutput() MissionProfileOutput {
+	return o
+}
+
+func (o MissionProfileOutput) ToMissionProfileOutputWithContext(ctx context.Context) MissionProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MissionProfileOutput{})
 }

@@ -54,6 +54,10 @@ namespace Pulumi.Cloudformation.ElastiCache.Outputs
         /// </summary>
         public readonly string? EngineVersion;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-globalreplicationgroupid
+        /// </summary>
+        public readonly string? GlobalReplicationGroupId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-kmskeyid
         /// </summary>
         public readonly string? KmsKeyId;
@@ -137,6 +141,10 @@ namespace Pulumi.Cloudformation.ElastiCache.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-transitencryptionenabled
         /// </summary>
         public readonly bool? TransitEncryptionEnabled;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-usergroupids
+        /// </summary>
+        public readonly ImmutableArray<string> UserGroupIds;
 
         [OutputConstructor]
         private ReplicationGroupProperties(
@@ -159,6 +167,8 @@ namespace Pulumi.Cloudformation.ElastiCache.Outputs
             string? Engine,
 
             string? EngineVersion,
+
+            string? GlobalReplicationGroupId,
 
             string? KmsKeyId,
 
@@ -200,7 +210,9 @@ namespace Pulumi.Cloudformation.ElastiCache.Outputs
 
             ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
 
-            bool? TransitEncryptionEnabled)
+            bool? TransitEncryptionEnabled,
+
+            ImmutableArray<string> UserGroupIds)
         {
             this.AtRestEncryptionEnabled = AtRestEncryptionEnabled;
             this.AuthToken = AuthToken;
@@ -212,6 +224,7 @@ namespace Pulumi.Cloudformation.ElastiCache.Outputs
             this.CacheSubnetGroupName = CacheSubnetGroupName;
             this.Engine = Engine;
             this.EngineVersion = EngineVersion;
+            this.GlobalReplicationGroupId = GlobalReplicationGroupId;
             this.KmsKeyId = KmsKeyId;
             this.MultiAZEnabled = MultiAZEnabled;
             this.NodeGroupConfiguration = NodeGroupConfiguration;
@@ -233,6 +246,7 @@ namespace Pulumi.Cloudformation.ElastiCache.Outputs
             this.SnapshottingClusterId = SnapshottingClusterId;
             this.Tags = Tags;
             this.TransitEncryptionEnabled = TransitEncryptionEnabled;
+            this.UserGroupIds = UserGroupIds;
         }
     }
 }

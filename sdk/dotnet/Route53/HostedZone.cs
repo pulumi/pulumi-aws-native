@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Route53
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Route53:HostedZone")]
     public partial class HostedZone : Pulumi.CustomResource
     {
         /// <summary>

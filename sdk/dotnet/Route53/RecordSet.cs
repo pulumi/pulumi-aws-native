@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Route53
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Route53:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
     {
         /// <summary>

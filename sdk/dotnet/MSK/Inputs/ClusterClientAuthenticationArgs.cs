@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.MSK.Inputs
     public sealed class ClusterClientAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-sasl
+        /// </summary>
+        [Input("Sasl")]
+        public Input<Inputs.ClusterSaslArgs>? Sasl { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html#cfn-msk-cluster-clientauthentication-tls
         /// </summary>
         [Input("Tls")]

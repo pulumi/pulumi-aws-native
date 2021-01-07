@@ -17,11 +17,19 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
         /// </summary>
         public readonly string? CapacityReservationId;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+        /// </summary>
+        public readonly string? CapacityReservationResourceGroupArn;
 
         [OutputConstructor]
-        private LaunchTemplateCapacityReservationTarget(string? CapacityReservationId)
+        private LaunchTemplateCapacityReservationTarget(
+            string? CapacityReservationId,
+
+            string? CapacityReservationResourceGroupArn)
         {
             this.CapacityReservationId = CapacityReservationId;
+            this.CapacityReservationResourceGroupArn = CapacityReservationResourceGroupArn;
         }
     }
 }

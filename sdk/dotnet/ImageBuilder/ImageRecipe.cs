@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ImageBuilder:ImageRecipe")]
     public partial class ImageRecipe : Pulumi.CustomResource
     {
         /// <summary>

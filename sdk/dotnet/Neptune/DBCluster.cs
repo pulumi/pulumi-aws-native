@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Neptune
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Neptune:DBCluster")]
     public partial class DBCluster : Pulumi.CustomResource
     {
         /// <summary>

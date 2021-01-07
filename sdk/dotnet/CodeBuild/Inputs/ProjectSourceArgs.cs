@@ -28,6 +28,12 @@ namespace Pulumi.Cloudformation.CodeBuild.Inputs
         public Input<string>? BuildSpec { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildstatusconfig
+        /// </summary>
+        [Input("BuildStatusConfig")]
+        public Input<Inputs.ProjectBuildStatusConfigArgs>? BuildStatusConfig { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
         /// </summary>
         [Input("GitCloneDepth")]

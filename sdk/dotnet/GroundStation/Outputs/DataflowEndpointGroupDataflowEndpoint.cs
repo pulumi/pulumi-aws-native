@@ -18,18 +18,32 @@ namespace Pulumi.Cloudformation.GroundStation.Outputs
         /// </summary>
         public readonly Outputs.DataflowEndpointGroupSocketAddress? Address;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
+        /// </summary>
+        public readonly int? Mtu;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
+        /// </summary>
+        public readonly string? Status;
 
         [OutputConstructor]
         private DataflowEndpointGroupDataflowEndpoint(
             Outputs.DataflowEndpointGroupSocketAddress? Address,
 
-            string? Name)
+            int? Mtu,
+
+            string? Name,
+
+            string? Status)
         {
             this.Address = Address;
+            this.Mtu = Mtu;
             this.Name = Name;
+            this.Status = Status;
         }
     }
 }

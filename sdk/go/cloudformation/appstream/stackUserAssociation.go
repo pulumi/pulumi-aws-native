@@ -4,6 +4,7 @@
 package appstream
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type StackUserAssociation struct {
 // NewStackUserAssociation registers a new resource with the given unique name, arguments, and options.
 func NewStackUserAssociation(ctx *pulumi.Context,
 	name string, args *StackUserAssociationArgs, opts ...pulumi.ResourceOption) (*StackUserAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StackUserAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource StackUserAssociation
 	err := ctx.RegisterResource("cloudformation:AppStream:StackUserAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StackUserAssociationArgs struct {
 
 func (StackUserAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackUserAssociationArgs)(nil)).Elem()
+}
+
+type StackUserAssociationInput interface {
+	pulumi.Input
+
+	ToStackUserAssociationOutput() StackUserAssociationOutput
+	ToStackUserAssociationOutputWithContext(ctx context.Context) StackUserAssociationOutput
+}
+
+func (*StackUserAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackUserAssociation)(nil))
+}
+
+func (i *StackUserAssociation) ToStackUserAssociationOutput() StackUserAssociationOutput {
+	return i.ToStackUserAssociationOutputWithContext(context.Background())
+}
+
+func (i *StackUserAssociation) ToStackUserAssociationOutputWithContext(ctx context.Context) StackUserAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackUserAssociationOutput)
+}
+
+type StackUserAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackUserAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackUserAssociation)(nil))
+}
+
+func (o StackUserAssociationOutput) ToStackUserAssociationOutput() StackUserAssociationOutput {
+	return o
+}
+
+func (o StackUserAssociationOutput) ToStackUserAssociationOutputWithContext(ctx context.Context) StackUserAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackUserAssociationOutput{})
 }

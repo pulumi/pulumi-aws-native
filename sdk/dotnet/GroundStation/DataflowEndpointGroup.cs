@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GroundStation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GroundStation:DataflowEndpointGroup")]
     public partial class DataflowEndpointGroup : Pulumi.CustomResource
     {
         /// <summary>

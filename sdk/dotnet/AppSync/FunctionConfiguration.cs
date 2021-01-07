@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppSync:FunctionConfiguration")]
     public partial class FunctionConfiguration : Pulumi.CustomResource
     {
         /// <summary>

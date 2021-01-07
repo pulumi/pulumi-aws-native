@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RestApi struct {
 // NewRestApi registers a new resource with the given unique name, arguments, and options.
 func NewRestApi(ctx *pulumi.Context,
 	name string, args *RestApiArgs, opts ...pulumi.ResourceOption) (*RestApi, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RestApiArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RestApi
 	err := ctx.RegisterResource("cloudformation:ApiGateway:RestApi", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RestApiArgs struct {
 
 func (RestApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*restApiArgs)(nil)).Elem()
+}
+
+type RestApiInput interface {
+	pulumi.Input
+
+	ToRestApiOutput() RestApiOutput
+	ToRestApiOutputWithContext(ctx context.Context) RestApiOutput
+}
+
+func (*RestApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApi)(nil))
+}
+
+func (i *RestApi) ToRestApiOutput() RestApiOutput {
+	return i.ToRestApiOutputWithContext(context.Background())
+}
+
+func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
+}
+
+type RestApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (RestApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApi)(nil))
+}
+
+func (o RestApiOutput) ToRestApiOutput() RestApiOutput {
+	return o
+}
+
+func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RestApiOutput{})
 }

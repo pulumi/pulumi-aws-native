@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppSync:GraphQLApi")]
     public partial class GraphQLApi : Pulumi.CustomResource
     {
         /// <summary>

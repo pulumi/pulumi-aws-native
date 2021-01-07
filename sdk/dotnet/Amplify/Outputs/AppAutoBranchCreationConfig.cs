@@ -34,6 +34,10 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
         /// </summary>
         public readonly bool? EnableAutoBuild;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
+        /// </summary>
+        public readonly bool? EnablePerformanceMode;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
         /// </summary>
         public readonly bool? EnablePullRequestPreview;
@@ -62,6 +66,8 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
 
             bool? EnableAutoBuild,
 
+            bool? EnablePerformanceMode,
+
             bool? EnablePullRequestPreview,
 
             ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables,
@@ -75,6 +81,7 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
             this.BuildSpec = BuildSpec;
             this.EnableAutoBranchCreation = EnableAutoBranchCreation;
             this.EnableAutoBuild = EnableAutoBuild;
+            this.EnablePerformanceMode = EnablePerformanceMode;
             this.EnablePullRequestPreview = EnablePullRequestPreview;
             this.EnvironmentVariables = EnvironmentVariables;
             this.PullRequestEnvironmentName = PullRequestEnvironmentName;

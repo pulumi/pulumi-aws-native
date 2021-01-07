@@ -375,7 +375,7 @@ type CanaryProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
 	Name string `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-	RunConfig CanaryRunConfig `pulumi:"RunConfig"`
+	RunConfig *CanaryRunConfig `pulumi:"RunConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
 	RuntimeVersion string `pulumi:"RuntimeVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
@@ -414,7 +414,7 @@ type CanaryPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
 	Name pulumi.StringInput `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-	RunConfig CanaryRunConfigInput `pulumi:"RunConfig"`
+	RunConfig CanaryRunConfigPtrInput `pulumi:"RunConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
 	RuntimeVersion pulumi.StringInput `pulumi:"RuntimeVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
@@ -533,8 +533,8 @@ func (o CanaryPropertiesOutput) Name() pulumi.StringOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-func (o CanaryPropertiesOutput) RunConfig() CanaryRunConfigOutput {
-	return o.ApplyT(func(v CanaryProperties) CanaryRunConfig { return v.RunConfig }).(CanaryRunConfigOutput)
+func (o CanaryPropertiesOutput) RunConfig() CanaryRunConfigPtrOutput {
+	return o.ApplyT(func(v CanaryProperties) *CanaryRunConfig { return v.RunConfig }).(CanaryRunConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
@@ -641,7 +641,7 @@ func (o CanaryPropertiesPtrOutput) RunConfig() CanaryRunConfigPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.RunConfig
+		return v.RunConfig
 	}).(CanaryRunConfigPtrOutput)
 }
 
@@ -707,6 +707,12 @@ func (o CanaryPropertiesPtrOutput) VPCConfig() CanaryVPCConfigPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
 type CanaryRunConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+	ActiveTracing *bool `pulumi:"ActiveTracing"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+	EnvironmentVariables map[string]string `pulumi:"EnvironmentVariables"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+	MemoryInMB *int `pulumi:"MemoryInMB"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
 	TimeoutInSeconds int `pulumi:"TimeoutInSeconds"`
 }
@@ -724,6 +730,12 @@ type CanaryRunConfigInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
 type CanaryRunConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+	ActiveTracing pulumi.BoolPtrInput `pulumi:"ActiveTracing"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"EnvironmentVariables"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+	MemoryInMB pulumi.IntPtrInput `pulumi:"MemoryInMB"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
 	TimeoutInSeconds pulumi.IntInput `pulumi:"TimeoutInSeconds"`
 }
@@ -806,6 +818,21 @@ func (o CanaryRunConfigOutput) ToCanaryRunConfigPtrOutputWithContext(ctx context
 	}).(CanaryRunConfigPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+func (o CanaryRunConfigOutput) ActiveTracing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CanaryRunConfig) *bool { return v.ActiveTracing }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CanaryRunConfig) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+func (o CanaryRunConfigOutput) MemoryInMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CanaryRunConfig) *int { return v.MemoryInMB }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
 func (o CanaryRunConfigOutput) TimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v CanaryRunConfig) int { return v.TimeoutInSeconds }).(pulumi.IntOutput)
@@ -829,6 +856,36 @@ func (o CanaryRunConfigPtrOutput) Elem() CanaryRunConfigOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) CanaryRunConfig { return *v }).(CanaryRunConfigOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+func (o CanaryRunConfigPtrOutput) ActiveTracing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CanaryRunConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveTracing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CanaryRunConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+func (o CanaryRunConfigPtrOutput) MemoryInMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CanaryRunConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryInMB
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
 func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *int {
@@ -842,7 +899,7 @@ func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
 type CanarySchedule struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
-	DurationInSeconds string `pulumi:"DurationInSeconds"`
+	DurationInSeconds *string `pulumi:"DurationInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
 	Expression string `pulumi:"Expression"`
 }
@@ -861,7 +918,7 @@ type CanaryScheduleInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
 type CanaryScheduleArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
-	DurationInSeconds pulumi.StringInput `pulumi:"DurationInSeconds"`
+	DurationInSeconds pulumi.StringPtrInput `pulumi:"DurationInSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
 	Expression pulumi.StringInput `pulumi:"Expression"`
 }
@@ -945,8 +1002,8 @@ func (o CanaryScheduleOutput) ToCanarySchedulePtrOutputWithContext(ctx context.C
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
-func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringOutput {
-	return o.ApplyT(func(v CanarySchedule) string { return v.DurationInSeconds }).(pulumi.StringOutput)
+func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanarySchedule) *string { return v.DurationInSeconds }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
@@ -978,7 +1035,7 @@ func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.DurationInSeconds
+		return v.DurationInSeconds
 	}).(pulumi.StringPtrOutput)
 }
 

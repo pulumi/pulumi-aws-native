@@ -4,6 +4,7 @@
 package imagebuilder
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Component struct {
 // NewComponent registers a new resource with the given unique name, arguments, and options.
 func NewComponent(ctx *pulumi.Context,
 	name string, args *ComponentArgs, opts ...pulumi.ResourceOption) (*Component, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ComponentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Component
 	err := ctx.RegisterResource("cloudformation:ImageBuilder:Component", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ComponentArgs struct {
 
 func (ComponentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*componentArgs)(nil)).Elem()
+}
+
+type ComponentInput interface {
+	pulumi.Input
+
+	ToComponentOutput() ComponentOutput
+	ToComponentOutputWithContext(ctx context.Context) ComponentOutput
+}
+
+func (*Component) ElementType() reflect.Type {
+	return reflect.TypeOf((*Component)(nil))
+}
+
+func (i *Component) ToComponentOutput() ComponentOutput {
+	return i.ToComponentOutputWithContext(context.Background())
+}
+
+func (i *Component) ToComponentOutputWithContext(ctx context.Context) ComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentOutput)
+}
+
+type ComponentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Component)(nil))
+}
+
+func (o ComponentOutput) ToComponentOutput() ComponentOutput {
+	return o
+}
+
+func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) ComponentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ComponentOutput{})
 }

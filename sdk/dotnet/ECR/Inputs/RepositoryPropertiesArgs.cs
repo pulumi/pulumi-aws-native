@@ -16,6 +16,18 @@ namespace Pulumi.Cloudformation.ECR.Inputs
     public sealed class RepositoryPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+        /// </summary>
+        [Input("ImageScanningConfiguration")]
+        public InputUnion<System.Text.Json.JsonElement, string>? ImageScanningConfiguration { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+        /// </summary>
+        [Input("ImageTagMutability")]
+        public Input<string>? ImageTagMutability { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
         /// </summary>
         [Input("LifecyclePolicy")]
@@ -31,7 +43,7 @@ namespace Pulumi.Cloudformation.ECR.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         /// </summary>
         [Input("RepositoryPolicyText")]
-        public InputUnion<System.Text.Json.JsonElement, string>? RepositoryPolicyText { get; set; }
+        public Input<object>? RepositoryPolicyText { get; set; }
 
         [Input("Tags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;

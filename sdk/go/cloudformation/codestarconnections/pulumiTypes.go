@@ -171,8 +171,10 @@ func (o ConnectionAttributesPtrOutput) OwnerAccountId() pulumi.StringPtrOutput {
 type ConnectionProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
 	ConnectionName string `pulumi:"ConnectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+	HostArn *string `pulumi:"HostArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
-	ProviderType string `pulumi:"ProviderType"`
+	ProviderType *string `pulumi:"ProviderType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
 	Tags []cloudformation.Tag `pulumi:"Tags"`
 }
@@ -192,8 +194,10 @@ type ConnectionPropertiesInput interface {
 type ConnectionPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
 	ConnectionName pulumi.StringInput `pulumi:"ConnectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+	HostArn pulumi.StringPtrInput `pulumi:"HostArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
-	ProviderType pulumi.StringInput `pulumi:"ProviderType"`
+	ProviderType pulumi.StringPtrInput `pulumi:"ProviderType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
 	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
 }
@@ -281,9 +285,14 @@ func (o ConnectionPropertiesOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionProperties) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+func (o ConnectionPropertiesOutput) HostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProperties) *string { return v.HostArn }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
-func (o ConnectionPropertiesOutput) ProviderType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionProperties) string { return v.ProviderType }).(pulumi.StringOutput)
+func (o ConnectionPropertiesOutput) ProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProperties) *string { return v.ProviderType }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
@@ -319,13 +328,23 @@ func (o ConnectionPropertiesPtrOutput) ConnectionName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+func (o ConnectionPropertiesPtrOutput) HostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
 func (o ConnectionPropertiesPtrOutput) ProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ProviderType
+		return v.ProviderType
 	}).(pulumi.StringPtrOutput)
 }
 

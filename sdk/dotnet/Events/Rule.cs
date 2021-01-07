@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Events
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Events:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>

@@ -14,13 +14,21 @@ namespace Pulumi.Cloudformation.EMR.Outputs
     public sealed class ClusterInstanceFleetProvisioningSpecifications
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-ondemandspecification
+        /// </summary>
+        public readonly Outputs.ClusterOnDemandProvisioningSpecification? OnDemandSpecification;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
         /// </summary>
-        public readonly Outputs.ClusterSpotProvisioningSpecification SpotSpecification;
+        public readonly Outputs.ClusterSpotProvisioningSpecification? SpotSpecification;
 
         [OutputConstructor]
-        private ClusterInstanceFleetProvisioningSpecifications(Outputs.ClusterSpotProvisioningSpecification SpotSpecification)
+        private ClusterInstanceFleetProvisioningSpecifications(
+            Outputs.ClusterOnDemandProvisioningSpecification? OnDemandSpecification,
+
+            Outputs.ClusterSpotProvisioningSpecification? SpotSpecification)
         {
+            this.OnDemandSpecification = OnDemandSpecification;
             this.SpotSpecification = SpotSpecification;
         }
     }

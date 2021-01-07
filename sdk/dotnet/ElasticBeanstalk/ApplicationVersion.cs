@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElasticBeanstalk
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElasticBeanstalk:ApplicationVersion")]
     public partial class ApplicationVersion : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Neptune
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Neptune:DBParameterGroup")]
     public partial class DBParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.CodeBuild
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:CodeBuild:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

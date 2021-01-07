@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.InputInputDestinationRequest> Destinations;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InputInputDeviceSettings> InputDevices;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
         /// </summary>
         public readonly ImmutableArray<string> InputSecurityGroups;
@@ -54,6 +58,8 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
         private InputProperties(
             ImmutableArray<Outputs.InputInputDestinationRequest> Destinations,
 
+            ImmutableArray<Outputs.InputInputDeviceSettings> InputDevices,
+
             ImmutableArray<string> InputSecurityGroups,
 
             ImmutableArray<Outputs.InputMediaConnectFlowRequest> MediaConnectFlows,
@@ -71,6 +77,7 @@ namespace Pulumi.Cloudformation.MediaLive.Outputs
             Outputs.InputInputVpcRequest? Vpc)
         {
             this.Destinations = Destinations;
+            this.InputDevices = InputDevices;
             this.InputSecurityGroups = InputSecurityGroups;
             this.MediaConnectFlows = MediaConnectFlows;
             this.Name = Name;

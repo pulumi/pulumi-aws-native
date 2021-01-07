@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PolicyPrincipalAttachment struct {
 // NewPolicyPrincipalAttachment registers a new resource with the given unique name, arguments, and options.
 func NewPolicyPrincipalAttachment(ctx *pulumi.Context,
 	name string, args *PolicyPrincipalAttachmentArgs, opts ...pulumi.ResourceOption) (*PolicyPrincipalAttachment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PolicyPrincipalAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PolicyPrincipalAttachment
 	err := ctx.RegisterResource("cloudformation:IoT:PolicyPrincipalAttachment", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PolicyPrincipalAttachmentArgs struct {
 
 func (PolicyPrincipalAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyPrincipalAttachmentArgs)(nil)).Elem()
+}
+
+type PolicyPrincipalAttachmentInput interface {
+	pulumi.Input
+
+	ToPolicyPrincipalAttachmentOutput() PolicyPrincipalAttachmentOutput
+	ToPolicyPrincipalAttachmentOutputWithContext(ctx context.Context) PolicyPrincipalAttachmentOutput
+}
+
+func (*PolicyPrincipalAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPrincipalAttachment)(nil))
+}
+
+func (i *PolicyPrincipalAttachment) ToPolicyPrincipalAttachmentOutput() PolicyPrincipalAttachmentOutput {
+	return i.ToPolicyPrincipalAttachmentOutputWithContext(context.Background())
+}
+
+func (i *PolicyPrincipalAttachment) ToPolicyPrincipalAttachmentOutputWithContext(ctx context.Context) PolicyPrincipalAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPrincipalAttachmentOutput)
+}
+
+type PolicyPrincipalAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyPrincipalAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPrincipalAttachment)(nil))
+}
+
+func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutput() PolicyPrincipalAttachmentOutput {
+	return o
+}
+
+func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutputWithContext(ctx context.Context) PolicyPrincipalAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyPrincipalAttachmentOutput{})
 }

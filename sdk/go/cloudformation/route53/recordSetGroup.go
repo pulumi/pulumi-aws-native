@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type RecordSetGroup struct {
 // NewRecordSetGroup registers a new resource with the given unique name, arguments, and options.
 func NewRecordSetGroup(ctx *pulumi.Context,
 	name string, args *RecordSetGroupArgs, opts ...pulumi.ResourceOption) (*RecordSetGroup, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &RecordSetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource RecordSetGroup
 	err := ctx.RegisterResource("cloudformation:Route53:RecordSetGroup", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type RecordSetGroupArgs struct {
 
 func (RecordSetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordSetGroupArgs)(nil)).Elem()
+}
+
+type RecordSetGroupInput interface {
+	pulumi.Input
+
+	ToRecordSetGroupOutput() RecordSetGroupOutput
+	ToRecordSetGroupOutputWithContext(ctx context.Context) RecordSetGroupOutput
+}
+
+func (*RecordSetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroup)(nil))
+}
+
+func (i *RecordSetGroup) ToRecordSetGroupOutput() RecordSetGroupOutput {
+	return i.ToRecordSetGroupOutputWithContext(context.Background())
+}
+
+func (i *RecordSetGroup) ToRecordSetGroupOutputWithContext(ctx context.Context) RecordSetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupOutput)
+}
+
+type RecordSetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecordSetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroup)(nil))
+}
+
+func (o RecordSetGroupOutput) ToRecordSetGroupOutput() RecordSetGroupOutput {
+	return o
+}
+
+func (o RecordSetGroupOutput) ToRecordSetGroupOutputWithContext(ctx context.Context) RecordSetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RecordSetGroupOutput{})
 }

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ElastiCache:ReplicationGroup")]
     public partial class ReplicationGroup : Pulumi.CustomResource
     {
         /// <summary>

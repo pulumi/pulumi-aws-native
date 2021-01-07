@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type EgressOnlyInternetGateway struct {
 // NewEgressOnlyInternetGateway registers a new resource with the given unique name, arguments, and options.
 func NewEgressOnlyInternetGateway(ctx *pulumi.Context,
 	name string, args *EgressOnlyInternetGatewayArgs, opts ...pulumi.ResourceOption) (*EgressOnlyInternetGateway, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &EgressOnlyInternetGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource EgressOnlyInternetGateway
 	err := ctx.RegisterResource("cloudformation:EC2:EgressOnlyInternetGateway", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type EgressOnlyInternetGatewayArgs struct {
 
 func (EgressOnlyInternetGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*egressOnlyInternetGatewayArgs)(nil)).Elem()
+}
+
+type EgressOnlyInternetGatewayInput interface {
+	pulumi.Input
+
+	ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput
+	ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput
+}
+
+func (*EgressOnlyInternetGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil))
+}
+
+func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {
+	return i.ToEgressOnlyInternetGatewayOutputWithContext(context.Background())
+}
+
+func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayOutput)
+}
+
+type EgressOnlyInternetGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (EgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil))
+}
+
+func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {
+	return o
+}
+
+func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EgressOnlyInternetGatewayOutput{})
 }

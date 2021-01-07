@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:RDS:DBCluster")]
     public partial class DBCluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Stage struct {
 // NewStage registers a new resource with the given unique name, arguments, and options.
 func NewStage(ctx *pulumi.Context,
 	name string, args *StageArgs, opts ...pulumi.ResourceOption) (*Stage, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &StageArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Stage
 	err := ctx.RegisterResource("cloudformation:ApiGatewayV2:Stage", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type StageArgs struct {
 
 func (StageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageArgs)(nil)).Elem()
+}
+
+type StageInput interface {
+	pulumi.Input
+
+	ToStageOutput() StageOutput
+	ToStageOutputWithContext(ctx context.Context) StageOutput
+}
+
+func (*Stage) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stage)(nil))
+}
+
+func (i *Stage) ToStageOutput() StageOutput {
+	return i.ToStageOutputWithContext(context.Background())
+}
+
+func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
+}
+
+type StageOutput struct {
+	*pulumi.OutputState
+}
+
+func (StageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stage)(nil))
+}
+
+func (o StageOutput) ToStageOutput() StageOutput {
+	return o
+}
+
+func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StageOutput{})
 }

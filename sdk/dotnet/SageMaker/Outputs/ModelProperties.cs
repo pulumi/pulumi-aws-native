@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ModelContainerDefinition> Containers;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-enablenetworkisolation
+        /// </summary>
+        public readonly bool? EnableNetworkIsolation;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
         /// </summary>
         public readonly string ExecutionRoleArn;
@@ -42,6 +46,8 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
         private ModelProperties(
             ImmutableArray<Outputs.ModelContainerDefinition> Containers,
 
+            bool? EnableNetworkIsolation,
+
             string ExecutionRoleArn,
 
             string? ModelName,
@@ -53,6 +59,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
             Outputs.ModelVpcConfig? VpcConfig)
         {
             this.Containers = Containers;
+            this.EnableNetworkIsolation = EnableNetworkIsolation;
             this.ExecutionRoleArn = ExecutionRoleArn;
             this.ModelName = ModelName;
             this.PrimaryContainer = PrimaryContainer;

@@ -34,10 +34,22 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+        /// </summary>
+        [Input("LogFormat")]
+        public Input<string>? LogFormat { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
         /// </summary>
         [Input("LogGroupName")]
         public Input<string>? LogGroupName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+        /// </summary>
+        [Input("MaxAggregationInterval")]
+        public Input<int>? MaxAggregationInterval { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
@@ -50,6 +62,18 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         /// </summary>
         [Input("ResourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+        /// </summary>
+        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.GroundStation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:GroundStation:Config")]
     public partial class Config : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoTAnalytics:Dataset")]
     public partial class Dataset : Pulumi.CustomResource
     {
         /// <summary>

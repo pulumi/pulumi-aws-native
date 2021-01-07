@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CustomResource struct {
 // NewCustomResource registers a new resource with the given unique name, arguments, and options.
 func NewCustomResource(ctx *pulumi.Context,
 	name string, args *CustomResourceArgs, opts ...pulumi.ResourceOption) (*CustomResource, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CustomResourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CustomResource
 	err := ctx.RegisterResource("cloudformation:CloudFormation:CustomResource", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CustomResourceArgs struct {
 
 func (CustomResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customResourceArgs)(nil)).Elem()
+}
+
+type CustomResourceInput interface {
+	pulumi.Input
+
+	ToCustomResourceOutput() CustomResourceOutput
+	ToCustomResourceOutputWithContext(ctx context.Context) CustomResourceOutput
+}
+
+func (*CustomResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomResource)(nil))
+}
+
+func (i *CustomResource) ToCustomResourceOutput() CustomResourceOutput {
+	return i.ToCustomResourceOutputWithContext(context.Background())
+}
+
+func (i *CustomResource) ToCustomResourceOutputWithContext(ctx context.Context) CustomResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomResourceOutput)
+}
+
+type CustomResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomResource)(nil))
+}
+
+func (o CustomResourceOutput) ToCustomResourceOutput() CustomResourceOutput {
+	return o
+}
+
+func (o CustomResourceOutput) ToCustomResourceOutputWithContext(ctx context.Context) CustomResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomResourceOutput{})
 }

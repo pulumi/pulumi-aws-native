@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Amplify
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Amplify:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>

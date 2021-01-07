@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:VolumeAttachment")]
     public partial class VolumeAttachment : Pulumi.CustomResource
     {
         /// <summary>

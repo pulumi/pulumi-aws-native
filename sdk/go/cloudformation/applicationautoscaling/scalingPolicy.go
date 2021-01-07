@@ -4,6 +4,7 @@
 package applicationautoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ScalingPolicy struct {
 // NewScalingPolicy registers a new resource with the given unique name, arguments, and options.
 func NewScalingPolicy(ctx *pulumi.Context,
 	name string, args *ScalingPolicyArgs, opts ...pulumi.ResourceOption) (*ScalingPolicy, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ScalingPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ScalingPolicy
 	err := ctx.RegisterResource("cloudformation:ApplicationAutoScaling:ScalingPolicy", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ScalingPolicyArgs struct {
 
 func (ScalingPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPolicyArgs)(nil)).Elem()
+}
+
+type ScalingPolicyInput interface {
+	pulumi.Input
+
+	ToScalingPolicyOutput() ScalingPolicyOutput
+	ToScalingPolicyOutputWithContext(ctx context.Context) ScalingPolicyOutput
+}
+
+func (*ScalingPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicy)(nil))
+}
+
+func (i *ScalingPolicy) ToScalingPolicyOutput() ScalingPolicyOutput {
+	return i.ToScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i *ScalingPolicy) ToScalingPolicyOutputWithContext(ctx context.Context) ScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyOutput)
+}
+
+type ScalingPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicy)(nil))
+}
+
+func (o ScalingPolicyOutput) ToScalingPolicyOutput() ScalingPolicyOutput {
+	return o
+}
+
+func (o ScalingPolicyOutput) ToScalingPolicyOutputWithContext(ctx context.Context) ScalingPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScalingPolicyOutput{})
 }

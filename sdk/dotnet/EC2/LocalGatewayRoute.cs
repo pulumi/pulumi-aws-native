@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:EC2:LocalGatewayRoute")]
     public partial class LocalGatewayRoute : Pulumi.CustomResource
     {
         /// <summary>

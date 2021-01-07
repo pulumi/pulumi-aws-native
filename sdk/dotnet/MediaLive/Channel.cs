@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.MediaLive
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:MediaLive:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         /// <summary>

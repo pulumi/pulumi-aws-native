@@ -57,6 +57,18 @@ namespace Pulumi.Cloudformation.DLM.Inputs
         [Input("RetainRule")]
         public Input<Inputs.LifecyclePolicyRetainRuleArgs>? RetainRule { get; set; }
 
+        [Input("ShareRules")]
+        private InputList<Inputs.LifecyclePolicyShareRuleArgs>? _ShareRules;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
+        /// </summary>
+        public InputList<Inputs.LifecyclePolicyShareRuleArgs> ShareRules
+        {
+            get => _ShareRules ?? (_ShareRules = new InputList<Inputs.LifecyclePolicyShareRuleArgs>());
+            set => _ShareRules = value;
+        }
+
         [Input("TagsToAdd")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _TagsToAdd;
 

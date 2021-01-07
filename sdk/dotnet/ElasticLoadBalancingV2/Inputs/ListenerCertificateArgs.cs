@@ -11,12 +11,12 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
+    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
     /// </summary>
     public sealed class ListenerCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
         /// </summary>
         [Input("CertificateArn")]
         public Input<string>? CertificateArn { get; set; }

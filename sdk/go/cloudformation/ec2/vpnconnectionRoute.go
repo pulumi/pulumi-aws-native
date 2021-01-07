@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type VPNConnectionRoute struct {
 // NewVPNConnectionRoute registers a new resource with the given unique name, arguments, and options.
 func NewVPNConnectionRoute(ctx *pulumi.Context,
 	name string, args *VPNConnectionRouteArgs, opts ...pulumi.ResourceOption) (*VPNConnectionRoute, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &VPNConnectionRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource VPNConnectionRoute
 	err := ctx.RegisterResource("cloudformation:EC2:VPNConnectionRoute", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type VPNConnectionRouteArgs struct {
 
 func (VPNConnectionRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnconnectionRouteArgs)(nil)).Elem()
+}
+
+type VPNConnectionRouteInput interface {
+	pulumi.Input
+
+	ToVPNConnectionRouteOutput() VPNConnectionRouteOutput
+	ToVPNConnectionRouteOutputWithContext(ctx context.Context) VPNConnectionRouteOutput
+}
+
+func (*VPNConnectionRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionRoute)(nil))
+}
+
+func (i *VPNConnectionRoute) ToVPNConnectionRouteOutput() VPNConnectionRouteOutput {
+	return i.ToVPNConnectionRouteOutputWithContext(context.Background())
+}
+
+func (i *VPNConnectionRoute) ToVPNConnectionRouteOutputWithContext(ctx context.Context) VPNConnectionRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionRouteOutput)
+}
+
+type VPNConnectionRouteOutput struct {
+	*pulumi.OutputState
+}
+
+func (VPNConnectionRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionRoute)(nil))
+}
+
+func (o VPNConnectionRouteOutput) ToVPNConnectionRouteOutput() VPNConnectionRouteOutput {
+	return o
+}
+
+func (o VPNConnectionRouteOutput) ToVPNConnectionRouteOutputWithContext(ctx context.Context) VPNConnectionRouteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VPNConnectionRouteOutput{})
 }

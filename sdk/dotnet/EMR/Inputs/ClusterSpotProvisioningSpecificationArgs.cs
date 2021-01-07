@@ -16,6 +16,12 @@ namespace Pulumi.Cloudformation.EMR.Inputs
     public sealed class ClusterSpotProvisioningSpecificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-allocationstrategy
+        /// </summary>
+        [Input("AllocationStrategy")]
+        public Input<string>? AllocationStrategy { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes
         /// </summary>
         [Input("BlockDurationMinutes")]

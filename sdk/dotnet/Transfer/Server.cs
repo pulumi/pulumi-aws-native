@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Transfer
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Transfer:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

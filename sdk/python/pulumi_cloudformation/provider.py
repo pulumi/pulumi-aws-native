@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Mapping, Optional, Sequence, Union
+from . import _utilities, _tables
+
+__all__ = ['Provider']
 
 
 class Provider(pulumi.ProviderResource):
-    region: pulumi.Output[str]
-    """
-    the region to use for deployments
-    """
-    stack: pulumi.Output[str]
-    """
-    the name of the stack to use for deployments
-    """
-    def __init__(__self__, resource_name, opts=None, region=None, stack=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 stack: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a Cloudformation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -37,16 +38,16 @@ class Provider(pulumi.ProviderResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if region is None:
+            if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__['region'] = region
-            if stack is None:
+            if stack is None and not opts.urn:
                 raise TypeError("Missing required property 'stack'")
             __props__['stack'] = stack
         super(Provider, __self__).__init__(
@@ -55,8 +56,25 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[str]:
+        """
+        the region to use for deployments
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def stack(self) -> pulumi.Output[str]:
+        """
+        the name of the stack to use for deployments
+        """
+        return pulumi.get(self, "stack")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

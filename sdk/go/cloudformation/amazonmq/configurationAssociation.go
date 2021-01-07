@@ -4,6 +4,7 @@
 package amazonmq
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type ConfigurationAssociation struct {
 // NewConfigurationAssociation registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationAssociation(ctx *pulumi.Context,
 	name string, args *ConfigurationAssociationArgs, opts ...pulumi.ResourceOption) (*ConfigurationAssociation, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConfigurationAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource ConfigurationAssociation
 	err := ctx.RegisterResource("cloudformation:AmazonMQ:ConfigurationAssociation", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type ConfigurationAssociationArgs struct {
 
 func (ConfigurationAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationAssociationArgs)(nil)).Elem()
+}
+
+type ConfigurationAssociationInput interface {
+	pulumi.Input
+
+	ToConfigurationAssociationOutput() ConfigurationAssociationOutput
+	ToConfigurationAssociationOutputWithContext(ctx context.Context) ConfigurationAssociationOutput
+}
+
+func (*ConfigurationAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationAssociation)(nil))
+}
+
+func (i *ConfigurationAssociation) ToConfigurationAssociationOutput() ConfigurationAssociationOutput {
+	return i.ToConfigurationAssociationOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationAssociation) ToConfigurationAssociationOutputWithContext(ctx context.Context) ConfigurationAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssociationOutput)
+}
+
+type ConfigurationAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationAssociation)(nil))
+}
+
+func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutput() ConfigurationAssociationOutput {
+	return o
+}
+
+func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutputWithContext(ctx context.Context) ConfigurationAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationAssociationOutput{})
 }

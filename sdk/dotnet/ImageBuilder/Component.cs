@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ImageBuilder:Component")]
     public partial class Component : Pulumi.CustomResource
     {
         /// <summary>

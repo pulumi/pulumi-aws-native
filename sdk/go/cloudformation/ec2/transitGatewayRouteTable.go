@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TransitGatewayRouteTable struct {
 // NewTransitGatewayRouteTable registers a new resource with the given unique name, arguments, and options.
 func NewTransitGatewayRouteTable(ctx *pulumi.Context,
 	name string, args *TransitGatewayRouteTableArgs, opts ...pulumi.ResourceOption) (*TransitGatewayRouteTable, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TransitGatewayRouteTableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TransitGatewayRouteTable
 	err := ctx.RegisterResource("cloudformation:EC2:TransitGatewayRouteTable", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TransitGatewayRouteTableArgs struct {
 
 func (TransitGatewayRouteTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRouteTableArgs)(nil)).Elem()
+}
+
+type TransitGatewayRouteTableInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableOutput() TransitGatewayRouteTableOutput
+	ToTransitGatewayRouteTableOutputWithContext(ctx context.Context) TransitGatewayRouteTableOutput
+}
+
+func (*TransitGatewayRouteTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTable)(nil))
+}
+
+func (i *TransitGatewayRouteTable) ToTransitGatewayRouteTableOutput() TransitGatewayRouteTableOutput {
+	return i.ToTransitGatewayRouteTableOutputWithContext(context.Background())
+}
+
+func (i *TransitGatewayRouteTable) ToTransitGatewayRouteTableOutputWithContext(ctx context.Context) TransitGatewayRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableOutput)
+}
+
+type TransitGatewayRouteTableOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTable)(nil))
+}
+
+func (o TransitGatewayRouteTableOutput) ToTransitGatewayRouteTableOutput() TransitGatewayRouteTableOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableOutput) ToTransitGatewayRouteTableOutputWithContext(ctx context.Context) TransitGatewayRouteTableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitGatewayRouteTableOutput{})
 }

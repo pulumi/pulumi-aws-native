@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.AppStream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:AppStream:Fleet")]
     public partial class Fleet : Pulumi.CustomResource
     {
         /// <summary>

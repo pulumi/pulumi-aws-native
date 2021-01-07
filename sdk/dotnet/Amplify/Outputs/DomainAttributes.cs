@@ -14,14 +14,21 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
     public sealed class DomainAttributes
     {
         public readonly string Arn;
+        public readonly ImmutableArray<string> AutoSubDomainCreationPatterns;
+        public readonly string AutoSubDomainIAMRole;
         public readonly string CertificateRecord;
         public readonly string DomainName;
         public readonly string DomainStatus;
+        public readonly bool EnableAutoSubDomain;
         public readonly string StatusReason;
 
         [OutputConstructor]
         private DomainAttributes(
             string Arn,
+
+            ImmutableArray<string> AutoSubDomainCreationPatterns,
+
+            string AutoSubDomainIAMRole,
 
             string CertificateRecord,
 
@@ -29,12 +36,17 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
 
             string DomainStatus,
 
+            bool EnableAutoSubDomain,
+
             string StatusReason)
         {
             this.Arn = Arn;
+            this.AutoSubDomainCreationPatterns = AutoSubDomainCreationPatterns;
+            this.AutoSubDomainIAMRole = AutoSubDomainIAMRole;
             this.CertificateRecord = CertificateRecord;
             this.DomainName = DomainName;
             this.DomainStatus = DomainStatus;
+            this.EnableAutoSubDomain = EnableAutoSubDomain;
             this.StatusReason = StatusReason;
         }
     }

@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.LakeFormation.Outputs
     public sealed class PermissionsTableWithColumnsResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+        /// </summary>
+        public readonly string? CatalogId;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
         /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
@@ -32,6 +36,8 @@ namespace Pulumi.Cloudformation.LakeFormation.Outputs
 
         [OutputConstructor]
         private PermissionsTableWithColumnsResource(
+            string? CatalogId,
+
             ImmutableArray<string> ColumnNames,
 
             Outputs.PermissionsColumnWildcard? ColumnWildcard,
@@ -40,6 +46,7 @@ namespace Pulumi.Cloudformation.LakeFormation.Outputs
 
             string? Name)
         {
+            this.CatalogId = CatalogId;
             this.ColumnNames = ColumnNames;
             this.ColumnWildcard = ColumnWildcard;
             this.DatabaseName = DatabaseName;

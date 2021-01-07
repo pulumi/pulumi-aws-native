@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SecretsManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SecretsManager:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>

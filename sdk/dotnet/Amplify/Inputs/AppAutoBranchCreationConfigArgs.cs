@@ -52,6 +52,12 @@ namespace Pulumi.Cloudformation.Amplify.Inputs
         public Input<bool>? EnableAutoBuild { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
+        /// </summary>
+        [Input("EnablePerformanceMode")]
+        public Input<bool>? EnablePerformanceMode { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
         /// </summary>
         [Input("EnablePullRequestPreview")]

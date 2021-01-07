@@ -468,6 +468,312 @@ func (o ProjectAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html
+type ProjectBatchRestrictions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed
+	ComputeTypesAllowed []string `pulumi:"ComputeTypesAllowed"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed
+	MaximumBuildsAllowed *int `pulumi:"MaximumBuildsAllowed"`
+}
+
+// ProjectBatchRestrictionsInput is an input type that accepts ProjectBatchRestrictionsArgs and ProjectBatchRestrictionsOutput values.
+// You can construct a concrete instance of `ProjectBatchRestrictionsInput` via:
+//
+//          ProjectBatchRestrictionsArgs{...}
+type ProjectBatchRestrictionsInput interface {
+	pulumi.Input
+
+	ToProjectBatchRestrictionsOutput() ProjectBatchRestrictionsOutput
+	ToProjectBatchRestrictionsOutputWithContext(context.Context) ProjectBatchRestrictionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html
+type ProjectBatchRestrictionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed
+	ComputeTypesAllowed pulumi.StringArrayInput `pulumi:"ComputeTypesAllowed"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed
+	MaximumBuildsAllowed pulumi.IntPtrInput `pulumi:"MaximumBuildsAllowed"`
+}
+
+func (ProjectBatchRestrictionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsOutput() ProjectBatchRestrictionsOutput {
+	return i.ToProjectBatchRestrictionsOutputWithContext(context.Background())
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsOutputWithContext(ctx context.Context) ProjectBatchRestrictionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsOutput)
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return i.ToProjectBatchRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsOutput).ToProjectBatchRestrictionsPtrOutputWithContext(ctx)
+}
+
+// ProjectBatchRestrictionsPtrInput is an input type that accepts ProjectBatchRestrictionsArgs, ProjectBatchRestrictionsPtr and ProjectBatchRestrictionsPtrOutput values.
+// You can construct a concrete instance of `ProjectBatchRestrictionsPtrInput` via:
+//
+//          ProjectBatchRestrictionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectBatchRestrictionsPtrInput interface {
+	pulumi.Input
+
+	ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput
+	ToProjectBatchRestrictionsPtrOutputWithContext(context.Context) ProjectBatchRestrictionsPtrOutput
+}
+
+type projectBatchRestrictionsPtrType ProjectBatchRestrictionsArgs
+
+func ProjectBatchRestrictionsPtr(v *ProjectBatchRestrictionsArgs) ProjectBatchRestrictionsPtrInput {
+	return (*projectBatchRestrictionsPtrType)(v)
+}
+
+func (*projectBatchRestrictionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (i *projectBatchRestrictionsPtrType) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return i.ToProjectBatchRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBatchRestrictionsPtrType) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html
+type ProjectBatchRestrictionsOutput struct{ *pulumi.OutputState }
+
+func (ProjectBatchRestrictionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsOutput() ProjectBatchRestrictionsOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsOutputWithContext(ctx context.Context) ProjectBatchRestrictionsOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return o.ToProjectBatchRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyT(func(v ProjectBatchRestrictions) *ProjectBatchRestrictions {
+		return &v
+	}).(ProjectBatchRestrictionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed
+func (o ProjectBatchRestrictionsOutput) ComputeTypesAllowed() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectBatchRestrictions) []string { return v.ComputeTypesAllowed }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed
+func (o ProjectBatchRestrictionsOutput) MaximumBuildsAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectBatchRestrictions) *int { return v.MaximumBuildsAllowed }).(pulumi.IntPtrOutput)
+}
+
+type ProjectBatchRestrictionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBatchRestrictionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) Elem() ProjectBatchRestrictionsOutput {
+	return o.ApplyT(func(v *ProjectBatchRestrictions) ProjectBatchRestrictions { return *v }).(ProjectBatchRestrictionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed
+func (o ProjectBatchRestrictionsPtrOutput) ComputeTypesAllowed() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectBatchRestrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeTypesAllowed
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed
+func (o ProjectBatchRestrictionsPtrOutput) MaximumBuildsAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectBatchRestrictions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumBuildsAllowed
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html
+type ProjectBuildStatusConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-context
+	Context *string `pulumi:"Context"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-targeturl
+	TargetUrl *string `pulumi:"TargetUrl"`
+}
+
+// ProjectBuildStatusConfigInput is an input type that accepts ProjectBuildStatusConfigArgs and ProjectBuildStatusConfigOutput values.
+// You can construct a concrete instance of `ProjectBuildStatusConfigInput` via:
+//
+//          ProjectBuildStatusConfigArgs{...}
+type ProjectBuildStatusConfigInput interface {
+	pulumi.Input
+
+	ToProjectBuildStatusConfigOutput() ProjectBuildStatusConfigOutput
+	ToProjectBuildStatusConfigOutputWithContext(context.Context) ProjectBuildStatusConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html
+type ProjectBuildStatusConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-context
+	Context pulumi.StringPtrInput `pulumi:"Context"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-targeturl
+	TargetUrl pulumi.StringPtrInput `pulumi:"TargetUrl"`
+}
+
+func (ProjectBuildStatusConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigOutput() ProjectBuildStatusConfigOutput {
+	return i.ToProjectBuildStatusConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigOutputWithContext(ctx context.Context) ProjectBuildStatusConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigOutput)
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return i.ToProjectBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigOutput).ToProjectBuildStatusConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectBuildStatusConfigPtrInput is an input type that accepts ProjectBuildStatusConfigArgs, ProjectBuildStatusConfigPtr and ProjectBuildStatusConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectBuildStatusConfigPtrInput` via:
+//
+//          ProjectBuildStatusConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectBuildStatusConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput
+	ToProjectBuildStatusConfigPtrOutputWithContext(context.Context) ProjectBuildStatusConfigPtrOutput
+}
+
+type projectBuildStatusConfigPtrType ProjectBuildStatusConfigArgs
+
+func ProjectBuildStatusConfigPtr(v *ProjectBuildStatusConfigArgs) ProjectBuildStatusConfigPtrInput {
+	return (*projectBuildStatusConfigPtrType)(v)
+}
+
+func (*projectBuildStatusConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (i *projectBuildStatusConfigPtrType) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return i.ToProjectBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBuildStatusConfigPtrType) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html
+type ProjectBuildStatusConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildStatusConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigOutput() ProjectBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigOutputWithContext(ctx context.Context) ProjectBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return o.ToProjectBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v ProjectBuildStatusConfig) *ProjectBuildStatusConfig {
+		return &v
+	}).(ProjectBuildStatusConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-context
+func (o ProjectBuildStatusConfigOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildStatusConfig) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-targeturl
+func (o ProjectBuildStatusConfigOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildStatusConfig) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+type ProjectBuildStatusConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildStatusConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildStatusConfigPtrOutput) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigPtrOutput) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigPtrOutput) Elem() ProjectBuildStatusConfigOutput {
+	return o.ApplyT(func(v *ProjectBuildStatusConfig) ProjectBuildStatusConfig { return *v }).(ProjectBuildStatusConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-context
+func (o ProjectBuildStatusConfigPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html#cfn-codebuild-project-buildstatusconfig-targeturl
+func (o ProjectBuildStatusConfigPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html
 type ProjectCloudWatchLogsConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html#cfn-codebuild-project-cloudwatchlogsconfig-groupname
@@ -1403,6 +1709,197 @@ func (o ProjectLogsConfigPtrOutput) S3Logs() ProjectS3LogsConfigPtrOutput {
 	}).(ProjectS3LogsConfigPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html
+type ProjectProjectBuildBatchConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts
+	CombineArtifacts *bool `pulumi:"CombineArtifacts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions
+	Restrictions *ProjectBatchRestrictions `pulumi:"Restrictions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole
+	ServiceRole *string `pulumi:"ServiceRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins
+	TimeoutInMins *int `pulumi:"TimeoutInMins"`
+}
+
+// ProjectProjectBuildBatchConfigInput is an input type that accepts ProjectProjectBuildBatchConfigArgs and ProjectProjectBuildBatchConfigOutput values.
+// You can construct a concrete instance of `ProjectProjectBuildBatchConfigInput` via:
+//
+//          ProjectProjectBuildBatchConfigArgs{...}
+type ProjectProjectBuildBatchConfigInput interface {
+	pulumi.Input
+
+	ToProjectProjectBuildBatchConfigOutput() ProjectProjectBuildBatchConfigOutput
+	ToProjectProjectBuildBatchConfigOutputWithContext(context.Context) ProjectProjectBuildBatchConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html
+type ProjectProjectBuildBatchConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts
+	CombineArtifacts pulumi.BoolPtrInput `pulumi:"CombineArtifacts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions
+	Restrictions ProjectBatchRestrictionsPtrInput `pulumi:"Restrictions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole
+	ServiceRole pulumi.StringPtrInput `pulumi:"ServiceRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins
+	TimeoutInMins pulumi.IntPtrInput `pulumi:"TimeoutInMins"`
+}
+
+func (ProjectProjectBuildBatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigOutput() ProjectProjectBuildBatchConfigOutput {
+	return i.ToProjectProjectBuildBatchConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectBuildBatchConfigOutput)
+}
+
+func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectBuildBatchConfigOutput).ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectProjectBuildBatchConfigPtrInput is an input type that accepts ProjectProjectBuildBatchConfigArgs, ProjectProjectBuildBatchConfigPtr and ProjectProjectBuildBatchConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectProjectBuildBatchConfigPtrInput` via:
+//
+//          ProjectProjectBuildBatchConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectProjectBuildBatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput
+	ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Context) ProjectProjectBuildBatchConfigPtrOutput
+}
+
+type projectProjectBuildBatchConfigPtrType ProjectProjectBuildBatchConfigArgs
+
+func ProjectProjectBuildBatchConfigPtr(v *ProjectProjectBuildBatchConfigArgs) ProjectProjectBuildBatchConfigPtrInput {
+	return (*projectProjectBuildBatchConfigPtrType)(v)
+}
+
+func (*projectProjectBuildBatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i *projectProjectBuildBatchConfigPtrType) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectProjectBuildBatchConfigPtrType) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectBuildBatchConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html
+type ProjectProjectBuildBatchConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectProjectBuildBatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigOutput() ProjectProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
+	return o.ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
+	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *ProjectProjectBuildBatchConfig {
+		return &v
+	}).(ProjectProjectBuildBatchConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts
+func (o ProjectProjectBuildBatchConfigOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *bool { return v.CombineArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions
+func (o ProjectProjectBuildBatchConfigOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *ProjectBatchRestrictions { return v.Restrictions }).(ProjectBatchRestrictionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole
+func (o ProjectProjectBuildBatchConfigOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins
+func (o ProjectProjectBuildBatchConfigOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *int { return v.TimeoutInMins }).(pulumi.IntPtrOutput)
+}
+
+type ProjectProjectBuildBatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectProjectBuildBatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectProjectBuildBatchConfigPtrOutput) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectProjectBuildBatchConfigPtrOutput) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectProjectBuildBatchConfigPtrOutput) Elem() ProjectProjectBuildBatchConfigOutput {
+	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) ProjectProjectBuildBatchConfig { return *v }).(ProjectProjectBuildBatchConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-combineartifacts
+func (o ProjectProjectBuildBatchConfigPtrOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CombineArtifacts
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-restrictions
+func (o ProjectProjectBuildBatchConfigPtrOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *ProjectBatchRestrictions {
+		if v == nil {
+			return nil
+		}
+		return v.Restrictions
+	}).(ProjectBatchRestrictionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-servicerole
+func (o ProjectProjectBuildBatchConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html#cfn-codebuild-project-projectbuildbatchconfig-timeoutinmins
+func (o ProjectProjectBuildBatchConfigPtrOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMins
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html
 type ProjectProjectCache struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location
@@ -1822,6 +2319,8 @@ func (o ProjectProjectSourceVersionArrayOutput) Index(i pulumi.IntInput) Project
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html
 type ProjectProjectTriggers struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
+	BuildType *string `pulumi:"BuildType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
 	FilterGroups []ProjectFilterGroup `pulumi:"FilterGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook
@@ -1841,6 +2340,8 @@ type ProjectProjectTriggersInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html
 type ProjectProjectTriggersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
+	BuildType pulumi.StringPtrInput `pulumi:"BuildType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
 	FilterGroups ProjectFilterGroupArrayInput `pulumi:"FilterGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook
@@ -1925,6 +2426,11 @@ func (o ProjectProjectTriggersOutput) ToProjectProjectTriggersPtrOutputWithConte
 	}).(ProjectProjectTriggersPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
+func (o ProjectProjectTriggersOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProjectTriggers) *string { return v.BuildType }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
 func (o ProjectProjectTriggersOutput) FilterGroups() ProjectFilterGroupArrayOutput {
 	return o.ApplyT(func(v ProjectProjectTriggers) []ProjectFilterGroup { return v.FilterGroups }).(ProjectFilterGroupArrayOutput)
@@ -1953,6 +2459,16 @@ func (o ProjectProjectTriggersPtrOutput) Elem() ProjectProjectTriggersOutput {
 	return o.ApplyT(func(v *ProjectProjectTriggers) ProjectProjectTriggers { return *v }).(ProjectProjectTriggersOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-buildtype
+func (o ProjectProjectTriggersPtrOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectProjectTriggers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildType
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
 func (o ProjectProjectTriggersPtrOutput) FilterGroups() ProjectFilterGroupArrayOutput {
 	return o.ApplyT(func(v *ProjectProjectTriggers) []ProjectFilterGroup {
@@ -1979,6 +2495,8 @@ type ProjectProperties struct {
 	Artifacts ProjectArtifacts `pulumi:"Artifacts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
 	BadgeEnabled *bool `pulumi:"BadgeEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+	BuildBatchConfig *ProjectProjectBuildBatchConfig `pulumi:"BuildBatchConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
 	Cache *ProjectProjectCache `pulumi:"Cache"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
@@ -2034,6 +2552,8 @@ type ProjectPropertiesArgs struct {
 	Artifacts ProjectArtifactsInput `pulumi:"Artifacts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
 	BadgeEnabled pulumi.BoolPtrInput `pulumi:"BadgeEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+	BuildBatchConfig ProjectProjectBuildBatchConfigPtrInput `pulumi:"BuildBatchConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
 	Cache ProjectProjectCachePtrInput `pulumi:"Cache"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
@@ -2158,6 +2678,11 @@ func (o ProjectPropertiesOutput) Artifacts() ProjectArtifactsOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
 func (o ProjectPropertiesOutput) BadgeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectProperties) *bool { return v.BadgeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+func (o ProjectPropertiesOutput) BuildBatchConfig() ProjectProjectBuildBatchConfigPtrOutput {
+	return o.ApplyT(func(v ProjectProperties) *ProjectProjectBuildBatchConfig { return v.BuildBatchConfig }).(ProjectProjectBuildBatchConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
@@ -2286,6 +2811,16 @@ func (o ProjectPropertiesPtrOutput) BadgeEnabled() pulumi.BoolPtrOutput {
 		}
 		return v.BadgeEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+func (o ProjectPropertiesPtrOutput) BuildBatchConfig() ProjectProjectBuildBatchConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectProperties) *ProjectProjectBuildBatchConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BuildBatchConfig
+	}).(ProjectProjectBuildBatchConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
@@ -2799,6 +3334,8 @@ type ProjectSource struct {
 	Auth *ProjectSourceAuth `pulumi:"Auth"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildspec
 	BuildSpec *string `pulumi:"BuildSpec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildstatusconfig
+	BuildStatusConfig *ProjectBuildStatusConfig `pulumi:"BuildStatusConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
 	GitCloneDepth *int `pulumi:"GitCloneDepth"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitsubmodulesconfig
@@ -2832,6 +3369,8 @@ type ProjectSourceArgs struct {
 	Auth ProjectSourceAuthPtrInput `pulumi:"Auth"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildspec
 	BuildSpec pulumi.StringPtrInput `pulumi:"BuildSpec"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildstatusconfig
+	BuildStatusConfig ProjectBuildStatusConfigPtrInput `pulumi:"BuildStatusConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"GitCloneDepth"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitsubmodulesconfig
@@ -2961,6 +3500,11 @@ func (o ProjectSourceOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildstatusconfig
+func (o ProjectSourceOutput) BuildStatusConfig() ProjectBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *ProjectBuildStatusConfig { return v.BuildStatusConfig }).(ProjectBuildStatusConfigPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
 func (o ProjectSourceOutput) GitCloneDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *int { return v.GitCloneDepth }).(pulumi.IntPtrOutput)
@@ -3032,6 +3576,16 @@ func (o ProjectSourcePtrOutput) BuildSpec() pulumi.StringPtrOutput {
 		}
 		return v.BuildSpec
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildstatusconfig
+func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectBuildStatusConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BuildStatusConfig
+	}).(ProjectBuildStatusConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
@@ -3650,6 +4204,8 @@ func (o ReportGroupAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html
 type ReportGroupProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+	DeleteReports *bool `pulumi:"DeleteReports"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
 	ExportConfig ReportGroupReportExportConfig `pulumi:"ExportConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-name
@@ -3673,6 +4229,8 @@ type ReportGroupPropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html
 type ReportGroupPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+	DeleteReports pulumi.BoolPtrInput `pulumi:"DeleteReports"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
 	ExportConfig ReportGroupReportExportConfigInput `pulumi:"ExportConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-name
@@ -3761,6 +4319,11 @@ func (o ReportGroupPropertiesOutput) ToReportGroupPropertiesPtrOutputWithContext
 	}).(ReportGroupPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+func (o ReportGroupPropertiesOutput) DeleteReports() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReportGroupProperties) *bool { return v.DeleteReports }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
 func (o ReportGroupPropertiesOutput) ExportConfig() ReportGroupReportExportConfigOutput {
 	return o.ApplyT(func(v ReportGroupProperties) ReportGroupReportExportConfig { return v.ExportConfig }).(ReportGroupReportExportConfigOutput)
@@ -3797,6 +4360,16 @@ func (o ReportGroupPropertiesPtrOutput) ToReportGroupPropertiesPtrOutputWithCont
 
 func (o ReportGroupPropertiesPtrOutput) Elem() ReportGroupPropertiesOutput {
 	return o.ApplyT(func(v *ReportGroupProperties) ReportGroupProperties { return *v }).(ReportGroupPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+func (o ReportGroupPropertiesPtrOutput) DeleteReports() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReportGroupProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteReports
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
@@ -4511,6 +5084,10 @@ func init() {
 	pulumi.RegisterOutputType(ProjectArtifactsArrayOutput{})
 	pulumi.RegisterOutputType(ProjectAttributesOutput{})
 	pulumi.RegisterOutputType(ProjectAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ProjectBatchRestrictionsOutput{})
+	pulumi.RegisterOutputType(ProjectBatchRestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectBuildStatusConfigOutput{})
+	pulumi.RegisterOutputType(ProjectBuildStatusConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentOutput{})
@@ -4523,6 +5100,8 @@ func init() {
 	pulumi.RegisterOutputType(ProjectGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectProjectBuildBatchConfigOutput{})
+	pulumi.RegisterOutputType(ProjectProjectBuildBatchConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectProjectCacheOutput{})
 	pulumi.RegisterOutputType(ProjectProjectCachePtrOutput{})
 	pulumi.RegisterOutputType(ProjectProjectFileSystemLocationOutput{})

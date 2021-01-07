@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SageMaker:NotebookInstanceLifecycleConfig")]
     public partial class NotebookInstanceLifecycleConfig : Pulumi.CustomResource
     {
         /// <summary>

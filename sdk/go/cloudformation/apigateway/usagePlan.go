@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type UsagePlan struct {
 // NewUsagePlan registers a new resource with the given unique name, arguments, and options.
 func NewUsagePlan(ctx *pulumi.Context,
 	name string, args *UsagePlanArgs, opts ...pulumi.ResourceOption) (*UsagePlan, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &UsagePlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource UsagePlan
 	err := ctx.RegisterResource("cloudformation:ApiGateway:UsagePlan", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type UsagePlanArgs struct {
 
 func (UsagePlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*usagePlanArgs)(nil)).Elem()
+}
+
+type UsagePlanInput interface {
+	pulumi.Input
+
+	ToUsagePlanOutput() UsagePlanOutput
+	ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput
+}
+
+func (*UsagePlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlan)(nil))
+}
+
+func (i *UsagePlan) ToUsagePlanOutput() UsagePlanOutput {
+	return i.ToUsagePlanOutputWithContext(context.Background())
+}
+
+func (i *UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanOutput)
+}
+
+type UsagePlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (UsagePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlan)(nil))
+}
+
+func (o UsagePlanOutput) ToUsagePlanOutput() UsagePlanOutput {
+	return o
+}
+
+func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UsagePlanOutput{})
 }

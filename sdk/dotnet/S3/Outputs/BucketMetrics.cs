@@ -16,7 +16,7 @@ namespace Pulumi.Cloudformation.S3.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
         /// </summary>
-        public readonly Outputs.BucketReplicationTimeValue EventThreshold;
+        public readonly Outputs.BucketReplicationTimeValue? EventThreshold;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.S3.Outputs
 
         [OutputConstructor]
         private BucketMetrics(
-            Outputs.BucketReplicationTimeValue EventThreshold,
+            Outputs.BucketReplicationTimeValue? EventThreshold,
 
             string Status)
         {

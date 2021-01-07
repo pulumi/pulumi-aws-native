@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.OpsWorks
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:OpsWorks:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.IoT1Click
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:IoT1Click:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

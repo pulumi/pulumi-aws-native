@@ -40,6 +40,12 @@ namespace Pulumi.Cloudformation.Batch.Inputs
         public Input<string>? State { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-tags
+        /// </summary>
+        [Input("Tags")]
+        public InputUnion<System.Text.Json.JsonElement, string>? Tags { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
         /// </summary>
         [Input("Type", required: true)]

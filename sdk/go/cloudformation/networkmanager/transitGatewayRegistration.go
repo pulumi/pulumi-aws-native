@@ -4,6 +4,7 @@
 package networkmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TransitGatewayRegistration struct {
 // NewTransitGatewayRegistration registers a new resource with the given unique name, arguments, and options.
 func NewTransitGatewayRegistration(ctx *pulumi.Context,
 	name string, args *TransitGatewayRegistrationArgs, opts ...pulumi.ResourceOption) (*TransitGatewayRegistration, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TransitGatewayRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TransitGatewayRegistration
 	err := ctx.RegisterResource("cloudformation:NetworkManager:TransitGatewayRegistration", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TransitGatewayRegistrationArgs struct {
 
 func (TransitGatewayRegistrationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRegistrationArgs)(nil)).Elem()
+}
+
+type TransitGatewayRegistrationInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRegistrationOutput() TransitGatewayRegistrationOutput
+	ToTransitGatewayRegistrationOutputWithContext(ctx context.Context) TransitGatewayRegistrationOutput
+}
+
+func (*TransitGatewayRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRegistration)(nil))
+}
+
+func (i *TransitGatewayRegistration) ToTransitGatewayRegistrationOutput() TransitGatewayRegistrationOutput {
+	return i.ToTransitGatewayRegistrationOutputWithContext(context.Background())
+}
+
+func (i *TransitGatewayRegistration) ToTransitGatewayRegistrationOutputWithContext(ctx context.Context) TransitGatewayRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRegistrationOutput)
+}
+
+type TransitGatewayRegistrationOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRegistration)(nil))
+}
+
+func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutput() TransitGatewayRegistrationOutput {
+	return o
+}
+
+func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutputWithContext(ctx context.Context) TransitGatewayRegistrationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransitGatewayRegistrationOutput{})
 }

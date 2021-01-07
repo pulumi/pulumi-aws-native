@@ -16,13 +16,13 @@ namespace Pulumi.Cloudformation.Route53.Inputs
     public sealed class HealthCheckHealthCheckTagArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-key
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
         /// </summary>
         [Input("Key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-value
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
         /// </summary>
         [Input("Value", required: true)]
         public Input<string> Value { get; set; } = null!;

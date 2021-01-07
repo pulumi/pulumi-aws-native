@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Pinpoint
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Pinpoint:SmsTemplate")]
     public partial class SmsTemplate : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ACMPCA
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ACMPCA:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

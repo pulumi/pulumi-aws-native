@@ -4,6 +4,7 @@
 package servicecatalog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type TagOption struct {
 // NewTagOption registers a new resource with the given unique name, arguments, and options.
 func NewTagOption(ctx *pulumi.Context,
 	name string, args *TagOptionArgs, opts ...pulumi.ResourceOption) (*TagOption, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &TagOptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource TagOption
 	err := ctx.RegisterResource("cloudformation:ServiceCatalog:TagOption", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type TagOptionArgs struct {
 
 func (TagOptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagOptionArgs)(nil)).Elem()
+}
+
+type TagOptionInput interface {
+	pulumi.Input
+
+	ToTagOptionOutput() TagOptionOutput
+	ToTagOptionOutputWithContext(ctx context.Context) TagOptionOutput
+}
+
+func (*TagOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagOption)(nil))
+}
+
+func (i *TagOption) ToTagOptionOutput() TagOptionOutput {
+	return i.ToTagOptionOutputWithContext(context.Background())
+}
+
+func (i *TagOption) ToTagOptionOutputWithContext(ctx context.Context) TagOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagOptionOutput)
+}
+
+type TagOptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (TagOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagOption)(nil))
+}
+
+func (o TagOptionOutput) ToTagOptionOutput() TagOptionOutput {
+	return o
+}
+
+func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TagOptionOutput{})
 }

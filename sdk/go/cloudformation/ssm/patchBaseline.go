@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type PatchBaseline struct {
 // NewPatchBaseline registers a new resource with the given unique name, arguments, and options.
 func NewPatchBaseline(ctx *pulumi.Context,
 	name string, args *PatchBaselineArgs, opts ...pulumi.ResourceOption) (*PatchBaseline, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &PatchBaselineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource PatchBaseline
 	err := ctx.RegisterResource("cloudformation:SSM:PatchBaseline", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type PatchBaselineArgs struct {
 
 func (PatchBaselineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchBaselineArgs)(nil)).Elem()
+}
+
+type PatchBaselineInput interface {
+	pulumi.Input
+
+	ToPatchBaselineOutput() PatchBaselineOutput
+	ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput
+}
+
+func (*PatchBaseline) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaseline)(nil))
+}
+
+func (i *PatchBaseline) ToPatchBaselineOutput() PatchBaselineOutput {
+	return i.ToPatchBaselineOutputWithContext(context.Background())
+}
+
+func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineOutput)
+}
+
+type PatchBaselineOutput struct {
+	*pulumi.OutputState
+}
+
+func (PatchBaselineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaseline)(nil))
+}
+
+func (o PatchBaselineOutput) ToPatchBaselineOutput() PatchBaselineOutput {
+	return o
+}
+
+func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PatchBaselineOutput{})
 }

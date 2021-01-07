@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:ServiceCatalog:CloudFormationProduct")]
     public partial class CloudFormationProduct : Pulumi.CustomResource
     {
         /// <summary>

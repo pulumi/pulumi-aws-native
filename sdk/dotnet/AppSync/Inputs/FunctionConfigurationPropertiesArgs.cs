@@ -69,6 +69,12 @@ namespace Pulumi.Cloudformation.AppSync.Inputs
         [Input("ResponseMappingTemplateS3Location")]
         public Input<string>? ResponseMappingTemplateS3Location { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-syncconfig
+        /// </summary>
+        [Input("SyncConfig")]
+        public Input<Inputs.FunctionConfigurationSyncConfigArgs>? SyncConfig { get; set; }
+
         public FunctionConfigurationPropertiesArgs()
         {
         }

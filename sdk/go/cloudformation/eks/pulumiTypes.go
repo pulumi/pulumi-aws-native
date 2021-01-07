@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-cloudformation/sdk/go/cloudformation"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -305,10 +306,146 @@ func (o ClusterEncryptionConfigArrayOutput) Index(i pulumi.IntInput) ClusterEncr
 	}).(ClusterEncryptionConfigOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html
+type ClusterKubernetesNetworkConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv4cidr
+	ServiceIpv4Cidr *string `pulumi:"ServiceIpv4Cidr"`
+}
+
+// ClusterKubernetesNetworkConfigInput is an input type that accepts ClusterKubernetesNetworkConfigArgs and ClusterKubernetesNetworkConfigOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigInput` via:
+//
+//          ClusterKubernetesNetworkConfigArgs{...}
+type ClusterKubernetesNetworkConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput
+	ToClusterKubernetesNetworkConfigOutputWithContext(context.Context) ClusterKubernetesNetworkConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html
+type ClusterKubernetesNetworkConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv4cidr
+	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"ServiceIpv4Cidr"`
+}
+
+func (ClusterKubernetesNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput {
+	return i.ToClusterKubernetesNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigOutput)
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigOutput).ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubernetesNetworkConfigPtrInput is an input type that accepts ClusterKubernetesNetworkConfigArgs, ClusterKubernetesNetworkConfigPtr and ClusterKubernetesNetworkConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigPtrInput` via:
+//
+//          ClusterKubernetesNetworkConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterKubernetesNetworkConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput
+	ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Context) ClusterKubernetesNetworkConfigPtrOutput
+}
+
+type clusterKubernetesNetworkConfigPtrType ClusterKubernetesNetworkConfigArgs
+
+func ClusterKubernetesNetworkConfigPtr(v *ClusterKubernetesNetworkConfigArgs) ClusterKubernetesNetworkConfigPtrInput {
+	return (*clusterKubernetesNetworkConfigPtrType)(v)
+}
+
+func (*clusterKubernetesNetworkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html
+type ClusterKubernetesNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfig {
+		return &v
+	}).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv4cidr
+func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetworkConfigOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) ClusterKubernetesNetworkConfig { return *v }).(ClusterKubernetesNetworkConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv4cidr
+func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceIpv4Cidr
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
 type ClusterProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"EncryptionConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"KubernetesNetworkConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
 	Name *string `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
@@ -334,6 +471,8 @@ type ClusterPropertiesInput interface {
 type ClusterPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	EncryptionConfig ClusterEncryptionConfigArrayInput `pulumi:"EncryptionConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput `pulumi:"KubernetesNetworkConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
 	Name pulumi.StringPtrInput `pulumi:"Name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
@@ -427,6 +566,11 @@ func (o ClusterPropertiesOutput) EncryptionConfig() ClusterEncryptionConfigArray
 	return o.ApplyT(func(v ClusterProperties) []ClusterEncryptionConfig { return v.EncryptionConfig }).(ClusterEncryptionConfigArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+func (o ClusterPropertiesOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyT(func(v ClusterProperties) *ClusterKubernetesNetworkConfig { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
 func (o ClusterPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -473,6 +617,16 @@ func (o ClusterPropertiesPtrOutput) EncryptionConfig() ClusterEncryptionConfigAr
 		}
 		return v.EncryptionConfig
 	}).(ClusterEncryptionConfigArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
+func (o ClusterPropertiesPtrOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterProperties) *ClusterKubernetesNetworkConfig {
+		if v == nil {
+			return nil
+		}
+		return v.KubernetesNetworkConfig
+	}).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
@@ -802,6 +956,579 @@ func (o ClusterResourcesVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+type FargateProfileAttributes struct {
+	Arn string `pulumi:"Arn"`
+}
+
+// FargateProfileAttributesInput is an input type that accepts FargateProfileAttributesArgs and FargateProfileAttributesOutput values.
+// You can construct a concrete instance of `FargateProfileAttributesInput` via:
+//
+//          FargateProfileAttributesArgs{...}
+type FargateProfileAttributesInput interface {
+	pulumi.Input
+
+	ToFargateProfileAttributesOutput() FargateProfileAttributesOutput
+	ToFargateProfileAttributesOutputWithContext(context.Context) FargateProfileAttributesOutput
+}
+
+type FargateProfileAttributesArgs struct {
+	Arn pulumi.StringInput `pulumi:"Arn"`
+}
+
+func (FargateProfileAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileAttributes)(nil)).Elem()
+}
+
+func (i FargateProfileAttributesArgs) ToFargateProfileAttributesOutput() FargateProfileAttributesOutput {
+	return i.ToFargateProfileAttributesOutputWithContext(context.Background())
+}
+
+func (i FargateProfileAttributesArgs) ToFargateProfileAttributesOutputWithContext(ctx context.Context) FargateProfileAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileAttributesOutput)
+}
+
+func (i FargateProfileAttributesArgs) ToFargateProfileAttributesPtrOutput() FargateProfileAttributesPtrOutput {
+	return i.ToFargateProfileAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i FargateProfileAttributesArgs) ToFargateProfileAttributesPtrOutputWithContext(ctx context.Context) FargateProfileAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileAttributesOutput).ToFargateProfileAttributesPtrOutputWithContext(ctx)
+}
+
+// FargateProfileAttributesPtrInput is an input type that accepts FargateProfileAttributesArgs, FargateProfileAttributesPtr and FargateProfileAttributesPtrOutput values.
+// You can construct a concrete instance of `FargateProfileAttributesPtrInput` via:
+//
+//          FargateProfileAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type FargateProfileAttributesPtrInput interface {
+	pulumi.Input
+
+	ToFargateProfileAttributesPtrOutput() FargateProfileAttributesPtrOutput
+	ToFargateProfileAttributesPtrOutputWithContext(context.Context) FargateProfileAttributesPtrOutput
+}
+
+type fargateProfileAttributesPtrType FargateProfileAttributesArgs
+
+func FargateProfileAttributesPtr(v *FargateProfileAttributesArgs) FargateProfileAttributesPtrInput {
+	return (*fargateProfileAttributesPtrType)(v)
+}
+
+func (*fargateProfileAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FargateProfileAttributes)(nil)).Elem()
+}
+
+func (i *fargateProfileAttributesPtrType) ToFargateProfileAttributesPtrOutput() FargateProfileAttributesPtrOutput {
+	return i.ToFargateProfileAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *fargateProfileAttributesPtrType) ToFargateProfileAttributesPtrOutputWithContext(ctx context.Context) FargateProfileAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileAttributesPtrOutput)
+}
+
+type FargateProfileAttributesOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileAttributes)(nil)).Elem()
+}
+
+func (o FargateProfileAttributesOutput) ToFargateProfileAttributesOutput() FargateProfileAttributesOutput {
+	return o
+}
+
+func (o FargateProfileAttributesOutput) ToFargateProfileAttributesOutputWithContext(ctx context.Context) FargateProfileAttributesOutput {
+	return o
+}
+
+func (o FargateProfileAttributesOutput) ToFargateProfileAttributesPtrOutput() FargateProfileAttributesPtrOutput {
+	return o.ToFargateProfileAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o FargateProfileAttributesOutput) ToFargateProfileAttributesPtrOutputWithContext(ctx context.Context) FargateProfileAttributesPtrOutput {
+	return o.ApplyT(func(v FargateProfileAttributes) *FargateProfileAttributes {
+		return &v
+	}).(FargateProfileAttributesPtrOutput)
+}
+func (o FargateProfileAttributesOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileAttributes) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type FargateProfileAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FargateProfileAttributes)(nil)).Elem()
+}
+
+func (o FargateProfileAttributesPtrOutput) ToFargateProfileAttributesPtrOutput() FargateProfileAttributesPtrOutput {
+	return o
+}
+
+func (o FargateProfileAttributesPtrOutput) ToFargateProfileAttributesPtrOutputWithContext(ctx context.Context) FargateProfileAttributesPtrOutput {
+	return o
+}
+
+func (o FargateProfileAttributesPtrOutput) Elem() FargateProfileAttributesOutput {
+	return o.ApplyT(func(v *FargateProfileAttributes) FargateProfileAttributes { return *v }).(FargateProfileAttributesOutput)
+}
+
+func (o FargateProfileAttributesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FargateProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
+type FargateProfileLabel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+	Key string `pulumi:"Key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+	Value string `pulumi:"Value"`
+}
+
+// FargateProfileLabelInput is an input type that accepts FargateProfileLabelArgs and FargateProfileLabelOutput values.
+// You can construct a concrete instance of `FargateProfileLabelInput` via:
+//
+//          FargateProfileLabelArgs{...}
+type FargateProfileLabelInput interface {
+	pulumi.Input
+
+	ToFargateProfileLabelOutput() FargateProfileLabelOutput
+	ToFargateProfileLabelOutputWithContext(context.Context) FargateProfileLabelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
+type FargateProfileLabelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+	Key pulumi.StringInput `pulumi:"Key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+	Value pulumi.StringInput `pulumi:"Value"`
+}
+
+func (FargateProfileLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileLabel)(nil)).Elem()
+}
+
+func (i FargateProfileLabelArgs) ToFargateProfileLabelOutput() FargateProfileLabelOutput {
+	return i.ToFargateProfileLabelOutputWithContext(context.Background())
+}
+
+func (i FargateProfileLabelArgs) ToFargateProfileLabelOutputWithContext(ctx context.Context) FargateProfileLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileLabelOutput)
+}
+
+// FargateProfileLabelArrayInput is an input type that accepts FargateProfileLabelArray and FargateProfileLabelArrayOutput values.
+// You can construct a concrete instance of `FargateProfileLabelArrayInput` via:
+//
+//          FargateProfileLabelArray{ FargateProfileLabelArgs{...} }
+type FargateProfileLabelArrayInput interface {
+	pulumi.Input
+
+	ToFargateProfileLabelArrayOutput() FargateProfileLabelArrayOutput
+	ToFargateProfileLabelArrayOutputWithContext(context.Context) FargateProfileLabelArrayOutput
+}
+
+type FargateProfileLabelArray []FargateProfileLabelInput
+
+func (FargateProfileLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FargateProfileLabel)(nil)).Elem()
+}
+
+func (i FargateProfileLabelArray) ToFargateProfileLabelArrayOutput() FargateProfileLabelArrayOutput {
+	return i.ToFargateProfileLabelArrayOutputWithContext(context.Background())
+}
+
+func (i FargateProfileLabelArray) ToFargateProfileLabelArrayOutputWithContext(ctx context.Context) FargateProfileLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileLabelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
+type FargateProfileLabelOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileLabel)(nil)).Elem()
+}
+
+func (o FargateProfileLabelOutput) ToFargateProfileLabelOutput() FargateProfileLabelOutput {
+	return o
+}
+
+func (o FargateProfileLabelOutput) ToFargateProfileLabelOutputWithContext(ctx context.Context) FargateProfileLabelOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+func (o FargateProfileLabelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileLabel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+func (o FargateProfileLabelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileLabel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FargateProfileLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FargateProfileLabel)(nil)).Elem()
+}
+
+func (o FargateProfileLabelArrayOutput) ToFargateProfileLabelArrayOutput() FargateProfileLabelArrayOutput {
+	return o
+}
+
+func (o FargateProfileLabelArrayOutput) ToFargateProfileLabelArrayOutputWithContext(ctx context.Context) FargateProfileLabelArrayOutput {
+	return o
+}
+
+func (o FargateProfileLabelArrayOutput) Index(i pulumi.IntInput) FargateProfileLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FargateProfileLabel {
+		return vs[0].([]FargateProfileLabel)[vs[1].(int)]
+	}).(FargateProfileLabelOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
+type FargateProfileProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+	ClusterName string `pulumi:"ClusterName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+	FargateProfileName *string `pulumi:"FargateProfileName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+	PodExecutionRoleArn string `pulumi:"PodExecutionRoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
+	Selectors []FargateProfileSelector `pulumi:"Selectors"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
+	Subnets []string `pulumi:"Subnets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+	Tags []cloudformation.Tag `pulumi:"Tags"`
+}
+
+// FargateProfilePropertiesInput is an input type that accepts FargateProfilePropertiesArgs and FargateProfilePropertiesOutput values.
+// You can construct a concrete instance of `FargateProfilePropertiesInput` via:
+//
+//          FargateProfilePropertiesArgs{...}
+type FargateProfilePropertiesInput interface {
+	pulumi.Input
+
+	ToFargateProfilePropertiesOutput() FargateProfilePropertiesOutput
+	ToFargateProfilePropertiesOutputWithContext(context.Context) FargateProfilePropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
+type FargateProfilePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+	ClusterName pulumi.StringInput `pulumi:"ClusterName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+	FargateProfileName pulumi.StringPtrInput `pulumi:"FargateProfileName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+	PodExecutionRoleArn pulumi.StringInput `pulumi:"PodExecutionRoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
+	Selectors FargateProfileSelectorArrayInput `pulumi:"Selectors"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
+	Subnets pulumi.StringArrayInput `pulumi:"Subnets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+	Tags cloudformation.TagArrayInput `pulumi:"Tags"`
+}
+
+func (FargateProfilePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileProperties)(nil)).Elem()
+}
+
+func (i FargateProfilePropertiesArgs) ToFargateProfilePropertiesOutput() FargateProfilePropertiesOutput {
+	return i.ToFargateProfilePropertiesOutputWithContext(context.Background())
+}
+
+func (i FargateProfilePropertiesArgs) ToFargateProfilePropertiesOutputWithContext(ctx context.Context) FargateProfilePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfilePropertiesOutput)
+}
+
+func (i FargateProfilePropertiesArgs) ToFargateProfilePropertiesPtrOutput() FargateProfilePropertiesPtrOutput {
+	return i.ToFargateProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FargateProfilePropertiesArgs) ToFargateProfilePropertiesPtrOutputWithContext(ctx context.Context) FargateProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfilePropertiesOutput).ToFargateProfilePropertiesPtrOutputWithContext(ctx)
+}
+
+// FargateProfilePropertiesPtrInput is an input type that accepts FargateProfilePropertiesArgs, FargateProfilePropertiesPtr and FargateProfilePropertiesPtrOutput values.
+// You can construct a concrete instance of `FargateProfilePropertiesPtrInput` via:
+//
+//          FargateProfilePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type FargateProfilePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFargateProfilePropertiesPtrOutput() FargateProfilePropertiesPtrOutput
+	ToFargateProfilePropertiesPtrOutputWithContext(context.Context) FargateProfilePropertiesPtrOutput
+}
+
+type fargateProfilePropertiesPtrType FargateProfilePropertiesArgs
+
+func FargateProfilePropertiesPtr(v *FargateProfilePropertiesArgs) FargateProfilePropertiesPtrInput {
+	return (*fargateProfilePropertiesPtrType)(v)
+}
+
+func (*fargateProfilePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FargateProfileProperties)(nil)).Elem()
+}
+
+func (i *fargateProfilePropertiesPtrType) ToFargateProfilePropertiesPtrOutput() FargateProfilePropertiesPtrOutput {
+	return i.ToFargateProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *fargateProfilePropertiesPtrType) ToFargateProfilePropertiesPtrOutputWithContext(ctx context.Context) FargateProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfilePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
+type FargateProfilePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FargateProfilePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileProperties)(nil)).Elem()
+}
+
+func (o FargateProfilePropertiesOutput) ToFargateProfilePropertiesOutput() FargateProfilePropertiesOutput {
+	return o
+}
+
+func (o FargateProfilePropertiesOutput) ToFargateProfilePropertiesOutputWithContext(ctx context.Context) FargateProfilePropertiesOutput {
+	return o
+}
+
+func (o FargateProfilePropertiesOutput) ToFargateProfilePropertiesPtrOutput() FargateProfilePropertiesPtrOutput {
+	return o.ToFargateProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FargateProfilePropertiesOutput) ToFargateProfilePropertiesPtrOutputWithContext(ctx context.Context) FargateProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v FargateProfileProperties) *FargateProfileProperties {
+		return &v
+	}).(FargateProfilePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+func (o FargateProfilePropertiesOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileProperties) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+func (o FargateProfilePropertiesOutput) FargateProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FargateProfileProperties) *string { return v.FargateProfileName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+func (o FargateProfilePropertiesOutput) PodExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileProperties) string { return v.PodExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
+func (o FargateProfilePropertiesOutput) Selectors() FargateProfileSelectorArrayOutput {
+	return o.ApplyT(func(v FargateProfileProperties) []FargateProfileSelector { return v.Selectors }).(FargateProfileSelectorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
+func (o FargateProfilePropertiesOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FargateProfileProperties) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+func (o FargateProfilePropertiesOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v FargateProfileProperties) []cloudformation.Tag { return v.Tags }).(cloudformation.TagArrayOutput)
+}
+
+type FargateProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FargateProfilePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FargateProfileProperties)(nil)).Elem()
+}
+
+func (o FargateProfilePropertiesPtrOutput) ToFargateProfilePropertiesPtrOutput() FargateProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o FargateProfilePropertiesPtrOutput) ToFargateProfilePropertiesPtrOutputWithContext(ctx context.Context) FargateProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o FargateProfilePropertiesPtrOutput) Elem() FargateProfilePropertiesOutput {
+	return o.ApplyT(func(v *FargateProfileProperties) FargateProfileProperties { return *v }).(FargateProfilePropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+func (o FargateProfilePropertiesPtrOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FargateProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+func (o FargateProfilePropertiesPtrOutput) FargateProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FargateProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FargateProfileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+func (o FargateProfilePropertiesPtrOutput) PodExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FargateProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PodExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
+func (o FargateProfilePropertiesPtrOutput) Selectors() FargateProfileSelectorArrayOutput {
+	return o.ApplyT(func(v *FargateProfileProperties) []FargateProfileSelector {
+		if v == nil {
+			return nil
+		}
+		return v.Selectors
+	}).(FargateProfileSelectorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
+func (o FargateProfilePropertiesPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FargateProfileProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+func (o FargateProfilePropertiesPtrOutput) Tags() cloudformation.TagArrayOutput {
+	return o.ApplyT(func(v *FargateProfileProperties) []cloudformation.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(cloudformation.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
+type FargateProfileSelector struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
+	Labels []FargateProfileLabel `pulumi:"Labels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
+	Namespace string `pulumi:"Namespace"`
+}
+
+// FargateProfileSelectorInput is an input type that accepts FargateProfileSelectorArgs and FargateProfileSelectorOutput values.
+// You can construct a concrete instance of `FargateProfileSelectorInput` via:
+//
+//          FargateProfileSelectorArgs{...}
+type FargateProfileSelectorInput interface {
+	pulumi.Input
+
+	ToFargateProfileSelectorOutput() FargateProfileSelectorOutput
+	ToFargateProfileSelectorOutputWithContext(context.Context) FargateProfileSelectorOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
+type FargateProfileSelectorArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
+	Labels FargateProfileLabelArrayInput `pulumi:"Labels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
+	Namespace pulumi.StringInput `pulumi:"Namespace"`
+}
+
+func (FargateProfileSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileSelector)(nil)).Elem()
+}
+
+func (i FargateProfileSelectorArgs) ToFargateProfileSelectorOutput() FargateProfileSelectorOutput {
+	return i.ToFargateProfileSelectorOutputWithContext(context.Background())
+}
+
+func (i FargateProfileSelectorArgs) ToFargateProfileSelectorOutputWithContext(ctx context.Context) FargateProfileSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileSelectorOutput)
+}
+
+// FargateProfileSelectorArrayInput is an input type that accepts FargateProfileSelectorArray and FargateProfileSelectorArrayOutput values.
+// You can construct a concrete instance of `FargateProfileSelectorArrayInput` via:
+//
+//          FargateProfileSelectorArray{ FargateProfileSelectorArgs{...} }
+type FargateProfileSelectorArrayInput interface {
+	pulumi.Input
+
+	ToFargateProfileSelectorArrayOutput() FargateProfileSelectorArrayOutput
+	ToFargateProfileSelectorArrayOutputWithContext(context.Context) FargateProfileSelectorArrayOutput
+}
+
+type FargateProfileSelectorArray []FargateProfileSelectorInput
+
+func (FargateProfileSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FargateProfileSelector)(nil)).Elem()
+}
+
+func (i FargateProfileSelectorArray) ToFargateProfileSelectorArrayOutput() FargateProfileSelectorArrayOutput {
+	return i.ToFargateProfileSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i FargateProfileSelectorArray) ToFargateProfileSelectorArrayOutputWithContext(ctx context.Context) FargateProfileSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileSelectorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
+type FargateProfileSelectorOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileSelector)(nil)).Elem()
+}
+
+func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutput() FargateProfileSelectorOutput {
+	return o
+}
+
+func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(ctx context.Context) FargateProfileSelectorOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
+func (o FargateProfileSelectorOutput) Labels() FargateProfileLabelArrayOutput {
+	return o.ApplyT(func(v FargateProfileSelector) []FargateProfileLabel { return v.Labels }).(FargateProfileLabelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
+func (o FargateProfileSelectorOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileSelector) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type FargateProfileSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FargateProfileSelector)(nil)).Elem()
+}
+
+func (o FargateProfileSelectorArrayOutput) ToFargateProfileSelectorArrayOutput() FargateProfileSelectorArrayOutput {
+	return o
+}
+
+func (o FargateProfileSelectorArrayOutput) ToFargateProfileSelectorArrayOutputWithContext(ctx context.Context) FargateProfileSelectorArrayOutput {
+	return o
+}
+
+func (o FargateProfileSelectorArrayOutput) Index(i pulumi.IntInput) FargateProfileSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FargateProfileSelector {
+		return vs[0].([]FargateProfileSelector)[vs[1].(int)]
+	}).(FargateProfileSelectorOutput)
+}
+
 type NodegroupAttributes struct {
 	Arn           string `pulumi:"Arn"`
 	ClusterName   string `pulumi:"ClusterName"`
@@ -958,10 +1685,184 @@ func (o NodegroupAttributesPtrOutput) NodegroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html
+type NodegroupLaunchTemplateSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-id
+	Id *string `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-name
+	Name *string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-version
+	Version *string `pulumi:"Version"`
+}
+
+// NodegroupLaunchTemplateSpecificationInput is an input type that accepts NodegroupLaunchTemplateSpecificationArgs and NodegroupLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `NodegroupLaunchTemplateSpecificationInput` via:
+//
+//          NodegroupLaunchTemplateSpecificationArgs{...}
+type NodegroupLaunchTemplateSpecificationInput interface {
+	pulumi.Input
+
+	ToNodegroupLaunchTemplateSpecificationOutput() NodegroupLaunchTemplateSpecificationOutput
+	ToNodegroupLaunchTemplateSpecificationOutputWithContext(context.Context) NodegroupLaunchTemplateSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html
+type NodegroupLaunchTemplateSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-id
+	Id pulumi.StringPtrInput `pulumi:"Id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-name
+	Name pulumi.StringPtrInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-version
+	Version pulumi.StringPtrInput `pulumi:"Version"`
+}
+
+func (NodegroupLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationOutput() NodegroupLaunchTemplateSpecificationOutput {
+	return i.ToNodegroupLaunchTemplateSpecificationOutputWithContext(context.Background())
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationOutput)
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return i.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationOutput).ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx)
+}
+
+// NodegroupLaunchTemplateSpecificationPtrInput is an input type that accepts NodegroupLaunchTemplateSpecificationArgs, NodegroupLaunchTemplateSpecificationPtr and NodegroupLaunchTemplateSpecificationPtrOutput values.
+// You can construct a concrete instance of `NodegroupLaunchTemplateSpecificationPtrInput` via:
+//
+//          NodegroupLaunchTemplateSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type NodegroupLaunchTemplateSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput
+	ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Context) NodegroupLaunchTemplateSpecificationPtrOutput
+}
+
+type nodegroupLaunchTemplateSpecificationPtrType NodegroupLaunchTemplateSpecificationArgs
+
+func NodegroupLaunchTemplateSpecificationPtr(v *NodegroupLaunchTemplateSpecificationArgs) NodegroupLaunchTemplateSpecificationPtrInput {
+	return (*nodegroupLaunchTemplateSpecificationPtrType)(v)
+}
+
+func (*nodegroupLaunchTemplateSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i *nodegroupLaunchTemplateSpecificationPtrType) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return i.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *nodegroupLaunchTemplateSpecificationPtrType) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html
+type NodegroupLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NodegroupLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationOutput() NodegroupLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *NodegroupLaunchTemplateSpecification {
+		return &v
+	}).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-id
+func (o NodegroupLaunchTemplateSpecificationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-name
+func (o NodegroupLaunchTemplateSpecificationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-version
+func (o NodegroupLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type NodegroupLaunchTemplateSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupLaunchTemplateSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Elem() NodegroupLaunchTemplateSpecificationOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) NodegroupLaunchTemplateSpecification { return *v }).(NodegroupLaunchTemplateSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-id
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-name
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-version
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html
 type NodegroupProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-amitype
 	AmiType *string `pulumi:"AmiType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype
+	CapacityType *string `pulumi:"CapacityType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
 	ClusterName string `pulumi:"ClusterName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-disksize
@@ -972,6 +1873,8 @@ type NodegroupProperties struct {
 	InstanceTypes []string `pulumi:"InstanceTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels
 	Labels interface{} `pulumi:"Labels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate
+	LaunchTemplate *NodegroupLaunchTemplateSpecification `pulumi:"LaunchTemplate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
 	NodeRole string `pulumi:"NodeRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname
@@ -1005,6 +1908,8 @@ type NodegroupPropertiesInput interface {
 type NodegroupPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-amitype
 	AmiType pulumi.StringPtrInput `pulumi:"AmiType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype
+	CapacityType pulumi.StringPtrInput `pulumi:"CapacityType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
 	ClusterName pulumi.StringInput `pulumi:"ClusterName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-disksize
@@ -1015,6 +1920,8 @@ type NodegroupPropertiesArgs struct {
 	InstanceTypes pulumi.StringArrayInput `pulumi:"InstanceTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels
 	Labels pulumi.Input `pulumi:"Labels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate
+	LaunchTemplate NodegroupLaunchTemplateSpecificationPtrInput `pulumi:"LaunchTemplate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
 	NodeRole pulumi.StringInput `pulumi:"NodeRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname
@@ -1116,6 +2023,11 @@ func (o NodegroupPropertiesOutput) AmiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupProperties) *string { return v.AmiType }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype
+func (o NodegroupPropertiesOutput) CapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupProperties) *string { return v.CapacityType }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
 func (o NodegroupPropertiesOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v NodegroupProperties) string { return v.ClusterName }).(pulumi.StringOutput)
@@ -1139,6 +2051,11 @@ func (o NodegroupPropertiesOutput) InstanceTypes() pulumi.StringArrayOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels
 func (o NodegroupPropertiesOutput) Labels() pulumi.AnyOutput {
 	return o.ApplyT(func(v NodegroupProperties) interface{} { return v.Labels }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate
+func (o NodegroupPropertiesOutput) LaunchTemplate() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v NodegroupProperties) *NodegroupLaunchTemplateSpecification { return v.LaunchTemplate }).(NodegroupLaunchTemplateSpecificationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
@@ -1209,6 +2126,16 @@ func (o NodegroupPropertiesPtrOutput) AmiType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-capacitytype
+func (o NodegroupPropertiesPtrOutput) CapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityType
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
 func (o NodegroupPropertiesPtrOutput) ClusterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupProperties) *string {
@@ -1257,6 +2184,16 @@ func (o NodegroupPropertiesPtrOutput) Labels() pulumi.AnyOutput {
 		}
 		return v.Labels
 	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate
+func (o NodegroupPropertiesPtrOutput) LaunchTemplate() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v *NodegroupProperties) *NodegroupLaunchTemplateSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplate
+	}).(NodegroupLaunchTemplateSpecificationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
@@ -1669,14 +2606,26 @@ func init() {
 	pulumi.RegisterOutputType(ClusterAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterProviderOutput{})
 	pulumi.RegisterOutputType(ClusterProviderPtrOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(FargateProfileAttributesOutput{})
+	pulumi.RegisterOutputType(FargateProfileAttributesPtrOutput{})
+	pulumi.RegisterOutputType(FargateProfileLabelOutput{})
+	pulumi.RegisterOutputType(FargateProfileLabelArrayOutput{})
+	pulumi.RegisterOutputType(FargateProfilePropertiesOutput{})
+	pulumi.RegisterOutputType(FargateProfilePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
+	pulumi.RegisterOutputType(FargateProfileSelectorArrayOutput{})
 	pulumi.RegisterOutputType(NodegroupAttributesOutput{})
 	pulumi.RegisterOutputType(NodegroupAttributesPtrOutput{})
+	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationOutput{})
+	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupPropertiesOutput{})
 	pulumi.RegisterOutputType(NodegroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupRemoteAccessOutput{})

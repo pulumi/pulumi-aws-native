@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.DMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:DMS:ReplicationTask")]
     public partial class ReplicationTask : Pulumi.CustomResource
     {
         /// <summary>

@@ -14,12 +14,12 @@ namespace Pulumi.Cloudformation.StepFunctions.Outputs
     public sealed class StateMachineCloudWatchLogsLogGroup
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup-loggrouparn
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
         /// </summary>
-        public readonly string LogGroupArn;
+        public readonly string? LogGroupArn;
 
         [OutputConstructor]
-        private StateMachineCloudWatchLogsLogGroup(string LogGroupArn)
+        private StateMachineCloudWatchLogsLogGroup(string? LogGroupArn)
         {
             this.LogGroupArn = LogGroupArn;
         }

@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type DevEndpoint struct {
 // NewDevEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewDevEndpoint(ctx *pulumi.Context,
 	name string, args *DevEndpointArgs, opts ...pulumi.ResourceOption) (*DevEndpoint, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DevEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource DevEndpoint
 	err := ctx.RegisterResource("cloudformation:Glue:DevEndpoint", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DevEndpointArgs struct {
 
 func (DevEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*devEndpointArgs)(nil)).Elem()
+}
+
+type DevEndpointInput interface {
+	pulumi.Input
+
+	ToDevEndpointOutput() DevEndpointOutput
+	ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput
+}
+
+func (*DevEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*DevEndpoint)(nil))
+}
+
+func (i *DevEndpoint) ToDevEndpointOutput() DevEndpointOutput {
+	return i.ToDevEndpointOutputWithContext(context.Background())
+}
+
+func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointOutput)
+}
+
+type DevEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (DevEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DevEndpoint)(nil))
+}
+
+func (o DevEndpointOutput) ToDevEndpointOutput() DevEndpointOutput {
+	return o
+}
+
+func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DevEndpointOutput{})
 }

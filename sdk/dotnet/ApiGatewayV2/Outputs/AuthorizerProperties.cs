@@ -22,6 +22,10 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
         /// </summary>
         public readonly string? AuthorizerCredentialsArn;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+        /// </summary>
+        public readonly string? AuthorizerPayloadFormatVersion;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
         /// </summary>
         public readonly int? AuthorizerResultTtlInSeconds;
@@ -33,6 +37,10 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
         /// </summary>
         public readonly string? AuthorizerUri;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+        /// </summary>
+        public readonly bool? EnableSimpleResponses;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
         /// </summary>
@@ -56,11 +64,15 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
 
             string? AuthorizerCredentialsArn,
 
+            string? AuthorizerPayloadFormatVersion,
+
             int? AuthorizerResultTtlInSeconds,
 
             string AuthorizerType,
 
             string? AuthorizerUri,
+
+            bool? EnableSimpleResponses,
 
             ImmutableArray<string> IdentitySource,
 
@@ -72,9 +84,11 @@ namespace Pulumi.Cloudformation.ApiGatewayV2.Outputs
         {
             this.ApiId = ApiId;
             this.AuthorizerCredentialsArn = AuthorizerCredentialsArn;
+            this.AuthorizerPayloadFormatVersion = AuthorizerPayloadFormatVersion;
             this.AuthorizerResultTtlInSeconds = AuthorizerResultTtlInSeconds;
             this.AuthorizerType = AuthorizerType;
             this.AuthorizerUri = AuthorizerUri;
+            this.EnableSimpleResponses = EnableSimpleResponses;
             this.IdentitySource = IdentitySource;
             this.IdentityValidationExpression = IdentityValidationExpression;
             this.JwtConfiguration = JwtConfiguration;

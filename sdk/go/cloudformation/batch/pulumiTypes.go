@@ -130,12 +130,14 @@ type ComputeEnvironmentComputeResources struct {
 	BidPercentage *int `pulumi:"BidPercentage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-desiredvcpus
 	DesiredvCpus *int `pulumi:"DesiredvCpus"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration
+	Ec2Configuration []ComputeEnvironmentEc2ConfigurationObject `pulumi:"Ec2Configuration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair
 	Ec2KeyPair *string `pulumi:"Ec2KeyPair"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-imageid
 	ImageId *string `pulumi:"ImageId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole
-	InstanceRole string `pulumi:"InstanceRole"`
+	InstanceRole *string `pulumi:"InstanceRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes
 	InstanceTypes []string `pulumi:"InstanceTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate
@@ -143,7 +145,7 @@ type ComputeEnvironmentComputeResources struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus
 	MaxvCpus int `pulumi:"MaxvCpus"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
-	MinvCpus int `pulumi:"MinvCpus"`
+	MinvCpus *int `pulumi:"MinvCpus"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup
 	PlacementGroup *string `pulumi:"PlacementGroup"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
@@ -177,12 +179,14 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	BidPercentage pulumi.IntPtrInput `pulumi:"BidPercentage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-desiredvcpus
 	DesiredvCpus pulumi.IntPtrInput `pulumi:"DesiredvCpus"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration
+	Ec2Configuration ComputeEnvironmentEc2ConfigurationObjectArrayInput `pulumi:"Ec2Configuration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair
 	Ec2KeyPair pulumi.StringPtrInput `pulumi:"Ec2KeyPair"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-imageid
 	ImageId pulumi.StringPtrInput `pulumi:"ImageId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole
-	InstanceRole pulumi.StringInput `pulumi:"InstanceRole"`
+	InstanceRole pulumi.StringPtrInput `pulumi:"InstanceRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes
 	InstanceTypes pulumi.StringArrayInput `pulumi:"InstanceTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate
@@ -190,7 +194,7 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus
 	MaxvCpus pulumi.IntInput `pulumi:"MaxvCpus"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
-	MinvCpus pulumi.IntInput `pulumi:"MinvCpus"`
+	MinvCpus pulumi.IntPtrInput `pulumi:"MinvCpus"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup
 	PlacementGroup pulumi.StringPtrInput `pulumi:"PlacementGroup"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
@@ -298,6 +302,13 @@ func (o ComputeEnvironmentComputeResourcesOutput) DesiredvCpus() pulumi.IntPtrOu
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.DesiredvCpus }).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration
+func (o ComputeEnvironmentComputeResourcesOutput) Ec2Configuration() ComputeEnvironmentEc2ConfigurationObjectArrayOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []ComputeEnvironmentEc2ConfigurationObject {
+		return v.Ec2Configuration
+	}).(ComputeEnvironmentEc2ConfigurationObjectArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair
 func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
@@ -309,8 +320,8 @@ func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringPtrOutp
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole
-func (o ComputeEnvironmentComputeResourcesOutput) InstanceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.InstanceRole }).(pulumi.StringOutput)
+func (o ComputeEnvironmentComputeResourcesOutput) InstanceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.InstanceRole }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes
@@ -331,8 +342,8 @@ func (o ComputeEnvironmentComputeResourcesOutput) MaxvCpus() pulumi.IntOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
-func (o ComputeEnvironmentComputeResourcesOutput) MinvCpus() pulumi.IntOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) int { return v.MinvCpus }).(pulumi.IntOutput)
+func (o ComputeEnvironmentComputeResourcesOutput) MinvCpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.MinvCpus }).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup
@@ -413,6 +424,16 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredvCpus() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration
+func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configuration() ComputeEnvironmentEc2ConfigurationObjectArrayOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []ComputeEnvironmentEc2ConfigurationObject {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2Configuration
+	}).(ComputeEnvironmentEc2ConfigurationObjectArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
@@ -439,7 +460,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return &v.InstanceRole
+		return v.InstanceRole
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -479,7 +500,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MinvCpus() pulumi.IntPtrOut
 		if v == nil {
 			return nil
 		}
-		return &v.MinvCpus
+		return v.MinvCpus
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -541,6 +562,115 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutp
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html
+type ComputeEnvironmentEc2ConfigurationObject struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-imageidoverride
+	ImageIdOverride *string `pulumi:"ImageIdOverride"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-imagetype
+	ImageType string `pulumi:"ImageType"`
+}
+
+// ComputeEnvironmentEc2ConfigurationObjectInput is an input type that accepts ComputeEnvironmentEc2ConfigurationObjectArgs and ComputeEnvironmentEc2ConfigurationObjectOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEc2ConfigurationObjectInput` via:
+//
+//          ComputeEnvironmentEc2ConfigurationObjectArgs{...}
+type ComputeEnvironmentEc2ConfigurationObjectInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEc2ConfigurationObjectOutput() ComputeEnvironmentEc2ConfigurationObjectOutput
+	ToComputeEnvironmentEc2ConfigurationObjectOutputWithContext(context.Context) ComputeEnvironmentEc2ConfigurationObjectOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html
+type ComputeEnvironmentEc2ConfigurationObjectArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-imageidoverride
+	ImageIdOverride pulumi.StringPtrInput `pulumi:"ImageIdOverride"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-imagetype
+	ImageType pulumi.StringInput `pulumi:"ImageType"`
+}
+
+func (ComputeEnvironmentEc2ConfigurationObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObject)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentEc2ConfigurationObjectArgs) ToComputeEnvironmentEc2ConfigurationObjectOutput() ComputeEnvironmentEc2ConfigurationObjectOutput {
+	return i.ToComputeEnvironmentEc2ConfigurationObjectOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEc2ConfigurationObjectArgs) ToComputeEnvironmentEc2ConfigurationObjectOutputWithContext(ctx context.Context) ComputeEnvironmentEc2ConfigurationObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEc2ConfigurationObjectOutput)
+}
+
+// ComputeEnvironmentEc2ConfigurationObjectArrayInput is an input type that accepts ComputeEnvironmentEc2ConfigurationObjectArray and ComputeEnvironmentEc2ConfigurationObjectArrayOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEc2ConfigurationObjectArrayInput` via:
+//
+//          ComputeEnvironmentEc2ConfigurationObjectArray{ ComputeEnvironmentEc2ConfigurationObjectArgs{...} }
+type ComputeEnvironmentEc2ConfigurationObjectArrayInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEc2ConfigurationObjectArrayOutput() ComputeEnvironmentEc2ConfigurationObjectArrayOutput
+	ToComputeEnvironmentEc2ConfigurationObjectArrayOutputWithContext(context.Context) ComputeEnvironmentEc2ConfigurationObjectArrayOutput
+}
+
+type ComputeEnvironmentEc2ConfigurationObjectArray []ComputeEnvironmentEc2ConfigurationObjectInput
+
+func (ComputeEnvironmentEc2ConfigurationObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeEnvironmentEc2ConfigurationObject)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentEc2ConfigurationObjectArray) ToComputeEnvironmentEc2ConfigurationObjectArrayOutput() ComputeEnvironmentEc2ConfigurationObjectArrayOutput {
+	return i.ToComputeEnvironmentEc2ConfigurationObjectArrayOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEc2ConfigurationObjectArray) ToComputeEnvironmentEc2ConfigurationObjectArrayOutputWithContext(ctx context.Context) ComputeEnvironmentEc2ConfigurationObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEc2ConfigurationObjectArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html
+type ComputeEnvironmentEc2ConfigurationObjectOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEc2ConfigurationObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObject)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ToComputeEnvironmentEc2ConfigurationObjectOutput() ComputeEnvironmentEc2ConfigurationObjectOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ToComputeEnvironmentEc2ConfigurationObjectOutputWithContext(ctx context.Context) ComputeEnvironmentEc2ConfigurationObjectOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-imageidoverride
+func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ImageIdOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEc2ConfigurationObject) *string { return v.ImageIdOverride }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-imagetype
+func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ImageType() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEc2ConfigurationObject) string { return v.ImageType }).(pulumi.StringOutput)
+}
+
+type ComputeEnvironmentEc2ConfigurationObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEc2ConfigurationObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeEnvironmentEc2ConfigurationObject)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) ToComputeEnvironmentEc2ConfigurationObjectArrayOutput() ComputeEnvironmentEc2ConfigurationObjectArrayOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) ToComputeEnvironmentEc2ConfigurationObjectArrayOutputWithContext(ctx context.Context) ComputeEnvironmentEc2ConfigurationObjectArrayOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) Index(i pulumi.IntInput) ComputeEnvironmentEc2ConfigurationObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeEnvironmentEc2ConfigurationObject {
+		return vs[0].([]ComputeEnvironmentEc2ConfigurationObject)[vs[1].(int)]
+	}).(ComputeEnvironmentEc2ConfigurationObjectOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html
@@ -727,6 +857,8 @@ type ComputeEnvironmentProperties struct {
 	ServiceRole string `pulumi:"ServiceRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-state
 	State *string `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-tags
+	Tags interface{} `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
 	Type string `pulumi:"Type"`
 }
@@ -752,6 +884,8 @@ type ComputeEnvironmentPropertiesArgs struct {
 	ServiceRole pulumi.StringInput `pulumi:"ServiceRole"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-state
 	State pulumi.StringPtrInput `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-tags
+	Tags pulumi.Input `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
 	Type pulumi.StringInput `pulumi:"Type"`
 }
@@ -854,6 +988,11 @@ func (o ComputeEnvironmentPropertiesOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentProperties) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-tags
+func (o ComputeEnvironmentPropertiesOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v ComputeEnvironmentProperties) interface{} { return v.Tags }).(pulumi.AnyOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
 func (o ComputeEnvironmentPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentProperties) string { return v.Type }).(pulumi.StringOutput)
@@ -915,6 +1054,16 @@ func (o ComputeEnvironmentPropertiesPtrOutput) State() pulumi.StringPtrOutput {
 		}
 		return v.State
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-tags
+func (o ComputeEnvironmentPropertiesPtrOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.AnyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-type
@@ -1045,6 +1194,10 @@ type JobDefinitionContainerProperties struct {
 	Command []string `pulumi:"Command"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-environment
 	Environment []JobDefinitionEnvironment `pulumi:"Environment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn
+	ExecutionRoleArn *string `pulumi:"ExecutionRoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
+	FargatePlatformConfiguration *JobDefinitionFargatePlatformConfiguration `pulumi:"FargatePlatformConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
 	Image string `pulumi:"Image"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-instancetype
@@ -1053,16 +1206,22 @@ type JobDefinitionContainerProperties struct {
 	JobRoleArn *string `pulumi:"JobRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters
 	LinuxParameters *JobDefinitionLinuxParameters `pulumi:"LinuxParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-logconfiguration
+	LogConfiguration *JobDefinitionLogConfiguration `pulumi:"LogConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
 	Memory *int `pulumi:"Memory"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
 	MountPoints []JobDefinitionMountPoints `pulumi:"MountPoints"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration
+	NetworkConfiguration *JobDefinitionNetworkConfiguration `pulumi:"NetworkConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged
 	Privileged *bool `pulumi:"Privileged"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
 	ReadonlyRootFilesystem *bool `pulumi:"ReadonlyRootFilesystem"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
 	ResourceRequirements []JobDefinitionResourceRequirement `pulumi:"ResourceRequirements"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets
+	Secrets []JobDefinitionSecret `pulumi:"Secrets"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
 	Ulimits []JobDefinitionUlimit `pulumi:"Ulimits"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-user
@@ -1090,6 +1249,10 @@ type JobDefinitionContainerPropertiesArgs struct {
 	Command pulumi.StringArrayInput `pulumi:"Command"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-environment
 	Environment JobDefinitionEnvironmentArrayInput `pulumi:"Environment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn
+	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"ExecutionRoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
+	FargatePlatformConfiguration JobDefinitionFargatePlatformConfigurationPtrInput `pulumi:"FargatePlatformConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
 	Image pulumi.StringInput `pulumi:"Image"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-instancetype
@@ -1098,16 +1261,22 @@ type JobDefinitionContainerPropertiesArgs struct {
 	JobRoleArn pulumi.StringPtrInput `pulumi:"JobRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters
 	LinuxParameters JobDefinitionLinuxParametersPtrInput `pulumi:"LinuxParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-logconfiguration
+	LogConfiguration JobDefinitionLogConfigurationPtrInput `pulumi:"LogConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
 	Memory pulumi.IntPtrInput `pulumi:"Memory"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
 	MountPoints JobDefinitionMountPointsArrayInput `pulumi:"MountPoints"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration
+	NetworkConfiguration JobDefinitionNetworkConfigurationPtrInput `pulumi:"NetworkConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged
 	Privileged pulumi.BoolPtrInput `pulumi:"Privileged"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
 	ReadonlyRootFilesystem pulumi.BoolPtrInput `pulumi:"ReadonlyRootFilesystem"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
 	ResourceRequirements JobDefinitionResourceRequirementArrayInput `pulumi:"ResourceRequirements"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets
+	Secrets JobDefinitionSecretArrayInput `pulumi:"Secrets"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
 	Ulimits JobDefinitionUlimitArrayInput `pulumi:"Ulimits"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-user
@@ -1206,6 +1375,18 @@ func (o JobDefinitionContainerPropertiesOutput) Environment() JobDefinitionEnvir
 	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionEnvironment { return v.Environment }).(JobDefinitionEnvironmentArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn
+func (o JobDefinitionContainerPropertiesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
+func (o JobDefinitionContainerPropertiesOutput) FargatePlatformConfiguration() JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionFargatePlatformConfiguration {
+		return v.FargatePlatformConfiguration
+	}).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
 func (o JobDefinitionContainerPropertiesOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) string { return v.Image }).(pulumi.StringOutput)
@@ -1226,6 +1407,11 @@ func (o JobDefinitionContainerPropertiesOutput) LinuxParameters() JobDefinitionL
 	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionLinuxParameters { return v.LinuxParameters }).(JobDefinitionLinuxParametersPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-logconfiguration
+func (o JobDefinitionContainerPropertiesOutput) LogConfiguration() JobDefinitionLogConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionLogConfiguration { return v.LogConfiguration }).(JobDefinitionLogConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
 func (o JobDefinitionContainerPropertiesOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) *int { return v.Memory }).(pulumi.IntPtrOutput)
@@ -1234,6 +1420,13 @@ func (o JobDefinitionContainerPropertiesOutput) Memory() pulumi.IntPtrOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
 func (o JobDefinitionContainerPropertiesOutput) MountPoints() JobDefinitionMountPointsArrayOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionMountPoints { return v.MountPoints }).(JobDefinitionMountPointsArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration
+func (o JobDefinitionContainerPropertiesOutput) NetworkConfiguration() JobDefinitionNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionNetworkConfiguration {
+		return v.NetworkConfiguration
+	}).(JobDefinitionNetworkConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged
@@ -1251,6 +1444,11 @@ func (o JobDefinitionContainerPropertiesOutput) ResourceRequirements() JobDefini
 	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionResourceRequirement {
 		return v.ResourceRequirements
 	}).(JobDefinitionResourceRequirementArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets
+func (o JobDefinitionContainerPropertiesOutput) Secrets() JobDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionSecret { return v.Secrets }).(JobDefinitionSecretArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
@@ -1311,6 +1509,26 @@ func (o JobDefinitionContainerPropertiesPtrOutput) Environment() JobDefinitionEn
 	}).(JobDefinitionEnvironmentArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-executionrolearn
+func (o JobDefinitionContainerPropertiesPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
+func (o JobDefinitionContainerPropertiesPtrOutput) FargatePlatformConfiguration() JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionFargatePlatformConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FargatePlatformConfiguration
+	}).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
 func (o JobDefinitionContainerPropertiesPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionContainerProperties) *string {
@@ -1351,6 +1569,16 @@ func (o JobDefinitionContainerPropertiesPtrOutput) LinuxParameters() JobDefiniti
 	}).(JobDefinitionLinuxParametersPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-logconfiguration
+func (o JobDefinitionContainerPropertiesPtrOutput) LogConfiguration() JobDefinitionLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfiguration
+	}).(JobDefinitionLogConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
 func (o JobDefinitionContainerPropertiesPtrOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionContainerProperties) *int {
@@ -1369,6 +1597,16 @@ func (o JobDefinitionContainerPropertiesPtrOutput) MountPoints() JobDefinitionMo
 		}
 		return v.MountPoints
 	}).(JobDefinitionMountPointsArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration
+func (o JobDefinitionContainerPropertiesPtrOutput) NetworkConfiguration() JobDefinitionNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkConfiguration
+	}).(JobDefinitionNetworkConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-privileged
@@ -1399,6 +1637,16 @@ func (o JobDefinitionContainerPropertiesPtrOutput) ResourceRequirements() JobDef
 		}
 		return v.ResourceRequirements
 	}).(JobDefinitionResourceRequirementArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-secrets
+func (o JobDefinitionContainerPropertiesPtrOutput) Secrets() JobDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) []JobDefinitionSecret {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(JobDefinitionSecretArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
@@ -1668,10 +1916,283 @@ func (o JobDefinitionEnvironmentArrayOutput) Index(i pulumi.IntInput) JobDefinit
 	}).(JobDefinitionEnvironmentOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html
+type JobDefinitionEvaluateOnExit struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-action
+	Action string `pulumi:"Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onexitcode
+	OnExitCode *string `pulumi:"OnExitCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onreason
+	OnReason *string `pulumi:"OnReason"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onstatusreason
+	OnStatusReason *string `pulumi:"OnStatusReason"`
+}
+
+// JobDefinitionEvaluateOnExitInput is an input type that accepts JobDefinitionEvaluateOnExitArgs and JobDefinitionEvaluateOnExitOutput values.
+// You can construct a concrete instance of `JobDefinitionEvaluateOnExitInput` via:
+//
+//          JobDefinitionEvaluateOnExitArgs{...}
+type JobDefinitionEvaluateOnExitInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEvaluateOnExitOutput() JobDefinitionEvaluateOnExitOutput
+	ToJobDefinitionEvaluateOnExitOutputWithContext(context.Context) JobDefinitionEvaluateOnExitOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html
+type JobDefinitionEvaluateOnExitArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-action
+	Action pulumi.StringInput `pulumi:"Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onexitcode
+	OnExitCode pulumi.StringPtrInput `pulumi:"OnExitCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onreason
+	OnReason pulumi.StringPtrInput `pulumi:"OnReason"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onstatusreason
+	OnStatusReason pulumi.StringPtrInput `pulumi:"OnStatusReason"`
+}
+
+func (JobDefinitionEvaluateOnExitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEvaluateOnExit)(nil)).Elem()
+}
+
+func (i JobDefinitionEvaluateOnExitArgs) ToJobDefinitionEvaluateOnExitOutput() JobDefinitionEvaluateOnExitOutput {
+	return i.ToJobDefinitionEvaluateOnExitOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEvaluateOnExitArgs) ToJobDefinitionEvaluateOnExitOutputWithContext(ctx context.Context) JobDefinitionEvaluateOnExitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEvaluateOnExitOutput)
+}
+
+// JobDefinitionEvaluateOnExitArrayInput is an input type that accepts JobDefinitionEvaluateOnExitArray and JobDefinitionEvaluateOnExitArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionEvaluateOnExitArrayInput` via:
+//
+//          JobDefinitionEvaluateOnExitArray{ JobDefinitionEvaluateOnExitArgs{...} }
+type JobDefinitionEvaluateOnExitArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEvaluateOnExitArrayOutput() JobDefinitionEvaluateOnExitArrayOutput
+	ToJobDefinitionEvaluateOnExitArrayOutputWithContext(context.Context) JobDefinitionEvaluateOnExitArrayOutput
+}
+
+type JobDefinitionEvaluateOnExitArray []JobDefinitionEvaluateOnExitInput
+
+func (JobDefinitionEvaluateOnExitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEvaluateOnExit)(nil)).Elem()
+}
+
+func (i JobDefinitionEvaluateOnExitArray) ToJobDefinitionEvaluateOnExitArrayOutput() JobDefinitionEvaluateOnExitArrayOutput {
+	return i.ToJobDefinitionEvaluateOnExitArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEvaluateOnExitArray) ToJobDefinitionEvaluateOnExitArrayOutputWithContext(ctx context.Context) JobDefinitionEvaluateOnExitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEvaluateOnExitArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html
+type JobDefinitionEvaluateOnExitOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEvaluateOnExitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEvaluateOnExit)(nil)).Elem()
+}
+
+func (o JobDefinitionEvaluateOnExitOutput) ToJobDefinitionEvaluateOnExitOutput() JobDefinitionEvaluateOnExitOutput {
+	return o
+}
+
+func (o JobDefinitionEvaluateOnExitOutput) ToJobDefinitionEvaluateOnExitOutputWithContext(ctx context.Context) JobDefinitionEvaluateOnExitOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-action
+func (o JobDefinitionEvaluateOnExitOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEvaluateOnExit) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onexitcode
+func (o JobDefinitionEvaluateOnExitOutput) OnExitCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEvaluateOnExit) *string { return v.OnExitCode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onreason
+func (o JobDefinitionEvaluateOnExitOutput) OnReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEvaluateOnExit) *string { return v.OnReason }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html#cfn-batch-jobdefinition-evaluateonexit-onstatusreason
+func (o JobDefinitionEvaluateOnExitOutput) OnStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEvaluateOnExit) *string { return v.OnStatusReason }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionEvaluateOnExitArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEvaluateOnExitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEvaluateOnExit)(nil)).Elem()
+}
+
+func (o JobDefinitionEvaluateOnExitArrayOutput) ToJobDefinitionEvaluateOnExitArrayOutput() JobDefinitionEvaluateOnExitArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEvaluateOnExitArrayOutput) ToJobDefinitionEvaluateOnExitArrayOutputWithContext(ctx context.Context) JobDefinitionEvaluateOnExitArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEvaluateOnExitArrayOutput) Index(i pulumi.IntInput) JobDefinitionEvaluateOnExitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEvaluateOnExit {
+		return vs[0].([]JobDefinitionEvaluateOnExit)[vs[1].(int)]
+	}).(JobDefinitionEvaluateOnExitOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html
+type JobDefinitionFargatePlatformConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration-platformversion
+	PlatformVersion *string `pulumi:"PlatformVersion"`
+}
+
+// JobDefinitionFargatePlatformConfigurationInput is an input type that accepts JobDefinitionFargatePlatformConfigurationArgs and JobDefinitionFargatePlatformConfigurationOutput values.
+// You can construct a concrete instance of `JobDefinitionFargatePlatformConfigurationInput` via:
+//
+//          JobDefinitionFargatePlatformConfigurationArgs{...}
+type JobDefinitionFargatePlatformConfigurationInput interface {
+	pulumi.Input
+
+	ToJobDefinitionFargatePlatformConfigurationOutput() JobDefinitionFargatePlatformConfigurationOutput
+	ToJobDefinitionFargatePlatformConfigurationOutputWithContext(context.Context) JobDefinitionFargatePlatformConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html
+type JobDefinitionFargatePlatformConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration-platformversion
+	PlatformVersion pulumi.StringPtrInput `pulumi:"PlatformVersion"`
+}
+
+func (JobDefinitionFargatePlatformConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationOutput() JobDefinitionFargatePlatformConfigurationOutput {
+	return i.ToJobDefinitionFargatePlatformConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionFargatePlatformConfigurationOutput)
+}
+
+func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return i.ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionFargatePlatformConfigurationOutput).ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionFargatePlatformConfigurationPtrInput is an input type that accepts JobDefinitionFargatePlatformConfigurationArgs, JobDefinitionFargatePlatformConfigurationPtr and JobDefinitionFargatePlatformConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionFargatePlatformConfigurationPtrInput` via:
+//
+//          JobDefinitionFargatePlatformConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobDefinitionFargatePlatformConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput
+	ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput
+}
+
+type jobDefinitionFargatePlatformConfigurationPtrType JobDefinitionFargatePlatformConfigurationArgs
+
+func JobDefinitionFargatePlatformConfigurationPtr(v *JobDefinitionFargatePlatformConfigurationArgs) JobDefinitionFargatePlatformConfigurationPtrInput {
+	return (*jobDefinitionFargatePlatformConfigurationPtrType)(v)
+}
+
+func (*jobDefinitionFargatePlatformConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (i *jobDefinitionFargatePlatformConfigurationPtrType) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return i.ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionFargatePlatformConfigurationPtrType) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html
+type JobDefinitionFargatePlatformConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionFargatePlatformConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationOutput() JobDefinitionFargatePlatformConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return o.ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionFargatePlatformConfiguration) *JobDefinitionFargatePlatformConfiguration {
+		return &v
+	}).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration-platformversion
+func (o JobDefinitionFargatePlatformConfigurationOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionFargatePlatformConfiguration) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionFargatePlatformConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionFargatePlatformConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionFargatePlatformConfigurationPtrOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionFargatePlatformConfigurationPtrOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionFargatePlatformConfigurationPtrOutput) Elem() JobDefinitionFargatePlatformConfigurationOutput {
+	return o.ApplyT(func(v *JobDefinitionFargatePlatformConfiguration) JobDefinitionFargatePlatformConfiguration {
+		return *v
+	}).(JobDefinitionFargatePlatformConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration-platformversion
+func (o JobDefinitionFargatePlatformConfigurationPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionFargatePlatformConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlatformVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html
 type JobDefinitionLinuxParameters struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-devices
 	Devices []JobDefinitionDevice `pulumi:"Devices"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-initprocessenabled
+	InitProcessEnabled *bool `pulumi:"InitProcessEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-maxswap
+	MaxSwap *int `pulumi:"MaxSwap"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-sharedmemorysize
+	SharedMemorySize *int `pulumi:"SharedMemorySize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-swappiness
+	Swappiness *int `pulumi:"Swappiness"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-tmpfs
+	Tmpfs []JobDefinitionTmpfs `pulumi:"Tmpfs"`
 }
 
 // JobDefinitionLinuxParametersInput is an input type that accepts JobDefinitionLinuxParametersArgs and JobDefinitionLinuxParametersOutput values.
@@ -1689,6 +2210,16 @@ type JobDefinitionLinuxParametersInput interface {
 type JobDefinitionLinuxParametersArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-devices
 	Devices JobDefinitionDeviceArrayInput `pulumi:"Devices"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-initprocessenabled
+	InitProcessEnabled pulumi.BoolPtrInput `pulumi:"InitProcessEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-maxswap
+	MaxSwap pulumi.IntPtrInput `pulumi:"MaxSwap"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-sharedmemorysize
+	SharedMemorySize pulumi.IntPtrInput `pulumi:"SharedMemorySize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-swappiness
+	Swappiness pulumi.IntPtrInput `pulumi:"Swappiness"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-tmpfs
+	Tmpfs JobDefinitionTmpfsArrayInput `pulumi:"Tmpfs"`
 }
 
 func (JobDefinitionLinuxParametersArgs) ElementType() reflect.Type {
@@ -1774,6 +2305,31 @@ func (o JobDefinitionLinuxParametersOutput) Devices() JobDefinitionDeviceArrayOu
 	return o.ApplyT(func(v JobDefinitionLinuxParameters) []JobDefinitionDevice { return v.Devices }).(JobDefinitionDeviceArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-initprocessenabled
+func (o JobDefinitionLinuxParametersOutput) InitProcessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionLinuxParameters) *bool { return v.InitProcessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-maxswap
+func (o JobDefinitionLinuxParametersOutput) MaxSwap() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionLinuxParameters) *int { return v.MaxSwap }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-sharedmemorysize
+func (o JobDefinitionLinuxParametersOutput) SharedMemorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionLinuxParameters) *int { return v.SharedMemorySize }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-swappiness
+func (o JobDefinitionLinuxParametersOutput) Swappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionLinuxParameters) *int { return v.Swappiness }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-tmpfs
+func (o JobDefinitionLinuxParametersOutput) Tmpfs() JobDefinitionTmpfsArrayOutput {
+	return o.ApplyT(func(v JobDefinitionLinuxParameters) []JobDefinitionTmpfs { return v.Tmpfs }).(JobDefinitionTmpfsArrayOutput)
+}
+
 type JobDefinitionLinuxParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionLinuxParametersPtrOutput) ElementType() reflect.Type {
@@ -1800,6 +2356,228 @@ func (o JobDefinitionLinuxParametersPtrOutput) Devices() JobDefinitionDeviceArra
 		}
 		return v.Devices
 	}).(JobDefinitionDeviceArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-initprocessenabled
+func (o JobDefinitionLinuxParametersPtrOutput) InitProcessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionLinuxParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InitProcessEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-maxswap
+func (o JobDefinitionLinuxParametersPtrOutput) MaxSwap() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionLinuxParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSwap
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-sharedmemorysize
+func (o JobDefinitionLinuxParametersPtrOutput) SharedMemorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionLinuxParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SharedMemorySize
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-swappiness
+func (o JobDefinitionLinuxParametersPtrOutput) Swappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionLinuxParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Swappiness
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html#cfn-batch-jobdefinition-containerproperties-linuxparameters-tmpfs
+func (o JobDefinitionLinuxParametersPtrOutput) Tmpfs() JobDefinitionTmpfsArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionLinuxParameters) []JobDefinitionTmpfs {
+		if v == nil {
+			return nil
+		}
+		return v.Tmpfs
+	}).(JobDefinitionTmpfsArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html
+type JobDefinitionLogConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-logdriver
+	LogDriver string `pulumi:"LogDriver"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-options
+	Options interface{} `pulumi:"Options"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-secretoptions
+	SecretOptions []JobDefinitionSecret `pulumi:"SecretOptions"`
+}
+
+// JobDefinitionLogConfigurationInput is an input type that accepts JobDefinitionLogConfigurationArgs and JobDefinitionLogConfigurationOutput values.
+// You can construct a concrete instance of `JobDefinitionLogConfigurationInput` via:
+//
+//          JobDefinitionLogConfigurationArgs{...}
+type JobDefinitionLogConfigurationInput interface {
+	pulumi.Input
+
+	ToJobDefinitionLogConfigurationOutput() JobDefinitionLogConfigurationOutput
+	ToJobDefinitionLogConfigurationOutputWithContext(context.Context) JobDefinitionLogConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html
+type JobDefinitionLogConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-logdriver
+	LogDriver pulumi.StringInput `pulumi:"LogDriver"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-options
+	Options pulumi.Input `pulumi:"Options"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-secretoptions
+	SecretOptions JobDefinitionSecretArrayInput `pulumi:"SecretOptions"`
+}
+
+func (JobDefinitionLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (i JobDefinitionLogConfigurationArgs) ToJobDefinitionLogConfigurationOutput() JobDefinitionLogConfigurationOutput {
+	return i.ToJobDefinitionLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionLogConfigurationArgs) ToJobDefinitionLogConfigurationOutputWithContext(ctx context.Context) JobDefinitionLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionLogConfigurationOutput)
+}
+
+func (i JobDefinitionLogConfigurationArgs) ToJobDefinitionLogConfigurationPtrOutput() JobDefinitionLogConfigurationPtrOutput {
+	return i.ToJobDefinitionLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionLogConfigurationArgs) ToJobDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionLogConfigurationOutput).ToJobDefinitionLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionLogConfigurationPtrInput is an input type that accepts JobDefinitionLogConfigurationArgs, JobDefinitionLogConfigurationPtr and JobDefinitionLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionLogConfigurationPtrInput` via:
+//
+//          JobDefinitionLogConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobDefinitionLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionLogConfigurationPtrOutput() JobDefinitionLogConfigurationPtrOutput
+	ToJobDefinitionLogConfigurationPtrOutputWithContext(context.Context) JobDefinitionLogConfigurationPtrOutput
+}
+
+type jobDefinitionLogConfigurationPtrType JobDefinitionLogConfigurationArgs
+
+func JobDefinitionLogConfigurationPtr(v *JobDefinitionLogConfigurationArgs) JobDefinitionLogConfigurationPtrInput {
+	return (*jobDefinitionLogConfigurationPtrType)(v)
+}
+
+func (*jobDefinitionLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (i *jobDefinitionLogConfigurationPtrType) ToJobDefinitionLogConfigurationPtrOutput() JobDefinitionLogConfigurationPtrOutput {
+	return i.ToJobDefinitionLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionLogConfigurationPtrType) ToJobDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html
+type JobDefinitionLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionLogConfigurationOutput) ToJobDefinitionLogConfigurationOutput() JobDefinitionLogConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionLogConfigurationOutput) ToJobDefinitionLogConfigurationOutputWithContext(ctx context.Context) JobDefinitionLogConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionLogConfigurationOutput) ToJobDefinitionLogConfigurationPtrOutput() JobDefinitionLogConfigurationPtrOutput {
+	return o.ToJobDefinitionLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionLogConfigurationOutput) ToJobDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionLogConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionLogConfiguration) *JobDefinitionLogConfiguration {
+		return &v
+	}).(JobDefinitionLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-logdriver
+func (o JobDefinitionLogConfigurationOutput) LogDriver() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionLogConfiguration) string { return v.LogDriver }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-options
+func (o JobDefinitionLogConfigurationOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobDefinitionLogConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-secretoptions
+func (o JobDefinitionLogConfigurationOutput) SecretOptions() JobDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v JobDefinitionLogConfiguration) []JobDefinitionSecret { return v.SecretOptions }).(JobDefinitionSecretArrayOutput)
+}
+
+type JobDefinitionLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionLogConfigurationPtrOutput) ToJobDefinitionLogConfigurationPtrOutput() JobDefinitionLogConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionLogConfigurationPtrOutput) ToJobDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionLogConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionLogConfigurationPtrOutput) Elem() JobDefinitionLogConfigurationOutput {
+	return o.ApplyT(func(v *JobDefinitionLogConfiguration) JobDefinitionLogConfiguration { return *v }).(JobDefinitionLogConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-logdriver
+func (o JobDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogDriver
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-options
+func (o JobDefinitionLogConfigurationPtrOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinitionLogConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html#cfn-batch-jobdefinition-containerproperties-logconfiguration-secretoptions
+func (o JobDefinitionLogConfigurationPtrOutput) SecretOptions() JobDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionLogConfiguration) []JobDefinitionSecret {
+		if v == nil {
+			return nil
+		}
+		return v.SecretOptions
+	}).(JobDefinitionSecretArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html
@@ -1918,6 +2696,140 @@ func (o JobDefinitionMountPointsArrayOutput) Index(i pulumi.IntInput) JobDefinit
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionMountPoints {
 		return vs[0].([]JobDefinitionMountPoints)[vs[1].(int)]
 	}).(JobDefinitionMountPointsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html
+type JobDefinitionNetworkConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration-assignpublicip
+	AssignPublicIp *string `pulumi:"AssignPublicIp"`
+}
+
+// JobDefinitionNetworkConfigurationInput is an input type that accepts JobDefinitionNetworkConfigurationArgs and JobDefinitionNetworkConfigurationOutput values.
+// You can construct a concrete instance of `JobDefinitionNetworkConfigurationInput` via:
+//
+//          JobDefinitionNetworkConfigurationArgs{...}
+type JobDefinitionNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToJobDefinitionNetworkConfigurationOutput() JobDefinitionNetworkConfigurationOutput
+	ToJobDefinitionNetworkConfigurationOutputWithContext(context.Context) JobDefinitionNetworkConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html
+type JobDefinitionNetworkConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration-assignpublicip
+	AssignPublicIp pulumi.StringPtrInput `pulumi:"AssignPublicIp"`
+}
+
+func (JobDefinitionNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionNetworkConfiguration)(nil)).Elem()
+}
+
+func (i JobDefinitionNetworkConfigurationArgs) ToJobDefinitionNetworkConfigurationOutput() JobDefinitionNetworkConfigurationOutput {
+	return i.ToJobDefinitionNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionNetworkConfigurationArgs) ToJobDefinitionNetworkConfigurationOutputWithContext(ctx context.Context) JobDefinitionNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionNetworkConfigurationOutput)
+}
+
+func (i JobDefinitionNetworkConfigurationArgs) ToJobDefinitionNetworkConfigurationPtrOutput() JobDefinitionNetworkConfigurationPtrOutput {
+	return i.ToJobDefinitionNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionNetworkConfigurationArgs) ToJobDefinitionNetworkConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionNetworkConfigurationOutput).ToJobDefinitionNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionNetworkConfigurationPtrInput is an input type that accepts JobDefinitionNetworkConfigurationArgs, JobDefinitionNetworkConfigurationPtr and JobDefinitionNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionNetworkConfigurationPtrInput` via:
+//
+//          JobDefinitionNetworkConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobDefinitionNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionNetworkConfigurationPtrOutput() JobDefinitionNetworkConfigurationPtrOutput
+	ToJobDefinitionNetworkConfigurationPtrOutputWithContext(context.Context) JobDefinitionNetworkConfigurationPtrOutput
+}
+
+type jobDefinitionNetworkConfigurationPtrType JobDefinitionNetworkConfigurationArgs
+
+func JobDefinitionNetworkConfigurationPtr(v *JobDefinitionNetworkConfigurationArgs) JobDefinitionNetworkConfigurationPtrInput {
+	return (*jobDefinitionNetworkConfigurationPtrType)(v)
+}
+
+func (*jobDefinitionNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *jobDefinitionNetworkConfigurationPtrType) ToJobDefinitionNetworkConfigurationPtrOutput() JobDefinitionNetworkConfigurationPtrOutput {
+	return i.ToJobDefinitionNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionNetworkConfigurationPtrType) ToJobDefinitionNetworkConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionNetworkConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html
+type JobDefinitionNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionNetworkConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionNetworkConfigurationOutput) ToJobDefinitionNetworkConfigurationOutput() JobDefinitionNetworkConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionNetworkConfigurationOutput) ToJobDefinitionNetworkConfigurationOutputWithContext(ctx context.Context) JobDefinitionNetworkConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionNetworkConfigurationOutput) ToJobDefinitionNetworkConfigurationPtrOutput() JobDefinitionNetworkConfigurationPtrOutput {
+	return o.ToJobDefinitionNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionNetworkConfigurationOutput) ToJobDefinitionNetworkConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionNetworkConfiguration) *JobDefinitionNetworkConfiguration {
+		return &v
+	}).(JobDefinitionNetworkConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration-assignpublicip
+func (o JobDefinitionNetworkConfigurationOutput) AssignPublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionNetworkConfiguration) *string { return v.AssignPublicIp }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionNetworkConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionNetworkConfigurationPtrOutput) ToJobDefinitionNetworkConfigurationPtrOutput() JobDefinitionNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionNetworkConfigurationPtrOutput) ToJobDefinitionNetworkConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionNetworkConfigurationPtrOutput) Elem() JobDefinitionNetworkConfigurationOutput {
+	return o.ApplyT(func(v *JobDefinitionNetworkConfiguration) JobDefinitionNetworkConfiguration { return *v }).(JobDefinitionNetworkConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html#cfn-batch-jobdefinition-containerproperties-networkconfiguration-assignpublicip
+func (o JobDefinitionNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPublicIp
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html
@@ -2211,8 +3123,14 @@ type JobDefinitionProperties struct {
 	NodeProperties *JobDefinitionNodeProperties `pulumi:"NodeProperties"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
 	Parameters interface{} `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
+	PlatformCapabilities []string `pulumi:"PlatformCapabilities"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
+	PropagateTags *bool `pulumi:"PropagateTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"RetryStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
+	Tags interface{} `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
 	Timeout *JobDefinitionTimeout `pulumi:"Timeout"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type
@@ -2240,8 +3158,14 @@ type JobDefinitionPropertiesArgs struct {
 	NodeProperties JobDefinitionNodePropertiesPtrInput `pulumi:"NodeProperties"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
 	Parameters pulumi.Input `pulumi:"Parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
+	PlatformCapabilities pulumi.StringArrayInput `pulumi:"PlatformCapabilities"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
+	PropagateTags pulumi.BoolPtrInput `pulumi:"PropagateTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
 	RetryStrategy JobDefinitionRetryStrategyPtrInput `pulumi:"RetryStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
+	Tags pulumi.Input `pulumi:"Tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
 	Timeout JobDefinitionTimeoutPtrInput `pulumi:"Timeout"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type
@@ -2346,9 +3270,24 @@ func (o JobDefinitionPropertiesOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v JobDefinitionProperties) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
+func (o JobDefinitionPropertiesOutput) PlatformCapabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobDefinitionProperties) []string { return v.PlatformCapabilities }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
+func (o JobDefinitionPropertiesOutput) PropagateTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionProperties) *bool { return v.PropagateTags }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
 func (o JobDefinitionPropertiesOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput {
 	return o.ApplyT(func(v JobDefinitionProperties) *JobDefinitionRetryStrategy { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
+func (o JobDefinitionPropertiesOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobDefinitionProperties) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
@@ -2419,6 +3358,26 @@ func (o JobDefinitionPropertiesPtrOutput) Parameters() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-platformcapabilities
+func (o JobDefinitionPropertiesPtrOutput) PlatformCapabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PlatformCapabilities
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
+func (o JobDefinitionPropertiesPtrOutput) PropagateTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropagateTags
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
 func (o JobDefinitionPropertiesPtrOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionProperties) *JobDefinitionRetryStrategy {
@@ -2427,6 +3386,16 @@ func (o JobDefinitionPropertiesPtrOutput) RetryStrategy() JobDefinitionRetryStra
 		}
 		return v.RetryStrategy
 	}).(JobDefinitionRetryStrategyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-tags
+func (o JobDefinitionPropertiesPtrOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinitionProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.AnyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
@@ -2562,6 +3531,8 @@ func (o JobDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) Jo
 type JobDefinitionRetryStrategy struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-attempts
 	Attempts *int `pulumi:"Attempts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
+	EvaluateOnExit []JobDefinitionEvaluateOnExit `pulumi:"EvaluateOnExit"`
 }
 
 // JobDefinitionRetryStrategyInput is an input type that accepts JobDefinitionRetryStrategyArgs and JobDefinitionRetryStrategyOutput values.
@@ -2579,6 +3550,8 @@ type JobDefinitionRetryStrategyInput interface {
 type JobDefinitionRetryStrategyArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-attempts
 	Attempts pulumi.IntPtrInput `pulumi:"Attempts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
+	EvaluateOnExit JobDefinitionEvaluateOnExitArrayInput `pulumi:"EvaluateOnExit"`
 }
 
 func (JobDefinitionRetryStrategyArgs) ElementType() reflect.Type {
@@ -2664,6 +3637,11 @@ func (o JobDefinitionRetryStrategyOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategy) *int { return v.Attempts }).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
+func (o JobDefinitionRetryStrategyOutput) EvaluateOnExit() JobDefinitionEvaluateOnExitArrayOutput {
+	return o.ApplyT(func(v JobDefinitionRetryStrategy) []JobDefinitionEvaluateOnExit { return v.EvaluateOnExit }).(JobDefinitionEvaluateOnExitArrayOutput)
+}
+
 type JobDefinitionRetryStrategyPtrOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionRetryStrategyPtrOutput) ElementType() reflect.Type {
@@ -2690,6 +3668,125 @@ func (o JobDefinitionRetryStrategyPtrOutput) Attempts() pulumi.IntPtrOutput {
 		}
 		return v.Attempts
 	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
+func (o JobDefinitionRetryStrategyPtrOutput) EvaluateOnExit() JobDefinitionEvaluateOnExitArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionRetryStrategy) []JobDefinitionEvaluateOnExit {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluateOnExit
+	}).(JobDefinitionEvaluateOnExitArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html
+type JobDefinitionSecret struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-name
+	Name string `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-valuefrom
+	ValueFrom string `pulumi:"ValueFrom"`
+}
+
+// JobDefinitionSecretInput is an input type that accepts JobDefinitionSecretArgs and JobDefinitionSecretOutput values.
+// You can construct a concrete instance of `JobDefinitionSecretInput` via:
+//
+//          JobDefinitionSecretArgs{...}
+type JobDefinitionSecretInput interface {
+	pulumi.Input
+
+	ToJobDefinitionSecretOutput() JobDefinitionSecretOutput
+	ToJobDefinitionSecretOutputWithContext(context.Context) JobDefinitionSecretOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html
+type JobDefinitionSecretArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-name
+	Name pulumi.StringInput `pulumi:"Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-valuefrom
+	ValueFrom pulumi.StringInput `pulumi:"ValueFrom"`
+}
+
+func (JobDefinitionSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionSecret)(nil)).Elem()
+}
+
+func (i JobDefinitionSecretArgs) ToJobDefinitionSecretOutput() JobDefinitionSecretOutput {
+	return i.ToJobDefinitionSecretOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionSecretArgs) ToJobDefinitionSecretOutputWithContext(ctx context.Context) JobDefinitionSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecretOutput)
+}
+
+// JobDefinitionSecretArrayInput is an input type that accepts JobDefinitionSecretArray and JobDefinitionSecretArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionSecretArrayInput` via:
+//
+//          JobDefinitionSecretArray{ JobDefinitionSecretArgs{...} }
+type JobDefinitionSecretArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionSecretArrayOutput() JobDefinitionSecretArrayOutput
+	ToJobDefinitionSecretArrayOutputWithContext(context.Context) JobDefinitionSecretArrayOutput
+}
+
+type JobDefinitionSecretArray []JobDefinitionSecretInput
+
+func (JobDefinitionSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionSecret)(nil)).Elem()
+}
+
+func (i JobDefinitionSecretArray) ToJobDefinitionSecretArrayOutput() JobDefinitionSecretArrayOutput {
+	return i.ToJobDefinitionSecretArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionSecretArray) ToJobDefinitionSecretArrayOutputWithContext(ctx context.Context) JobDefinitionSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecretArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html
+type JobDefinitionSecretOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionSecret)(nil)).Elem()
+}
+
+func (o JobDefinitionSecretOutput) ToJobDefinitionSecretOutput() JobDefinitionSecretOutput {
+	return o
+}
+
+func (o JobDefinitionSecretOutput) ToJobDefinitionSecretOutputWithContext(ctx context.Context) JobDefinitionSecretOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-name
+func (o JobDefinitionSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html#cfn-batch-jobdefinition-secret-valuefrom
+func (o JobDefinitionSecretOutput) ValueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
+}
+
+type JobDefinitionSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionSecret)(nil)).Elem()
+}
+
+func (o JobDefinitionSecretArrayOutput) ToJobDefinitionSecretArrayOutput() JobDefinitionSecretArrayOutput {
+	return o
+}
+
+func (o JobDefinitionSecretArrayOutput) ToJobDefinitionSecretArrayOutputWithContext(ctx context.Context) JobDefinitionSecretArrayOutput {
+	return o
+}
+
+func (o JobDefinitionSecretArrayOutput) Index(i pulumi.IntInput) JobDefinitionSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionSecret {
+		return vs[0].([]JobDefinitionSecret)[vs[1].(int)]
+	}).(JobDefinitionSecretOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-timeout.html
@@ -2824,6 +3921,124 @@ func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOut
 		}
 		return v.AttemptDurationSeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html
+type JobDefinitionTmpfs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-containerpath
+	ContainerPath string `pulumi:"ContainerPath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-mountoptions
+	MountOptions []string `pulumi:"MountOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-size
+	Size int `pulumi:"Size"`
+}
+
+// JobDefinitionTmpfsInput is an input type that accepts JobDefinitionTmpfsArgs and JobDefinitionTmpfsOutput values.
+// You can construct a concrete instance of `JobDefinitionTmpfsInput` via:
+//
+//          JobDefinitionTmpfsArgs{...}
+type JobDefinitionTmpfsInput interface {
+	pulumi.Input
+
+	ToJobDefinitionTmpfsOutput() JobDefinitionTmpfsOutput
+	ToJobDefinitionTmpfsOutputWithContext(context.Context) JobDefinitionTmpfsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html
+type JobDefinitionTmpfsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-containerpath
+	ContainerPath pulumi.StringInput `pulumi:"ContainerPath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-mountoptions
+	MountOptions pulumi.StringArrayInput `pulumi:"MountOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-size
+	Size pulumi.IntInput `pulumi:"Size"`
+}
+
+func (JobDefinitionTmpfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionTmpfs)(nil)).Elem()
+}
+
+func (i JobDefinitionTmpfsArgs) ToJobDefinitionTmpfsOutput() JobDefinitionTmpfsOutput {
+	return i.ToJobDefinitionTmpfsOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionTmpfsArgs) ToJobDefinitionTmpfsOutputWithContext(ctx context.Context) JobDefinitionTmpfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTmpfsOutput)
+}
+
+// JobDefinitionTmpfsArrayInput is an input type that accepts JobDefinitionTmpfsArray and JobDefinitionTmpfsArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionTmpfsArrayInput` via:
+//
+//          JobDefinitionTmpfsArray{ JobDefinitionTmpfsArgs{...} }
+type JobDefinitionTmpfsArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionTmpfsArrayOutput() JobDefinitionTmpfsArrayOutput
+	ToJobDefinitionTmpfsArrayOutputWithContext(context.Context) JobDefinitionTmpfsArrayOutput
+}
+
+type JobDefinitionTmpfsArray []JobDefinitionTmpfsInput
+
+func (JobDefinitionTmpfsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionTmpfs)(nil)).Elem()
+}
+
+func (i JobDefinitionTmpfsArray) ToJobDefinitionTmpfsArrayOutput() JobDefinitionTmpfsArrayOutput {
+	return i.ToJobDefinitionTmpfsArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionTmpfsArray) ToJobDefinitionTmpfsArrayOutputWithContext(ctx context.Context) JobDefinitionTmpfsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTmpfsArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html
+type JobDefinitionTmpfsOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionTmpfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionTmpfs)(nil)).Elem()
+}
+
+func (o JobDefinitionTmpfsOutput) ToJobDefinitionTmpfsOutput() JobDefinitionTmpfsOutput {
+	return o
+}
+
+func (o JobDefinitionTmpfsOutput) ToJobDefinitionTmpfsOutputWithContext(ctx context.Context) JobDefinitionTmpfsOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-containerpath
+func (o JobDefinitionTmpfsOutput) ContainerPath() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionTmpfs) string { return v.ContainerPath }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-mountoptions
+func (o JobDefinitionTmpfsOutput) MountOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobDefinitionTmpfs) []string { return v.MountOptions }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html#cfn-batch-jobdefinition-tmpfs-size
+func (o JobDefinitionTmpfsOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v JobDefinitionTmpfs) int { return v.Size }).(pulumi.IntOutput)
+}
+
+type JobDefinitionTmpfsArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionTmpfsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionTmpfs)(nil)).Elem()
+}
+
+func (o JobDefinitionTmpfsArrayOutput) ToJobDefinitionTmpfsArrayOutput() JobDefinitionTmpfsArrayOutput {
+	return o
+}
+
+func (o JobDefinitionTmpfsArrayOutput) ToJobDefinitionTmpfsArrayOutputWithContext(ctx context.Context) JobDefinitionTmpfsArrayOutput {
+	return o
+}
+
+func (o JobDefinitionTmpfsArrayOutput) Index(i pulumi.IntInput) JobDefinitionTmpfsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionTmpfs {
+		return vs[0].([]JobDefinitionTmpfs)[vs[1].(int)]
+	}).(JobDefinitionTmpfsOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html
@@ -3418,6 +4633,8 @@ type JobQueueProperties struct {
 	Priority int `pulumi:"Priority"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state
 	State *string `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-tags
+	Tags interface{} `pulumi:"Tags"`
 }
 
 // JobQueuePropertiesInput is an input type that accepts JobQueuePropertiesArgs and JobQueuePropertiesOutput values.
@@ -3441,6 +4658,8 @@ type JobQueuePropertiesArgs struct {
 	Priority pulumi.IntInput `pulumi:"Priority"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state
 	State pulumi.StringPtrInput `pulumi:"State"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-tags
+	Tags pulumi.Input `pulumi:"Tags"`
 }
 
 func (JobQueuePropertiesArgs) ElementType() reflect.Type {
@@ -3541,6 +4760,11 @@ func (o JobQueuePropertiesOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobQueueProperties) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-tags
+func (o JobQueuePropertiesOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobQueueProperties) interface{} { return v.Tags }).(pulumi.AnyOutput)
+}
+
 type JobQueuePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (JobQueuePropertiesPtrOutput) ElementType() reflect.Type {
@@ -3599,11 +4823,23 @@ func (o JobQueuePropertiesPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-tags
+func (o JobQueuePropertiesPtrOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobQueueProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentAttributesOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentPropertiesOutput{})
@@ -3616,10 +4852,18 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionDeviceArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEnvironmentOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEvaluateOnExitOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEvaluateOnExitArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationOutput{})
+	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionLogConfigurationOutput{})
+	pulumi.RegisterOutputType(JobDefinitionLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionMountPointsOutput{})
 	pulumi.RegisterOutputType(JobDefinitionMountPointsArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(JobDefinitionNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNodePropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNodePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNodeRangePropertyOutput{})
@@ -3630,8 +4874,12 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionSecretOutput{})
+	pulumi.RegisterOutputType(JobDefinitionSecretArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionTmpfsOutput{})
+	pulumi.RegisterOutputType(JobDefinitionTmpfsArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionUlimitOutput{})
 	pulumi.RegisterOutputType(JobDefinitionUlimitArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionVolumesOutput{})

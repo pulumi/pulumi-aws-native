@@ -45,6 +45,12 @@ namespace Pulumi.Cloudformation.EC2.Inputs
         [Input("MapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-outpostarn
+        /// </summary>
+        [Input("OutpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         [Input("Tags")]
         private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
 

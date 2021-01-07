@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.SecurityHub
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hub.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:SecurityHub:Hub")]
     public partial class Hub : Pulumi.CustomResource
     {
         /// <summary>

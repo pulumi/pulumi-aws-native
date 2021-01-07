@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.Greengrass
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:Greengrass:FunctionDefinitionVersion")]
     public partial class FunctionDefinitionVersion : Pulumi.CustomResource
     {
         /// <summary>

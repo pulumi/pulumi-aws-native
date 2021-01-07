@@ -739,6 +739,11 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	return &pbempty.Empty{}, nil
 }
 
+// Construct creates a new component resource.
+func (p *cfnProvider) Construct(_ context.Context, _ *pulumirpc.ConstructRequest) (*pulumirpc.ConstructResponse, error) {
+	panic("Construct not implemented")
+}
+
 // GetPluginInfo returns generic information about this plugin, like its version.
 func (p *cfnProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*pulumirpc.PluginInfo, error) {
 	return &pulumirpc.PluginInfo{

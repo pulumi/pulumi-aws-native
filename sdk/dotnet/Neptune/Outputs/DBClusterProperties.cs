@@ -14,6 +14,10 @@ namespace Pulumi.Cloudformation.Neptune.Outputs
     public sealed class DBClusterProperties
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DBClusterDBClusterRole> AssociatedRoles;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
@@ -100,6 +104,8 @@ namespace Pulumi.Cloudformation.Neptune.Outputs
 
         [OutputConstructor]
         private DBClusterProperties(
+            ImmutableArray<Outputs.DBClusterDBClusterRole> AssociatedRoles,
+
             ImmutableArray<string> AvailabilityZones,
 
             int? BackupRetentionPeriod,
@@ -142,6 +148,7 @@ namespace Pulumi.Cloudformation.Neptune.Outputs
 
             ImmutableArray<string> VpcSecurityGroupIds)
         {
+            this.AssociatedRoles = AssociatedRoles;
             this.AvailabilityZones = AvailabilityZones;
             this.BackupRetentionPeriod = BackupRetentionPeriod;
             this.DBClusterIdentifier = DBClusterIdentifier;

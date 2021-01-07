@@ -4,6 +4,7 @@
 package cloudfront
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type Distribution struct {
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
 func NewDistribution(ctx *pulumi.Context,
 	name string, args *DistributionArgs, opts ...pulumi.ResourceOption) (*Distribution, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DistributionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource Distribution
 	err := ctx.RegisterResource("cloudformation:CloudFront:Distribution", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type DistributionArgs struct {
 
 func (DistributionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionArgs)(nil)).Elem()
+}
+
+type DistributionInput interface {
+	pulumi.Input
+
+	ToDistributionOutput() DistributionOutput
+	ToDistributionOutputWithContext(ctx context.Context) DistributionOutput
+}
+
+func (*Distribution) ElementType() reflect.Type {
+	return reflect.TypeOf((*Distribution)(nil))
+}
+
+func (i *Distribution) ToDistributionOutput() DistributionOutput {
+	return i.ToDistributionOutputWithContext(context.Background())
+}
+
+func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOutput)
+}
+
+type DistributionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DistributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Distribution)(nil))
+}
+
+func (o DistributionOutput) ToDistributionOutput() DistributionOutput {
+	return o
+}
+
+func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DistributionOutput{})
 }

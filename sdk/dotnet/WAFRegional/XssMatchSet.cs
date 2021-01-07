@@ -12,6 +12,7 @@ namespace Pulumi.Cloudformation.WAFRegional
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html
     /// </summary>
+    [CloudformationResourceType("cloudformation:WAFRegional:XssMatchSet")]
     public partial class XssMatchSet : Pulumi.CustomResource
     {
         /// <summary>

@@ -4,6 +4,7 @@
 package codepipeline
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -27,11 +28,12 @@ type CustomActionType struct {
 // NewCustomActionType registers a new resource with the given unique name, arguments, and options.
 func NewCustomActionType(ctx *pulumi.Context,
 	name string, args *CustomActionTypeArgs, opts ...pulumi.ResourceOption) (*CustomActionType, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &CustomActionTypeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	var resource CustomActionType
 	err := ctx.RegisterResource("cloudformation:CodePipeline:CustomActionType", name, args, &resource, opts...)
@@ -109,4 +111,43 @@ type CustomActionTypeArgs struct {
 
 func (CustomActionTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customActionTypeArgs)(nil)).Elem()
+}
+
+type CustomActionTypeInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeOutput() CustomActionTypeOutput
+	ToCustomActionTypeOutputWithContext(ctx context.Context) CustomActionTypeOutput
+}
+
+func (*CustomActionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionType)(nil))
+}
+
+func (i *CustomActionType) ToCustomActionTypeOutput() CustomActionTypeOutput {
+	return i.ToCustomActionTypeOutputWithContext(context.Background())
+}
+
+func (i *CustomActionType) ToCustomActionTypeOutputWithContext(ctx context.Context) CustomActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutput)
+}
+
+type CustomActionTypeOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionType)(nil))
+}
+
+func (o CustomActionTypeOutput) ToCustomActionTypeOutput() CustomActionTypeOutput {
+	return o
+}
+
+func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.Context) CustomActionTypeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomActionTypeOutput{})
 }

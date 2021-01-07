@@ -18,6 +18,10 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly string? AllocationId;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+        /// </summary>
+        public readonly string? IPv6Address;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
         /// </summary>
         public readonly string? PrivateIPv4Address;
@@ -30,11 +34,14 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
         private LoadBalancerSubnetMapping(
             string? AllocationId,
 
+            string? IPv6Address,
+
             string? PrivateIPv4Address,
 
             string SubnetId)
         {
             this.AllocationId = AllocationId;
+            this.IPv6Address = IPv6Address;
             this.PrivateIPv4Address = PrivateIPv4Address;
             this.SubnetId = SubnetId;
         }
