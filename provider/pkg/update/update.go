@@ -3,6 +3,7 @@ package update
 import (
 	"context"
 	"encoding/json"
+	"strings"
 	"sync"
 	"time"
 
@@ -152,14 +153,28 @@ func (su *StackUpdate) waitForStack(ctx context.Context) error {
 			return errors.New("failed to describe stack")
 		}
 
-		// TODO: look through stack events for status reasons.
-
 		status := aws.StringValue(describeResp.Stacks[0].StackStatus)
 		switch status {
 		case "CREATE_COMPLETE", "UPDATE_COMPLETE":
 			return nil
-		case "CREATE_FAILED", "ROLLBACK_FAILED", "ROLLBACK_COMPLETE", "UPDATE_ROLLBACK_FAILED", "UPDATE_ROLLBACK_COMPLETE":
-			return errors.Errorf("update failed: %v", aws.StringValue(describeResp.Stacks[0].StackStatusReason))
+		case "CREATE_FAILED", "ROLLBACK_FAILED", "ROLLBACK_COMPLETE", "UPDATE_ROLLBACK_FAILED", "UPDATE_ROLLBACK_COMPLETE", "DELETE_FAILED":
+			eventsResp, err := su.client.DescribeStackEventsWithContext(ctx, &cloudformation.DescribeStackEventsInput{
+				StackName: aws.String(su.stackName),
+			})
+			if err != nil {
+				return errors.Wrap(err, "failed to describe stack events")
+			}
+
+			var reason string
+			for _, event := range eventsResp.StackEvents {
+				eventStatus := aws.StringValue(event.ResourceStatus)
+				if strings.Contains(eventStatus, "FAILED") {
+					details := aws.StringValue(event.ResourceStatusReason)
+					reason = reason + details
+				}
+			}
+
+			return errors.Errorf("update failed with events: %s", reason)
 		default:
 			time.Sleep(1 * time.Second)
 		}

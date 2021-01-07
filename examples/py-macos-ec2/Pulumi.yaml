@@ -1,0 +1,3 @@
+name: py-macos-ec2
+runtime: python
+description: A macOS EC2 instance on a dedicated host
