@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:OrganizationConfigRule")]
+    [AwsNativeResourceType("aws-native:Configuration:OrganizationConfigRule")]
     public partial class OrganizationConfigRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrganizationConfigRule(string name, OrganizationConfigRuleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:OrganizationConfigRule", name, args ?? new OrganizationConfigRuleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal OrganizationConfigRule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:OrganizationConfigRule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:OrganizationConfigRule", name, args ?? new OrganizationConfigRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OrganizationConfigRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:OrganizationConfigRule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:OrganizationConfigRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

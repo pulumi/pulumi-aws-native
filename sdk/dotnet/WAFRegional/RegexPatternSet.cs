@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAFRegional
+namespace Pulumi.AwsNative.WAFRegional
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAFRegional:RegexPatternSet")]
+    [AwsNativeResourceType("aws-native:WAFRegional:RegexPatternSet")]
     public partial class RegexPatternSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAFRegional
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegexPatternSet(string name, RegexPatternSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFRegional:RegexPatternSet", name, args ?? new RegexPatternSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RegexPatternSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFRegional:RegexPatternSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAFRegional:RegexPatternSet", name, args ?? new RegexPatternSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegexPatternSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFRegional:RegexPatternSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAFRegional:RegexPatternSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

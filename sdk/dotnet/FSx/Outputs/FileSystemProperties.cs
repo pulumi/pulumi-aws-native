@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.FSx.Outputs
+namespace Pulumi.AwsNative.FSx.Outputs
 {
 
     [OutputType]
@@ -48,7 +48,7 @@ namespace Pulumi.Cloudformation.FSx.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-windowsconfiguration
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.Cloudformation.FSx.Outputs
 
             ImmutableArray<string> SubnetIds,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             Outputs.FileSystemWindowsConfiguration? WindowsConfiguration)
         {

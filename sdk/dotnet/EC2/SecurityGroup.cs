@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:SecurityGroup")]
+    [AwsNativeResourceType("aws-native:EC2:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityGroup(string name, SecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SecurityGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:SecurityGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:SecurityGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:SecurityGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

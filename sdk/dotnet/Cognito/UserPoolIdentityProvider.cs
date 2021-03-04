@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cognito
+namespace Pulumi.AwsNative.Cognito
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Cognito:UserPoolIdentityProvider")]
+    [AwsNativeResourceType("aws-native:Cognito:UserPoolIdentityProvider")]
     public partial class UserPoolIdentityProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolIdentityProvider(string name, UserPoolIdentityProviderArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolIdentityProvider", name, args ?? new UserPoolIdentityProviderArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal UserPoolIdentityProvider(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolIdentityProvider", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Cognito:UserPoolIdentityProvider", name, args ?? new UserPoolIdentityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserPoolIdentityProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolIdentityProvider", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Cognito:UserPoolIdentityProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 

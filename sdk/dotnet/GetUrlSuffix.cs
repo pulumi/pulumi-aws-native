@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     public static class GetUrlSuffix
     {
         public static Task<GetUrlSuffixResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUrlSuffixResult>("cloudformation:index:getUrlSuffix", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUrlSuffixResult>("aws-native:index:getUrlSuffix", InvokeArgs.Empty, options.WithVersion());
     }
 
 

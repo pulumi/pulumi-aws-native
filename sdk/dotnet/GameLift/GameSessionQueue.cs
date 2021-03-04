@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GameLift
+namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GameLift:GameSessionQueue")]
+    [AwsNativeResourceType("aws-native:GameLift:GameSessionQueue")]
     public partial class GameSessionQueue : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GameLift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GameSessionQueue(string name, GameSessionQueueArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:GameSessionQueue", name, args ?? new GameSessionQueueArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal GameSessionQueue(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:GameSessionQueue", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GameLift:GameSessionQueue", name, args ?? new GameSessionQueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GameSessionQueue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:GameSessionQueue", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GameLift:GameSessionQueue", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ImageBuilder
+namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ImageBuilder:ImagePipeline")]
+    [AwsNativeResourceType("aws-native:ImageBuilder:ImagePipeline")]
     public partial class ImagePipeline : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ImagePipeline(string name, ImagePipelineArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:ImagePipeline", name, args ?? new ImagePipelineArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ImagePipeline(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:ImagePipeline", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ImageBuilder:ImagePipeline", name, args ?? new ImagePipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ImagePipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:ImagePipeline", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ImageBuilder:ImagePipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Inspector.Inputs
+namespace Pulumi.AwsNative.Inspector.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.Cloudformation.Inspector.Inputs
     public sealed class ResourceGroupPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("ResourceGroupTags", required: true)]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _ResourceGroupTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _ResourceGroupTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> ResourceGroupTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> ResourceGroupTags
         {
-            get => _ResourceGroupTags ?? (_ResourceGroupTags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _ResourceGroupTags ?? (_ResourceGroupTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _ResourceGroupTags = value;
         }
 

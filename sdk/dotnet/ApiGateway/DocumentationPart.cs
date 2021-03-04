@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:DocumentationPart")]
+    [AwsNativeResourceType("aws-native:ApiGateway:DocumentationPart")]
     public partial class DocumentationPart : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DocumentationPart(string name, DocumentationPartArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:DocumentationPart", name, args ?? new DocumentationPartArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DocumentationPart(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:DocumentationPart", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:DocumentationPart", name, args ?? new DocumentationPartArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DocumentationPart(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:DocumentationPart", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:DocumentationPart", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApplicationAutoScaling
+namespace Pulumi.AwsNative.ApplicationAutoScaling
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApplicationAutoScaling:ScalingPolicy")]
+    [AwsNativeResourceType("aws-native:ApplicationAutoScaling:ScalingPolicy")]
     public partial class ScalingPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApplicationAutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScalingPolicy(string name, ScalingPolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationAutoScaling:ScalingPolicy", name, args ?? new ScalingPolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ScalingPolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationAutoScaling:ScalingPolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApplicationAutoScaling:ScalingPolicy", name, args ?? new ScalingPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScalingPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationAutoScaling:ScalingPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApplicationAutoScaling:ScalingPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

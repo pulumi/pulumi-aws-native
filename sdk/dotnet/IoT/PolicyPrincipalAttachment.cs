@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT:PolicyPrincipalAttachment")]
+    [AwsNativeResourceType("aws-native:IoT:PolicyPrincipalAttachment")]
     public partial class PolicyPrincipalAttachment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyPrincipalAttachment(string name, PolicyPrincipalAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:PolicyPrincipalAttachment", name, args ?? new PolicyPrincipalAttachmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal PolicyPrincipalAttachment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:PolicyPrincipalAttachment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT:PolicyPrincipalAttachment", name, args ?? new PolicyPrincipalAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyPrincipalAttachment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:PolicyPrincipalAttachment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT:PolicyPrincipalAttachment", name, null, MakeResourceOptions(options, id))
         {
         }
 

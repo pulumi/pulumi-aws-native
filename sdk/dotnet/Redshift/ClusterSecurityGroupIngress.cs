@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Redshift
+namespace Pulumi.AwsNative.Redshift
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Redshift:ClusterSecurityGroupIngress")]
+    [AwsNativeResourceType("aws-native:Redshift:ClusterSecurityGroupIngress")]
     public partial class ClusterSecurityGroupIngress : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Redshift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterSecurityGroupIngress(string name, ClusterSecurityGroupIngressArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Redshift:ClusterSecurityGroupIngress", name, args ?? new ClusterSecurityGroupIngressArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ClusterSecurityGroupIngress(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Redshift:ClusterSecurityGroupIngress", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Redshift:ClusterSecurityGroupIngress", name, args ?? new ClusterSecurityGroupIngressArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ClusterSecurityGroupIngress(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Redshift:ClusterSecurityGroupIngress", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Redshift:ClusterSecurityGroupIngress", name, null, MakeResourceOptions(options, id))
         {
         }
 

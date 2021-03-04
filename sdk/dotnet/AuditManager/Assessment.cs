@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AuditManager
+namespace Pulumi.AwsNative.AuditManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AuditManager:Assessment")]
+    [AwsNativeResourceType("aws-native:AuditManager:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AuditManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AuditManager:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Assessment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AuditManager:Assessment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AuditManager:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assessment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AuditManager:Assessment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AuditManager:Assessment", name, null, MakeResourceOptions(options, id))
         {
         }
 

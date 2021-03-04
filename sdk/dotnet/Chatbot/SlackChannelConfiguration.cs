@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Chatbot
+namespace Pulumi.AwsNative.Chatbot
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Chatbot:SlackChannelConfiguration")]
+    [AwsNativeResourceType("aws-native:Chatbot:SlackChannelConfiguration")]
     public partial class SlackChannelConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Chatbot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SlackChannelConfiguration(string name, SlackChannelConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Chatbot:SlackChannelConfiguration", name, args ?? new SlackChannelConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SlackChannelConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Chatbot:SlackChannelConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Chatbot:SlackChannelConfiguration", name, args ?? new SlackChannelConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SlackChannelConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Chatbot:SlackChannelConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Chatbot:SlackChannelConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

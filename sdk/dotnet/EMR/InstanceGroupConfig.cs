@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EMR
+namespace Pulumi.AwsNative.EMR
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EMR:InstanceGroupConfig")]
+    [AwsNativeResourceType("aws-native:EMR:InstanceGroupConfig")]
     public partial class InstanceGroupConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EMR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceGroupConfig(string name, InstanceGroupConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:InstanceGroupConfig", name, args ?? new InstanceGroupConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal InstanceGroupConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:InstanceGroupConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EMR:InstanceGroupConfig", name, args ?? new InstanceGroupConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstanceGroupConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:InstanceGroupConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EMR:InstanceGroupConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

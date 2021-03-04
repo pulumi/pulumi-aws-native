@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IAM
+namespace Pulumi.AwsNative.IAM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IAM:UserToGroupAddition")]
+    [AwsNativeResourceType("aws-native:IAM:UserToGroupAddition")]
     public partial class UserToGroupAddition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserToGroupAddition(string name, UserToGroupAdditionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:UserToGroupAddition", name, args ?? new UserToGroupAdditionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal UserToGroupAddition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:UserToGroupAddition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IAM:UserToGroupAddition", name, args ?? new UserToGroupAdditionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserToGroupAddition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:UserToGroupAddition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IAM:UserToGroupAddition", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GlobalAccelerator
+namespace Pulumi.AwsNative.GlobalAccelerator
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GlobalAccelerator:Listener")]
+    [AwsNativeResourceType("aws-native:GlobalAccelerator:Listener")]
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GlobalAccelerator
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Listener(string name, ListenerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GlobalAccelerator:Listener", name, args ?? new ListenerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Listener(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GlobalAccelerator:Listener", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GlobalAccelerator:Listener", name, args ?? new ListenerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Listener(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GlobalAccelerator:Listener", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GlobalAccelerator:Listener", name, null, MakeResourceOptions(options, id))
         {
         }
 

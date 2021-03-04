@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.S3
+namespace Pulumi.AwsNative.S3
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:S3:AccessPoint")]
+    [AwsNativeResourceType("aws-native:S3:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPoint(string name, AccessPointArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AccessPoint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:AccessPoint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:S3:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:AccessPoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:S3:AccessPoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

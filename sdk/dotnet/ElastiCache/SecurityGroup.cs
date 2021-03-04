@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElastiCache
+namespace Pulumi.AwsNative.ElastiCache
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ElastiCache:SecurityGroup")]
+    [AwsNativeResourceType("aws-native:ElastiCache:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ElastiCache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityGroup(string name, SecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SecurityGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:SecurityGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ElastiCache:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:SecurityGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ElastiCache:SecurityGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

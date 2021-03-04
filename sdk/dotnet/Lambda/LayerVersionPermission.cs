@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Lambda
+namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Lambda:LayerVersionPermission")]
+    [AwsNativeResourceType("aws-native:Lambda:LayerVersionPermission")]
     public partial class LayerVersionPermission : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LayerVersionPermission(string name, LayerVersionPermissionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:LayerVersionPermission", name, args ?? new LayerVersionPermissionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LayerVersionPermission(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:LayerVersionPermission", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Lambda:LayerVersionPermission", name, args ?? new LayerVersionPermissionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LayerVersionPermission(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:LayerVersionPermission", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Lambda:LayerVersionPermission", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFront
+namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFront:OriginRequestPolicy")]
+    [AwsNativeResourceType("aws-native:CloudFront:OriginRequestPolicy")]
     public partial class OriginRequestPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OriginRequestPolicy(string name, OriginRequestPolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:OriginRequestPolicy", name, args ?? new OriginRequestPolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal OriginRequestPolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:OriginRequestPolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFront:OriginRequestPolicy", name, args ?? new OriginRequestPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OriginRequestPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:OriginRequestPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFront:OriginRequestPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker.Inputs
+namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.Cloudformation.SageMaker.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         /// </summary>
         [Input("Tags")]
-        public Input<Pulumi.Cloudformation.Inputs.TagArgs>? Tags { get; set; }
+        public Input<Pulumi.AwsNative.Inputs.TagArgs>? Tags { get; set; }
 
         public DeviceFleetPropertiesArgs()
         {

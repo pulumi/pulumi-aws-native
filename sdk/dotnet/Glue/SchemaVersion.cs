@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:SchemaVersion")]
+    [AwsNativeResourceType("aws-native:Glue:SchemaVersion")]
     public partial class SchemaVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SchemaVersion(string name, SchemaVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:SchemaVersion", name, args ?? new SchemaVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SchemaVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:SchemaVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:SchemaVersion", name, args ?? new SchemaVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SchemaVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:SchemaVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:SchemaVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

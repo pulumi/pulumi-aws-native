@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Lambda
+namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Lambda:Permission")]
+    [AwsNativeResourceType("aws-native:Lambda:Permission")]
     public partial class Permission : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Permission(string name, PermissionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Permission", name, args ?? new PermissionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Permission(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Permission", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Lambda:Permission", name, args ?? new PermissionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Permission(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Permission", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Lambda:Permission", name, null, MakeResourceOptions(options, id))
         {
         }
 

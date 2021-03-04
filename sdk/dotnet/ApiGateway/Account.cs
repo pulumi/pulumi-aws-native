@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:Account")]
+    [AwsNativeResourceType("aws-native:ApiGateway:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Account(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Account", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Account", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EFS
+namespace Pulumi.AwsNative.EFS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EFS:AccessPoint")]
+    [AwsNativeResourceType("aws-native:EFS:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EFS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPoint(string name, AccessPointArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EFS:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AccessPoint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EFS:AccessPoint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EFS:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EFS:AccessPoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EFS:AccessPoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

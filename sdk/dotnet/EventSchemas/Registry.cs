@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EventSchemas
+namespace Pulumi.AwsNative.EventSchemas
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EventSchemas:Registry")]
+    [AwsNativeResourceType("aws-native:EventSchemas:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EventSchemas
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Registry(string name, RegistryArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Registry(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:Registry", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EventSchemas:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Registry(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:Registry", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EventSchemas:Registry", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.LicenseManager.Inputs
+namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
     /// <summary>

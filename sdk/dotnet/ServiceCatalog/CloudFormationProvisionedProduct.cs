@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceCatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceCatalog:CloudFormationProvisionedProduct")]
+    [AwsNativeResourceType("aws-native:ServiceCatalog:CloudFormationProvisionedProduct")]
     public partial class CloudFormationProvisionedProduct : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudFormationProvisionedProduct(string name, CloudFormationProvisionedProductArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:CloudFormationProvisionedProduct", name, args ?? new CloudFormationProvisionedProductArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CloudFormationProvisionedProduct(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:CloudFormationProvisionedProduct", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceCatalog:CloudFormationProvisionedProduct", name, args ?? new CloudFormationProvisionedProductArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudFormationProvisionedProduct(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:CloudFormationProvisionedProduct", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceCatalog:CloudFormationProvisionedProduct", name, null, MakeResourceOptions(options, id))
         {
         }
 

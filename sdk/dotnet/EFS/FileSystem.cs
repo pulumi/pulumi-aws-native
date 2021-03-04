@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EFS
+namespace Pulumi.AwsNative.EFS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EFS:FileSystem")]
+    [AwsNativeResourceType("aws-native:EFS:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EFS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileSystem(string name, FileSystemArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EFS:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal FileSystem(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EFS:FileSystem", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EFS:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileSystem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EFS:FileSystem", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EFS:FileSystem", name, null, MakeResourceOptions(options, id))
         {
         }
 

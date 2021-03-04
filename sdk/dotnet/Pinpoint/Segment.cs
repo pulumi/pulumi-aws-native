@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:Segment")]
+    [AwsNativeResourceType("aws-native:Pinpoint:Segment")]
     public partial class Segment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Segment(string name, SegmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:Segment", name, args ?? new SegmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Segment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:Segment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:Segment", name, args ?? new SegmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Segment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:Segment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:Segment", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:APNSChannel")]
+    [AwsNativeResourceType("aws-native:Pinpoint:APNSChannel")]
     public partial class APNSChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public APNSChannel(string name, APNSChannelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:APNSChannel", name, args ?? new APNSChannelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal APNSChannel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:APNSChannel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:APNSChannel", name, args ?? new APNSChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private APNSChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:APNSChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:APNSChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

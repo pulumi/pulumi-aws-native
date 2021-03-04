@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EventSchemas.Outputs
+namespace Pulumi.AwsNative.EventSchemas.Outputs
 {
 
     [OutputType]

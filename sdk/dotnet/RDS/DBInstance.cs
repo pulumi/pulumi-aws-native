@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RDS
+namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RDS:DBInstance")]
+    [AwsNativeResourceType("aws-native:RDS:DBInstance")]
     public partial class DBInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DBInstance(string name, DBInstanceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:DBInstance", name, args ?? new DBInstanceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DBInstance(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:DBInstance", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RDS:DBInstance", name, args ?? new DBInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DBInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:DBInstance", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RDS:DBInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 

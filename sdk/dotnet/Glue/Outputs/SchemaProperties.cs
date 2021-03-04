@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue.Outputs
+namespace Pulumi.AwsNative.Glue.Outputs
 {
 
     [OutputType]
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.Glue.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private SchemaProperties(
@@ -62,7 +62,7 @@ namespace Pulumi.Cloudformation.Glue.Outputs
 
             string SchemaDefinition,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.CheckpointVersion = CheckpointVersion;
             this.Compatibility = Compatibility;

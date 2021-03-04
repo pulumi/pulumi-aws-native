@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:VPNConnection")]
+    [AwsNativeResourceType("aws-native:EC2:VPNConnection")]
     public partial class VPNConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VPNConnection(string name, VPNConnectionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:VPNConnection", name, args ?? new VPNConnectionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal VPNConnection(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:VPNConnection", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:VPNConnection", name, args ?? new VPNConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VPNConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:VPNConnection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:VPNConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 

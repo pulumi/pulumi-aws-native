@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.OpsWorks
+namespace Pulumi.AwsNative.OpsWorks
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:OpsWorks:Volume")]
+    [AwsNativeResourceType("aws-native:OpsWorks:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.OpsWorks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Volume(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Volume", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:OpsWorks:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Volume(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Volume", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:OpsWorks:Volume", name, null, MakeResourceOptions(options, id))
         {
         }
 

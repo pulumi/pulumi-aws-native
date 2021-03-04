@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodePipeline
+namespace Pulumi.AwsNative.CodePipeline
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodePipeline:Pipeline")]
+    [AwsNativeResourceType("aws-native:CodePipeline:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodePipeline
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Pipeline(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:Pipeline", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodePipeline:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:Pipeline", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodePipeline:Pipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 

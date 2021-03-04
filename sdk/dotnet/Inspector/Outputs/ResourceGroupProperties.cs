@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Inspector.Outputs
+namespace Pulumi.AwsNative.Inspector.Outputs
 {
 
     [OutputType]
@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.Inspector.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> ResourceGroupTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> ResourceGroupTags;
 
         [OutputConstructor]
-        private ResourceGroupProperties(ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> ResourceGroupTags)
+        private ResourceGroupProperties(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> ResourceGroupTags)
         {
             this.ResourceGroupTags = ResourceGroupTags;
         }

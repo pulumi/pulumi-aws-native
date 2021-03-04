@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway.Outputs
+namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
     [OutputType]
@@ -64,7 +64,7 @@ namespace Pulumi.Cloudformation.ApiGateway.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private RestApiProperties(
@@ -92,7 +92,7 @@ namespace Pulumi.Cloudformation.ApiGateway.Outputs
 
             Union<System.Text.Json.JsonElement, string>? Policy,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.ApiKeySourceType = ApiKeySourceType;
             this.BinaryMediaTypes = BinaryMediaTypes;

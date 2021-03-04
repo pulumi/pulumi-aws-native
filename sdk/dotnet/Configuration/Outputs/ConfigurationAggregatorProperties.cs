@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration.Outputs
+namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
     [OutputType]
@@ -28,7 +28,7 @@ namespace Pulumi.Cloudformation.Configuration.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ConfigurationAggregatorProperties(
@@ -38,7 +38,7 @@ namespace Pulumi.Cloudformation.Configuration.Outputs
 
             Outputs.ConfigurationAggregatorOrganizationAggregationSource? OrganizationAggregationSource,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AccountAggregationSources = AccountAggregationSources;
             this.ConfigurationAggregatorName = ConfigurationAggregatorName;

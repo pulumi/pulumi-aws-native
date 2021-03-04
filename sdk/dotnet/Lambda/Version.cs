@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Lambda
+namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Lambda:Version")]
+    [AwsNativeResourceType("aws-native:Lambda:Version")]
     public partial class Version : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Version(string name, VersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Version", name, args ?? new VersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Version(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Version", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Lambda:Version", name, args ?? new VersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Version(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Version", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Lambda:Version", name, null, MakeResourceOptions(options, id))
         {
         }
 

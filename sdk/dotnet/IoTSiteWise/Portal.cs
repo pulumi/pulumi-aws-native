@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTSiteWise
+namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoTSiteWise:Portal")]
+    [AwsNativeResourceType("aws-native:IoTSiteWise:Portal")]
     public partial class Portal : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Portal(string name, PortalArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:Portal", name, args ?? new PortalArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Portal(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:Portal", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoTSiteWise:Portal", name, args ?? new PortalArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Portal(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:Portal", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoTSiteWise:Portal", name, null, MakeResourceOptions(options, id))
         {
         }
 

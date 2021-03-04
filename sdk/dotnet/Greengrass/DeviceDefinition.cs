@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:DeviceDefinition")]
+    [AwsNativeResourceType("aws-native:Greengrass:DeviceDefinition")]
     public partial class DeviceDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceDefinition(string name, DeviceDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:DeviceDefinition", name, args ?? new DeviceDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DeviceDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:DeviceDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:DeviceDefinition", name, args ?? new DeviceDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeviceDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:DeviceDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:DeviceDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

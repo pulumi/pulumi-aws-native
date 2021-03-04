@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DynamoDB.Inputs
+namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
     /// <summary>

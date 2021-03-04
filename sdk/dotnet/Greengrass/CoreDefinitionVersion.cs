@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:CoreDefinitionVersion")]
+    [AwsNativeResourceType("aws-native:Greengrass:CoreDefinitionVersion")]
     public partial class CoreDefinitionVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CoreDefinitionVersion(string name, CoreDefinitionVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:CoreDefinitionVersion", name, args ?? new CoreDefinitionVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CoreDefinitionVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:CoreDefinitionVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:CoreDefinitionVersion", name, args ?? new CoreDefinitionVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CoreDefinitionVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:CoreDefinitionVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:CoreDefinitionVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

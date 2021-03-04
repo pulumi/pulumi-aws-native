@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Route53Resolver
+namespace Pulumi.AwsNative.Route53Resolver
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Route53Resolver:ResolverQueryLoggingConfigAssociation")]
+    [AwsNativeResourceType("aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation")]
     public partial class ResolverQueryLoggingConfigAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Route53Resolver
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResolverQueryLoggingConfigAssociation(string name, ResolverQueryLoggingConfigAssociationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53Resolver:ResolverQueryLoggingConfigAssociation", name, args ?? new ResolverQueryLoggingConfigAssociationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ResolverQueryLoggingConfigAssociation(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53Resolver:ResolverQueryLoggingConfigAssociation", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation", name, args ?? new ResolverQueryLoggingConfigAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResolverQueryLoggingConfigAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53Resolver:ResolverQueryLoggingConfigAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

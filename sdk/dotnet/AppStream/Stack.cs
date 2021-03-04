@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppStream
+namespace Pulumi.AwsNative.AppStream
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppStream:Stack")]
+    [AwsNativeResourceType("aws-native:AppStream:Stack")]
     public partial class Stack : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppStream
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stack(string name, StackArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:Stack", name, args ?? new StackArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Stack(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:Stack", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppStream:Stack", name, args ?? new StackArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Stack(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:Stack", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppStream:Stack", name, null, MakeResourceOptions(options, id))
         {
         }
 

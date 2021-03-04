@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Neptune.Outputs
+namespace Pulumi.AwsNative.Neptune.Outputs
 {
 
     [OutputType]
@@ -56,7 +56,7 @@ namespace Pulumi.Cloudformation.Neptune.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private DBInstanceProperties(
@@ -80,7 +80,7 @@ namespace Pulumi.Cloudformation.Neptune.Outputs
 
             string? PreferredMaintenanceWindow,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AllowMajorVersionUpgrade = AllowMajorVersionUpgrade;
             this.AutoMinorVersionUpgrade = AutoMinorVersionUpgrade;

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GreengrassV2
+namespace Pulumi.AwsNative.GreengrassV2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GreengrassV2:ComponentVersion")]
+    [AwsNativeResourceType("aws-native:GreengrassV2:ComponentVersion")]
     public partial class ComponentVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GreengrassV2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComponentVersion(string name, ComponentVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GreengrassV2:ComponentVersion", name, args ?? new ComponentVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ComponentVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GreengrassV2:ComponentVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GreengrassV2:ComponentVersion", name, args ?? new ComponentVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ComponentVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GreengrassV2:ComponentVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GreengrassV2:ComponentVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

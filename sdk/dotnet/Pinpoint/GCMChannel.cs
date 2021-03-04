@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:GCMChannel")]
+    [AwsNativeResourceType("aws-native:Pinpoint:GCMChannel")]
     public partial class GCMChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GCMChannel(string name, GCMChannelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:GCMChannel", name, args ?? new GCMChannelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal GCMChannel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:GCMChannel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:GCMChannel", name, args ?? new GCMChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GCMChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:GCMChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:GCMChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

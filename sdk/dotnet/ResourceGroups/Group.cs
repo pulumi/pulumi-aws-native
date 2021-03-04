@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ResourceGroups
+namespace Pulumi.AwsNative.ResourceGroups
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ResourceGroups:Group")]
+    [AwsNativeResourceType("aws-native:ResourceGroups:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ResourceGroups
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ResourceGroups:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Group(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ResourceGroups:Group", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ResourceGroups:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ResourceGroups:Group", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ResourceGroups:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 

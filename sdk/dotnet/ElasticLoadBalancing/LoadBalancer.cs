@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElasticLoadBalancing
+namespace Pulumi.AwsNative.ElasticLoadBalancing
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ElasticLoadBalancing:LoadBalancer")]
+    [AwsNativeResourceType("aws-native:ElasticLoadBalancing:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancing
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancer(string name, LoadBalancerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticLoadBalancing:LoadBalancer", name, args ?? new LoadBalancerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LoadBalancer(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticLoadBalancing:LoadBalancer", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ElasticLoadBalancing:LoadBalancer", name, args ?? new LoadBalancerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LoadBalancer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticLoadBalancing:LoadBalancer", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ElasticLoadBalancing:LoadBalancer", name, null, MakeResourceOptions(options, id))
         {
         }
 

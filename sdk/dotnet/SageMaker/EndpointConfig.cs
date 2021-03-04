@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:EndpointConfig")]
+    [AwsNativeResourceType("aws-native:SageMaker:EndpointConfig")]
     public partial class EndpointConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EndpointConfig(string name, EndpointConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:EndpointConfig", name, args ?? new EndpointConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EndpointConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:EndpointConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:EndpointConfig", name, args ?? new EndpointConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EndpointConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:EndpointConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:EndpointConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

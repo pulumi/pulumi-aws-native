@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Budgets
+namespace Pulumi.AwsNative.Budgets
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Budgets:Budget")]
+    [AwsNativeResourceType("aws-native:Budgets:Budget")]
     public partial class Budget : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Budgets
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Budget(string name, BudgetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Budgets:Budget", name, args ?? new BudgetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Budget(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Budgets:Budget", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Budgets:Budget", name, args ?? new BudgetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Budget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Budgets:Budget", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Budgets:Budget", name, null, MakeResourceOptions(options, id))
         {
         }
 

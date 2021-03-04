@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RoboMaker
+namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RoboMaker:Fleet")]
+    [AwsNativeResourceType("aws-native:RoboMaker:Fleet")]
     public partial class Fleet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RoboMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Fleet(string name, FleetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:Fleet", name, args ?? new FleetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Fleet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:Fleet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RoboMaker:Fleet", name, args ?? new FleetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Fleet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:Fleet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RoboMaker:Fleet", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RoboMaker
+namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RoboMaker:RobotApplicationVersion")]
+    [AwsNativeResourceType("aws-native:RoboMaker:RobotApplicationVersion")]
     public partial class RobotApplicationVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RoboMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RobotApplicationVersion(string name, RobotApplicationVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:RobotApplicationVersion", name, args ?? new RobotApplicationVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RobotApplicationVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:RobotApplicationVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RoboMaker:RobotApplicationVersion", name, args ?? new RobotApplicationVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RobotApplicationVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:RobotApplicationVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RoboMaker:RobotApplicationVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

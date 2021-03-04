@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:Model")]
+    [AwsNativeResourceType("aws-native:SageMaker:Model")]
     public partial class Model : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Model(string name, ModelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:Model", name, args ?? new ModelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Model(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:Model", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:Model", name, args ?? new ModelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Model(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:Model", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:Model", name, null, MakeResourceOptions(options, id))
         {
         }
 

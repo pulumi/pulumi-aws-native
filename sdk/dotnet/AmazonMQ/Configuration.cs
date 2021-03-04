@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AmazonMQ
+namespace Pulumi.AwsNative.AmazonMQ
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AmazonMQ:Configuration")]
+    [AwsNativeResourceType("aws-native:AmazonMQ:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AmazonMQ
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Configuration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:Configuration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AmazonMQ:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Configuration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:Configuration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AmazonMQ:Configuration", name, null, MakeResourceOptions(options, id))
         {
         }
 

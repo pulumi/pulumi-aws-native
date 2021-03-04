@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTThingsGraph.Outputs
+namespace Pulumi.AwsNative.IoTThingsGraph.Outputs
 {
 
     [OutputType]

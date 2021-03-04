@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Kendra.Inputs
+namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.Cloudformation.Kendra.Inputs
     public sealed class IndexTagListArgs : Pulumi.ResourceArgs
     {
         [Input("TagList")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _TagList;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _TagList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> TagList
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> TagList
         {
-            get => _TagList ?? (_TagList = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _TagList ?? (_TagList = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _TagList = value;
         }
 

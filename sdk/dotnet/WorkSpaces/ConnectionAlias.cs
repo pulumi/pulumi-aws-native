@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WorkSpaces
+namespace Pulumi.AwsNative.WorkSpaces
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WorkSpaces:ConnectionAlias")]
+    [AwsNativeResourceType("aws-native:WorkSpaces:ConnectionAlias")]
     public partial class ConnectionAlias : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WorkSpaces
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectionAlias(string name, ConnectionAliasArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WorkSpaces:ConnectionAlias", name, args ?? new ConnectionAliasArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConnectionAlias(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WorkSpaces:ConnectionAlias", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WorkSpaces:ConnectionAlias", name, args ?? new ConnectionAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectionAlias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WorkSpaces:ConnectionAlias", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WorkSpaces:ConnectionAlias", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RoboMaker
+namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RoboMaker:SimulationApplicationVersion")]
+    [AwsNativeResourceType("aws-native:RoboMaker:SimulationApplicationVersion")]
     public partial class SimulationApplicationVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RoboMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SimulationApplicationVersion(string name, SimulationApplicationVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:SimulationApplicationVersion", name, args ?? new SimulationApplicationVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SimulationApplicationVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:SimulationApplicationVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RoboMaker:SimulationApplicationVersion", name, args ?? new SimulationApplicationVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SimulationApplicationVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:SimulationApplicationVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RoboMaker:SimulationApplicationVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

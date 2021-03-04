@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.NetworkManager
+namespace Pulumi.AwsNative.NetworkManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:NetworkManager:CustomerGatewayAssociation")]
+    [AwsNativeResourceType("aws-native:NetworkManager:CustomerGatewayAssociation")]
     public partial class CustomerGatewayAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomerGatewayAssociation(string name, CustomerGatewayAssociationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkManager:CustomerGatewayAssociation", name, args ?? new CustomerGatewayAssociationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CustomerGatewayAssociation(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkManager:CustomerGatewayAssociation", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:NetworkManager:CustomerGatewayAssociation", name, args ?? new CustomerGatewayAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomerGatewayAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkManager:CustomerGatewayAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:NetworkManager:CustomerGatewayAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

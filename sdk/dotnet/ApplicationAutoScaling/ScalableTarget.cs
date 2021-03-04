@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApplicationAutoScaling
+namespace Pulumi.AwsNative.ApplicationAutoScaling
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApplicationAutoScaling:ScalableTarget")]
+    [AwsNativeResourceType("aws-native:ApplicationAutoScaling:ScalableTarget")]
     public partial class ScalableTarget : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApplicationAutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScalableTarget(string name, ScalableTargetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationAutoScaling:ScalableTarget", name, args ?? new ScalableTargetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ScalableTarget(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationAutoScaling:ScalableTarget", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApplicationAutoScaling:ScalableTarget", name, args ?? new ScalableTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScalableTarget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationAutoScaling:ScalableTarget", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApplicationAutoScaling:ScalableTarget", name, null, MakeResourceOptions(options, id))
         {
         }
 

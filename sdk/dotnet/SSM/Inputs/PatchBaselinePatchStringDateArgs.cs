@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSM.Inputs
+namespace Pulumi.AwsNative.SSM.Inputs
 {
 
     public sealed class PatchBaselinePatchStringDateArgs : Pulumi.ResourceArgs

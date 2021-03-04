@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DMS.Inputs
+namespace Pulumi.AwsNative.DMS.Inputs
 {
 
     /// <summary>

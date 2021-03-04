@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:ModelQualityJobDefinition")]
+    [AwsNativeResourceType("aws-native:SageMaker:ModelQualityJobDefinition")]
     public partial class ModelQualityJobDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelQualityJobDefinition(string name, ModelQualityJobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelQualityJobDefinition", name, args ?? new ModelQualityJobDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ModelQualityJobDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelQualityJobDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:ModelQualityJobDefinition", name, args ?? new ModelQualityJobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelQualityJobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelQualityJobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:ModelQualityJobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

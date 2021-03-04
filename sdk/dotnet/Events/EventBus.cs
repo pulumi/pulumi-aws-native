@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Events
+namespace Pulumi.AwsNative.Events
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Events:EventBus")]
+    [AwsNativeResourceType("aws-native:Events:EventBus")]
     public partial class EventBus : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Events
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventBus(string name, EventBusArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Events:EventBus", name, args ?? new EventBusArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EventBus(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Events:EventBus", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Events:EventBus", name, args ?? new EventBusArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventBus(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Events:EventBus", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Events:EventBus", name, null, MakeResourceOptions(options, id))
         {
         }
 

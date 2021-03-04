@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAF
+namespace Pulumi.AwsNative.WAF
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAF:ByteMatchSet")]
+    [AwsNativeResourceType("aws-native:WAF:ByteMatchSet")]
     public partial class ByteMatchSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAF
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ByteMatchSet(string name, ByteMatchSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:ByteMatchSet", name, args ?? new ByteMatchSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ByteMatchSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:ByteMatchSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAF:ByteMatchSet", name, args ?? new ByteMatchSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ByteMatchSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:ByteMatchSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAF:ByteMatchSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

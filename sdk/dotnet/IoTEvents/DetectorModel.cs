@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTEvents
+namespace Pulumi.AwsNative.IoTEvents
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoTEvents:DetectorModel")]
+    [AwsNativeResourceType("aws-native:IoTEvents:DetectorModel")]
     public partial class DetectorModel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoTEvents
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DetectorModel(string name, DetectorModelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTEvents:DetectorModel", name, args ?? new DetectorModelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DetectorModel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTEvents:DetectorModel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoTEvents:DetectorModel", name, args ?? new DetectorModelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DetectorModel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTEvents:DetectorModel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoTEvents:DetectorModel", name, null, MakeResourceOptions(options, id))
         {
         }
 

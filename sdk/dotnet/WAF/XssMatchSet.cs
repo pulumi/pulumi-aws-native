@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAF
+namespace Pulumi.AwsNative.WAF
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAF:XssMatchSet")]
+    [AwsNativeResourceType("aws-native:WAF:XssMatchSet")]
     public partial class XssMatchSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAF
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public XssMatchSet(string name, XssMatchSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:XssMatchSet", name, args ?? new XssMatchSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal XssMatchSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:XssMatchSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAF:XssMatchSet", name, args ?? new XssMatchSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private XssMatchSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:XssMatchSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAF:XssMatchSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

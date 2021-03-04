@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IVS
+namespace Pulumi.AwsNative.IVS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IVS:PlaybackKeyPair")]
+    [AwsNativeResourceType("aws-native:IVS:PlaybackKeyPair")]
     public partial class PlaybackKeyPair : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PlaybackKeyPair(string name, PlaybackKeyPairArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IVS:PlaybackKeyPair", name, args ?? new PlaybackKeyPairArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal PlaybackKeyPair(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IVS:PlaybackKeyPair", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IVS:PlaybackKeyPair", name, args ?? new PlaybackKeyPairArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PlaybackKeyPair(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IVS:PlaybackKeyPair", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IVS:PlaybackKeyPair", name, null, MakeResourceOptions(options, id))
         {
         }
 

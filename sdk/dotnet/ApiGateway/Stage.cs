@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:Stage")]
+    [AwsNativeResourceType("aws-native:ApiGateway:Stage")]
     public partial class Stage : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stage(string name, StageArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Stage", name, args ?? new StageArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Stage(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Stage", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:Stage", name, args ?? new StageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Stage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Stage", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:Stage", name, null, MakeResourceOptions(options, id))
         {
         }
 

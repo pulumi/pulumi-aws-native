@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Events
+namespace Pulumi.AwsNative.Events
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Events:Archive")]
+    [AwsNativeResourceType("aws-native:Events:Archive")]
     public partial class Archive : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Events
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Archive(string name, ArchiveArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Events:Archive", name, args ?? new ArchiveArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Archive(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Events:Archive", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Events:Archive", name, args ?? new ArchiveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Archive(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Events:Archive", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Events:Archive", name, null, MakeResourceOptions(options, id))
         {
         }
 

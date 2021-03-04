@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAF
+namespace Pulumi.AwsNative.WAF
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAF:SqlInjectionMatchSet")]
+    [AwsNativeResourceType("aws-native:WAF:SqlInjectionMatchSet")]
     public partial class SqlInjectionMatchSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAF
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlInjectionMatchSet(string name, SqlInjectionMatchSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:SqlInjectionMatchSet", name, args ?? new SqlInjectionMatchSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SqlInjectionMatchSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:SqlInjectionMatchSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAF:SqlInjectionMatchSet", name, args ?? new SqlInjectionMatchSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlInjectionMatchSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:SqlInjectionMatchSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAF:SqlInjectionMatchSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DocDB
+namespace Pulumi.AwsNative.DocDB
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DocDB:DBSubnetGroup")]
+    [AwsNativeResourceType("aws-native:DocDB:DBSubnetGroup")]
     public partial class DBSubnetGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DocDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DBSubnetGroup(string name, DBSubnetGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DocDB:DBSubnetGroup", name, args ?? new DBSubnetGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DBSubnetGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DocDB:DBSubnetGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DocDB:DBSubnetGroup", name, args ?? new DBSubnetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DBSubnetGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DocDB:DBSubnetGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DocDB:DBSubnetGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

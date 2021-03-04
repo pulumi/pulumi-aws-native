@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:ConfigRule")]
+    [AwsNativeResourceType("aws-native:Configuration:ConfigRule")]
     public partial class ConfigRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigRule(string name, ConfigRuleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigRule", name, args ?? new ConfigRuleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConfigRule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigRule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:ConfigRule", name, args ?? new ConfigRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigRule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:ConfigRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KinesisAnalytics.Inputs
+namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
     /// <summary>

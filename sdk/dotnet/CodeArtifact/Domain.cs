@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeArtifact
+namespace Pulumi.AwsNative.CodeArtifact
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeArtifact:Domain")]
+    [AwsNativeResourceType("aws-native:CodeArtifact:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeArtifact
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeArtifact:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Domain(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeArtifact:Domain", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeArtifact:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeArtifact:Domain", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeArtifact:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 

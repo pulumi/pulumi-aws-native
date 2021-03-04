@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceDiscovery
+namespace Pulumi.AwsNative.ServiceDiscovery
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceDiscovery:PrivateDnsNamespace")]
+    [AwsNativeResourceType("aws-native:ServiceDiscovery:PrivateDnsNamespace")]
     public partial class PrivateDnsNamespace : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceDiscovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateDnsNamespace(string name, PrivateDnsNamespaceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceDiscovery:PrivateDnsNamespace", name, args ?? new PrivateDnsNamespaceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal PrivateDnsNamespace(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceDiscovery:PrivateDnsNamespace", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceDiscovery:PrivateDnsNamespace", name, args ?? new PrivateDnsNamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateDnsNamespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceDiscovery:PrivateDnsNamespace", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceDiscovery:PrivateDnsNamespace", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ImageBuilder
+namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ImageBuilder:DistributionConfiguration")]
+    [AwsNativeResourceType("aws-native:ImageBuilder:DistributionConfiguration")]
     public partial class DistributionConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DistributionConfiguration(string name, DistributionConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:DistributionConfiguration", name, args ?? new DistributionConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DistributionConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:DistributionConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ImageBuilder:DistributionConfiguration", name, args ?? new DistributionConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DistributionConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:DistributionConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ImageBuilder:DistributionConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

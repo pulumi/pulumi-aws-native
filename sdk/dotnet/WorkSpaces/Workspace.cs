@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WorkSpaces
+namespace Pulumi.AwsNative.WorkSpaces
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WorkSpaces:Workspace")]
+    [AwsNativeResourceType("aws-native:WorkSpaces:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WorkSpaces
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WorkSpaces:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Workspace(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WorkSpaces:Workspace", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WorkSpaces:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WorkSpaces:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WorkSpaces:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 

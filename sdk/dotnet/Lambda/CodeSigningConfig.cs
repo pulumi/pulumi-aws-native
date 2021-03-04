@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Lambda
+namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Lambda:CodeSigningConfig")]
+    [AwsNativeResourceType("aws-native:Lambda:CodeSigningConfig")]
     public partial class CodeSigningConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CodeSigningConfig(string name, CodeSigningConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:CodeSigningConfig", name, args ?? new CodeSigningConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CodeSigningConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:CodeSigningConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Lambda:CodeSigningConfig", name, args ?? new CodeSigningConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CodeSigningConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:CodeSigningConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Lambda:CodeSigningConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

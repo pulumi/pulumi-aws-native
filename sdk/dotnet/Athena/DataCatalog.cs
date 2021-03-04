@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Athena
+namespace Pulumi.AwsNative.Athena
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Athena:DataCatalog")]
+    [AwsNativeResourceType("aws-native:Athena:DataCatalog")]
     public partial class DataCatalog : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataCatalog(string name, DataCatalogArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:DataCatalog", name, args ?? new DataCatalogArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DataCatalog(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:DataCatalog", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Athena:DataCatalog", name, args ?? new DataCatalogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataCatalog(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:DataCatalog", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Athena:DataCatalog", name, null, MakeResourceOptions(options, id))
         {
         }
 

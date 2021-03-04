@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudWatch
+namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudWatch:MetricStream")]
+    [AwsNativeResourceType("aws-native:CloudWatch:MetricStream")]
     public partial class MetricStream : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricStream(string name, MetricStreamArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:MetricStream", name, args ?? new MetricStreamArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MetricStream(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:MetricStream", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudWatch:MetricStream", name, args ?? new MetricStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MetricStream(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:MetricStream", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudWatch:MetricStream", name, null, MakeResourceOptions(options, id))
         {
         }
 

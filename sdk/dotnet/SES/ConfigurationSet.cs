@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SES
+namespace Pulumi.AwsNative.SES
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SES:ConfigurationSet")]
+    [AwsNativeResourceType("aws-native:SES:ConfigurationSet")]
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SES
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationSet(string name, ConfigurationSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ConfigurationSet", name, args ?? new ConfigurationSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConfigurationSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ConfigurationSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SES:ConfigurationSet", name, args ?? new ConfigurationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ConfigurationSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SES:ConfigurationSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

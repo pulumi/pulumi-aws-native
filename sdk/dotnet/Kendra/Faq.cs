@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Kendra
+namespace Pulumi.AwsNative.Kendra
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Kendra:Faq")]
+    [AwsNativeResourceType("aws-native:Kendra:Faq")]
     public partial class Faq : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Kendra
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Faq(string name, FaqArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Kendra:Faq", name, args ?? new FaqArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Faq(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Kendra:Faq", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Kendra:Faq", name, args ?? new FaqArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Faq(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Kendra:Faq", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Kendra:Faq", name, null, MakeResourceOptions(options, id))
         {
         }
 

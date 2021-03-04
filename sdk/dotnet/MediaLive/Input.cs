@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaLive
+namespace Pulumi.AwsNative.MediaLive
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:MediaLive:Input")]
+    [AwsNativeResourceType("aws-native:MediaLive:Input")]
     public partial class Input : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.MediaLive
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Input(string name, InputArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaLive:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Input(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaLive:Input", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:MediaLive:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Input(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaLive:Input", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:MediaLive:Input", name, null, MakeResourceOptions(options, id))
         {
         }
 

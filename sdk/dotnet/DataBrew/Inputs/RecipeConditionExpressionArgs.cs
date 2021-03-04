@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DataBrew.Inputs
+namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
     /// <summary>

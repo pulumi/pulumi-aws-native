@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SES
+namespace Pulumi.AwsNative.SES
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SES:ReceiptRule")]
+    [AwsNativeResourceType("aws-native:SES:ReceiptRule")]
     public partial class ReceiptRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SES
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReceiptRule(string name, ReceiptRuleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ReceiptRule", name, args ?? new ReceiptRuleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ReceiptRule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ReceiptRule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SES:ReceiptRule", name, args ?? new ReceiptRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReceiptRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ReceiptRule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SES:ReceiptRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

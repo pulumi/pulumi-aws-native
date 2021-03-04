@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ACMPCA
+namespace Pulumi.AwsNative.ACMPCA
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ACMPCA:CertificateAuthorityActivation")]
+    [AwsNativeResourceType("aws-native:ACMPCA:CertificateAuthorityActivation")]
     public partial class CertificateAuthorityActivation : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ACMPCA
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateAuthorityActivation(string name, CertificateAuthorityActivationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ACMPCA:CertificateAuthorityActivation", name, args ?? new CertificateAuthorityActivationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CertificateAuthorityActivation(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ACMPCA:CertificateAuthorityActivation", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ACMPCA:CertificateAuthorityActivation", name, args ?? new CertificateAuthorityActivationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CertificateAuthorityActivation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ACMPCA:CertificateAuthorityActivation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ACMPCA:CertificateAuthorityActivation", name, null, MakeResourceOptions(options, id))
         {
         }
 

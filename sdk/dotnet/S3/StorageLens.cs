@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.S3
+namespace Pulumi.AwsNative.S3
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:S3:StorageLens")]
+    [AwsNativeResourceType("aws-native:S3:StorageLens")]
     public partial class StorageLens : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageLens(string name, StorageLensArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:StorageLens", name, args ?? new StorageLensArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal StorageLens(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:StorageLens", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:S3:StorageLens", name, args ?? new StorageLensArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageLens(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:StorageLens", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:S3:StorageLens", name, null, MakeResourceOptions(options, id))
         {
         }
 

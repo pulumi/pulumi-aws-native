@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Macie
+namespace Pulumi.AwsNative.Macie
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Macie:FindingsFilter")]
+    [AwsNativeResourceType("aws-native:Macie:FindingsFilter")]
     public partial class FindingsFilter : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Macie
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FindingsFilter(string name, FindingsFilterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Macie:FindingsFilter", name, args ?? new FindingsFilterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal FindingsFilter(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Macie:FindingsFilter", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Macie:FindingsFilter", name, args ?? new FindingsFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FindingsFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Macie:FindingsFilter", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Macie:FindingsFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 

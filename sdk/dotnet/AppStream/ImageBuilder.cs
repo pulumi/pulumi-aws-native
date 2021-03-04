@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppStream
+namespace Pulumi.AwsNative.AppStream
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppStream:ImageBuilder")]
+    [AwsNativeResourceType("aws-native:AppStream:ImageBuilder")]
     public partial class ImageBuilder : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppStream
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ImageBuilder(string name, ImageBuilderArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:ImageBuilder", name, args ?? new ImageBuilderArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ImageBuilder(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:ImageBuilder", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppStream:ImageBuilder", name, args ?? new ImageBuilderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ImageBuilder(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:ImageBuilder", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppStream:ImageBuilder", name, null, MakeResourceOptions(options, id))
         {
         }
 

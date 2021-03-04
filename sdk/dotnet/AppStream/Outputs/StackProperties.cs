@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppStream.Outputs
+namespace Pulumi.AwsNative.AppStream.Outputs
 {
 
     [OutputType]
@@ -60,7 +60,7 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-usersettings
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.Cloudformation.AppStream.Outputs
 
             ImmutableArray<Outputs.StackStorageConnector> StorageConnectors,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             ImmutableArray<Outputs.StackUserSetting> UserSettings)
         {

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Batch
+namespace Pulumi.AwsNative.Batch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Batch:ComputeEnvironment")]
+    [AwsNativeResourceType("aws-native:Batch:ComputeEnvironment")]
     public partial class ComputeEnvironment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComputeEnvironment(string name, ComputeEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Batch:ComputeEnvironment", name, args ?? new ComputeEnvironmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ComputeEnvironment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Batch:ComputeEnvironment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Batch:ComputeEnvironment", name, args ?? new ComputeEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ComputeEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Batch:ComputeEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Batch:ComputeEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 

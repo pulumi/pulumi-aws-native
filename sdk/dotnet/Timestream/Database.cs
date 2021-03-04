@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Timestream
+namespace Pulumi.AwsNative.Timestream
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Timestream:Database")]
+    [AwsNativeResourceType("aws-native:Timestream:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Timestream
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Timestream:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Database(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Timestream:Database", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Timestream:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Timestream:Database", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Timestream:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 

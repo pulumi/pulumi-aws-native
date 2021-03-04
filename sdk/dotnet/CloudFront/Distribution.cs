@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFront
+namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFront:Distribution")]
+    [AwsNativeResourceType("aws-native:CloudFront:Distribution")]
     public partial class Distribution : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Distribution(string name, DistributionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:Distribution", name, args ?? new DistributionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Distribution(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:Distribution", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFront:Distribution", name, args ?? new DistributionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Distribution(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:Distribution", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFront:Distribution", name, null, MakeResourceOptions(options, id))
         {
         }
 

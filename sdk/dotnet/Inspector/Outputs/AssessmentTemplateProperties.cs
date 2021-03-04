@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Inspector.Outputs
+namespace Pulumi.AwsNative.Inspector.Outputs
 {
 
     [OutputType]
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.Inspector.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-userattributesforfindings
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> UserAttributesForFindings;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> UserAttributesForFindings;
 
         [OutputConstructor]
         private AssessmentTemplateProperties(
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.Inspector.Outputs
 
             ImmutableArray<string> RulesPackageArns,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> UserAttributesForFindings)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> UserAttributesForFindings)
         {
             this.AssessmentTargetArn = AssessmentTargetArn;
             this.AssessmentTemplateName = AssessmentTemplateName;

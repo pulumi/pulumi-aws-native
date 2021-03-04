@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.PinpointEmail.Inputs
+namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
     /// <summary>

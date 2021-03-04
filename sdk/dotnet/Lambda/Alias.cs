@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Lambda
+namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Lambda:Alias")]
+    [AwsNativeResourceType("aws-native:Lambda:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,16 +54,12 @@ namespace Pulumi.Cloudformation.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Alias(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Alias", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Lambda:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Alias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:Alias", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Lambda:Alias", name, null, MakeResourceOptions(options, id))
         {
         }
 

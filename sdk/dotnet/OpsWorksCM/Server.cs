@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.OpsWorksCM
+namespace Pulumi.AwsNative.OpsWorksCM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:OpsWorksCM:Server")]
+    [AwsNativeResourceType("aws-native:OpsWorksCM:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.OpsWorksCM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorksCM:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Server(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorksCM:Server", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:OpsWorksCM:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorksCM:Server", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:OpsWorksCM:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 

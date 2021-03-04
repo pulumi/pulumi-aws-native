@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ManagedBlockchain
+namespace Pulumi.AwsNative.ManagedBlockchain
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ManagedBlockchain:Member")]
+    [AwsNativeResourceType("aws-native:ManagedBlockchain:Member")]
     public partial class Member : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ManagedBlockchain
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Member(string name, MemberArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ManagedBlockchain:Member", name, args ?? new MemberArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Member(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ManagedBlockchain:Member", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ManagedBlockchain:Member", name, args ?? new MemberArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Member(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ManagedBlockchain:Member", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ManagedBlockchain:Member", name, null, MakeResourceOptions(options, id))
         {
         }
 

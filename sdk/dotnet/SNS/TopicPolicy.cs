@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SNS
+namespace Pulumi.AwsNative.SNS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SNS:TopicPolicy")]
+    [AwsNativeResourceType("aws-native:SNS:TopicPolicy")]
     public partial class TopicPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SNS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicPolicy(string name, TopicPolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SNS:TopicPolicy", name, args ?? new TopicPolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal TopicPolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SNS:TopicPolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SNS:TopicPolicy", name, args ?? new TopicPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TopicPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SNS:TopicPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SNS:TopicPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

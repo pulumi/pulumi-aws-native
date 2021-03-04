@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudTrail
+namespace Pulumi.AwsNative.CloudTrail
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudTrail:Trail")]
+    [AwsNativeResourceType("aws-native:CloudTrail:Trail")]
     public partial class Trail : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudTrail
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trail(string name, TrailArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudTrail:Trail", name, args ?? new TrailArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Trail(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudTrail:Trail", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudTrail:Trail", name, args ?? new TrailArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trail(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudTrail:Trail", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudTrail:Trail", name, null, MakeResourceOptions(options, id))
         {
         }
 

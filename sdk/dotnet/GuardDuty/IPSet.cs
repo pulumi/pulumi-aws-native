@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GuardDuty
+namespace Pulumi.AwsNative.GuardDuty
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GuardDuty:IPSet")]
+    [AwsNativeResourceType("aws-native:GuardDuty:IPSet")]
     public partial class IPSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GuardDuty
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IPSet(string name, IPSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:IPSet", name, args ?? new IPSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal IPSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:IPSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GuardDuty:IPSet", name, args ?? new IPSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IPSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:IPSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GuardDuty:IPSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EventSchemas
+namespace Pulumi.AwsNative.EventSchemas
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EventSchemas:Schema")]
+    [AwsNativeResourceType("aws-native:EventSchemas:Schema")]
     public partial class Schema : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EventSchemas
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schema(string name, SchemaArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:Schema", name, args ?? new SchemaArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Schema(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:Schema", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EventSchemas:Schema", name, args ?? new SchemaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Schema(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:Schema", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EventSchemas:Schema", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Inspector.Inputs
+namespace Pulumi.AwsNative.Inspector.Inputs
 {
 
     /// <summary>
@@ -46,14 +46,14 @@ namespace Pulumi.Cloudformation.Inspector.Inputs
         }
 
         [Input("UserAttributesForFindings")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _UserAttributesForFindings;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _UserAttributesForFindings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-userattributesforfindings
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> UserAttributesForFindings
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> UserAttributesForFindings
         {
-            get => _UserAttributesForFindings ?? (_UserAttributesForFindings = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _UserAttributesForFindings ?? (_UserAttributesForFindings = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _UserAttributesForFindings = value;
         }
 

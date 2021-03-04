@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodePipeline.Outputs
+namespace Pulumi.AwsNative.CodePipeline.Outputs
 {
 
     [OutputType]

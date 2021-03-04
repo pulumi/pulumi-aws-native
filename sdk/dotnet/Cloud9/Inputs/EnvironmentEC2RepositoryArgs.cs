@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cloud9.Inputs
+namespace Pulumi.AwsNative.Cloud9.Inputs
 {
 
     /// <summary>

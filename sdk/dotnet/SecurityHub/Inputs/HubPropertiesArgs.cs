@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SecurityHub.Inputs
+namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
     /// <summary>

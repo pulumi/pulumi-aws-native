@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EKS
+namespace Pulumi.AwsNative.EKS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EKS:Nodegroup")]
+    [AwsNativeResourceType("aws-native:EKS:Nodegroup")]
     public partial class Nodegroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EKS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Nodegroup(string name, NodegroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:Nodegroup", name, args ?? new NodegroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Nodegroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:Nodegroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EKS:Nodegroup", name, args ?? new NodegroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Nodegroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:Nodegroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EKS:Nodegroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

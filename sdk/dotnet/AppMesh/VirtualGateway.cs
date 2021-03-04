@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppMesh
+namespace Pulumi.AwsNative.AppMesh
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppMesh:VirtualGateway")]
+    [AwsNativeResourceType("aws-native:AppMesh:VirtualGateway")]
     public partial class VirtualGateway : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualGateway(string name, VirtualGatewayArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:VirtualGateway", name, args ?? new VirtualGatewayArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal VirtualGateway(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:VirtualGateway", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppMesh:VirtualGateway", name, args ?? new VirtualGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:VirtualGateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppMesh:VirtualGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

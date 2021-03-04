@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSM.Outputs
+namespace Pulumi.AwsNative.SSM.Outputs
 {
 
     [OutputType]
@@ -64,7 +64,7 @@ namespace Pulumi.Cloudformation.SSM.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private PatchBaselineProperties(
@@ -92,7 +92,7 @@ namespace Pulumi.Cloudformation.SSM.Outputs
 
             ImmutableArray<Outputs.PatchBaselinePatchSource> Sources,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.ApprovalRules = ApprovalRules;
             this.ApprovedPatches = ApprovedPatches;

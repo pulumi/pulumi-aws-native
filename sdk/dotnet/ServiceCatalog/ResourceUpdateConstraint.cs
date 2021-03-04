@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceCatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceCatalog:ResourceUpdateConstraint")]
+    [AwsNativeResourceType("aws-native:ServiceCatalog:ResourceUpdateConstraint")]
     public partial class ResourceUpdateConstraint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceUpdateConstraint(string name, ResourceUpdateConstraintArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:ResourceUpdateConstraint", name, args ?? new ResourceUpdateConstraintArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ResourceUpdateConstraint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:ResourceUpdateConstraint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceCatalog:ResourceUpdateConstraint", name, args ?? new ResourceUpdateConstraintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceUpdateConstraint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:ResourceUpdateConstraint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceCatalog:ResourceUpdateConstraint", name, null, MakeResourceOptions(options, id))
         {
         }
 

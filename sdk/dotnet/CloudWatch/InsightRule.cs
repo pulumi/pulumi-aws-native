@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudWatch
+namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudWatch:InsightRule")]
+    [AwsNativeResourceType("aws-native:CloudWatch:InsightRule")]
     public partial class InsightRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InsightRule(string name, InsightRuleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:InsightRule", name, args ?? new InsightRuleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal InsightRule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:InsightRule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudWatch:InsightRule", name, args ?? new InsightRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InsightRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:InsightRule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudWatch:InsightRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

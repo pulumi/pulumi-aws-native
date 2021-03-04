@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
-    [CloudformationResourceType("pulumi:providers:cloudformation")]
+    [AwsNativeResourceType("pulumi:providers:aws-native")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
@@ -33,11 +33,7 @@ namespace Pulumi.Cloudformation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Provider(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

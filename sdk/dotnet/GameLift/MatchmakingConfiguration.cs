@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GameLift
+namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GameLift:MatchmakingConfiguration")]
+    [AwsNativeResourceType("aws-native:GameLift:MatchmakingConfiguration")]
     public partial class MatchmakingConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GameLift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MatchmakingConfiguration(string name, MatchmakingConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:MatchmakingConfiguration", name, args ?? new MatchmakingConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MatchmakingConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:MatchmakingConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GameLift:MatchmakingConfiguration", name, args ?? new MatchmakingConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MatchmakingConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:MatchmakingConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GameLift:MatchmakingConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

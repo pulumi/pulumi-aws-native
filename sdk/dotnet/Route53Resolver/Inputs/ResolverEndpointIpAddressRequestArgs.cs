@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Route53Resolver.Inputs
+namespace Pulumi.AwsNative.Route53Resolver.Inputs
 {
 
     /// <summary>

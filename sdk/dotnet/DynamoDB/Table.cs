@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DynamoDB
+namespace Pulumi.AwsNative.DynamoDB
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DynamoDB:Table")]
+    [AwsNativeResourceType("aws-native:DynamoDB:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DynamoDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Table(string name, TableArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DynamoDB:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Table(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DynamoDB:Table", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DynamoDB:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Table(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DynamoDB:Table", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DynamoDB:Table", name, null, MakeResourceOptions(options, id))
         {
         }
 

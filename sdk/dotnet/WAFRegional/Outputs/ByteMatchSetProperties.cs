@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAFRegional.Outputs
+namespace Pulumi.AwsNative.WAFRegional.Outputs
 {
 
     [OutputType]

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GameLift.Outputs
+namespace Pulumi.AwsNative.GameLift.Outputs
 {
 
     [OutputType]
@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.GameLift.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GameServerGroupTags(ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+        private GameServerGroupTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Tags = Tags;
         }

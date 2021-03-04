@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:Instance")]
+    [AwsNativeResourceType("aws-native:EC2:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.Cloudformation.EC2
         /// The creation policy associated with the resource
         /// </summary>
         [Output("creationPolicy")]
-        public Output<Pulumi.Cloudformation.Outputs.CreationPolicy?> CreationPolicy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Outputs.CreationPolicy?> CreationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// An explicit logical ID for the resource
@@ -54,16 +54,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Instance(string name, InstanceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Instance(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:Instance", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Instance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:Instance", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:Instance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -98,7 +94,7 @@ namespace Pulumi.Cloudformation.EC2
         /// The creation policy associated with the resource
         /// </summary>
         [Input("creationPolicy")]
-        public Input<Pulumi.Cloudformation.Inputs.CreationPolicyArgs>? CreationPolicy { get; set; }
+        public Input<Pulumi.AwsNative.Inputs.CreationPolicyArgs>? CreationPolicy { get; set; }
 
         /// <summary>
         /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.

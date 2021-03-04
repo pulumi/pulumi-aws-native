@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:RequestValidator")]
+    [AwsNativeResourceType("aws-native:ApiGateway:RequestValidator")]
     public partial class RequestValidator : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RequestValidator(string name, RequestValidatorArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:RequestValidator", name, args ?? new RequestValidatorArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RequestValidator(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:RequestValidator", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:RequestValidator", name, args ?? new RequestValidatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RequestValidator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:RequestValidator", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:RequestValidator", name, null, MakeResourceOptions(options, id))
         {
         }
 

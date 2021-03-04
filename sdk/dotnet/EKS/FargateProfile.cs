@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EKS
+namespace Pulumi.AwsNative.EKS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EKS:FargateProfile")]
+    [AwsNativeResourceType("aws-native:EKS:FargateProfile")]
     public partial class FargateProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EKS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FargateProfile(string name, FargateProfileArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:FargateProfile", name, args ?? new FargateProfileArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal FargateProfile(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:FargateProfile", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EKS:FargateProfile", name, args ?? new FargateProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FargateProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:FargateProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EKS:FargateProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

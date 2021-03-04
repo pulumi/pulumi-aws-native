@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppStream
+namespace Pulumi.AwsNative.AppStream
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppStream:DirectoryConfig")]
+    [AwsNativeResourceType("aws-native:AppStream:DirectoryConfig")]
     public partial class DirectoryConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppStream
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DirectoryConfig(string name, DirectoryConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:DirectoryConfig", name, args ?? new DirectoryConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DirectoryConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:DirectoryConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppStream:DirectoryConfig", name, args ?? new DirectoryConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DirectoryConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppStream:DirectoryConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppStream:DirectoryConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

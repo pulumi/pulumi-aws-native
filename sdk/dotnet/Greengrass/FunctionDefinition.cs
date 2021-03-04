@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:FunctionDefinition")]
+    [AwsNativeResourceType("aws-native:Greengrass:FunctionDefinition")]
     public partial class FunctionDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FunctionDefinition(string name, FunctionDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:FunctionDefinition", name, args ?? new FunctionDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal FunctionDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:FunctionDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:FunctionDefinition", name, args ?? new FunctionDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FunctionDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:FunctionDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:FunctionDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

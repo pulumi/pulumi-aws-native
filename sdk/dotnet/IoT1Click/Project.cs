@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT1Click
+namespace Pulumi.AwsNative.IoT1Click
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT1Click:Project")]
+    [AwsNativeResourceType("aws-native:IoT1Click:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT1Click
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT1Click:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Project(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT1Click:Project", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT1Click:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT1Click:Project", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT1Click:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 

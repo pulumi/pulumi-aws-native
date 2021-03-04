@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppSync
+namespace Pulumi.AwsNative.AppSync
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppSync:ApiCache")]
+    [AwsNativeResourceType("aws-native:AppSync:ApiCache")]
     public partial class ApiCache : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiCache(string name, ApiCacheArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:ApiCache", name, args ?? new ApiCacheArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ApiCache(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:ApiCache", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppSync:ApiCache", name, args ?? new ApiCacheArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiCache(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:ApiCache", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppSync:ApiCache", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFront
+namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFront:StreamingDistribution")]
+    [AwsNativeResourceType("aws-native:CloudFront:StreamingDistribution")]
     public partial class StreamingDistribution : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamingDistribution(string name, StreamingDistributionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:StreamingDistribution", name, args ?? new StreamingDistributionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal StreamingDistribution(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:StreamingDistribution", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFront:StreamingDistribution", name, args ?? new StreamingDistributionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamingDistribution(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:StreamingDistribution", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFront:StreamingDistribution", name, null, MakeResourceOptions(options, id))
         {
         }
 

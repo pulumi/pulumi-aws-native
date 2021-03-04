@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SNS
+namespace Pulumi.AwsNative.SNS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SNS:Subscription")]
+    [AwsNativeResourceType("aws-native:SNS:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SNS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Subscription(string name, SubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SNS:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Subscription(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SNS:Subscription", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SNS:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Subscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SNS:Subscription", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SNS:Subscription", name, null, MakeResourceOptions(options, id))
         {
         }
 

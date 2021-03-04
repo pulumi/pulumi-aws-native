@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:VoiceChannel")]
+    [AwsNativeResourceType("aws-native:Pinpoint:VoiceChannel")]
     public partial class VoiceChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VoiceChannel(string name, VoiceChannelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:VoiceChannel", name, args ?? new VoiceChannelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal VoiceChannel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:VoiceChannel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:VoiceChannel", name, args ?? new VoiceChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VoiceChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:VoiceChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:VoiceChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

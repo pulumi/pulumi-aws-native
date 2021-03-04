@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Neptune
+namespace Pulumi.AwsNative.Neptune
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Neptune:DBInstance")]
+    [AwsNativeResourceType("aws-native:Neptune:DBInstance")]
     public partial class DBInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Neptune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DBInstance(string name, DBInstanceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Neptune:DBInstance", name, args ?? new DBInstanceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DBInstance(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Neptune:DBInstance", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Neptune:DBInstance", name, args ?? new DBInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DBInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Neptune:DBInstance", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Neptune:DBInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:ConfigurationAggregator")]
+    [AwsNativeResourceType("aws-native:Configuration:ConfigurationAggregator")]
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationAggregator(string name, ConfigurationAggregatorArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigurationAggregator", name, args ?? new ConfigurationAggregatorArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConfigurationAggregator(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigurationAggregator", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:ConfigurationAggregator", name, args ?? new ConfigurationAggregatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationAggregator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigurationAggregator", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:ConfigurationAggregator", name, null, MakeResourceOptions(options, id))
         {
         }
 

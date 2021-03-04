@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTSiteWise
+namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoTSiteWise:Gateway")]
+    [AwsNativeResourceType("aws-native:IoTSiteWise:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Gateway(string name, GatewayArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Gateway(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:Gateway", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoTSiteWise:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Gateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:Gateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoTSiteWise:Gateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

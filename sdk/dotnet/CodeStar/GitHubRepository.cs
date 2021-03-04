@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeStar
+namespace Pulumi.AwsNative.CodeStar
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeStar:GitHubRepository")]
+    [AwsNativeResourceType("aws-native:CodeStar:GitHubRepository")]
     public partial class GitHubRepository : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeStar
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GitHubRepository(string name, GitHubRepositoryArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStar:GitHubRepository", name, args ?? new GitHubRepositoryArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal GitHubRepository(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStar:GitHubRepository", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeStar:GitHubRepository", name, args ?? new GitHubRepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GitHubRepository(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStar:GitHubRepository", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeStar:GitHubRepository", name, null, MakeResourceOptions(options, id))
         {
         }
 

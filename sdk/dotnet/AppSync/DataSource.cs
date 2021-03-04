@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppSync
+namespace Pulumi.AwsNative.AppSync
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppSync:DataSource")]
+    [AwsNativeResourceType("aws-native:AppSync:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSource(string name, DataSourceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DataSource(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:DataSource", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppSync:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:DataSource", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppSync:DataSource", name, null, MakeResourceOptions(options, id))
         {
         }
 

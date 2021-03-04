@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Inspector
+namespace Pulumi.AwsNative.Inspector
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Inspector:ResourceGroup")]
+    [AwsNativeResourceType("aws-native:Inspector:ResourceGroup")]
     public partial class ResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Inspector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceGroup(string name, ResourceGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Inspector:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ResourceGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Inspector:ResourceGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Inspector:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Inspector:ResourceGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Inspector:ResourceGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

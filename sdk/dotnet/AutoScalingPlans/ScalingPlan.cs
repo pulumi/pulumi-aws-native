@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AutoScalingPlans
+namespace Pulumi.AwsNative.AutoScalingPlans
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AutoScalingPlans:ScalingPlan")]
+    [AwsNativeResourceType("aws-native:AutoScalingPlans:ScalingPlan")]
     public partial class ScalingPlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AutoScalingPlans
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScalingPlan(string name, ScalingPlanArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScalingPlans:ScalingPlan", name, args ?? new ScalingPlanArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ScalingPlan(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScalingPlans:ScalingPlan", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AutoScalingPlans:ScalingPlan", name, args ?? new ScalingPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScalingPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScalingPlans:ScalingPlan", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AutoScalingPlans:ScalingPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 

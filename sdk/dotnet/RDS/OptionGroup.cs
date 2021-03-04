@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RDS
+namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RDS:OptionGroup")]
+    [AwsNativeResourceType("aws-native:RDS:OptionGroup")]
     public partial class OptionGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OptionGroup(string name, OptionGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:OptionGroup", name, args ?? new OptionGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal OptionGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:OptionGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RDS:OptionGroup", name, args ?? new OptionGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OptionGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:OptionGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RDS:OptionGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

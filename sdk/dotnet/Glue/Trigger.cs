@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:Trigger")]
+    [AwsNativeResourceType("aws-native:Glue:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Trigger(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Trigger", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Trigger", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:Trigger", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Athena
+namespace Pulumi.AwsNative.Athena
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Athena:NamedQuery")]
+    [AwsNativeResourceType("aws-native:Athena:NamedQuery")]
     public partial class NamedQuery : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamedQuery(string name, NamedQueryArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:NamedQuery", name, args ?? new NamedQueryArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal NamedQuery(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:NamedQuery", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Athena:NamedQuery", name, args ?? new NamedQueryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamedQuery(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:NamedQuery", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Athena:NamedQuery", name, null, MakeResourceOptions(options, id))
         {
         }
 

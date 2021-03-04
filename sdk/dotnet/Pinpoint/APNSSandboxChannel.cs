@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnssandboxchannel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:APNSSandboxChannel")]
+    [AwsNativeResourceType("aws-native:Pinpoint:APNSSandboxChannel")]
     public partial class APNSSandboxChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public APNSSandboxChannel(string name, APNSSandboxChannelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:APNSSandboxChannel", name, args ?? new APNSSandboxChannelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal APNSSandboxChannel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:APNSSandboxChannel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:APNSSandboxChannel", name, args ?? new APNSSandboxChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private APNSSandboxChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:APNSSandboxChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:APNSSandboxChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DLM.Inputs
+namespace Pulumi.AwsNative.DLM.Inputs
 {
 
     /// <summary>
@@ -70,26 +70,26 @@ namespace Pulumi.Cloudformation.DLM.Inputs
         }
 
         [Input("TagsToAdd")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _TagsToAdd;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _TagsToAdd;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> TagsToAdd
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> TagsToAdd
         {
-            get => _TagsToAdd ?? (_TagsToAdd = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _TagsToAdd ?? (_TagsToAdd = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _TagsToAdd = value;
         }
 
         [Input("VariableTags")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _VariableTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _VariableTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> VariableTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> VariableTags
         {
-            get => _VariableTags ?? (_VariableTags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _VariableTags ?? (_VariableTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _VariableTags = value;
         }
 

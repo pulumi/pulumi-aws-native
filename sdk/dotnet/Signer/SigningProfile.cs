@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Signer
+namespace Pulumi.AwsNative.Signer
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Signer:SigningProfile")]
+    [AwsNativeResourceType("aws-native:Signer:SigningProfile")]
     public partial class SigningProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Signer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SigningProfile(string name, SigningProfileArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Signer:SigningProfile", name, args ?? new SigningProfileArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SigningProfile(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Signer:SigningProfile", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Signer:SigningProfile", name, args ?? new SigningProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SigningProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Signer:SigningProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Signer:SigningProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

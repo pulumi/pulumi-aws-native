@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker.Outputs
+namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     [OutputType]
@@ -28,7 +28,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         /// </summary>
-        public readonly Pulumi.Cloudformation.Outputs.Tag? Tags;
+        public readonly Pulumi.AwsNative.Outputs.Tag? Tags;
 
         [OutputConstructor]
         private DeviceFleetProperties(
@@ -38,7 +38,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
 
             string RoleArn,
 
-            Pulumi.Cloudformation.Outputs.Tag? Tags)
+            Pulumi.AwsNative.Outputs.Tag? Tags)
         {
             this.Description = Description;
             this.OutputConfig = OutputConfig;

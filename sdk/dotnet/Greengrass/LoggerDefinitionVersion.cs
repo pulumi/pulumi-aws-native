@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:LoggerDefinitionVersion")]
+    [AwsNativeResourceType("aws-native:Greengrass:LoggerDefinitionVersion")]
     public partial class LoggerDefinitionVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoggerDefinitionVersion(string name, LoggerDefinitionVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:LoggerDefinitionVersion", name, args ?? new LoggerDefinitionVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LoggerDefinitionVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:LoggerDefinitionVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:LoggerDefinitionVersion", name, args ?? new LoggerDefinitionVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LoggerDefinitionVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:LoggerDefinitionVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:LoggerDefinitionVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

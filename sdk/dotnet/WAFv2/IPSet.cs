@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAFv2
+namespace Pulumi.AwsNative.WAFv2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAFv2:IPSet")]
+    [AwsNativeResourceType("aws-native:WAFv2:IPSet")]
     public partial class IPSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAFv2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IPSet(string name, IPSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFv2:IPSet", name, args ?? new IPSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal IPSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFv2:IPSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAFv2:IPSet", name, args ?? new IPSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IPSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFv2:IPSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAFv2:IPSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

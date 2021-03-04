@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:ConnectorDefinitionVersion")]
+    [AwsNativeResourceType("aws-native:Greengrass:ConnectorDefinitionVersion")]
     public partial class ConnectorDefinitionVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectorDefinitionVersion(string name, ConnectorDefinitionVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:ConnectorDefinitionVersion", name, args ?? new ConnectorDefinitionVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConnectorDefinitionVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:ConnectorDefinitionVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:ConnectorDefinitionVersion", name, args ?? new ConnectorDefinitionVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectorDefinitionVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:ConnectorDefinitionVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:ConnectorDefinitionVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

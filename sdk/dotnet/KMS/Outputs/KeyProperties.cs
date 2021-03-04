@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KMS.Outputs
+namespace Pulumi.AwsNative.KMS.Outputs
 {
 
     [OutputType]
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.KMS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private KeyProperties(
@@ -62,7 +62,7 @@ namespace Pulumi.Cloudformation.KMS.Outputs
 
             int? PendingWindowInDays,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Description = Description;
             this.EnableKeyRotation = EnableKeyRotation;

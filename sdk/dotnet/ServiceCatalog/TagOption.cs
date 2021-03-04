@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceCatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoption.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceCatalog:TagOption")]
+    [AwsNativeResourceType("aws-native:ServiceCatalog:TagOption")]
     public partial class TagOption : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TagOption(string name, TagOptionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:TagOption", name, args ?? new TagOptionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal TagOption(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:TagOption", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceCatalog:TagOption", name, args ?? new TagOptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TagOption(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:TagOption", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceCatalog:TagOption", name, null, MakeResourceOptions(options, id))
         {
         }
 

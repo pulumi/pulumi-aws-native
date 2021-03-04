@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GuardDuty
+namespace Pulumi.AwsNative.GuardDuty
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GuardDuty:Detector")]
+    [AwsNativeResourceType("aws-native:GuardDuty:Detector")]
     public partial class Detector : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GuardDuty
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Detector(string name, DetectorArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:Detector", name, args ?? new DetectorArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Detector(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:Detector", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GuardDuty:Detector", name, args ?? new DetectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Detector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:Detector", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GuardDuty:Detector", name, null, MakeResourceOptions(options, id))
         {
         }
 

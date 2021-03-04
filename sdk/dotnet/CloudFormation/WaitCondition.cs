@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFormation
+namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFormation:WaitCondition")]
+    [AwsNativeResourceType("aws-native:CloudFormation:WaitCondition")]
     public partial class WaitCondition : Pulumi.CustomResource
     {
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.Cloudformation.CloudFormation
         /// The creation policy associated with the resource
         /// </summary>
         [Output("creationPolicy")]
-        public Output<Pulumi.Cloudformation.Outputs.CreationPolicy?> CreationPolicy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Outputs.CreationPolicy?> CreationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// An explicit logical ID for the resource
@@ -54,16 +54,12 @@ namespace Pulumi.Cloudformation.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WaitCondition(string name, WaitConditionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:WaitCondition", name, args ?? new WaitConditionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal WaitCondition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:WaitCondition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFormation:WaitCondition", name, args ?? new WaitConditionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WaitCondition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:WaitCondition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFormation:WaitCondition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -98,7 +94,7 @@ namespace Pulumi.Cloudformation.CloudFormation
         /// The creation policy associated with the resource
         /// </summary>
         [Input("creationPolicy")]
-        public Input<Pulumi.Cloudformation.Inputs.CreationPolicyArgs>? CreationPolicy { get; set; }
+        public Input<Pulumi.AwsNative.Inputs.CreationPolicyArgs>? CreationPolicy { get; set; }
 
         /// <summary>
         /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.

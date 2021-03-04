@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodePipeline
+namespace Pulumi.AwsNative.CodePipeline
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodePipeline:Webhook")]
+    [AwsNativeResourceType("aws-native:CodePipeline:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodePipeline
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Webhook(string name, WebhookArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Webhook(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:Webhook", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodePipeline:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Webhook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:Webhook", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodePipeline:Webhook", name, null, MakeResourceOptions(options, id))
         {
         }
 

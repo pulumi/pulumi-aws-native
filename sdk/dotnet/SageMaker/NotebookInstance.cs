@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:NotebookInstance")]
+    [AwsNativeResourceType("aws-native:SageMaker:NotebookInstance")]
     public partial class NotebookInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotebookInstance(string name, NotebookInstanceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:NotebookInstance", name, args ?? new NotebookInstanceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal NotebookInstance(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:NotebookInstance", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:NotebookInstance", name, args ?? new NotebookInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotebookInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:NotebookInstance", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:NotebookInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 

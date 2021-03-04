@@ -7,7 +7,7 @@
     <Description>A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/pulumi/pulumi-cloudformation</RepositoryUrl>
+    <RepositoryUrl>https://github.com/pulumi/pulumi-aws-native</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -35,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Glob" Version="1.1.5" />
     <PackageReference Include="Pulumi" Version="2.*" />
     <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
   </ItemGroup>

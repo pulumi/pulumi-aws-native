@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     public static class GetSsmParameterString
     {
         public static Task<GetSsmParameterStringResult> InvokeAsync(GetSsmParameterStringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSsmParameterStringResult>("cloudformation:index:getSsmParameterString", args ?? new GetSsmParameterStringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSsmParameterStringResult>("aws-native:index:getSsmParameterString", args ?? new GetSsmParameterStringArgs(), options.WithVersion());
     }
 
 

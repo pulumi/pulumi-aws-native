@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:Campaign")]
+    [AwsNativeResourceType("aws-native:Pinpoint:Campaign")]
     public partial class Campaign : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Campaign(string name, CampaignArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:Campaign", name, args ?? new CampaignArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Campaign(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:Campaign", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:Campaign", name, args ?? new CampaignArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Campaign(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:Campaign", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:Campaign", name, null, MakeResourceOptions(options, id))
         {
         }
 

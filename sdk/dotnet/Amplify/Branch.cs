@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Amplify
+namespace Pulumi.AwsNative.Amplify
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Amplify:Branch")]
+    [AwsNativeResourceType("aws-native:Amplify:Branch")]
     public partial class Branch : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Amplify
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Branch(string name, BranchArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Amplify:Branch", name, args ?? new BranchArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Branch(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Amplify:Branch", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Amplify:Branch", name, args ?? new BranchArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Branch(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Amplify:Branch", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Amplify:Branch", name, null, MakeResourceOptions(options, id))
         {
         }
 

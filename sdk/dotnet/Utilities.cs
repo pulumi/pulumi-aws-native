@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using Pulumi;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     static class Utilities
     {
@@ -66,7 +66,7 @@ namespace Pulumi.Cloudformation
         static Utilities()
         {
             var assembly = typeof(Utilities).GetTypeInfo().Assembly;
-            using var stream = assembly.GetManifestResourceStream("Pulumi.Cloudformation.version.txt");
+            using var stream = assembly.GetManifestResourceStream("Pulumi.AwsNative.version.txt");
             using var reader = new StreamReader(stream ?? throw new NotSupportedException("Missing embedded version.txt file"));
             version = reader.ReadToEnd().Trim();
             var parts = version.Split("\n");
@@ -78,9 +78,9 @@ namespace Pulumi.Cloudformation
         }
     }
 
-    internal sealed class CloudformationResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class AwsNativeResourceTypeAttribute : Pulumi.ResourceTypeAttribute
     {
-        public CloudformationResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        public AwsNativeResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {
         }
     }

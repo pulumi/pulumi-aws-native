@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppMesh
+namespace Pulumi.AwsNative.AppMesh
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppMesh:GatewayRoute")]
+    [AwsNativeResourceType("aws-native:AppMesh:GatewayRoute")]
     public partial class GatewayRoute : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GatewayRoute(string name, GatewayRouteArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:GatewayRoute", name, args ?? new GatewayRouteArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal GatewayRoute(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:GatewayRoute", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppMesh:GatewayRoute", name, args ?? new GatewayRouteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GatewayRoute(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:GatewayRoute", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppMesh:GatewayRoute", name, null, MakeResourceOptions(options, id))
         {
         }
 

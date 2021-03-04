@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     public static class ImportValue
     {
         public static Task<ImportValueResult> InvokeAsync(ImportValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ImportValueResult>("cloudformation:index:importValue", args ?? new ImportValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueArgs(), options.WithVersion());
     }
 
 

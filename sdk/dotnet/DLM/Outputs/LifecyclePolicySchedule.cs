@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DLM.Outputs
+namespace Pulumi.AwsNative.DLM.Outputs
 {
 
     [OutputType]
@@ -44,11 +44,11 @@ namespace Pulumi.Cloudformation.DLM.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagsToAdd;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagsToAdd;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> VariableTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> VariableTags;
 
         [OutputConstructor]
         private LifecyclePolicySchedule(
@@ -66,9 +66,9 @@ namespace Pulumi.Cloudformation.DLM.Outputs
 
             ImmutableArray<Outputs.LifecyclePolicyShareRule> ShareRules,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagsToAdd,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagsToAdd,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> VariableTags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> VariableTags)
         {
             this.CopyTags = CopyTags;
             this.CreateRule = CreateRule;

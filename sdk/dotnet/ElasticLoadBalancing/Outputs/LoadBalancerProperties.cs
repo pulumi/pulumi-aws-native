@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElasticLoadBalancing.Outputs
+namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
 {
 
     [OutputType]
@@ -76,7 +76,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancing.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-elasticloadbalancing-loadbalancer-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private LoadBalancerProperties(
@@ -110,7 +110,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancing.Outputs
 
             ImmutableArray<string> Subnets,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AccessLoggingPolicy = AccessLoggingPolicy;
             this.AppCookieStickinessPolicy = AppCookieStickinessPolicy;

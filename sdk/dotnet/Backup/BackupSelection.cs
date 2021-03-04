@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Backup
+namespace Pulumi.AwsNative.Backup
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Backup:BackupSelection")]
+    [AwsNativeResourceType("aws-native:Backup:BackupSelection")]
     public partial class BackupSelection : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupSelection(string name, BackupSelectionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Backup:BackupSelection", name, args ?? new BackupSelectionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal BackupSelection(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Backup:BackupSelection", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Backup:BackupSelection", name, args ?? new BackupSelectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupSelection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Backup:BackupSelection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Backup:BackupSelection", name, null, MakeResourceOptions(options, id))
         {
         }
 

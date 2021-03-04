@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EMR
+namespace Pulumi.AwsNative.EMR
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EMR:SecurityConfiguration")]
+    [AwsNativeResourceType("aws-native:EMR:SecurityConfiguration")]
     public partial class SecurityConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EMR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityConfiguration(string name, SecurityConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:SecurityConfiguration", name, args ?? new SecurityConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SecurityConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:SecurityConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EMR:SecurityConfiguration", name, args ?? new SecurityConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:SecurityConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EMR:SecurityConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

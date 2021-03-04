@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SES
+namespace Pulumi.AwsNative.SES
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptfilter.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SES:ReceiptFilter")]
+    [AwsNativeResourceType("aws-native:SES:ReceiptFilter")]
     public partial class ReceiptFilter : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SES
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReceiptFilter(string name, ReceiptFilterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ReceiptFilter", name, args ?? new ReceiptFilterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ReceiptFilter(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ReceiptFilter", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SES:ReceiptFilter", name, args ?? new ReceiptFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReceiptFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SES:ReceiptFilter", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SES:ReceiptFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 

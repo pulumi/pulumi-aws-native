@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AccessAnalyzer.Inputs
+namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
 {
 
     /// <summary>

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ECS
+namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ECS:TaskDefinition")]
+    [AwsNativeResourceType("aws-native:ECS:TaskDefinition")]
     public partial class TaskDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ECS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TaskDefinition(string name, TaskDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:TaskDefinition", name, args ?? new TaskDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal TaskDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:TaskDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ECS:TaskDefinition", name, args ?? new TaskDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TaskDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:TaskDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ECS:TaskDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

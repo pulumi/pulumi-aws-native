@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cloud9.Outputs
+namespace Pulumi.AwsNative.Cloud9.Outputs
 {
 
     [OutputType]
@@ -48,7 +48,7 @@ namespace Pulumi.Cloudformation.Cloud9.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private EnvironmentEC2Properties(
@@ -68,7 +68,7 @@ namespace Pulumi.Cloudformation.Cloud9.Outputs
 
             string? SubnetId,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AutomaticStopTimeMinutes = AutomaticStopTimeMinutes;
             this.ConnectionType = ConnectionType;

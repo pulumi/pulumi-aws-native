@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:MonitoringSchedule")]
+    [AwsNativeResourceType("aws-native:SageMaker:MonitoringSchedule")]
     public partial class MonitoringSchedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MonitoringSchedule(string name, MonitoringScheduleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:MonitoringSchedule", name, args ?? new MonitoringScheduleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MonitoringSchedule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:MonitoringSchedule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:MonitoringSchedule", name, args ?? new MonitoringScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MonitoringSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:MonitoringSchedule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:MonitoringSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 

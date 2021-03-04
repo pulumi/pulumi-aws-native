@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AmazonMQ
+namespace Pulumi.AwsNative.AmazonMQ
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AmazonMQ:Broker")]
+    [AwsNativeResourceType("aws-native:AmazonMQ:Broker")]
     public partial class Broker : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AmazonMQ
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Broker(string name, BrokerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:Broker", name, args ?? new BrokerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Broker(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:Broker", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AmazonMQ:Broker", name, args ?? new BrokerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Broker(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:Broker", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AmazonMQ:Broker", name, null, MakeResourceOptions(options, id))
         {
         }
 

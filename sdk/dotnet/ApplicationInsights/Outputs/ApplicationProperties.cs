@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApplicationInsights.Outputs
+namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 {
 
     [OutputType]
@@ -48,7 +48,7 @@ namespace Pulumi.Cloudformation.ApplicationInsights.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ApplicationProperties(
@@ -68,7 +68,7 @@ namespace Pulumi.Cloudformation.ApplicationInsights.Outputs
 
             string ResourceGroupName,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AutoConfigurationEnabled = AutoConfigurationEnabled;
             this.CWEMonitorEnabled = CWEMonitorEnabled;

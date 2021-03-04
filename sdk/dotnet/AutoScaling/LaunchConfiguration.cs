@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AutoScaling
+namespace Pulumi.AwsNative.AutoScaling
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AutoScaling:LaunchConfiguration")]
+    [AwsNativeResourceType("aws-native:AutoScaling:LaunchConfiguration")]
     public partial class LaunchConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LaunchConfiguration(string name, LaunchConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:LaunchConfiguration", name, args ?? new LaunchConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LaunchConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:LaunchConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AutoScaling:LaunchConfiguration", name, args ?? new LaunchConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LaunchConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:LaunchConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AutoScaling:LaunchConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

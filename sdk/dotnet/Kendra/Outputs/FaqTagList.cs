@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Kendra.Outputs
+namespace Pulumi.AwsNative.Kendra.Outputs
 {
 
     [OutputType]
@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagList;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList;
 
         [OutputConstructor]
-        private FaqTagList(ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagList)
+        private FaqTagList(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList)
         {
             this.TagList = TagList;
         }

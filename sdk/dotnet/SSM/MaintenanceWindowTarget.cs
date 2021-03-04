@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSM
+namespace Pulumi.AwsNative.SSM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SSM:MaintenanceWindowTarget")]
+    [AwsNativeResourceType("aws-native:SSM:MaintenanceWindowTarget")]
     public partial class MaintenanceWindowTarget : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SSM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceWindowTarget(string name, MaintenanceWindowTargetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:MaintenanceWindowTarget", name, args ?? new MaintenanceWindowTargetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MaintenanceWindowTarget(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:MaintenanceWindowTarget", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SSM:MaintenanceWindowTarget", name, args ?? new MaintenanceWindowTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MaintenanceWindowTarget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:MaintenanceWindowTarget", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SSM:MaintenanceWindowTarget", name, null, MakeResourceOptions(options, id))
         {
         }
 

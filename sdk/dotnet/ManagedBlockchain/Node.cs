@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ManagedBlockchain
+namespace Pulumi.AwsNative.ManagedBlockchain
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ManagedBlockchain:Node")]
+    [AwsNativeResourceType("aws-native:ManagedBlockchain:Node")]
     public partial class Node : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ManagedBlockchain
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Node(string name, NodeArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ManagedBlockchain:Node", name, args ?? new NodeArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Node(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ManagedBlockchain:Node", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ManagedBlockchain:Node", name, args ?? new NodeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Node(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ManagedBlockchain:Node", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ManagedBlockchain:Node", name, null, MakeResourceOptions(options, id))
         {
         }
 

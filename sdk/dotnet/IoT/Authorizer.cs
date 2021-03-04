@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT:Authorizer")]
+    [AwsNativeResourceType("aws-native:IoT:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Authorizer(string name, AuthorizerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Authorizer", name, args ?? new AuthorizerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Authorizer(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Authorizer", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT:Authorizer", name, args ?? new AuthorizerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Authorizer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Authorizer", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT:Authorizer", name, null, MakeResourceOptions(options, id))
         {
         }
 

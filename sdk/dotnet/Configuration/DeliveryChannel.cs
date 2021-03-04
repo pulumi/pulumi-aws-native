@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:DeliveryChannel")]
+    [AwsNativeResourceType("aws-native:Configuration:DeliveryChannel")]
     public partial class DeliveryChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeliveryChannel(string name, DeliveryChannelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:DeliveryChannel", name, args ?? new DeliveryChannelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DeliveryChannel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:DeliveryChannel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:DeliveryChannel", name, args ?? new DeliveryChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeliveryChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:DeliveryChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:DeliveryChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

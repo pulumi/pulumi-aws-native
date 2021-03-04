@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CertificateManager
+namespace Pulumi.AwsNative.CertificateManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CertificateManager:Certificate")]
+    [AwsNativeResourceType("aws-native:CertificateManager:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CertificateManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CertificateManager:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Certificate(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CertificateManager:Certificate", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CertificateManager:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CertificateManager:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CertificateManager:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 

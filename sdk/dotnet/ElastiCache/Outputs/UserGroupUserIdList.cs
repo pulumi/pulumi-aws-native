@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElastiCache.Outputs
+namespace Pulumi.AwsNative.ElastiCache.Outputs
 {
 
     [OutputType]

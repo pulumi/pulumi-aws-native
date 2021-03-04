@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.LicenseManager.Outputs
+namespace Pulumi.AwsNative.LicenseManager.Outputs
 {
 
     [OutputType]
@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.LicenseManager.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagList;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList;
 
         [OutputConstructor]
-        private LicenseTagList(ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TagList)
+        private LicenseTagList(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList)
         {
             this.TagList = TagList;
         }

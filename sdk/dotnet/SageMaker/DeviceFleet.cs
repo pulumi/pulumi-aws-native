@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:DeviceFleet")]
+    [AwsNativeResourceType("aws-native:SageMaker:DeviceFleet")]
     public partial class DeviceFleet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceFleet(string name, DeviceFleetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:DeviceFleet", name, args ?? new DeviceFleetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DeviceFleet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:DeviceFleet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:DeviceFleet", name, args ?? new DeviceFleetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeviceFleet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:DeviceFleet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:DeviceFleet", name, null, MakeResourceOptions(options, id))
         {
         }
 

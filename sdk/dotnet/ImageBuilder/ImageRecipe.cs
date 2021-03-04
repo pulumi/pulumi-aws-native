@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ImageBuilder
+namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ImageBuilder:ImageRecipe")]
+    [AwsNativeResourceType("aws-native:ImageBuilder:ImageRecipe")]
     public partial class ImageRecipe : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ImageRecipe(string name, ImageRecipeArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:ImageRecipe", name, args ?? new ImageRecipeArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ImageRecipe(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:ImageRecipe", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ImageBuilder:ImageRecipe", name, args ?? new ImageRecipeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ImageRecipe(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ImageBuilder:ImageRecipe", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ImageBuilder:ImageRecipe", name, null, MakeResourceOptions(options, id))
         {
         }
 

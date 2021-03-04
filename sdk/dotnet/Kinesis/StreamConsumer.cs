@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Kinesis
+namespace Pulumi.AwsNative.Kinesis
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Kinesis:StreamConsumer")]
+    [AwsNativeResourceType("aws-native:Kinesis:StreamConsumer")]
     public partial class StreamConsumer : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamConsumer(string name, StreamConsumerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Kinesis:StreamConsumer", name, args ?? new StreamConsumerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal StreamConsumer(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Kinesis:StreamConsumer", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Kinesis:StreamConsumer", name, args ?? new StreamConsumerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamConsumer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Kinesis:StreamConsumer", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Kinesis:StreamConsumer", name, null, MakeResourceOptions(options, id))
         {
         }
 
