@@ -6,10 +6,12 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path"
 	"path/filepath"
+	"strings"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-cloudformation/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v2/codegen/nodejs"
@@ -20,7 +22,7 @@ import (
 
 func main() {
 	flag.Usage = func() {
-		const usageFormat = "Usage: %s <target> <swagger-or-schema-file> <root-pulumi-kubernetes-dir>"
+		const usageFormat = "Usage: %s <languages> <schema-file> <root-dir>"
 		_, err := fmt.Fprintf(flag.CommandLine.Output(), usageFormat, os.Args[0])
 		contract.IgnoreError(err)
 		flag.PrintDefaults()
@@ -36,29 +38,35 @@ func main() {
 		return
 	}
 
-	target, inputFile, baseDir := args[0], args[1], args[2]
+	languages, inputFile, version := args[0], args[1], args[2]
 
-	outdir := filepath.Join(baseDir, "sdk", target)
-	providerDir := filepath.Join(baseDir, "provider", "cmd", "pulumi-resource-cloudformation")
-	//providerPkgDir := filepath.Join(baseDir, "provider", "pkg", "provider")
+	pkgSpec := gatherPackage(readCFNSchema(inputFile))
+	pkgSpec.Version = version
+	ppkg, err := pschema.ImportSpec(pkgSpec, nil)
+	if err != nil {
+		panic(fmt.Sprintf("error importing schema: %v", err))
+	}
 
-	switch target {
-	case "nodejs":
-		writeNodeJSSDK(readPulumiSchema(inputFile, version), outdir)
-	case "python":
-		writePythonSDK(readPulumiSchema(inputFile, version), outdir)
-	case "dotnet":
-		writeDotnetSDK(readPulumiSchema(inputFile, version), outdir)
-	case "go":
-		writeGoSDK(readPulumiSchema(inputFile, version), outdir)
-		//	case "provider":
-		//		moduleMap := buildModuleMap(readCFNSchema(inputFile))
-		//		writeProvider(moduleMap, providerPkgDir)
-	case "schema":
-		pkgSpec := gatherPackage(readCFNSchema(inputFile))
-		writePulumiSchema(pkgSpec, providerDir)
-	default:
-		panic(fmt.Sprintf("Unrecognized target '%s'", target))
+	for _, language := range strings.Split(languages, ",") {
+		outdir := path.Join(".", "sdk", language)
+		providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
+		//providerPkgDir := filepath.Join(baseDir, "provider", "pkg", "provider")
+
+		switch language {
+		case "nodejs":
+			writeNodeJSSDK(ppkg, outdir)
+		case "python":
+			writePythonSDK(ppkg, outdir)
+		case "dotnet":
+			writeDotnetSDK(ppkg, outdir)
+		case "go":
+			writeGoSDK(ppkg, outdir)
+		case "schema":
+			pkgSpec := gatherPackage(readCFNSchema(inputFile))
+			writePulumiSchema(pkgSpec, providerDir)
+		default:
+			panic(fmt.Sprintf("Unrecognized language '%s'", language))
+		}
 	}
 }
 
@@ -75,26 +83,6 @@ func readCFNSchema(schemaPath string) schema.CloudFormationSchema {
 	}
 
 	return sch
-}
-
-func readPulumiSchema(schemaPath, version string) *pschema.Package {
-	// Read in, decode, and import the schema.
-	schemaBytes, err := ioutil.ReadFile(schemaPath)
-	if err != nil {
-		panic(err)
-	}
-
-	var pkgSpec pschema.PackageSpec
-	if err = json.Unmarshal(schemaBytes, &pkgSpec); err != nil {
-		panic(err)
-	}
-	pkgSpec.Version = version
-
-	pkg, err := pschema.ImportSpec(pkgSpec, nil)
-	if err != nil {
-		panic(err)
-	}
-	return pkg
 }
 
 func writeNodeJSSDK(pkg *pschema.Package, outdir string) {
@@ -139,18 +127,6 @@ func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string) {
 	}
 	mustWriteFile(outdir, "schema.json", schemaJSON)
 }
-
-//func writeProvider(moduleMap map[string]string, outdir string) {
-//	mapSource := fmt.Sprintf(`package provider
-//
-//var moduleMap = %#v
-//`, moduleMap)
-//	formatted, err := format.Source([]byte(mapSource))
-//	if err != nil {
-//		panic(errors.Wrap(err, "formatting module map"))
-//	}
-//	mustWriteFile(outdir, "moduleMap.go", formatted)
-//}
 
 func mustWriteFiles(rootDir string, files map[string][]byte) {
 	for filename, contents := range files {

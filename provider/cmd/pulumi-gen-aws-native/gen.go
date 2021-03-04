@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pulumi/pulumi-cloudformation/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
@@ -15,7 +15,7 @@ import (
 // TODO: convert docs. Currently all docs are just links. The linked pages should all have a meta tag somewhere in them
 // that points at the (slightly odd) source markdown on GH.
 
-const packageName = "cloudformation"
+const packageName = "aws-native"
 
 type context struct {
 	types codegen.StringSet
@@ -243,11 +243,11 @@ func gatherPackage(schema schema.CloudFormationSchema) pschema.PackageSpec {
 		Keywords: []string{
 			"pulumi",
 			"aws",
-			"cloudformation",
+			"aws-native",
 		},
 		Homepage:   "https://pulumi.io",
 		License:    "Apache-2.0",
-		Repository: "https://github.com/pulumi/pulumi-cloudformation",
+		Repository: "https://github.com/pulumi/pulumi-aws-native",
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
 				"region": {
@@ -269,16 +269,21 @@ func gatherPackage(schema schema.CloudFormationSchema) pschema.PackageSpec {
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]json.RawMessage{},
 	}
+	csharpNamespaces := map[string]string{
+		"aws-native": "AwsNative",
+	}
 	p.Language["csharp"] = rawMessage(map[string]interface{}{
 		"packageReferences": map[string]string{
-			"Glob":                         "1.1.5",
 			"Pulumi":                       "2.*",
 			"System.Collections.Immutable": "1.6.0",
 		},
-		"dictionaryConstructors": true,
+		"namespaces": csharpNamespaces,
 	})
 	p.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath": "github.com/pulumi/pulumi-cloudformation/sdk/go/cloudformation",
+		"importBasePath": "github.com/pulumi/pulumi-aws-native/sdk/go/aws",
+		"packageImportAliases": map[string]string{
+			"github.com/pulumi/pulumi-aws-native/sdk/go/aws/aws-native": "aws",
+		},
 	})
 	p.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
@@ -521,7 +526,7 @@ var creationPolicyTypes = map[string]pschema.ComplexTypeSpec{
 						"instances with a minimum successful percentage of 50, three instances must signal success. If\n" +
 						"an instance doesn't send a signal within the time specified by the Timeout property, AWS\n" +
 						"CloudFormation assumes that the instance wasn't created.",
-					Default: 100,
+					Default: 100.0,
 				},
 			},
 			Type: "object",
@@ -536,7 +541,7 @@ var creationPolicyTypes = map[string]pschema.ComplexTypeSpec{
 						"receive the specified number of signals before the timeout period expires, the resource\n" +
 						"creation fails and AWS CloudFormation rolls the stack back.",
 					TypeSpec: primitiveTypeSpec("Integer"),
-					Default:  1,
+					Default:  1.0,
 				},
 				"Timeout": {
 					Description: "The length of time that AWS CloudFormation waits for the number of signals that was\n" +
@@ -649,14 +654,14 @@ var updatePolicyTypes = map[string]pschema.ComplexTypeSpec{
 				"MaxBatchSize": {
 					Description: "Specifies the maximum number of instances that AWS CloudFormation updates.",
 					TypeSpec:    primitiveTypeSpec("Integer"),
-					Default:     1,
+					Default:     1.0,
 				},
 				"MinInstancesInService": {
 					Description: "Specifies the minimum number of instances that must be in service within the Auto\n" +
 						"Scaling group while AWS CloudFormation updates old instances. This value must be less than the\n" +
 						"MaxSize of the Auto Scaling group.",
 					TypeSpec: primitiveTypeSpec("Integer"),
-					Default:  0,
+					Default:  0.0,
 				},
 				"MinSuccessfulInstancesPercent": {
 					Description: "Specifies the percentage of instances in an Auto Scaling rolling update that must\n" +
@@ -674,7 +679,7 @@ var updatePolicyTypes = map[string]pschema.ComplexTypeSpec{
 						"purpose. To specify the number of instances in your autoscaling group, see the MinSize,\n" +
 						"MaxSize, and DesiredCapacity properties fo the AWS::AutoScaling::AutoScalingGroup resource.",
 					TypeSpec: primitiveTypeSpec("Integer"),
-					Default:  100,
+					Default:  100.0,
 				},
 				"PauseTime": {
 					Description: "The amount of time that AWS CloudFormation pauses after making a change to a batch of\n" +

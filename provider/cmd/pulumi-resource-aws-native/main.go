@@ -17,8 +17,8 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-cloudformation/provider/pkg/provider"
-	"github.com/pulumi/pulumi-cloudformation/provider/pkg/version"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 )
 
 func main() {
