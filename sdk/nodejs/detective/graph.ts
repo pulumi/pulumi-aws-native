@@ -22,7 +22,7 @@ export class Graph extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Detective:Graph';
+    public static readonly __pulumiType = 'aws-native:Detective:Graph';
 
     /**
      * Returns true if the given object is an instance of Graph.  This is designed to work even

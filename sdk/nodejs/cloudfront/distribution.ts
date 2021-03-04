@@ -22,7 +22,7 @@ export class Distribution extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFront:Distribution';
+    public static readonly __pulumiType = 'aws-native:CloudFront:Distribution';
 
     /**
      * Returns true if the given object is an instance of Distribution.  This is designed to work even

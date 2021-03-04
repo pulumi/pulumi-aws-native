@@ -22,7 +22,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:SecurityConfiguration';
+    public static readonly __pulumiType = 'aws-native:Glue:SecurityConfiguration';
 
     /**
      * Returns true if the given object is an instance of SecurityConfiguration.  This is designed to work even

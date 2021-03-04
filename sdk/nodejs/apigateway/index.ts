@@ -50,47 +50,47 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ApiGateway:Account":
+            case "aws-native:ApiGateway:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:ApiKey":
+            case "aws-native:ApiGateway:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:Authorizer":
+            case "aws-native:ApiGateway:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:BasePathMapping":
+            case "aws-native:ApiGateway:BasePathMapping":
                 return new BasePathMapping(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:ClientCertificate":
+            case "aws-native:ApiGateway:ClientCertificate":
                 return new ClientCertificate(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:Deployment":
+            case "aws-native:ApiGateway:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:DocumentationPart":
+            case "aws-native:ApiGateway:DocumentationPart":
                 return new DocumentationPart(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:DocumentationVersion":
+            case "aws-native:ApiGateway:DocumentationVersion":
                 return new DocumentationVersion(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:DomainName":
+            case "aws-native:ApiGateway:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:GatewayResponse":
+            case "aws-native:ApiGateway:GatewayResponse":
                 return new GatewayResponse(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:Method":
+            case "aws-native:ApiGateway:Method":
                 return new Method(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:Model":
+            case "aws-native:ApiGateway:Model":
                 return new Model(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:RequestValidator":
+            case "aws-native:ApiGateway:RequestValidator":
                 return new RequestValidator(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:Resource":
+            case "aws-native:ApiGateway:Resource":
                 return new Resource(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:RestApi":
+            case "aws-native:ApiGateway:RestApi":
                 return new RestApi(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:Stage":
+            case "aws-native:ApiGateway:Stage":
                 return new Stage(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:UsagePlan":
+            case "aws-native:ApiGateway:UsagePlan":
                 return new UsagePlan(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:UsagePlanKey":
+            case "aws-native:ApiGateway:UsagePlanKey":
                 return new UsagePlanKey(name, <any>undefined, { urn })
-            case "cloudformation:ApiGateway:VpcLink":
+            case "aws-native:ApiGateway:VpcLink":
                 return new VpcLink(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ApiGateway", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ApiGateway", _module)

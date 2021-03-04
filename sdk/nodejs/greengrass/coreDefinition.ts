@@ -22,7 +22,7 @@ export class CoreDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Greengrass:CoreDefinition';
+    public static readonly __pulumiType = 'aws-native:Greengrass:CoreDefinition';
 
     /**
      * Returns true if the given object is an instance of CoreDefinition.  This is designed to work even

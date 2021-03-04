@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:DirectoryService:MicrosoftAD":
+            case "aws-native:DirectoryService:MicrosoftAD":
                 return new MicrosoftAD(name, <any>undefined, { urn })
-            case "cloudformation:DirectoryService:SimpleAD":
+            case "aws-native:DirectoryService:SimpleAD":
                 return new SimpleAD(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "DirectoryService", _module)
+pulumi.runtime.registerResourceModule("aws-native", "DirectoryService", _module)

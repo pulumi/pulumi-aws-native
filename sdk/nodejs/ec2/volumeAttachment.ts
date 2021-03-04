@@ -22,7 +22,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:VolumeAttachment';
+    public static readonly __pulumiType = 'aws-native:EC2:VolumeAttachment';
 
     /**
      * Returns true if the given object is an instance of VolumeAttachment.  This is designed to work even

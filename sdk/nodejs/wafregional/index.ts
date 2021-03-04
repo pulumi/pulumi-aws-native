@@ -34,31 +34,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:WAFRegional:ByteMatchSet":
+            case "aws-native:WAFRegional:ByteMatchSet":
                 return new ByteMatchSet(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:GeoMatchSet":
+            case "aws-native:WAFRegional:GeoMatchSet":
                 return new GeoMatchSet(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:IPSet":
+            case "aws-native:WAFRegional:IPSet":
                 return new IPSet(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:RateBasedRule":
+            case "aws-native:WAFRegional:RateBasedRule":
                 return new RateBasedRule(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:RegexPatternSet":
+            case "aws-native:WAFRegional:RegexPatternSet":
                 return new RegexPatternSet(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:Rule":
+            case "aws-native:WAFRegional:Rule":
                 return new Rule(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:SizeConstraintSet":
+            case "aws-native:WAFRegional:SizeConstraintSet":
                 return new SizeConstraintSet(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:SqlInjectionMatchSet":
+            case "aws-native:WAFRegional:SqlInjectionMatchSet":
                 return new SqlInjectionMatchSet(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:WebACL":
+            case "aws-native:WAFRegional:WebACL":
                 return new WebACL(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:WebACLAssociation":
+            case "aws-native:WAFRegional:WebACLAssociation":
                 return new WebACLAssociation(name, <any>undefined, { urn })
-            case "cloudformation:WAFRegional:XssMatchSet":
+            case "aws-native:WAFRegional:XssMatchSet":
                 return new XssMatchSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "WAFRegional", _module)
+pulumi.runtime.registerResourceModule("aws-native", "WAFRegional", _module)

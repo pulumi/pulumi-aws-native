@@ -22,7 +22,7 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodePipeline:Webhook';
+    public static readonly __pulumiType = 'aws-native:CodePipeline:Webhook';
 
     /**
      * Returns true if the given object is an instance of Webhook.  This is designed to work even

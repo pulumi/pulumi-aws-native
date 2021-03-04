@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Batch:ComputeEnvironment":
+            case "aws-native:Batch:ComputeEnvironment":
                 return new ComputeEnvironment(name, <any>undefined, { urn })
-            case "cloudformation:Batch:JobDefinition":
+            case "aws-native:Batch:JobDefinition":
                 return new JobDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Batch:JobQueue":
+            case "aws-native:Batch:JobQueue":
                 return new JobQueue(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Batch", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Batch", _module)

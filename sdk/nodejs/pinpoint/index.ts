@@ -48,45 +48,45 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Pinpoint:ADMChannel":
+            case "aws-native:Pinpoint:ADMChannel":
                 return new ADMChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:APNSChannel":
+            case "aws-native:Pinpoint:APNSChannel":
                 return new APNSChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:APNSSandboxChannel":
+            case "aws-native:Pinpoint:APNSSandboxChannel":
                 return new APNSSandboxChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:APNSVoipChannel":
+            case "aws-native:Pinpoint:APNSVoipChannel":
                 return new APNSVoipChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:APNSVoipSandboxChannel":
+            case "aws-native:Pinpoint:APNSVoipSandboxChannel":
                 return new APNSVoipSandboxChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:App":
+            case "aws-native:Pinpoint:App":
                 return new App(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:ApplicationSettings":
+            case "aws-native:Pinpoint:ApplicationSettings":
                 return new ApplicationSettings(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:BaiduChannel":
+            case "aws-native:Pinpoint:BaiduChannel":
                 return new BaiduChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:Campaign":
+            case "aws-native:Pinpoint:Campaign":
                 return new Campaign(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:EmailChannel":
+            case "aws-native:Pinpoint:EmailChannel":
                 return new EmailChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:EmailTemplate":
+            case "aws-native:Pinpoint:EmailTemplate":
                 return new EmailTemplate(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:EventStream":
+            case "aws-native:Pinpoint:EventStream":
                 return new EventStream(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:GCMChannel":
+            case "aws-native:Pinpoint:GCMChannel":
                 return new GCMChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:PushTemplate":
+            case "aws-native:Pinpoint:PushTemplate":
                 return new PushTemplate(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:SMSChannel":
+            case "aws-native:Pinpoint:SMSChannel":
                 return new SMSChannel(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:Segment":
+            case "aws-native:Pinpoint:Segment":
                 return new Segment(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:SmsTemplate":
+            case "aws-native:Pinpoint:SmsTemplate":
                 return new SmsTemplate(name, <any>undefined, { urn })
-            case "cloudformation:Pinpoint:VoiceChannel":
+            case "aws-native:Pinpoint:VoiceChannel":
                 return new VoiceChannel(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Pinpoint", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Pinpoint", _module)

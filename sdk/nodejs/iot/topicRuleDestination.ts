@@ -22,7 +22,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoT:TopicRuleDestination';
+    public static readonly __pulumiType = 'aws-native:IoT:TopicRuleDestination';
 
     /**
      * Returns true if the given object is an instance of TopicRuleDestination.  This is designed to work even

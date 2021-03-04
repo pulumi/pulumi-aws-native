@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:FMS:NotificationChannel":
+            case "aws-native:FMS:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
-            case "cloudformation:FMS:Policy":
+            case "aws-native:FMS:Policy":
                 return new Policy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "FMS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "FMS", _module)

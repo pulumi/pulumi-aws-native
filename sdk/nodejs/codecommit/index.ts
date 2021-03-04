@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CodeCommit:Repository":
+            case "aws-native:CodeCommit:Repository":
                 return new Repository(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CodeCommit", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CodeCommit", _module)

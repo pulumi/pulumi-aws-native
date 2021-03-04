@@ -22,7 +22,7 @@ export class LogGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Logs:LogGroup';
+    public static readonly __pulumiType = 'aws-native:Logs:LogGroup';
 
     /**
      * Returns true if the given object is an instance of LogGroup.  This is designed to work even

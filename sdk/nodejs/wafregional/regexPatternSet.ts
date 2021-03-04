@@ -22,7 +22,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WAFRegional:RegexPatternSet';
+    public static readonly __pulumiType = 'aws-native:WAFRegional:RegexPatternSet';
 
     /**
      * Returns true if the given object is an instance of RegexPatternSet.  This is designed to work even

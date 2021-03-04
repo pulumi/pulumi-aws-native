@@ -22,7 +22,7 @@ export class UserPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Cognito:UserPool';
+    public static readonly __pulumiType = 'aws-native:Cognito:UserPool';
 
     /**
      * Returns true if the given object is an instance of UserPool.  This is designed to work even

@@ -22,7 +22,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SSM:ResourceDataSync';
+    public static readonly __pulumiType = 'aws-native:SSM:ResourceDataSync';
 
     /**
      * Returns true if the given object is an instance of ResourceDataSync.  This is designed to work even

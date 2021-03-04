@@ -22,7 +22,7 @@ export class EventBusPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Events:EventBusPolicy';
+    public static readonly __pulumiType = 'aws-native:Events:EventBusPolicy';
 
     /**
      * Returns true if the given object is an instance of EventBusPolicy.  This is designed to work even

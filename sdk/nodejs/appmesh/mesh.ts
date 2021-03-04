@@ -22,7 +22,7 @@ export class Mesh extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppMesh:Mesh';
+    public static readonly __pulumiType = 'aws-native:AppMesh:Mesh';
 
     /**
      * Returns true if the given object is an instance of Mesh.  This is designed to work even

@@ -22,7 +22,7 @@ export class App extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Amplify:App';
+    public static readonly __pulumiType = 'aws-native:Amplify:App';
 
     /**
      * Returns true if the given object is an instance of App.  This is designed to work even

@@ -22,7 +22,7 @@ export class Portfolio extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ServiceCatalog:Portfolio';
+    public static readonly __pulumiType = 'aws-native:ServiceCatalog:Portfolio';
 
     /**
      * Returns true if the given object is an instance of Portfolio.  This is designed to work even

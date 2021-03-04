@@ -22,7 +22,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GameLift:GameServerGroup';
+    public static readonly __pulumiType = 'aws-native:GameLift:GameServerGroup';
 
     /**
      * Returns true if the given object is an instance of GameServerGroup.  This is designed to work even

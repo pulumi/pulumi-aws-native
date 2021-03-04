@@ -36,33 +36,33 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:RDS:DBCluster":
+            case "aws-native:RDS:DBCluster":
                 return new DBCluster(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBClusterParameterGroup":
+            case "aws-native:RDS:DBClusterParameterGroup":
                 return new DBClusterParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBInstance":
+            case "aws-native:RDS:DBInstance":
                 return new DBInstance(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBParameterGroup":
+            case "aws-native:RDS:DBParameterGroup":
                 return new DBParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBProxy":
+            case "aws-native:RDS:DBProxy":
                 return new DBProxy(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBProxyTargetGroup":
+            case "aws-native:RDS:DBProxyTargetGroup":
                 return new DBProxyTargetGroup(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBSecurityGroup":
+            case "aws-native:RDS:DBSecurityGroup":
                 return new DBSecurityGroup(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBSecurityGroupIngress":
+            case "aws-native:RDS:DBSecurityGroupIngress":
                 return new DBSecurityGroupIngress(name, <any>undefined, { urn })
-            case "cloudformation:RDS:DBSubnetGroup":
+            case "aws-native:RDS:DBSubnetGroup":
                 return new DBSubnetGroup(name, <any>undefined, { urn })
-            case "cloudformation:RDS:EventSubscription":
+            case "aws-native:RDS:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
-            case "cloudformation:RDS:GlobalCluster":
+            case "aws-native:RDS:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
-            case "cloudformation:RDS:OptionGroup":
+            case "aws-native:RDS:OptionGroup":
                 return new OptionGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "RDS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "RDS", _module)

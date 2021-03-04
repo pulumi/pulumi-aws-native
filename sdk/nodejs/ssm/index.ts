@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:SSM:Association":
+            case "aws-native:SSM:Association":
                 return new Association(name, <any>undefined, { urn })
-            case "cloudformation:SSM:Document":
+            case "aws-native:SSM:Document":
                 return new Document(name, <any>undefined, { urn })
-            case "cloudformation:SSM:MaintenanceWindow":
+            case "aws-native:SSM:MaintenanceWindow":
                 return new MaintenanceWindow(name, <any>undefined, { urn })
-            case "cloudformation:SSM:MaintenanceWindowTarget":
+            case "aws-native:SSM:MaintenanceWindowTarget":
                 return new MaintenanceWindowTarget(name, <any>undefined, { urn })
-            case "cloudformation:SSM:MaintenanceWindowTask":
+            case "aws-native:SSM:MaintenanceWindowTask":
                 return new MaintenanceWindowTask(name, <any>undefined, { urn })
-            case "cloudformation:SSM:Parameter":
+            case "aws-native:SSM:Parameter":
                 return new Parameter(name, <any>undefined, { urn })
-            case "cloudformation:SSM:PatchBaseline":
+            case "aws-native:SSM:PatchBaseline":
                 return new PatchBaseline(name, <any>undefined, { urn })
-            case "cloudformation:SSM:ResourceDataSync":
+            case "aws-native:SSM:ResourceDataSync":
                 return new ResourceDataSync(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "SSM", _module)
+pulumi.runtime.registerResourceModule("aws-native", "SSM", _module)

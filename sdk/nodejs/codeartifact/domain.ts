@@ -22,7 +22,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodeArtifact:Domain';
+    public static readonly __pulumiType = 'aws-native:CodeArtifact:Domain';
 
     /**
      * Returns true if the given object is an instance of Domain.  This is designed to work even

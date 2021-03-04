@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:OpsWorks:App":
+            case "aws-native:OpsWorks:App":
                 return new App(name, <any>undefined, { urn })
-            case "cloudformation:OpsWorks:ElasticLoadBalancerAttachment":
+            case "aws-native:OpsWorks:ElasticLoadBalancerAttachment":
                 return new ElasticLoadBalancerAttachment(name, <any>undefined, { urn })
-            case "cloudformation:OpsWorks:Instance":
+            case "aws-native:OpsWorks:Instance":
                 return new Instance(name, <any>undefined, { urn })
-            case "cloudformation:OpsWorks:Layer":
+            case "aws-native:OpsWorks:Layer":
                 return new Layer(name, <any>undefined, { urn })
-            case "cloudformation:OpsWorks:Stack":
+            case "aws-native:OpsWorks:Stack":
                 return new Stack(name, <any>undefined, { urn })
-            case "cloudformation:OpsWorks:UserProfile":
+            case "aws-native:OpsWorks:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
-            case "cloudformation:OpsWorks:Volume":
+            case "aws-native:OpsWorks:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "OpsWorks", _module)
+pulumi.runtime.registerResourceModule("aws-native", "OpsWorks", _module)

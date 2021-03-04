@@ -22,7 +22,7 @@ export class JobDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Batch:JobDefinition';
+    public static readonly __pulumiType = 'aws-native:Batch:JobDefinition';
 
     /**
      * Returns true if the given object is an instance of JobDefinition.  This is designed to work even

@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:AppSync:ApiCache":
+            case "aws-native:AppSync:ApiCache":
                 return new ApiCache(name, <any>undefined, { urn })
-            case "cloudformation:AppSync:ApiKey":
+            case "aws-native:AppSync:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
-            case "cloudformation:AppSync:DataSource":
+            case "aws-native:AppSync:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
-            case "cloudformation:AppSync:FunctionConfiguration":
+            case "aws-native:AppSync:FunctionConfiguration":
                 return new FunctionConfiguration(name, <any>undefined, { urn })
-            case "cloudformation:AppSync:GraphQLApi":
+            case "aws-native:AppSync:GraphQLApi":
                 return new GraphQLApi(name, <any>undefined, { urn })
-            case "cloudformation:AppSync:GraphQLSchema":
+            case "aws-native:AppSync:GraphQLSchema":
                 return new GraphQLSchema(name, <any>undefined, { urn })
-            case "cloudformation:AppSync:Resolver":
+            case "aws-native:AppSync:Resolver":
                 return new Resolver(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "AppSync", _module)
+pulumi.runtime.registerResourceModule("aws-native", "AppSync", _module)

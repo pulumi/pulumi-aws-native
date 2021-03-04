@@ -22,7 +22,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DMS:ReplicationSubnetGroup';
+    public static readonly __pulumiType = 'aws-native:DMS:ReplicationSubnetGroup';
 
     /**
      * Returns true if the given object is an instance of ReplicationSubnetGroup.  This is designed to work even

@@ -22,7 +22,7 @@ export class ClusterSecurityGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Redshift:ClusterSecurityGroup';
+    public static readonly __pulumiType = 'aws-native:Redshift:ClusterSecurityGroup';
 
     /**
      * Returns true if the given object is an instance of ClusterSecurityGroup.  This is designed to work even

@@ -22,7 +22,7 @@ export class Site extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:NetworkManager:Site';
+    public static readonly __pulumiType = 'aws-native:NetworkManager:Site';
 
     /**
      * Returns true if the given object is an instance of Site.  This is designed to work even

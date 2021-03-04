@@ -22,7 +22,7 @@ export class Listener extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GlobalAccelerator:Listener';
+    public static readonly __pulumiType = 'aws-native:GlobalAccelerator:Listener';
 
     /**
      * Returns true if the given object is an instance of Listener.  This is designed to work even

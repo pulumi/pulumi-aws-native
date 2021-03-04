@@ -22,7 +22,7 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:NetworkManager:CustomerGatewayAssociation';
+    public static readonly __pulumiType = 'aws-native:NetworkManager:CustomerGatewayAssociation';
 
     /**
      * Returns true if the given object is an instance of CustomerGatewayAssociation.  This is designed to work even

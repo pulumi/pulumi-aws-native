@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:IoT1Click:Device":
+            case "aws-native:IoT1Click:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "cloudformation:IoT1Click:Placement":
+            case "aws-native:IoT1Click:Placement":
                 return new Placement(name, <any>undefined, { urn })
-            case "cloudformation:IoT1Click:Project":
+            case "aws-native:IoT1Click:Project":
                 return new Project(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "IoT1Click", _module)
+pulumi.runtime.registerResourceModule("aws-native", "IoT1Click", _module)

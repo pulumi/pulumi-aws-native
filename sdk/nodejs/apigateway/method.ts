@@ -22,7 +22,7 @@ export class Method extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:Method';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:Method';
 
     /**
      * Returns true if the given object is an instance of Method.  This is designed to work even

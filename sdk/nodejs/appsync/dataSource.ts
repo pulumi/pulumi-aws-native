@@ -22,7 +22,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppSync:DataSource';
+    public static readonly __pulumiType = 'aws-native:AppSync:DataSource';
 
     /**
      * Returns true if the given object is an instance of DataSource.  This is designed to work even

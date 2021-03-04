@@ -22,7 +22,7 @@ export class SigningProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Signer:SigningProfile';
+    public static readonly __pulumiType = 'aws-native:Signer:SigningProfile';
 
     /**
      * Returns true if the given object is an instance of SigningProfile.  This is designed to work even

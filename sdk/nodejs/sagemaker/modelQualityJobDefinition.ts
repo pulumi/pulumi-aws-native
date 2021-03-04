@@ -22,7 +22,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:ModelQualityJobDefinition';
+    public static readonly __pulumiType = 'aws-native:SageMaker:ModelQualityJobDefinition';
 
     /**
      * Returns true if the given object is an instance of ModelQualityJobDefinition.  This is designed to work even

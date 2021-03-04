@@ -22,7 +22,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WAFRegional:GeoMatchSet';
+    public static readonly __pulumiType = 'aws-native:WAFRegional:GeoMatchSet';
 
     /**
      * Returns true if the given object is an instance of GeoMatchSet.  This is designed to work even

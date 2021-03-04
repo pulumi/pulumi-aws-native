@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:GroundStation:Config":
+            case "aws-native:GroundStation:Config":
                 return new Config(name, <any>undefined, { urn })
-            case "cloudformation:GroundStation:DataflowEndpointGroup":
+            case "aws-native:GroundStation:DataflowEndpointGroup":
                 return new DataflowEndpointGroup(name, <any>undefined, { urn })
-            case "cloudformation:GroundStation:MissionProfile":
+            case "aws-native:GroundStation:MissionProfile":
                 return new MissionProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "GroundStation", _module)
+pulumi.runtime.registerResourceModule("aws-native", "GroundStation", _module)

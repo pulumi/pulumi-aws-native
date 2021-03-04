@@ -22,7 +22,7 @@ export class GitHubRepository extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodeStar:GitHubRepository';
+    public static readonly __pulumiType = 'aws-native:CodeStar:GitHubRepository';
 
     /**
      * Returns true if the given object is an instance of GitHubRepository.  This is designed to work even

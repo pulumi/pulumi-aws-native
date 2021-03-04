@@ -22,7 +22,7 @@ export class GroupVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Greengrass:GroupVersion';
+    public static readonly __pulumiType = 'aws-native:Greengrass:GroupVersion';
 
     /**
      * Returns true if the given object is an instance of GroupVersion.  This is designed to work even

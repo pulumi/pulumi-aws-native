@@ -22,7 +22,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:EmailTemplate';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:EmailTemplate';
 
     /**
      * Returns true if the given object is an instance of EmailTemplate.  This is designed to work even

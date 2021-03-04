@@ -22,7 +22,7 @@ export class Table extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DynamoDB:Table';
+    public static readonly __pulumiType = 'aws-native:DynamoDB:Table';
 
     /**
      * Returns true if the given object is an instance of Table.  This is designed to work even

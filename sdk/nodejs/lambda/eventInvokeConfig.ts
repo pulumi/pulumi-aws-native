@@ -22,7 +22,7 @@ export class EventInvokeConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Lambda:EventInvokeConfig';
+    public static readonly __pulumiType = 'aws-native:Lambda:EventInvokeConfig';
 
     /**
      * Returns true if the given object is an instance of EventInvokeConfig.  This is designed to work even

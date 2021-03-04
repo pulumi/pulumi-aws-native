@@ -13,7 +13,7 @@ export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getPartition", {
+    return pulumi.runtime.invoke("aws-native:index:getPartition", {
     }, opts);
 }
 

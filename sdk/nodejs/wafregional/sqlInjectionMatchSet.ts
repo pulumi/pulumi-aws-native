@@ -22,7 +22,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WAFRegional:SqlInjectionMatchSet';
+    public static readonly __pulumiType = 'aws-native:WAFRegional:SqlInjectionMatchSet';
 
     /**
      * Returns true if the given object is an instance of SqlInjectionMatchSet.  This is designed to work even

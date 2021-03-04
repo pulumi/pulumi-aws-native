@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:S3:AccessPoint":
+            case "aws-native:S3:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
-            case "cloudformation:S3:Bucket":
+            case "aws-native:S3:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
-            case "cloudformation:S3:BucketPolicy":
+            case "aws-native:S3:BucketPolicy":
                 return new BucketPolicy(name, <any>undefined, { urn })
-            case "cloudformation:S3:StorageLens":
+            case "aws-native:S3:StorageLens":
                 return new StorageLens(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "S3", _module)
+pulumi.runtime.registerResourceModule("aws-native", "S3", _module)

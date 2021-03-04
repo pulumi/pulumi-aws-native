@@ -22,7 +22,7 @@ export class TaskSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ECS:TaskSet';
+    public static readonly __pulumiType = 'aws-native:ECS:TaskSet';
 
     /**
      * Returns true if the given object is an instance of TaskSet.  This is designed to work even

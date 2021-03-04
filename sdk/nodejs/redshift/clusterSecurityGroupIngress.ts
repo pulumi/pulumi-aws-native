@@ -22,7 +22,7 @@ export class ClusterSecurityGroupIngress extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Redshift:ClusterSecurityGroupIngress';
+    public static readonly __pulumiType = 'aws-native:Redshift:ClusterSecurityGroupIngress';
 
     /**
      * Returns true if the given object is an instance of ClusterSecurityGroupIngress.  This is designed to work even

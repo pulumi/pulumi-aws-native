@@ -22,7 +22,7 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GroundStation:DataflowEndpointGroup';
+    public static readonly __pulumiType = 'aws-native:GroundStation:DataflowEndpointGroup';
 
     /**
      * Returns true if the given object is an instance of DataflowEndpointGroup.  This is designed to work even

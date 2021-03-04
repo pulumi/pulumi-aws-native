@@ -22,7 +22,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppStream:DirectoryConfig';
+    public static readonly __pulumiType = 'aws-native:AppStream:DirectoryConfig';
 
     /**
      * Returns true if the given object is an instance of DirectoryConfig.  This is designed to work even

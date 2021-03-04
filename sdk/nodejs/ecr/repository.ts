@@ -22,7 +22,7 @@ export class Repository extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ECR:Repository';
+    public static readonly __pulumiType = 'aws-native:ECR:Repository';
 
     /**
      * Returns true if the given object is an instance of Repository.  This is designed to work even

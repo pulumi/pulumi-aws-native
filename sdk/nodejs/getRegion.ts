@@ -13,7 +13,7 @@ export function getRegion(opts?: pulumi.InvokeOptions): Promise<GetRegionResult>
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getRegion", {
+    return pulumi.runtime.invoke("aws-native:index:getRegion", {
     }, opts);
 }
 

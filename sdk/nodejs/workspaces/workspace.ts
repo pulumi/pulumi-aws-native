@@ -22,7 +22,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WorkSpaces:Workspace';
+    public static readonly __pulumiType = 'aws-native:WorkSpaces:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even

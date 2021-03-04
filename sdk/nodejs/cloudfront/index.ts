@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CloudFront:CachePolicy":
+            case "aws-native:CloudFront:CachePolicy":
                 return new CachePolicy(name, <any>undefined, { urn })
-            case "cloudformation:CloudFront:CloudFrontOriginAccessIdentity":
+            case "aws-native:CloudFront:CloudFrontOriginAccessIdentity":
                 return new CloudFrontOriginAccessIdentity(name, <any>undefined, { urn })
-            case "cloudformation:CloudFront:Distribution":
+            case "aws-native:CloudFront:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
-            case "cloudformation:CloudFront:KeyGroup":
+            case "aws-native:CloudFront:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
-            case "cloudformation:CloudFront:OriginRequestPolicy":
+            case "aws-native:CloudFront:OriginRequestPolicy":
                 return new OriginRequestPolicy(name, <any>undefined, { urn })
-            case "cloudformation:CloudFront:PublicKey":
+            case "aws-native:CloudFront:PublicKey":
                 return new PublicKey(name, <any>undefined, { urn })
-            case "cloudformation:CloudFront:RealtimeLogConfig":
+            case "aws-native:CloudFront:RealtimeLogConfig":
                 return new RealtimeLogConfig(name, <any>undefined, { urn })
-            case "cloudformation:CloudFront:StreamingDistribution":
+            case "aws-native:CloudFront:StreamingDistribution":
                 return new StreamingDistribution(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CloudFront", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CloudFront", _module)

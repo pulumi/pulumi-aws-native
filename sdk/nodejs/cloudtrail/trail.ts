@@ -22,7 +22,7 @@ export class Trail extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudTrail:Trail';
+    public static readonly __pulumiType = 'aws-native:CloudTrail:Trail';
 
     /**
      * Returns true if the given object is an instance of Trail.  This is designed to work even

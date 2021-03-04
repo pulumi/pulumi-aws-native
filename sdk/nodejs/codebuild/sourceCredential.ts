@@ -22,7 +22,7 @@ export class SourceCredential extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodeBuild:SourceCredential';
+    public static readonly __pulumiType = 'aws-native:CodeBuild:SourceCredential';
 
     /**
      * Returns true if the given object is an instance of SourceCredential.  This is designed to work even

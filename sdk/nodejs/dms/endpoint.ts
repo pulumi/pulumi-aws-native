@@ -22,7 +22,7 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DMS:Endpoint';
+    public static readonly __pulumiType = 'aws-native:DMS:Endpoint';
 
     /**
      * Returns true if the given object is an instance of Endpoint.  This is designed to work even

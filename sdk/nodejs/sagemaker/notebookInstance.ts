@@ -22,7 +22,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:NotebookInstance';
+    public static readonly __pulumiType = 'aws-native:SageMaker:NotebookInstance';
 
     /**
      * Returns true if the given object is an instance of NotebookInstance.  This is designed to work even

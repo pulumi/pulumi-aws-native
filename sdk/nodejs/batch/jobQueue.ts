@@ -22,7 +22,7 @@ export class JobQueue extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Batch:JobQueue';
+    public static readonly __pulumiType = 'aws-native:Batch:JobQueue';
 
     /**
      * Returns true if the given object is an instance of JobQueue.  This is designed to work even

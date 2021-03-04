@@ -22,7 +22,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppSync:GraphQLApi';
+    public static readonly __pulumiType = 'aws-native:AppSync:GraphQLApi';
 
     /**
      * Returns true if the given object is an instance of GraphQLApi.  This is designed to work even

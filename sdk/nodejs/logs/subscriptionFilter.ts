@@ -22,7 +22,7 @@ export class SubscriptionFilter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Logs:SubscriptionFilter';
+    public static readonly __pulumiType = 'aws-native:Logs:SubscriptionFilter';
 
     /**
      * Returns true if the given object is an instance of SubscriptionFilter.  This is designed to work even

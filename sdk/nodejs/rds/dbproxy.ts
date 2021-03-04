@@ -22,7 +22,7 @@ export class DBProxy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RDS:DBProxy';
+    public static readonly __pulumiType = 'aws-native:RDS:DBProxy';
 
     /**
      * Returns true if the given object is an instance of DBProxy.  This is designed to work even

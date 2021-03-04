@@ -22,7 +22,7 @@ export class ClientCertificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:ClientCertificate';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:ClientCertificate';
 
     /**
      * Returns true if the given object is an instance of ClientCertificate.  This is designed to work even

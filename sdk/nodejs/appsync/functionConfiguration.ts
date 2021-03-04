@@ -22,7 +22,7 @@ export class FunctionConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppSync:FunctionConfiguration';
+    public static readonly __pulumiType = 'aws-native:AppSync:FunctionConfiguration';
 
     /**
      * Returns true if the given object is an instance of FunctionConfiguration.  This is designed to work even

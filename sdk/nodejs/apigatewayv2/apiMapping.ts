@@ -22,7 +22,7 @@ export class ApiMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGatewayV2:ApiMapping';
+    public static readonly __pulumiType = 'aws-native:ApiGatewayV2:ApiMapping';
 
     /**
      * Returns true if the given object is an instance of ApiMapping.  This is designed to work even

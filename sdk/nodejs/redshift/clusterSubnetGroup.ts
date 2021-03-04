@@ -22,7 +22,7 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Redshift:ClusterSubnetGroup';
+    public static readonly __pulumiType = 'aws-native:Redshift:ClusterSubnetGroup';
 
     /**
      * Returns true if the given object is an instance of ClusterSubnetGroup.  This is designed to work even

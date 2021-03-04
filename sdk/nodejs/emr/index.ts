@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:EMR:Cluster":
+            case "aws-native:EMR:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "cloudformation:EMR:InstanceFleetConfig":
+            case "aws-native:EMR:InstanceFleetConfig":
                 return new InstanceFleetConfig(name, <any>undefined, { urn })
-            case "cloudformation:EMR:InstanceGroupConfig":
+            case "aws-native:EMR:InstanceGroupConfig":
                 return new InstanceGroupConfig(name, <any>undefined, { urn })
-            case "cloudformation:EMR:SecurityConfiguration":
+            case "aws-native:EMR:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
-            case "cloudformation:EMR:Step":
+            case "aws-native:EMR:Step":
                 return new Step(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "EMR", _module)
+pulumi.runtime.registerResourceModule("aws-native", "EMR", _module)

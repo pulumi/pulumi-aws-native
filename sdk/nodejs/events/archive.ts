@@ -22,7 +22,7 @@ export class Archive extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Events:Archive';
+    public static readonly __pulumiType = 'aws-native:Events:Archive';
 
     /**
      * Returns true if the given object is an instance of Archive.  This is designed to work even

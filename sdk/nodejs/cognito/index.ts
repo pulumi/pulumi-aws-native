@@ -36,33 +36,33 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Cognito:IdentityPool":
+            case "aws-native:Cognito:IdentityPool":
                 return new IdentityPool(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:IdentityPoolRoleAttachment":
+            case "aws-native:Cognito:IdentityPoolRoleAttachment":
                 return new IdentityPoolRoleAttachment(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPool":
+            case "aws-native:Cognito:UserPool":
                 return new UserPool(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolClient":
+            case "aws-native:Cognito:UserPoolClient":
                 return new UserPoolClient(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolDomain":
+            case "aws-native:Cognito:UserPoolDomain":
                 return new UserPoolDomain(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolGroup":
+            case "aws-native:Cognito:UserPoolGroup":
                 return new UserPoolGroup(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolIdentityProvider":
+            case "aws-native:Cognito:UserPoolIdentityProvider":
                 return new UserPoolIdentityProvider(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolResourceServer":
+            case "aws-native:Cognito:UserPoolResourceServer":
                 return new UserPoolResourceServer(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolRiskConfigurationAttachment":
+            case "aws-native:Cognito:UserPoolRiskConfigurationAttachment":
                 return new UserPoolRiskConfigurationAttachment(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolUICustomizationAttachment":
+            case "aws-native:Cognito:UserPoolUICustomizationAttachment":
                 return new UserPoolUICustomizationAttachment(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolUser":
+            case "aws-native:Cognito:UserPoolUser":
                 return new UserPoolUser(name, <any>undefined, { urn })
-            case "cloudformation:Cognito:UserPoolUserToGroupAttachment":
+            case "aws-native:Cognito:UserPoolUserToGroupAttachment":
                 return new UserPoolUserToGroupAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Cognito", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Cognito", _module)

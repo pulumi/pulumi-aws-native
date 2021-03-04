@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Backup:BackupPlan":
+            case "aws-native:Backup:BackupPlan":
                 return new BackupPlan(name, <any>undefined, { urn })
-            case "cloudformation:Backup:BackupSelection":
+            case "aws-native:Backup:BackupSelection":
                 return new BackupSelection(name, <any>undefined, { urn })
-            case "cloudformation:Backup:BackupVault":
+            case "aws-native:Backup:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Backup", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Backup", _module)

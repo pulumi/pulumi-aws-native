@@ -22,7 +22,7 @@ export class Schema extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:Schema';
+    public static readonly __pulumiType = 'aws-native:Glue:Schema';
 
     /**
      * Returns true if the given object is an instance of Schema.  This is designed to work even

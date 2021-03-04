@@ -22,7 +22,7 @@ export class ClientVpnRoute extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:ClientVpnRoute';
+    public static readonly __pulumiType = 'aws-native:EC2:ClientVpnRoute';
 
     /**
      * Returns true if the given object is an instance of ClientVpnRoute.  This is designed to work even

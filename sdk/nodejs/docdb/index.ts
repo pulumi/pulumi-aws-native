@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:DocDB:DBCluster":
+            case "aws-native:DocDB:DBCluster":
                 return new DBCluster(name, <any>undefined, { urn })
-            case "cloudformation:DocDB:DBClusterParameterGroup":
+            case "aws-native:DocDB:DBClusterParameterGroup":
                 return new DBClusterParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:DocDB:DBInstance":
+            case "aws-native:DocDB:DBInstance":
                 return new DBInstance(name, <any>undefined, { urn })
-            case "cloudformation:DocDB:DBSubnetGroup":
+            case "aws-native:DocDB:DBSubnetGroup":
                 return new DBSubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "DocDB", _module)
+pulumi.runtime.registerResourceModule("aws-native", "DocDB", _module)

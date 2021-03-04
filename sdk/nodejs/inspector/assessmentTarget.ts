@@ -22,7 +22,7 @@ export class AssessmentTarget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Inspector:AssessmentTarget';
+    public static readonly __pulumiType = 'aws-native:Inspector:AssessmentTarget';
 
     /**
      * Returns true if the given object is an instance of AssessmentTarget.  This is designed to work even

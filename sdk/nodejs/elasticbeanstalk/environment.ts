@@ -22,7 +22,7 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElasticBeanstalk:Environment';
+    public static readonly __pulumiType = 'aws-native:ElasticBeanstalk:Environment';
 
     /**
      * Returns true if the given object is an instance of Environment.  This is designed to work even

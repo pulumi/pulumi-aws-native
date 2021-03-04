@@ -22,7 +22,7 @@ export class ResolverRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Route53Resolver:ResolverRule';
+    public static readonly __pulumiType = 'aws-native:Route53Resolver:ResolverRule';
 
     /**
      * Returns true if the given object is an instance of ResolverRule.  This is designed to work even

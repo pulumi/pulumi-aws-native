@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:EventSchemas:Discoverer":
+            case "aws-native:EventSchemas:Discoverer":
                 return new Discoverer(name, <any>undefined, { urn })
-            case "cloudformation:EventSchemas:Registry":
+            case "aws-native:EventSchemas:Registry":
                 return new Registry(name, <any>undefined, { urn })
-            case "cloudformation:EventSchemas:RegistryPolicy":
+            case "aws-native:EventSchemas:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
-            case "cloudformation:EventSchemas:Schema":
+            case "aws-native:EventSchemas:Schema":
                 return new Schema(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "EventSchemas", _module)
+pulumi.runtime.registerResourceModule("aws-native", "EventSchemas", _module)

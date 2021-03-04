@@ -22,7 +22,7 @@ export class WorkGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Athena:WorkGroup';
+    public static readonly __pulumiType = 'aws-native:Athena:WorkGroup';
 
     /**
      * Returns true if the given object is an instance of WorkGroup.  This is designed to work even

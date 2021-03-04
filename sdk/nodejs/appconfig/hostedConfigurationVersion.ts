@@ -22,7 +22,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppConfig:HostedConfigurationVersion';
+    public static readonly __pulumiType = 'aws-native:AppConfig:HostedConfigurationVersion';
 
     /**
      * Returns true if the given object is an instance of HostedConfigurationVersion.  This is designed to work even

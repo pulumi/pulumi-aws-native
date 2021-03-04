@@ -22,7 +22,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SES:ReceiptFilter';
+    public static readonly __pulumiType = 'aws-native:SES:ReceiptFilter';
 
     /**
      * Returns true if the given object is an instance of ReceiptFilter.  This is designed to work even

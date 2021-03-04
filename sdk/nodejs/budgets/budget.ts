@@ -22,7 +22,7 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Budgets:Budget';
+    public static readonly __pulumiType = 'aws-native:Budgets:Budget';
 
     /**
      * Returns true if the given object is an instance of Budget.  This is designed to work even

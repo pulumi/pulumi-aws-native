@@ -22,7 +22,7 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ECS:PrimaryTaskSet';
+    public static readonly __pulumiType = 'aws-native:ECS:PrimaryTaskSet';
 
     /**
      * Returns true if the given object is an instance of PrimaryTaskSet.  This is designed to work even

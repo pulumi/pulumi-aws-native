@@ -22,7 +22,7 @@ export class RequestValidator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:RequestValidator';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:RequestValidator';
 
     /**
      * Returns true if the given object is an instance of RequestValidator.  This is designed to work even

@@ -22,7 +22,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppConfig:ConfigurationProfile';
+    public static readonly __pulumiType = 'aws-native:AppConfig:ConfigurationProfile';
 
     /**
      * Returns true if the given object is an instance of ConfigurationProfile.  This is designed to work even

@@ -22,7 +22,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DMS:ReplicationInstance';
+    public static readonly __pulumiType = 'aws-native:DMS:ReplicationInstance';
 
     /**
      * Returns true if the given object is an instance of ReplicationInstance.  This is designed to work even

@@ -30,27 +30,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Configuration:AggregationAuthorization":
+            case "aws-native:Configuration:AggregationAuthorization":
                 return new AggregationAuthorization(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:ConfigRule":
+            case "aws-native:Configuration:ConfigRule":
                 return new ConfigRule(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:ConfigurationAggregator":
+            case "aws-native:Configuration:ConfigurationAggregator":
                 return new ConfigurationAggregator(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:ConfigurationRecorder":
+            case "aws-native:Configuration:ConfigurationRecorder":
                 return new ConfigurationRecorder(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:ConformancePack":
+            case "aws-native:Configuration:ConformancePack":
                 return new ConformancePack(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:DeliveryChannel":
+            case "aws-native:Configuration:DeliveryChannel":
                 return new DeliveryChannel(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:OrganizationConfigRule":
+            case "aws-native:Configuration:OrganizationConfigRule":
                 return new OrganizationConfigRule(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:OrganizationConformancePack":
+            case "aws-native:Configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
-            case "cloudformation:Configuration:RemediationConfiguration":
+            case "aws-native:Configuration:RemediationConfiguration":
                 return new RemediationConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Configuration", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Configuration", _module)

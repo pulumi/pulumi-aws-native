@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ACMPCA:Certificate":
+            case "aws-native:ACMPCA:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "cloudformation:ACMPCA:CertificateAuthority":
+            case "aws-native:ACMPCA:CertificateAuthority":
                 return new CertificateAuthority(name, <any>undefined, { urn })
-            case "cloudformation:ACMPCA:CertificateAuthorityActivation":
+            case "aws-native:ACMPCA:CertificateAuthorityActivation":
                 return new CertificateAuthorityActivation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ACMPCA", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ACMPCA", _module)

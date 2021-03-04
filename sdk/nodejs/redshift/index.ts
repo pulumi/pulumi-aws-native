@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Redshift:Cluster":
+            case "aws-native:Redshift:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "cloudformation:Redshift:ClusterParameterGroup":
+            case "aws-native:Redshift:ClusterParameterGroup":
                 return new ClusterParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:Redshift:ClusterSecurityGroup":
+            case "aws-native:Redshift:ClusterSecurityGroup":
                 return new ClusterSecurityGroup(name, <any>undefined, { urn })
-            case "cloudformation:Redshift:ClusterSecurityGroupIngress":
+            case "aws-native:Redshift:ClusterSecurityGroupIngress":
                 return new ClusterSecurityGroupIngress(name, <any>undefined, { urn })
-            case "cloudformation:Redshift:ClusterSubnetGroup":
+            case "aws-native:Redshift:ClusterSubnetGroup":
                 return new ClusterSubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Redshift", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Redshift", _module)

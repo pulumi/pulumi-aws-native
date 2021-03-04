@@ -13,7 +13,7 @@ export function getAccountId(opts?: pulumi.InvokeOptions): Promise<GetAccountIdR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getAccountId", {
+    return pulumi.runtime.invoke("aws-native:index:getAccountId", {
     }, opts);
 }
 

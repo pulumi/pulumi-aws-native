@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:QLDB:Ledger":
+            case "aws-native:QLDB:Ledger":
                 return new Ledger(name, <any>undefined, { urn })
-            case "cloudformation:QLDB:Stream":
+            case "aws-native:QLDB:Stream":
                 return new Stream(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "QLDB", _module)
+pulumi.runtime.registerResourceModule("aws-native", "QLDB", _module)

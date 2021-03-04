@@ -22,7 +22,7 @@ export class Input extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoTEvents:Input';
+    public static readonly __pulumiType = 'aws-native:IoTEvents:Input';
 
     /**
      * Returns true if the given object is an instance of Input.  This is designed to work even

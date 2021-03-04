@@ -22,7 +22,7 @@ export class LayerVersionPermission extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Lambda:LayerVersionPermission';
+    public static readonly __pulumiType = 'aws-native:Lambda:LayerVersionPermission';
 
     /**
      * Returns true if the given object is an instance of LayerVersionPermission.  This is designed to work even

@@ -22,7 +22,7 @@ export class CacheCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElastiCache:CacheCluster';
+    public static readonly __pulumiType = 'aws-native:ElastiCache:CacheCluster';
 
     /**
      * Returns true if the given object is an instance of CacheCluster.  This is designed to work even

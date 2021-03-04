@@ -22,7 +22,7 @@ export class Faq extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Kendra:Faq';
+    public static readonly __pulumiType = 'aws-native:Kendra:Faq';
 
     /**
      * Returns true if the given object is an instance of Faq.  This is designed to work even

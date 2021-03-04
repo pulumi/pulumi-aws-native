@@ -22,7 +22,7 @@ export class ClientVpnTargetNetworkAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:ClientVpnTargetNetworkAssociation';
+    public static readonly __pulumiType = 'aws-native:EC2:ClientVpnTargetNetworkAssociation';
 
     /**
      * Returns true if the given object is an instance of ClientVpnTargetNetworkAssociation.  This is designed to work even

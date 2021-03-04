@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:GreengrassV2:ComponentVersion":
+            case "aws-native:GreengrassV2:ComponentVersion":
                 return new ComponentVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "GreengrassV2", _module)
+pulumi.runtime.registerResourceModule("aws-native", "GreengrassV2", _module)

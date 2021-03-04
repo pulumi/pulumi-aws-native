@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:NetworkManager:CustomerGatewayAssociation":
+            case "aws-native:NetworkManager:CustomerGatewayAssociation":
                 return new CustomerGatewayAssociation(name, <any>undefined, { urn })
-            case "cloudformation:NetworkManager:Device":
+            case "aws-native:NetworkManager:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "cloudformation:NetworkManager:GlobalNetwork":
+            case "aws-native:NetworkManager:GlobalNetwork":
                 return new GlobalNetwork(name, <any>undefined, { urn })
-            case "cloudformation:NetworkManager:Link":
+            case "aws-native:NetworkManager:Link":
                 return new Link(name, <any>undefined, { urn })
-            case "cloudformation:NetworkManager:LinkAssociation":
+            case "aws-native:NetworkManager:LinkAssociation":
                 return new LinkAssociation(name, <any>undefined, { urn })
-            case "cloudformation:NetworkManager:Site":
+            case "aws-native:NetworkManager:Site":
                 return new Site(name, <any>undefined, { urn })
-            case "cloudformation:NetworkManager:TransitGatewayRegistration":
+            case "aws-native:NetworkManager:TransitGatewayRegistration":
                 return new TransitGatewayRegistration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "NetworkManager", _module)
+pulumi.runtime.registerResourceModule("aws-native", "NetworkManager", _module)

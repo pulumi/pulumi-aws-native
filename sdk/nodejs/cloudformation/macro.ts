@@ -22,7 +22,7 @@ export class Macro extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFormation:Macro';
+    public static readonly __pulumiType = 'aws-native:CloudFormation:Macro';
 
     /**
      * Returns true if the given object is an instance of Macro.  This is designed to work even

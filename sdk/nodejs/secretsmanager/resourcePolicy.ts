@@ -22,7 +22,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SecretsManager:ResourcePolicy';
+    public static readonly __pulumiType = 'aws-native:SecretsManager:ResourcePolicy';
 
     /**
      * Returns true if the given object is an instance of ResourcePolicy.  This is designed to work even

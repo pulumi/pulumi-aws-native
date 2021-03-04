@@ -22,7 +22,7 @@ export class Nodegroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EKS:Nodegroup';
+    public static readonly __pulumiType = 'aws-native:EKS:Nodegroup';
 
     /**
      * Returns true if the given object is an instance of Nodegroup.  This is designed to work even

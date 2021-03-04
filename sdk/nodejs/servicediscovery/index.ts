@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ServiceDiscovery:HttpNamespace":
+            case "aws-native:ServiceDiscovery:HttpNamespace":
                 return new HttpNamespace(name, <any>undefined, { urn })
-            case "cloudformation:ServiceDiscovery:Instance":
+            case "aws-native:ServiceDiscovery:Instance":
                 return new Instance(name, <any>undefined, { urn })
-            case "cloudformation:ServiceDiscovery:PrivateDnsNamespace":
+            case "aws-native:ServiceDiscovery:PrivateDnsNamespace":
                 return new PrivateDnsNamespace(name, <any>undefined, { urn })
-            case "cloudformation:ServiceDiscovery:PublicDnsNamespace":
+            case "aws-native:ServiceDiscovery:PublicDnsNamespace":
                 return new PublicDnsNamespace(name, <any>undefined, { urn })
-            case "cloudformation:ServiceDiscovery:Service":
+            case "aws-native:ServiceDiscovery:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ServiceDiscovery", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ServiceDiscovery", _module)

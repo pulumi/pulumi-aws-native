@@ -22,7 +22,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:DeviceFleet';
+    public static readonly __pulumiType = 'aws-native:SageMaker:DeviceFleet';
 
     /**
      * Returns true if the given object is an instance of DeviceFleet.  This is designed to work even

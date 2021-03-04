@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:PinpointEmail:ConfigurationSet":
+            case "aws-native:PinpointEmail:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
-            case "cloudformation:PinpointEmail:ConfigurationSetEventDestination":
+            case "aws-native:PinpointEmail:ConfigurationSetEventDestination":
                 return new ConfigurationSetEventDestination(name, <any>undefined, { urn })
-            case "cloudformation:PinpointEmail:DedicatedIpPool":
+            case "aws-native:PinpointEmail:DedicatedIpPool":
                 return new DedicatedIpPool(name, <any>undefined, { urn })
-            case "cloudformation:PinpointEmail:Identity":
+            case "aws-native:PinpointEmail:Identity":
                 return new Identity(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "PinpointEmail", _module)
+pulumi.runtime.registerResourceModule("aws-native", "PinpointEmail", _module)

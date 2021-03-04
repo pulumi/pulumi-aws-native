@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CodeGuruReviewer:RepositoryAssociation":
+            case "aws-native:CodeGuruReviewer:RepositoryAssociation":
                 return new RepositoryAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CodeGuruReviewer", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CodeGuruReviewer", _module)

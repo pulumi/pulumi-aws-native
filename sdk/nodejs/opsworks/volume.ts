@@ -22,7 +22,7 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:OpsWorks:Volume';
+    public static readonly __pulumiType = 'aws-native:OpsWorks:Volume';
 
     /**
      * Returns true if the given object is an instance of Volume.  This is designed to work even

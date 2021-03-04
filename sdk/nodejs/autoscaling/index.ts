@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:AutoScaling:AutoScalingGroup":
+            case "aws-native:AutoScaling:AutoScalingGroup":
                 return new AutoScalingGroup(name, <any>undefined, { urn })
-            case "cloudformation:AutoScaling:LaunchConfiguration":
+            case "aws-native:AutoScaling:LaunchConfiguration":
                 return new LaunchConfiguration(name, <any>undefined, { urn })
-            case "cloudformation:AutoScaling:LifecycleHook":
+            case "aws-native:AutoScaling:LifecycleHook":
                 return new LifecycleHook(name, <any>undefined, { urn })
-            case "cloudformation:AutoScaling:ScalingPolicy":
+            case "aws-native:AutoScaling:ScalingPolicy":
                 return new ScalingPolicy(name, <any>undefined, { urn })
-            case "cloudformation:AutoScaling:ScheduledAction":
+            case "aws-native:AutoScaling:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "AutoScaling", _module)
+pulumi.runtime.registerResourceModule("aws-native", "AutoScaling", _module)

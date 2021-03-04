@@ -22,7 +22,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AutoScaling:LaunchConfiguration';
+    public static readonly __pulumiType = 'aws-native:AutoScaling:LaunchConfiguration';
 
     /**
      * Returns true if the given object is an instance of LaunchConfiguration.  This is designed to work even

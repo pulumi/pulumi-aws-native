@@ -22,7 +22,7 @@ export class FlowLog extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:FlowLog';
+    public static readonly __pulumiType = 'aws-native:EC2:FlowLog';
 
     /**
      * Returns true if the given object is an instance of FlowLog.  This is designed to work even

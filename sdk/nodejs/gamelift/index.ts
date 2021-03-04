@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:GameLift:Alias":
+            case "aws-native:GameLift:Alias":
                 return new Alias(name, <any>undefined, { urn })
-            case "cloudformation:GameLift:Build":
+            case "aws-native:GameLift:Build":
                 return new Build(name, <any>undefined, { urn })
-            case "cloudformation:GameLift:Fleet":
+            case "aws-native:GameLift:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
-            case "cloudformation:GameLift:GameServerGroup":
+            case "aws-native:GameLift:GameServerGroup":
                 return new GameServerGroup(name, <any>undefined, { urn })
-            case "cloudformation:GameLift:GameSessionQueue":
+            case "aws-native:GameLift:GameSessionQueue":
                 return new GameSessionQueue(name, <any>undefined, { urn })
-            case "cloudformation:GameLift:MatchmakingConfiguration":
+            case "aws-native:GameLift:MatchmakingConfiguration":
                 return new MatchmakingConfiguration(name, <any>undefined, { urn })
-            case "cloudformation:GameLift:MatchmakingRuleSet":
+            case "aws-native:GameLift:MatchmakingRuleSet":
                 return new MatchmakingRuleSet(name, <any>undefined, { urn })
-            case "cloudformation:GameLift:Script":
+            case "aws-native:GameLift:Script":
                 return new Script(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "GameLift", _module)
+pulumi.runtime.registerResourceModule("aws-native", "GameLift", _module)

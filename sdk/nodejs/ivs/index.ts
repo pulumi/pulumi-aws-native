@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:IVS:Channel":
+            case "aws-native:IVS:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "cloudformation:IVS:PlaybackKeyPair":
+            case "aws-native:IVS:PlaybackKeyPair":
                 return new PlaybackKeyPair(name, <any>undefined, { urn })
-            case "cloudformation:IVS:StreamKey":
+            case "aws-native:IVS:StreamKey":
                 return new StreamKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "IVS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "IVS", _module)

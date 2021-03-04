@@ -22,7 +22,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ImageBuilder:ImagePipeline';
+    public static readonly __pulumiType = 'aws-native:ImageBuilder:ImagePipeline';
 
     /**
      * Returns true if the given object is an instance of ImagePipeline.  This is designed to work even

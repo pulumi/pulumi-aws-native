@@ -22,7 +22,7 @@ export class Placement extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoT1Click:Placement';
+    public static readonly __pulumiType = 'aws-native:IoT1Click:Placement';
 
     /**
      * Returns true if the given object is an instance of Placement.  This is designed to work even

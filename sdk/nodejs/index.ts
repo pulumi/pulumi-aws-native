@@ -303,10 +303,10 @@ export {
 
 import { Provider } from "./provider";
 
-pulumi.runtime.registerResourcePackage("cloudformation", {
+pulumi.runtime.registerResourcePackage("aws-native", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:cloudformation") {
+        if (type !== "pulumi:providers:aws-native") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

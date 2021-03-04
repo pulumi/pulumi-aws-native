@@ -44,41 +44,41 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Greengrass:ConnectorDefinition":
+            case "aws-native:Greengrass:ConnectorDefinition":
                 return new ConnectorDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:ConnectorDefinitionVersion":
+            case "aws-native:Greengrass:ConnectorDefinitionVersion":
                 return new ConnectorDefinitionVersion(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:CoreDefinition":
+            case "aws-native:Greengrass:CoreDefinition":
                 return new CoreDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:CoreDefinitionVersion":
+            case "aws-native:Greengrass:CoreDefinitionVersion":
                 return new CoreDefinitionVersion(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:DeviceDefinition":
+            case "aws-native:Greengrass:DeviceDefinition":
                 return new DeviceDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:DeviceDefinitionVersion":
+            case "aws-native:Greengrass:DeviceDefinitionVersion":
                 return new DeviceDefinitionVersion(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:FunctionDefinition":
+            case "aws-native:Greengrass:FunctionDefinition":
                 return new FunctionDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:FunctionDefinitionVersion":
+            case "aws-native:Greengrass:FunctionDefinitionVersion":
                 return new FunctionDefinitionVersion(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:Group":
+            case "aws-native:Greengrass:Group":
                 return new Group(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:GroupVersion":
+            case "aws-native:Greengrass:GroupVersion":
                 return new GroupVersion(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:LoggerDefinition":
+            case "aws-native:Greengrass:LoggerDefinition":
                 return new LoggerDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:LoggerDefinitionVersion":
+            case "aws-native:Greengrass:LoggerDefinitionVersion":
                 return new LoggerDefinitionVersion(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:ResourceDefinition":
+            case "aws-native:Greengrass:ResourceDefinition":
                 return new ResourceDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:ResourceDefinitionVersion":
+            case "aws-native:Greengrass:ResourceDefinitionVersion":
                 return new ResourceDefinitionVersion(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:SubscriptionDefinition":
+            case "aws-native:Greengrass:SubscriptionDefinition":
                 return new SubscriptionDefinition(name, <any>undefined, { urn })
-            case "cloudformation:Greengrass:SubscriptionDefinitionVersion":
+            case "aws-native:Greengrass:SubscriptionDefinitionVersion":
                 return new SubscriptionDefinitionVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Greengrass", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Greengrass", _module)

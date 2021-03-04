@@ -13,7 +13,7 @@ export function getUrlSuffix(opts?: pulumi.InvokeOptions): Promise<GetUrlSuffixR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getUrlSuffix", {
+    return pulumi.runtime.invoke("aws-native:index:getUrlSuffix", {
     }, opts);
 }
 

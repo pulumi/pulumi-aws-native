@@ -22,7 +22,7 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:ModelBiasJobDefinition';
+    public static readonly __pulumiType = 'aws-native:SageMaker:ModelBiasJobDefinition';
 
     /**
      * Returns true if the given object is an instance of ModelBiasJobDefinition.  This is designed to work even

@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:EFS:AccessPoint":
+            case "aws-native:EFS:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
-            case "cloudformation:EFS:FileSystem":
+            case "aws-native:EFS:FileSystem":
                 return new FileSystem(name, <any>undefined, { urn })
-            case "cloudformation:EFS:MountTarget":
+            case "aws-native:EFS:MountTarget":
                 return new MountTarget(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "EFS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "EFS", _module)

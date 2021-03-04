@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ElastiCache:CacheCluster":
+            case "aws-native:ElastiCache:CacheCluster":
                 return new CacheCluster(name, <any>undefined, { urn })
-            case "cloudformation:ElastiCache:ParameterGroup":
+            case "aws-native:ElastiCache:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:ElastiCache:ReplicationGroup":
+            case "aws-native:ElastiCache:ReplicationGroup":
                 return new ReplicationGroup(name, <any>undefined, { urn })
-            case "cloudformation:ElastiCache:SecurityGroup":
+            case "aws-native:ElastiCache:SecurityGroup":
                 return new SecurityGroup(name, <any>undefined, { urn })
-            case "cloudformation:ElastiCache:SecurityGroupIngress":
+            case "aws-native:ElastiCache:SecurityGroupIngress":
                 return new SecurityGroupIngress(name, <any>undefined, { urn })
-            case "cloudformation:ElastiCache:SubnetGroup":
+            case "aws-native:ElastiCache:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
-            case "cloudformation:ElastiCache:User":
+            case "aws-native:ElastiCache:User":
                 return new User(name, <any>undefined, { urn })
-            case "cloudformation:ElastiCache:UserGroup":
+            case "aws-native:ElastiCache:UserGroup":
                 return new UserGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ElastiCache", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ElastiCache", _module)

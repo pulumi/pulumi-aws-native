@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:SNS:Subscription":
+            case "aws-native:SNS:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
-            case "cloudformation:SNS:Topic":
+            case "aws-native:SNS:Topic":
                 return new Topic(name, <any>undefined, { urn })
-            case "cloudformation:SNS:TopicPolicy":
+            case "aws-native:SNS:TopicPolicy":
                 return new TopicPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "SNS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "SNS", _module)

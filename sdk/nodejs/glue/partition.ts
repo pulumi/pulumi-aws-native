@@ -22,7 +22,7 @@ export class Partition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:Partition';
+    public static readonly __pulumiType = 'aws-native:Glue:Partition';
 
     /**
      * Returns true if the given object is an instance of Partition.  This is designed to work even

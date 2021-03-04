@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:GlobalAccelerator:Accelerator":
+            case "aws-native:GlobalAccelerator:Accelerator":
                 return new Accelerator(name, <any>undefined, { urn })
-            case "cloudformation:GlobalAccelerator:EndpointGroup":
+            case "aws-native:GlobalAccelerator:EndpointGroup":
                 return new EndpointGroup(name, <any>undefined, { urn })
-            case "cloudformation:GlobalAccelerator:Listener":
+            case "aws-native:GlobalAccelerator:Listener":
                 return new Listener(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "GlobalAccelerator", _module)
+pulumi.runtime.registerResourceModule("aws-native", "GlobalAccelerator", _module)

@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:DMS:Certificate":
+            case "aws-native:DMS:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "cloudformation:DMS:Endpoint":
+            case "aws-native:DMS:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
-            case "cloudformation:DMS:EventSubscription":
+            case "aws-native:DMS:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
-            case "cloudformation:DMS:ReplicationInstance":
+            case "aws-native:DMS:ReplicationInstance":
                 return new ReplicationInstance(name, <any>undefined, { urn })
-            case "cloudformation:DMS:ReplicationSubnetGroup":
+            case "aws-native:DMS:ReplicationSubnetGroup":
                 return new ReplicationSubnetGroup(name, <any>undefined, { urn })
-            case "cloudformation:DMS:ReplicationTask":
+            case "aws-native:DMS:ReplicationTask":
                 return new ReplicationTask(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "DMS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "DMS", _module)

@@ -22,7 +22,7 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:ModelExplainabilityJobDefinition';
+    public static readonly __pulumiType = 'aws-native:SageMaker:ModelExplainabilityJobDefinition';
 
     /**
      * Returns true if the given object is an instance of ModelExplainabilityJobDefinition.  This is designed to work even

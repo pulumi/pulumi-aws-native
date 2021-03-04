@@ -22,7 +22,7 @@ export class EC2Fleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:EC2Fleet';
+    public static readonly __pulumiType = 'aws-native:EC2:EC2Fleet';
 
     /**
      * Returns true if the given object is an instance of EC2Fleet.  This is designed to work even

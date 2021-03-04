@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:SDB:Domain":
+            case "aws-native:SDB:Domain":
                 return new Domain(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "SDB", _module)
+pulumi.runtime.registerResourceModule("aws-native", "SDB", _module)

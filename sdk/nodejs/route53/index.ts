@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Route53:HealthCheck":
+            case "aws-native:Route53:HealthCheck":
                 return new HealthCheck(name, <any>undefined, { urn })
-            case "cloudformation:Route53:HostedZone":
+            case "aws-native:Route53:HostedZone":
                 return new HostedZone(name, <any>undefined, { urn })
-            case "cloudformation:Route53:RecordSet":
+            case "aws-native:Route53:RecordSet":
                 return new RecordSet(name, <any>undefined, { urn })
-            case "cloudformation:Route53:RecordSetGroup":
+            case "aws-native:Route53:RecordSetGroup":
                 return new RecordSetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Route53", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Route53", _module)

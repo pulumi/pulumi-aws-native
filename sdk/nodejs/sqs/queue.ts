@@ -22,7 +22,7 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SQS:Queue';
+    public static readonly __pulumiType = 'aws-native:SQS:Queue';
 
     /**
      * Returns true if the given object is an instance of Queue.  This is designed to work even

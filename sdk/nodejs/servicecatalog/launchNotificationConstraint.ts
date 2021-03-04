@@ -22,7 +22,7 @@ export class LaunchNotificationConstraint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ServiceCatalog:LaunchNotificationConstraint';
+    public static readonly __pulumiType = 'aws-native:ServiceCatalog:LaunchNotificationConstraint';
 
     /**
      * Returns true if the given object is an instance of LaunchNotificationConstraint.  This is designed to work even

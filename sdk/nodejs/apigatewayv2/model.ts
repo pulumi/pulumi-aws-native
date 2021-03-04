@@ -22,7 +22,7 @@ export class Model extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGatewayV2:Model';
+    public static readonly __pulumiType = 'aws-native:ApiGatewayV2:Model';
 
     /**
      * Returns true if the given object is an instance of Model.  This is designed to work even

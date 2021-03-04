@@ -22,7 +22,7 @@ export class License extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:LicenseManager:License';
+    public static readonly __pulumiType = 'aws-native:LicenseManager:License';
 
     /**
      * Returns true if the given object is an instance of License.  This is designed to work even

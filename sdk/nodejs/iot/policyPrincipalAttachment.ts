@@ -22,7 +22,7 @@ export class PolicyPrincipalAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoT:PolicyPrincipalAttachment';
+    public static readonly __pulumiType = 'aws-native:IoT:PolicyPrincipalAttachment';
 
     /**
      * Returns true if the given object is an instance of PolicyPrincipalAttachment.  This is designed to work even

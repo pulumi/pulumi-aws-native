@@ -13,7 +13,7 @@ export function getStackName(opts?: pulumi.InvokeOptions): Promise<GetStackNameR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getStackName", {
+    return pulumi.runtime.invoke("aws-native:index:getStackName", {
     }, opts);
 }
 

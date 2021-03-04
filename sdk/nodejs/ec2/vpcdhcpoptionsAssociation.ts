@@ -22,7 +22,7 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:VPCDHCPOptionsAssociation';
+    public static readonly __pulumiType = 'aws-native:EC2:VPCDHCPOptionsAssociation';
 
     /**
      * Returns true if the given object is an instance of VPCDHCPOptionsAssociation.  This is designed to work even

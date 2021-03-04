@@ -22,7 +22,7 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppStream:Fleet';
+    public static readonly __pulumiType = 'aws-native:AppStream:Fleet';
 
     /**
      * Returns true if the given object is an instance of Fleet.  This is designed to work even

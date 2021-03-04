@@ -22,7 +22,7 @@ export class SimulationApplicationVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RoboMaker:SimulationApplicationVersion';
+    public static readonly __pulumiType = 'aws-native:RoboMaker:SimulationApplicationVersion';
 
     /**
      * Returns true if the given object is an instance of SimulationApplicationVersion.  This is designed to work even

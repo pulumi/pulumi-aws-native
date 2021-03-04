@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:MediaLive:Channel":
+            case "aws-native:MediaLive:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "cloudformation:MediaLive:Input":
+            case "aws-native:MediaLive:Input":
                 return new Input(name, <any>undefined, { urn })
-            case "cloudformation:MediaLive:InputSecurityGroup":
+            case "aws-native:MediaLive:InputSecurityGroup":
                 return new InputSecurityGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "MediaLive", _module)
+pulumi.runtime.registerResourceModule("aws-native", "MediaLive", _module)

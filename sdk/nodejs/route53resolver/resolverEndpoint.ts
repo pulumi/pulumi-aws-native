@@ -22,7 +22,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Route53Resolver:ResolverEndpoint';
+    public static readonly __pulumiType = 'aws-native:Route53Resolver:ResolverEndpoint';
 
     /**
      * Returns true if the given object is an instance of ResolverEndpoint.  This is designed to work even

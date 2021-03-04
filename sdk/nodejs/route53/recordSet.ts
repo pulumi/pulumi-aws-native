@@ -22,7 +22,7 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Route53:RecordSet';
+    public static readonly __pulumiType = 'aws-native:Route53:RecordSet';
 
     /**
      * Returns true if the given object is an instance of RecordSet.  This is designed to work even

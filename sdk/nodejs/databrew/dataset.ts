@@ -22,7 +22,7 @@ export class Dataset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DataBrew:Dataset';
+    public static readonly __pulumiType = 'aws-native:DataBrew:Dataset';
 
     /**
      * Returns true if the given object is an instance of Dataset.  This is designed to work even

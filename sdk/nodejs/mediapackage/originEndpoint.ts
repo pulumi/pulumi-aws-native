@@ -22,7 +22,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:MediaPackage:OriginEndpoint';
+    public static readonly __pulumiType = 'aws-native:MediaPackage:OriginEndpoint';
 
     /**
      * Returns true if the given object is an instance of OriginEndpoint.  This is designed to work even

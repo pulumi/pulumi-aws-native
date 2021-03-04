@@ -22,7 +22,7 @@ export class StreamConsumer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Kinesis:StreamConsumer';
+    public static readonly __pulumiType = 'aws-native:Kinesis:StreamConsumer';
 
     /**
      * Returns true if the given object is an instance of StreamConsumer.  This is designed to work even

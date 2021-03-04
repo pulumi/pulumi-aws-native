@@ -22,7 +22,7 @@ export class ConformancePack extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Configuration:ConformancePack';
+    public static readonly __pulumiType = 'aws-native:Configuration:ConformancePack';
 
     /**
      * Returns true if the given object is an instance of ConformancePack.  This is designed to work even

@@ -22,7 +22,7 @@ export class DeviceDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Greengrass:DeviceDefinition';
+    public static readonly __pulumiType = 'aws-native:Greengrass:DeviceDefinition';
 
     /**
      * Returns true if the given object is an instance of DeviceDefinition.  This is designed to work even

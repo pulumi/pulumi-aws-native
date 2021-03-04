@@ -22,7 +22,7 @@ export class APNSVoipSandboxChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:APNSVoipSandboxChannel';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:APNSVoipSandboxChannel';
 
     /**
      * Returns true if the given object is an instance of APNSVoipSandboxChannel.  This is designed to work even

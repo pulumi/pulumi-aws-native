@@ -30,27 +30,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:IoT:Authorizer":
+            case "aws-native:IoT:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
-            case "cloudformation:IoT:Certificate":
+            case "aws-native:IoT:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "cloudformation:IoT:Policy":
+            case "aws-native:IoT:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "cloudformation:IoT:PolicyPrincipalAttachment":
+            case "aws-native:IoT:PolicyPrincipalAttachment":
                 return new PolicyPrincipalAttachment(name, <any>undefined, { urn })
-            case "cloudformation:IoT:ProvisioningTemplate":
+            case "aws-native:IoT:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
-            case "cloudformation:IoT:Thing":
+            case "aws-native:IoT:Thing":
                 return new Thing(name, <any>undefined, { urn })
-            case "cloudformation:IoT:ThingPrincipalAttachment":
+            case "aws-native:IoT:ThingPrincipalAttachment":
                 return new ThingPrincipalAttachment(name, <any>undefined, { urn })
-            case "cloudformation:IoT:TopicRule":
+            case "aws-native:IoT:TopicRule":
                 return new TopicRule(name, <any>undefined, { urn })
-            case "cloudformation:IoT:TopicRuleDestination":
+            case "aws-native:IoT:TopicRuleDestination":
                 return new TopicRuleDestination(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "IoT", _module)
+pulumi.runtime.registerResourceModule("aws-native", "IoT", _module)

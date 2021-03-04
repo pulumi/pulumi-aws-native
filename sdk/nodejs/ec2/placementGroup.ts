@@ -22,7 +22,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:PlacementGroup';
+    public static readonly __pulumiType = 'aws-native:EC2:PlacementGroup';
 
     /**
      * Returns true if the given object is an instance of PlacementGroup.  This is designed to work even

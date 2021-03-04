@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Cloud9:EnvironmentEC2":
+            case "aws-native:Cloud9:EnvironmentEC2":
                 return new EnvironmentEC2(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Cloud9", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Cloud9", _module)

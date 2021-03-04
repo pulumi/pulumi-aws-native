@@ -22,7 +22,7 @@ export class ApplicationCloudWatchLoggingOption extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:KinesisAnalyticsV2:ApplicationCloudWatchLoggingOption';
+    public static readonly __pulumiType = 'aws-native:KinesisAnalyticsV2:ApplicationCloudWatchLoggingOption';
 
     /**
      * Returns true if the given object is an instance of ApplicationCloudWatchLoggingOption.  This is designed to work even

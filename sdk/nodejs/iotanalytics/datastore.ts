@@ -22,7 +22,7 @@ export class Datastore extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoTAnalytics:Datastore';
+    public static readonly __pulumiType = 'aws-native:IoTAnalytics:Datastore';
 
     /**
      * Returns true if the given object is an instance of Datastore.  This is designed to work even

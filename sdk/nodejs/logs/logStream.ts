@@ -22,7 +22,7 @@ export class LogStream extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Logs:LogStream';
+    public static readonly __pulumiType = 'aws-native:Logs:LogStream';
 
     /**
      * Returns true if the given object is an instance of LogStream.  This is designed to work even

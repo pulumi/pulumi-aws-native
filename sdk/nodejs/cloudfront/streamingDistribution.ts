@@ -22,7 +22,7 @@ export class StreamingDistribution extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFront:StreamingDistribution';
+    public static readonly __pulumiType = 'aws-native:CloudFront:StreamingDistribution';
 
     /**
      * Returns true if the given object is an instance of StreamingDistribution.  This is designed to work even

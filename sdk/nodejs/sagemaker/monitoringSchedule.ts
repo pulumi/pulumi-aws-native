@@ -22,7 +22,7 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:MonitoringSchedule';
+    public static readonly __pulumiType = 'aws-native:SageMaker:MonitoringSchedule';
 
     /**
      * Returns true if the given object is an instance of MonitoringSchedule.  This is designed to work even

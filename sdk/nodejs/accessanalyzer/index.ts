@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:AccessAnalyzer:Analyzer":
+            case "aws-native:AccessAnalyzer:Analyzer":
                 return new Analyzer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "AccessAnalyzer", _module)
+pulumi.runtime.registerResourceModule("aws-native", "AccessAnalyzer", _module)

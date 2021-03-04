@@ -22,7 +22,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:MediaPackage:Channel';
+    public static readonly __pulumiType = 'aws-native:MediaPackage:Channel';
 
     /**
      * Returns true if the given object is an instance of Channel.  This is designed to work even

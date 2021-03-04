@@ -22,7 +22,7 @@ export class GatewayRoute extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppMesh:GatewayRoute';
+    public static readonly __pulumiType = 'aws-native:AppMesh:GatewayRoute';
 
     /**
      * Returns true if the given object is an instance of GatewayRoute.  This is designed to work even

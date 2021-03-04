@@ -13,7 +13,7 @@ export function importValue(args: ImportValueArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:importValue", {
+    return pulumi.runtime.invoke("aws-native:index:importValue", {
         "name": args.name,
     }, opts);
 }

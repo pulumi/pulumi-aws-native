@@ -22,7 +22,7 @@ export class ScalingPlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AutoScalingPlans:ScalingPlan';
+    public static readonly __pulumiType = 'aws-native:AutoScalingPlans:ScalingPlan';
 
     /**
      * Returns true if the given object is an instance of ScalingPlan.  This is designed to work even

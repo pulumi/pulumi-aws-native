@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ElasticBeanstalk:Application":
+            case "aws-native:ElasticBeanstalk:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "cloudformation:ElasticBeanstalk:ApplicationVersion":
+            case "aws-native:ElasticBeanstalk:ApplicationVersion":
                 return new ApplicationVersion(name, <any>undefined, { urn })
-            case "cloudformation:ElasticBeanstalk:ConfigurationTemplate":
+            case "aws-native:ElasticBeanstalk:ConfigurationTemplate":
                 return new ConfigurationTemplate(name, <any>undefined, { urn })
-            case "cloudformation:ElasticBeanstalk:Environment":
+            case "aws-native:ElasticBeanstalk:Environment":
                 return new Environment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ElasticBeanstalk", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ElasticBeanstalk", _module)

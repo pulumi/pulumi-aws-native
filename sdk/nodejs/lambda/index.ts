@@ -30,27 +30,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Lambda:Alias":
+            case "aws-native:Lambda:Alias":
                 return new Alias(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:CodeSigningConfig":
+            case "aws-native:Lambda:CodeSigningConfig":
                 return new CodeSigningConfig(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:EventInvokeConfig":
+            case "aws-native:Lambda:EventInvokeConfig":
                 return new EventInvokeConfig(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:EventSourceMapping":
+            case "aws-native:Lambda:EventSourceMapping":
                 return new EventSourceMapping(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:Function":
+            case "aws-native:Lambda:Function":
                 return new Function(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:LayerVersion":
+            case "aws-native:Lambda:LayerVersion":
                 return new LayerVersion(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:LayerVersionPermission":
+            case "aws-native:Lambda:LayerVersionPermission":
                 return new LayerVersionPermission(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:Permission":
+            case "aws-native:Lambda:Permission":
                 return new Permission(name, <any>undefined, { urn })
-            case "cloudformation:Lambda:Version":
+            case "aws-native:Lambda:Version":
                 return new Version(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Lambda", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Lambda", _module)

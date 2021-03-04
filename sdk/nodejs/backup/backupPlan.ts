@@ -22,7 +22,7 @@ export class BackupPlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Backup:BackupPlan';
+    public static readonly __pulumiType = 'aws-native:Backup:BackupPlan';
 
     /**
      * Returns true if the given object is an instance of BackupPlan.  This is designed to work even

@@ -22,7 +22,7 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoTSiteWise:Gateway';
+    public static readonly __pulumiType = 'aws-native:IoTSiteWise:Gateway';
 
     /**
      * Returns true if the given object is an instance of Gateway.  This is designed to work even

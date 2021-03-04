@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("cloudformation");
+let __config = new pulumi.Config("aws-native");
 
 /**
  * the region to use for deployments

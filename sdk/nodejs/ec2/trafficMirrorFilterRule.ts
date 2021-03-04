@@ -22,7 +22,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:TrafficMirrorFilterRule';
+    public static readonly __pulumiType = 'aws-native:EC2:TrafficMirrorFilterRule';
 
     /**
      * Returns true if the given object is an instance of TrafficMirrorFilterRule.  This is designed to work even

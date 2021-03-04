@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Kinesis:Stream":
+            case "aws-native:Kinesis:Stream":
                 return new Stream(name, <any>undefined, { urn })
-            case "cloudformation:Kinesis:StreamConsumer":
+            case "aws-native:Kinesis:StreamConsumer":
                 return new StreamConsumer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Kinesis", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Kinesis", _module)

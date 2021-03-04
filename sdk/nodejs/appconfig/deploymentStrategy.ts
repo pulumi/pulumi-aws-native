@@ -22,7 +22,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppConfig:DeploymentStrategy';
+    public static readonly __pulumiType = 'aws-native:AppConfig:DeploymentStrategy';
 
     /**
      * Returns true if the given object is an instance of DeploymentStrategy.  This is designed to work even

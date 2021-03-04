@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:EKS:Cluster":
+            case "aws-native:EKS:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "cloudformation:EKS:FargateProfile":
+            case "aws-native:EKS:FargateProfile":
                 return new FargateProfile(name, <any>undefined, { urn })
-            case "cloudformation:EKS:Nodegroup":
+            case "aws-native:EKS:Nodegroup":
                 return new Nodegroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "EKS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "EKS", _module)

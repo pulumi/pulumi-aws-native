@@ -22,7 +22,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodeGuruProfiler:ProfilingGroup';
+    public static readonly __pulumiType = 'aws-native:CodeGuruProfiler:ProfilingGroup';
 
     /**
      * Returns true if the given object is an instance of ProfilingGroup.  This is designed to work even

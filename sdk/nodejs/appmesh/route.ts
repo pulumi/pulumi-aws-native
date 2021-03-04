@@ -22,7 +22,7 @@ export class Route extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppMesh:Route';
+    public static readonly __pulumiType = 'aws-native:AppMesh:Route';
 
     /**
      * Returns true if the given object is an instance of Route.  This is designed to work even

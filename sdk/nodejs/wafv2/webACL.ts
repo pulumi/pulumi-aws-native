@@ -22,7 +22,7 @@ export class WebACL extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WAFv2:WebACL';
+    public static readonly __pulumiType = 'aws-native:WAFv2:WebACL';
 
     /**
      * Returns true if the given object is an instance of WebACL.  This is designed to work even

@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:AppStream:DirectoryConfig":
+            case "aws-native:AppStream:DirectoryConfig":
                 return new DirectoryConfig(name, <any>undefined, { urn })
-            case "cloudformation:AppStream:Fleet":
+            case "aws-native:AppStream:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
-            case "cloudformation:AppStream:ImageBuilder":
+            case "aws-native:AppStream:ImageBuilder":
                 return new ImageBuilder(name, <any>undefined, { urn })
-            case "cloudformation:AppStream:Stack":
+            case "aws-native:AppStream:Stack":
                 return new Stack(name, <any>undefined, { urn })
-            case "cloudformation:AppStream:StackFleetAssociation":
+            case "aws-native:AppStream:StackFleetAssociation":
                 return new StackFleetAssociation(name, <any>undefined, { urn })
-            case "cloudformation:AppStream:StackUserAssociation":
+            case "aws-native:AppStream:StackUserAssociation":
                 return new StackUserAssociation(name, <any>undefined, { urn })
-            case "cloudformation:AppStream:User":
+            case "aws-native:AppStream:User":
                 return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "AppStream", _module)
+pulumi.runtime.registerResourceModule("aws-native", "AppStream", _module)

@@ -22,7 +22,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodeGuruReviewer:RepositoryAssociation';
+    public static readonly __pulumiType = 'aws-native:CodeGuruReviewer:RepositoryAssociation';
 
     /**
      * Returns true if the given object is an instance of RepositoryAssociation.  This is designed to work even

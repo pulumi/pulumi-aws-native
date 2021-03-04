@@ -22,7 +22,7 @@ export class Container extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:MediaStore:Container';
+    public static readonly __pulumiType = 'aws-native:MediaStore:Container';
 
     /**
      * Returns true if the given object is an instance of Container.  This is designed to work even

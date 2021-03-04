@@ -22,7 +22,7 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:NetworkFirewall:RuleGroup';
+    public static readonly __pulumiType = 'aws-native:NetworkFirewall:RuleGroup';
 
     /**
      * Returns true if the given object is an instance of RuleGroup.  This is designed to work even

@@ -22,7 +22,7 @@ export class MemberInvitation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Detective:MemberInvitation';
+    public static readonly __pulumiType = 'aws-native:Detective:MemberInvitation';
 
     /**
      * Returns true if the given object is an instance of MemberInvitation.  This is designed to work even

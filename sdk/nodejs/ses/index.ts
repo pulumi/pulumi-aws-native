@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:SES:ConfigurationSet":
+            case "aws-native:SES:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
-            case "cloudformation:SES:ConfigurationSetEventDestination":
+            case "aws-native:SES:ConfigurationSetEventDestination":
                 return new ConfigurationSetEventDestination(name, <any>undefined, { urn })
-            case "cloudformation:SES:ReceiptFilter":
+            case "aws-native:SES:ReceiptFilter":
                 return new ReceiptFilter(name, <any>undefined, { urn })
-            case "cloudformation:SES:ReceiptRule":
+            case "aws-native:SES:ReceiptRule":
                 return new ReceiptRule(name, <any>undefined, { urn })
-            case "cloudformation:SES:ReceiptRuleSet":
+            case "aws-native:SES:ReceiptRuleSet":
                 return new ReceiptRuleSet(name, <any>undefined, { urn })
-            case "cloudformation:SES:Template":
+            case "aws-native:SES:Template":
                 return new Template(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "SES", _module)
+pulumi.runtime.registerResourceModule("aws-native", "SES", _module)

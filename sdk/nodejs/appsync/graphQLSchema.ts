@@ -22,7 +22,7 @@ export class GraphQLSchema extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppSync:GraphQLSchema';
+    public static readonly __pulumiType = 'aws-native:AppSync:GraphQLSchema';
 
     /**
      * Returns true if the given object is an instance of GraphQLSchema.  This is designed to work even

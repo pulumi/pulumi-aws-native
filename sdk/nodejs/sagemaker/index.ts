@@ -46,43 +46,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:SageMaker:CodeRepository":
+            case "aws-native:SageMaker:CodeRepository":
                 return new CodeRepository(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:DataQualityJobDefinition":
+            case "aws-native:SageMaker:DataQualityJobDefinition":
                 return new DataQualityJobDefinition(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:Device":
+            case "aws-native:SageMaker:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:DeviceFleet":
+            case "aws-native:SageMaker:DeviceFleet":
                 return new DeviceFleet(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:Endpoint":
+            case "aws-native:SageMaker:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:EndpointConfig":
+            case "aws-native:SageMaker:EndpointConfig":
                 return new EndpointConfig(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:Model":
+            case "aws-native:SageMaker:Model":
                 return new Model(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:ModelBiasJobDefinition":
+            case "aws-native:SageMaker:ModelBiasJobDefinition":
                 return new ModelBiasJobDefinition(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:ModelExplainabilityJobDefinition":
+            case "aws-native:SageMaker:ModelExplainabilityJobDefinition":
                 return new ModelExplainabilityJobDefinition(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:ModelPackageGroup":
+            case "aws-native:SageMaker:ModelPackageGroup":
                 return new ModelPackageGroup(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:ModelQualityJobDefinition":
+            case "aws-native:SageMaker:ModelQualityJobDefinition":
                 return new ModelQualityJobDefinition(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:MonitoringSchedule":
+            case "aws-native:SageMaker:MonitoringSchedule":
                 return new MonitoringSchedule(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:NotebookInstance":
+            case "aws-native:SageMaker:NotebookInstance":
                 return new NotebookInstance(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:NotebookInstanceLifecycleConfig":
+            case "aws-native:SageMaker:NotebookInstanceLifecycleConfig":
                 return new NotebookInstanceLifecycleConfig(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:Pipeline":
+            case "aws-native:SageMaker:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:Project":
+            case "aws-native:SageMaker:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "cloudformation:SageMaker:Workteam":
+            case "aws-native:SageMaker:Workteam":
                 return new Workteam(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "SageMaker", _module)
+pulumi.runtime.registerResourceModule("aws-native", "SageMaker", _module)

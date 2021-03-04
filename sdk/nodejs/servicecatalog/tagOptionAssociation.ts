@@ -22,7 +22,7 @@ export class TagOptionAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ServiceCatalog:TagOptionAssociation';
+    public static readonly __pulumiType = 'aws-native:ServiceCatalog:TagOptionAssociation';
 
     /**
      * Returns true if the given object is an instance of TagOptionAssociation.  This is designed to work even

@@ -22,7 +22,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Cloud9:EnvironmentEC2';
+    public static readonly __pulumiType = 'aws-native:Cloud9:EnvironmentEC2';
 
     /**
      * Returns true if the given object is an instance of EnvironmentEC2.  This is designed to work even

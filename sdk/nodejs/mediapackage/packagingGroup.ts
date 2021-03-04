@@ -22,7 +22,7 @@ export class PackagingGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:MediaPackage:PackagingGroup';
+    public static readonly __pulumiType = 'aws-native:MediaPackage:PackagingGroup';
 
     /**
      * Returns true if the given object is an instance of PackagingGroup.  This is designed to work even

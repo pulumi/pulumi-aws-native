@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:RoboMaker:Fleet":
+            case "aws-native:RoboMaker:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
-            case "cloudformation:RoboMaker:Robot":
+            case "aws-native:RoboMaker:Robot":
                 return new Robot(name, <any>undefined, { urn })
-            case "cloudformation:RoboMaker:RobotApplication":
+            case "aws-native:RoboMaker:RobotApplication":
                 return new RobotApplication(name, <any>undefined, { urn })
-            case "cloudformation:RoboMaker:RobotApplicationVersion":
+            case "aws-native:RoboMaker:RobotApplicationVersion":
                 return new RobotApplicationVersion(name, <any>undefined, { urn })
-            case "cloudformation:RoboMaker:SimulationApplication":
+            case "aws-native:RoboMaker:SimulationApplication":
                 return new SimulationApplication(name, <any>undefined, { urn })
-            case "cloudformation:RoboMaker:SimulationApplicationVersion":
+            case "aws-native:RoboMaker:SimulationApplicationVersion":
                 return new SimulationApplicationVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "RoboMaker", _module)
+pulumi.runtime.registerResourceModule("aws-native", "RoboMaker", _module)

@@ -22,7 +22,7 @@ export class ResourceShare extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RAM:ResourceShare';
+    public static readonly __pulumiType = 'aws-native:RAM:ResourceShare';
 
     /**
      * Returns true if the given object is an instance of ResourceShare.  This is designed to work even

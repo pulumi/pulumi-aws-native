@@ -22,7 +22,7 @@ export class InsightRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudWatch:InsightRule';
+    public static readonly __pulumiType = 'aws-native:CloudWatch:InsightRule';
 
     /**
      * Returns true if the given object is an instance of InsightRule.  This is designed to work even

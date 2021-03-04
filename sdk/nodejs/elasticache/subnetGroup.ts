@@ -22,7 +22,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElastiCache:SubnetGroup';
+    public static readonly __pulumiType = 'aws-native:ElastiCache:SubnetGroup';
 
     /**
      * Returns true if the given object is an instance of SubnetGroup.  This is designed to work even

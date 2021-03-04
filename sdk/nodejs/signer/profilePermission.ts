@@ -22,7 +22,7 @@ export class ProfilePermission extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Signer:ProfilePermission';
+    public static readonly __pulumiType = 'aws-native:Signer:ProfilePermission';
 
     /**
      * Returns true if the given object is an instance of ProfilePermission.  This is designed to work even

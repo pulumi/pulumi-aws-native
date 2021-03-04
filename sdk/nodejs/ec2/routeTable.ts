@@ -22,7 +22,7 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:RouteTable';
+    public static readonly __pulumiType = 'aws-native:EC2:RouteTable';
 
     /**
      * Returns true if the given object is an instance of RouteTable.  This is designed to work even

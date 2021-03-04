@@ -22,7 +22,7 @@ export class UsagePlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:UsagePlan';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:UsagePlan';
 
     /**
      * Returns true if the given object is an instance of UsagePlan.  This is designed to work even

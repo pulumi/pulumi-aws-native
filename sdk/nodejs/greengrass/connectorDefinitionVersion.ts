@@ -22,7 +22,7 @@ export class ConnectorDefinitionVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Greengrass:ConnectorDefinitionVersion';
+    public static readonly __pulumiType = 'aws-native:Greengrass:ConnectorDefinitionVersion';
 
     /**
      * Returns true if the given object is an instance of ConnectorDefinitionVersion.  This is designed to work even

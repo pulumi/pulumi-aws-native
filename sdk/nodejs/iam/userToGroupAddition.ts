@@ -22,7 +22,7 @@ export class UserToGroupAddition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IAM:UserToGroupAddition';
+    public static readonly __pulumiType = 'aws-native:IAM:UserToGroupAddition';
 
     /**
      * Returns true if the given object is an instance of UserToGroupAddition.  This is designed to work even

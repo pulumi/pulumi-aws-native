@@ -22,7 +22,7 @@ export class StackFleetAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppStream:StackFleetAssociation';
+    public static readonly __pulumiType = 'aws-native:AppStream:StackFleetAssociation';
 
     /**
      * Returns true if the given object is an instance of StackFleetAssociation.  This is designed to work even

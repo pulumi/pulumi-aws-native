@@ -22,7 +22,7 @@ export class GCMChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:GCMChannel';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:GCMChannel';
 
     /**
      * Returns true if the given object is an instance of GCMChannel.  This is designed to work even

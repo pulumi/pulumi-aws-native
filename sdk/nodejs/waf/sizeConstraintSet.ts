@@ -22,7 +22,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WAF:SizeConstraintSet';
+    public static readonly __pulumiType = 'aws-native:WAF:SizeConstraintSet';
 
     /**
      * Returns true if the given object is an instance of SizeConstraintSet.  This is designed to work even

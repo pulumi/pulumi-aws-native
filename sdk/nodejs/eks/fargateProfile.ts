@@ -22,7 +22,7 @@ export class FargateProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EKS:FargateProfile';
+    public static readonly __pulumiType = 'aws-native:EKS:FargateProfile';
 
     /**
      * Returns true if the given object is an instance of FargateProfile.  This is designed to work even

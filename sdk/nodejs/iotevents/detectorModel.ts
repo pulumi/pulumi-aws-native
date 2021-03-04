@@ -22,7 +22,7 @@ export class DetectorModel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoTEvents:DetectorModel';
+    public static readonly __pulumiType = 'aws-native:IoTEvents:DetectorModel';
 
     /**
      * Returns true if the given object is an instance of DetectorModel.  This is designed to work even

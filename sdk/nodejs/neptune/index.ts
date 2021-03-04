@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Neptune:DBCluster":
+            case "aws-native:Neptune:DBCluster":
                 return new DBCluster(name, <any>undefined, { urn })
-            case "cloudformation:Neptune:DBClusterParameterGroup":
+            case "aws-native:Neptune:DBClusterParameterGroup":
                 return new DBClusterParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:Neptune:DBInstance":
+            case "aws-native:Neptune:DBInstance":
                 return new DBInstance(name, <any>undefined, { urn })
-            case "cloudformation:Neptune:DBParameterGroup":
+            case "aws-native:Neptune:DBParameterGroup":
                 return new DBParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:Neptune:DBSubnetGroup":
+            case "aws-native:Neptune:DBSubnetGroup":
                 return new DBSubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Neptune", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Neptune", _module)

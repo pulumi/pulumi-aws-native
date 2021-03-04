@@ -22,7 +22,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:NetworkInsightsAnalysis';
+    public static readonly __pulumiType = 'aws-native:EC2:NetworkInsightsAnalysis';
 
     /**
      * Returns true if the given object is an instance of NetworkInsightsAnalysis.  This is designed to work even

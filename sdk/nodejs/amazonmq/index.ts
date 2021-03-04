@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:AmazonMQ:Broker":
+            case "aws-native:AmazonMQ:Broker":
                 return new Broker(name, <any>undefined, { urn })
-            case "cloudformation:AmazonMQ:Configuration":
+            case "aws-native:AmazonMQ:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "cloudformation:AmazonMQ:ConfigurationAssociation":
+            case "aws-native:AmazonMQ:ConfigurationAssociation":
                 return new ConfigurationAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "AmazonMQ", _module)
+pulumi.runtime.registerResourceModule("aws-native", "AmazonMQ", _module)

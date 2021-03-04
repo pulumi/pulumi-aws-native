@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Events:Archive":
+            case "aws-native:Events:Archive":
                 return new Archive(name, <any>undefined, { urn })
-            case "cloudformation:Events:EventBus":
+            case "aws-native:Events:EventBus":
                 return new EventBus(name, <any>undefined, { urn })
-            case "cloudformation:Events:EventBusPolicy":
+            case "aws-native:Events:EventBusPolicy":
                 return new EventBusPolicy(name, <any>undefined, { urn })
-            case "cloudformation:Events:Rule":
+            case "aws-native:Events:Rule":
                 return new Rule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Events", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Events", _module)

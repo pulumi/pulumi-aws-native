@@ -22,7 +22,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:PinpointEmail:DedicatedIpPool';
+    public static readonly __pulumiType = 'aws-native:PinpointEmail:DedicatedIpPool';
 
     /**
      * Returns true if the given object is an instance of DedicatedIpPool.  This is designed to work even

@@ -22,7 +22,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElasticLoadBalancingV2:ListenerCertificate';
+    public static readonly __pulumiType = 'aws-native:ElasticLoadBalancingV2:ListenerCertificate';
 
     /**
      * Returns true if the given object is an instance of ListenerCertificate.  This is designed to work even

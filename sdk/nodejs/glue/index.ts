@@ -46,43 +46,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Glue:Classifier":
+            case "aws-native:Glue:Classifier":
                 return new Classifier(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Connection":
+            case "aws-native:Glue:Connection":
                 return new Connection(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Crawler":
+            case "aws-native:Glue:Crawler":
                 return new Crawler(name, <any>undefined, { urn })
-            case "cloudformation:Glue:DataCatalogEncryptionSettings":
+            case "aws-native:Glue:DataCatalogEncryptionSettings":
                 return new DataCatalogEncryptionSettings(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Database":
+            case "aws-native:Glue:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "cloudformation:Glue:DevEndpoint":
+            case "aws-native:Glue:DevEndpoint":
                 return new DevEndpoint(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Job":
+            case "aws-native:Glue:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "cloudformation:Glue:MLTransform":
+            case "aws-native:Glue:MLTransform":
                 return new MLTransform(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Partition":
+            case "aws-native:Glue:Partition":
                 return new Partition(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Registry":
+            case "aws-native:Glue:Registry":
                 return new Registry(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Schema":
+            case "aws-native:Glue:Schema":
                 return new Schema(name, <any>undefined, { urn })
-            case "cloudformation:Glue:SchemaVersion":
+            case "aws-native:Glue:SchemaVersion":
                 return new SchemaVersion(name, <any>undefined, { urn })
-            case "cloudformation:Glue:SchemaVersionMetadata":
+            case "aws-native:Glue:SchemaVersionMetadata":
                 return new SchemaVersionMetadata(name, <any>undefined, { urn })
-            case "cloudformation:Glue:SecurityConfiguration":
+            case "aws-native:Glue:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Table":
+            case "aws-native:Glue:Table":
                 return new Table(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Trigger":
+            case "aws-native:Glue:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
-            case "cloudformation:Glue:Workflow":
+            case "aws-native:Glue:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Glue", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Glue", _module)

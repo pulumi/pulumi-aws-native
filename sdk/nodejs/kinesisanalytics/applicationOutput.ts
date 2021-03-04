@@ -22,7 +22,7 @@ export class ApplicationOutput extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:KinesisAnalytics:ApplicationOutput';
+    public static readonly __pulumiType = 'aws-native:KinesisAnalytics:ApplicationOutput';
 
     /**
      * Returns true if the given object is an instance of ApplicationOutput.  This is designed to work even

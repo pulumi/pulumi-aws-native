@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ElasticLoadBalancing:LoadBalancer":
+            case "aws-native:ElasticLoadBalancing:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ElasticLoadBalancing", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ElasticLoadBalancing", _module)

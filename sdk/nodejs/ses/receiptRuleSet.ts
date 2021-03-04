@@ -22,7 +22,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SES:ReceiptRuleSet';
+    public static readonly __pulumiType = 'aws-native:SES:ReceiptRuleSet';
 
     /**
      * Returns true if the given object is an instance of ReceiptRuleSet.  This is designed to work even

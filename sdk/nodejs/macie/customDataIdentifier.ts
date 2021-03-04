@@ -22,7 +22,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Macie:CustomDataIdentifier';
+    public static readonly __pulumiType = 'aws-native:Macie:CustomDataIdentifier';
 
     /**
      * Returns true if the given object is an instance of CustomDataIdentifier.  This is designed to work even

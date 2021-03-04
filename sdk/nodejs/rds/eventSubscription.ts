@@ -22,7 +22,7 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RDS:EventSubscription';
+    public static readonly __pulumiType = 'aws-native:RDS:EventSubscription';
 
     /**
      * Returns true if the given object is an instance of EventSubscription.  This is designed to work even

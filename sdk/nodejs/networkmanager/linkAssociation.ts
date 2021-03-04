@@ -22,7 +22,7 @@ export class LinkAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:NetworkManager:LinkAssociation';
+    public static readonly __pulumiType = 'aws-native:NetworkManager:LinkAssociation';
 
     /**
      * Returns true if the given object is an instance of LinkAssociation.  This is designed to work even

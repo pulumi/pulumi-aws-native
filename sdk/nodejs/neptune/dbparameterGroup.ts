@@ -22,7 +22,7 @@ export class DBParameterGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Neptune:DBParameterGroup';
+    public static readonly __pulumiType = 'aws-native:Neptune:DBParameterGroup';
 
     /**
      * Returns true if the given object is an instance of DBParameterGroup.  This is designed to work even

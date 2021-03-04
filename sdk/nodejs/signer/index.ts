@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Signer:ProfilePermission":
+            case "aws-native:Signer:ProfilePermission":
                 return new ProfilePermission(name, <any>undefined, { urn })
-            case "cloudformation:Signer:SigningProfile":
+            case "aws-native:Signer:SigningProfile":
                 return new SigningProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Signer", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Signer", _module)

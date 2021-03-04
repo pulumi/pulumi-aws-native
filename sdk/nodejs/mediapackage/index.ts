@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:MediaPackage:Asset":
+            case "aws-native:MediaPackage:Asset":
                 return new Asset(name, <any>undefined, { urn })
-            case "cloudformation:MediaPackage:Channel":
+            case "aws-native:MediaPackage:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "cloudformation:MediaPackage:OriginEndpoint":
+            case "aws-native:MediaPackage:OriginEndpoint":
                 return new OriginEndpoint(name, <any>undefined, { urn })
-            case "cloudformation:MediaPackage:PackagingConfiguration":
+            case "aws-native:MediaPackage:PackagingConfiguration":
                 return new PackagingConfiguration(name, <any>undefined, { urn })
-            case "cloudformation:MediaPackage:PackagingGroup":
+            case "aws-native:MediaPackage:PackagingGroup":
                 return new PackagingGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "MediaPackage", _module)
+pulumi.runtime.registerResourceModule("aws-native", "MediaPackage", _module)

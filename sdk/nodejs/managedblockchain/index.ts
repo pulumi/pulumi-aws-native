@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ManagedBlockchain:Member":
+            case "aws-native:ManagedBlockchain:Member":
                 return new Member(name, <any>undefined, { urn })
-            case "cloudformation:ManagedBlockchain:Node":
+            case "aws-native:ManagedBlockchain:Node":
                 return new Node(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ManagedBlockchain", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ManagedBlockchain", _module)

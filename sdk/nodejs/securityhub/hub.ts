@@ -22,7 +22,7 @@ export class Hub extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SecurityHub:Hub';
+    public static readonly __pulumiType = 'aws-native:SecurityHub:Hub';
 
     /**
      * Returns true if the given object is an instance of Hub.  This is designed to work even

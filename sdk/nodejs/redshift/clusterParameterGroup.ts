@@ -22,7 +22,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Redshift:ClusterParameterGroup';
+    public static readonly __pulumiType = 'aws-native:Redshift:ClusterParameterGroup';
 
     /**
      * Returns true if the given object is an instance of ClusterParameterGroup.  This is designed to work even

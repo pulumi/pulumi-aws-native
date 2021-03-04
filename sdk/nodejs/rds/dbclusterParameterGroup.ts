@@ -22,7 +22,7 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RDS:DBClusterParameterGroup';
+    public static readonly __pulumiType = 'aws-native:RDS:DBClusterParameterGroup';
 
     /**
      * Returns true if the given object is an instance of DBClusterParameterGroup.  This is designed to work even

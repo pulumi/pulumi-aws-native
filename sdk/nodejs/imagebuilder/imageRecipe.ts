@@ -22,7 +22,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ImageBuilder:ImageRecipe';
+    public static readonly __pulumiType = 'aws-native:ImageBuilder:ImageRecipe';
 
     /**
      * Returns true if the given object is an instance of ImageRecipe.  This is designed to work even

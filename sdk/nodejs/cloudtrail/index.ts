@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CloudTrail:Trail":
+            case "aws-native:CloudTrail:Trail":
                 return new Trail(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CloudTrail", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CloudTrail", _module)

@@ -22,7 +22,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AutoScaling:AutoScalingGroup';
+    public static readonly __pulumiType = 'aws-native:AutoScaling:AutoScalingGroup';
 
     /**
      * Returns true if the given object is an instance of AutoScalingGroup.  This is designed to work even

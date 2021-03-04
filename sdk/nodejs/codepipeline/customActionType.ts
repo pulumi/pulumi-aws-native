@@ -22,7 +22,7 @@ export class CustomActionType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodePipeline:CustomActionType';
+    public static readonly __pulumiType = 'aws-native:CodePipeline:CustomActionType';
 
     /**
      * Returns true if the given object is an instance of CustomActionType.  This is designed to work even

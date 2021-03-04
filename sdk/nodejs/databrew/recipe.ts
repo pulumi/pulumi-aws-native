@@ -22,7 +22,7 @@ export class Recipe extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DataBrew:Recipe';
+    public static readonly __pulumiType = 'aws-native:DataBrew:Recipe';
 
     /**
      * Returns true if the given object is an instance of Recipe.  This is designed to work even

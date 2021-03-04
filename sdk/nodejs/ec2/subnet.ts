@@ -22,7 +22,7 @@ export class Subnet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:Subnet';
+    public static readonly __pulumiType = 'aws-native:EC2:Subnet';
 
     /**
      * Returns true if the given object is an instance of Subnet.  This is designed to work even

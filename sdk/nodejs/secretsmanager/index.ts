@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:SecretsManager:ResourcePolicy":
+            case "aws-native:SecretsManager:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
-            case "cloudformation:SecretsManager:RotationSchedule":
+            case "aws-native:SecretsManager:RotationSchedule":
                 return new RotationSchedule(name, <any>undefined, { urn })
-            case "cloudformation:SecretsManager:Secret":
+            case "aws-native:SecretsManager:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "cloudformation:SecretsManager:SecretTargetAttachment":
+            case "aws-native:SecretsManager:SecretTargetAttachment":
                 return new SecretTargetAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "SecretsManager", _module)
+pulumi.runtime.registerResourceModule("aws-native", "SecretsManager", _module)

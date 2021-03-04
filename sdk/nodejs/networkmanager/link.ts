@@ -22,7 +22,7 @@ export class Link extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:NetworkManager:Link';
+    public static readonly __pulumiType = 'aws-native:NetworkManager:Link';
 
     /**
      * Returns true if the given object is an instance of Link.  This is designed to work even

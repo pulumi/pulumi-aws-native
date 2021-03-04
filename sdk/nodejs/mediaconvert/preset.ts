@@ -22,7 +22,7 @@ export class Preset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:MediaConvert:Preset';
+    public static readonly __pulumiType = 'aws-native:MediaConvert:Preset';
 
     /**
      * Returns true if the given object is an instance of Preset.  This is designed to work even

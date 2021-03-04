@@ -22,7 +22,7 @@ export class Branch extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Amplify:Branch';
+    public static readonly __pulumiType = 'aws-native:Amplify:Branch';
 
     /**
      * Returns true if the given object is an instance of Branch.  This is designed to work even

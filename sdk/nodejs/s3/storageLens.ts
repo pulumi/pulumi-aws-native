@@ -22,7 +22,7 @@ export class StorageLens extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:S3:StorageLens';
+    public static readonly __pulumiType = 'aws-native:S3:StorageLens';
 
     /**
      * Returns true if the given object is an instance of StorageLens.  This is designed to work even

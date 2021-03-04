@@ -22,7 +22,7 @@ export class VPNGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:VPNGateway';
+    public static readonly __pulumiType = 'aws-native:EC2:VPNGateway';
 
     /**
      * Returns true if the given object is an instance of VPNGateway.  This is designed to work even

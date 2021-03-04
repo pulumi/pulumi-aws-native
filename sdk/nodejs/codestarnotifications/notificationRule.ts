@@ -22,7 +22,7 @@ export class NotificationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodeStarNotifications:NotificationRule';
+    public static readonly __pulumiType = 'aws-native:CodeStarNotifications:NotificationRule';
 
     /**
      * Returns true if the given object is an instance of NotificationRule.  This is designed to work even

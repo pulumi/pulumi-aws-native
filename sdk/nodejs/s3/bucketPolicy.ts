@@ -22,7 +22,7 @@ export class BucketPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:S3:BucketPolicy';
+    public static readonly __pulumiType = 'aws-native:S3:BucketPolicy';
 
     /**
      * Returns true if the given object is an instance of BucketPolicy.  This is designed to work even
