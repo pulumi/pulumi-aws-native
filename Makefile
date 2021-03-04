@@ -1,145 +1,114 @@
-PROJECT_NAME := Pulumi CloudFormation Resource Provider
+PROJECT_NAME := Pulumi Native AWS Resource Provider
 include build/common.mk
 
-PACK             := cloudformation
+PACK             := aws-native
 PACKDIR          := sdk
-PROJECT          := github.com/pulumi/pulumi-cloudformation
-NODE_MODULE_NAME := @pulumi/cloudformation
-NUGET_PKG_NAME   := Pulumi.CloudFormation
-
+PROJECT          := github.com/pulumi/pulumi-aws-native
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION         ?= $(shell scripts/get-version)
-PYPI_VERSION    := $(shell cd scripts && ./get-py-version)
+VERSION         := $(shell pulumictl get version)
+
+PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
+WORKING_DIR     := $(shell pwd)
+
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}"
 
 CFN_SCHEMA_REGION   ?= us-west-2
 CFN_SCHEMA_URL      ?= https://cfn-resource-specifications-${CFN_SCHEMA_REGION}-prod.s3.${CFN_SCHEMA_REGION}.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json
-CFN_SCHEMA_DIR      := provider/cmd/pulumi-gen-cloudformation
+CFN_SCHEMA_DIR      := provider/cmd/pulumi-gen-${PACK}
 CFN_SCHEMA_FILE     := ${CFN_SCHEMA_DIR}/cfn-spec-${CFN_SCHEMA_REGION}.json
 
-SCHEMA_FILE := provider/cmd/pulumi-resource-cloudformation/schema.json
+update_cfm_schema::
+	test -f $(CFN_SCHEMA_FILE) || curl -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
 
-VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-cloudformation/provider/pkg/version.Version=${VERSION}"
+ensure::
+	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
+	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
-GO              ?= go
-CURL            ?= curl
-PYTHON          ?= python3
+local_generate:: clean
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python $(CFN_SCHEMA_FILE) ${VERSION}
+	echo "Finished generating."
 
-DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
-DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
+generate_schema::
+	echo "Generating Pulumi schema..."
+	$(WORKING_DIR)/bin/$(CODEGEN) schema $(CFN_SCHEMA_FILE) ${VERSION}
+	echo "Finished generating schema."
 
-ifeq ($(strip ${DOTNET_SUFFIX}),)
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})
-else
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-$(strip ${DOTNET_SUFFIX})
-endif
+codegen::
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
 
-TESTPARALLELISM := 10
-TESTABLE_PKGS   := ./provider/pkg/... ./examples/...
+provider::
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-# Set NOPROXY to true to skip GOPROXY on 'ensure'
-NOPROXY := false
+test_provider::
+	(cd provider && go test -v $(PROVIDER_PKGS))
 
-$(CFN_SCHEMA_FILE)::
-	test -f $(CFN_SCHEMA_FILE) || $(CURL) -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
+lint_provider:: provider # lint the provider code
+	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
-cf2pulumi::
-	cd provider && $(GO) install $(PROJECT)/provider/cmd/cf2pulumi
+generate_nodejs::
+	$(WORKING_DIR)/bin/$(CODEGEN) nodejs $(CFN_SCHEMA_FILE) ${VERSION}
 
-cfngen::
-	cd provider && $(GO) install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
-
-$(SCHEMA_FILE):: cfngen $(CFN_SCHEMA_FILE)
-	$(CODEGEN) schema $(CFN_SCHEMA_FILE) $(CURDIR)
-
-cfnprovider:: $(SCHEMA_FILE)
-	#$(CODEGEN) provider $(CFN_SCHEMA_FILE) $(CURDIR)
-	cd provider && VERSION=${VERSION} $(GO) generate cmd/${PROVIDER}/main.go
-	cd provider && $(GO) install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
-
-dotnet_sdk:: cfngen $(SCHEMA_FILE)
-	$(CODEGEN) -version=${VERSION} dotnet $(SCHEMA_FILE) $(CURDIR)
-	cd ${PACKDIR}/dotnet/&& \
-		echo "${VERSION:v%=%}" >version.txt && \
-		dotnet build /p:Version=${DOTNET_VERSION}
-
-go_sdk:: cfngen $(SCHEMA_FILE)
-	$(CODEGEN) -version=${VERSION} go $(SCHEMA_FILE) $(CURDIR)
-
-nodejs_sdk:: cfngen $(SCHEMA_FILE)
-	$(CODEGEN) -version=${VERSION} nodejs $(SCHEMA_FILE) $(CURDIR)
+build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
+build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
-		yarn run tsc
-	cp README.md LICENSE ${PACKDIR}/nodejs/package.json ${PACKDIR}/nodejs/yarn.lock ${PACKDIR}/nodejs/bin/
-	sed -i.bak 's/$${VERSION}/$(VERSION)/g' ${PACKDIR}/nodejs/bin/package.json
+		tsc && \
+		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
-python_sdk:: cfngen $(SCHEMA_FILE)
-	# Delete only files and folders that are generated.
-	rm -r sdk/python/pulumi_cloudformation/*/ sdk/python/pulumi_cloudformation/__init__.py
-	$(CODEGEN) -version=${VERSION} python $(SCHEMA_FILE) $(CURDIR)
-	cp README.md ${PACKDIR}/python/
-	cd ${PACKDIR}/python/ && \
-		$(PYTHON) setup.py clean --all 2>/dev/null && \
-		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
-		rm ./bin/setup.py.bak && \
-		cd ./bin && $(PYTHON) setup.py build sdist
+generate_python::
+	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_FILE) ${VERSION}
 
-lint::
-	for DIR in "provider" "sdk" "examples" ; do \
-		pushd $$DIR && golangci-lint run -c ../.golangci.yml --timeout 10m && popd ; \
-	done
+build_python:: VERSION := $(shell pulumictl get version --language python)
+build_python::
+	cd sdk/python/ && \
+        cp ../../README.md . && \
+        python3 setup.py clean --all 2>/dev/null && \
+        rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+        sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
+        rm ./bin/setup.py.bak && \
+        cd ./bin && python3 setup.py build sdist
 
-install::
-	cd provider && GOBIN=$(PULUMI_BIN) $(GO) install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
-	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	cp -r sdk/nodejs/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
-	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/tests"
-	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
-		yarn install --offline --production && \
-		(yarn unlink > /dev/null 2>&1 || true) && \
-		yarn link
-	echo "Copying ${NUGET_PKG_NAME} NuGet packages to ${PULUMI_NUGET}"
-	mkdir -p $(PULUMI_NUGET)
-	rm -rf "$(PULUMI_NUGET)/$(NUGET_PKG_NAME).*.nupkg"
-	find . -name '$(NUGET_PKG_NAME).*.nupkg' -exec cp -p {} ${PULUMI_NUGET} \;
+generate_dotnet::
+	$(WORKING_DIR)/bin/$(CODEGEN) dotnet $(CFN_SCHEMA_FILE) ${VERSION}
 
-test_fast::
-	cd provider/pkg && $(GO_TEST_FAST) ./...
-	cd examples && $(GO_TEST_FAST) ./...
+build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+build_dotnet::
+	cd ${PACKDIR}/dotnet/ && \
+		echo "${PACK}\n${DOTNET_VERSION}" >version.txt && \
+		dotnet build /p:Version=${DOTNET_VERSION}
 
-test_all::
-	cd provider/pkg && $(GO_TEST) ./...
-	cd examples && $(GO_TEST) ./...
+generate_go::
+	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_FILE) ${VERSION}
 
-generate_schema:: $(SCHEMA_FILE)
+build_go::
 
-.PHONY: build
-build:: cfngen cfnprovider dotnet_sdk go_sdk nodejs_sdk python_sdk
+clean::
+	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
+	rm -rf sdk/python && mkdir sdk/python && touch sdk/python/go.mod
+	rm -rf sdk/dotnet && mkdir sdk/dotnet && touch sdk/dotnet/go.mod
+	rm -rf sdk/go
 
-.PHONY: publish_tgz
-publish_tgz:
-	$(call STEP_MESSAGE)
-	./scripts/publish_tgz.sh
+install_dotnet_sdk::
+	mkdir -p $(WORKING_DIR)/nuget
+	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 
-# While pulumi-cloudformation is not built using tfgen/tfbridge, the layout of the source tree is the same as these
-# style of repositories, so we can re-use the common publishing scripts.
-.PHONY: publish_packages
-publish_packages:
-	$(call STEP_MESSAGE)
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-tfgen-package .
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/build-package-docs.sh cloudformation
+install_python_sdk::
 
-.PHONY: check_clean_worktree
-check_clean_worktree:
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/check-worktree-is-clean.sh
+install_go_sdk::
 
-# The travis_* targets are entrypoints for CI.
-.PHONY: travis_cron travis_push travis_pull_request travis_api
-travis_cron: all
-travis_push: only_build check_clean_worktree publish_tgz only_test publish_packages
-travis_pull_request: only_build check_clean_worktree only_test
-travis_api: all
+install_nodejs_sdk::
+	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
+
+test::
+	cd examples && go test -v -tags=all -timeout 2h
+
+build:: clean codegen local_generate provider build_sdks install_sdks
+build_sdks: build_nodejs build_dotnet build_python build_go
+install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+
+# Required for the codegen action that runs in pulumi/pulumi
+only_build:: build
+
+.PHONY: ensure generate_schema generate build_provider build

@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-cloudformation/examples
+module github.com/pulumi/pulumi-aws-native/examples
 
 go 1.14
 

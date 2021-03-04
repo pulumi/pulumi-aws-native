@@ -33,8 +33,8 @@ import (
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-cloudformation/provider/pkg/schema"
-	"github.com/pulumi/pulumi-cloudformation/provider/pkg/update"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/update"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
@@ -75,7 +75,7 @@ type cfnProvider struct {
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
 
-func newCloudformationProvider(host *provider.HostClient, version string, pulumiSchema []byte) (pulumirpc.ResourceProviderServer, error) {
+func newAwsNativeProvider(host *provider.HostClient, version string, pulumiSchema []byte) (pulumirpc.ResourceProviderServer, error) {
 	return &cfnProvider{
 		host:         host,
 		canceler:     makeCancellationContext(),
@@ -173,11 +173,11 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 
 // Configure configures the resource provider with "globals" that control its behavior.
 func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureRequest) (*pulumirpc.ConfigureResponse, error) {
-	region, ok := req.Variables["cloudformation:config:region"]
+	region, ok := req.Variables["aws-native:config:region"]
 	if !ok {
 		return nil, errors.New("missing required property 'region'")
 	}
-	stackName, ok := req.Variables["cloudformation:config:stack"]
+	stackName, ok := req.Variables["aws-native:config:stack"]
 	if !ok {
 		return nil, errors.New("missing required property 'stack'")
 	}
@@ -217,17 +217,17 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 }
 
 var functions = map[string]func(*cfnProvider, context.Context, resource.PropertyMap) (resource.PropertyMap, error){
-	"cloudformation:index:getAccountId":          (*cfnProvider).getAccountID,
-	"cloudformation:index:getAzs":                (*cfnProvider).getAZs,
-	"cloudformation:index:getPartition":          (*cfnProvider).getPartition,
-	"cloudformation:index:getRegion":             (*cfnProvider).getRegion,
-	"cloudformation:index:getStackId":            (*cfnProvider).getStackID,
-	"cloudformation:index:getStackName":          (*cfnProvider).getStackName,
-	"cloudformation:index:getUrlSuffix":          (*cfnProvider).getURLSuffix,
-	"cloudformation:index:cidr":                  (*cfnProvider).cidr,
-	"cloudformation:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
-	"cloudformation:index:getSsmParameterList":   (*cfnProvider).getSSMParameterList,
-	"cloudformation:index:importValue":           (*cfnProvider).importValue,
+	"aws-native:index:getAccountId":          (*cfnProvider).getAccountID,
+	"aws-native:index:getAzs":                (*cfnProvider).getAZs,
+	"aws-native:index:getPartition":          (*cfnProvider).getPartition,
+	"aws-native:index:getRegion":             (*cfnProvider).getRegion,
+	"aws-native:index:getStackId":            (*cfnProvider).getStackID,
+	"aws-native:index:getStackName":          (*cfnProvider).getStackName,
+	"aws-native:index:getUrlSuffix":          (*cfnProvider).getURLSuffix,
+	"aws-native:index:cidr":                  (*cfnProvider).cidr,
+	"aws-native:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
+	"aws-native:index:getSsmParameterList":   (*cfnProvider).getSSMParameterList,
+	"aws-native:index:importValue":           (*cfnProvider).importValue,
 }
 
 // Invoke dynamically executes a built-in function in the provider.

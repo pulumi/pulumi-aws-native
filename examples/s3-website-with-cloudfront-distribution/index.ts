@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as cloudformation from "@pulumi/cloudformation";
+import * as aws_native from "@pulumi/aws-native";
 
-const region = cloudformation.region!;
+const region = new pulumi.Config("aws-native").require("region");
 
 const region2S3WebsiteSuffix: any = {
     "us-east-1":      ".s3-website-us-east-1.amazonaws.com",
@@ -25,15 +25,18 @@ const region2S3WebsiteSuffix: any = {
     "eu-north-1":     ".s3-website-eu-north-1.amazonaws.com"
 };
 
-const s3BucketForWebsiteContent = new cloudformation.s3.Bucket("s3BucketForWebsiteContent", {
-    AccessControl: "PublicRead",
-    WebsiteConfiguration: {
-        IndexDocument: "index.html",
-        ErrorDocument: "error.html",
+const s3BucketForWebsiteContent = new aws_native.s3.Bucket("s3BucketForWebsiteContent", {
+    properties: {
+        AccessControl: "PublicRead",
+        WebsiteConfiguration: {
+            IndexDocument: "index.html",
+            ErrorDocument: "error.html",
+        },
     },
 });
 
-const websiteCdn = new cloudformation.cloudfront.Distribution("websiteCdn", {
+const websiteCdn = new aws_native.cloudfront.Distribution("websiteCdn", {
+    properties: {
     DistributionConfig: {
         Comment: "CDN for S3-backed website",
         Enabled: true,
@@ -53,4 +56,5 @@ const websiteCdn = new cloudformation.cloudfront.Distribution("websiteCdn", {
             Id: "only-origin",
         }],
     },
+},
 });

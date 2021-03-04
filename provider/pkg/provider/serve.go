@@ -23,8 +23,8 @@ import (
 // Serve launches the gRPC server for the Pulumi Kubernetes resource provider.
 func Serve(version string, pulumiSchema []byte) {
 	// Start gRPC service.
-	err := provider.Main("cloudformation", func(host *provider.HostClient) (pulumirpc.ResourceProviderServer, error) {
-		return newCloudformationProvider(host, version, pulumiSchema)
+	err := provider.Main("aws-native", func(host *provider.HostClient) (pulumirpc.ResourceProviderServer, error) {
+		return newAwsNativeProvider(host, version, pulumiSchema)
 	})
 
 	if err != nil {

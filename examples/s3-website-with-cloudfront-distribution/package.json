@@ -4,9 +4,6 @@
         "@types/node": "^8.0.0"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^1.0.0"
-    },
-    "peerDependencies": {
-        "@pulumi/cloudformation": "latest"
+        "@pulumi/pulumi": "^2.0.0"
     }
 }

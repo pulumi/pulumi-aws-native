@@ -15,7 +15,7 @@ import (
 	"github.com/sanathkr/yaml"
 	uuid "github.com/satori/go.uuid"
 
-	"github.com/pulumi/pulumi-cloudformation/provider/pkg/get"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/get"
 )
 
 type ResourceOption func(*ResourceData)

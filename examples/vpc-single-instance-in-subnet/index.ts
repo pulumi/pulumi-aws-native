@@ -1,10 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as cloudformation from "@pulumi/cloudformation";
+import * as aws_native from "@pulumi/aws-native";
 
-const region = cloudformation.config.region!;
-const stack = cloudformation.config.stack!;
+const config = new pulumi.Config("aws-native");
+const region = config.require("region");
+const stack = config.require("stack");
 
-const config = new pulumi.Config();
 const instanceType = config.get("instanceType") || "t3.small";
 const keyName = config.get("keyName");
 
@@ -110,9 +110,9 @@ const awsRegionArch2AMI: any = {
 	"cn-northwest-1": {"HVM64": "ami-0f7937761741dc640", "HVMG2": "NOT_SUPPORTED"},
 }
 
-const tags = [{Key: "Application", Value: cloudformation.getStackId().then(s => s.stackId)}];
+const tags = [{Key: "Application", Value: aws_native.getStackId().then(s => s.stackId)}];
 
-const vpc = new cloudformation.ec2.VPC("vpc", {
+const vpc = new aws_native.ec2.VPC("vpc", {
     properties: {
         CidrBlock: "10.0.0.0/16",
         EnableDnsHostnames: true,
@@ -120,7 +120,7 @@ const vpc = new cloudformation.ec2.VPC("vpc", {
     },
 });
 
-const subnet = new cloudformation.ec2.Subnet("subnet", {
+const subnet = new aws_native.ec2.Subnet("subnet", {
     properties: {
         VpcId: vpc.id,
         CidrBlock: "10.0.0.0/24",
@@ -128,27 +128,27 @@ const subnet = new cloudformation.ec2.Subnet("subnet", {
     },
 });
 
-const internetGateway = new cloudformation.ec2.InternetGateway("internetGateway", {
+const internetGateway = new aws_native.ec2.InternetGateway("internetGateway", {
     properties: {
         Tags: tags,
     },
 });
 
-const attachGateway = new cloudformation.ec2.VPCGatewayAttachment("attachGateway", {
+const attachGateway = new aws_native.ec2.VPCGatewayAttachment("attachGateway", {
     properties: {
         VpcId: vpc.id,
         InternetGatewayId: internetGateway.id,
     },
 });
 
-const routeTable = new cloudformation.ec2.RouteTable("routeTable", {
+const routeTable = new aws_native.ec2.RouteTable("routeTable", {
     properties: {
         VpcId: vpc.id,
         Tags: tags,
     },
 });
 
-const route = new cloudformation.ec2.Route("route", {
+const route = new aws_native.ec2.Route("route", {
     properties: {
         RouteTableId: routeTable.id,
         DestinationCidrBlock: "0.0.0.0/0",
@@ -156,14 +156,14 @@ const route = new cloudformation.ec2.Route("route", {
     },
 });
 
-const subnetRouteTableAssociation = new cloudformation.ec2.SubnetRouteTableAssociation("subnetRouteTableAssociation", {
+const subnetRouteTableAssociation = new aws_native.ec2.SubnetRouteTableAssociation("subnetRouteTableAssociation", {
     properties: {
         SubnetId: subnet.id,
         RouteTableId: routeTable.id,
     },
 });
 
-const networkAcl = new cloudformation.ec2.NetworkAcl("networkAcl", {
+const networkAcl = new aws_native.ec2.NetworkAcl("networkAcl", {
     properties: {
         VpcId: vpc.id,
         Tags: tags,
@@ -177,7 +177,7 @@ const commonAclEntryProperties = {
     CidrBlock: "0.0.0.0/0",
 }
 
-const inboundHTTPNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inboundHTTPNetworkAclEntry", {
+const inboundHTTPNetworkAclEntry = new aws_native.ec2.NetworkAclEntry("inboundHTTPNetworkAclEntry", {
     properties: {
         ...commonAclEntryProperties,
         RuleNumber: 100,
@@ -186,7 +186,7 @@ const inboundHTTPNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inbou
     },
 })
 
-const inboundSSHNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inboundSSHNetworkAclEntry", {
+const inboundSSHNetworkAclEntry = new aws_native.ec2.NetworkAclEntry("inboundSSHNetworkAclEntry", {
     properties: {
         ...commonAclEntryProperties,
         RuleNumber: 101,
@@ -195,7 +195,7 @@ const inboundSSHNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inboun
     },
 })
 
-const inboundResponsePortsNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("inboundResponsePortsNetworkAclEntry", {
+const inboundResponsePortsNetworkAclEntry = new aws_native.ec2.NetworkAclEntry("inboundResponsePortsNetworkAclEntry", {
     properties: {
         ...commonAclEntryProperties,
         RuleNumber: 102,
@@ -204,7 +204,7 @@ const inboundResponsePortsNetworkAclEntry = new cloudformation.ec2.NetworkAclEnt
     },
 })
 
-const outBoundHTTPNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("outBoundHTTPNetworkAclEntry", {
+const outBoundHTTPNetworkAclEntry = new aws_native.ec2.NetworkAclEntry("outBoundHTTPNetworkAclEntry", {
     properties: {
         ...commonAclEntryProperties,
         RuleNumber: 100,
@@ -213,7 +213,7 @@ const outBoundHTTPNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("outB
     },
 })
 
-const outBoundHTTPSNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("outBoundHTTPSNetworkAclEntry", {
+const outBoundHTTPSNetworkAclEntry = new aws_native.ec2.NetworkAclEntry("outBoundHTTPSNetworkAclEntry", {
     properties: {
         ...commonAclEntryProperties,
         RuleNumber: 101,
@@ -222,7 +222,7 @@ const outBoundHTTPSNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("out
     },
 })
 
-const outBoundResponsePortsNetworkAclEntry = new cloudformation.ec2.NetworkAclEntry("outBoundResponsePortsNetworkAclEntry", {
+const outBoundResponsePortsNetworkAclEntry = new aws_native.ec2.NetworkAclEntry("outBoundResponsePortsNetworkAclEntry", {
     properties: {
         ...commonAclEntryProperties,
         RuleNumber: 102,
@@ -231,14 +231,14 @@ const outBoundResponsePortsNetworkAclEntry = new cloudformation.ec2.NetworkAclEn
     },
 })
 
-const subnetNetworkAclAssociation = new cloudformation.ec2.SubnetNetworkAclAssociation("subnetNetworkAclAssociation", {
+const subnetNetworkAclAssociation = new aws_native.ec2.SubnetNetworkAclAssociation("subnetNetworkAclAssociation", {
     properties: {
         SubnetId: subnet.id,
         NetworkAclId: networkAcl.id,
     },
 });
 
-const instanceSecurityGroup = new cloudformation.ec2.SecurityGroup("instanceSecurityGroup", {
+const instanceSecurityGroup = new aws_native.ec2.SecurityGroup("instanceSecurityGroup", {
     properties: {
         VpcId: vpc.id,
         GroupDescription: "Enable SSH access via port 22",
@@ -324,7 +324,7 @@ const webServerOptions = {
     },
 };
 
-const webServerInstance = new cloudformation.ec2.Instance("webServerInstance", {
+const webServerInstance = new aws_native.ec2.Instance("webServerInstance", {
     ...webServerOptions,
     properties: {
         ImageId: awsRegionArch2AMI[region][awsInstanceType2Arch[instanceType]],
@@ -342,7 +342,7 @@ const webServerInstance = new cloudformation.ec2.Instance("webServerInstance", {
     },
 });
 
-const ipAddress = new cloudformation.ec2.EIP("ipAddress", {
+const ipAddress = new aws_native.ec2.EIP("ipAddress", {
     properties: {
         Domain: "vpc",
         InstanceId: webServerInstance.id,

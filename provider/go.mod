@@ -1,6 +1,6 @@
-module github.com/pulumi/pulumi-cloudformation/provider
+module github.com/pulumi/pulumi-aws-native/provider
 
-go 1.14
+go 1.15
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
