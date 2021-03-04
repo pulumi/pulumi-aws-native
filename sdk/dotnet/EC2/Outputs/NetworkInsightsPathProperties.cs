@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2.Outputs
+namespace Pulumi.AwsNative.EC2.Outputs
 {
 
     [OutputType]
@@ -40,7 +40,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private NetworkInsightsPathProperties(
@@ -56,7 +56,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string? SourceIp,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Destination = Destination;
             this.DestinationIp = DestinationIp;

@@ -22,7 +22,7 @@ export class RestApi extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:RestApi';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:RestApi';
 
     /**
      * Returns true if the given object is an instance of RestApi.  This is designed to work even

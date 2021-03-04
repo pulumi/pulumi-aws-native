@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Transfer.Inputs
+namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
     /// <summary>
@@ -70,14 +70,14 @@ namespace Pulumi.Cloudformation.Transfer.Inputs
         }
 
         [Input("Tags")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-tags
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _Tags = value;
         }
 

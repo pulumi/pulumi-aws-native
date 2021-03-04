@@ -22,7 +22,7 @@ export class Document extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SSM:Document';
+    public static readonly __pulumiType = 'aws-native:SSM:Document';
 
     /**
      * Returns true if the given object is an instance of Document.  This is designed to work even

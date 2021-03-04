@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:Authorizer")]
+    [AwsNativeResourceType("aws-native:ApiGateway:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Authorizer(string name, AuthorizerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Authorizer", name, args ?? new AuthorizerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Authorizer(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Authorizer", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:Authorizer", name, args ?? new AuthorizerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Authorizer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Authorizer", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:Authorizer", name, null, MakeResourceOptions(options, id))
         {
         }
 

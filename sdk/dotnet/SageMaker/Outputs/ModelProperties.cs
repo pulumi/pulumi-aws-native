@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker.Outputs
+namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     [OutputType]
@@ -36,7 +36,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
 
             Outputs.ModelContainerDefinition? PrimaryContainer,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             Outputs.ModelVpcConfig? VpcConfig)
         {

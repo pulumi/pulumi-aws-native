@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker.Outputs
+namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     [OutputType]
@@ -52,7 +52,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private DataQualityJobDefinitionProperties(
@@ -74,7 +74,7 @@ namespace Pulumi.Cloudformation.SageMaker.Outputs
 
             Outputs.DataQualityJobDefinitionStoppingCondition? StoppingCondition,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.DataQualityAppSpecification = DataQualityAppSpecification;
             this.DataQualityBaselineConfig = DataQualityBaselineConfig;

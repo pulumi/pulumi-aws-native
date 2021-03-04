@@ -22,7 +22,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGatewayV2:IntegrationResponse';
+    public static readonly __pulumiType = 'aws-native:ApiGatewayV2:IntegrationResponse';
 
     /**
      * Returns true if the given object is an instance of IntegrationResponse.  This is designed to work even

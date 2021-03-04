@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ACMPCA.Outputs
+namespace Pulumi.AwsNative.ACMPCA.Outputs
 {
 
     [OutputType]

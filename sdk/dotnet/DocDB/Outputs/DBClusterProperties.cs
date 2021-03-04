@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DocDB.Outputs
+namespace Pulumi.AwsNative.DocDB.Outputs
 {
 
     [OutputType]
@@ -80,7 +80,7 @@ namespace Pulumi.Cloudformation.DocDB.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-vpcsecuritygroupids
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.Cloudformation.DocDB.Outputs
 
             bool? StorageEncrypted,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             ImmutableArray<string> VpcSecurityGroupIds)
         {

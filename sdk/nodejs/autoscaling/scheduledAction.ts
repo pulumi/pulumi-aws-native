@@ -22,7 +22,7 @@ export class ScheduledAction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AutoScaling:ScheduledAction';
+    public static readonly __pulumiType = 'aws-native:AutoScaling:ScheduledAction';
 
     /**
      * Returns true if the given object is an instance of ScheduledAction.  This is designed to work even

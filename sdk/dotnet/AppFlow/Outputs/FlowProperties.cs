@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppFlow.Outputs
+namespace Pulumi.AwsNative.AppFlow.Outputs
 {
 
     [OutputType]
@@ -36,7 +36,7 @@ namespace Pulumi.Cloudformation.AppFlow.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Cloudformation.AppFlow.Outputs
 
             Outputs.FlowSourceFlowConfig SourceFlowConfig,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             ImmutableArray<Outputs.FlowTask> Tasks,
 

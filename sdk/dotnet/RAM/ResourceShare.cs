@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RAM
+namespace Pulumi.AwsNative.RAM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RAM:ResourceShare")]
+    [AwsNativeResourceType("aws-native:RAM:ResourceShare")]
     public partial class ResourceShare : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceShare(string name, ResourceShareArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RAM:ResourceShare", name, args ?? new ResourceShareArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ResourceShare(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RAM:ResourceShare", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RAM:ResourceShare", name, args ?? new ResourceShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceShare(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RAM:ResourceShare", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RAM:ResourceShare", name, null, MakeResourceOptions(options, id))
         {
         }
 

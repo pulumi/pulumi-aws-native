@@ -22,7 +22,7 @@ export class PermissionSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SSO:PermissionSet';
+    public static readonly __pulumiType = 'aws-native:SSO:PermissionSet';
 
     /**
      * Returns true if the given object is an instance of PermissionSet.  This is designed to work even

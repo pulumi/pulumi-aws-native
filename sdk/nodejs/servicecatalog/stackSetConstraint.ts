@@ -22,7 +22,7 @@ export class StackSetConstraint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ServiceCatalog:StackSetConstraint';
+    public static readonly __pulumiType = 'aws-native:ServiceCatalog:StackSetConstraint';
 
     /**
      * Returns true if the given object is an instance of StackSetConstraint.  This is designed to work even

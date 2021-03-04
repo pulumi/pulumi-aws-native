@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppMesh.Outputs
+namespace Pulumi.AwsNative.AppMesh.Outputs
 {
 
     [OutputType]
@@ -28,7 +28,7 @@ namespace Pulumi.Cloudformation.AppMesh.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-virtualnodename
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Cloudformation.AppMesh.Outputs
 
             Outputs.VirtualNodeVirtualNodeSpec Spec,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             string VirtualNodeName)
         {

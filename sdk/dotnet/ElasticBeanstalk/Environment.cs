@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElasticBeanstalk
+namespace Pulumi.AwsNative.ElasticBeanstalk
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ElasticBeanstalk:Environment")]
+    [AwsNativeResourceType("aws-native:ElasticBeanstalk:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ElasticBeanstalk
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticBeanstalk:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Environment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticBeanstalk:Environment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ElasticBeanstalk:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticBeanstalk:Environment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ElasticBeanstalk:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 

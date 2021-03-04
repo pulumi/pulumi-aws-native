@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GroundStation
+namespace Pulumi.AwsNative.GroundStation
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GroundStation:MissionProfile")]
+    [AwsNativeResourceType("aws-native:GroundStation:MissionProfile")]
     public partial class MissionProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GroundStation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MissionProfile(string name, MissionProfileArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GroundStation:MissionProfile", name, args ?? new MissionProfileArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MissionProfile(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GroundStation:MissionProfile", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GroundStation:MissionProfile", name, args ?? new MissionProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MissionProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GroundStation:MissionProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GroundStation:MissionProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

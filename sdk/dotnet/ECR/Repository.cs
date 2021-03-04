@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ECR
+namespace Pulumi.AwsNative.ECR
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ECR:Repository")]
+    [AwsNativeResourceType("aws-native:ECR:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ECR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ECR:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Repository(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ECR:Repository", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ECR:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Repository(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ECR:Repository", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ECR:Repository", name, null, MakeResourceOptions(options, id))
         {
         }
 

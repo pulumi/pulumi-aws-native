@@ -22,7 +22,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoT:ProvisioningTemplate';
+    public static readonly __pulumiType = 'aws-native:IoT:ProvisioningTemplate';
 
     /**
      * Returns true if the given object is an instance of ProvisioningTemplate.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EKS
+namespace Pulumi.AwsNative.EKS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EKS:Cluster")]
+    [AwsNativeResourceType("aws-native:EKS:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EKS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Cluster(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:Cluster", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EKS:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EKS:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EKS:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

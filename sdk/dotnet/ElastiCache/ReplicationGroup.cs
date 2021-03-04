@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElastiCache
+namespace Pulumi.AwsNative.ElastiCache
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ElastiCache:ReplicationGroup")]
+    [AwsNativeResourceType("aws-native:ElastiCache:ReplicationGroup")]
     public partial class ReplicationGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,16 +54,12 @@ namespace Pulumi.Cloudformation.ElastiCache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationGroup(string name, ReplicationGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:ReplicationGroup", name, args ?? new ReplicationGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ReplicationGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:ReplicationGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ElastiCache:ReplicationGroup", name, args ?? new ReplicationGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:ReplicationGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ElastiCache:ReplicationGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

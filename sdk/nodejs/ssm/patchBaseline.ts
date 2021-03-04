@@ -22,7 +22,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SSM:PatchBaseline';
+    public static readonly __pulumiType = 'aws-native:SSM:PatchBaseline';
 
     /**
      * Returns true if the given object is an instance of PatchBaseline.  This is designed to work even

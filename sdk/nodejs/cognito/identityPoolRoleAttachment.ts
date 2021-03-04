@@ -22,7 +22,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Cognito:IdentityPoolRoleAttachment';
+    public static readonly __pulumiType = 'aws-native:Cognito:IdentityPoolRoleAttachment';
 
     /**
      * Returns true if the given object is an instance of IdentityPoolRoleAttachment.  This is designed to work even

@@ -22,7 +22,7 @@ export class Campaign extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:Campaign';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:Campaign';
 
     /**
      * Returns true if the given object is an instance of Campaign.  This is designed to work even

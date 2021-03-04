@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.NetworkFirewall
+namespace Pulumi.AwsNative.NetworkFirewall
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:NetworkFirewall:RuleGroup")]
+    [AwsNativeResourceType("aws-native:NetworkFirewall:RuleGroup")]
     public partial class RuleGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.NetworkFirewall
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleGroup(string name, RuleGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:RuleGroup", name, args ?? new RuleGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RuleGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:RuleGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:NetworkFirewall:RuleGroup", name, args ?? new RuleGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RuleGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:RuleGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:NetworkFirewall:RuleGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

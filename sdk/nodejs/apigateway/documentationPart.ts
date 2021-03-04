@@ -22,7 +22,7 @@ export class DocumentationPart extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:DocumentationPart';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:DocumentationPart';
 
     /**
      * Returns true if the given object is an instance of DocumentationPart.  This is designed to work even

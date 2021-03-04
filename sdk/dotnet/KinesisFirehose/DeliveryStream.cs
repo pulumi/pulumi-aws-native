@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KinesisFirehose
+namespace Pulumi.AwsNative.KinesisFirehose
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:KinesisFirehose:DeliveryStream")]
+    [AwsNativeResourceType("aws-native:KinesisFirehose:DeliveryStream")]
     public partial class DeliveryStream : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.KinesisFirehose
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeliveryStream(string name, DeliveryStreamArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisFirehose:DeliveryStream", name, args ?? new DeliveryStreamArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DeliveryStream(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisFirehose:DeliveryStream", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:KinesisFirehose:DeliveryStream", name, args ?? new DeliveryStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeliveryStream(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisFirehose:DeliveryStream", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:KinesisFirehose:DeliveryStream", name, null, MakeResourceOptions(options, id))
         {
         }
 

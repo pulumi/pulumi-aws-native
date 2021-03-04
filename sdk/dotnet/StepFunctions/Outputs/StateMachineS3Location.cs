@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.StepFunctions.Outputs
+namespace Pulumi.AwsNative.StepFunctions.Outputs
 {
 
     [OutputType]

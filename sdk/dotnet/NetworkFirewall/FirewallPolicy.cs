@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.NetworkFirewall
+namespace Pulumi.AwsNative.NetworkFirewall
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:NetworkFirewall:FirewallPolicy")]
+    [AwsNativeResourceType("aws-native:NetworkFirewall:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.NetworkFirewall
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallPolicy(string name, FirewallPolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:FirewallPolicy", name, args ?? new FirewallPolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal FirewallPolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:FirewallPolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:NetworkFirewall:FirewallPolicy", name, args ?? new FirewallPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:FirewallPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:NetworkFirewall:FirewallPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

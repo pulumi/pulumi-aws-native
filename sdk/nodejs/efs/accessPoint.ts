@@ -22,7 +22,7 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EFS:AccessPoint';
+    public static readonly __pulumiType = 'aws-native:EFS:AccessPoint';
 
     /**
      * Returns true if the given object is an instance of AccessPoint.  This is designed to work even

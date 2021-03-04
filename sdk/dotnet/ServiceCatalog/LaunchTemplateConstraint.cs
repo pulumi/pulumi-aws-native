@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceCatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceCatalog:LaunchTemplateConstraint")]
+    [AwsNativeResourceType("aws-native:ServiceCatalog:LaunchTemplateConstraint")]
     public partial class LaunchTemplateConstraint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LaunchTemplateConstraint(string name, LaunchTemplateConstraintArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:LaunchTemplateConstraint", name, args ?? new LaunchTemplateConstraintArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LaunchTemplateConstraint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:LaunchTemplateConstraint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceCatalog:LaunchTemplateConstraint", name, args ?? new LaunchTemplateConstraintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LaunchTemplateConstraint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:LaunchTemplateConstraint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceCatalog:LaunchTemplateConstraint", name, null, MakeResourceOptions(options, id))
         {
         }
 

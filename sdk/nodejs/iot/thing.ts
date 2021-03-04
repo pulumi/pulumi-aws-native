@@ -22,7 +22,7 @@ export class Thing extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoT:Thing';
+    public static readonly __pulumiType = 'aws-native:IoT:Thing';
 
     /**
      * Returns true if the given object is an instance of Thing.  This is designed to work even

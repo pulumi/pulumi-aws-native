@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:EIPAssociation")]
+    [AwsNativeResourceType("aws-native:EC2:EIPAssociation")]
     public partial class EIPAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EIPAssociation(string name, EIPAssociationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:EIPAssociation", name, args ?? new EIPAssociationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EIPAssociation(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:EIPAssociation", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:EIPAssociation", name, args ?? new EIPAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EIPAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:EIPAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:EIPAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

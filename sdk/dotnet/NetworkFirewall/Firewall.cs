@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.NetworkFirewall
+namespace Pulumi.AwsNative.NetworkFirewall
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:NetworkFirewall:Firewall")]
+    [AwsNativeResourceType("aws-native:NetworkFirewall:Firewall")]
     public partial class Firewall : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.NetworkFirewall
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Firewall(string name, FirewallArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:Firewall", name, args ?? new FirewallArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Firewall(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:Firewall", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:NetworkFirewall:Firewall", name, args ?? new FirewallArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Firewall(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkFirewall:Firewall", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:NetworkFirewall:Firewall", name, null, MakeResourceOptions(options, id))
         {
         }
 

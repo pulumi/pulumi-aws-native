@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     public static class Cidr
     {
         public static Task<CidrResult> InvokeAsync(CidrArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<CidrResult>("cloudformation:index:cidr", args ?? new CidrArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<CidrResult>("aws-native:index:cidr", args ?? new CidrArgs(), options.WithVersion());
     }
 
 

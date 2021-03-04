@@ -22,7 +22,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DLM:LifecyclePolicy';
+    public static readonly __pulumiType = 'aws-native:DLM:LifecyclePolicy';
 
     /**
      * Returns true if the given object is an instance of LifecyclePolicy.  This is designed to work even

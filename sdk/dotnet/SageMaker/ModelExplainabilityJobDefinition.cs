@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:ModelExplainabilityJobDefinition")]
+    [AwsNativeResourceType("aws-native:SageMaker:ModelExplainabilityJobDefinition")]
     public partial class ModelExplainabilityJobDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelExplainabilityJobDefinition(string name, ModelExplainabilityJobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelExplainabilityJobDefinition", name, args ?? new ModelExplainabilityJobDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ModelExplainabilityJobDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelExplainabilityJobDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:ModelExplainabilityJobDefinition", name, args ?? new ModelExplainabilityJobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelExplainabilityJobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelExplainabilityJobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:ModelExplainabilityJobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

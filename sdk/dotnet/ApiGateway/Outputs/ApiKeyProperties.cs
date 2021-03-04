@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway.Outputs
+namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
     [OutputType]
@@ -40,7 +40,7 @@ namespace Pulumi.Cloudformation.ApiGateway.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.Cloudformation.ApiGateway.Outputs
 
             ImmutableArray<Outputs.ApiKeyStageKey> StageKeys,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             string? Value)
         {

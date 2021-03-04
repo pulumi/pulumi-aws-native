@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.S3.Outputs
+namespace Pulumi.AwsNative.S3.Outputs
 {
 
     [OutputType]
@@ -20,13 +20,13 @@ namespace Pulumi.Cloudformation.S3.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private StorageLensProperties(
             Outputs.StorageLensStorageLensConfiguration StorageLensConfiguration,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.StorageLensConfiguration = StorageLensConfiguration;
             this.Tags = Tags;

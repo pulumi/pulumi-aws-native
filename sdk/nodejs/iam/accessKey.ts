@@ -22,7 +22,7 @@ export class AccessKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IAM:AccessKey';
+    public static readonly __pulumiType = 'aws-native:IAM:AccessKey';
 
     /**
      * Returns true if the given object is an instance of AccessKey.  This is designed to work even

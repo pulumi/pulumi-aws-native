@@ -22,7 +22,7 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ServiceCatalog:CloudFormationProvisionedProduct';
+    public static readonly __pulumiType = 'aws-native:ServiceCatalog:CloudFormationProvisionedProduct';
 
     /**
      * Returns true if the given object is an instance of CloudFormationProvisionedProduct.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeGuruProfiler.Outputs
+namespace Pulumi.AwsNative.CodeGuruProfiler.Outputs
 {
 
     [OutputType]
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.CodeGuruProfiler.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ProfilingGroupProperties(
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.CodeGuruProfiler.Outputs
 
             string ProfilingGroupName,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AgentPermissions = AgentPermissions;
             this.AnomalyDetectionNotificationConfiguration = AnomalyDetectionNotificationConfiguration;

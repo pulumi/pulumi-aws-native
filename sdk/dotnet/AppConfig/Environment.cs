@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppConfig
+namespace Pulumi.AwsNative.AppConfig
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppConfig:Environment")]
+    [AwsNativeResourceType("aws-native:AppConfig:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppConfig
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Environment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:Environment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppConfig:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:Environment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppConfig:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 

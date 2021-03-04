@@ -22,7 +22,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DataPipeline:Pipeline';
+    public static readonly __pulumiType = 'aws-native:DataPipeline:Pipeline';
 
     /**
      * Returns true if the given object is an instance of Pipeline.  This is designed to work even

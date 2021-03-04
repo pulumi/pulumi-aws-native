@@ -22,7 +22,7 @@ export class ApplicationReferenceDataSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:KinesisAnalytics:ApplicationReferenceDataSource';
+    public static readonly __pulumiType = 'aws-native:KinesisAnalytics:ApplicationReferenceDataSource';
 
     /**
      * Returns true if the given object is an instance of ApplicationReferenceDataSource.  This is designed to work even

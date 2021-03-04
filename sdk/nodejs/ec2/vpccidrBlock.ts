@@ -22,7 +22,7 @@ export class VPCCidrBlock extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:VPCCidrBlock';
+    public static readonly __pulumiType = 'aws-native:EC2:VPCCidrBlock';
 
     /**
      * Returns true if the given object is an instance of VPCCidrBlock.  This is designed to work even

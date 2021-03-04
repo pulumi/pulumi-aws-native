@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeBuild
+namespace Pulumi.AwsNative.CodeBuild
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeBuild:Project")]
+    [AwsNativeResourceType("aws-native:CodeBuild:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeBuild
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeBuild:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Project(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeBuild:Project", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeBuild:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeBuild:Project", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeBuild:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 

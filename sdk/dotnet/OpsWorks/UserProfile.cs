@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.OpsWorks
+namespace Pulumi.AwsNative.OpsWorks
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:OpsWorks:UserProfile")]
+    [AwsNativeResourceType("aws-native:OpsWorks:UserProfile")]
     public partial class UserProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.OpsWorks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserProfile(string name, UserProfileArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:UserProfile", name, args ?? new UserProfileArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal UserProfile(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:UserProfile", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:OpsWorks:UserProfile", name, args ?? new UserProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:UserProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:OpsWorks:UserProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

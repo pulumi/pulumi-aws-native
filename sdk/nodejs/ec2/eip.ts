@@ -22,7 +22,7 @@ export class EIP extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:EIP';
+    public static readonly __pulumiType = 'aws-native:EC2:EIP';
 
     /**
      * Returns true if the given object is an instance of EIP.  This is designed to work even

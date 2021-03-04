@@ -22,7 +22,7 @@ export class MetricStream extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudWatch:MetricStream';
+    public static readonly __pulumiType = 'aws-native:CloudWatch:MetricStream';
 
     /**
      * Returns true if the given object is an instance of MetricStream.  This is designed to work even

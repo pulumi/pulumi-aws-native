@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElasticLoadBalancingV2
+namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ElasticLoadBalancingV2:Listener")]
+    [AwsNativeResourceType("aws-native:ElasticLoadBalancingV2:Listener")]
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Listener(string name, ListenerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticLoadBalancingV2:Listener", name, args ?? new ListenerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Listener(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticLoadBalancingV2:Listener", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ElasticLoadBalancingV2:Listener", name, args ?? new ListenerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Listener(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticLoadBalancingV2:Listener", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ElasticLoadBalancingV2:Listener", name, null, MakeResourceOptions(options, id))
         {
         }
 

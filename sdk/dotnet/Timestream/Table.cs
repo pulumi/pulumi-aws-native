@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Timestream
+namespace Pulumi.AwsNative.Timestream
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Timestream:Table")]
+    [AwsNativeResourceType("aws-native:Timestream:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Timestream
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Table(string name, TableArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Timestream:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Table(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Timestream:Table", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Timestream:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Table(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Timestream:Table", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Timestream:Table", name, null, MakeResourceOptions(options, id))
         {
         }
 

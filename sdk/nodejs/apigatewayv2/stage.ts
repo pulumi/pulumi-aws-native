@@ -22,7 +22,7 @@ export class Stage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGatewayV2:Stage';
+    public static readonly __pulumiType = 'aws-native:ApiGatewayV2:Stage';
 
     /**
      * Returns true if the given object is an instance of Stage.  This is designed to work even

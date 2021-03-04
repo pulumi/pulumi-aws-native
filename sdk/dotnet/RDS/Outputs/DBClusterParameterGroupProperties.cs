@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RDS.Outputs
+namespace Pulumi.AwsNative.RDS.Outputs
 {
 
     [OutputType]
@@ -28,7 +28,7 @@ namespace Pulumi.Cloudformation.RDS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private DBClusterParameterGroupProperties(
@@ -38,7 +38,7 @@ namespace Pulumi.Cloudformation.RDS.Outputs
 
             Union<System.Text.Json.JsonElement, string> Parameters,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Description = Description;
             this.Family = Family;

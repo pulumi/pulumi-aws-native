@@ -13,7 +13,7 @@ export function getStackId(opts?: pulumi.InvokeOptions): Promise<GetStackIdResul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getStackId", {
+    return pulumi.runtime.invoke("aws-native:index:getStackId", {
     }, opts);
 }
 

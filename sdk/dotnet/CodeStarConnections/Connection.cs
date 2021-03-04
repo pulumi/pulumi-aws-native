@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeStarConnections
+namespace Pulumi.AwsNative.CodeStarConnections
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeStarConnections:Connection")]
+    [AwsNativeResourceType("aws-native:CodeStarConnections:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeStarConnections
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStarConnections:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Connection(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStarConnections:Connection", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeStarConnections:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStarConnections:Connection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeStarConnections:Connection", name, null, MakeResourceOptions(options, id))
         {
         }
 

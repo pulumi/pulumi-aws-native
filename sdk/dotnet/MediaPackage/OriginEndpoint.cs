@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaPackage
+namespace Pulumi.AwsNative.MediaPackage
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:MediaPackage:OriginEndpoint")]
+    [AwsNativeResourceType("aws-native:MediaPackage:OriginEndpoint")]
     public partial class OriginEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OriginEndpoint(string name, OriginEndpointArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:OriginEndpoint", name, args ?? new OriginEndpointArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal OriginEndpoint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:OriginEndpoint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:MediaPackage:OriginEndpoint", name, args ?? new OriginEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OriginEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:OriginEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:MediaPackage:OriginEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodePipeline
+namespace Pulumi.AwsNative.CodePipeline
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodePipeline:CustomActionType")]
+    [AwsNativeResourceType("aws-native:CodePipeline:CustomActionType")]
     public partial class CustomActionType : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodePipeline
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomActionType(string name, CustomActionTypeArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:CustomActionType", name, args ?? new CustomActionTypeArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CustomActionType(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:CustomActionType", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodePipeline:CustomActionType", name, args ?? new CustomActionTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomActionType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodePipeline:CustomActionType", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodePipeline:CustomActionType", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeStar.Inputs
+namespace Pulumi.AwsNative.CodeStar.Inputs
 {
 
     /// <summary>

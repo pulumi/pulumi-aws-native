@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Elasticsearch.Outputs
+namespace Pulumi.AwsNative.Elasticsearch.Outputs
 {
 
     [OutputType]
@@ -68,7 +68,7 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-vpcoptions
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Cloudformation.Elasticsearch.Outputs
 
             Outputs.DomainSnapshotOptions? SnapshotOptions,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             Outputs.DomainVPCOptions? VPCOptions)
         {

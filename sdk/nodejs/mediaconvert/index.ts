@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:MediaConvert:JobTemplate":
+            case "aws-native:MediaConvert:JobTemplate":
                 return new JobTemplate(name, <any>undefined, { urn })
-            case "cloudformation:MediaConvert:Preset":
+            case "aws-native:MediaConvert:Preset":
                 return new Preset(name, <any>undefined, { urn })
-            case "cloudformation:MediaConvert:Queue":
+            case "aws-native:MediaConvert:Queue":
                 return new Queue(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "MediaConvert", _module)
+pulumi.runtime.registerResourceModule("aws-native", "MediaConvert", _module)

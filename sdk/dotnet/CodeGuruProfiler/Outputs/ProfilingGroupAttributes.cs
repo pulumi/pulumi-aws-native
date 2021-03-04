@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeGuruProfiler.Outputs
+namespace Pulumi.AwsNative.CodeGuruProfiler.Outputs
 {
 
     [OutputType]

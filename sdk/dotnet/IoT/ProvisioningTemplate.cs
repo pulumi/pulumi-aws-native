@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT:ProvisioningTemplate")]
+    [AwsNativeResourceType("aws-native:IoT:ProvisioningTemplate")]
     public partial class ProvisioningTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProvisioningTemplate(string name, ProvisioningTemplateArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:ProvisioningTemplate", name, args ?? new ProvisioningTemplateArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ProvisioningTemplate(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:ProvisioningTemplate", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT:ProvisioningTemplate", name, args ?? new ProvisioningTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProvisioningTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:ProvisioningTemplate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT:ProvisioningTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 

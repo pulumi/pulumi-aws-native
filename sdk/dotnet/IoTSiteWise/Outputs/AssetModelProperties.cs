@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTSiteWise.Outputs
+namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
     [OutputType]
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.IoTSiteWise.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private AssetModelProperties(
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.IoTSiteWise.Outputs
 
             ImmutableArray<Outputs.AssetModelAssetModelProperty> AssetModelProperties,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AssetModelDescription = AssetModelDescription;
             this.AssetModelHierarchies = AssetModelHierarchies;

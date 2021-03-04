@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:EmailTemplate")]
+    [AwsNativeResourceType("aws-native:Pinpoint:EmailTemplate")]
     public partial class EmailTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EmailTemplate(string name, EmailTemplateArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EmailTemplate", name, args ?? new EmailTemplateArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EmailTemplate(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EmailTemplate", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:EmailTemplate", name, args ?? new EmailTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EmailTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EmailTemplate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:EmailTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 

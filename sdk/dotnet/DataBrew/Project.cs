@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DataBrew
+namespace Pulumi.AwsNative.DataBrew
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DataBrew:Project")]
+    [AwsNativeResourceType("aws-native:DataBrew:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DataBrew
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DataBrew:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Project(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DataBrew:Project", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DataBrew:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DataBrew:Project", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DataBrew:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 

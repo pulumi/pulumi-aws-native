@@ -22,7 +22,7 @@ export class VpcLink extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:VpcLink';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:VpcLink';
 
     /**
      * Returns true if the given object is an instance of VpcLink.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppSync
+namespace Pulumi.AwsNative.AppSync
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppSync:FunctionConfiguration")]
+    [AwsNativeResourceType("aws-native:AppSync:FunctionConfiguration")]
     public partial class FunctionConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FunctionConfiguration(string name, FunctionConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:FunctionConfiguration", name, args ?? new FunctionConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal FunctionConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:FunctionConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppSync:FunctionConfiguration", name, args ?? new FunctionConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FunctionConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:FunctionConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppSync:FunctionConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

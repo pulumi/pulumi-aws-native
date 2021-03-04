@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:SQS:Queue":
+            case "aws-native:SQS:Queue":
                 return new Queue(name, <any>undefined, { urn })
-            case "cloudformation:SQS:QueuePolicy":
+            case "aws-native:SQS:QueuePolicy":
                 return new QueuePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "SQS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "SQS", _module)

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTAnalytics.Outputs
+namespace Pulumi.AwsNative.IoTAnalytics.Outputs
 {
 
     [OutputType]
@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private PipelineProperties(
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics.Outputs
 
             string? PipelineName,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.PipelineActivities = PipelineActivities;
             this.PipelineName = PipelineName;

@@ -22,7 +22,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WorkSpaces:ConnectionAlias';
+    public static readonly __pulumiType = 'aws-native:WorkSpaces:ConnectionAlias';
 
     /**
      * Returns true if the given object is an instance of ConnectionAlias.  This is designed to work even

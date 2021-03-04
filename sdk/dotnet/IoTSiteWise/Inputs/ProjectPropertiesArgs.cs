@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTSiteWise.Inputs
+namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
@@ -34,14 +34,14 @@ namespace Pulumi.Cloudformation.IoTSiteWise.Inputs
         public Input<string> ProjectName { get; set; } = null!;
 
         [Input("Tags")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _Tags = value;
         }
 

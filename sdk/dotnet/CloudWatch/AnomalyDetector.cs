@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudWatch
+namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudWatch:AnomalyDetector")]
+    [AwsNativeResourceType("aws-native:CloudWatch:AnomalyDetector")]
     public partial class AnomalyDetector : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnomalyDetector(string name, AnomalyDetectorArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:AnomalyDetector", name, args ?? new AnomalyDetectorArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AnomalyDetector(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:AnomalyDetector", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudWatch:AnomalyDetector", name, args ?? new AnomalyDetectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AnomalyDetector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:AnomalyDetector", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudWatch:AnomalyDetector", name, null, MakeResourceOptions(options, id))
         {
         }
 

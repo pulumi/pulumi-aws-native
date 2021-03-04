@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RDS
+namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RDS:DBProxyTargetGroup")]
+    [AwsNativeResourceType("aws-native:RDS:DBProxyTargetGroup")]
     public partial class DBProxyTargetGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DBProxyTargetGroup(string name, DBProxyTargetGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:DBProxyTargetGroup", name, args ?? new DBProxyTargetGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DBProxyTargetGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:DBProxyTargetGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RDS:DBProxyTargetGroup", name, args ?? new DBProxyTargetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DBProxyTargetGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:DBProxyTargetGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RDS:DBProxyTargetGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

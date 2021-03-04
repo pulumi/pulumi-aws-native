@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Timestream.Outputs
+namespace Pulumi.AwsNative.Timestream.Outputs
 {
 
     [OutputType]
@@ -28,7 +28,7 @@ namespace Pulumi.Cloudformation.Timestream.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private TableProperties(
@@ -38,7 +38,7 @@ namespace Pulumi.Cloudformation.Timestream.Outputs
 
             string? TableName,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.DatabaseName = DatabaseName;
             this.RetentionProperties = RetentionProperties;

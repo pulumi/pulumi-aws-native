@@ -22,7 +22,7 @@ export class Script extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GameLift:Script';
+    public static readonly __pulumiType = 'aws-native:GameLift:Script';
 
     /**
      * Returns true if the given object is an instance of Script.  This is designed to work even

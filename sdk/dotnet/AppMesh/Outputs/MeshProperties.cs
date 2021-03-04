@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppMesh.Outputs
+namespace Pulumi.AwsNative.AppMesh.Outputs
 {
 
     [OutputType]
@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.AppMesh.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private MeshProperties(
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.AppMesh.Outputs
 
             Outputs.MeshMeshSpec? Spec,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.MeshName = MeshName;
             this.Spec = Spec;

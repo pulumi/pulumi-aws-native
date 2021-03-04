@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RoboMaker
+namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RoboMaker:Robot")]
+    [AwsNativeResourceType("aws-native:RoboMaker:Robot")]
     public partial class Robot : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RoboMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Robot(string name, RobotArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:Robot", name, args ?? new RobotArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Robot(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:Robot", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RoboMaker:Robot", name, args ?? new RobotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Robot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RoboMaker:Robot", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RoboMaker:Robot", name, null, MakeResourceOptions(options, id))
         {
         }
 

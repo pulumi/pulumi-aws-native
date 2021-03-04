@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTSiteWise
+namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoTSiteWise:AccessPolicy")]
+    [AwsNativeResourceType("aws-native:IoTSiteWise:AccessPolicy")]
     public partial class AccessPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPolicy(string name, AccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AccessPolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:AccessPolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoTSiteWise:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTSiteWise:AccessPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoTSiteWise:AccessPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

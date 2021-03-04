@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Kendra
+namespace Pulumi.AwsNative.Kendra
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Kendra:Index")]
+    [AwsNativeResourceType("aws-native:Kendra:Index")]
     public partial class Index : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Kendra
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Index(string name, IndexArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Kendra:Index", name, args ?? new IndexArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Index(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Kendra:Index", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Kendra:Index", name, args ?? new IndexArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Index(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Kendra:Index", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Kendra:Index", name, null, MakeResourceOptions(options, id))
         {
         }
 

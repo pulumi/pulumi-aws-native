@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Inputs
+namespace Pulumi.AwsNative.Inputs
 {
 
     public sealed class AutoscalingCreationPolicyArgs : Pulumi.ResourceArgs

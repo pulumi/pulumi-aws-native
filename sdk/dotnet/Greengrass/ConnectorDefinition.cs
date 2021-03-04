@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:ConnectorDefinition")]
+    [AwsNativeResourceType("aws-native:Greengrass:ConnectorDefinition")]
     public partial class ConnectorDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectorDefinition(string name, ConnectorDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:ConnectorDefinition", name, args ?? new ConnectorDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConnectorDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:ConnectorDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:ConnectorDefinition", name, args ?? new ConnectorDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectorDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:ConnectorDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:ConnectorDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

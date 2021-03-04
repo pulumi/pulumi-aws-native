@@ -22,7 +22,7 @@ export class DBSecurityGroupIngress extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RDS:DBSecurityGroupIngress';
+    public static readonly __pulumiType = 'aws-native:RDS:DBSecurityGroupIngress';
 
     /**
      * Returns true if the given object is an instance of DBSecurityGroupIngress.  This is designed to work even

@@ -22,7 +22,7 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:SchemaVersionMetadata';
+    public static readonly __pulumiType = 'aws-native:Glue:SchemaVersionMetadata';
 
     /**
      * Returns true if the given object is an instance of SchemaVersionMetadata.  This is designed to work even

@@ -22,7 +22,7 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:ModelPackageGroup';
+    public static readonly __pulumiType = 'aws-native:SageMaker:ModelPackageGroup';
 
     /**
      * Returns true if the given object is an instance of ModelPackageGroup.  This is designed to work even

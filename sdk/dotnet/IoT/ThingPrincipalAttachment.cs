@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT:ThingPrincipalAttachment")]
+    [AwsNativeResourceType("aws-native:IoT:ThingPrincipalAttachment")]
     public partial class ThingPrincipalAttachment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThingPrincipalAttachment(string name, ThingPrincipalAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:ThingPrincipalAttachment", name, args ?? new ThingPrincipalAttachmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ThingPrincipalAttachment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:ThingPrincipalAttachment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT:ThingPrincipalAttachment", name, args ?? new ThingPrincipalAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ThingPrincipalAttachment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:ThingPrincipalAttachment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT:ThingPrincipalAttachment", name, null, MakeResourceOptions(options, id))
         {
         }
 

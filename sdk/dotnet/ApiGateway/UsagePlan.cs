@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:UsagePlan")]
+    [AwsNativeResourceType("aws-native:ApiGateway:UsagePlan")]
     public partial class UsagePlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UsagePlan(string name, UsagePlanArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:UsagePlan", name, args ?? new UsagePlanArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal UsagePlan(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:UsagePlan", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:UsagePlan", name, args ?? new UsagePlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UsagePlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:UsagePlan", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:UsagePlan", name, null, MakeResourceOptions(options, id))
         {
         }
 

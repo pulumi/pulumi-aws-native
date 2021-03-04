@@ -22,7 +22,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Configuration:RemediationConfiguration';
+    public static readonly __pulumiType = 'aws-native:Configuration:RemediationConfiguration';
 
     /**
      * Returns true if the given object is an instance of RemediationConfiguration.  This is designed to work even

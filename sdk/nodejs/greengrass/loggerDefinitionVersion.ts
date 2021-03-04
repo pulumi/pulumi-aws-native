@@ -22,7 +22,7 @@ export class LoggerDefinitionVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Greengrass:LoggerDefinitionVersion';
+    public static readonly __pulumiType = 'aws-native:Greengrass:LoggerDefinitionVersion';
 
     /**
      * Returns true if the given object is an instance of LoggerDefinitionVersion.  This is designed to work even

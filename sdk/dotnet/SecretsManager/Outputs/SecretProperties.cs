@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SecretsManager.Outputs
+namespace Pulumi.AwsNative.SecretsManager.Outputs
 {
 
     [OutputType]
@@ -36,7 +36,7 @@ namespace Pulumi.Cloudformation.SecretsManager.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private SecretProperties(
@@ -50,7 +50,7 @@ namespace Pulumi.Cloudformation.SecretsManager.Outputs
 
             string? SecretString,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Description = Description;
             this.GenerateSecretString = GenerateSecretString;

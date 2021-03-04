@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Budgets:Budget":
+            case "aws-native:Budgets:Budget":
                 return new Budget(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Budgets", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Budgets", _module)

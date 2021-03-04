@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.StepFunctions
+namespace Pulumi.AwsNative.StepFunctions
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:StepFunctions:Activity")]
+    [AwsNativeResourceType("aws-native:StepFunctions:Activity")]
     public partial class Activity : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.StepFunctions
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Activity(string name, ActivityArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:StepFunctions:Activity", name, args ?? new ActivityArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Activity(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:StepFunctions:Activity", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:StepFunctions:Activity", name, args ?? new ActivityArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Activity(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:StepFunctions:Activity", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:StepFunctions:Activity", name, null, MakeResourceOptions(options, id))
         {
         }
 

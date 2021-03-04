@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AutoScaling.Outputs
+namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
     [OutputType]

@@ -22,7 +22,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ECS:TaskDefinition';
+    public static readonly __pulumiType = 'aws-native:ECS:TaskDefinition';
 
     /**
      * Returns true if the given object is an instance of TaskDefinition.  This is designed to work even

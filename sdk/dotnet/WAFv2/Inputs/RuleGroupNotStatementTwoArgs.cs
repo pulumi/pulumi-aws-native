@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAFv2.Inputs
+namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
     /// <summary>

@@ -22,7 +22,7 @@ export class Permission extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Lambda:Permission';
+    public static readonly __pulumiType = 'aws-native:Lambda:Permission';
 
     /**
      * Returns true if the given object is an instance of Permission.  This is designed to work even

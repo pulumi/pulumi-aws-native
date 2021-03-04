@@ -22,7 +22,7 @@ export class DataCatalog extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Athena:DataCatalog';
+    public static readonly __pulumiType = 'aws-native:Athena:DataCatalog';
 
     /**
      * Returns true if the given object is an instance of DataCatalog.  This is designed to work even

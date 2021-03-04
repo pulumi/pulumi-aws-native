@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Route53Resolver.Outputs
+namespace Pulumi.AwsNative.Route53Resolver.Outputs
 {
 
     [OutputType]
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.Route53Resolver.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ResolverEndpointProperties(
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.Route53Resolver.Outputs
 
             ImmutableArray<string> SecurityGroupIds,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Direction = Direction;
             this.IpAddresses = IpAddresses;

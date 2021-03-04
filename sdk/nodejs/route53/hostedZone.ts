@@ -22,7 +22,7 @@ export class HostedZone extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Route53:HostedZone';
+    public static readonly __pulumiType = 'aws-native:Route53:HostedZone';
 
     /**
      * Returns true if the given object is an instance of HostedZone.  This is designed to work even

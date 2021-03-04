@@ -22,7 +22,7 @@ export class SubscriptionDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Greengrass:SubscriptionDefinition';
+    public static readonly __pulumiType = 'aws-native:Greengrass:SubscriptionDefinition';
 
     /**
      * Returns true if the given object is an instance of SubscriptionDefinition.  This is designed to work even

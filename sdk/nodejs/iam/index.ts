@@ -30,27 +30,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:IAM:AccessKey":
+            case "aws-native:IAM:AccessKey":
                 return new AccessKey(name, <any>undefined, { urn })
-            case "cloudformation:IAM:Group":
+            case "aws-native:IAM:Group":
                 return new Group(name, <any>undefined, { urn })
-            case "cloudformation:IAM:InstanceProfile":
+            case "aws-native:IAM:InstanceProfile":
                 return new InstanceProfile(name, <any>undefined, { urn })
-            case "cloudformation:IAM:ManagedPolicy":
+            case "aws-native:IAM:ManagedPolicy":
                 return new ManagedPolicy(name, <any>undefined, { urn })
-            case "cloudformation:IAM:Policy":
+            case "aws-native:IAM:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "cloudformation:IAM:Role":
+            case "aws-native:IAM:Role":
                 return new Role(name, <any>undefined, { urn })
-            case "cloudformation:IAM:ServiceLinkedRole":
+            case "aws-native:IAM:ServiceLinkedRole":
                 return new ServiceLinkedRole(name, <any>undefined, { urn })
-            case "cloudformation:IAM:User":
+            case "aws-native:IAM:User":
                 return new User(name, <any>undefined, { urn })
-            case "cloudformation:IAM:UserToGroupAddition":
+            case "aws-native:IAM:UserToGroupAddition":
                 return new UserToGroupAddition(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "IAM", _module)
+pulumi.runtime.registerResourceModule("aws-native", "IAM", _module)

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cognito
+namespace Pulumi.AwsNative.Cognito
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Cognito:UserPoolUICustomizationAttachment")]
+    [AwsNativeResourceType("aws-native:Cognito:UserPoolUICustomizationAttachment")]
     public partial class UserPoolUICustomizationAttachment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolUICustomizationAttachment(string name, UserPoolUICustomizationAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolUICustomizationAttachment", name, args ?? new UserPoolUICustomizationAttachmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal UserPoolUICustomizationAttachment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolUICustomizationAttachment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Cognito:UserPoolUICustomizationAttachment", name, args ?? new UserPoolUICustomizationAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserPoolUICustomizationAttachment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolUICustomizationAttachment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Cognito:UserPoolUICustomizationAttachment", name, null, MakeResourceOptions(options, id))
         {
         }
 

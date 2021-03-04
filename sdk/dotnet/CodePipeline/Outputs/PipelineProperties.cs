@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodePipeline.Outputs
+namespace Pulumi.AwsNative.CodePipeline.Outputs
 {
 
     [OutputType]
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.CodePipeline.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private PipelineProperties(
@@ -62,7 +62,7 @@ namespace Pulumi.Cloudformation.CodePipeline.Outputs
 
             ImmutableArray<Outputs.PipelineStageDeclaration> Stages,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.ArtifactStore = ArtifactStore;
             this.ArtifactStores = ArtifactStores;

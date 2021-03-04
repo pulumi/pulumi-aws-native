@@ -22,7 +22,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Kendra:DataSource';
+    public static readonly __pulumiType = 'aws-native:Kendra:DataSource';
 
     /**
      * Returns true if the given object is an instance of DataSource.  This is designed to work even

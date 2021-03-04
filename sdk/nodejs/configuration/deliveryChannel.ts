@@ -22,7 +22,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Configuration:DeliveryChannel';
+    public static readonly __pulumiType = 'aws-native:Configuration:DeliveryChannel';
 
     /**
      * Returns true if the given object is an instance of DeliveryChannel.  This is designed to work even

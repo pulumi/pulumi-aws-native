@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeCommit
+namespace Pulumi.AwsNative.CodeCommit
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeCommit:Repository")]
+    [AwsNativeResourceType("aws-native:CodeCommit:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeCommit
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeCommit:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Repository(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeCommit:Repository", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeCommit:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Repository(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeCommit:Repository", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeCommit:Repository", name, null, MakeResourceOptions(options, id))
         {
         }
 

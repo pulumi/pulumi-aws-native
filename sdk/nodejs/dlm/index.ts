@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:DLM:LifecyclePolicy":
+            case "aws-native:DLM:LifecyclePolicy":
                 return new LifecyclePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "DLM", _module)
+pulumi.runtime.registerResourceModule("aws-native", "DLM", _module)

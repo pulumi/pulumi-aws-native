@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:TrafficMirrorFilter")]
+    [AwsNativeResourceType("aws-native:EC2:TrafficMirrorFilter")]
     public partial class TrafficMirrorFilter : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrafficMirrorFilter(string name, TrafficMirrorFilterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:TrafficMirrorFilter", name, args ?? new TrafficMirrorFilterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal TrafficMirrorFilter(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:TrafficMirrorFilter", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:TrafficMirrorFilter", name, args ?? new TrafficMirrorFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TrafficMirrorFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:TrafficMirrorFilter", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:TrafficMirrorFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:LakeFormation:DataLakeSettings';
+    public static readonly __pulumiType = 'aws-native:LakeFormation:DataLakeSettings';
 
     /**
      * Returns true if the given object is an instance of DataLakeSettings.  This is designed to work even

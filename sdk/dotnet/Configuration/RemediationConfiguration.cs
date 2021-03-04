@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:RemediationConfiguration")]
+    [AwsNativeResourceType("aws-native:Configuration:RemediationConfiguration")]
     public partial class RemediationConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RemediationConfiguration(string name, RemediationConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:RemediationConfiguration", name, args ?? new RemediationConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RemediationConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:RemediationConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:RemediationConfiguration", name, args ?? new RemediationConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RemediationConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:RemediationConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:RemediationConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

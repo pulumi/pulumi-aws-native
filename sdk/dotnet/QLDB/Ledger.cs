@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.QLDB
+namespace Pulumi.AwsNative.QLDB
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:QLDB:Ledger")]
+    [AwsNativeResourceType("aws-native:QLDB:Ledger")]
     public partial class Ledger : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.QLDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Ledger(string name, LedgerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:QLDB:Ledger", name, args ?? new LedgerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Ledger(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:QLDB:Ledger", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:QLDB:Ledger", name, args ?? new LedgerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Ledger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:QLDB:Ledger", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:QLDB:Ledger", name, null, MakeResourceOptions(options, id))
         {
         }
 

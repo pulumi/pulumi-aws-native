@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSO
+namespace Pulumi.AwsNative.SSO
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SSO:PermissionSet")]
+    [AwsNativeResourceType("aws-native:SSO:PermissionSet")]
     public partial class PermissionSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SSO
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PermissionSet(string name, PermissionSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:PermissionSet", name, args ?? new PermissionSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal PermissionSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:PermissionSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SSO:PermissionSet", name, args ?? new PermissionSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PermissionSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:PermissionSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SSO:PermissionSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

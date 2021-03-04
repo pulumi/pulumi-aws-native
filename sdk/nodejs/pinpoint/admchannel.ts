@@ -22,7 +22,7 @@ export class ADMChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:ADMChannel';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:ADMChannel';
 
     /**
      * Returns true if the given object is an instance of ADMChannel.  This is designed to work even

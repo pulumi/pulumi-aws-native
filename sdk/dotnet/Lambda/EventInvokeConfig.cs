@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Lambda
+namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Lambda:EventInvokeConfig")]
+    [AwsNativeResourceType("aws-native:Lambda:EventInvokeConfig")]
     public partial class EventInvokeConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventInvokeConfig(string name, EventInvokeConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:EventInvokeConfig", name, args ?? new EventInvokeConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EventInvokeConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:EventInvokeConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Lambda:EventInvokeConfig", name, args ?? new EventInvokeConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventInvokeConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Lambda:EventInvokeConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Lambda:EventInvokeConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

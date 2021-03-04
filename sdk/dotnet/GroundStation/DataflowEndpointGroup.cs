@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GroundStation
+namespace Pulumi.AwsNative.GroundStation
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GroundStation:DataflowEndpointGroup")]
+    [AwsNativeResourceType("aws-native:GroundStation:DataflowEndpointGroup")]
     public partial class DataflowEndpointGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GroundStation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataflowEndpointGroup(string name, DataflowEndpointGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GroundStation:DataflowEndpointGroup", name, args ?? new DataflowEndpointGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DataflowEndpointGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GroundStation:DataflowEndpointGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GroundStation:DataflowEndpointGroup", name, args ?? new DataflowEndpointGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataflowEndpointGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GroundStation:DataflowEndpointGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GroundStation:DataflowEndpointGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

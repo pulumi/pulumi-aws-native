@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTAnalytics.Outputs
+namespace Pulumi.AwsNative.IoTAnalytics.Outputs
 {
 
     [OutputType]
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Cloudformation.IoTAnalytics.Outputs
 
             Outputs.DatasetRetentionPeriod? RetentionPeriod,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             ImmutableArray<Outputs.DatasetTrigger> Triggers,
 

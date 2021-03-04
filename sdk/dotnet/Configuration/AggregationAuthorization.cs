@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:AggregationAuthorization")]
+    [AwsNativeResourceType("aws-native:Configuration:AggregationAuthorization")]
     public partial class AggregationAuthorization : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AggregationAuthorization(string name, AggregationAuthorizationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:AggregationAuthorization", name, args ?? new AggregationAuthorizationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AggregationAuthorization(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:AggregationAuthorization", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:AggregationAuthorization", name, args ?? new AggregationAuthorizationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AggregationAuthorization(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:AggregationAuthorization", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:AggregationAuthorization", name, null, MakeResourceOptions(options, id))
         {
         }
 

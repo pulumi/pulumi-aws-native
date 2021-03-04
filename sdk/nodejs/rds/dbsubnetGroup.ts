@@ -22,7 +22,7 @@ export class DBSubnetGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RDS:DBSubnetGroup';
+    public static readonly __pulumiType = 'aws-native:RDS:DBSubnetGroup';
 
     /**
      * Returns true if the given object is an instance of DBSubnetGroup.  This is designed to work even

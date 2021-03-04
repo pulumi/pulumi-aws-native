@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFormation
+namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFormation:CustomResource")]
+    [AwsNativeResourceType("aws-native:CloudFormation:CustomResource")]
     public partial class CustomResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomResource(string name, CustomResourceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:CustomResource", name, args ?? new CustomResourceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CustomResource(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:CustomResource", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFormation:CustomResource", name, args ?? new CustomResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:CustomResource", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFormation:CustomResource", name, null, MakeResourceOptions(options, id))
         {
         }
 

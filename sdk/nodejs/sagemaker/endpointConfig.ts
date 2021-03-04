@@ -22,7 +22,7 @@ export class EndpointConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:EndpointConfig';
+    public static readonly __pulumiType = 'aws-native:SageMaker:EndpointConfig';
 
     /**
      * Returns true if the given object is an instance of EndpointConfig.  This is designed to work even

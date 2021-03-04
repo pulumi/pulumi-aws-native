@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.RDS
+namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:RDS:GlobalCluster")]
+    [AwsNativeResourceType("aws-native:RDS:GlobalCluster")]
     public partial class GlobalCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalCluster(string name, GlobalClusterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:GlobalCluster", name, args ?? new GlobalClusterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal GlobalCluster(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:GlobalCluster", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:RDS:GlobalCluster", name, args ?? new GlobalClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GlobalCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:RDS:GlobalCluster", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:RDS:GlobalCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AuditManager.Outputs
+namespace Pulumi.AwsNative.AuditManager.Outputs
 {
 
     [OutputType]
@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.AuditManager.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private AssessmentTags(ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+        private AssessmentTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Tags = Tags;
         }

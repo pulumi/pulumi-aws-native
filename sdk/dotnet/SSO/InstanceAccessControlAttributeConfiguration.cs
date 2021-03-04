@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSO
+namespace Pulumi.AwsNative.SSO
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SSO:InstanceAccessControlAttributeConfiguration")]
+    [AwsNativeResourceType("aws-native:SSO:InstanceAccessControlAttributeConfiguration")]
     public partial class InstanceAccessControlAttributeConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SSO
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceAccessControlAttributeConfiguration(string name, InstanceAccessControlAttributeConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:InstanceAccessControlAttributeConfiguration", name, args ?? new InstanceAccessControlAttributeConfigurationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal InstanceAccessControlAttributeConfiguration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:InstanceAccessControlAttributeConfiguration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SSO:InstanceAccessControlAttributeConfiguration", name, args ?? new InstanceAccessControlAttributeConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstanceAccessControlAttributeConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:InstanceAccessControlAttributeConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SSO:InstanceAccessControlAttributeConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

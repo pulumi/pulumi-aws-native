@@ -22,7 +22,7 @@ export class Discoverer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EventSchemas:Discoverer';
+    public static readonly __pulumiType = 'aws-native:EventSchemas:Discoverer';
 
     /**
      * Returns true if the given object is an instance of Discoverer.  This is designed to work even

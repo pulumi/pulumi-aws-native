@@ -22,7 +22,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:DocumentationVersion';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:DocumentationVersion';
 
     /**
      * Returns true if the given object is an instance of DocumentationVersion.  This is designed to work even

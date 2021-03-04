@@ -22,7 +22,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:NetworkFirewall:LoggingConfiguration';
+    public static readonly __pulumiType = 'aws-native:NetworkFirewall:LoggingConfiguration';
 
     /**
      * Returns true if the given object is an instance of LoggingConfiguration.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GlobalAccelerator.Outputs
+namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
 {
 
     [OutputType]
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.GlobalAccelerator.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private AcceleratorProperties(
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.GlobalAccelerator.Outputs
 
             string Name,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Enabled = Enabled;
             this.IpAddressType = IpAddressType;

@@ -22,7 +22,7 @@ export class BasePathMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:BasePathMapping';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:BasePathMapping';
 
     /**
      * Returns true if the given object is an instance of BasePathMapping.  This is designed to work even

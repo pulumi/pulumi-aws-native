@@ -22,7 +22,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ImageBuilder:DistributionConfiguration';
+    public static readonly __pulumiType = 'aws-native:ImageBuilder:DistributionConfiguration';
 
     /**
      * Returns true if the given object is an instance of DistributionConfiguration.  This is designed to work even

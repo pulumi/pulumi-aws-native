@@ -22,7 +22,7 @@ export class ScalingPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApplicationAutoScaling:ScalingPolicy';
+    public static readonly __pulumiType = 'aws-native:ApplicationAutoScaling:ScalingPolicy';
 
     /**
      * Returns true if the given object is an instance of ScalingPolicy.  This is designed to work even

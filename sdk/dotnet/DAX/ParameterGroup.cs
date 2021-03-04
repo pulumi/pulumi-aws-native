@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DAX
+namespace Pulumi.AwsNative.DAX
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DAX:ParameterGroup")]
+    [AwsNativeResourceType("aws-native:DAX:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DAX
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ParameterGroup(string name, ParameterGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DAX:ParameterGroup", name, args ?? new ParameterGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ParameterGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DAX:ParameterGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DAX:ParameterGroup", name, args ?? new ParameterGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ParameterGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DAX:ParameterGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DAX:ParameterGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SecretsManager
+namespace Pulumi.AwsNative.SecretsManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SecretsManager:Secret")]
+    [AwsNativeResourceType("aws-native:SecretsManager:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SecretsManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Secret(string name, SecretArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Secret(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:Secret", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SecretsManager:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Secret(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:Secret", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SecretsManager:Secret", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class TargetGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElasticLoadBalancingV2:TargetGroup';
+    public static readonly __pulumiType = 'aws-native:ElasticLoadBalancingV2:TargetGroup';
 
     /**
      * Returns true if the given object is an instance of TargetGroup.  This is designed to work even

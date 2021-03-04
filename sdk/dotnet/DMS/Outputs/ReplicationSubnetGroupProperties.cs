@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DMS.Outputs
+namespace Pulumi.AwsNative.DMS.Outputs
 {
 
     [OutputType]
@@ -28,7 +28,7 @@ namespace Pulumi.Cloudformation.DMS.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ReplicationSubnetGroupProperties(
@@ -38,7 +38,7 @@ namespace Pulumi.Cloudformation.DMS.Outputs
 
             ImmutableArray<string> SubnetIds,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.ReplicationSubnetGroupDescription = ReplicationSubnetGroupDescription;
             this.ReplicationSubnetGroupIdentifier = ReplicationSubnetGroupIdentifier;

@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ApplicationAutoScaling:ScalableTarget":
+            case "aws-native:ApplicationAutoScaling:ScalableTarget":
                 return new ScalableTarget(name, <any>undefined, { urn })
-            case "cloudformation:ApplicationAutoScaling:ScalingPolicy":
+            case "aws-native:ApplicationAutoScaling:ScalingPolicy":
                 return new ScalingPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ApplicationAutoScaling", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ApplicationAutoScaling", _module)

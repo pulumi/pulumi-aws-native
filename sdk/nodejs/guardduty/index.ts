@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:GuardDuty:Detector":
+            case "aws-native:GuardDuty:Detector":
                 return new Detector(name, <any>undefined, { urn })
-            case "cloudformation:GuardDuty:Filter":
+            case "aws-native:GuardDuty:Filter":
                 return new Filter(name, <any>undefined, { urn })
-            case "cloudformation:GuardDuty:IPSet":
+            case "aws-native:GuardDuty:IPSet":
                 return new IPSet(name, <any>undefined, { urn })
-            case "cloudformation:GuardDuty:Master":
+            case "aws-native:GuardDuty:Master":
                 return new Master(name, <any>undefined, { urn })
-            case "cloudformation:GuardDuty:Member":
+            case "aws-native:GuardDuty:Member":
                 return new Member(name, <any>undefined, { urn })
-            case "cloudformation:GuardDuty:ThreatIntelSet":
+            case "aws-native:GuardDuty:ThreatIntelSet":
                 return new ThreatIntelSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "GuardDuty", _module)
+pulumi.runtime.registerResourceModule("aws-native", "GuardDuty", _module)

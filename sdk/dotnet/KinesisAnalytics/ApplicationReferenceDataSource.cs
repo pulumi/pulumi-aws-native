@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KinesisAnalytics
+namespace Pulumi.AwsNative.KinesisAnalytics
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:KinesisAnalytics:ApplicationReferenceDataSource")]
+    [AwsNativeResourceType("aws-native:KinesisAnalytics:ApplicationReferenceDataSource")]
     public partial class ApplicationReferenceDataSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.KinesisAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationReferenceDataSource(string name, ApplicationReferenceDataSourceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisAnalytics:ApplicationReferenceDataSource", name, args ?? new ApplicationReferenceDataSourceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ApplicationReferenceDataSource(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisAnalytics:ApplicationReferenceDataSource", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:KinesisAnalytics:ApplicationReferenceDataSource", name, args ?? new ApplicationReferenceDataSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationReferenceDataSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisAnalytics:ApplicationReferenceDataSource", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:KinesisAnalytics:ApplicationReferenceDataSource", name, null, MakeResourceOptions(options, id))
         {
         }
 

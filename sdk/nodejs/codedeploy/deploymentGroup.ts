@@ -22,7 +22,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CodeDeploy:DeploymentGroup';
+    public static readonly __pulumiType = 'aws-native:CodeDeploy:DeploymentGroup';
 
     /**
      * Returns true if the given object is an instance of DeploymentGroup.  This is designed to work even

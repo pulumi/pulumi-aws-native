@@ -22,7 +22,7 @@ export class Identity extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:PinpointEmail:Identity';
+    public static readonly __pulumiType = 'aws-native:PinpointEmail:Identity';
 
     /**
      * Returns true if the given object is an instance of Identity.  This is designed to work even

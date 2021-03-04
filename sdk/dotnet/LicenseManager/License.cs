@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.LicenseManager
+namespace Pulumi.AwsNative.LicenseManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:LicenseManager:License")]
+    [AwsNativeResourceType("aws-native:LicenseManager:License")]
     public partial class License : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.LicenseManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public License(string name, LicenseArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:LicenseManager:License", name, args ?? new LicenseArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal License(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:LicenseManager:License", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:LicenseManager:License", name, args ?? new LicenseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private License(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:LicenseManager:License", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:LicenseManager:License", name, null, MakeResourceOptions(options, id))
         {
         }
 

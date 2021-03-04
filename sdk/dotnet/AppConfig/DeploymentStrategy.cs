@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppConfig
+namespace Pulumi.AwsNative.AppConfig
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppConfig:DeploymentStrategy")]
+    [AwsNativeResourceType("aws-native:AppConfig:DeploymentStrategy")]
     public partial class DeploymentStrategy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppConfig
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentStrategy(string name, DeploymentStrategyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:DeploymentStrategy", name, args ?? new DeploymentStrategyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DeploymentStrategy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:DeploymentStrategy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppConfig:DeploymentStrategy", name, args ?? new DeploymentStrategyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentStrategy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:DeploymentStrategy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppConfig:DeploymentStrategy", name, null, MakeResourceOptions(options, id))
         {
         }
 

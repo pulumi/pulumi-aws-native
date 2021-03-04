@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KinesisAnalyticsV2.Inputs
+namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
     /// <summary>
@@ -46,14 +46,14 @@ namespace Pulumi.Cloudformation.KinesisAnalyticsV2.Inputs
         public Input<string> ServiceExecutionRole { get; set; } = null!;
 
         [Input("Tags")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _Tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _Tags = value;
         }
 

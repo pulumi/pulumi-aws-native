@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.S3
+namespace Pulumi.AwsNative.S3
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:S3:Bucket")]
+    [AwsNativeResourceType("aws-native:S3:Bucket")]
     public partial class Bucket : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Bucket(string name, BucketArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:Bucket", name, args ?? new BucketArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Bucket(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:Bucket", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:S3:Bucket", name, args ?? new BucketArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Bucket(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:S3:Bucket", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:S3:Bucket", name, null, MakeResourceOptions(options, id))
         {
         }
 

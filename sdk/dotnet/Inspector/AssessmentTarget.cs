@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Inspector
+namespace Pulumi.AwsNative.Inspector
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Inspector:AssessmentTarget")]
+    [AwsNativeResourceType("aws-native:Inspector:AssessmentTarget")]
     public partial class AssessmentTarget : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Inspector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssessmentTarget(string name, AssessmentTargetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Inspector:AssessmentTarget", name, args ?? new AssessmentTargetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AssessmentTarget(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Inspector:AssessmentTarget", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Inspector:AssessmentTarget", name, args ?? new AssessmentTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AssessmentTarget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Inspector:AssessmentTarget", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Inspector:AssessmentTarget", name, null, MakeResourceOptions(options, id))
         {
         }
 

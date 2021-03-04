@@ -22,7 +22,7 @@ export class Step extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EMR:Step';
+    public static readonly __pulumiType = 'aws-native:EMR:Step';
 
     /**
      * Returns true if the given object is an instance of Step.  This is designed to work even

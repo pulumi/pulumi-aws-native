@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Athena
+namespace Pulumi.AwsNative.Athena
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Athena:WorkGroup")]
+    [AwsNativeResourceType("aws-native:Athena:WorkGroup")]
     public partial class WorkGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkGroup(string name, WorkGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:WorkGroup", name, args ?? new WorkGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal WorkGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:WorkGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Athena:WorkGroup", name, args ?? new WorkGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Athena:WorkGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Athena:WorkGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

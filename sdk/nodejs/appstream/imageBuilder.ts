@@ -22,7 +22,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppStream:ImageBuilder';
+    public static readonly __pulumiType = 'aws-native:AppStream:ImageBuilder';
 
     /**
      * Returns true if the given object is an instance of ImageBuilder.  This is designed to work even

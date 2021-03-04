@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElastiCache
+namespace Pulumi.AwsNative.ElastiCache
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ElastiCache:ParameterGroup")]
+    [AwsNativeResourceType("aws-native:ElastiCache:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ElastiCache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ParameterGroup(string name, ParameterGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:ParameterGroup", name, args ?? new ParameterGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ParameterGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:ParameterGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ElastiCache:ParameterGroup", name, args ?? new ParameterGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ParameterGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ElastiCache:ParameterGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ElastiCache:ParameterGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

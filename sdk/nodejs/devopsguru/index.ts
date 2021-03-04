@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:DevOpsGuru:NotificationChannel":
+            case "aws-native:DevOpsGuru:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
-            case "cloudformation:DevOpsGuru:ResourceCollection":
+            case "aws-native:DevOpsGuru:ResourceCollection":
                 return new ResourceCollection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "DevOpsGuru", _module)
+pulumi.runtime.registerResourceModule("aws-native", "DevOpsGuru", _module)

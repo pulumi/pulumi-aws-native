@@ -22,7 +22,7 @@ export class Broker extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AmazonMQ:Broker';
+    public static readonly __pulumiType = 'aws-native:AmazonMQ:Broker';
 
     /**
      * Returns true if the given object is an instance of Broker.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApplicationInsights
+namespace Pulumi.AwsNative.ApplicationInsights
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApplicationInsights:Application")]
+    [AwsNativeResourceType("aws-native:ApplicationInsights:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApplicationInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationInsights:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Application(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationInsights:Application", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApplicationInsights:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApplicationInsights:Application", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApplicationInsights:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 

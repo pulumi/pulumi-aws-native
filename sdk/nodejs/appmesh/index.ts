@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:AppMesh:GatewayRoute":
+            case "aws-native:AppMesh:GatewayRoute":
                 return new GatewayRoute(name, <any>undefined, { urn })
-            case "cloudformation:AppMesh:Mesh":
+            case "aws-native:AppMesh:Mesh":
                 return new Mesh(name, <any>undefined, { urn })
-            case "cloudformation:AppMesh:Route":
+            case "aws-native:AppMesh:Route":
                 return new Route(name, <any>undefined, { urn })
-            case "cloudformation:AppMesh:VirtualGateway":
+            case "aws-native:AppMesh:VirtualGateway":
                 return new VirtualGateway(name, <any>undefined, { urn })
-            case "cloudformation:AppMesh:VirtualNode":
+            case "aws-native:AppMesh:VirtualNode":
                 return new VirtualNode(name, <any>undefined, { urn })
-            case "cloudformation:AppMesh:VirtualRouter":
+            case "aws-native:AppMesh:VirtualRouter":
                 return new VirtualRouter(name, <any>undefined, { urn })
-            case "cloudformation:AppMesh:VirtualService":
+            case "aws-native:AppMesh:VirtualService":
                 return new VirtualService(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "AppMesh", _module)
+pulumi.runtime.registerResourceModule("aws-native", "AppMesh", _module)

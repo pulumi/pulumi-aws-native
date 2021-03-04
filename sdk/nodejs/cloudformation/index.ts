@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CloudFormation:CustomResource":
+            case "aws-native:CloudFormation:CustomResource":
                 return new CustomResource(name, <any>undefined, { urn })
-            case "cloudformation:CloudFormation:Macro":
+            case "aws-native:CloudFormation:Macro":
                 return new Macro(name, <any>undefined, { urn })
-            case "cloudformation:CloudFormation:ModuleDefaultVersion":
+            case "aws-native:CloudFormation:ModuleDefaultVersion":
                 return new ModuleDefaultVersion(name, <any>undefined, { urn })
-            case "cloudformation:CloudFormation:ModuleVersion":
+            case "aws-native:CloudFormation:ModuleVersion":
                 return new ModuleVersion(name, <any>undefined, { urn })
-            case "cloudformation:CloudFormation:Stack":
+            case "aws-native:CloudFormation:Stack":
                 return new Stack(name, <any>undefined, { urn })
-            case "cloudformation:CloudFormation:StackSet":
+            case "aws-native:CloudFormation:StackSet":
                 return new StackSet(name, <any>undefined, { urn })
-            case "cloudformation:CloudFormation:WaitCondition":
+            case "aws-native:CloudFormation:WaitCondition":
                 return new WaitCondition(name, <any>undefined, { urn })
-            case "cloudformation:CloudFormation:WaitConditionHandle":
+            case "aws-native:CloudFormation:WaitConditionHandle":
                 return new WaitConditionHandle(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CloudFormation", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CloudFormation", _module)

@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:LakeFormation:DataLakeSettings":
+            case "aws-native:LakeFormation:DataLakeSettings":
                 return new DataLakeSettings(name, <any>undefined, { urn })
-            case "cloudformation:LakeFormation:Permissions":
+            case "aws-native:LakeFormation:Permissions":
                 return new Permissions(name, <any>undefined, { urn })
-            case "cloudformation:LakeFormation:Resource":
+            case "aws-native:LakeFormation:Resource":
                 return new Resource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "LakeFormation", _module)
+pulumi.runtime.registerResourceModule("aws-native", "LakeFormation", _module)

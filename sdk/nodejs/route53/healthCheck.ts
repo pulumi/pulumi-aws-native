@@ -22,7 +22,7 @@ export class HealthCheck extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Route53:HealthCheck';
+    public static readonly __pulumiType = 'aws-native:Route53:HealthCheck';
 
     /**
      * Returns true if the given object is an instance of HealthCheck.  This is designed to work even

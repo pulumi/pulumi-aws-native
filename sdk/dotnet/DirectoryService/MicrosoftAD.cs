@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DirectoryService
+namespace Pulumi.AwsNative.DirectoryService
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DirectoryService:MicrosoftAD")]
+    [AwsNativeResourceType("aws-native:DirectoryService:MicrosoftAD")]
     public partial class MicrosoftAD : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DirectoryService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MicrosoftAD(string name, MicrosoftADArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DirectoryService:MicrosoftAD", name, args ?? new MicrosoftADArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MicrosoftAD(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DirectoryService:MicrosoftAD", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DirectoryService:MicrosoftAD", name, args ?? new MicrosoftADArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MicrosoftAD(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DirectoryService:MicrosoftAD", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DirectoryService:MicrosoftAD", name, null, MakeResourceOptions(options, id))
         {
         }
 

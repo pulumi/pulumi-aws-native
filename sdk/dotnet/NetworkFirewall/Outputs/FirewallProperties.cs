@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.NetworkFirewall.Outputs
+namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 {
 
     [OutputType]
@@ -44,7 +44,7 @@ namespace Pulumi.Cloudformation.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Cloudformation.NetworkFirewall.Outputs
 
             ImmutableArray<Outputs.FirewallSubnetMapping> SubnetMappings,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             string VpcId)
         {

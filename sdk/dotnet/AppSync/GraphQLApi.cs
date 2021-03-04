@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppSync
+namespace Pulumi.AwsNative.AppSync
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppSync:GraphQLApi")]
+    [AwsNativeResourceType("aws-native:AppSync:GraphQLApi")]
     public partial class GraphQLApi : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GraphQLApi(string name, GraphQLApiArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:GraphQLApi", name, args ?? new GraphQLApiArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal GraphQLApi(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:GraphQLApi", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppSync:GraphQLApi", name, args ?? new GraphQLApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GraphQLApi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:GraphQLApi", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppSync:GraphQLApi", name, null, MakeResourceOptions(options, id))
         {
         }
 

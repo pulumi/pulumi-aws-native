@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudWatch
+namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudWatch:CompositeAlarm")]
+    [AwsNativeResourceType("aws-native:CloudWatch:CompositeAlarm")]
     public partial class CompositeAlarm : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CompositeAlarm(string name, CompositeAlarmArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:CompositeAlarm", name, args ?? new CompositeAlarmArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CompositeAlarm(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:CompositeAlarm", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudWatch:CompositeAlarm", name, args ?? new CompositeAlarmArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CompositeAlarm(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:CompositeAlarm", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudWatch:CompositeAlarm", name, null, MakeResourceOptions(options, id))
         {
         }
 

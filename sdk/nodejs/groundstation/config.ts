@@ -22,7 +22,7 @@ export class Config extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GroundStation:Config';
+    public static readonly __pulumiType = 'aws-native:GroundStation:Config';
 
     /**
      * Returns true if the given object is an instance of Config.  This is designed to work even

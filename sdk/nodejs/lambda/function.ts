@@ -22,7 +22,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Lambda:Function';
+    public static readonly __pulumiType = 'aws-native:Lambda:Function';
 
     /**
      * Returns true if the given object is an instance of Function.  This is designed to work even

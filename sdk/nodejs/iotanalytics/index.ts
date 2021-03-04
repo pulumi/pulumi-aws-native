@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:IoTAnalytics:Channel":
+            case "aws-native:IoTAnalytics:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "cloudformation:IoTAnalytics:Dataset":
+            case "aws-native:IoTAnalytics:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
-            case "cloudformation:IoTAnalytics:Datastore":
+            case "aws-native:IoTAnalytics:Datastore":
                 return new Datastore(name, <any>undefined, { urn })
-            case "cloudformation:IoTAnalytics:Pipeline":
+            case "aws-native:IoTAnalytics:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "IoTAnalytics", _module)
+pulumi.runtime.registerResourceModule("aws-native", "IoTAnalytics", _module)

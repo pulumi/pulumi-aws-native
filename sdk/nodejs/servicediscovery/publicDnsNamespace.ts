@@ -22,7 +22,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ServiceDiscovery:PublicDnsNamespace';
+    public static readonly __pulumiType = 'aws-native:ServiceDiscovery:PublicDnsNamespace';
 
     /**
      * Returns true if the given object is an instance of PublicDnsNamespace.  This is designed to work even

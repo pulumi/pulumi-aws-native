@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElasticBeanstalk
+namespace Pulumi.AwsNative.ElasticBeanstalk
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ElasticBeanstalk:Application")]
+    [AwsNativeResourceType("aws-native:ElasticBeanstalk:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ElasticBeanstalk
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticBeanstalk:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Application(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticBeanstalk:Application", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ElasticBeanstalk:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ElasticBeanstalk:Application", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ElasticBeanstalk:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 

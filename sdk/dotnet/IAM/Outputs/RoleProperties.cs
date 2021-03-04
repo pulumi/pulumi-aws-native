@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IAM.Outputs
+namespace Pulumi.AwsNative.IAM.Outputs
 {
 
     [OutputType]
@@ -48,7 +48,7 @@ namespace Pulumi.Cloudformation.IAM.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private RoleProperties(
@@ -68,7 +68,7 @@ namespace Pulumi.Cloudformation.IAM.Outputs
 
             string? RoleName,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AssumeRolePolicyDocument = AssumeRolePolicyDocument;
             this.Description = Description;

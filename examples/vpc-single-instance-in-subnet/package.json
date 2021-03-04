@@ -5,8 +5,5 @@
     },
     "dependencies": {
         "@pulumi/pulumi": "^2.0.0"
-    },
-    "peerDependencies": {
-        "@pulumi/cloudformation": "latest"
     }
 }

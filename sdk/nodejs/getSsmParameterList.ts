@@ -13,7 +13,7 @@ export function getSsmParameterList(args: GetSsmParameterListArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getSsmParameterList", {
+    return pulumi.runtime.invoke("aws-native:index:getSsmParameterList", {
         "name": args.name,
     }, opts);
 }

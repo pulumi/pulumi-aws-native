@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     public static class GetStackId
     {
         public static Task<GetStackIdResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackIdResult>("cloudformation:index:getStackId", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStackIdResult>("aws-native:index:getStackId", InvokeArgs.Empty, options.WithVersion());
     }
 
 

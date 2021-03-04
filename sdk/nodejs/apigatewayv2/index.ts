@@ -34,31 +34,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ApiGatewayV2:Api":
+            case "aws-native:ApiGatewayV2:Api":
                 return new Api(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:ApiMapping":
+            case "aws-native:ApiGatewayV2:ApiMapping":
                 return new ApiMapping(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:Authorizer":
+            case "aws-native:ApiGatewayV2:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:Deployment":
+            case "aws-native:ApiGatewayV2:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:DomainName":
+            case "aws-native:ApiGatewayV2:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:Integration":
+            case "aws-native:ApiGatewayV2:Integration":
                 return new Integration(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:IntegrationResponse":
+            case "aws-native:ApiGatewayV2:IntegrationResponse":
                 return new IntegrationResponse(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:Model":
+            case "aws-native:ApiGatewayV2:Model":
                 return new Model(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:Route":
+            case "aws-native:ApiGatewayV2:Route":
                 return new Route(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:RouteResponse":
+            case "aws-native:ApiGatewayV2:RouteResponse":
                 return new RouteResponse(name, <any>undefined, { urn })
-            case "cloudformation:ApiGatewayV2:Stage":
+            case "aws-native:ApiGatewayV2:Stage":
                 return new Stage(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ApiGatewayV2", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ApiGatewayV2", _module)

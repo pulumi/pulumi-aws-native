@@ -22,7 +22,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IAM:User';
+    public static readonly __pulumiType = 'aws-native:IAM:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even

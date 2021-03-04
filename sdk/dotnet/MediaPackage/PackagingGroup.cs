@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaPackage
+namespace Pulumi.AwsNative.MediaPackage
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:MediaPackage:PackagingGroup")]
+    [AwsNativeResourceType("aws-native:MediaPackage:PackagingGroup")]
     public partial class PackagingGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PackagingGroup(string name, PackagingGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:PackagingGroup", name, args ?? new PackagingGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal PackagingGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:PackagingGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:MediaPackage:PackagingGroup", name, args ?? new PackagingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PackagingGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:PackagingGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:MediaPackage:PackagingGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

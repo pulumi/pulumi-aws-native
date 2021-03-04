@@ -22,7 +22,7 @@ export class VirtualGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppMesh:VirtualGateway';
+    public static readonly __pulumiType = 'aws-native:AppMesh:VirtualGateway';
 
     /**
      * Returns true if the given object is an instance of VirtualGateway.  This is designed to work even

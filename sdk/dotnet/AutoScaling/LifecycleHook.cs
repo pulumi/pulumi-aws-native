@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AutoScaling
+namespace Pulumi.AwsNative.AutoScaling
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AutoScaling:LifecycleHook")]
+    [AwsNativeResourceType("aws-native:AutoScaling:LifecycleHook")]
     public partial class LifecycleHook : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LifecycleHook(string name, LifecycleHookArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:LifecycleHook", name, args ?? new LifecycleHookArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LifecycleHook(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:LifecycleHook", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AutoScaling:LifecycleHook", name, args ?? new LifecycleHookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LifecycleHook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:LifecycleHook", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AutoScaling:LifecycleHook", name, null, MakeResourceOptions(options, id))
         {
         }
 

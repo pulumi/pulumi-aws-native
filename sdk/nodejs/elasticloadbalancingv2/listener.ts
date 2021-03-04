@@ -22,7 +22,7 @@ export class Listener extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElasticLoadBalancingV2:Listener';
+    public static readonly __pulumiType = 'aws-native:ElasticLoadBalancingV2:Listener';
 
     /**
      * Returns true if the given object is an instance of Listener.  This is designed to work even

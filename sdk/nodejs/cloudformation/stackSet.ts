@@ -22,7 +22,7 @@ export class StackSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFormation:StackSet';
+    public static readonly __pulumiType = 'aws-native:CloudFormation:StackSet';
 
     /**
      * Returns true if the given object is an instance of StackSet.  This is designed to work even

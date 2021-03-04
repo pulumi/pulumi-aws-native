@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IAM
+namespace Pulumi.AwsNative.IAM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IAM:AccessKey")]
+    [AwsNativeResourceType("aws-native:IAM:AccessKey")]
     public partial class AccessKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessKey(string name, AccessKeyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:AccessKey", name, args ?? new AccessKeyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AccessKey(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:AccessKey", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IAM:AccessKey", name, args ?? new AccessKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:AccessKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IAM:AccessKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

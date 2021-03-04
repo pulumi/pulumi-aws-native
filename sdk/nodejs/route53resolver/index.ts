@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Route53Resolver:ResolverEndpoint":
+            case "aws-native:Route53Resolver:ResolverEndpoint":
                 return new ResolverEndpoint(name, <any>undefined, { urn })
-            case "cloudformation:Route53Resolver:ResolverQueryLoggingConfig":
+            case "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
                 return new ResolverQueryLoggingConfig(name, <any>undefined, { urn })
-            case "cloudformation:Route53Resolver:ResolverQueryLoggingConfigAssociation":
+            case "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation":
                 return new ResolverQueryLoggingConfigAssociation(name, <any>undefined, { urn })
-            case "cloudformation:Route53Resolver:ResolverRule":
+            case "aws-native:Route53Resolver:ResolverRule":
                 return new ResolverRule(name, <any>undefined, { urn })
-            case "cloudformation:Route53Resolver:ResolverRuleAssociation":
+            case "aws-native:Route53Resolver:ResolverRuleAssociation":
                 return new ResolverRuleAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Route53Resolver", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Route53Resolver", _module)

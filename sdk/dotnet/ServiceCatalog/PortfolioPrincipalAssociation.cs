@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceCatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceCatalog:PortfolioPrincipalAssociation")]
+    [AwsNativeResourceType("aws-native:ServiceCatalog:PortfolioPrincipalAssociation")]
     public partial class PortfolioPrincipalAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PortfolioPrincipalAssociation(string name, PortfolioPrincipalAssociationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:PortfolioPrincipalAssociation", name, args ?? new PortfolioPrincipalAssociationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal PortfolioPrincipalAssociation(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:PortfolioPrincipalAssociation", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceCatalog:PortfolioPrincipalAssociation", name, args ?? new PortfolioPrincipalAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PortfolioPrincipalAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:PortfolioPrincipalAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceCatalog:PortfolioPrincipalAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

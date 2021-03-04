@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Route53
+namespace Pulumi.AwsNative.Route53
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Route53:RecordSet")]
+    [AwsNativeResourceType("aws-native:Route53:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecordSet(string name, RecordSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RecordSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53:RecordSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Route53:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RecordSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53:RecordSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Route53:RecordSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

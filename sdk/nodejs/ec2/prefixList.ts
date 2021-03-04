@@ -22,7 +22,7 @@ export class PrefixList extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:PrefixList';
+    public static readonly __pulumiType = 'aws-native:EC2:PrefixList';
 
     /**
      * Returns true if the given object is an instance of PrefixList.  This is designed to work even

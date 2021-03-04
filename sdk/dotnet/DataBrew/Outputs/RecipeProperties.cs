@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DataBrew.Outputs
+namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
     [OutputType]
@@ -28,7 +28,7 @@ namespace Pulumi.Cloudformation.DataBrew.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private RecipeProperties(
@@ -38,7 +38,7 @@ namespace Pulumi.Cloudformation.DataBrew.Outputs
 
             ImmutableArray<Outputs.RecipeRecipeStep> Steps,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Description = Description;
             this.Name = Name;

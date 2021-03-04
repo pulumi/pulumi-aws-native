@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppFlow
+namespace Pulumi.AwsNative.AppFlow
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppFlow:ConnectorProfile")]
+    [AwsNativeResourceType("aws-native:AppFlow:ConnectorProfile")]
     public partial class ConnectorProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppFlow
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectorProfile(string name, ConnectorProfileArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppFlow:ConnectorProfile", name, args ?? new ConnectorProfileArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConnectorProfile(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppFlow:ConnectorProfile", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppFlow:ConnectorProfile", name, args ?? new ConnectorProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectorProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppFlow:ConnectorProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppFlow:ConnectorProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

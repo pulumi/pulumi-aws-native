@@ -22,7 +22,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:PinpointEmail:ConfigurationSetEventDestination';
+    public static readonly __pulumiType = 'aws-native:PinpointEmail:ConfigurationSetEventDestination';
 
     /**
      * Returns true if the given object is an instance of ConfigurationSetEventDestination.  This is designed to work even

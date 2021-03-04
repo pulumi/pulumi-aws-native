@@ -22,7 +22,7 @@ export class Analyzer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AccessAnalyzer:Analyzer';
+    public static readonly __pulumiType = 'aws-native:AccessAnalyzer:Analyzer';
 
     /**
      * Returns true if the given object is an instance of Analyzer.  This is designed to work even

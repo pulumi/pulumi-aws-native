@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cognito
+namespace Pulumi.AwsNative.Cognito
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Cognito:UserPoolDomain")]
+    [AwsNativeResourceType("aws-native:Cognito:UserPoolDomain")]
     public partial class UserPoolDomain : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolDomain(string name, UserPoolDomainArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolDomain", name, args ?? new UserPoolDomainArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal UserPoolDomain(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolDomain", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Cognito:UserPoolDomain", name, args ?? new UserPoolDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserPoolDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolDomain", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Cognito:UserPoolDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 

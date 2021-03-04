@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:NotebookInstanceLifecycleConfig")]
+    [AwsNativeResourceType("aws-native:SageMaker:NotebookInstanceLifecycleConfig")]
     public partial class NotebookInstanceLifecycleConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotebookInstanceLifecycleConfig(string name, NotebookInstanceLifecycleConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:NotebookInstanceLifecycleConfig", name, args ?? new NotebookInstanceLifecycleConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal NotebookInstanceLifecycleConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:NotebookInstanceLifecycleConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:NotebookInstanceLifecycleConfig", name, args ?? new NotebookInstanceLifecycleConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotebookInstanceLifecycleConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:NotebookInstanceLifecycleConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:NotebookInstanceLifecycleConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

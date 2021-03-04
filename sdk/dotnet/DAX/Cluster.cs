@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DAX
+namespace Pulumi.AwsNative.DAX
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DAX:Cluster")]
+    [AwsNativeResourceType("aws-native:DAX:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DAX
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DAX:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Cluster(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DAX:Cluster", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DAX:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DAX:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DAX:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class RotationSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SecretsManager:RotationSchedule';
+    public static readonly __pulumiType = 'aws-native:SecretsManager:RotationSchedule';
 
     /**
      * Returns true if the given object is an instance of RotationSchedule.  This is designed to work even

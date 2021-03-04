@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaStore.Outputs
+namespace Pulumi.AwsNative.MediaStore.Outputs
 {
 
     [OutputType]

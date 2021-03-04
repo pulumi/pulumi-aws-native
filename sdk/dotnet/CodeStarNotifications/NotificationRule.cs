@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeStarNotifications
+namespace Pulumi.AwsNative.CodeStarNotifications
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeStarNotifications:NotificationRule")]
+    [AwsNativeResourceType("aws-native:CodeStarNotifications:NotificationRule")]
     public partial class NotificationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeStarNotifications
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationRule(string name, NotificationRuleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStarNotifications:NotificationRule", name, args ?? new NotificationRuleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal NotificationRule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStarNotifications:NotificationRule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeStarNotifications:NotificationRule", name, args ?? new NotificationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeStarNotifications:NotificationRule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeStarNotifications:NotificationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

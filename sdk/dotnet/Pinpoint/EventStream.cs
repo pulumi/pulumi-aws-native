@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:EventStream")]
+    [AwsNativeResourceType("aws-native:Pinpoint:EventStream")]
     public partial class EventStream : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventStream(string name, EventStreamArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EventStream", name, args ?? new EventStreamArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EventStream(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EventStream", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:EventStream", name, args ?? new EventStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventStream(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EventStream", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:EventStream", name, null, MakeResourceOptions(options, id))
         {
         }
 

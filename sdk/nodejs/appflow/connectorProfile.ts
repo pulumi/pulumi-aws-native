@@ -22,7 +22,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppFlow:ConnectorProfile';
+    public static readonly __pulumiType = 'aws-native:AppFlow:ConnectorProfile';
 
     /**
      * Returns true if the given object is an instance of ConnectorProfile.  This is designed to work even

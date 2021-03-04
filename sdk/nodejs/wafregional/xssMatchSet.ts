@@ -22,7 +22,7 @@ export class XssMatchSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WAFRegional:XssMatchSet';
+    public static readonly __pulumiType = 'aws-native:WAFRegional:XssMatchSet';
 
     /**
      * Returns true if the given object is an instance of XssMatchSet.  This is designed to work even

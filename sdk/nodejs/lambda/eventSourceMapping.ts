@@ -22,7 +22,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Lambda:EventSourceMapping';
+    public static readonly __pulumiType = 'aws-native:Lambda:EventSourceMapping';
 
     /**
      * Returns true if the given object is an instance of EventSourceMapping.  This is designed to work even

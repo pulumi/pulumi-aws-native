@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAFRegional
+namespace Pulumi.AwsNative.WAFRegional
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAFRegional:GeoMatchSet")]
+    [AwsNativeResourceType("aws-native:WAFRegional:GeoMatchSet")]
     public partial class GeoMatchSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAFRegional
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GeoMatchSet(string name, GeoMatchSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFRegional:GeoMatchSet", name, args ?? new GeoMatchSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal GeoMatchSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFRegional:GeoMatchSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAFRegional:GeoMatchSet", name, args ?? new GeoMatchSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GeoMatchSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAFRegional:GeoMatchSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAFRegional:GeoMatchSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

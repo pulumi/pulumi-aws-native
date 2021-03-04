@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DMS
+namespace Pulumi.AwsNative.DMS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DMS:Endpoint")]
+    [AwsNativeResourceType("aws-native:DMS:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DMS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DMS:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Endpoint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DMS:Endpoint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DMS:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Endpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DMS:Endpoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DMS:Endpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

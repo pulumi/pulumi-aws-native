@@ -22,7 +22,7 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:Workflow';
+    public static readonly __pulumiType = 'aws-native:Glue:Workflow';
 
     /**
      * Returns true if the given object is an instance of Workflow.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.OpsWorks
+namespace Pulumi.AwsNative.OpsWorks
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:OpsWorks:Stack")]
+    [AwsNativeResourceType("aws-native:OpsWorks:Stack")]
     public partial class Stack : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.OpsWorks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stack(string name, StackArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Stack", name, args ?? new StackArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Stack(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Stack", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:OpsWorks:Stack", name, args ?? new StackArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Stack(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Stack", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:OpsWorks:Stack", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EMR
+namespace Pulumi.AwsNative.EMR
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EMR:Step")]
+    [AwsNativeResourceType("aws-native:EMR:Step")]
     public partial class Step : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EMR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Step(string name, StepArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:Step", name, args ?? new StepArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Step(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:Step", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EMR:Step", name, args ?? new StepArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Step(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:Step", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EMR:Step", name, null, MakeResourceOptions(options, id))
         {
         }
 

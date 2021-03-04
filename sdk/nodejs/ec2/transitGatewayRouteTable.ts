@@ -22,7 +22,7 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:TransitGatewayRouteTable';
+    public static readonly __pulumiType = 'aws-native:EC2:TransitGatewayRouteTable';
 
     /**
      * Returns true if the given object is an instance of TransitGatewayRouteTable.  This is designed to work even

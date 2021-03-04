@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DMS
+namespace Pulumi.AwsNative.DMS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DMS:EventSubscription")]
+    [AwsNativeResourceType("aws-native:DMS:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DMS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSubscription(string name, EventSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DMS:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EventSubscription(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DMS:EventSubscription", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DMS:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DMS:EventSubscription", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DMS:EventSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 

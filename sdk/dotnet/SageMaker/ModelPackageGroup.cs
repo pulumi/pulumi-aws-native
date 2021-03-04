@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:ModelPackageGroup")]
+    [AwsNativeResourceType("aws-native:SageMaker:ModelPackageGroup")]
     public partial class ModelPackageGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelPackageGroup(string name, ModelPackageGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelPackageGroup", name, args ?? new ModelPackageGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ModelPackageGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelPackageGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:ModelPackageGroup", name, args ?? new ModelPackageGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelPackageGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelPackageGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:ModelPackageGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

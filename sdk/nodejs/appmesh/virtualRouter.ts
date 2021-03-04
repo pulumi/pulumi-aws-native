@@ -22,7 +22,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppMesh:VirtualRouter';
+    public static readonly __pulumiType = 'aws-native:AppMesh:VirtualRouter';
 
     /**
      * Returns true if the given object is an instance of VirtualRouter.  This is designed to work even

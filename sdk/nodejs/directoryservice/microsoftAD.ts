@@ -22,7 +22,7 @@ export class MicrosoftAD extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DirectoryService:MicrosoftAD';
+    public static readonly __pulumiType = 'aws-native:DirectoryService:MicrosoftAD';
 
     /**
      * Returns true if the given object is an instance of MicrosoftAD.  This is designed to work even

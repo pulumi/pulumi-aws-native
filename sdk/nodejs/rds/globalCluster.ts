@@ -22,7 +22,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RDS:GlobalCluster';
+    public static readonly __pulumiType = 'aws-native:RDS:GlobalCluster';
 
     /**
      * Returns true if the given object is an instance of GlobalCluster.  This is designed to work even

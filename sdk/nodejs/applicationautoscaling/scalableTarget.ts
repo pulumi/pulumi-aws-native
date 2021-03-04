@@ -22,7 +22,7 @@ export class ScalableTarget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApplicationAutoScaling:ScalableTarget';
+    public static readonly __pulumiType = 'aws-native:ApplicationAutoScaling:ScalableTarget';
 
     /**
      * Returns true if the given object is an instance of ScalableTarget.  This is designed to work even

@@ -22,7 +22,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:CustomerGateway';
+    public static readonly __pulumiType = 'aws-native:EC2:CustomerGateway';
 
     /**
      * Returns true if the given object is an instance of CustomerGateway.  This is designed to work even

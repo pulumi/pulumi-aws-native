@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:Project")]
+    [AwsNativeResourceType("aws-native:SageMaker:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Project(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:Project", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:Project", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -13,7 +13,7 @@ export function cidr(args: CidrArgs, opts?: pulumi.InvokeOptions): Promise<CidrR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:cidr", {
+    return pulumi.runtime.invoke("aws-native:index:cidr", {
         "cidrBits": args.cidrBits,
         "count": args.count,
         "ipBlock": args.ipBlock,

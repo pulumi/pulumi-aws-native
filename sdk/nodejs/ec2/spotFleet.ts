@@ -22,7 +22,7 @@ export class SpotFleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:SpotFleet';
+    public static readonly __pulumiType = 'aws-native:EC2:SpotFleet';
 
     /**
      * Returns true if the given object is an instance of SpotFleet.  This is designed to work even

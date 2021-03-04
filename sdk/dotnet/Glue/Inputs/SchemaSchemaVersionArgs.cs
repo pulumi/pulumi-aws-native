@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue.Inputs
+namespace Pulumi.AwsNative.Glue.Inputs
 {
 
     /// <summary>

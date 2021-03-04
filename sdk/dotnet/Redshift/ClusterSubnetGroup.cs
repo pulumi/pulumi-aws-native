@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Redshift
+namespace Pulumi.AwsNative.Redshift
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Redshift:ClusterSubnetGroup")]
+    [AwsNativeResourceType("aws-native:Redshift:ClusterSubnetGroup")]
     public partial class ClusterSubnetGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Redshift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterSubnetGroup(string name, ClusterSubnetGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Redshift:ClusterSubnetGroup", name, args ?? new ClusterSubnetGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ClusterSubnetGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Redshift:ClusterSubnetGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Redshift:ClusterSubnetGroup", name, args ?? new ClusterSubnetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ClusterSubnetGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Redshift:ClusterSubnetGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Redshift:ClusterSubnetGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

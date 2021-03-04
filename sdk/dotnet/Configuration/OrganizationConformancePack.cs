@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:OrganizationConformancePack")]
+    [AwsNativeResourceType("aws-native:Configuration:OrganizationConformancePack")]
     public partial class OrganizationConformancePack : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrganizationConformancePack(string name, OrganizationConformancePackArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:OrganizationConformancePack", name, args ?? new OrganizationConformancePackArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal OrganizationConformancePack(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:OrganizationConformancePack", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:OrganizationConformancePack", name, args ?? new OrganizationConformancePackArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OrganizationConformancePack(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:OrganizationConformancePack", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:OrganizationConformancePack", name, null, MakeResourceOptions(options, id))
         {
         }
 

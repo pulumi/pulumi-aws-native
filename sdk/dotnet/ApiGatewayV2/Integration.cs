@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGatewayV2
+namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGatewayV2:Integration")]
+    [AwsNativeResourceType("aws-native:ApiGatewayV2:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGatewayV2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Integration(string name, IntegrationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGatewayV2:Integration", name, args ?? new IntegrationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Integration(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGatewayV2:Integration", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGatewayV2:Integration", name, args ?? new IntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Integration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGatewayV2:Integration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGatewayV2:Integration", name, null, MakeResourceOptions(options, id))
         {
         }
 

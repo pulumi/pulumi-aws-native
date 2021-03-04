@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFront
+namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFront:KeyGroup")]
+    [AwsNativeResourceType("aws-native:CloudFront:KeyGroup")]
     public partial class KeyGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeyGroup(string name, KeyGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:KeyGroup", name, args ?? new KeyGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal KeyGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:KeyGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFront:KeyGroup", name, args ?? new KeyGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KeyGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:KeyGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFront:KeyGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

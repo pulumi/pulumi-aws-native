@@ -172,5 +172,5 @@ func resourceToken(typ string) string {
 	if moduleName == "Config" {
 		moduleName = "Configuration"
 	}
-	return "cloudformation:" + moduleName + ":" + resourceName
+	return "aws-native:" + moduleName + ":" + resourceName
 }

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cloud9
+namespace Pulumi.AwsNative.Cloud9
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Cloud9:EnvironmentEC2")]
+    [AwsNativeResourceType("aws-native:Cloud9:EnvironmentEC2")]
     public partial class EnvironmentEC2 : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Cloud9
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnvironmentEC2(string name, EnvironmentEC2Args args, CustomResourceOptions? options = null)
-            : base("cloudformation:Cloud9:EnvironmentEC2", name, args ?? new EnvironmentEC2Args(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EnvironmentEC2(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Cloud9:EnvironmentEC2", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Cloud9:EnvironmentEC2", name, args ?? new EnvironmentEC2Args(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnvironmentEC2(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Cloud9:EnvironmentEC2", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Cloud9:EnvironmentEC2", name, null, MakeResourceOptions(options, id))
         {
         }
 

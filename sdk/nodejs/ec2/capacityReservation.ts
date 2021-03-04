@@ -22,7 +22,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:CapacityReservation';
+    public static readonly __pulumiType = 'aws-native:EC2:CapacityReservation';
 
     /**
      * Returns true if the given object is an instance of CapacityReservation.  This is designed to work even

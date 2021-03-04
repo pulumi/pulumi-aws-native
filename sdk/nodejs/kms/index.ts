@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:KMS:Alias":
+            case "aws-native:KMS:Alias":
                 return new Alias(name, <any>undefined, { urn })
-            case "cloudformation:KMS:Key":
+            case "aws-native:KMS:Key":
                 return new Key(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "KMS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "KMS", _module)

@@ -22,7 +22,7 @@ export class FunctionDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Greengrass:FunctionDefinition';
+    public static readonly __pulumiType = 'aws-native:Greengrass:FunctionDefinition';
 
     /**
      * Returns true if the given object is an instance of FunctionDefinition.  This is designed to work even

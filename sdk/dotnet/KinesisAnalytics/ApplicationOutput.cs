@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KinesisAnalytics
+namespace Pulumi.AwsNative.KinesisAnalytics
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:KinesisAnalytics:ApplicationOutput")]
+    [AwsNativeResourceType("aws-native:KinesisAnalytics:ApplicationOutput")]
     public partial class ApplicationOutput : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.KinesisAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationOutput(string name, ApplicationOutputArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisAnalytics:ApplicationOutput", name, args ?? new ApplicationOutputArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ApplicationOutput(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisAnalytics:ApplicationOutput", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:KinesisAnalytics:ApplicationOutput", name, args ?? new ApplicationOutputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationOutput(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:KinesisAnalytics:ApplicationOutput", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:KinesisAnalytics:ApplicationOutput", name, null, MakeResourceOptions(options, id))
         {
         }
 

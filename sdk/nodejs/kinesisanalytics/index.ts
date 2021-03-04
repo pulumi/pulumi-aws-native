@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:KinesisAnalytics:Application":
+            case "aws-native:KinesisAnalytics:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "cloudformation:KinesisAnalytics:ApplicationOutput":
+            case "aws-native:KinesisAnalytics:ApplicationOutput":
                 return new ApplicationOutput(name, <any>undefined, { urn })
-            case "cloudformation:KinesisAnalytics:ApplicationReferenceDataSource":
+            case "aws-native:KinesisAnalytics:ApplicationReferenceDataSource":
                 return new ApplicationReferenceDataSource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "KinesisAnalytics", _module)
+pulumi.runtime.registerResourceModule("aws-native", "KinesisAnalytics", _module)

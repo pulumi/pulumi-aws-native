@@ -22,7 +22,7 @@ export class MountTarget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EFS:MountTarget';
+    public static readonly __pulumiType = 'aws-native:EFS:MountTarget';
 
     /**
      * Returns true if the given object is an instance of MountTarget.  This is designed to work even

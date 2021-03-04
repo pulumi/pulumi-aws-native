@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DLM.Outputs
+namespace Pulumi.AwsNative.DLM.Outputs
 {
 
     [OutputType]
@@ -40,7 +40,7 @@ namespace Pulumi.Cloudformation.DLM.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TargetTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TargetTags;
 
         [OutputConstructor]
         private LifecyclePolicyPolicyDetails(
@@ -56,7 +56,7 @@ namespace Pulumi.Cloudformation.DLM.Outputs
 
             ImmutableArray<Outputs.LifecyclePolicySchedule> Schedules,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> TargetTags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TargetTags)
         {
             this.Actions = Actions;
             this.EventSource = EventSource;

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ECS
+namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ECS:TaskSet")]
+    [AwsNativeResourceType("aws-native:ECS:TaskSet")]
     public partial class TaskSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ECS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TaskSet(string name, TaskSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:TaskSet", name, args ?? new TaskSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal TaskSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:TaskSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ECS:TaskSet", name, args ?? new TaskSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TaskSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:TaskSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ECS:TaskSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

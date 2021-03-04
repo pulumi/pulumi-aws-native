@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Logs
+namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Logs:MetricFilter")]
+    [AwsNativeResourceType("aws-native:Logs:MetricFilter")]
     public partial class MetricFilter : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Logs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricFilter(string name, MetricFilterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:MetricFilter", name, args ?? new MetricFilterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MetricFilter(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:MetricFilter", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Logs:MetricFilter", name, args ?? new MetricFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MetricFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:MetricFilter", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Logs:MetricFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 

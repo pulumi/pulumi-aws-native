@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Amplify.Outputs
+namespace Pulumi.AwsNative.Amplify.Outputs
 {
 
     [OutputType]
@@ -60,7 +60,7 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private BranchProperties(
@@ -86,7 +86,7 @@ namespace Pulumi.Cloudformation.Amplify.Outputs
 
             string? Stage,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AppId = AppId;
             this.BasicAuthConfig = BasicAuthConfig;

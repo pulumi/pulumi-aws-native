@@ -22,7 +22,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElasticBeanstalk:ApplicationVersion';
+    public static readonly __pulumiType = 'aws-native:ElasticBeanstalk:ApplicationVersion';
 
     /**
      * Returns true if the given object is an instance of ApplicationVersion.  This is designed to work even

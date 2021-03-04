@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:IoTSiteWise:AccessPolicy":
+            case "aws-native:IoTSiteWise:AccessPolicy":
                 return new AccessPolicy(name, <any>undefined, { urn })
-            case "cloudformation:IoTSiteWise:Asset":
+            case "aws-native:IoTSiteWise:Asset":
                 return new Asset(name, <any>undefined, { urn })
-            case "cloudformation:IoTSiteWise:AssetModel":
+            case "aws-native:IoTSiteWise:AssetModel":
                 return new AssetModel(name, <any>undefined, { urn })
-            case "cloudformation:IoTSiteWise:Dashboard":
+            case "aws-native:IoTSiteWise:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
-            case "cloudformation:IoTSiteWise:Gateway":
+            case "aws-native:IoTSiteWise:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
-            case "cloudformation:IoTSiteWise:Portal":
+            case "aws-native:IoTSiteWise:Portal":
                 return new Portal(name, <any>undefined, { urn })
-            case "cloudformation:IoTSiteWise:Project":
+            case "aws-native:IoTSiteWise:Project":
                 return new Project(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "IoTSiteWise", _module)
+pulumi.runtime.registerResourceModule("aws-native", "IoTSiteWise", _module)

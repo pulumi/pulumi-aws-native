@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeDeploy
+namespace Pulumi.AwsNative.CodeDeploy
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeDeploy:DeploymentConfig")]
+    [AwsNativeResourceType("aws-native:CodeDeploy:DeploymentConfig")]
     public partial class DeploymentConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeDeploy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentConfig(string name, DeploymentConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeDeploy:DeploymentConfig", name, args ?? new DeploymentConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DeploymentConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeDeploy:DeploymentConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeDeploy:DeploymentConfig", name, args ?? new DeploymentConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeDeploy:DeploymentConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeDeploy:DeploymentConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

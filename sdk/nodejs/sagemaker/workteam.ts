@@ -22,7 +22,7 @@ export class Workteam extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:Workteam';
+    public static readonly __pulumiType = 'aws-native:SageMaker:Workteam';
 
     /**
      * Returns true if the given object is an instance of Workteam.  This is designed to work even

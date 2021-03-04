@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     public static class GetAzs
     {
         public static Task<GetAzsResult> InvokeAsync(GetAzsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzsResult>("cloudformation:index:getAzs", args ?? new GetAzsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsArgs(), options.WithVersion());
     }
 
 

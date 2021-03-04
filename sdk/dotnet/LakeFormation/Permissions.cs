@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.LakeFormation
+namespace Pulumi.AwsNative.LakeFormation
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:LakeFormation:Permissions")]
+    [AwsNativeResourceType("aws-native:LakeFormation:Permissions")]
     public partial class Permissions : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.LakeFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Permissions(string name, PermissionsArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:LakeFormation:Permissions", name, args ?? new PermissionsArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Permissions(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:LakeFormation:Permissions", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:LakeFormation:Permissions", name, args ?? new PermissionsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Permissions(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:LakeFormation:Permissions", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:LakeFormation:Permissions", name, null, MakeResourceOptions(options, id))
         {
         }
 

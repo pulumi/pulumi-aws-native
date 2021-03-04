@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ManagedBlockchain.Inputs
+namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
 {
 
     /// <summary>

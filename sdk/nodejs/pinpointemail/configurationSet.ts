@@ -22,7 +22,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:PinpointEmail:ConfigurationSet';
+    public static readonly __pulumiType = 'aws-native:PinpointEmail:ConfigurationSet';
 
     /**
      * Returns true if the given object is an instance of ConfigurationSet.  This is designed to work even

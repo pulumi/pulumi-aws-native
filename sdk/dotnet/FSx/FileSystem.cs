@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.FSx
+namespace Pulumi.AwsNative.FSx
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:FSx:FileSystem")]
+    [AwsNativeResourceType("aws-native:FSx:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.FSx
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileSystem(string name, FileSystemArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:FSx:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal FileSystem(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:FSx:FileSystem", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:FSx:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileSystem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:FSx:FileSystem", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:FSx:FileSystem", name, null, MakeResourceOptions(options, id))
         {
         }
 

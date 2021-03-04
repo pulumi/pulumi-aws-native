@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTAnalytics
+namespace Pulumi.AwsNative.IoTAnalytics
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoTAnalytics:Dataset")]
+    [AwsNativeResourceType("aws-native:IoTAnalytics:Dataset")]
     public partial class Dataset : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoTAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dataset(string name, DatasetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTAnalytics:Dataset", name, args ?? new DatasetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Dataset(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTAnalytics:Dataset", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoTAnalytics:Dataset", name, args ?? new DatasetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dataset(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTAnalytics:Dataset", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoTAnalytics:Dataset", name, null, MakeResourceOptions(options, id))
         {
         }
 

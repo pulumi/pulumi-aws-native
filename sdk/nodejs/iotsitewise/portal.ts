@@ -22,7 +22,7 @@ export class Portal extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoTSiteWise:Portal';
+    public static readonly __pulumiType = 'aws-native:IoTSiteWise:Portal';
 
     /**
      * Returns true if the given object is an instance of Portal.  This is designed to work even

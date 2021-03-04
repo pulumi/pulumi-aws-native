@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ImageBuilder:Component":
+            case "aws-native:ImageBuilder:Component":
                 return new Component(name, <any>undefined, { urn })
-            case "cloudformation:ImageBuilder:DistributionConfiguration":
+            case "aws-native:ImageBuilder:DistributionConfiguration":
                 return new DistributionConfiguration(name, <any>undefined, { urn })
-            case "cloudformation:ImageBuilder:Image":
+            case "aws-native:ImageBuilder:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "cloudformation:ImageBuilder:ImagePipeline":
+            case "aws-native:ImageBuilder:ImagePipeline":
                 return new ImagePipeline(name, <any>undefined, { urn })
-            case "cloudformation:ImageBuilder:ImageRecipe":
+            case "aws-native:ImageBuilder:ImageRecipe":
                 return new ImageRecipe(name, <any>undefined, { urn })
-            case "cloudformation:ImageBuilder:InfrastructureConfiguration":
+            case "aws-native:ImageBuilder:InfrastructureConfiguration":
                 return new InfrastructureConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ImageBuilder", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ImageBuilder", _module)

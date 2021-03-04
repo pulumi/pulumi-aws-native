@@ -22,7 +22,7 @@ export class WaitConditionHandle extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFormation:WaitConditionHandle';
+    public static readonly __pulumiType = 'aws-native:CloudFormation:WaitConditionHandle';
 
     /**
      * Returns true if the given object is an instance of WaitConditionHandle.  This is designed to work even

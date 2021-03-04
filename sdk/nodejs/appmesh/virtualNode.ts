@@ -22,7 +22,7 @@ export class VirtualNode extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppMesh:VirtualNode';
+    public static readonly __pulumiType = 'aws-native:AppMesh:VirtualNode';
 
     /**
      * Returns true if the given object is an instance of VirtualNode.  This is designed to work even

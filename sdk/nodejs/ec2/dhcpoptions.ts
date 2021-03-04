@@ -22,7 +22,7 @@ export class DHCPOptions extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:DHCPOptions';
+    public static readonly __pulumiType = 'aws-native:EC2:DHCPOptions';
 
     /**
      * Returns true if the given object is an instance of DHCPOptions.  This is designed to work even

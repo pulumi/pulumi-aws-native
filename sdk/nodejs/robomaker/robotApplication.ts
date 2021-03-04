@@ -22,7 +22,7 @@ export class RobotApplication extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RoboMaker:RobotApplication';
+    public static readonly __pulumiType = 'aws-native:RoboMaker:RobotApplication';
 
     /**
      * Returns true if the given object is an instance of RobotApplication.  This is designed to work even

@@ -22,7 +22,7 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Route53Resolver:ResolverQueryLoggingConfigAssociation';
+    public static readonly __pulumiType = 'aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation';
 
     /**
      * Returns true if the given object is an instance of ResolverQueryLoggingConfigAssociation.  This is designed to work even

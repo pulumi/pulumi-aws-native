@@ -22,7 +22,7 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFormation:ModuleDefaultVersion';
+    public static readonly __pulumiType = 'aws-native:CloudFormation:ModuleDefaultVersion';
 
     /**
      * Returns true if the given object is an instance of ModuleDefaultVersion.  This is designed to work even

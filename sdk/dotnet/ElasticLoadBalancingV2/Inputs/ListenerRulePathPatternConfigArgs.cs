@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Inputs
+namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
     /// <summary>

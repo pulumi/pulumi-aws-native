@@ -22,7 +22,7 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:NetworkFirewall:Firewall';
+    public static readonly __pulumiType = 'aws-native:NetworkFirewall:Firewall';
 
     /**
      * Returns true if the given object is an instance of Firewall.  This is designed to work even

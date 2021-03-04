@@ -22,7 +22,7 @@ export class Authorizer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGatewayV2:Authorizer';
+    public static readonly __pulumiType = 'aws-native:ApiGatewayV2:Authorizer';
 
     /**
      * Returns true if the given object is an instance of Authorizer.  This is designed to work even

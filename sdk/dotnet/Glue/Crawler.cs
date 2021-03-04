@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:Crawler")]
+    [AwsNativeResourceType("aws-native:Glue:Crawler")]
     public partial class Crawler : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Crawler(string name, CrawlerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Crawler", name, args ?? new CrawlerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Crawler(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Crawler", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:Crawler", name, args ?? new CrawlerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Crawler(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Crawler", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:Crawler", name, null, MakeResourceOptions(options, id))
         {
         }
 

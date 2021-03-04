@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SecretsManager
+namespace Pulumi.AwsNative.SecretsManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SecretsManager:RotationSchedule")]
+    [AwsNativeResourceType("aws-native:SecretsManager:RotationSchedule")]
     public partial class RotationSchedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SecretsManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RotationSchedule(string name, RotationScheduleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:RotationSchedule", name, args ?? new RotationScheduleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RotationSchedule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:RotationSchedule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SecretsManager:RotationSchedule", name, args ?? new RotationScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RotationSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:RotationSchedule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SecretsManager:RotationSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 

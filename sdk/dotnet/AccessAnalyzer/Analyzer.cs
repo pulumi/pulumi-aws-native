@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AccessAnalyzer
+namespace Pulumi.AwsNative.AccessAnalyzer
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AccessAnalyzer:Analyzer")]
+    [AwsNativeResourceType("aws-native:AccessAnalyzer:Analyzer")]
     public partial class Analyzer : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AccessAnalyzer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Analyzer(string name, AnalyzerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AccessAnalyzer:Analyzer", name, args ?? new AnalyzerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Analyzer(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AccessAnalyzer:Analyzer", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AccessAnalyzer:Analyzer", name, args ?? new AnalyzerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Analyzer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AccessAnalyzer:Analyzer", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AccessAnalyzer:Analyzer", name, null, MakeResourceOptions(options, id))
         {
         }
 

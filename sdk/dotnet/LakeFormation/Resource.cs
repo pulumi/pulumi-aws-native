@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.LakeFormation
+namespace Pulumi.AwsNative.LakeFormation
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:LakeFormation:Resource")]
+    [AwsNativeResourceType("aws-native:LakeFormation:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.LakeFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Resource(string name, ResourceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:LakeFormation:Resource", name, args ?? new ResourceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Resource(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:LakeFormation:Resource", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:LakeFormation:Resource", name, args ?? new ResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Resource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:LakeFormation:Resource", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:LakeFormation:Resource", name, null, MakeResourceOptions(options, id))
         {
         }
 

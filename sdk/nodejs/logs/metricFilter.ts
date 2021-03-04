@@ -22,7 +22,7 @@ export class MetricFilter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Logs:MetricFilter';
+    public static readonly __pulumiType = 'aws-native:Logs:MetricFilter';
 
     /**
      * Returns true if the given object is an instance of MetricFilter.  This is designed to work even

@@ -22,7 +22,7 @@ export class Index extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Kendra:Index';
+    public static readonly __pulumiType = 'aws-native:Kendra:Index';
 
     /**
      * Returns true if the given object is an instance of Index.  This is designed to work even

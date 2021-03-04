@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ECS
+namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ECS:PrimaryTaskSet")]
+    [AwsNativeResourceType("aws-native:ECS:PrimaryTaskSet")]
     public partial class PrimaryTaskSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ECS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrimaryTaskSet(string name, PrimaryTaskSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:PrimaryTaskSet", name, args ?? new PrimaryTaskSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal PrimaryTaskSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:PrimaryTaskSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ECS:PrimaryTaskSet", name, args ?? new PrimaryTaskSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrimaryTaskSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ECS:PrimaryTaskSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ECS:PrimaryTaskSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

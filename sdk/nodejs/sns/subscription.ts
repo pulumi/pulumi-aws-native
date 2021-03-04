@@ -22,7 +22,7 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SNS:Subscription';
+    public static readonly __pulumiType = 'aws-native:SNS:Subscription';
 
     /**
      * Returns true if the given object is an instance of Subscription.  This is designed to work even

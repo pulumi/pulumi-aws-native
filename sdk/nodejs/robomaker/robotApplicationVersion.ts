@@ -22,7 +22,7 @@ export class RobotApplicationVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RoboMaker:RobotApplicationVersion';
+    public static readonly __pulumiType = 'aws-native:RoboMaker:RobotApplicationVersion';
 
     /**
      * Returns true if the given object is an instance of RobotApplicationVersion.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DevOpsGuru
+namespace Pulumi.AwsNative.DevOpsGuru
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DevOpsGuru:ResourceCollection")]
+    [AwsNativeResourceType("aws-native:DevOpsGuru:ResourceCollection")]
     public partial class ResourceCollection : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DevOpsGuru
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceCollection(string name, ResourceCollectionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DevOpsGuru:ResourceCollection", name, args ?? new ResourceCollectionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ResourceCollection(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DevOpsGuru:ResourceCollection", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DevOpsGuru:ResourceCollection", name, args ?? new ResourceCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DevOpsGuru:ResourceCollection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DevOpsGuru:ResourceCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 

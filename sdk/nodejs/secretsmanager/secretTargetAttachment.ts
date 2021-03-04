@@ -22,7 +22,7 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SecretsManager:SecretTargetAttachment';
+    public static readonly __pulumiType = 'aws-native:SecretsManager:SecretTargetAttachment';
 
     /**
      * Returns true if the given object is an instance of SecretTargetAttachment.  This is designed to work even

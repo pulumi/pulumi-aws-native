@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SecretsManager
+namespace Pulumi.AwsNative.SecretsManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SecretsManager:SecretTargetAttachment")]
+    [AwsNativeResourceType("aws-native:SecretsManager:SecretTargetAttachment")]
     public partial class SecretTargetAttachment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SecretsManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecretTargetAttachment(string name, SecretTargetAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:SecretTargetAttachment", name, args ?? new SecretTargetAttachmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SecretTargetAttachment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:SecretTargetAttachment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SecretsManager:SecretTargetAttachment", name, args ?? new SecretTargetAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecretTargetAttachment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SecretsManager:SecretTargetAttachment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SecretsManager:SecretTargetAttachment", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GuardDuty
+namespace Pulumi.AwsNative.GuardDuty
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GuardDuty:ThreatIntelSet")]
+    [AwsNativeResourceType("aws-native:GuardDuty:ThreatIntelSet")]
     public partial class ThreatIntelSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GuardDuty
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThreatIntelSet(string name, ThreatIntelSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:ThreatIntelSet", name, args ?? new ThreatIntelSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ThreatIntelSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:ThreatIntelSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GuardDuty:ThreatIntelSet", name, args ?? new ThreatIntelSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ThreatIntelSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:ThreatIntelSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GuardDuty:ThreatIntelSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

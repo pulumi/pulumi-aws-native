@@ -22,7 +22,7 @@ export class ClientVpnAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:ClientVpnAuthorizationRule';
+    public static readonly __pulumiType = 'aws-native:EC2:ClientVpnAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of ClientVpnAuthorizationRule.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppConfig
+namespace Pulumi.AwsNative.AppConfig
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppConfig:Deployment")]
+    [AwsNativeResourceType("aws-native:AppConfig:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppConfig
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Deployment(string name, DeploymentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:Deployment", name, args ?? new DeploymentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Deployment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:Deployment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppConfig:Deployment", name, args ?? new DeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Deployment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppConfig:Deployment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppConfig:Deployment", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AccessAnalyzer.Outputs
+namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
 {
 
     [OutputType]
@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.AccessAnalyzer.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Cloudformation.AccessAnalyzer.Outputs
 
             ImmutableArray<Outputs.AnalyzerArchiveRule> ArchiveRules,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             string Type)
         {

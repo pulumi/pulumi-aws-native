@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaPackage
+namespace Pulumi.AwsNative.MediaPackage
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:MediaPackage:Asset")]
+    [AwsNativeResourceType("aws-native:MediaPackage:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Asset(string name, AssetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Asset(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:Asset", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:MediaPackage:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Asset(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaPackage:Asset", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:MediaPackage:Asset", name, null, MakeResourceOptions(options, id))
         {
         }
 

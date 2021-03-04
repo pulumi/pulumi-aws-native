@@ -22,7 +22,7 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:DataCatalogEncryptionSettings';
+    public static readonly __pulumiType = 'aws-native:Glue:DataCatalogEncryptionSettings';
 
     /**
      * Returns true if the given object is an instance of DataCatalogEncryptionSettings.  This is designed to work even

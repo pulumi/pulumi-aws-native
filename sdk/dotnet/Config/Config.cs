@@ -3,11 +3,11 @@
 
 using System.Collections.Immutable;
 
-namespace Pulumi.Cloudformation
+namespace Pulumi.AwsNative
 {
     public static class Config
     {
-        private static readonly Pulumi.Config __config = new Pulumi.Config("cloudformation");
+        private static readonly Pulumi.Config __config = new Pulumi.Config("aws-native");
         /// <summary>
         /// the region to use for deployments
         /// </summary>

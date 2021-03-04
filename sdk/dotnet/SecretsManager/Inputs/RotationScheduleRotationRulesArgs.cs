@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SecretsManager.Inputs
+namespace Pulumi.AwsNative.SecretsManager.Inputs
 {
 
     /// <summary>

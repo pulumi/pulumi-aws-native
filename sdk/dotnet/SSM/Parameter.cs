@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSM
+namespace Pulumi.AwsNative.SSM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SSM:Parameter")]
+    [AwsNativeResourceType("aws-native:SSM:Parameter")]
     public partial class Parameter : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SSM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Parameter(string name, ParameterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:Parameter", name, args ?? new ParameterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Parameter(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:Parameter", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SSM:Parameter", name, args ?? new ParameterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Parameter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:Parameter", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SSM:Parameter", name, null, MakeResourceOptions(options, id))
         {
         }
 

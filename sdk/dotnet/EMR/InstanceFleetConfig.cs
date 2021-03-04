@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EMR
+namespace Pulumi.AwsNative.EMR
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EMR:InstanceFleetConfig")]
+    [AwsNativeResourceType("aws-native:EMR:InstanceFleetConfig")]
     public partial class InstanceFleetConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EMR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceFleetConfig(string name, InstanceFleetConfigArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:InstanceFleetConfig", name, args ?? new InstanceFleetConfigArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal InstanceFleetConfig(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:InstanceFleetConfig", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EMR:InstanceFleetConfig", name, args ?? new InstanceFleetConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstanceFleetConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EMR:InstanceFleetConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EMR:InstanceFleetConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

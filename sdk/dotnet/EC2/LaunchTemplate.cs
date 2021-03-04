@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:LaunchTemplate")]
+    [AwsNativeResourceType("aws-native:EC2:LaunchTemplate")]
     public partial class LaunchTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LaunchTemplate(string name, LaunchTemplateArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:LaunchTemplate", name, args ?? new LaunchTemplateArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LaunchTemplate(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:LaunchTemplate", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:LaunchTemplate", name, args ?? new LaunchTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LaunchTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:LaunchTemplate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:LaunchTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 

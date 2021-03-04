@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppMesh
+namespace Pulumi.AwsNative.AppMesh
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppMesh:VirtualNode")]
+    [AwsNativeResourceType("aws-native:AppMesh:VirtualNode")]
     public partial class VirtualNode : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNode(string name, VirtualNodeArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:VirtualNode", name, args ?? new VirtualNodeArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal VirtualNode(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:VirtualNode", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppMesh:VirtualNode", name, args ?? new VirtualNodeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNode(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:VirtualNode", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppMesh:VirtualNode", name, null, MakeResourceOptions(options, id))
         {
         }
 

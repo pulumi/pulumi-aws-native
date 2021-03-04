@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT1Click.Outputs
+namespace Pulumi.AwsNative.IoT1Click.Outputs
 {
 
     [OutputType]

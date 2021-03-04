@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSO
+namespace Pulumi.AwsNative.SSO
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SSO:Assignment")]
+    [AwsNativeResourceType("aws-native:SSO:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SSO
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Assignment(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:Assignment", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SSO:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SSO:Assignment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SSO:Assignment", name, null, MakeResourceOptions(options, id))
         {
         }
 

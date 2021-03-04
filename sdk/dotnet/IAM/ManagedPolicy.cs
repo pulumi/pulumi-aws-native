@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IAM
+namespace Pulumi.AwsNative.IAM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IAM:ManagedPolicy")]
+    [AwsNativeResourceType("aws-native:IAM:ManagedPolicy")]
     public partial class ManagedPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedPolicy(string name, ManagedPolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:ManagedPolicy", name, args ?? new ManagedPolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ManagedPolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:ManagedPolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IAM:ManagedPolicy", name, args ?? new ManagedPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:ManagedPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IAM:ManagedPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

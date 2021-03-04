@@ -22,7 +22,7 @@ export class ManagedPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IAM:ManagedPolicy';
+    public static readonly __pulumiType = 'aws-native:IAM:ManagedPolicy';
 
     /**
      * Returns true if the given object is an instance of ManagedPolicy.  This is designed to work even

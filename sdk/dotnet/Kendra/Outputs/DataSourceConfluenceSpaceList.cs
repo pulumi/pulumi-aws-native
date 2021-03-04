@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Kendra.Outputs
+namespace Pulumi.AwsNative.Kendra.Outputs
 {
 
     [OutputType]

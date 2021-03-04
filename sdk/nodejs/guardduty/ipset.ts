@@ -22,7 +22,7 @@ export class IPSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GuardDuty:IPSet';
+    public static readonly __pulumiType = 'aws-native:GuardDuty:IPSet';
 
     /**
      * Returns true if the given object is an instance of IPSet.  This is designed to work even

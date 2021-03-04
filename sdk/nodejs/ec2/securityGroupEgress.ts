@@ -22,7 +22,7 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:SecurityGroupEgress';
+    public static readonly __pulumiType = 'aws-native:EC2:SecurityGroupEgress';
 
     /**
      * Returns true if the given object is an instance of SecurityGroupEgress.  This is designed to work even

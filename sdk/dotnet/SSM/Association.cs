@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSM
+namespace Pulumi.AwsNative.SSM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SSM:Association")]
+    [AwsNativeResourceType("aws-native:SSM:Association")]
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SSM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Association(string name, AssociationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Association(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:Association", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SSM:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Association(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SSM:Association", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SSM:Association", name, null, MakeResourceOptions(options, id))
         {
         }
 

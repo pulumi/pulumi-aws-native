@@ -96,11 +96,11 @@ func getJSBaseOptions(t *testing.T, stackName string) integration.ProgramTestOpt
 	base := getBaseOptions()
 	baseJS := base.With(integration.ProgramTestOptions{
 		Config: map[string]string{
-			"cloudformation:region": envRegion,
-			"cloudformation:stack":  stackName,
+			"aws-native:region": envRegion,
+			"aws-native:stack":  stackName,
 		},
 		Dependencies: []string{
-			"@pulumi/cloudformation",
+			"@pulumi/aws-native",
 		},
 	})
 

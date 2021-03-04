@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppFlow
+namespace Pulumi.AwsNative.AppFlow
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppFlow:Flow")]
+    [AwsNativeResourceType("aws-native:AppFlow:Flow")]
     public partial class Flow : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppFlow
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Flow(string name, FlowArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppFlow:Flow", name, args ?? new FlowArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Flow(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppFlow:Flow", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppFlow:Flow", name, args ?? new FlowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Flow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppFlow:Flow", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppFlow:Flow", name, null, MakeResourceOptions(options, id))
         {
         }
 

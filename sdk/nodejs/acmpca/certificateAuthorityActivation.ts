@@ -22,7 +22,7 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ACMPCA:CertificateAuthorityActivation';
+    public static readonly __pulumiType = 'aws-native:ACMPCA:CertificateAuthorityActivation';
 
     /**
      * Returns true if the given object is an instance of CertificateAuthorityActivation.  This is designed to work even

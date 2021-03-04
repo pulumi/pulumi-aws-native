@@ -22,7 +22,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElasticLoadBalancingV2:LoadBalancer';
+    public static readonly __pulumiType = 'aws-native:ElasticLoadBalancingV2:LoadBalancer';
 
     /**
      * Returns true if the given object is an instance of LoadBalancer.  This is designed to work even

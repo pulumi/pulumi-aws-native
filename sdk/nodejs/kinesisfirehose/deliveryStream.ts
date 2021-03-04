@@ -22,7 +22,7 @@ export class DeliveryStream extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:KinesisFirehose:DeliveryStream';
+    public static readonly __pulumiType = 'aws-native:KinesisFirehose:DeliveryStream';
 
     /**
      * Returns true if the given object is an instance of DeliveryStream.  This is designed to work even

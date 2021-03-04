@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaStore
+namespace Pulumi.AwsNative.MediaStore
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:MediaStore:Container")]
+    [AwsNativeResourceType("aws-native:MediaStore:Container")]
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.MediaStore
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaStore:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Container(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaStore:Container", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:MediaStore:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Container(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaStore:Container", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:MediaStore:Container", name, null, MakeResourceOptions(options, id))
         {
         }
 

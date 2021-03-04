@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:SubscriptionDefinition")]
+    [AwsNativeResourceType("aws-native:Greengrass:SubscriptionDefinition")]
     public partial class SubscriptionDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubscriptionDefinition(string name, SubscriptionDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:SubscriptionDefinition", name, args ?? new SubscriptionDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SubscriptionDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:SubscriptionDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:SubscriptionDefinition", name, args ?? new SubscriptionDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SubscriptionDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:SubscriptionDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:SubscriptionDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -1,10 +1,10 @@
 import pulumi
-import pulumi_cloudformation as aws
+import pulumi_aws_native as aws
 
 config = pulumi.config.Config()
 key_name = config.get('keyName')
-availability_zone = config.get('az', 'us-west-2a')
-mac_ami_id = config.get('ami', 'ami-01cdf97a3a0ab6eac') # macOS Catalina 10.15.7 us-west-2
+availability_zone = config.get('az') or 'us-west-2a'
+mac_ami_id = config.get('ami') or 'ami-01cdf97a3a0ab6eac' # macOS Catalina 10.15.7 us-west-2
 
 vpc = aws.ec2.VPC('macVpc',
     properties=aws.ec2.VPCPropertiesArgs(

@@ -22,7 +22,7 @@ export class Detector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GuardDuty:Detector';
+    public static readonly __pulumiType = 'aws-native:GuardDuty:Detector';
 
     /**
      * Returns true if the given object is an instance of Detector.  This is designed to work even

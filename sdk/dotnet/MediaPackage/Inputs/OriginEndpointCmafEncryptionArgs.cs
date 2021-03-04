@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaPackage.Inputs
+namespace Pulumi.AwsNative.MediaPackage.Inputs
 {
 
     /// <summary>

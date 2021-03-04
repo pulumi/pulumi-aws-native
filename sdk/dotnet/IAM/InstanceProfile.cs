@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IAM
+namespace Pulumi.AwsNative.IAM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IAM:InstanceProfile")]
+    [AwsNativeResourceType("aws-native:IAM:InstanceProfile")]
     public partial class InstanceProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceProfile(string name, InstanceProfileArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:InstanceProfile", name, args ?? new InstanceProfileArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal InstanceProfile(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:InstanceProfile", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IAM:InstanceProfile", name, args ?? new InstanceProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstanceProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:InstanceProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IAM:InstanceProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

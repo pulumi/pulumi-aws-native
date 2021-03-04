@@ -22,7 +22,7 @@ export class StateMachine extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:StepFunctions:StateMachine';
+    public static readonly __pulumiType = 'aws-native:StepFunctions:StateMachine';
 
     /**
      * Returns true if the given object is an instance of StateMachine.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFront
+namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFront:CloudFrontOriginAccessIdentity")]
+    [AwsNativeResourceType("aws-native:CloudFront:CloudFrontOriginAccessIdentity")]
     public partial class CloudFrontOriginAccessIdentity : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudFrontOriginAccessIdentity(string name, CloudFrontOriginAccessIdentityArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:CloudFrontOriginAccessIdentity", name, args ?? new CloudFrontOriginAccessIdentityArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CloudFrontOriginAccessIdentity(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:CloudFrontOriginAccessIdentity", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFront:CloudFrontOriginAccessIdentity", name, args ?? new CloudFrontOriginAccessIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudFrontOriginAccessIdentity(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFront:CloudFrontOriginAccessIdentity", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFront:CloudFrontOriginAccessIdentity", name, null, MakeResourceOptions(options, id))
         {
         }
 

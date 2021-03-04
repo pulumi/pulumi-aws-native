@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Kinesis
+namespace Pulumi.AwsNative.Kinesis
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Kinesis:Stream")]
+    [AwsNativeResourceType("aws-native:Kinesis:Stream")]
     public partial class Stream : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stream(string name, StreamArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Kinesis:Stream", name, args ?? new StreamArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Stream(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Kinesis:Stream", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Kinesis:Stream", name, args ?? new StreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Stream(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Kinesis:Stream", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Kinesis:Stream", name, null, MakeResourceOptions(options, id))
         {
         }
 

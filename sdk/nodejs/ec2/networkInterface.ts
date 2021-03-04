@@ -22,7 +22,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:NetworkInterface';
+    public static readonly __pulumiType = 'aws-native:EC2:NetworkInterface';
 
     /**
      * Returns true if the given object is an instance of NetworkInterface.  This is designed to work even

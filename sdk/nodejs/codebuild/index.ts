@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CodeBuild:Project":
+            case "aws-native:CodeBuild:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "cloudformation:CodeBuild:ReportGroup":
+            case "aws-native:CodeBuild:ReportGroup":
                 return new ReportGroup(name, <any>undefined, { urn })
-            case "cloudformation:CodeBuild:SourceCredential":
+            case "aws-native:CodeBuild:SourceCredential":
                 return new SourceCredential(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CodeBuild", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CodeBuild", _module)

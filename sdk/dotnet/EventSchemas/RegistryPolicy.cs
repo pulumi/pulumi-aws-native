@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EventSchemas
+namespace Pulumi.AwsNative.EventSchemas
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EventSchemas:RegistryPolicy")]
+    [AwsNativeResourceType("aws-native:EventSchemas:RegistryPolicy")]
     public partial class RegistryPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EventSchemas
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistryPolicy(string name, RegistryPolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:RegistryPolicy", name, args ?? new RegistryPolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal RegistryPolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:RegistryPolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EventSchemas:RegistryPolicy", name, args ?? new RegistryPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegistryPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EventSchemas:RegistryPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EventSchemas:RegistryPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

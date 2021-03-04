@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:ElasticLoadBalancingV2:Listener":
+            case "aws-native:ElasticLoadBalancingV2:Listener":
                 return new Listener(name, <any>undefined, { urn })
-            case "cloudformation:ElasticLoadBalancingV2:ListenerCertificate":
+            case "aws-native:ElasticLoadBalancingV2:ListenerCertificate":
                 return new ListenerCertificate(name, <any>undefined, { urn })
-            case "cloudformation:ElasticLoadBalancingV2:ListenerRule":
+            case "aws-native:ElasticLoadBalancingV2:ListenerRule":
                 return new ListenerRule(name, <any>undefined, { urn })
-            case "cloudformation:ElasticLoadBalancingV2:LoadBalancer":
+            case "aws-native:ElasticLoadBalancingV2:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
-            case "cloudformation:ElasticLoadBalancingV2:TargetGroup":
+            case "aws-native:ElasticLoadBalancingV2:TargetGroup":
                 return new TargetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "ElasticLoadBalancingV2", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ElasticLoadBalancingV2", _module)

@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CodePipeline:CustomActionType":
+            case "aws-native:CodePipeline:CustomActionType":
                 return new CustomActionType(name, <any>undefined, { urn })
-            case "cloudformation:CodePipeline:Pipeline":
+            case "aws-native:CodePipeline:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
-            case "cloudformation:CodePipeline:Webhook":
+            case "aws-native:CodePipeline:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CodePipeline", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CodePipeline", _module)

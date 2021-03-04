@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cognito
+namespace Pulumi.AwsNative.Cognito
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Cognito:UserPoolGroup")]
+    [AwsNativeResourceType("aws-native:Cognito:UserPoolGroup")]
     public partial class UserPoolGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolGroup(string name, UserPoolGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolGroup", name, args ?? new UserPoolGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal UserPoolGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Cognito:UserPoolGroup", name, args ?? new UserPoolGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserPoolGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Cognito:UserPoolGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Cognito:UserPoolGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class Resolver extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AppSync:Resolver';
+    public static readonly __pulumiType = 'aws-native:AppSync:Resolver';
 
     /**
      * Returns true if the given object is an instance of Resolver.  This is designed to work even

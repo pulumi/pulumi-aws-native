@@ -22,7 +22,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GameLift:MatchmakingConfiguration';
+    public static readonly __pulumiType = 'aws-native:GameLift:MatchmakingConfiguration';
 
     /**
      * Returns true if the given object is an instance of MatchmakingConfiguration.  This is designed to work even

@@ -22,7 +22,7 @@ export class Crawler extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:Crawler';
+    public static readonly __pulumiType = 'aws-native:Glue:Crawler';
 
     /**
      * Returns true if the given object is an instance of Crawler.  This is designed to work even

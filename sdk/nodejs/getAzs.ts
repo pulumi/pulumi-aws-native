@@ -14,7 +14,7 @@ export function getAzs(args?: GetAzsArgs, opts?: pulumi.InvokeOptions): Promise<
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("cloudformation:index:getAzs", {
+    return pulumi.runtime.invoke("aws-native:index:getAzs", {
         "region": args.region,
     }, opts);
 }

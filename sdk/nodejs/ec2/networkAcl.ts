@@ -22,7 +22,7 @@ export class NetworkAcl extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:NetworkAcl';
+    public static readonly __pulumiType = 'aws-native:EC2:NetworkAcl';
 
     /**
      * Returns true if the given object is an instance of NetworkAcl.  This is designed to work even

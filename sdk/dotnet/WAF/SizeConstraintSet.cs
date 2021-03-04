@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAF
+namespace Pulumi.AwsNative.WAF
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAF:SizeConstraintSet")]
+    [AwsNativeResourceType("aws-native:WAF:SizeConstraintSet")]
     public partial class SizeConstraintSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAF
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SizeConstraintSet(string name, SizeConstraintSetArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:SizeConstraintSet", name, args ?? new SizeConstraintSetArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SizeConstraintSet(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:SizeConstraintSet", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAF:SizeConstraintSet", name, args ?? new SizeConstraintSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SizeConstraintSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:SizeConstraintSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAF:SizeConstraintSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

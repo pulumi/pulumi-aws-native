@@ -1,13 +1,13 @@
 {
-    "name": "@pulumi/cloudformation",
+    "name": "@pulumi/aws-native",
     "version": "${VERSION}",
     "keywords": [
         "pulumi",
         "aws",
-        "cloudformation"
+        "aws-native"
     ],
     "homepage": "https://pulumi.io",
-    "repository": "https://github.com/pulumi/pulumi-cloudformation",
+    "repository": "https://github.com/pulumi/pulumi-aws-native",
     "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"

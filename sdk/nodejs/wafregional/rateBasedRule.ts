@@ -22,7 +22,7 @@ export class RateBasedRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:WAFRegional:RateBasedRule';
+    public static readonly __pulumiType = 'aws-native:WAFRegional:RateBasedRule';
 
     /**
      * Returns true if the given object is an instance of RateBasedRule.  This is designed to work even

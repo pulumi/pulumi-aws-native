@@ -22,7 +22,7 @@ export class ConfigRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Configuration:ConfigRule';
+    public static readonly __pulumiType = 'aws-native:Configuration:ConfigRule';
 
     /**
      * Returns true if the given object is an instance of ConfigRule.  This is designed to work even

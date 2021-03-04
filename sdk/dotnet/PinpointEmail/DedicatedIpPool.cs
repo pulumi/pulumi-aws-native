@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.PinpointEmail
+namespace Pulumi.AwsNative.PinpointEmail
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:PinpointEmail:DedicatedIpPool")]
+    [AwsNativeResourceType("aws-native:PinpointEmail:DedicatedIpPool")]
     public partial class DedicatedIpPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.PinpointEmail
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedIpPool(string name, DedicatedIpPoolArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:PinpointEmail:DedicatedIpPool", name, args ?? new DedicatedIpPoolArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DedicatedIpPool(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:PinpointEmail:DedicatedIpPool", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:PinpointEmail:DedicatedIpPool", name, args ?? new DedicatedIpPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedIpPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:PinpointEmail:DedicatedIpPool", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:PinpointEmail:DedicatedIpPool", name, null, MakeResourceOptions(options, id))
         {
         }
 

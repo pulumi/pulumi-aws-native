@@ -22,7 +22,7 @@ export class VPCGatewayAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:VPCGatewayAttachment';
+    public static readonly __pulumiType = 'aws-native:EC2:VPCGatewayAttachment';
 
     /**
      * Returns true if the given object is an instance of VPCGatewayAttachment.  This is designed to work even

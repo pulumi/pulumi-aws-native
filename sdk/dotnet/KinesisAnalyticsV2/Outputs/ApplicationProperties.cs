@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KinesisAnalyticsV2.Outputs
+namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
     [OutputType]
@@ -36,7 +36,7 @@ namespace Pulumi.Cloudformation.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ApplicationProperties(
@@ -50,7 +50,7 @@ namespace Pulumi.Cloudformation.KinesisAnalyticsV2.Outputs
 
             string ServiceExecutionRole,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.ApplicationConfiguration = ApplicationConfiguration;
             this.ApplicationDescription = ApplicationDescription;

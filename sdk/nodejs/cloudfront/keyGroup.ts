@@ -22,7 +22,7 @@ export class KeyGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFront:KeyGroup';
+    public static readonly __pulumiType = 'aws-native:CloudFront:KeyGroup';
 
     /**
      * Returns true if the given object is an instance of KeyGroup.  This is designed to work even

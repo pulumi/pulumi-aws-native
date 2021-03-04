@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EMR.Inputs
+namespace Pulumi.AwsNative.EMR.Inputs
 {
 
     /// <summary>

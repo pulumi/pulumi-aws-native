@@ -22,7 +22,7 @@ export class VoiceChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:VoiceChannel';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:VoiceChannel';
 
     /**
      * Returns true if the given object is an instance of VoiceChannel.  This is designed to work even

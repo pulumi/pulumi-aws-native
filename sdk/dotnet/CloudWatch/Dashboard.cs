@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudWatch
+namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudWatch:Dashboard")]
+    [AwsNativeResourceType("aws-native:CloudWatch:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Dashboard(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:Dashboard", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudWatch:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dashboard(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:Dashboard", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudWatch:Dashboard", name, null, MakeResourceOptions(options, id))
         {
         }
 

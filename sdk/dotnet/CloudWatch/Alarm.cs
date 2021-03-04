@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudWatch
+namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudWatch:Alarm")]
+    [AwsNativeResourceType("aws-native:CloudWatch:Alarm")]
     public partial class Alarm : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alarm(string name, AlarmArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:Alarm", name, args ?? new AlarmArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Alarm(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:Alarm", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudWatch:Alarm", name, args ?? new AlarmArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Alarm(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudWatch:Alarm", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudWatch:Alarm", name, null, MakeResourceOptions(options, id))
         {
         }
 

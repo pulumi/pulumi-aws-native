@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:Database")]
+    [AwsNativeResourceType("aws-native:Glue:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Database(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Database", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Database", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 

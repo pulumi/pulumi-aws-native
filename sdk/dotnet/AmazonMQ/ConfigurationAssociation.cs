@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AmazonMQ
+namespace Pulumi.AwsNative.AmazonMQ
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AmazonMQ:ConfigurationAssociation")]
+    [AwsNativeResourceType("aws-native:AmazonMQ:ConfigurationAssociation")]
     public partial class ConfigurationAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AmazonMQ
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationAssociation(string name, ConfigurationAssociationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:ConfigurationAssociation", name, args ?? new ConfigurationAssociationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConfigurationAssociation(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:ConfigurationAssociation", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AmazonMQ:ConfigurationAssociation", name, args ?? new ConfigurationAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AmazonMQ:ConfigurationAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AmazonMQ:ConfigurationAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

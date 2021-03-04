@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Synthetics.Outputs
+namespace Pulumi.AwsNative.Synthetics.Outputs
 {
 
     [OutputType]
@@ -56,7 +56,7 @@ namespace Pulumi.Cloudformation.Synthetics.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.Cloudformation.Synthetics.Outputs
 
             int? SuccessRetentionPeriod,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             Outputs.CanaryVPCConfig? VPCConfig)
         {

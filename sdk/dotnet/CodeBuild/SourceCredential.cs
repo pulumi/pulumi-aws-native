@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CodeBuild
+namespace Pulumi.AwsNative.CodeBuild
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CodeBuild:SourceCredential")]
+    [AwsNativeResourceType("aws-native:CodeBuild:SourceCredential")]
     public partial class SourceCredential : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CodeBuild
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SourceCredential(string name, SourceCredentialArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeBuild:SourceCredential", name, args ?? new SourceCredentialArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal SourceCredential(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeBuild:SourceCredential", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CodeBuild:SourceCredential", name, args ?? new SourceCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SourceCredential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CodeBuild:SourceCredential", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CodeBuild:SourceCredential", name, null, MakeResourceOptions(options, id))
         {
         }
 

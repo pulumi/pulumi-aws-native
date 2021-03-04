@@ -22,7 +22,7 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFront:CloudFrontOriginAccessIdentity';
+    public static readonly __pulumiType = 'aws-native:CloudFront:CloudFrontOriginAccessIdentity';
 
     /**
      * Returns true if the given object is an instance of CloudFrontOriginAccessIdentity.  This is designed to work even

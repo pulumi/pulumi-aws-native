@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2.Outputs
+namespace Pulumi.AwsNative.EC2.Outputs
 {
 
     [OutputType]
@@ -24,7 +24,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private NatGatewayProperties(
@@ -32,7 +32,7 @@ namespace Pulumi.Cloudformation.EC2.Outputs
 
             string SubnetId,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AllocationId = AllocationId;
             this.SubnetId = SubnetId;

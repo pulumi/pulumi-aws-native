@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Batch
+namespace Pulumi.AwsNative.Batch
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Batch:JobDefinition")]
+    [AwsNativeResourceType("aws-native:Batch:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobDefinition(string name, JobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Batch:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal JobDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Batch:JobDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Batch:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Batch:JobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Batch:JobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cassandra.Inputs
+namespace Pulumi.AwsNative.Cassandra.Inputs
 {
 
     /// <summary>

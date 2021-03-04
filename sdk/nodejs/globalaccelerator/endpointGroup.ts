@@ -22,7 +22,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GlobalAccelerator:EndpointGroup';
+    public static readonly __pulumiType = 'aws-native:GlobalAccelerator:EndpointGroup';
 
     /**
      * Returns true if the given object is an instance of EndpointGroup.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Athena.Outputs
+namespace Pulumi.AwsNative.Athena.Outputs
 {
 
     [OutputType]
@@ -16,10 +16,10 @@ namespace Pulumi.Cloudformation.Athena.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private DataCatalogTags(ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+        private DataCatalogTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Tags = Tags;
         }

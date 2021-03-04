@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.StepFunctions
+namespace Pulumi.AwsNative.StepFunctions
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:StepFunctions:StateMachine")]
+    [AwsNativeResourceType("aws-native:StepFunctions:StateMachine")]
     public partial class StateMachine : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.StepFunctions
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StateMachine(string name, StateMachineArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:StepFunctions:StateMachine", name, args ?? new StateMachineArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal StateMachine(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:StepFunctions:StateMachine", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:StepFunctions:StateMachine", name, args ?? new StateMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StateMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:StepFunctions:StateMachine", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:StepFunctions:StateMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 

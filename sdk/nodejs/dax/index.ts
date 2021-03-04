@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:DAX:Cluster":
+            case "aws-native:DAX:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "cloudformation:DAX:ParameterGroup":
+            case "aws-native:DAX:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
-            case "cloudformation:DAX:SubnetGroup":
+            case "aws-native:DAX:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "DAX", _module)
+pulumi.runtime.registerResourceModule("aws-native", "DAX", _module)

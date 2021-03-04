@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway.Inputs
+namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
     /// <summary>

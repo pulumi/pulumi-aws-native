@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:MWAA:Environment":
+            case "aws-native:MWAA:Environment":
                 return new Environment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "MWAA", _module)
+pulumi.runtime.registerResourceModule("aws-native", "MWAA", _module)

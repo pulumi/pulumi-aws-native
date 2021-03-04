@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT:Policy")]
+    [AwsNativeResourceType("aws-native:IoT:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Policy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Policy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Policy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 

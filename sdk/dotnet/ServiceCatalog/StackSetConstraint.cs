@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceCatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceCatalog:StackSetConstraint")]
+    [AwsNativeResourceType("aws-native:ServiceCatalog:StackSetConstraint")]
     public partial class StackSetConstraint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StackSetConstraint(string name, StackSetConstraintArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:StackSetConstraint", name, args ?? new StackSetConstraintArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal StackSetConstraint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:StackSetConstraint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceCatalog:StackSetConstraint", name, args ?? new StackSetConstraintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StackSetConstraint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:StackSetConstraint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceCatalog:StackSetConstraint", name, null, MakeResourceOptions(options, id))
         {
         }
 

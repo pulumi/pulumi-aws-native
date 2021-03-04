@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:Connection")]
+    [AwsNativeResourceType("aws-native:Glue:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Connection(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Connection", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Connection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:Connection", name, null, MakeResourceOptions(options, id))
         {
         }
 

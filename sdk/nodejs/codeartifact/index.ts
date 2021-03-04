@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CodeArtifact:Domain":
+            case "aws-native:CodeArtifact:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "cloudformation:CodeArtifact:Repository":
+            case "aws-native:CodeArtifact:Repository":
                 return new Repository(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CodeArtifact", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CodeArtifact", _module)

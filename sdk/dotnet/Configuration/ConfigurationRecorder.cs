@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Configuration
+namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Configuration:ConfigurationRecorder")]
+    [AwsNativeResourceType("aws-native:Configuration:ConfigurationRecorder")]
     public partial class ConfigurationRecorder : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationRecorder(string name, ConfigurationRecorderArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigurationRecorder", name, args ?? new ConfigurationRecorderArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ConfigurationRecorder(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigurationRecorder", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Configuration:ConfigurationRecorder", name, args ?? new ConfigurationRecorderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationRecorder(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Configuration:ConfigurationRecorder", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Configuration:ConfigurationRecorder", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.NetworkManager
+namespace Pulumi.AwsNative.NetworkManager
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:NetworkManager:Site")]
+    [AwsNativeResourceType("aws-native:NetworkManager:Site")]
     public partial class Site : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Site(string name, SiteArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkManager:Site", name, args ?? new SiteArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Site(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkManager:Site", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:NetworkManager:Site", name, args ?? new SiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Site(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:NetworkManager:Site", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:NetworkManager:Site", name, null, MakeResourceOptions(options, id))
         {
         }
 

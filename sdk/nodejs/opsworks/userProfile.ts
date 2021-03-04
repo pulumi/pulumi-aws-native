@@ -22,7 +22,7 @@ export class UserProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:OpsWorks:UserProfile';
+    public static readonly __pulumiType = 'aws-native:OpsWorks:UserProfile';
 
     /**
      * Returns true if the given object is an instance of UserProfile.  This is designed to work even

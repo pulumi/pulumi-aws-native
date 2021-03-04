@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GameLift
+namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GameLift:Build")]
+    [AwsNativeResourceType("aws-native:GameLift:Build")]
     public partial class Build : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GameLift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Build(string name, BuildArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:Build", name, args ?? new BuildArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Build(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:Build", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GameLift:Build", name, args ?? new BuildArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Build(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GameLift:Build", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GameLift:Build", name, null, MakeResourceOptions(options, id))
         {
         }
 

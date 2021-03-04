@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SQS
+namespace Pulumi.AwsNative.SQS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SQS:Queue")]
+    [AwsNativeResourceType("aws-native:SQS:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SQS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SQS:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Queue(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SQS:Queue", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SQS:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Queue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SQS:Queue", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SQS:Queue", name, null, MakeResourceOptions(options, id))
         {
         }
 

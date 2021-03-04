@@ -22,7 +22,7 @@ export class Session extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Macie:Session';
+    public static readonly __pulumiType = 'aws-native:Macie:Session';
 
     /**
      * Returns true if the given object is an instance of Session.  This is designed to work even

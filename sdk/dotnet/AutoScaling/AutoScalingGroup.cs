@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AutoScaling
+namespace Pulumi.AwsNative.AutoScaling
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AutoScaling:AutoScalingGroup")]
+    [AwsNativeResourceType("aws-native:AutoScaling:AutoScalingGroup")]
     public partial class AutoScalingGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.Cloudformation.AutoScaling
         /// The creation policy associated with the resource
         /// </summary>
         [Output("creationPolicy")]
-        public Output<Pulumi.Cloudformation.Outputs.CreationPolicy?> CreationPolicy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Outputs.CreationPolicy?> CreationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// An explicit logical ID for the resource
@@ -60,16 +60,12 @@ namespace Pulumi.Cloudformation.AutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AutoScalingGroup(string name, AutoScalingGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:AutoScalingGroup", name, args ?? new AutoScalingGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal AutoScalingGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:AutoScalingGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AutoScaling:AutoScalingGroup", name, args ?? new AutoScalingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AutoScalingGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AutoScaling:AutoScalingGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AutoScaling:AutoScalingGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -104,7 +100,7 @@ namespace Pulumi.Cloudformation.AutoScaling
         /// The creation policy associated with the resource
         /// </summary>
         [Input("creationPolicy")]
-        public Input<Pulumi.Cloudformation.Inputs.CreationPolicyArgs>? CreationPolicy { get; set; }
+        public Input<Pulumi.AwsNative.Inputs.CreationPolicyArgs>? CreationPolicy { get; set; }
 
         /// <summary>
         /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.

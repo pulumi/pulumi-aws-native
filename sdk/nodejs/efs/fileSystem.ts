@@ -22,7 +22,7 @@ export class FileSystem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EFS:FileSystem';
+    public static readonly __pulumiType = 'aws-native:EFS:FileSystem';
 
     /**
      * Returns true if the given object is an instance of FileSystem.  This is designed to work even

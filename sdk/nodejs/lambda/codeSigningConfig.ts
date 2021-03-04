@@ -22,7 +22,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Lambda:CodeSigningConfig';
+    public static readonly __pulumiType = 'aws-native:Lambda:CodeSigningConfig';
 
     /**
      * Returns true if the given object is an instance of CodeSigningConfig.  This is designed to work even

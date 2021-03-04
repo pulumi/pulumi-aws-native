@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.KinesisFirehose.Outputs
+namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 {
 
     [OutputType]
@@ -56,7 +56,7 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private DeliveryStreamProperties(
@@ -80,7 +80,7 @@ namespace Pulumi.Cloudformation.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamSplunkDestinationConfiguration? SplunkDestinationConfiguration,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfigurationInput;
             this.DeliveryStreamName = DeliveryStreamName;

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Cassandra
+namespace Pulumi.AwsNative.Cassandra
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Cassandra:Keyspace")]
+    [AwsNativeResourceType("aws-native:Cassandra:Keyspace")]
     public partial class Keyspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Cassandra
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Keyspace(string name, KeyspaceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Cassandra:Keyspace", name, args ?? new KeyspaceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Keyspace(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Cassandra:Keyspace", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Cassandra:Keyspace", name, args ?? new KeyspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Keyspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Cassandra:Keyspace", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Cassandra:Keyspace", name, null, MakeResourceOptions(options, id))
         {
         }
 

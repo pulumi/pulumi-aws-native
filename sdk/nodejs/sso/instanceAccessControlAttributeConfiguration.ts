@@ -22,7 +22,7 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SSO:InstanceAccessControlAttributeConfiguration';
+    public static readonly __pulumiType = 'aws-native:SSO:InstanceAccessControlAttributeConfiguration';
 
     /**
      * Returns true if the given object is an instance of InstanceAccessControlAttributeConfiguration.  This is designed to work even

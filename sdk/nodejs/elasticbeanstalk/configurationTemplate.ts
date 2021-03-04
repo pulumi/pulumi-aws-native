@@ -22,7 +22,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElasticBeanstalk:ConfigurationTemplate';
+    public static readonly __pulumiType = 'aws-native:ElasticBeanstalk:ConfigurationTemplate';
 
     /**
      * Returns true if the given object is an instance of ConfigurationTemplate.  This is designed to work even

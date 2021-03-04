@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
+namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
     [OutputType]
@@ -60,7 +60,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Cloudformation.ElasticLoadBalancingV2.Outputs
 
             string? Protocol,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             ImmutableArray<Outputs.TargetGroupTargetGroupAttribute> TargetGroupAttributes,
 

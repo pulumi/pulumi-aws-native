@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:LicenseManager:Grant":
+            case "aws-native:LicenseManager:Grant":
                 return new Grant(name, <any>undefined, { urn })
-            case "cloudformation:LicenseManager:License":
+            case "aws-native:LicenseManager:License":
                 return new License(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "LicenseManager", _module)
+pulumi.runtime.registerResourceModule("aws-native", "LicenseManager", _module)

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.MediaLive
+namespace Pulumi.AwsNative.MediaLive
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:MediaLive:InputSecurityGroup")]
+    [AwsNativeResourceType("aws-native:MediaLive:InputSecurityGroup")]
     public partial class InputSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.MediaLive
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InputSecurityGroup(string name, InputSecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaLive:InputSecurityGroup", name, args ?? new InputSecurityGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal InputSecurityGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaLive:InputSecurityGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:MediaLive:InputSecurityGroup", name, args ?? new InputSecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InputSecurityGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:MediaLive:InputSecurityGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:MediaLive:InputSecurityGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

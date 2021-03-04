@@ -22,7 +22,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElastiCache:ReplicationGroup';
+    public static readonly __pulumiType = 'aws-native:ElastiCache:ReplicationGroup';
 
     /**
      * Returns true if the given object is an instance of ReplicationGroup.  This is designed to work even

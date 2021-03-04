@@ -1,11 +1,13 @@
 /vendor/
+/.idea/
+/nuget/
 **/bin/
 **/obj/
 **/node_modules/
 .pulumi
 Pulumi.*.yaml
 yarn.lock
-/provider/cmd/pulumi-gen-cloudformation/cfn-spec-*.json
-/provider/cmd/pulumi-resource-cloudformation/schema.go
-/provider/cmd/pulumi-resource-cloudformation/schema.json
+/provider/cmd/pulumi-gen-aws-native/cfn-spec-*.json
+/provider/cmd/pulumi-resource-aws-native/schema.go
+/provider/cmd/pulumi-resource-aws-native/schema.json
 /sdk/dotnet/version.txt

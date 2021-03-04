@@ -22,7 +22,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ECS:CapacityProvider';
+    public static readonly __pulumiType = 'aws-native:ECS:CapacityProvider';
 
     /**
      * Returns true if the given object is an instance of CapacityProvider.  This is designed to work even

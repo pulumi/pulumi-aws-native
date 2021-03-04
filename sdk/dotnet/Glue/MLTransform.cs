@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:MLTransform")]
+    [AwsNativeResourceType("aws-native:Glue:MLTransform")]
     public partial class MLTransform : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MLTransform(string name, MLTransformArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:MLTransform", name, args ?? new MLTransformArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal MLTransform(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:MLTransform", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:MLTransform", name, args ?? new MLTransformArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MLTransform(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:MLTransform", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:MLTransform", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoTAnalytics
+namespace Pulumi.AwsNative.IoTAnalytics
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoTAnalytics:Channel")]
+    [AwsNativeResourceType("aws-native:IoTAnalytics:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoTAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTAnalytics:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Channel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTAnalytics:Channel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoTAnalytics:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Channel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoTAnalytics:Channel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoTAnalytics:Channel", name, null, MakeResourceOptions(options, id))
         {
         }
 

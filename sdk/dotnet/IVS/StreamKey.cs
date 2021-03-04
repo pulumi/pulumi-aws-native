@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IVS
+namespace Pulumi.AwsNative.IVS
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IVS:StreamKey")]
+    [AwsNativeResourceType("aws-native:IVS:StreamKey")]
     public partial class StreamKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamKey(string name, StreamKeyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IVS:StreamKey", name, args ?? new StreamKeyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal StreamKey(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IVS:StreamKey", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IVS:StreamKey", name, args ?? new StreamKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IVS:StreamKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IVS:StreamKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

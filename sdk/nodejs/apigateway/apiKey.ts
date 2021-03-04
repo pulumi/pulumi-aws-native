@@ -22,7 +22,7 @@ export class ApiKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:ApiKey';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:ApiKey';
 
     /**
      * Returns true if the given object is an instance of ApiKey.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SageMaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:SageMaker:ModelBiasJobDefinition")]
+    [AwsNativeResourceType("aws-native:SageMaker:ModelBiasJobDefinition")]
     public partial class ModelBiasJobDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelBiasJobDefinition(string name, ModelBiasJobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelBiasJobDefinition", name, args ?? new ModelBiasJobDefinitionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ModelBiasJobDefinition(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelBiasJobDefinition", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:SageMaker:ModelBiasJobDefinition", name, args ?? new ModelBiasJobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelBiasJobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:SageMaker:ModelBiasJobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:SageMaker:ModelBiasJobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

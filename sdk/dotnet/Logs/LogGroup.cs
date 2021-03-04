@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Logs
+namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Logs:LogGroup")]
+    [AwsNativeResourceType("aws-native:Logs:LogGroup")]
     public partial class LogGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Logs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogGroup(string name, LogGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:LogGroup", name, args ?? new LogGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LogGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:LogGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Logs:LogGroup", name, args ?? new LogGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LogGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:LogGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Logs:LogGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

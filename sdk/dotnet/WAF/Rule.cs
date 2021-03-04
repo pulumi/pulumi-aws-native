@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.WAF
+namespace Pulumi.AwsNative.WAF
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:WAF:Rule")]
+    [AwsNativeResourceType("aws-native:WAF:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.WAF
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Rule(string name, RuleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:Rule", name, args ?? new RuleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Rule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:Rule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:WAF:Rule", name, args ?? new RuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Rule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:WAF:Rule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:WAF:Rule", name, null, MakeResourceOptions(options, id))
         {
         }
 

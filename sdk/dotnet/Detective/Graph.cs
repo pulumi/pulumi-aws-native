@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Detective
+namespace Pulumi.AwsNative.Detective
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Detective:Graph")]
+    [AwsNativeResourceType("aws-native:Detective:Graph")]
     public partial class Graph : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Detective
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Graph(string name, GraphArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Detective:Graph", name, args ?? new GraphArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Graph(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Detective:Graph", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Detective:Graph", name, args ?? new GraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Graph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Detective:Graph", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Detective:Graph", name, null, MakeResourceOptions(options, id))
         {
         }
 

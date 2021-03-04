@@ -22,7 +22,7 @@ export class Asset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoTSiteWise:Asset';
+    public static readonly __pulumiType = 'aws-native:IoTSiteWise:Asset';
 
     /**
      * Returns true if the given object is an instance of Asset.  This is designed to work even

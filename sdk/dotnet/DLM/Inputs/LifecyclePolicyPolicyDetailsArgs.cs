@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DLM.Inputs
+namespace Pulumi.AwsNative.DLM.Inputs
 {
 
     /// <summary>
@@ -70,14 +70,14 @@ namespace Pulumi.Cloudformation.DLM.Inputs
         }
 
         [Input("TargetTags")]
-        private InputList<Pulumi.Cloudformation.Inputs.TagArgs>? _TargetTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _TargetTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
         /// </summary>
-        public InputList<Pulumi.Cloudformation.Inputs.TagArgs> TargetTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> TargetTags
         {
-            get => _TargetTags ?? (_TargetTags = new InputList<Pulumi.Cloudformation.Inputs.TagArgs>());
+            get => _TargetTags ?? (_TargetTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _TargetTags = value;
         }
 

@@ -22,7 +22,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SSM:MaintenanceWindow';
+    public static readonly __pulumiType = 'aws-native:SSM:MaintenanceWindow';
 
     /**
      * Returns true if the given object is an instance of MaintenanceWindow.  This is designed to work even

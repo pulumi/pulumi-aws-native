@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DLM
+namespace Pulumi.AwsNative.DLM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DLM:LifecyclePolicy")]
+    [AwsNativeResourceType("aws-native:DLM:LifecyclePolicy")]
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DLM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LifecyclePolicy(string name, LifecyclePolicyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DLM:LifecyclePolicy", name, args ?? new LifecyclePolicyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LifecyclePolicy(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DLM:LifecyclePolicy", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DLM:LifecyclePolicy", name, args ?? new LifecyclePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LifecyclePolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DLM:LifecyclePolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DLM:LifecyclePolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

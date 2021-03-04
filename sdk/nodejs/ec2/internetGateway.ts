@@ -22,7 +22,7 @@ export class InternetGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:InternetGateway';
+    public static readonly __pulumiType = 'aws-native:EC2:InternetGateway';
 
     /**
      * Returns true if the given object is an instance of InternetGateway.  This is designed to work even

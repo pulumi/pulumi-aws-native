@@ -22,7 +22,7 @@ export class VPC extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:VPC';
+    public static readonly __pulumiType = 'aws-native:EC2:VPC';
 
     /**
      * Returns true if the given object is an instance of VPC.  This is designed to work even

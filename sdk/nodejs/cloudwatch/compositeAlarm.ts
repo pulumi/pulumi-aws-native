@@ -22,7 +22,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudWatch:CompositeAlarm';
+    public static readonly __pulumiType = 'aws-native:CloudWatch:CompositeAlarm';
 
     /**
      * Returns true if the given object is an instance of CompositeAlarm.  This is designed to work even

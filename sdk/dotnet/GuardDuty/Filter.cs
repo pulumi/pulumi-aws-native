@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GuardDuty
+namespace Pulumi.AwsNative.GuardDuty
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GuardDuty:Filter")]
+    [AwsNativeResourceType("aws-native:GuardDuty:Filter")]
     public partial class Filter : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GuardDuty
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Filter(string name, FilterArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:Filter", name, args ?? new FilterArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Filter(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:Filter", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GuardDuty:Filter", name, args ?? new FilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Filter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GuardDuty:Filter", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GuardDuty:Filter", name, null, MakeResourceOptions(options, id))
         {
         }
 

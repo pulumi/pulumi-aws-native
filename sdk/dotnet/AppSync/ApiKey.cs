@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppSync
+namespace Pulumi.AwsNative.AppSync
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppSync:ApiKey")]
+    [AwsNativeResourceType("aws-native:AppSync:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiKey(string name, ApiKeyArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:ApiKey", name, args ?? new ApiKeyArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ApiKey(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:ApiKey", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppSync:ApiKey", name, args ?? new ApiKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppSync:ApiKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppSync:ApiKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

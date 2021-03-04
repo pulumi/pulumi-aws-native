@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SSM.Outputs
+namespace Pulumi.AwsNative.SSM.Outputs
 {
 
     [OutputType]
@@ -56,7 +56,7 @@ namespace Pulumi.Cloudformation.SSM.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private MaintenanceWindowProperties(
@@ -80,7 +80,7 @@ namespace Pulumi.Cloudformation.SSM.Outputs
 
             string? StartDate,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.AllowUnassociatedTargets = AllowUnassociatedTargets;
             this.Cutoff = Cutoff;

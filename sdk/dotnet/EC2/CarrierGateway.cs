@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:CarrierGateway")]
+    [AwsNativeResourceType("aws-native:EC2:CarrierGateway")]
     public partial class CarrierGateway : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CarrierGateway(string name, CarrierGatewayArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:CarrierGateway", name, args ?? new CarrierGatewayArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CarrierGateway(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:CarrierGateway", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:CarrierGateway", name, args ?? new CarrierGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CarrierGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:CarrierGateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:CarrierGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

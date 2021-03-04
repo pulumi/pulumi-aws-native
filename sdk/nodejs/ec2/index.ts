@@ -140,137 +140,137 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:EC2:CapacityReservation":
+            case "aws-native:EC2:CapacityReservation":
                 return new CapacityReservation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:CarrierGateway":
+            case "aws-native:EC2:CarrierGateway":
                 return new CarrierGateway(name, <any>undefined, { urn })
-            case "cloudformation:EC2:ClientVpnAuthorizationRule":
+            case "aws-native:EC2:ClientVpnAuthorizationRule":
                 return new ClientVpnAuthorizationRule(name, <any>undefined, { urn })
-            case "cloudformation:EC2:ClientVpnEndpoint":
+            case "aws-native:EC2:ClientVpnEndpoint":
                 return new ClientVpnEndpoint(name, <any>undefined, { urn })
-            case "cloudformation:EC2:ClientVpnRoute":
+            case "aws-native:EC2:ClientVpnRoute":
                 return new ClientVpnRoute(name, <any>undefined, { urn })
-            case "cloudformation:EC2:ClientVpnTargetNetworkAssociation":
+            case "aws-native:EC2:ClientVpnTargetNetworkAssociation":
                 return new ClientVpnTargetNetworkAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:CustomerGateway":
+            case "aws-native:EC2:CustomerGateway":
                 return new CustomerGateway(name, <any>undefined, { urn })
-            case "cloudformation:EC2:DHCPOptions":
+            case "aws-native:EC2:DHCPOptions":
                 return new DHCPOptions(name, <any>undefined, { urn })
-            case "cloudformation:EC2:EC2Fleet":
+            case "aws-native:EC2:EC2Fleet":
                 return new EC2Fleet(name, <any>undefined, { urn })
-            case "cloudformation:EC2:EIP":
+            case "aws-native:EC2:EIP":
                 return new EIP(name, <any>undefined, { urn })
-            case "cloudformation:EC2:EIPAssociation":
+            case "aws-native:EC2:EIPAssociation":
                 return new EIPAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:EgressOnlyInternetGateway":
+            case "aws-native:EC2:EgressOnlyInternetGateway":
                 return new EgressOnlyInternetGateway(name, <any>undefined, { urn })
-            case "cloudformation:EC2:FlowLog":
+            case "aws-native:EC2:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
-            case "cloudformation:EC2:GatewayRouteTableAssociation":
+            case "aws-native:EC2:GatewayRouteTableAssociation":
                 return new GatewayRouteTableAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:Host":
+            case "aws-native:EC2:Host":
                 return new Host(name, <any>undefined, { urn })
-            case "cloudformation:EC2:Instance":
+            case "aws-native:EC2:Instance":
                 return new Instance(name, <any>undefined, { urn })
-            case "cloudformation:EC2:InternetGateway":
+            case "aws-native:EC2:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
-            case "cloudformation:EC2:LaunchTemplate":
+            case "aws-native:EC2:LaunchTemplate":
                 return new LaunchTemplate(name, <any>undefined, { urn })
-            case "cloudformation:EC2:LocalGatewayRoute":
+            case "aws-native:EC2:LocalGatewayRoute":
                 return new LocalGatewayRoute(name, <any>undefined, { urn })
-            case "cloudformation:EC2:LocalGatewayRouteTableVPCAssociation":
+            case "aws-native:EC2:LocalGatewayRouteTableVPCAssociation":
                 return new LocalGatewayRouteTableVPCAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NatGateway":
+            case "aws-native:EC2:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NetworkAcl":
+            case "aws-native:EC2:NetworkAcl":
                 return new NetworkAcl(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NetworkAclEntry":
+            case "aws-native:EC2:NetworkAclEntry":
                 return new NetworkAclEntry(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NetworkInsightsAnalysis":
+            case "aws-native:EC2:NetworkInsightsAnalysis":
                 return new NetworkInsightsAnalysis(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NetworkInsightsPath":
+            case "aws-native:EC2:NetworkInsightsPath":
                 return new NetworkInsightsPath(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NetworkInterface":
+            case "aws-native:EC2:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NetworkInterfaceAttachment":
+            case "aws-native:EC2:NetworkInterfaceAttachment":
                 return new NetworkInterfaceAttachment(name, <any>undefined, { urn })
-            case "cloudformation:EC2:NetworkInterfacePermission":
+            case "aws-native:EC2:NetworkInterfacePermission":
                 return new NetworkInterfacePermission(name, <any>undefined, { urn })
-            case "cloudformation:EC2:PlacementGroup":
+            case "aws-native:EC2:PlacementGroup":
                 return new PlacementGroup(name, <any>undefined, { urn })
-            case "cloudformation:EC2:PrefixList":
+            case "aws-native:EC2:PrefixList":
                 return new PrefixList(name, <any>undefined, { urn })
-            case "cloudformation:EC2:Route":
+            case "aws-native:EC2:Route":
                 return new Route(name, <any>undefined, { urn })
-            case "cloudformation:EC2:RouteTable":
+            case "aws-native:EC2:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
-            case "cloudformation:EC2:SecurityGroup":
+            case "aws-native:EC2:SecurityGroup":
                 return new SecurityGroup(name, <any>undefined, { urn })
-            case "cloudformation:EC2:SecurityGroupEgress":
+            case "aws-native:EC2:SecurityGroupEgress":
                 return new SecurityGroupEgress(name, <any>undefined, { urn })
-            case "cloudformation:EC2:SecurityGroupIngress":
+            case "aws-native:EC2:SecurityGroupIngress":
                 return new SecurityGroupIngress(name, <any>undefined, { urn })
-            case "cloudformation:EC2:SpotFleet":
+            case "aws-native:EC2:SpotFleet":
                 return new SpotFleet(name, <any>undefined, { urn })
-            case "cloudformation:EC2:Subnet":
+            case "aws-native:EC2:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
-            case "cloudformation:EC2:SubnetCidrBlock":
+            case "aws-native:EC2:SubnetCidrBlock":
                 return new SubnetCidrBlock(name, <any>undefined, { urn })
-            case "cloudformation:EC2:SubnetNetworkAclAssociation":
+            case "aws-native:EC2:SubnetNetworkAclAssociation":
                 return new SubnetNetworkAclAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:SubnetRouteTableAssociation":
+            case "aws-native:EC2:SubnetRouteTableAssociation":
                 return new SubnetRouteTableAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TrafficMirrorFilter":
+            case "aws-native:EC2:TrafficMirrorFilter":
                 return new TrafficMirrorFilter(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TrafficMirrorFilterRule":
+            case "aws-native:EC2:TrafficMirrorFilterRule":
                 return new TrafficMirrorFilterRule(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TrafficMirrorSession":
+            case "aws-native:EC2:TrafficMirrorSession":
                 return new TrafficMirrorSession(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TrafficMirrorTarget":
+            case "aws-native:EC2:TrafficMirrorTarget":
                 return new TrafficMirrorTarget(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TransitGateway":
+            case "aws-native:EC2:TransitGateway":
                 return new TransitGateway(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TransitGatewayAttachment":
+            case "aws-native:EC2:TransitGatewayAttachment":
                 return new TransitGatewayAttachment(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TransitGatewayRoute":
+            case "aws-native:EC2:TransitGatewayRoute":
                 return new TransitGatewayRoute(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TransitGatewayRouteTable":
+            case "aws-native:EC2:TransitGatewayRouteTable":
                 return new TransitGatewayRouteTable(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TransitGatewayRouteTableAssociation":
+            case "aws-native:EC2:TransitGatewayRouteTableAssociation":
                 return new TransitGatewayRouteTableAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:TransitGatewayRouteTablePropagation":
+            case "aws-native:EC2:TransitGatewayRouteTablePropagation":
                 return new TransitGatewayRouteTablePropagation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPC":
+            case "aws-native:EC2:VPC":
                 return new VPC(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPCCidrBlock":
+            case "aws-native:EC2:VPCCidrBlock":
                 return new VPCCidrBlock(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPCDHCPOptionsAssociation":
+            case "aws-native:EC2:VPCDHCPOptionsAssociation":
                 return new VPCDHCPOptionsAssociation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPCEndpoint":
+            case "aws-native:EC2:VPCEndpoint":
                 return new VPCEndpoint(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPCEndpointService":
+            case "aws-native:EC2:VPCEndpointService":
                 return new VPCEndpointService(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPCEndpointServicePermissions":
+            case "aws-native:EC2:VPCEndpointServicePermissions":
                 return new VPCEndpointServicePermissions(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPCGatewayAttachment":
+            case "aws-native:EC2:VPCGatewayAttachment":
                 return new VPCGatewayAttachment(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPCPeeringConnection":
+            case "aws-native:EC2:VPCPeeringConnection":
                 return new VPCPeeringConnection(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPNConnection":
+            case "aws-native:EC2:VPNConnection":
                 return new VPNConnection(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPNConnectionRoute":
+            case "aws-native:EC2:VPNConnectionRoute":
                 return new VPNConnectionRoute(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPNGateway":
+            case "aws-native:EC2:VPNGateway":
                 return new VPNGateway(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VPNGatewayRoutePropagation":
+            case "aws-native:EC2:VPNGatewayRoutePropagation":
                 return new VPNGatewayRoutePropagation(name, <any>undefined, { urn })
-            case "cloudformation:EC2:Volume":
+            case "aws-native:EC2:Volume":
                 return new Volume(name, <any>undefined, { urn })
-            case "cloudformation:EC2:VolumeAttachment":
+            case "aws-native:EC2:VolumeAttachment":
                 return new VolumeAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "EC2", _module)
+pulumi.runtime.registerResourceModule("aws-native", "EC2", _module)

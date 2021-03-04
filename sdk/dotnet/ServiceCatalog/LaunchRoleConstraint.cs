@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceCatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceCatalog:LaunchRoleConstraint")]
+    [AwsNativeResourceType("aws-native:ServiceCatalog:LaunchRoleConstraint")]
     public partial class LaunchRoleConstraint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LaunchRoleConstraint(string name, LaunchRoleConstraintArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:LaunchRoleConstraint", name, args ?? new LaunchRoleConstraintArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal LaunchRoleConstraint(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:LaunchRoleConstraint", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceCatalog:LaunchRoleConstraint", name, args ?? new LaunchRoleConstraintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LaunchRoleConstraint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceCatalog:LaunchRoleConstraint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceCatalog:LaunchRoleConstraint", name, null, MakeResourceOptions(options, id))
         {
         }
 

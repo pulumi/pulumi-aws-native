@@ -22,7 +22,7 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:SubnetCidrBlock';
+    public static readonly __pulumiType = 'aws-native:EC2:SubnetCidrBlock';
 
     /**
      * Returns true if the given object is an instance of SubnetCidrBlock.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.SecretsManager.Outputs
+namespace Pulumi.AwsNative.SecretsManager.Outputs
 {
 
     [OutputType]

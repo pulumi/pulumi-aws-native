@@ -22,7 +22,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ElastiCache:ParameterGroup';
+    public static readonly __pulumiType = 'aws-native:ElastiCache:ParameterGroup';
 
     /**
      * Returns true if the given object is an instance of ParameterGroup.  This is designed to work even

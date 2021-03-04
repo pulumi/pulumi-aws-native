@@ -22,7 +22,7 @@ export class OptionGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:RDS:OptionGroup';
+    public static readonly __pulumiType = 'aws-native:RDS:OptionGroup';
 
     /**
      * Returns true if the given object is an instance of OptionGroup.  This is designed to work even

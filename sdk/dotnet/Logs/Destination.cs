@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Logs
+namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Logs:Destination")]
+    [AwsNativeResourceType("aws-native:Logs:Destination")]
     public partial class Destination : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Logs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Destination(string name, DestinationArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:Destination", name, args ?? new DestinationArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Destination(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:Destination", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Logs:Destination", name, args ?? new DestinationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Destination(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Logs:Destination", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Logs:Destination", name, null, MakeResourceOptions(options, id))
         {
         }
 

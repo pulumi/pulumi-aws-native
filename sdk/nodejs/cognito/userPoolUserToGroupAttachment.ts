@@ -22,7 +22,7 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Cognito:UserPoolUserToGroupAttachment';
+    public static readonly __pulumiType = 'aws-native:Cognito:UserPoolUserToGroupAttachment';
 
     /**
      * Returns true if the given object is an instance of UserPoolUserToGroupAttachment.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:Method")]
+    [AwsNativeResourceType("aws-native:ApiGateway:Method")]
     public partial class Method : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Method(string name, MethodArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Method", name, args ?? new MethodArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Method(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Method", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:Method", name, args ?? new MethodArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Method(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:Method", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:Method", name, null, MakeResourceOptions(options, id))
         {
         }
 

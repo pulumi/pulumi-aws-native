@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT1Click
+namespace Pulumi.AwsNative.IoT1Click
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT1Click:Placement")]
+    [AwsNativeResourceType("aws-native:IoT1Click:Placement")]
     public partial class Placement : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT1Click
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Placement(string name, PlacementArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT1Click:Placement", name, args ?? new PlacementArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Placement(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT1Click:Placement", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT1Click:Placement", name, args ?? new PlacementArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Placement(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT1Click:Placement", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT1Click:Placement", name, null, MakeResourceOptions(options, id))
         {
         }
 

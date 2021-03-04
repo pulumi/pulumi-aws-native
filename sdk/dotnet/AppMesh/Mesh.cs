@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AppMesh
+namespace Pulumi.AwsNative.AppMesh
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:AppMesh:Mesh")]
+    [AwsNativeResourceType("aws-native:AppMesh:Mesh")]
     public partial class Mesh : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.AppMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Mesh(string name, MeshArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:Mesh", name, args ?? new MeshArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Mesh(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:Mesh", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:AppMesh:Mesh", name, args ?? new MeshArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Mesh(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:AppMesh:Mesh", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:AppMesh:Mesh", name, null, MakeResourceOptions(options, id))
         {
         }
 

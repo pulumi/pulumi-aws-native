@@ -22,7 +22,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:SageMaker:DataQualityJobDefinition';
+    public static readonly __pulumiType = 'aws-native:SageMaker:DataQualityJobDefinition';
 
     /**
      * Returns true if the given object is an instance of DataQualityJobDefinition.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.AmazonMQ.Inputs
+namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
     /// <summary>

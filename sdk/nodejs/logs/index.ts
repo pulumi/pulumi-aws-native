@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Logs:Destination":
+            case "aws-native:Logs:Destination":
                 return new Destination(name, <any>undefined, { urn })
-            case "cloudformation:Logs:LogGroup":
+            case "aws-native:Logs:LogGroup":
                 return new LogGroup(name, <any>undefined, { urn })
-            case "cloudformation:Logs:LogStream":
+            case "aws-native:Logs:LogStream":
                 return new LogStream(name, <any>undefined, { urn })
-            case "cloudformation:Logs:MetricFilter":
+            case "aws-native:Logs:MetricFilter":
                 return new MetricFilter(name, <any>undefined, { urn })
-            case "cloudformation:Logs:SubscriptionFilter":
+            case "aws-native:Logs:SubscriptionFilter":
                 return new SubscriptionFilter(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Logs", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Logs", _module)

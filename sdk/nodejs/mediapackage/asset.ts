@@ -22,7 +22,7 @@ export class Asset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:MediaPackage:Asset';
+    public static readonly __pulumiType = 'aws-native:MediaPackage:Asset';
 
     /**
      * Returns true if the given object is an instance of Asset.  This is designed to work even

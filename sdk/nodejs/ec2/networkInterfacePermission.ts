@@ -22,7 +22,7 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:NetworkInterfacePermission';
+    public static readonly __pulumiType = 'aws-native:EC2:NetworkInterfacePermission';
 
     /**
      * Returns true if the given object is an instance of NetworkInterfacePermission.  This is designed to work even

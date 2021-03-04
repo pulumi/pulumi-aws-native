@@ -22,7 +22,7 @@ export class Ledger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:QLDB:Ledger';
+    public static readonly __pulumiType = 'aws-native:QLDB:Ledger';
 
     /**
      * Returns true if the given object is an instance of Ledger.  This is designed to work even

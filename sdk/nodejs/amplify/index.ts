@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Amplify:App":
+            case "aws-native:Amplify:App":
                 return new App(name, <any>undefined, { urn })
-            case "cloudformation:Amplify:Branch":
+            case "aws-native:Amplify:Branch":
                 return new Branch(name, <any>undefined, { urn })
-            case "cloudformation:Amplify:Domain":
+            case "aws-native:Amplify:Domain":
                 return new Domain(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Amplify", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Amplify", _module)

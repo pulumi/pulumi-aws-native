@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.CloudFormation
+namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:CloudFormation:ModuleDefaultVersion")]
+    [AwsNativeResourceType("aws-native:CloudFormation:ModuleDefaultVersion")]
     public partial class ModuleDefaultVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModuleDefaultVersion(string name, ModuleDefaultVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:ModuleDefaultVersion", name, args ?? new ModuleDefaultVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ModuleDefaultVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:ModuleDefaultVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:CloudFormation:ModuleDefaultVersion", name, args ?? new ModuleDefaultVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModuleDefaultVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:CloudFormation:ModuleDefaultVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:CloudFormation:ModuleDefaultVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Batch:ComputeEnvironment';
+    public static readonly __pulumiType = 'aws-native:Batch:ComputeEnvironment';
 
     /**
      * Returns true if the given object is an instance of ComputeEnvironment.  This is designed to work even

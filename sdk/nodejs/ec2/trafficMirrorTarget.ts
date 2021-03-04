@@ -22,7 +22,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:TrafficMirrorTarget';
+    public static readonly __pulumiType = 'aws-native:EC2:TrafficMirrorTarget';
 
     /**
      * Returns true if the given object is an instance of TrafficMirrorTarget.  This is designed to work even

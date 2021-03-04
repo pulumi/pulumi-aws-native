@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.GlobalAccelerator
+namespace Pulumi.AwsNative.GlobalAccelerator
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:GlobalAccelerator:EndpointGroup")]
+    [AwsNativeResourceType("aws-native:GlobalAccelerator:EndpointGroup")]
     public partial class EndpointGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.GlobalAccelerator
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EndpointGroup(string name, EndpointGroupArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:GlobalAccelerator:EndpointGroup", name, args ?? new EndpointGroupArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EndpointGroup(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:GlobalAccelerator:EndpointGroup", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:GlobalAccelerator:EndpointGroup", name, args ?? new EndpointGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EndpointGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:GlobalAccelerator:EndpointGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:GlobalAccelerator:EndpointGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

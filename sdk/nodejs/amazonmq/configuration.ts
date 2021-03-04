@@ -22,7 +22,7 @@ export class Configuration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:AmazonMQ:Configuration';
+    public static readonly __pulumiType = 'aws-native:AmazonMQ:Configuration';
 
     /**
      * Returns true if the given object is an instance of Configuration.  This is designed to work even

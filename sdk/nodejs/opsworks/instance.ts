@@ -22,7 +22,7 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:OpsWorks:Instance';
+    public static readonly __pulumiType = 'aws-native:OpsWorks:Instance';
 
     /**
      * Returns true if the given object is an instance of Instance.  This is designed to work even

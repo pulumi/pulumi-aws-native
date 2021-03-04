@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Transfer.Outputs
+namespace Pulumi.AwsNative.Transfer.Outputs
 {
 
     [OutputType]
@@ -48,7 +48,7 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private ServerProperties(
@@ -68,7 +68,7 @@ namespace Pulumi.Cloudformation.Transfer.Outputs
 
             string? SecurityPolicyName,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
         {
             this.Certificate = Certificate;
             this.EndpointDetails = EndpointDetails;

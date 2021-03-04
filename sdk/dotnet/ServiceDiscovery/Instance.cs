@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ServiceDiscovery
+namespace Pulumi.AwsNative.ServiceDiscovery
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ServiceDiscovery:Instance")]
+    [AwsNativeResourceType("aws-native:ServiceDiscovery:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ServiceDiscovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Instance(string name, InstanceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceDiscovery:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Instance(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceDiscovery:Instance", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ServiceDiscovery:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Instance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ServiceDiscovery:Instance", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ServiceDiscovery:Instance", name, null, MakeResourceOptions(options, id))
         {
         }
 

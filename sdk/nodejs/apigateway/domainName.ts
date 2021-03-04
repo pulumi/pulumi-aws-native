@@ -22,7 +22,7 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ApiGateway:DomainName';
+    public static readonly __pulumiType = 'aws-native:ApiGateway:DomainName';
 
     /**
      * Returns true if the given object is an instance of DomainName.  This is designed to work even

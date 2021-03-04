@@ -22,7 +22,7 @@ export class Device extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoT1Click:Device';
+    public static readonly __pulumiType = 'aws-native:IoT1Click:Device';
 
     /**
      * Returns true if the given object is an instance of Device.  This is designed to work even

@@ -22,7 +22,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:CloudFront:RealtimeLogConfig';
+    public static readonly __pulumiType = 'aws-native:CloudFront:RealtimeLogConfig';
 
     /**
      * Returns true if the given object is an instance of RealtimeLogConfig.  This is designed to work even

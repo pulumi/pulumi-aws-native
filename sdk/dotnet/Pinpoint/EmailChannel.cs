@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:EmailChannel")]
+    [AwsNativeResourceType("aws-native:Pinpoint:EmailChannel")]
     public partial class EmailChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EmailChannel(string name, EmailChannelArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EmailChannel", name, args ?? new EmailChannelArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal EmailChannel(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EmailChannel", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:EmailChannel", name, args ?? new EmailChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EmailChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:EmailChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:EmailChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

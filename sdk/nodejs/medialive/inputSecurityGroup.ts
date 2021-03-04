@@ -22,7 +22,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:MediaLive:InputSecurityGroup';
+    public static readonly __pulumiType = 'aws-native:MediaLive:InputSecurityGroup';
 
     /**
      * Returns true if the given object is an instance of InputSecurityGroup.  This is designed to work even

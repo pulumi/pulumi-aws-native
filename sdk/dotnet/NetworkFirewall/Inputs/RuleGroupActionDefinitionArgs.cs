@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
     /// <summary>

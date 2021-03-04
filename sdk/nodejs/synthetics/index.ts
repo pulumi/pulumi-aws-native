@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Synthetics:Canary":
+            case "aws-native:Synthetics:Canary":
                 return new Canary(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Synthetics", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Synthetics", _module)

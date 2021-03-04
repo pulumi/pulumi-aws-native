@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Macie
+namespace Pulumi.AwsNative.Macie
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Macie:CustomDataIdentifier")]
+    [AwsNativeResourceType("aws-native:Macie:CustomDataIdentifier")]
     public partial class CustomDataIdentifier : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Macie
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomDataIdentifier(string name, CustomDataIdentifierArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Macie:CustomDataIdentifier", name, args ?? new CustomDataIdentifierArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal CustomDataIdentifier(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Macie:CustomDataIdentifier", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Macie:CustomDataIdentifier", name, args ?? new CustomDataIdentifierArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomDataIdentifier(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Macie:CustomDataIdentifier", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Macie:CustomDataIdentifier", name, null, MakeResourceOptions(options, id))
         {
         }
 

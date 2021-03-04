@@ -22,7 +22,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:IoT1Click:Project';
+    public static readonly __pulumiType = 'aws-native:IoT1Click:Project';
 
     /**
      * Returns true if the given object is an instance of Project.  This is designed to work even

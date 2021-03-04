@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Neptune.Outputs
+namespace Pulumi.AwsNative.Neptune.Outputs
 {
 
     [OutputType]

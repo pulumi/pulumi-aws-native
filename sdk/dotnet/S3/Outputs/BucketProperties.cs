@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.S3.Outputs
+namespace Pulumi.AwsNative.S3.Outputs
 {
 
     [OutputType]
@@ -84,7 +84,7 @@ namespace Pulumi.Cloudformation.S3.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-tags
         /// </summary>
-        public readonly ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-versioning
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.Cloudformation.S3.Outputs
 
             Outputs.BucketReplicationConfiguration? ReplicationConfiguration,
 
-            ImmutableArray<Pulumi.Cloudformation.Outputs.Tag> Tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags,
 
             Outputs.BucketVersioningConfiguration? VersioningConfiguration,
 

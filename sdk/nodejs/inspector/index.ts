@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:Inspector:AssessmentTarget":
+            case "aws-native:Inspector:AssessmentTarget":
                 return new AssessmentTarget(name, <any>undefined, { urn })
-            case "cloudformation:Inspector:AssessmentTemplate":
+            case "aws-native:Inspector:AssessmentTemplate":
                 return new AssessmentTemplate(name, <any>undefined, { urn })
-            case "cloudformation:Inspector:ResourceGroup":
+            case "aws-native:Inspector:ResourceGroup":
                 return new ResourceGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "Inspector", _module)
+pulumi.runtime.registerResourceModule("aws-native", "Inspector", _module)

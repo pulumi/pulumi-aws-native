@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.OpsWorks
+namespace Pulumi.AwsNative.OpsWorks
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:OpsWorks:Instance")]
+    [AwsNativeResourceType("aws-native:OpsWorks:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.OpsWorks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Instance(string name, InstanceArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Instance(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Instance", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:OpsWorks:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Instance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:OpsWorks:Instance", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:OpsWorks:Instance", name, null, MakeResourceOptions(options, id))
         {
         }
 

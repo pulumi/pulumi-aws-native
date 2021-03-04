@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Route53
+namespace Pulumi.AwsNative.Route53
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Route53:HealthCheck")]
+    [AwsNativeResourceType("aws-native:Route53:HealthCheck")]
     public partial class HealthCheck : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HealthCheck(string name, HealthCheckArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53:HealthCheck", name, args ?? new HealthCheckArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal HealthCheck(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53:HealthCheck", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Route53:HealthCheck", name, args ?? new HealthCheckArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HealthCheck(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Route53:HealthCheck", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Route53:HealthCheck", name, null, MakeResourceOptions(options, id))
         {
         }
 

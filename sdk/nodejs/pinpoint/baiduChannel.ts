@@ -22,7 +22,7 @@ export class BaiduChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:BaiduChannel';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:BaiduChannel';
 
     /**
      * Returns true if the given object is an instance of BaiduChannel.  This is designed to work even

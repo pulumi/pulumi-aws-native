@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.EC2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:EC2:NatGateway")]
+    [AwsNativeResourceType("aws-native:EC2:NatGateway")]
     public partial class NatGateway : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NatGateway(string name, NatGatewayArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:NatGateway", name, args ?? new NatGatewayArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal NatGateway(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:NatGateway", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:EC2:NatGateway", name, args ?? new NatGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NatGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:EC2:NatGateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:EC2:NatGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

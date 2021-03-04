@@ -22,7 +22,7 @@ export class Skill extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:ASK:Skill';
+    public static readonly __pulumiType = 'aws-native:ASK:Skill';
 
     /**
      * Returns true if the given object is an instance of Skill.  This is designed to work even

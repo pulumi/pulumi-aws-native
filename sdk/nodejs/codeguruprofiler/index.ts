@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:CodeGuruProfiler:ProfilingGroup":
+            case "aws-native:CodeGuruProfiler:ProfilingGroup":
                 return new ProfilingGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "CodeGuruProfiler", _module)
+pulumi.runtime.registerResourceModule("aws-native", "CodeGuruProfiler", _module)

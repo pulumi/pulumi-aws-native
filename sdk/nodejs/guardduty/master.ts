@@ -22,7 +22,7 @@ export class Master extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:GuardDuty:Master';
+    public static readonly __pulumiType = 'aws-native:GuardDuty:Master';
 
     /**
      * Returns true if the given object is an instance of Master.  This is designed to work even

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Greengrass
+namespace Pulumi.AwsNative.Greengrass
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Greengrass:DeviceDefinitionVersion")]
+    [AwsNativeResourceType("aws-native:Greengrass:DeviceDefinitionVersion")]
     public partial class DeviceDefinitionVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Greengrass
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceDefinitionVersion(string name, DeviceDefinitionVersionArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:DeviceDefinitionVersion", name, args ?? new DeviceDefinitionVersionArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DeviceDefinitionVersion(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:DeviceDefinitionVersion", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Greengrass:DeviceDefinitionVersion", name, args ?? new DeviceDefinitionVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeviceDefinitionVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Greengrass:DeviceDefinitionVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Greengrass:DeviceDefinitionVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class SMSChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Pinpoint:SMSChannel';
+    public static readonly __pulumiType = 'aws-native:Pinpoint:SMSChannel';
 
     /**
      * Returns true if the given object is an instance of SMSChannel.  This is designed to work even

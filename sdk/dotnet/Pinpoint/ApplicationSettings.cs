@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Pinpoint
+namespace Pulumi.AwsNative.Pinpoint
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Pinpoint:ApplicationSettings")]
+    [AwsNativeResourceType("aws-native:Pinpoint:ApplicationSettings")]
     public partial class ApplicationSettings : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationSettings(string name, ApplicationSettingsArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:ApplicationSettings", name, args ?? new ApplicationSettingsArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal ApplicationSettings(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:ApplicationSettings", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Pinpoint:ApplicationSettings", name, args ?? new ApplicationSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationSettings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Pinpoint:ApplicationSettings", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Pinpoint:ApplicationSettings", name, null, MakeResourceOptions(options, id))
         {
         }
 

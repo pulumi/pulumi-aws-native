@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.ApiGateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:ApiGateway:BasePathMapping")]
+    [AwsNativeResourceType("aws-native:ApiGateway:BasePathMapping")]
     public partial class BasePathMapping : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BasePathMapping(string name, BasePathMappingArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:BasePathMapping", name, args ?? new BasePathMappingArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal BasePathMapping(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:BasePathMapping", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:ApiGateway:BasePathMapping", name, args ?? new BasePathMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BasePathMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:ApiGateway:BasePathMapping", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ApiGateway:BasePathMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 

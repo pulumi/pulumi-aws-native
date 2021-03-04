@@ -22,7 +22,7 @@ export class Host extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:EC2:Host';
+    public static readonly __pulumiType = 'aws-native:EC2:Host';
 
     /**
      * Returns true if the given object is an instance of Host.  This is designed to work even

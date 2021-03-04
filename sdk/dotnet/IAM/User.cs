@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IAM
+namespace Pulumi.AwsNative.IAM
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IAM:User")]
+    [AwsNativeResourceType("aws-native:IAM:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal User(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:User", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IAM:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IAM:User", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IAM:User", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:Workflow")]
+    [AwsNativeResourceType("aws-native:Glue:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workflow(string name, WorkflowArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Workflow(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Workflow", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workflow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:Workflow", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:Workflow", name, null, MakeResourceOptions(options, id))
         {
         }
 

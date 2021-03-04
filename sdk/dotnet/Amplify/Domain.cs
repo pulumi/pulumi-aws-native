@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Amplify
+namespace Pulumi.AwsNative.Amplify
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Amplify:Domain")]
+    [AwsNativeResourceType("aws-native:Amplify:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Amplify
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Amplify:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Domain(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Amplify:Domain", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Amplify:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Amplify:Domain", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Amplify:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 

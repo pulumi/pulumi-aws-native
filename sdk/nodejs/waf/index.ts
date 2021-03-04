@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "cloudformation:WAF:ByteMatchSet":
+            case "aws-native:WAF:ByteMatchSet":
                 return new ByteMatchSet(name, <any>undefined, { urn })
-            case "cloudformation:WAF:IPSet":
+            case "aws-native:WAF:IPSet":
                 return new IPSet(name, <any>undefined, { urn })
-            case "cloudformation:WAF:Rule":
+            case "aws-native:WAF:Rule":
                 return new Rule(name, <any>undefined, { urn })
-            case "cloudformation:WAF:SizeConstraintSet":
+            case "aws-native:WAF:SizeConstraintSet":
                 return new SizeConstraintSet(name, <any>undefined, { urn })
-            case "cloudformation:WAF:SqlInjectionMatchSet":
+            case "aws-native:WAF:SqlInjectionMatchSet":
                 return new SqlInjectionMatchSet(name, <any>undefined, { urn })
-            case "cloudformation:WAF:WebACL":
+            case "aws-native:WAF:WebACL":
                 return new WebACL(name, <any>undefined, { urn })
-            case "cloudformation:WAF:XssMatchSet":
+            case "aws-native:WAF:XssMatchSet":
                 return new XssMatchSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("cloudformation", "WAF", _module)
+pulumi.runtime.registerResourceModule("aws-native", "WAF", _module)

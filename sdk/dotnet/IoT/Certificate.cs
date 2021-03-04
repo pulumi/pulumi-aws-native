@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.IoT
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:IoT:Certificate")]
+    [AwsNativeResourceType("aws-native:IoT:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Certificate(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Certificate", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:IoT:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:IoT:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:IoT:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 

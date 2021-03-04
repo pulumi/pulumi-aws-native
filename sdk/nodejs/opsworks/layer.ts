@@ -22,7 +22,7 @@ export class Layer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:OpsWorks:Layer';
+    public static readonly __pulumiType = 'aws-native:OpsWorks:Layer';
 
     /**
      * Returns true if the given object is an instance of Layer.  This is designed to work even

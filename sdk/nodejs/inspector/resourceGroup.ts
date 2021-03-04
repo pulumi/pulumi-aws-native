@@ -22,7 +22,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Inspector:ResourceGroup';
+    public static readonly __pulumiType = 'aws-native:Inspector:ResourceGroup';
 
     /**
      * Returns true if the given object is an instance of ResourceGroup.  This is designed to work even

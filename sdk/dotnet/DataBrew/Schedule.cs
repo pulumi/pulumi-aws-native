@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.DataBrew
+namespace Pulumi.AwsNative.DataBrew
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:DataBrew:Schedule")]
+    [AwsNativeResourceType("aws-native:DataBrew:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.DataBrew
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schedule(string name, ScheduleArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:DataBrew:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal Schedule(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:DataBrew:Schedule", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:DataBrew:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Schedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:DataBrew:Schedule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:DataBrew:Schedule", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:DataBrew:Schedule';
+    public static readonly __pulumiType = 'aws-native:DataBrew:Schedule';
 
     /**
      * Returns true if the given object is an instance of Schedule.  This is designed to work even

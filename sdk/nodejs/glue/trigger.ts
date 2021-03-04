@@ -22,7 +22,7 @@ export class Trigger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'cloudformation:Glue:Trigger';
+    public static readonly __pulumiType = 'aws-native:Glue:Trigger';
 
     /**
      * Returns true if the given object is an instance of Trigger.  This is designed to work even

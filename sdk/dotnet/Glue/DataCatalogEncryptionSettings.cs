@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Cloudformation.Glue
+namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html
     /// </summary>
-    [CloudformationResourceType("cloudformation:Glue:DataCatalogEncryptionSettings")]
+    [AwsNativeResourceType("aws-native:Glue:DataCatalogEncryptionSettings")]
     public partial class DataCatalogEncryptionSettings : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,16 +48,12 @@ namespace Pulumi.Cloudformation.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataCatalogEncryptionSettings(string name, DataCatalogEncryptionSettingsArgs args, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:DataCatalogEncryptionSettings", name, args ?? new DataCatalogEncryptionSettingsArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-        internal DataCatalogEncryptionSettings(string name, ImmutableDictionary<string, object?> dictionary, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:DataCatalogEncryptionSettings", name, new DictionaryResourceArgs(dictionary), MakeResourceOptions(options, ""))
+            : base("aws-native:Glue:DataCatalogEncryptionSettings", name, args ?? new DataCatalogEncryptionSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataCatalogEncryptionSettings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("cloudformation:Glue:DataCatalogEncryptionSettings", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:Glue:DataCatalogEncryptionSettings", name, null, MakeResourceOptions(options, id))
         {
         }
 
