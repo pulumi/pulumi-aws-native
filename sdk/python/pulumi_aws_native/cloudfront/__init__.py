@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .cache_policy import *
+from .cloud_front_origin_access_identity import *
 from .key_group import *
 from .origin_request_policy import *
 from .public_key import *
@@ -25,6 +26,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:CloudFront:CachePolicy":
                 return CachePolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws-native:CloudFront:CloudFrontOriginAccessIdentity":
+                return CloudFrontOriginAccessIdentity(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudFront:KeyGroup":
                 return KeyGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudFront:OriginRequestPolicy":

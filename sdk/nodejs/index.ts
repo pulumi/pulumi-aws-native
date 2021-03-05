@@ -26,6 +26,7 @@ import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
+import * as backup from "./backup";
 import * as cassandra from "./cassandra";
 import * as chatbot from "./chatbot";
 import * as cloudformation from "./cloudformation";
@@ -99,6 +100,7 @@ export {
     applicationinsights,
     athena,
     auditmanager,
+    backup,
     cassandra,
     chatbot,
     cloudformation,

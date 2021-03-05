@@ -27,6 +27,7 @@ from . import (
     applicationinsights,
     athena,
     auditmanager,
+    backup,
     cassandra,
     chatbot,
     cloudformation,

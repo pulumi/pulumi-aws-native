@@ -17,6 +17,9 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOrigin',
     'CachePolicyProperties',
     'CachePolicyQueryStringsConfig',
+    'CloudFrontOriginAccessIdentityAttributes',
+    'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig',
+    'CloudFrontOriginAccessIdentityProperties',
     'KeyGroupAttributes',
     'KeyGroupKeyGroupConfig',
     'KeyGroupProperties',
@@ -339,6 +342,71 @@ class CachePolicyQueryStringsConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
         """
         return pulumi.get(self, "query_strings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CloudFrontOriginAccessIdentityAttributes(dict):
+    def __init__(__self__, *,
+                 s3_canonical_user_id: str):
+        pulumi.set(__self__, "s3_canonical_user_id", s3_canonical_user_id)
+
+    @property
+    @pulumi.getter(name="S3CanonicalUserId")
+    def s3_canonical_user_id(self) -> str:
+        return pulumi.get(self, "s3_canonical_user_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
+    """
+    def __init__(__self__, *,
+                 comment: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
+        :param str comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
+        """
+        pulumi.set(__self__, "comment", comment)
+
+    @property
+    @pulumi.getter(name="Comment")
+    def comment(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
+        """
+        return pulumi.get(self, "comment")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CloudFrontOriginAccessIdentityProperties(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
+    """
+    def __init__(__self__, *,
+                 cloud_front_origin_access_identity_config: 'outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig'):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
+        :param 'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs' cloud_front_origin_access_identity_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
+        """
+        pulumi.set(__self__, "cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
+
+    @property
+    @pulumi.getter(name="CloudFrontOriginAccessIdentityConfig")
+    def cloud_front_origin_access_identity_config(self) -> 'outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig':
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
+        """
+        return pulumi.get(self, "cloud_front_origin_access_identity_config")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

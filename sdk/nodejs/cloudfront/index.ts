@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cachePolicy";
+export * from "./cloudFrontOriginAccessIdentity";
 export * from "./keyGroup";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
@@ -13,6 +14,7 @@ export * from "./realtimeLogConfig";
 
 // Import resources to register:
 import { CachePolicy } from "./cachePolicy";
+import { CloudFrontOriginAccessIdentity } from "./cloudFrontOriginAccessIdentity";
 import { KeyGroup } from "./keyGroup";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
@@ -24,6 +26,8 @@ const _module = {
         switch (type) {
             case "aws-native:CloudFront:CachePolicy":
                 return new CachePolicy(name, <any>undefined, { urn })
+            case "aws-native:CloudFront:CloudFrontOriginAccessIdentity":
+                return new CloudFrontOriginAccessIdentity(name, <any>undefined, { urn })
             case "aws-native:CloudFront:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
             case "aws-native:CloudFront:OriginRequestPolicy":

@@ -8,12 +8,14 @@ import * as utilities from "../utilities";
 export * from "./authorizer";
 export * from "./certificate";
 export * from "./provisioningTemplate";
+export * from "./topicRule";
 export * from "./topicRuleDestination";
 
 // Import resources to register:
 import { Authorizer } from "./authorizer";
 import { Certificate } from "./certificate";
 import { ProvisioningTemplate } from "./provisioningTemplate";
+import { TopicRule } from "./topicRule";
 import { TopicRuleDestination } from "./topicRuleDestination";
 
 const _module = {
@@ -26,6 +28,8 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "aws-native:IoT:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
+            case "aws-native:IoT:TopicRule":
+                return new TopicRule(name, <any>undefined, { urn })
             case "aws-native:IoT:TopicRuleDestination":
                 return new TopicRuleDestination(name, <any>undefined, { urn })
             default:

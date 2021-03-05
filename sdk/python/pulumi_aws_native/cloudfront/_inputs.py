@@ -15,6 +15,8 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs',
     'CachePolicyPropertiesArgs',
     'CachePolicyQueryStringsConfigArgs',
+    'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs',
+    'CloudFrontOriginAccessIdentityPropertiesArgs',
     'KeyGroupKeyGroupConfigArgs',
     'KeyGroupPropertiesArgs',
     'OriginRequestPolicyCookiesConfigArgs',
@@ -350,6 +352,52 @@ class CachePolicyQueryStringsConfigArgs:
     @query_strings.setter
     def query_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "query_strings", value)
+
+
+@pulumi.input_type
+class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
+        :param pulumi.Input[str] comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
+        """
+        pulumi.set(__self__, "comment", comment)
+
+    @property
+    @pulumi.getter(name="Comment")
+    def comment(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[str]):
+        pulumi.set(self, "comment", value)
+
+
+@pulumi.input_type
+class CloudFrontOriginAccessIdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
+        :param pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs'] cloud_front_origin_access_identity_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
+        """
+        pulumi.set(__self__, "cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
+
+    @property
+    @pulumi.getter(name="CloudFrontOriginAccessIdentityConfig")
+    def cloud_front_origin_access_identity_config(self) -> pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
+        """
+        return pulumi.get(self, "cloud_front_origin_access_identity_config")
+
+    @cloud_front_origin_access_identity_config.setter
+    def cloud_front_origin_access_identity_config(self, value: pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']):
+        pulumi.set(self, "cloud_front_origin_access_identity_config", value)
 
 
 @pulumi.input_type
