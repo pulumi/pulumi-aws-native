@@ -11,16 +11,10 @@ from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
-    'CustomResourceAttributes',
-    'CustomResourceProperties',
-    'MacroAttributes',
-    'MacroProperties',
     'ModuleDefaultVersionAttributes',
     'ModuleDefaultVersionProperties',
     'ModuleVersionAttributes',
     'ModuleVersionProperties',
-    'StackAttributes',
-    'StackProperties',
     'StackSetAttributes',
     'StackSetAutoDeployment',
     'StackSetDeploymentTargets',
@@ -28,126 +22,7 @@ __all__ = [
     'StackSetParameter',
     'StackSetProperties',
     'StackSetStackInstances',
-    'WaitConditionAttributes',
-    'WaitConditionHandleAttributes',
-    'WaitConditionHandleProperties',
-    'WaitConditionProperties',
 ]
-
-@pulumi.output_type
-class CustomResourceAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class CustomResourceProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
-    """
-    def __init__(__self__, *,
-                 service_token: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
-        :param str service_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#cfn-customresource-servicetoken
-        """
-        pulumi.set(__self__, "service_token", service_token)
-
-    @property
-    @pulumi.getter(name="ServiceToken")
-    def service_token(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#cfn-customresource-servicetoken
-        """
-        return pulumi.get(self, "service_token")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MacroAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MacroProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
-    """
-    def __init__(__self__, *,
-                 function_name: str,
-                 name: str,
-                 description: Optional[str] = None,
-                 log_group_name: Optional[str] = None,
-                 log_role_arn: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
-        :param str function_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-functionname
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-name
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-description
-        :param str log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-loggroupname
-        :param str log_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-logrolearn
-        """
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "name", name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
-        if log_role_arn is not None:
-            pulumi.set(__self__, "log_role_arn", log_role_arn)
-
-    @property
-    @pulumi.getter(name="FunctionName")
-    def function_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-functionname
-        """
-        return pulumi.get(self, "function_name")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="LogGroupName")
-    def log_group_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-loggroupname
-        """
-        return pulumi.get(self, "log_group_name")
-
-    @property
-    @pulumi.getter(name="LogRoleARN")
-    def log_role_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-logrolearn
-        """
-        return pulumi.get(self, "log_role_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModuleDefaultVersionAttributes(dict):
@@ -304,88 +179,6 @@ class ModuleVersionProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         """
         return pulumi.get(self, "module_package")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StackAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StackProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
-    """
-    def __init__(__self__, *,
-                 template_url: str,
-                 notification_arns: Optional[Sequence[str]] = None,
-                 parameters: Optional[Mapping[str, str]] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None,
-                 timeout_in_minutes: Optional[int] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
-        :param str template_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-templateurl
-        :param Sequence[str] notification_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
-        :param Mapping[str, str] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-tags
-        :param int timeout_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
-        """
-        pulumi.set(__self__, "template_url", template_url)
-        if notification_arns is not None:
-            pulumi.set(__self__, "notification_arns", notification_arns)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if timeout_in_minutes is not None:
-            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
-
-    @property
-    @pulumi.getter(name="TemplateURL")
-    def template_url(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-templateurl
-        """
-        return pulumi.get(self, "template_url")
-
-    @property
-    @pulumi.getter(name="NotificationARNs")
-    def notification_arns(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
-        """
-        return pulumi.get(self, "notification_arns")
-
-    @property
-    @pulumi.getter(name="Parameters")
-    def parameters(self) -> Optional[Mapping[str, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters
-        """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="TimeoutInMinutes")
-    def timeout_in_minutes(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
-        """
-        return pulumi.get(self, "timeout_in_minutes")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -803,95 +596,6 @@ class StackSetStackInstances(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
         """
         return pulumi.get(self, "parameter_overrides")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WaitConditionAttributes(dict):
-    def __init__(__self__, *,
-                 data: str):
-        pulumi.set(__self__, "data", data)
-
-    @property
-    @pulumi.getter(name="Data")
-    def data(self) -> str:
-        return pulumi.get(self, "data")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WaitConditionHandleAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WaitConditionHandleProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html
-    """
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html
-        """
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WaitConditionProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
-    """
-    def __init__(__self__, *,
-                 count: Optional[int] = None,
-                 handle: Optional[str] = None,
-                 timeout: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
-        :param int count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
-        :param str handle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
-        :param str timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
-        """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if handle is not None:
-            pulumi.set(__self__, "handle", handle)
-        if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
-
-    @property
-    @pulumi.getter(name="Count")
-    def count(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
-        """
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter(name="Handle")
-    def handle(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
-        """
-        return pulumi.get(self, "handle")
-
-    @property
-    @pulumi.getter(name="Timeout")
-    def timeout(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
-        """
-        return pulumi.get(self, "timeout")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

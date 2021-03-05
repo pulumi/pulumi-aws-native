@@ -4,11 +4,6 @@
 
 # Export this package's modules as members:
 from .configuration_set import *
-from .configuration_set_event_destination import *
-from .receipt_filter import *
-from .receipt_rule import *
-from .receipt_rule_set import *
-from .template import *
 from ._inputs import *
 from . import outputs
 
@@ -26,16 +21,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:SES:ConfigurationSet":
                 return ConfigurationSet(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SES:ConfigurationSetEventDestination":
-                return ConfigurationSetEventDestination(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SES:ReceiptFilter":
-                return ReceiptFilter(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SES:ReceiptRule":
-                return ReceiptRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SES:ReceiptRuleSet":
-                return ReceiptRuleSet(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SES:Template":
-                return Template(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

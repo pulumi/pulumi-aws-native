@@ -4,10 +4,7 @@
 
 # Export this package's modules as members:
 from .listener import *
-from .listener_certificate import *
 from .listener_rule import *
-from .load_balancer import *
-from .target_group import *
 from ._inputs import *
 from . import outputs
 
@@ -25,14 +22,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:ElasticLoadBalancingV2:Listener":
                 return Listener(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElasticLoadBalancingV2:ListenerCertificate":
-                return ListenerCertificate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:ElasticLoadBalancingV2:ListenerRule":
                 return ListenerRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElasticLoadBalancingV2:LoadBalancer":
-                return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElasticLoadBalancingV2:TargetGroup":
-                return TargetGroup(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

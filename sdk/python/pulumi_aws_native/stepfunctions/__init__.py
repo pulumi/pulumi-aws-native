@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .activity import *
 from .state_machine import *
 from ._inputs import *
 from . import outputs
@@ -20,9 +19,7 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:StepFunctions:Activity":
-                return Activity(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:StepFunctions:StateMachine":
+            if typ == "aws-native:StepFunctions:StateMachine":
                 return StateMachine(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")

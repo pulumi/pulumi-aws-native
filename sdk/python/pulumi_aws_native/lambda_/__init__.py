@@ -3,15 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .alias import *
 from .code_signing_config import *
-from .event_invoke_config import *
 from .event_source_mapping import *
-from .function import *
-from .layer_version import *
-from .layer_version_permission import *
-from .permission import *
-from .version import *
 from ._inputs import *
 from . import outputs
 
@@ -27,24 +20,10 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:Lambda:Alias":
-                return Alias(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Lambda:CodeSigningConfig":
+            if typ == "aws-native:Lambda:CodeSigningConfig":
                 return CodeSigningConfig(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Lambda:EventInvokeConfig":
-                return EventInvokeConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:Lambda:EventSourceMapping":
                 return EventSourceMapping(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Lambda:Function":
-                return Function(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Lambda:LayerVersion":
-                return LayerVersion(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Lambda:LayerVersionPermission":
-                return LayerVersionPermission(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Lambda:Permission":
-                return Permission(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Lambda:Version":
-                return Version(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

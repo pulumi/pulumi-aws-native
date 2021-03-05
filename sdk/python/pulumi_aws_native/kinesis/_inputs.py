@@ -10,48 +10,9 @@ from .. import _utilities, _tables
 from .. import _inputs as _root_inputs
 
 __all__ = [
-    'StreamConsumerPropertiesArgs',
     'StreamPropertiesArgs',
     'StreamStreamEncryptionArgs',
 ]
-
-@pulumi.input_type
-class StreamConsumerPropertiesArgs:
-    def __init__(__self__, *,
-                 consumer_name: pulumi.Input[str],
-                 stream_arn: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
-        :param pulumi.Input[str] consumer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-consumername
-        :param pulumi.Input[str] stream_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-streamarn
-        """
-        pulumi.set(__self__, "consumer_name", consumer_name)
-        pulumi.set(__self__, "stream_arn", stream_arn)
-
-    @property
-    @pulumi.getter(name="ConsumerName")
-    def consumer_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-consumername
-        """
-        return pulumi.get(self, "consumer_name")
-
-    @consumer_name.setter
-    def consumer_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "consumer_name", value)
-
-    @property
-    @pulumi.getter(name="StreamARN")
-    def stream_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-streamarn
-        """
-        return pulumi.get(self, "stream_arn")
-
-    @stream_arn.setter
-    def stream_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "stream_arn", value)
-
 
 @pulumi.input_type
 class StreamPropertiesArgs:

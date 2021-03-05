@@ -3,10 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .discoverer import *
-from .registry import *
 from .registry_policy import *
-from .schema import *
 from ._inputs import *
 from . import outputs
 
@@ -22,14 +19,8 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:EventSchemas:Discoverer":
-                return Discoverer(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:EventSchemas:Registry":
-                return Registry(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:EventSchemas:RegistryPolicy":
+            if typ == "aws-native:EventSchemas:RegistryPolicy":
                 return RegistryPolicy(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:EventSchemas:Schema":
-                return Schema(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

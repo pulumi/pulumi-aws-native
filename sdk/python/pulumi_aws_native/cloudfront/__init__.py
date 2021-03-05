@@ -4,13 +4,10 @@
 
 # Export this package's modules as members:
 from .cache_policy import *
-from .cloud_front_origin_access_identity import *
-from .distribution import *
 from .key_group import *
 from .origin_request_policy import *
 from .public_key import *
 from .realtime_log_config import *
-from .streaming_distribution import *
 from ._inputs import *
 from . import outputs
 
@@ -28,10 +25,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:CloudFront:CachePolicy":
                 return CachePolicy(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFront:CloudFrontOriginAccessIdentity":
-                return CloudFrontOriginAccessIdentity(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFront:Distribution":
-                return Distribution(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudFront:KeyGroup":
                 return KeyGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudFront:OriginRequestPolicy":
@@ -40,8 +33,6 @@ def _register_module():
                 return PublicKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudFront:RealtimeLogConfig":
                 return RealtimeLogConfig(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFront:StreamingDistribution":
-                return StreamingDistribution(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

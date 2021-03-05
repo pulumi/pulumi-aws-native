@@ -5,8 +5,6 @@
 # Export this package's modules as members:
 from .health_check import *
 from .hosted_zone import *
-from .record_set import *
-from .record_set_group import *
 from ._inputs import *
 from . import outputs
 
@@ -26,10 +24,6 @@ def _register_module():
                 return HealthCheck(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:Route53:HostedZone":
                 return HostedZone(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Route53:RecordSet":
-                return RecordSet(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Route53:RecordSetGroup":
-                return RecordSetGroup(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

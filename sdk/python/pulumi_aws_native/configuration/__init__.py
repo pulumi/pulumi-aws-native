@@ -3,15 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .aggregation_authorization import *
-from .config_rule import *
-from .configuration_aggregator import *
-from .configuration_recorder import *
 from .conformance_pack import *
-from .delivery_channel import *
-from .organization_config_rule import *
 from .organization_conformance_pack import *
-from .remediation_configuration import *
 from ._inputs import *
 from . import outputs
 
@@ -27,24 +20,10 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:Configuration:AggregationAuthorization":
-                return AggregationAuthorization(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Configuration:ConfigRule":
-                return ConfigRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Configuration:ConfigurationAggregator":
-                return ConfigurationAggregator(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Configuration:ConfigurationRecorder":
-                return ConfigurationRecorder(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Configuration:ConformancePack":
+            if typ == "aws-native:Configuration:ConformancePack":
                 return ConformancePack(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Configuration:DeliveryChannel":
-                return DeliveryChannel(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Configuration:OrganizationConfigRule":
-                return OrganizationConfigRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:Configuration:OrganizationConformancePack":
                 return OrganizationConformancePack(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Configuration:RemediationConfiguration":
-                return RemediationConfiguration(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

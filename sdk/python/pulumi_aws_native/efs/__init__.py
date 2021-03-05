@@ -5,7 +5,6 @@
 # Export this package's modules as members:
 from .access_point import *
 from .file_system import *
-from .mount_target import *
 from ._inputs import *
 from . import outputs
 
@@ -25,8 +24,6 @@ def _register_module():
                 return AccessPoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:EFS:FileSystem":
                 return FileSystem(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:EFS:MountTarget":
-                return MountTarget(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

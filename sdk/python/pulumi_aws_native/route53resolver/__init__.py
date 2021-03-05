@@ -3,11 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .resolver_endpoint import *
 from .resolver_query_logging_config import *
 from .resolver_query_logging_config_association import *
-from .resolver_rule import *
-from .resolver_rule_association import *
 from ._inputs import *
 from . import outputs
 
@@ -23,16 +20,10 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:Route53Resolver:ResolverEndpoint":
-                return ResolverEndpoint(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
+            if typ == "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
                 return ResolverQueryLoggingConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation":
                 return ResolverQueryLoggingConfigAssociation(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Route53Resolver:ResolverRule":
-                return ResolverRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Route53Resolver:ResolverRuleAssociation":
-                return ResolverRuleAssociation(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

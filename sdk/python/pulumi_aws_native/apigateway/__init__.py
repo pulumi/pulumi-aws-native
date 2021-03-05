@@ -3,25 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .account import *
 from .api_key import *
-from .authorizer import *
-from .base_path_mapping import *
 from .client_certificate import *
-from .deployment import *
-from .documentation_part import *
 from .documentation_version import *
 from .domain_name import *
-from .gateway_response import *
-from .method import *
-from .model import *
-from .request_validator import *
-from .resource import *
-from .rest_api import *
-from .stage import *
-from .usage_plan import *
-from .usage_plan_key import *
-from .vpc_link import *
 from ._inputs import *
 from . import outputs
 
@@ -37,44 +22,14 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:ApiGateway:Account":
-                return Account(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:ApiKey":
+            if typ == "aws-native:ApiGateway:ApiKey":
                 return ApiKey(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:Authorizer":
-                return Authorizer(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:BasePathMapping":
-                return BasePathMapping(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:ApiGateway:ClientCertificate":
                 return ClientCertificate(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:Deployment":
-                return Deployment(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:DocumentationPart":
-                return DocumentationPart(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:ApiGateway:DocumentationVersion":
                 return DocumentationVersion(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:ApiGateway:DomainName":
                 return DomainName(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:GatewayResponse":
-                return GatewayResponse(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:Method":
-                return Method(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:Model":
-                return Model(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:RequestValidator":
-                return RequestValidator(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:Resource":
-                return Resource(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:RestApi":
-                return RestApi(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:Stage":
-                return Stage(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:UsagePlan":
-                return UsagePlan(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:UsagePlanKey":
-                return UsagePlanKey(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ApiGateway:VpcLink":
-                return VpcLink(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

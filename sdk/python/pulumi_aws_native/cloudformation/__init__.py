@@ -3,14 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .custom_resource import *
-from .macro import *
 from .module_default_version import *
 from .module_version import *
-from .stack import *
 from .stack_set import *
-from .wait_condition import *
-from .wait_condition_handle import *
 from ._inputs import *
 from . import outputs
 
@@ -26,22 +21,12 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:CloudFormation:CustomResource":
-                return CustomResource(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFormation:Macro":
-                return Macro(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFormation:ModuleDefaultVersion":
+            if typ == "aws-native:CloudFormation:ModuleDefaultVersion":
                 return ModuleDefaultVersion(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudFormation:ModuleVersion":
                 return ModuleVersion(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFormation:Stack":
-                return Stack(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudFormation:StackSet":
                 return StackSet(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFormation:WaitCondition":
-                return WaitCondition(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudFormation:WaitConditionHandle":
-                return WaitConditionHandle(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

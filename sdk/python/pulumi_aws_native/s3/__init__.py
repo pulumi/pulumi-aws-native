@@ -4,8 +4,6 @@
 
 # Export this package's modules as members:
 from .access_point import *
-from .bucket import *
-from .bucket_policy import *
 from .storage_lens import *
 from ._inputs import *
 from . import outputs
@@ -24,10 +22,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:S3:AccessPoint":
                 return AccessPoint(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:S3:Bucket":
-                return Bucket(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:S3:BucketPolicy":
-                return BucketPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:S3:StorageLens":
                 return StorageLens(name, pulumi.ResourceOptions(urn=urn))
             else:

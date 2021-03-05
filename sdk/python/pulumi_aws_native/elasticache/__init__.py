@@ -3,12 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .cache_cluster import *
-from .parameter_group import *
-from .replication_group import *
-from .security_group import *
-from .security_group_ingress import *
-from .subnet_group import *
 from .user import *
 from .user_group import *
 from ._inputs import *
@@ -26,19 +20,7 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:ElastiCache:CacheCluster":
-                return CacheCluster(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElastiCache:ParameterGroup":
-                return ParameterGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElastiCache:ReplicationGroup":
-                return ReplicationGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElastiCache:SecurityGroup":
-                return SecurityGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElastiCache:SecurityGroupIngress":
-                return SecurityGroupIngress(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElastiCache:SubnetGroup":
-                return SubnetGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:ElastiCache:User":
+            if typ == "aws-native:ElastiCache:User":
                 return User(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:ElastiCache:UserGroup":
                 return UserGroup(name, pulumi.ResourceOptions(urn=urn))
