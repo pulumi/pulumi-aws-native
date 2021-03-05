@@ -40,7 +40,7 @@ func main() {
 
 	languages, inputFile, version := args[0], args[1], args[2]
 
-	pkgSpec := gatherPackage(readCFNSchema(inputFile))
+	pkgSpec := gatherPackage(readCFNSchema(inputFile), readSupportedResourceTypes())
 	pkgSpec.Version = version
 	ppkg, err := pschema.ImportSpec(pkgSpec, nil)
 	if err != nil {
@@ -62,7 +62,6 @@ func main() {
 		case "go":
 			writeGoSDK(ppkg, outdir)
 		case "schema":
-			pkgSpec := gatherPackage(readCFNSchema(inputFile))
 			writePulumiSchema(pkgSpec, providerDir)
 		default:
 			panic(fmt.Sprintf("Unrecognized language '%s'", language))
@@ -83,6 +82,15 @@ func readCFNSchema(schemaPath string) schema.CloudFormationSchema {
 	}
 
 	return sch
+}
+
+const supportedResourceTypesPath = "./provider/cmd/pulumi-gen-aws-native/cloud-api-resource-types.txt"
+func readSupportedResourceTypes() []string {
+	content, err := ioutil.ReadFile(supportedResourceTypesPath)
+	if err != nil {
+		panic(err)
+	}
+	return strings.Split(string(content), "\n")
 }
 
 func writeNodeJSSDK(pkg *pschema.Package, outdir string) {
