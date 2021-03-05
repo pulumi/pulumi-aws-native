@@ -6,23 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./alias";
-export * from "./build";
-export * from "./fleet";
 export * from "./gameServerGroup";
-export * from "./gameSessionQueue";
-export * from "./matchmakingConfiguration";
-export * from "./matchmakingRuleSet";
-export * from "./script";
 
 // Import resources to register:
 import { Alias } from "./alias";
-import { Build } from "./build";
-import { Fleet } from "./fleet";
 import { GameServerGroup } from "./gameServerGroup";
-import { GameSessionQueue } from "./gameSessionQueue";
-import { MatchmakingConfiguration } from "./matchmakingConfiguration";
-import { MatchmakingRuleSet } from "./matchmakingRuleSet";
-import { Script } from "./script";
 
 const _module = {
     version: utilities.getVersion(),
@@ -30,20 +18,8 @@ const _module = {
         switch (type) {
             case "aws-native:GameLift:Alias":
                 return new Alias(name, <any>undefined, { urn })
-            case "aws-native:GameLift:Build":
-                return new Build(name, <any>undefined, { urn })
-            case "aws-native:GameLift:Fleet":
-                return new Fleet(name, <any>undefined, { urn })
             case "aws-native:GameLift:GameServerGroup":
                 return new GameServerGroup(name, <any>undefined, { urn })
-            case "aws-native:GameLift:GameSessionQueue":
-                return new GameSessionQueue(name, <any>undefined, { urn })
-            case "aws-native:GameLift:MatchmakingConfiguration":
-                return new MatchmakingConfiguration(name, <any>undefined, { urn })
-            case "aws-native:GameLift:MatchmakingRuleSet":
-                return new MatchmakingRuleSet(name, <any>undefined, { urn })
-            case "aws-native:GameLift:Script":
-                return new Script(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

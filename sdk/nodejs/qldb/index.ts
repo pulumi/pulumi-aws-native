@@ -5,19 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./ledger";
 export * from "./stream";
 
 // Import resources to register:
-import { Ledger } from "./ledger";
 import { Stream } from "./stream";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:QLDB:Ledger":
-                return new Ledger(name, <any>undefined, { urn })
             case "aws-native:QLDB:Stream":
                 return new Stream(name, <any>undefined, { urn })
             default:

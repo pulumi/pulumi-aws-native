@@ -5,49 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./aggregationAuthorization";
-export * from "./configRule";
-export * from "./configurationAggregator";
-export * from "./configurationRecorder";
 export * from "./conformancePack";
-export * from "./deliveryChannel";
-export * from "./organizationConfigRule";
 export * from "./organizationConformancePack";
-export * from "./remediationConfiguration";
 
 // Import resources to register:
-import { AggregationAuthorization } from "./aggregationAuthorization";
-import { ConfigRule } from "./configRule";
-import { ConfigurationAggregator } from "./configurationAggregator";
-import { ConfigurationRecorder } from "./configurationRecorder";
 import { ConformancePack } from "./conformancePack";
-import { DeliveryChannel } from "./deliveryChannel";
-import { OrganizationConfigRule } from "./organizationConfigRule";
 import { OrganizationConformancePack } from "./organizationConformancePack";
-import { RemediationConfiguration } from "./remediationConfiguration";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Configuration:AggregationAuthorization":
-                return new AggregationAuthorization(name, <any>undefined, { urn })
-            case "aws-native:Configuration:ConfigRule":
-                return new ConfigRule(name, <any>undefined, { urn })
-            case "aws-native:Configuration:ConfigurationAggregator":
-                return new ConfigurationAggregator(name, <any>undefined, { urn })
-            case "aws-native:Configuration:ConfigurationRecorder":
-                return new ConfigurationRecorder(name, <any>undefined, { urn })
             case "aws-native:Configuration:ConformancePack":
                 return new ConformancePack(name, <any>undefined, { urn })
-            case "aws-native:Configuration:DeliveryChannel":
-                return new DeliveryChannel(name, <any>undefined, { urn })
-            case "aws-native:Configuration:OrganizationConfigRule":
-                return new OrganizationConfigRule(name, <any>undefined, { urn })
             case "aws-native:Configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
-            case "aws-native:Configuration:RemediationConfiguration":
-                return new RemediationConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

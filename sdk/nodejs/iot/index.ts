@@ -7,23 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./authorizer";
 export * from "./certificate";
-export * from "./policy";
-export * from "./policyPrincipalAttachment";
 export * from "./provisioningTemplate";
-export * from "./thing";
-export * from "./thingPrincipalAttachment";
-export * from "./topicRule";
 export * from "./topicRuleDestination";
 
 // Import resources to register:
 import { Authorizer } from "./authorizer";
 import { Certificate } from "./certificate";
-import { Policy } from "./policy";
-import { PolicyPrincipalAttachment } from "./policyPrincipalAttachment";
 import { ProvisioningTemplate } from "./provisioningTemplate";
-import { Thing } from "./thing";
-import { ThingPrincipalAttachment } from "./thingPrincipalAttachment";
-import { TopicRule } from "./topicRule";
 import { TopicRuleDestination } from "./topicRuleDestination";
 
 const _module = {
@@ -34,18 +24,8 @@ const _module = {
                 return new Authorizer(name, <any>undefined, { urn })
             case "aws-native:IoT:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "aws-native:IoT:Policy":
-                return new Policy(name, <any>undefined, { urn })
-            case "aws-native:IoT:PolicyPrincipalAttachment":
-                return new PolicyPrincipalAttachment(name, <any>undefined, { urn })
             case "aws-native:IoT:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
-            case "aws-native:IoT:Thing":
-                return new Thing(name, <any>undefined, { urn })
-            case "aws-native:IoT:ThingPrincipalAttachment":
-                return new ThingPrincipalAttachment(name, <any>undefined, { urn })
-            case "aws-native:IoT:TopicRule":
-                return new TopicRule(name, <any>undefined, { urn })
             case "aws-native:IoT:TopicRuleDestination":
                 return new TopicRuleDestination(name, <any>undefined, { urn })
             default:

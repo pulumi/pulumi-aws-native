@@ -6,19 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./configurationSet";
-export * from "./configurationSetEventDestination";
-export * from "./receiptFilter";
-export * from "./receiptRule";
-export * from "./receiptRuleSet";
-export * from "./template";
 
 // Import resources to register:
 import { ConfigurationSet } from "./configurationSet";
-import { ConfigurationSetEventDestination } from "./configurationSetEventDestination";
-import { ReceiptFilter } from "./receiptFilter";
-import { ReceiptRule } from "./receiptRule";
-import { ReceiptRuleSet } from "./receiptRuleSet";
-import { Template } from "./template";
 
 const _module = {
     version: utilities.getVersion(),
@@ -26,16 +16,6 @@ const _module = {
         switch (type) {
             case "aws-native:SES:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
-            case "aws-native:SES:ConfigurationSetEventDestination":
-                return new ConfigurationSetEventDestination(name, <any>undefined, { urn })
-            case "aws-native:SES:ReceiptFilter":
-                return new ReceiptFilter(name, <any>undefined, { urn })
-            case "aws-native:SES:ReceiptRule":
-                return new ReceiptRule(name, <any>undefined, { urn })
-            case "aws-native:SES:ReceiptRuleSet":
-                return new ReceiptRuleSet(name, <any>undefined, { urn })
-            case "aws-native:SES:Template":
-                return new Template(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -6,15 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./archive";
-export * from "./eventBus";
-export * from "./eventBusPolicy";
-export * from "./rule";
 
 // Import resources to register:
 import { Archive } from "./archive";
-import { EventBus } from "./eventBus";
-import { EventBusPolicy } from "./eventBusPolicy";
-import { Rule } from "./rule";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,12 +16,6 @@ const _module = {
         switch (type) {
             case "aws-native:Events:Archive":
                 return new Archive(name, <any>undefined, { urn })
-            case "aws-native:Events:EventBus":
-                return new EventBus(name, <any>undefined, { urn })
-            case "aws-native:Events:EventBusPolicy":
-                return new EventBusPolicy(name, <any>undefined, { urn })
-            case "aws-native:Events:Rule":
-                return new Rule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

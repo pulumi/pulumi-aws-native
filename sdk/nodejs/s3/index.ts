@@ -6,14 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./accessPoint";
-export * from "./bucket";
-export * from "./bucketPolicy";
 export * from "./storageLens";
 
 // Import resources to register:
 import { AccessPoint } from "./accessPoint";
-import { Bucket } from "./bucket";
-import { BucketPolicy } from "./bucketPolicy";
 import { StorageLens } from "./storageLens";
 
 const _module = {
@@ -22,10 +18,6 @@ const _module = {
         switch (type) {
             case "aws-native:S3:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
-            case "aws-native:S3:Bucket":
-                return new Bucket(name, <any>undefined, { urn })
-            case "aws-native:S3:BucketPolicy":
-                return new BucketPolicy(name, <any>undefined, { urn })
             case "aws-native:S3:StorageLens":
                 return new StorageLens(name, <any>undefined, { urn })
             default:

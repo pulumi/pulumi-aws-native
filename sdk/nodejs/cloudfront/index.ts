@@ -6,23 +6,17 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cachePolicy";
-export * from "./cloudFrontOriginAccessIdentity";
-export * from "./distribution";
 export * from "./keyGroup";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
 export * from "./realtimeLogConfig";
-export * from "./streamingDistribution";
 
 // Import resources to register:
 import { CachePolicy } from "./cachePolicy";
-import { CloudFrontOriginAccessIdentity } from "./cloudFrontOriginAccessIdentity";
-import { Distribution } from "./distribution";
 import { KeyGroup } from "./keyGroup";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
 import { RealtimeLogConfig } from "./realtimeLogConfig";
-import { StreamingDistribution } from "./streamingDistribution";
 
 const _module = {
     version: utilities.getVersion(),
@@ -30,10 +24,6 @@ const _module = {
         switch (type) {
             case "aws-native:CloudFront:CachePolicy":
                 return new CachePolicy(name, <any>undefined, { urn })
-            case "aws-native:CloudFront:CloudFrontOriginAccessIdentity":
-                return new CloudFrontOriginAccessIdentity(name, <any>undefined, { urn })
-            case "aws-native:CloudFront:Distribution":
-                return new Distribution(name, <any>undefined, { urn })
             case "aws-native:CloudFront:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
             case "aws-native:CloudFront:OriginRequestPolicy":
@@ -42,8 +32,6 @@ const _module = {
                 return new PublicKey(name, <any>undefined, { urn })
             case "aws-native:CloudFront:RealtimeLogConfig":
                 return new RealtimeLogConfig(name, <any>undefined, { urn })
-            case "aws-native:CloudFront:StreamingDistribution":
-                return new StreamingDistribution(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -7,14 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./healthCheck";
 export * from "./hostedZone";
-export * from "./recordSet";
-export * from "./recordSetGroup";
 
 // Import resources to register:
 import { HealthCheck } from "./healthCheck";
 import { HostedZone } from "./hostedZone";
-import { RecordSet } from "./recordSet";
-import { RecordSetGroup } from "./recordSetGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,10 +20,6 @@ const _module = {
                 return new HealthCheck(name, <any>undefined, { urn })
             case "aws-native:Route53:HostedZone":
                 return new HostedZone(name, <any>undefined, { urn })
-            case "aws-native:Route53:RecordSet":
-                return new RecordSet(name, <any>undefined, { urn })
-            case "aws-native:Route53:RecordSetGroup":
-                return new RecordSetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

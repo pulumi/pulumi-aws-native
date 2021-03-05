@@ -5,33 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./resolverEndpoint";
 export * from "./resolverQueryLoggingConfig";
 export * from "./resolverQueryLoggingConfigAssociation";
-export * from "./resolverRule";
-export * from "./resolverRuleAssociation";
 
 // Import resources to register:
-import { ResolverEndpoint } from "./resolverEndpoint";
 import { ResolverQueryLoggingConfig } from "./resolverQueryLoggingConfig";
 import { ResolverQueryLoggingConfigAssociation } from "./resolverQueryLoggingConfigAssociation";
-import { ResolverRule } from "./resolverRule";
-import { ResolverRuleAssociation } from "./resolverRuleAssociation";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Route53Resolver:ResolverEndpoint":
-                return new ResolverEndpoint(name, <any>undefined, { urn })
             case "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
                 return new ResolverQueryLoggingConfig(name, <any>undefined, { urn })
             case "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation":
                 return new ResolverQueryLoggingConfigAssociation(name, <any>undefined, { urn })
-            case "aws-native:Route53Resolver:ResolverRule":
-                return new ResolverRule(name, <any>undefined, { urn })
-            case "aws-native:Route53Resolver:ResolverRuleAssociation":
-                return new ResolverRuleAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

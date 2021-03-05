@@ -5,65 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./classifier";
-export * from "./connection";
-export * from "./crawler";
-export * from "./dataCatalogEncryptionSettings";
-export * from "./database";
-export * from "./devEndpoint";
-export * from "./job";
-export * from "./mltransform";
-export * from "./partition";
 export * from "./registry";
 export * from "./schema";
 export * from "./schemaVersion";
 export * from "./schemaVersionMetadata";
-export * from "./securityConfiguration";
-export * from "./table";
-export * from "./trigger";
-export * from "./workflow";
 
 // Import resources to register:
-import { Classifier } from "./classifier";
-import { Connection } from "./connection";
-import { Crawler } from "./crawler";
-import { DataCatalogEncryptionSettings } from "./dataCatalogEncryptionSettings";
-import { Database } from "./database";
-import { DevEndpoint } from "./devEndpoint";
-import { Job } from "./job";
-import { MLTransform } from "./mltransform";
-import { Partition } from "./partition";
 import { Registry } from "./registry";
 import { Schema } from "./schema";
 import { SchemaVersion } from "./schemaVersion";
 import { SchemaVersionMetadata } from "./schemaVersionMetadata";
-import { SecurityConfiguration } from "./securityConfiguration";
-import { Table } from "./table";
-import { Trigger } from "./trigger";
-import { Workflow } from "./workflow";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Glue:Classifier":
-                return new Classifier(name, <any>undefined, { urn })
-            case "aws-native:Glue:Connection":
-                return new Connection(name, <any>undefined, { urn })
-            case "aws-native:Glue:Crawler":
-                return new Crawler(name, <any>undefined, { urn })
-            case "aws-native:Glue:DataCatalogEncryptionSettings":
-                return new DataCatalogEncryptionSettings(name, <any>undefined, { urn })
-            case "aws-native:Glue:Database":
-                return new Database(name, <any>undefined, { urn })
-            case "aws-native:Glue:DevEndpoint":
-                return new DevEndpoint(name, <any>undefined, { urn })
-            case "aws-native:Glue:Job":
-                return new Job(name, <any>undefined, { urn })
-            case "aws-native:Glue:MLTransform":
-                return new MLTransform(name, <any>undefined, { urn })
-            case "aws-native:Glue:Partition":
-                return new Partition(name, <any>undefined, { urn })
             case "aws-native:Glue:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "aws-native:Glue:Schema":
@@ -72,14 +28,6 @@ const _module = {
                 return new SchemaVersion(name, <any>undefined, { urn })
             case "aws-native:Glue:SchemaVersionMetadata":
                 return new SchemaVersionMetadata(name, <any>undefined, { urn })
-            case "aws-native:Glue:SecurityConfiguration":
-                return new SecurityConfiguration(name, <any>undefined, { urn })
-            case "aws-native:Glue:Table":
-                return new Table(name, <any>undefined, { urn })
-            case "aws-native:Glue:Trigger":
-                return new Trigger(name, <any>undefined, { urn })
-            case "aws-native:Glue:Workflow":
-                return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
