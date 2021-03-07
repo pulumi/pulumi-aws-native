@@ -21,8 +21,6 @@ __all__ = [
     'FileSystemElasticFileSystemTag',
     'FileSystemLifecyclePolicy',
     'FileSystemProperties',
-    'MountTargetAttributes',
-    'MountTargetProperties',
 ]
 
 @pulumi.output_type
@@ -516,80 +514,6 @@ class FileSystemProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
         """
         return pulumi.get(self, "throughput_mode")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MountTargetAttributes(dict):
-    def __init__(__self__, *,
-                 ip_address: str):
-        pulumi.set(__self__, "ip_address", ip_address)
-
-    @property
-    @pulumi.getter(name="IpAddress")
-    def ip_address(self) -> str:
-        return pulumi.get(self, "ip_address")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MountTargetProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
-    """
-    def __init__(__self__, *,
-                 file_system_id: str,
-                 security_groups: Sequence[str],
-                 subnet_id: str,
-                 ip_address: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
-        :param str file_system_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-        :param Sequence[str] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
-        :param str subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-        :param str ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
-        """
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
-
-    @property
-    @pulumi.getter(name="FileSystemId")
-    def file_system_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @property
-    @pulumi.getter(name="SecurityGroups")
-    def security_groups(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
-        """
-        return pulumi.get(self, "security_groups")
-
-    @property
-    @pulumi.getter(name="SubnetId")
-    def subnet_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="IpAddress")
-    def ip_address(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
-        """
-        return pulumi.get(self, "ip_address")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

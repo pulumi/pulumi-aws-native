@@ -4,9 +4,6 @@
 
 # Export this package's modules as members:
 from .archive import *
-from .event_bus import *
-from .event_bus_policy import *
-from .rule import *
 from ._inputs import *
 from . import outputs
 
@@ -24,12 +21,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:Events:Archive":
                 return Archive(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Events:EventBus":
-                return EventBus(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Events:EventBusPolicy":
-                return EventBusPolicy(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Events:Rule":
-                return Rule(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

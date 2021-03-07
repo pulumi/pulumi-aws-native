@@ -4,13 +4,7 @@
 
 # Export this package's modules as members:
 from .alias import *
-from .build import *
-from .fleet import *
 from .game_server_group import *
-from .game_session_queue import *
-from .matchmaking_configuration import *
-from .matchmaking_rule_set import *
-from .script import *
 from ._inputs import *
 from . import outputs
 
@@ -28,20 +22,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:GameLift:Alias":
                 return Alias(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:GameLift:Build":
-                return Build(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:GameLift:Fleet":
-                return Fleet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:GameLift:GameServerGroup":
                 return GameServerGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:GameLift:GameSessionQueue":
-                return GameSessionQueue(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:GameLift:MatchmakingConfiguration":
-                return MatchmakingConfiguration(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:GameLift:MatchmakingRuleSet":
-                return MatchmakingRuleSet(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:GameLift:Script":
-                return Script(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

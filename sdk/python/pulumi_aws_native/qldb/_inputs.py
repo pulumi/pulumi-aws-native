@@ -10,81 +10,9 @@ from .. import _utilities, _tables
 from .. import _inputs as _root_inputs
 
 __all__ = [
-    'LedgerPropertiesArgs',
     'StreamKinesisConfigurationArgs',
     'StreamPropertiesArgs',
 ]
-
-@pulumi.input_type
-class LedgerPropertiesArgs:
-    def __init__(__self__, *,
-                 permissions_mode: pulumi.Input[str],
-                 deletion_protection: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html
-        :param pulumi.Input[str] permissions_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-permissionsmode
-        :param pulumi.Input[bool] deletion_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-deletionprotection
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-tags
-        """
-        pulumi.set(__self__, "permissions_mode", permissions_mode)
-        if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="PermissionsMode")
-    def permissions_mode(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-permissionsmode
-        """
-        return pulumi.get(self, "permissions_mode")
-
-    @permissions_mode.setter
-    def permissions_mode(self, value: pulumi.Input[str]):
-        pulumi.set(self, "permissions_mode", value)
-
-    @property
-    @pulumi.getter(name="DeletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-deletionprotection
-        """
-        return pulumi.get(self, "deletion_protection")
-
-    @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "deletion_protection", value)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.input_type
 class StreamKinesisConfigurationArgs:

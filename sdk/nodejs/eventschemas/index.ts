@@ -5,29 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./discoverer";
-export * from "./registry";
 export * from "./registryPolicy";
-export * from "./schema";
 
 // Import resources to register:
-import { Discoverer } from "./discoverer";
-import { Registry } from "./registry";
 import { RegistryPolicy } from "./registryPolicy";
-import { Schema } from "./schema";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:EventSchemas:Discoverer":
-                return new Discoverer(name, <any>undefined, { urn })
-            case "aws-native:EventSchemas:Registry":
-                return new Registry(name, <any>undefined, { urn })
             case "aws-native:EventSchemas:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
-            case "aws-native:EventSchemas:Schema":
-                return new Schema(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

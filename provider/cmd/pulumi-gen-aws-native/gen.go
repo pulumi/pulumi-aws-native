@@ -236,7 +236,7 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, name string, sp
 	}
 }
 
-func gatherPackage(schema schema.CloudFormationSchema) pschema.PackageSpec {
+func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []string) pschema.PackageSpec {
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
@@ -341,6 +341,8 @@ func gatherPackage(schema schema.CloudFormationSchema) pschema.PackageSpec {
 		p.Types[typeToken(name)] = spec
 	}
 
+	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
+
 	// Gather nested property types.
 	for name, spec := range schema.PropertyTypes {
 		resourceScope := ""
@@ -348,12 +350,16 @@ func gatherPackage(schema schema.CloudFormationSchema) pschema.PackageSpec {
 		if len(components) > 1 {
 			resourceScope = components[0]
 		}
-		p.Types[typeToken(name)] = ctx.gatherPropertyType(resourceScope, spec)
+		if supportedResources.Has(resourceScope) {
+			p.Types[typeToken(name)] = ctx.gatherPropertyType(resourceScope, spec)
+		}
 	}
 
 	// Gather resource types.
 	for name, spec := range schema.ResourceTypes {
-		ctx.gatherResourceType(&p, name, spec)
+		if supportedResources.Has(name) {
+			ctx.gatherResourceType(&p, name, spec)
+		}
 	}
 
 	// Apply manual overrides.

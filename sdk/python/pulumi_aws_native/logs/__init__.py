@@ -3,11 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .destination import *
 from .log_group import *
-from .log_stream import *
-from .metric_filter import *
-from .subscription_filter import *
 from ._inputs import *
 from . import outputs
 
@@ -23,16 +19,8 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:Logs:Destination":
-                return Destination(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Logs:LogGroup":
+            if typ == "aws-native:Logs:LogGroup":
                 return LogGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Logs:LogStream":
-                return LogStream(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Logs:MetricFilter":
-                return MetricFilter(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Logs:SubscriptionFilter":
-                return SubscriptionFilter(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

@@ -3,23 +3,16 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .code_repository import *
 from .data_quality_job_definition import *
 from .device import *
 from .device_fleet import *
-from .endpoint import *
-from .endpoint_config import *
-from .model import *
 from .model_bias_job_definition import *
 from .model_explainability_job_definition import *
 from .model_package_group import *
 from .model_quality_job_definition import *
 from .monitoring_schedule import *
-from .notebook_instance import *
-from .notebook_instance_lifecycle_config import *
 from .pipeline import *
 from .project import *
-from .workteam import *
 from ._inputs import *
 from . import outputs
 
@@ -35,20 +28,12 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:SageMaker:CodeRepository":
-                return CodeRepository(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SageMaker:DataQualityJobDefinition":
+            if typ == "aws-native:SageMaker:DataQualityJobDefinition":
                 return DataQualityJobDefinition(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:SageMaker:Device":
                 return Device(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:SageMaker:DeviceFleet":
                 return DeviceFleet(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SageMaker:Endpoint":
-                return Endpoint(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SageMaker:EndpointConfig":
-                return EndpointConfig(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SageMaker:Model":
-                return Model(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:SageMaker:ModelBiasJobDefinition":
                 return ModelBiasJobDefinition(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:SageMaker:ModelExplainabilityJobDefinition":
@@ -59,16 +44,10 @@ def _register_module():
                 return ModelQualityJobDefinition(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:SageMaker:MonitoringSchedule":
                 return MonitoringSchedule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SageMaker:NotebookInstance":
-                return NotebookInstance(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SageMaker:NotebookInstanceLifecycleConfig":
-                return NotebookInstanceLifecycleConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:SageMaker:Pipeline":
                 return Pipeline(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:SageMaker:Project":
                 return Project(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SageMaker:Workteam":
-                return Workteam(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

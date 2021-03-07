@@ -4,7 +4,6 @@
 
 # Export this package's modules as members:
 from .backup_plan import *
-from .backup_selection import *
 from .backup_vault import *
 from ._inputs import *
 from . import outputs
@@ -23,8 +22,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:Backup:BackupPlan":
                 return BackupPlan(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Backup:BackupSelection":
-                return BackupSelection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:Backup:BackupVault":
                 return BackupVault(name, pulumi.ResourceOptions(urn=urn))
             else:

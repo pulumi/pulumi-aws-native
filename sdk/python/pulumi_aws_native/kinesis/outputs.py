@@ -12,8 +12,6 @@ from .. import outputs as _root_outputs
 
 __all__ = [
     'StreamAttributes',
-    'StreamConsumerAttributes',
-    'StreamConsumerProperties',
     'StreamProperties',
     'StreamStreamEncryption',
 ]
@@ -28,85 +26,6 @@ class StreamAttributes(dict):
     @pulumi.getter(name="Arn")
     def arn(self) -> str:
         return pulumi.get(self, "arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StreamConsumerAttributes(dict):
-    def __init__(__self__, *,
-                 consumer_arn: str,
-                 consumer_creation_timestamp: str,
-                 consumer_name: str,
-                 consumer_status: str,
-                 stream_arn: str):
-        pulumi.set(__self__, "consumer_arn", consumer_arn)
-        pulumi.set(__self__, "consumer_creation_timestamp", consumer_creation_timestamp)
-        pulumi.set(__self__, "consumer_name", consumer_name)
-        pulumi.set(__self__, "consumer_status", consumer_status)
-        pulumi.set(__self__, "stream_arn", stream_arn)
-
-    @property
-    @pulumi.getter(name="ConsumerARN")
-    def consumer_arn(self) -> str:
-        return pulumi.get(self, "consumer_arn")
-
-    @property
-    @pulumi.getter(name="ConsumerCreationTimestamp")
-    def consumer_creation_timestamp(self) -> str:
-        return pulumi.get(self, "consumer_creation_timestamp")
-
-    @property
-    @pulumi.getter(name="ConsumerName")
-    def consumer_name(self) -> str:
-        return pulumi.get(self, "consumer_name")
-
-    @property
-    @pulumi.getter(name="ConsumerStatus")
-    def consumer_status(self) -> str:
-        return pulumi.get(self, "consumer_status")
-
-    @property
-    @pulumi.getter(name="StreamARN")
-    def stream_arn(self) -> str:
-        return pulumi.get(self, "stream_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StreamConsumerProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
-    """
-    def __init__(__self__, *,
-                 consumer_name: str,
-                 stream_arn: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
-        :param str consumer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-consumername
-        :param str stream_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-streamarn
-        """
-        pulumi.set(__self__, "consumer_name", consumer_name)
-        pulumi.set(__self__, "stream_arn", stream_arn)
-
-    @property
-    @pulumi.getter(name="ConsumerName")
-    def consumer_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-consumername
-        """
-        return pulumi.get(self, "consumer_name")
-
-    @property
-    @pulumi.getter(name="StreamARN")
-    def stream_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-streamarn
-        """
-        return pulumi.get(self, "stream_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

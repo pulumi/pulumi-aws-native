@@ -18,7 +18,6 @@ __all__ = [
     'FileSystemElasticFileSystemTagArgs',
     'FileSystemLifecyclePolicyArgs',
     'FileSystemPropertiesArgs',
-    'MountTargetPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -529,74 +528,5 @@ class FileSystemPropertiesArgs:
     @throughput_mode.setter
     def throughput_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "throughput_mode", value)
-
-
-@pulumi.input_type
-class MountTargetPropertiesArgs:
-    def __init__(__self__, *,
-                 file_system_id: pulumi.Input[str],
-                 security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 subnet_id: pulumi.Input[str],
-                 ip_address: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
-        :param pulumi.Input[str] file_system_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-        :param pulumi.Input[str] ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
-        """
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
-
-    @property
-    @pulumi.getter(name="FileSystemId")
-    def file_system_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @file_system_id.setter
-    def file_system_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_system_id", value)
-
-    @property
-    @pulumi.getter(name="SecurityGroups")
-    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
-        """
-        return pulumi.get(self, "security_groups")
-
-    @security_groups.setter
-    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "security_groups", value)
-
-    @property
-    @pulumi.getter(name="SubnetId")
-    def subnet_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
-    @pulumi.getter(name="IpAddress")
-    def ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
-        """
-        return pulumi.get(self, "ip_address")
-
-    @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip_address", value)
 
 

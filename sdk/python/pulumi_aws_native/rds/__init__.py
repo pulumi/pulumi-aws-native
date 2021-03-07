@@ -3,18 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .db_cluster import *
-from .db_cluster_parameter_group import *
-from .db_instance import *
-from .db_parameter_group import *
 from .db_proxy import *
 from .db_proxy_target_group import *
-from .db_security_group import *
-from .db_security_group_ingress import *
-from .db_subnet_group import *
-from .event_subscription import *
 from .global_cluster import *
-from .option_group import *
 from ._inputs import *
 from . import outputs
 
@@ -30,30 +21,12 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:RDS:DBCluster":
-                return DBCluster(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:DBClusterParameterGroup":
-                return DBClusterParameterGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:DBInstance":
-                return DBInstance(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:DBParameterGroup":
-                return DBParameterGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:DBProxy":
+            if typ == "aws-native:RDS:DBProxy":
                 return DBProxy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:RDS:DBProxyTargetGroup":
                 return DBProxyTargetGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:DBSecurityGroup":
-                return DBSecurityGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:DBSecurityGroupIngress":
-                return DBSecurityGroupIngress(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:DBSubnetGroup":
-                return DBSubnetGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:EventSubscription":
-                return EventSubscription(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:RDS:GlobalCluster":
                 return GlobalCluster(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:RDS:OptionGroup":
-                return OptionGroup(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

@@ -4,7 +4,6 @@
 
 # Export this package's modules as members:
 from .stream import *
-from .stream_consumer import *
 from ._inputs import *
 from . import outputs
 
@@ -22,8 +21,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:Kinesis:Stream":
                 return Stream(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Kinesis:StreamConsumer":
-                return StreamConsumer(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

@@ -3,11 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .alarm import *
-from .anomaly_detector import *
 from .composite_alarm import *
-from .dashboard import *
-from .insight_rule import *
 from .metric_stream import *
 from ._inputs import *
 from . import outputs
@@ -24,16 +20,8 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:CloudWatch:Alarm":
-                return Alarm(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudWatch:AnomalyDetector":
-                return AnomalyDetector(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudWatch:CompositeAlarm":
+            if typ == "aws-native:CloudWatch:CompositeAlarm":
                 return CompositeAlarm(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudWatch:Dashboard":
-                return Dashboard(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:CloudWatch:InsightRule":
-                return InsightRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:CloudWatch:MetricStream":
                 return MetricStream(name, pulumi.ResourceOptions(urn=urn))
             else:

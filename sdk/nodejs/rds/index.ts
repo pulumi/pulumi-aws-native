@@ -5,61 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dbcluster";
-export * from "./dbclusterParameterGroup";
-export * from "./dbinstance";
-export * from "./dbparameterGroup";
 export * from "./dbproxy";
 export * from "./dbproxyTargetGroup";
-export * from "./dbsecurityGroup";
-export * from "./dbsecurityGroupIngress";
-export * from "./dbsubnetGroup";
-export * from "./eventSubscription";
 export * from "./globalCluster";
-export * from "./optionGroup";
 
 // Import resources to register:
-import { DBCluster } from "./dbcluster";
-import { DBClusterParameterGroup } from "./dbclusterParameterGroup";
-import { DBInstance } from "./dbinstance";
-import { DBParameterGroup } from "./dbparameterGroup";
 import { DBProxy } from "./dbproxy";
 import { DBProxyTargetGroup } from "./dbproxyTargetGroup";
-import { DBSecurityGroup } from "./dbsecurityGroup";
-import { DBSecurityGroupIngress } from "./dbsecurityGroupIngress";
-import { DBSubnetGroup } from "./dbsubnetGroup";
-import { EventSubscription } from "./eventSubscription";
 import { GlobalCluster } from "./globalCluster";
-import { OptionGroup } from "./optionGroup";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:RDS:DBCluster":
-                return new DBCluster(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBClusterParameterGroup":
-                return new DBClusterParameterGroup(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBInstance":
-                return new DBInstance(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBParameterGroup":
-                return new DBParameterGroup(name, <any>undefined, { urn })
             case "aws-native:RDS:DBProxy":
                 return new DBProxy(name, <any>undefined, { urn })
             case "aws-native:RDS:DBProxyTargetGroup":
                 return new DBProxyTargetGroup(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBSecurityGroup":
-                return new DBSecurityGroup(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBSecurityGroupIngress":
-                return new DBSecurityGroupIngress(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBSubnetGroup":
-                return new DBSubnetGroup(name, <any>undefined, { urn })
-            case "aws-native:RDS:EventSubscription":
-                return new EventSubscription(name, <any>undefined, { urn })
             case "aws-native:RDS:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
-            case "aws-native:RDS:OptionGroup":
-                return new OptionGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

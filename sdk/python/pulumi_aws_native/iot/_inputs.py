@@ -13,14 +13,9 @@ __all__ = [
     'AuthorizerTagsArgs',
     'AuthorizerTokenSigningPublicKeysArgs',
     'CertificatePropertiesArgs',
-    'PolicyPrincipalAttachmentPropertiesArgs',
-    'PolicyPropertiesArgs',
     'ProvisioningTemplatePropertiesArgs',
     'ProvisioningTemplateProvisioningHookArgs',
     'ProvisioningTemplateTagsArgs',
-    'ThingAttributePayloadArgs',
-    'ThingPrincipalAttachmentPropertiesArgs',
-    'ThingPropertiesArgs',
     'TopicRuleActionArgs',
     'TopicRuleAssetPropertyTimestampArgs',
     'TopicRuleAssetPropertyValueArgs',
@@ -294,83 +289,6 @@ class CertificatePropertiesArgs:
 
 
 @pulumi.input_type
-class PolicyPrincipalAttachmentPropertiesArgs:
-    def __init__(__self__, *,
-                 policy_name: pulumi.Input[str],
-                 principal: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
-        :param pulumi.Input[str] policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-policyname
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-principal
-        """
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "principal", principal)
-
-    @property
-    @pulumi.getter(name="PolicyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-policyname
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
-
-    @property
-    @pulumi.getter(name="Principal")
-    def principal(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-principal
-        """
-        return pulumi.get(self, "principal")
-
-    @principal.setter
-    def principal(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal", value)
-
-
-@pulumi.input_type
-class PolicyPropertiesArgs:
-    def __init__(__self__, *,
-                 policy_document: pulumi.Input[Union[Any, str]],
-                 policy_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
-        :param pulumi.Input[Union[Any, str]] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policydocument
-        :param pulumi.Input[str] policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policyname
-        """
-        pulumi.set(__self__, "policy_document", policy_document)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
-
-    @property
-    @pulumi.getter(name="PolicyDocument")
-    def policy_document(self) -> pulumi.Input[Union[Any, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policydocument
-        """
-        return pulumi.get(self, "policy_document")
-
-    @policy_document.setter
-    def policy_document(self, value: pulumi.Input[Union[Any, str]]):
-        pulumi.set(self, "policy_document", value)
-
-    @property
-    @pulumi.getter(name="PolicyName")
-    def policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policyname
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_name", value)
-
-
-@pulumi.input_type
 class ProvisioningTemplatePropertiesArgs:
     def __init__(__self__, *,
                  provisioning_role_arn: pulumi.Input[str],
@@ -550,108 +468,6 @@ class ProvisioningTemplateTagsArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class ThingAttributePayloadArgs:
-    def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
-        """
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
-
-    @property
-    @pulumi.getter(name="Attributes")
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
-        """
-        return pulumi.get(self, "attributes")
-
-    @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "attributes", value)
-
-
-@pulumi.input_type
-class ThingPrincipalAttachmentPropertiesArgs:
-    def __init__(__self__, *,
-                 principal: pulumi.Input[str],
-                 thing_name: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
-        :param pulumi.Input[str] thing_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
-        """
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "thing_name", thing_name)
-
-    @property
-    @pulumi.getter(name="Principal")
-    def principal(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
-        """
-        return pulumi.get(self, "principal")
-
-    @principal.setter
-    def principal(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal", value)
-
-    @property
-    @pulumi.getter(name="ThingName")
-    def thing_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
-        """
-        return pulumi.get(self, "thing_name")
-
-    @thing_name.setter
-    def thing_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "thing_name", value)
-
-
-@pulumi.input_type
-class ThingPropertiesArgs:
-    def __init__(__self__, *,
-                 attribute_payload: Optional[pulumi.Input['ThingAttributePayloadArgs']] = None,
-                 thing_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
-        :param pulumi.Input['ThingAttributePayloadArgs'] attribute_payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload
-        :param pulumi.Input[str] thing_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname
-        """
-        if attribute_payload is not None:
-            pulumi.set(__self__, "attribute_payload", attribute_payload)
-        if thing_name is not None:
-            pulumi.set(__self__, "thing_name", thing_name)
-
-    @property
-    @pulumi.getter(name="AttributePayload")
-    def attribute_payload(self) -> Optional[pulumi.Input['ThingAttributePayloadArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload
-        """
-        return pulumi.get(self, "attribute_payload")
-
-    @attribute_payload.setter
-    def attribute_payload(self, value: Optional[pulumi.Input['ThingAttributePayloadArgs']]):
-        pulumi.set(self, "attribute_payload", value)
-
-    @property
-    @pulumi.getter(name="ThingName")
-    def thing_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname
-        """
-        return pulumi.get(self, "thing_name")
-
-    @thing_name.setter
-    def thing_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "thing_name", value)
 
 
 @pulumi.input_type

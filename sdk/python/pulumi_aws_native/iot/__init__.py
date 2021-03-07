@@ -5,11 +5,7 @@
 # Export this package's modules as members:
 from .authorizer import *
 from .certificate import *
-from .policy import *
-from .policy_principal_attachment import *
 from .provisioning_template import *
-from .thing import *
-from .thing_principal_attachment import *
 from .topic_rule import *
 from .topic_rule_destination import *
 from ._inputs import *
@@ -31,16 +27,8 @@ def _register_module():
                 return Authorizer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:IoT:Certificate":
                 return Certificate(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:IoT:Policy":
-                return Policy(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:IoT:PolicyPrincipalAttachment":
-                return PolicyPrincipalAttachment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:IoT:ProvisioningTemplate":
                 return ProvisioningTemplate(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:IoT:Thing":
-                return Thing(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:IoT:ThingPrincipalAttachment":
-                return ThingPrincipalAttachment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:IoT:TopicRule":
                 return TopicRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:IoT:TopicRuleDestination":

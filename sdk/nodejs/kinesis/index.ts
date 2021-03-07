@@ -6,11 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./stream";
-export * from "./streamConsumer";
 
 // Import resources to register:
 import { Stream } from "./stream";
-import { StreamConsumer } from "./streamConsumer";
 
 const _module = {
     version: utilities.getVersion(),
@@ -18,8 +16,6 @@ const _module = {
         switch (type) {
             case "aws-native:Kinesis:Stream":
                 return new Stream(name, <any>undefined, { urn })
-            case "aws-native:Kinesis:StreamConsumer":
-                return new StreamConsumer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

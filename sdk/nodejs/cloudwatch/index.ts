@@ -5,35 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alarm";
-export * from "./anomalyDetector";
 export * from "./compositeAlarm";
-export * from "./dashboard";
-export * from "./insightRule";
 export * from "./metricStream";
 
 // Import resources to register:
-import { Alarm } from "./alarm";
-import { AnomalyDetector } from "./anomalyDetector";
 import { CompositeAlarm } from "./compositeAlarm";
-import { Dashboard } from "./dashboard";
-import { InsightRule } from "./insightRule";
 import { MetricStream } from "./metricStream";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:CloudWatch:Alarm":
-                return new Alarm(name, <any>undefined, { urn })
-            case "aws-native:CloudWatch:AnomalyDetector":
-                return new AnomalyDetector(name, <any>undefined, { urn })
             case "aws-native:CloudWatch:CompositeAlarm":
                 return new CompositeAlarm(name, <any>undefined, { urn })
-            case "aws-native:CloudWatch:Dashboard":
-                return new Dashboard(name, <any>undefined, { urn })
-            case "aws-native:CloudWatch:InsightRule":
-                return new InsightRule(name, <any>undefined, { urn })
             case "aws-native:CloudWatch:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
             default:

@@ -5,45 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./customResource";
-export * from "./macro";
 export * from "./moduleDefaultVersion";
 export * from "./moduleVersion";
-export * from "./stack";
 export * from "./stackSet";
-export * from "./waitCondition";
-export * from "./waitConditionHandle";
 
 // Import resources to register:
-import { CustomResource } from "./customResource";
-import { Macro } from "./macro";
 import { ModuleDefaultVersion } from "./moduleDefaultVersion";
 import { ModuleVersion } from "./moduleVersion";
-import { Stack } from "./stack";
 import { StackSet } from "./stackSet";
-import { WaitCondition } from "./waitCondition";
-import { WaitConditionHandle } from "./waitConditionHandle";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:CloudFormation:CustomResource":
-                return new CustomResource(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:Macro":
-                return new Macro(name, <any>undefined, { urn })
             case "aws-native:CloudFormation:ModuleDefaultVersion":
                 return new ModuleDefaultVersion(name, <any>undefined, { urn })
             case "aws-native:CloudFormation:ModuleVersion":
                 return new ModuleVersion(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:Stack":
-                return new Stack(name, <any>undefined, { urn })
             case "aws-native:CloudFormation:StackSet":
                 return new StackSet(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:WaitCondition":
-                return new WaitCondition(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:WaitConditionHandle":
-                return new WaitConditionHandle(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

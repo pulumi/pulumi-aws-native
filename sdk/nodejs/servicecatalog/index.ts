@@ -5,69 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./acceptedPortfolioShare";
-export * from "./cloudFormationProduct";
 export * from "./cloudFormationProvisionedProduct";
-export * from "./launchNotificationConstraint";
-export * from "./launchRoleConstraint";
-export * from "./launchTemplateConstraint";
-export * from "./portfolio";
-export * from "./portfolioPrincipalAssociation";
-export * from "./portfolioProductAssociation";
-export * from "./portfolioShare";
-export * from "./resourceUpdateConstraint";
-export * from "./stackSetConstraint";
-export * from "./tagOption";
-export * from "./tagOptionAssociation";
 
 // Import resources to register:
-import { AcceptedPortfolioShare } from "./acceptedPortfolioShare";
-import { CloudFormationProduct } from "./cloudFormationProduct";
 import { CloudFormationProvisionedProduct } from "./cloudFormationProvisionedProduct";
-import { LaunchNotificationConstraint } from "./launchNotificationConstraint";
-import { LaunchRoleConstraint } from "./launchRoleConstraint";
-import { LaunchTemplateConstraint } from "./launchTemplateConstraint";
-import { Portfolio } from "./portfolio";
-import { PortfolioPrincipalAssociation } from "./portfolioPrincipalAssociation";
-import { PortfolioProductAssociation } from "./portfolioProductAssociation";
-import { PortfolioShare } from "./portfolioShare";
-import { ResourceUpdateConstraint } from "./resourceUpdateConstraint";
-import { StackSetConstraint } from "./stackSetConstraint";
-import { TagOption } from "./tagOption";
-import { TagOptionAssociation } from "./tagOptionAssociation";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ServiceCatalog:AcceptedPortfolioShare":
-                return new AcceptedPortfolioShare(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:CloudFormationProduct":
-                return new CloudFormationProduct(name, <any>undefined, { urn })
             case "aws-native:ServiceCatalog:CloudFormationProvisionedProduct":
                 return new CloudFormationProvisionedProduct(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:LaunchNotificationConstraint":
-                return new LaunchNotificationConstraint(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:LaunchRoleConstraint":
-                return new LaunchRoleConstraint(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:LaunchTemplateConstraint":
-                return new LaunchTemplateConstraint(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:Portfolio":
-                return new Portfolio(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:PortfolioPrincipalAssociation":
-                return new PortfolioPrincipalAssociation(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:PortfolioProductAssociation":
-                return new PortfolioProductAssociation(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:PortfolioShare":
-                return new PortfolioShare(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:ResourceUpdateConstraint":
-                return new ResourceUpdateConstraint(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:StackSetConstraint":
-                return new StackSetConstraint(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:TagOption":
-                return new TagOption(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:TagOptionAssociation":
-                return new TagOptionAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

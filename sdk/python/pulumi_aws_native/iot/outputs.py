@@ -16,19 +16,10 @@ __all__ = [
     'AuthorizerTokenSigningPublicKeys',
     'CertificateAttributes',
     'CertificateProperties',
-    'PolicyAttributes',
-    'PolicyPrincipalAttachmentAttributes',
-    'PolicyPrincipalAttachmentProperties',
-    'PolicyProperties',
     'ProvisioningTemplateAttributes',
     'ProvisioningTemplateProperties',
     'ProvisioningTemplateProvisioningHook',
     'ProvisioningTemplateTags',
-    'ThingAttributePayload',
-    'ThingAttributes',
-    'ThingPrincipalAttachmentAttributes',
-    'ThingPrincipalAttachmentProperties',
-    'ThingProperties',
     'TopicRuleAction',
     'TopicRuleAssetPropertyTimestamp',
     'TopicRuleAssetPropertyValue',
@@ -313,103 +304,6 @@ class CertificateProperties(dict):
 
 
 @pulumi.output_type
-class PolicyAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str):
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PolicyPrincipalAttachmentAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PolicyPrincipalAttachmentProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
-    """
-    def __init__(__self__, *,
-                 policy_name: str,
-                 principal: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
-        :param str policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-policyname
-        :param str principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-principal
-        """
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "principal", principal)
-
-    @property
-    @pulumi.getter(name="PolicyName")
-    def policy_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-policyname
-        """
-        return pulumi.get(self, "policy_name")
-
-    @property
-    @pulumi.getter(name="Principal")
-    def principal(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html#cfn-iot-policyprincipalattachment-principal
-        """
-        return pulumi.get(self, "principal")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PolicyProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
-    """
-    def __init__(__self__, *,
-                 policy_document: str,
-                 policy_name: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
-        :param Union[Any, str] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policydocument
-        :param str policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policyname
-        """
-        pulumi.set(__self__, "policy_document", policy_document)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
-
-    @property
-    @pulumi.getter(name="PolicyDocument")
-    def policy_document(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policydocument
-        """
-        return pulumi.get(self, "policy_document")
-
-    @property
-    @pulumi.getter(name="PolicyName")
-    def policy_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html#cfn-iot-policy-policyname
-        """
-        return pulumi.get(self, "policy_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ProvisioningTemplateAttributes(dict):
     def __init__(__self__, *,
                  template_arn: str):
@@ -579,124 +473,6 @@ class ProvisioningTemplateTags(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
         """
         return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ThingAttributePayload(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
-    """
-    def __init__(__self__, *,
-                 attributes: Optional[Mapping[str, str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
-        :param Mapping[str, str] attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
-        """
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
-
-    @property
-    @pulumi.getter(name="Attributes")
-    def attributes(self) -> Optional[Mapping[str, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
-        """
-        return pulumi.get(self, "attributes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ThingAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ThingPrincipalAttachmentAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ThingPrincipalAttachmentProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
-    """
-    def __init__(__self__, *,
-                 principal: str,
-                 thing_name: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
-        :param str principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
-        :param str thing_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
-        """
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "thing_name", thing_name)
-
-    @property
-    @pulumi.getter(name="Principal")
-    def principal(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-principal
-        """
-        return pulumi.get(self, "principal")
-
-    @property
-    @pulumi.getter(name="ThingName")
-    def thing_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
-        """
-        return pulumi.get(self, "thing_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ThingProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
-    """
-    def __init__(__self__, *,
-                 attribute_payload: Optional['outputs.ThingAttributePayload'] = None,
-                 thing_name: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
-        :param 'ThingAttributePayloadArgs' attribute_payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload
-        :param str thing_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname
-        """
-        if attribute_payload is not None:
-            pulumi.set(__self__, "attribute_payload", attribute_payload)
-        if thing_name is not None:
-            pulumi.set(__self__, "thing_name", thing_name)
-
-    @property
-    @pulumi.getter(name="AttributePayload")
-    def attribute_payload(self) -> Optional['outputs.ThingAttributePayload']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-attributepayload
-        """
-        return pulumi.get(self, "attribute_payload")
-
-    @property
-    @pulumi.getter(name="ThingName")
-    def thing_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html#cfn-iot-thing-thingname
-        """
-        return pulumi.get(self, "thing_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

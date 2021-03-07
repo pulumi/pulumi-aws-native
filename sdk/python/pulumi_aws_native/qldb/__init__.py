@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .ledger import *
 from .stream import *
 from ._inputs import *
 from . import outputs
@@ -20,9 +19,7 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:QLDB:Ledger":
-                return Ledger(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:QLDB:Stream":
+            if typ == "aws-native:QLDB:Stream":
                 return Stream(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")

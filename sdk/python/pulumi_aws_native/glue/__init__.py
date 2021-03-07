@@ -3,23 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .classifier import *
-from .connection import *
-from .crawler import *
-from .data_catalog_encryption_settings import *
-from .database import *
-from .dev_endpoint import *
-from .job import *
-from .ml_transform import *
-from .partition import *
 from .registry import *
 from .schema import *
 from .schema_version import *
 from .schema_version_metadata import *
-from .security_configuration import *
-from .table import *
-from .trigger import *
-from .workflow import *
 from ._inputs import *
 from . import outputs
 
@@ -35,25 +22,7 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws-native:Glue:Classifier":
-                return Classifier(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Connection":
-                return Connection(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Crawler":
-                return Crawler(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:DataCatalogEncryptionSettings":
-                return DataCatalogEncryptionSettings(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Database":
-                return Database(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:DevEndpoint":
-                return DevEndpoint(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Job":
-                return Job(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:MLTransform":
-                return MLTransform(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Partition":
-                return Partition(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Registry":
+            if typ == "aws-native:Glue:Registry":
                 return Registry(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:Glue:Schema":
                 return Schema(name, pulumi.ResourceOptions(urn=urn))
@@ -61,14 +30,6 @@ def _register_module():
                 return SchemaVersion(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws-native:Glue:SchemaVersionMetadata":
                 return SchemaVersionMetadata(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:SecurityConfiguration":
-                return SecurityConfiguration(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Table":
-                return Table(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Trigger":
-                return Trigger(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:Glue:Workflow":
-                return Workflow(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

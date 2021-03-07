@@ -4,13 +4,6 @@
 
 # Export this package's modules as members:
 from .association import *
-from .document import *
-from .maintenance_window import *
-from .maintenance_window_target import *
-from .maintenance_window_task import *
-from .parameter import *
-from .patch_baseline import *
-from .resource_data_sync import *
 from ._inputs import *
 from . import outputs
 
@@ -28,20 +21,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws-native:SSM:Association":
                 return Association(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SSM:Document":
-                return Document(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SSM:MaintenanceWindow":
-                return MaintenanceWindow(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SSM:MaintenanceWindowTarget":
-                return MaintenanceWindowTarget(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SSM:MaintenanceWindowTask":
-                return MaintenanceWindowTask(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SSM:Parameter":
-                return Parameter(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SSM:PatchBaseline":
-                return PatchBaseline(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "aws-native:SSM:ResourceDataSync":
-                return ResourceDataSync(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
