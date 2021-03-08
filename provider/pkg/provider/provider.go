@@ -23,6 +23,7 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -32,9 +33,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/sts"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
+	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/update"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
@@ -57,28 +58,28 @@ func makeCancellationContext() *cancellationContext {
 
 type cfnProvider struct {
 	host     *provider.HostClient
+	name     string
 	canceler *cancellationContext
 
 	configured   bool
 	version      string
-	stackName    string
 	accountID    string
 	region       string
 	schema       schema.CloudFormationSchema
 	pulumiSchema []byte
 
-	cfn    *cloudformation.CloudFormation
-	ec2    *ec2.EC2
-	ssm    *ssm.SSM
-	update *update.StackUpdate
+	cfn *cloudformation.CloudFormation
+	ec2 *ec2.EC2
+	ssm *ssm.SSM
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
 
-func newAwsNativeProvider(host *provider.HostClient, version string, pulumiSchema []byte) (pulumirpc.ResourceProviderServer, error) {
+func newAwsNativeProvider(host *provider.HostClient, name, version string, pulumiSchema []byte) (pulumirpc.ResourceProviderServer, error) {
 	return &cfnProvider{
 		host:         host,
 		canceler:     makeCancellationContext(),
+		name:         name,
 		version:      version,
 		pulumiSchema: pulumiSchema,
 	}, nil
@@ -95,7 +96,7 @@ func (p *cfnProvider) GetSchema(ctx context.Context, req *pulumirpc.GetSchemaReq
 // CheckConfig validates the configuration for this provider.
 func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckRequest) (*pulumirpc.CheckResponse, error) {
 	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
-		Label:        "CFN.CheckConfig.news",
+		Label:        fmt.Sprintf("%s.CheckConfig.news", p.name),
 		KeepUnknowns: true,
 	})
 	if err != nil {
@@ -135,7 +136,7 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 // DiffConfig diffs the configuration for this provider.
 func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
-	label := fmt.Sprintf("CFN.DiffConfig(%s)", urn)
+	label := fmt.Sprintf("%s.DiffConfig(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
 	olds, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
@@ -161,7 +162,7 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 
 	var diffs, replaces []string
 	for k := range diff.Keys() {
-		diffs, replaces = append(diffs, string(k)), append(replaces, string(k))
+		diffs = append(diffs, string(k))
 	}
 
 	return &pulumirpc.DiffResponse{
@@ -177,11 +178,7 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 	if !ok {
 		return nil, errors.New("missing required property 'region'")
 	}
-	stackName, ok := req.Variables["aws-native:config:stack"]
-	if !ok {
-		return nil, errors.New("missing required property 'stack'")
-	}
-	p.region, p.stackName = region, stackName
+	p.region = region
 
 	sess, err := session.NewSession(&aws.Config{
 		Region: aws.String(p.region),
@@ -203,12 +200,6 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 	}
 	p.schema = *schema
 
-	update, err := update.StartStackUpdate(p.canceler.context, sess, p.stackName)
-	if err != nil {
-		return nil, errors.Errorf("could not start stack updater: %v", err)
-	}
-	p.update = update
-
 	p.configured = true
 
 	return &pulumirpc.ConfigureResponse{
@@ -221,8 +212,6 @@ var functions = map[string]func(*cfnProvider, context.Context, resource.Property
 	"aws-native:index:getAzs":                (*cfnProvider).getAZs,
 	"aws-native:index:getPartition":          (*cfnProvider).getPartition,
 	"aws-native:index:getRegion":             (*cfnProvider).getRegion,
-	"aws-native:index:getStackId":            (*cfnProvider).getStackID,
-	"aws-native:index:getStackName":          (*cfnProvider).getStackName,
 	"aws-native:index:getUrlSuffix":          (*cfnProvider).getURLSuffix,
 	"aws-native:index:cidr":                  (*cfnProvider).cidr,
 	"aws-native:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
@@ -238,7 +227,7 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	tok := req.GetTok()
 
 	inputs, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("CFN.Invoke(%s).inputs", tok),
+		Label:        fmt.Sprintf("%s.Invoke(%s).inputs", p.name, tok),
 		KeepUnknowns: true,
 		KeepSecrets:  true,
 	})
@@ -257,7 +246,7 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	}
 
 	res, err := plugin.MarshalProperties(result, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("CFN.Invoke(%s).outputs", tok),
+		Label:        fmt.Sprintf("%s.Invoke(%s).outputs", p.name, tok),
 		KeepUnknowns: true,
 		KeepSecrets:  true,
 	})
@@ -379,7 +368,7 @@ func validateInputs(sch schema.CloudFormationSchema, resourceType string, inputs
 
 func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*pulumirpc.CheckResponse, error) {
 	urn := resource.URN(req.GetUrn())
-	label := fmt.Sprintf("CFN.Check(%s)", urn)
+	label := fmt.Sprintf("%s.Check(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
 	_, resourceType, err := resourceInfoFromURN(urn)
@@ -433,7 +422,7 @@ func getPropertiesDiff(inputDiff *resource.ObjectDiff) (resource.ValueDiff, bool
 
 func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
-	label := fmt.Sprintf("CFN.Diff(%s)", urn)
+	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
 	_, resourceType, err := resourceInfoFromURN(urn)
@@ -482,7 +471,7 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 
 func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) (*pulumirpc.CreateResponse, error) {
 	urn := resource.URN(req.GetUrn())
-	label := fmt.Sprintf("CFN.Create(%s)", urn)
+	label := fmt.Sprintf("%s.Create(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
 	// Parse inputs
@@ -498,119 +487,40 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	inputs := newInputs.MapRepl(nil, mapReplStripSecrets)
 
-	logicalID, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
-	}
-	if inputID, ok := inputs["logicalId"]; ok {
-		logicalID = inputID.(string)
 	}
 
 	properties, _ := inputs["properties"].(map[string]interface{})
-
-	var options []update.ResourceOption
-	if metadataV, ok := inputs["metadata"]; ok {
-		metadata, _ := metadataV.(map[string]interface{})
-		options = append(options, update.Metadata(metadata))
-	}
-	if creationPolicyV, ok := inputs["creationPolicy"]; ok {
-		creationPolicy, _ := creationPolicyV.(map[string]interface{})
-		options = append(options, update.CreationPolicy(creationPolicy))
-	}
-	if deletionPolicyV, ok := inputs["deletionPolicy"]; ok {
-		deletionPolicy, _ := deletionPolicyV.(string)
-		options = append(options, update.DeletionPolicy(deletionPolicy))
-	}
-	if updatePolicyV, ok := inputs["updatePolicy"]; ok {
-		updatePolicy, _ := updatePolicyV.(map[string]interface{})
-		options = append(options, update.UpdatePolicy(updatePolicy))
-	}
-	if updateReplacePolicyV, ok := inputs["updateReplacePolicy"]; ok {
-		updateReplacePolicy, _ := updateReplacePolicyV.(string)
-		options = append(options, update.UpdateReplacePolicy(updateReplacePolicy))
-	}
-
-	data, err := p.update.CreateResource(p.canceler.context, logicalID, resourceType, properties, options...)
+	desiredState, err := json.Marshal(properties)
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrap(err, "failed to marshal as JSON")
 	}
+	desiredStateStr := string(desiredState)
 
-	newInputs["attributes"] = resource.NewPropertyValue(cleanTopLevelAttributeNames(data.Attributes))
-
-	state, err := plugin.MarshalProperties(newInputs, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.state", label),
-		KeepUnknowns: true,
-		KeepSecrets:  true,
+	clientToken := aws.String(uuid.New().String())
+	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, resourceType, clientToken, desiredStateStr)
+	res, err := p.cfn.CreateResourceWithContext(ctx, &cloudformation.CreateResourceInput{
+		ClientToken:  clientToken,
+		TypeName:     aws.String(resourceType),
+		DesiredState: aws.String(desiredStateStr),
 	})
 	if err != nil {
+		return nil, errors.Wrapf(err, "creating resource")
+	}
+	if err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
 		return nil, err
 	}
 
-	return &pulumirpc.CreateResponse{
-		Id:         data.PhysicalResourceID,
-		Properties: state,
-	}, nil
-}
-
-func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pulumirpc.ReadResponse, error) {
-	urn := resource.URN(req.GetUrn())
-	label := fmt.Sprintf("CFN.Read(%s)", urn)
-	glog.V(9).Infof("%s executing", label)
-
-	physicalResourceID := req.GetId()
-	logicalID, resourceType, err := resourceInfoFromURN(urn)
+	id := aws.StringValue(res.ProgressEvent.Identifier)
+	glog.V(9).Infof("%s.GetResource %q id %q", label, resourceType, id)
+	outputs, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
 		return nil, err
 	}
 
-	// Parse old state
-	oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.properties", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	// If the resource has an explicit logical ID in the state, use it.
-	if stateID, ok := oldState["logicalId"]; ok {
-		logicalID = stateID.StringValue()
-	}
-
-	data, err := p.update.ReadResource(p.canceler.context, logicalID, physicalResourceID, resourceType)
-	if err != nil {
-		return nil, err
-	}
-
-	// This resource may have disappeared.
-	if data.PhysicalResourceID == "" {
-		return &pulumirpc.ReadResponse{}, nil
-	}
-
-	stateMap := map[string]interface{}{}
-	if _, ok := oldState["logicalId"]; ok {
-		stateMap["logicalId"] = logicalID
-	}
-	if data.Metadata != nil {
-		stateMap["metadata"] = data.Metadata
-	}
-	if data.Properties != nil {
-		stateMap["properties"] = data.Properties
-	}
-	if data.CreationPolicy != nil {
-		stateMap["creationPolicy"] = data.CreationPolicy
-	}
-	stateMap["deletionPolicy"] = data.DeletionPolicy
-	if data.UpdatePolicy != nil {
-		stateMap["updatePolicy"] = data.UpdatePolicy
-	}
-	stateMap["updateReplacePolicy"] = data.UpdateReplacePolicy
-	stateMap["attributes"] = cleanTopLevelAttributeNames(data.Attributes)
-
-	// TODO: annotate secrets
-	stateProps := resource.NewPropertyMapFromMap(stateMap)
+	stateProps := resource.NewPropertyMapFromMap(outputs)
 	state, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
 		KeepUnknowns: true,
@@ -620,8 +530,44 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		return nil, err
 	}
 
-	delete(stateProps, "attributes")
-	inputs, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
+	return &pulumirpc.CreateResponse{
+		Id:         id,
+		Properties: state,
+	}, nil
+}
+
+func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pulumirpc.ReadResponse, error) {
+	urn := resource.URN(req.GetUrn())
+	label := fmt.Sprintf("%s.Read(%s)", p.name, urn)
+	glog.V(9).Infof("%s executing", label)
+
+	id := req.GetId()
+	_, resourceType, err := resourceInfoFromURN(urn)
+	if err != nil {
+		return nil, err
+	}
+
+	outputs, err := p.readResourceState(ctx, resourceType, id)
+	if err != nil {
+		return nil, err
+	}
+
+	stateProps := resource.NewPropertyMapFromMap(outputs)
+	state, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.state", label),
+		KeepUnknowns: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	inputsMap := map[string]interface{}{
+		// TODO: this is very simplified, we need to make it schema-based.
+		"properties": outputs,
+	}
+
+	inputs, err := plugin.MarshalProperties(resource.NewPropertyMapFromMap(inputsMap), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
 		KeepUnknowns: true,
 		KeepSecrets:  true,
@@ -631,7 +577,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	}
 
 	return &pulumirpc.ReadResponse{
-		Id:         data.PhysicalResourceID,
+		Id:         id,
 		Inputs:     inputs,
 		Properties: state,
 	}, nil
@@ -639,63 +585,68 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 
 func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) (*pulumirpc.UpdateResponse, error) {
 	urn := resource.URN(req.GetUrn())
-	label := fmt.Sprintf("CFN.Update(%s)", urn)
+	label := fmt.Sprintf("%s.Update(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	// Parse inputs
-	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.properties", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
+	id := req.GetId()
+	_, resourceType, err := resourceInfoFromURN(urn)
+	if err != nil {
+		return nil, err
+	}
+
+	olds, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.olds", label),
 	})
 	if err != nil {
-		return nil, errors.Wrapf(err, "create failed because malformed resource inputs")
-	}
-
-	inputs := newInputs.MapRepl(nil, mapReplStripSecrets)
-
-	physicalResourceID := req.GetId()
-	logicalID, resourceType, err := resourceInfoFromURN(urn)
-	if err != nil {
 		return nil, err
 	}
-	if inputID, ok := inputs["logicalId"]; ok {
-		logicalID = inputID.(string)
-	}
-
-	properties, _ := inputs["properties"].(map[string]interface{})
-
-	var options []update.ResourceOption
-	if metadataV, ok := inputs["metadata"]; ok {
-		metadata, _ := metadataV.(map[string]interface{})
-		options = append(options, update.Metadata(metadata))
-	}
-	if creationPolicyV, ok := inputs["creationPolicy"]; ok {
-		creationPolicy, _ := creationPolicyV.(map[string]interface{})
-		options = append(options, update.CreationPolicy(creationPolicy))
-	}
-	if deletionPolicyV, ok := inputs["deletionPolicy"]; ok {
-		deletionPolicy, _ := deletionPolicyV.(string)
-		options = append(options, update.DeletionPolicy(deletionPolicy))
-	}
-	if updatePolicyV, ok := inputs["updatePolicy"]; ok {
-		updatePolicy, _ := updatePolicyV.(map[string]interface{})
-		options = append(options, update.UpdatePolicy(updatePolicy))
-	}
-	if updateReplacePolicyV, ok := inputs["updateReplacePolicy"]; ok {
-		updateReplacePolicy, _ := updateReplacePolicyV.(string)
-		options = append(options, update.UpdateReplacePolicy(updateReplacePolicy))
-	}
-
-	data, err := p.update.UpdateResource(p.canceler.context, logicalID, physicalResourceID, resourceType, properties, options...)
+	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.news", label),
+	})
 	if err != nil {
 		return nil, err
 	}
 
-	newInputs["attributes"] = resource.NewPropertyValue(cleanTopLevelAttributeNames(data.Attributes))
+	diff := olds.Diff(news["properties"].ObjectValue())
+	var ops []*cloudformation.PatchOperation
+	for k, v := range diff.Updates {
+		op := cloudformation.PatchOperation{
+			Op:           aws.String("replace"),
+			Path:         aws.String(string(k)),
+		}
+		// TODO: Handle all possible types correctly.
+		switch {
+		case v.New.IsNumber():
+			op.IntegerValue = aws.Int64(int64(v.New.NumberValue()))
+		case v.New.IsString():
+			op.StringValue = aws.String("/" + v.New.StringValue())
+		}
+		ops = append(ops, &op)
+	}
+	// TODO: Handle Adds and Deletes
 
-	state, err := plugin.MarshalProperties(newInputs, plugin.MarshalOptions{
+	clientToken := aws.String(uuid.New().String())
+	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %q", label, resourceType, id, clientToken, ops)
+	res, err := p.cfn.UpdateResourceWithContext(ctx, &cloudformation.UpdateResourceInput{
+		ClientToken:     clientToken,
+		TypeName:        aws.String(resourceType),
+		Identifier:      aws.String(id),
+		PatchOperations: ops,
+	})
+	if err != nil {
+		return nil, err
+	}
+	if err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+		return nil, err
+	}
+
+	outputs, err := p.readResourceState(ctx, resourceType, id)
+	if err != nil {
+		return nil, err
+	}
+
+	stateProps := resource.NewPropertyMapFromMap(outputs)
+	state, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
 		KeepUnknowns: true,
 		KeepSecrets:  true,
@@ -709,30 +660,23 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) (*pbempty.Empty, error) {
 	urn := resource.URN(req.GetUrn())
-	label := fmt.Sprintf("CFN.Delete(%s)", urn)
+	label := fmt.Sprintf("%s.Delete(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	// Parse state
-	state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.properties", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
+	_, resourceType, err := resourceInfoFromURN(urn)
+	if err != nil {
+		return nil, err
+	}
+	id := req.GetId()
+
+	clientToken := aws.String(uuid.New().String())
+	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, resourceType, id, clientToken)
+	res, err := p.cfn.DeleteResourceWithContext(ctx, &cloudformation.DeleteResourceInput{
+		ClientToken: clientToken,
+		TypeName:    aws.String(resourceType),
+		Identifier:  aws.String(id),
 	})
-	if err != nil {
-		return nil, err
-	}
-
-	logicalID, _, err := resourceInfoFromURN(urn)
-	if err != nil {
-		return nil, err
-	}
-	if stateID, ok := state["logicalId"]; ok {
-		logicalID = stateID.StringValue()
-	}
-
-	physicalResourceID := req.GetId()
-	if err := p.update.DeleteResource(p.canceler.context, logicalID, physicalResourceID); err != nil {
+	if err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
 		return nil, err
 	}
 
@@ -799,6 +743,48 @@ func resourceInfoFromURN(urn resource.URN) (string, string, error) {
 	}
 
 	return name + hash, typ, nil
+}
+
+func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+	getRes, err := p.cfn.GetResourceWithContext(ctx, &cloudformation.GetResourceInput{
+		TypeName:   aws.String(typeName),
+		Identifier: aws.String(identifier),
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "reading resource state")
+	}
+
+	resourceModel := aws.StringValue(getRes.ResourceDescription.ResourceModel)
+	var outputs map[string]interface{}
+	if err = json.Unmarshal([]byte(resourceModel), &outputs); err != nil {
+		return nil, err
+	}
+
+	return outputs, nil
+}
+
+func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloudformation.ProgressEvent) error {
+	for {
+		status := aws.StringValue(pi.OperationStatus)
+		glog.V(9).Infof("waiting for resource %q: status %q", pi.Identifier, status)
+		switch status {
+		case "SUCCESS":
+			return nil
+		case "IN_PROGRESS":
+			// TODO: back-off?
+			time.Sleep(1 * time.Second)
+		default:
+			return errors.Errorf("unknown status %q", status)
+		}
+
+		output, err := p.cfn.GetResourceRequestStatusWithContext(ctx, &cloudformation.GetResourceRequestStatusInput{
+			RequestToken: pi.RequestToken,
+		})
+		if err != nil {
+			return errors.Wrap(err, "getting resource request status")
+		}
+		pi = output.ProgressEvent
+	}
 }
 
 func cleanTopLevelAttributeNames(attrs map[string]interface{}) map[string]interface{} {

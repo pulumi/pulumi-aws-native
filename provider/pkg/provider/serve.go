@@ -24,7 +24,7 @@ import (
 func Serve(version string, pulumiSchema []byte) {
 	// Start gRPC service.
 	err := provider.Main("aws-native", func(host *provider.HostClient) (pulumirpc.ResourceProviderServer, error) {
-		return newAwsNativeProvider(host, version, pulumiSchema)
+		return newAwsNativeProvider(host, "aws-native", version, pulumiSchema)
 	})
 
 	if err != nil {
