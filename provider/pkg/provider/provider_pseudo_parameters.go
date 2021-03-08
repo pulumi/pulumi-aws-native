@@ -30,18 +30,6 @@ func (p *cfnProvider) getRegion(ctx context.Context, inputs resource.PropertyMap
 	}), nil
 }
 
-func (p *cfnProvider) getStackID(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
-	return resource.NewPropertyMapFromMap(map[string]interface{}{
-		"stackId": p.update.StackID(),
-	}), nil
-}
-
-func (p *cfnProvider) getStackName(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
-	return resource.NewPropertyMapFromMap(map[string]interface{}{
-		"stackName": p.update.StackName(),
-	}), nil
-}
-
 func (p *cfnProvider) getURLSuffix(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	partition, ok := endpoints.PartitionForRegion(endpoints.DefaultPartitions(), p.region)
 	if !ok {
