@@ -1,5 +1,4 @@
 PROJECT_NAME := Pulumi Native AWS Resource Provider
-include build/common.mk
 
 PACK             := aws-native
 PACKDIR          := sdk
