@@ -7,56 +7,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = [
-    'UserAttributes',
     'UserAuthentication',
-    'UserGroupAttributes',
-    'UserGroupProperties',
     'UserGroupReplicationGroupIdList',
     'UserGroupUserGroupPendingChanges',
     'UserGroupUserIdList',
     'UserPasswordList',
-    'UserProperties',
     'UserUserGroupIdList',
 ]
-
-@pulumi.output_type
-class UserAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 authentication: 'outputs.UserAuthentication',
-                 status: str,
-                 user_group_ids: 'outputs.UserUserGroupIdList'):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "user_group_ids", user_group_ids)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Authentication")
-    def authentication(self) -> 'outputs.UserAuthentication':
-        return pulumi.get(self, "authentication")
-
-    @property
-    @pulumi.getter(name="Status")
-    def status(self) -> str:
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="UserGroupIds")
-    def user_group_ids(self) -> 'outputs.UserUserGroupIdList':
-        return pulumi.get(self, "user_group_ids")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserAuthentication(dict):
@@ -91,90 +50,6 @@ class UserAuthentication(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class UserGroupAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 pending_changes: 'outputs.UserGroupUserGroupPendingChanges',
-                 replication_group_ids: 'outputs.UserGroupReplicationGroupIdList',
-                 status: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "pending_changes", pending_changes)
-        pulumi.set(__self__, "replication_group_ids", replication_group_ids)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="PendingChanges")
-    def pending_changes(self) -> 'outputs.UserGroupUserGroupPendingChanges':
-        return pulumi.get(self, "pending_changes")
-
-    @property
-    @pulumi.getter(name="ReplicationGroupIds")
-    def replication_group_ids(self) -> 'outputs.UserGroupReplicationGroupIdList':
-        return pulumi.get(self, "replication_group_ids")
-
-    @property
-    @pulumi.getter(name="Status")
-    def status(self) -> str:
-        return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class UserGroupProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
-    """
-    def __init__(__self__, *,
-                 engine: str,
-                 user_group_id: str,
-                 user_ids: Optional['outputs.UserGroupUserIdList'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
-        :param str engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
-        :param str user_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
-        :param 'UserGroupUserIdListArgs' user_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
-        """
-        pulumi.set(__self__, "engine", engine)
-        pulumi.set(__self__, "user_group_id", user_group_id)
-        if user_ids is not None:
-            pulumi.set(__self__, "user_ids", user_ids)
-
-    @property
-    @pulumi.getter(name="Engine")
-    def engine(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
-        """
-        return pulumi.get(self, "engine")
-
-    @property
-    @pulumi.getter(name="UserGroupId")
-    def user_group_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
-        """
-        return pulumi.get(self, "user_group_id")
-
-    @property
-    @pulumi.getter(name="UserIds")
-    def user_ids(self) -> Optional['outputs.UserGroupUserIdList']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
-        """
-        return pulumi.get(self, "user_ids")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -291,89 +166,6 @@ class UserPasswordList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
         """
         return pulumi.get(self, "password_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class UserProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
-    """
-    def __init__(__self__, *,
-                 engine: str,
-                 user_id: str,
-                 user_name: str,
-                 access_string: Optional[str] = None,
-                 no_password_required: Optional[bool] = None,
-                 passwords: Optional['outputs.UserPasswordList'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
-        :param str engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
-        :param str user_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
-        :param str user_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
-        :param str access_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
-        :param bool no_password_required: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
-        :param 'UserPasswordListArgs' passwords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-        """
-        pulumi.set(__self__, "engine", engine)
-        pulumi.set(__self__, "user_id", user_id)
-        pulumi.set(__self__, "user_name", user_name)
-        if access_string is not None:
-            pulumi.set(__self__, "access_string", access_string)
-        if no_password_required is not None:
-            pulumi.set(__self__, "no_password_required", no_password_required)
-        if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
-
-    @property
-    @pulumi.getter(name="Engine")
-    def engine(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
-        """
-        return pulumi.get(self, "engine")
-
-    @property
-    @pulumi.getter(name="UserId")
-    def user_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
-        """
-        return pulumi.get(self, "user_id")
-
-    @property
-    @pulumi.getter(name="UserName")
-    def user_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
-        """
-        return pulumi.get(self, "user_name")
-
-    @property
-    @pulumi.getter(name="AccessString")
-    def access_string(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
-        """
-        return pulumi.get(self, "access_string")
-
-    @property
-    @pulumi.getter(name="NoPasswordRequired")
-    def no_password_required(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
-        """
-        return pulumi.get(self, "no_password_required")
-
-    @property
-    @pulumi.getter(name="Passwords")
-    def passwords(self) -> Optional['outputs.UserPasswordList']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-        """
-        return pulumi.get(self, "passwords")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

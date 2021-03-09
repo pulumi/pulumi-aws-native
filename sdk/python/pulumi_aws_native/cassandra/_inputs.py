@@ -9,37 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
-    'KeyspacePropertiesArgs',
     'TableBillingModeArgs',
     'TableClusteringKeyColumnArgs',
     'TableColumnArgs',
-    'TablePropertiesArgs',
     'TableProvisionedThroughputArgs',
 ]
-
-@pulumi.input_type
-class KeyspacePropertiesArgs:
-    def __init__(__self__, *,
-                 keyspace_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
-        :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
-        """
-        if keyspace_name is not None:
-            pulumi.set(__self__, "keyspace_name", keyspace_name)
-
-    @property
-    @pulumi.getter(name="KeyspaceName")
-    def keyspace_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
-        """
-        return pulumi.get(self, "keyspace_name")
-
-    @keyspace_name.setter
-    def keyspace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "keyspace_name", value)
-
 
 @pulumi.input_type
 class TableBillingModeArgs:
@@ -155,108 +129,6 @@ class TableColumnArgs:
     @column_type.setter
     def column_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "column_type", value)
-
-
-@pulumi.input_type
-class TablePropertiesArgs:
-    def __init__(__self__, *,
-                 keyspace_name: pulumi.Input[str],
-                 partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
-                 billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
-                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
-                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
-                 table_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
-        :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-        :param pulumi.Input['TableBillingModeArgs'] billing_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        :param pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]] clustering_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] regular_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-        """
-        pulumi.set(__self__, "keyspace_name", keyspace_name)
-        pulumi.set(__self__, "partition_key_columns", partition_key_columns)
-        if billing_mode is not None:
-            pulumi.set(__self__, "billing_mode", billing_mode)
-        if clustering_key_columns is not None:
-            pulumi.set(__self__, "clustering_key_columns", clustering_key_columns)
-        if regular_columns is not None:
-            pulumi.set(__self__, "regular_columns", regular_columns)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
-
-    @property
-    @pulumi.getter(name="KeyspaceName")
-    def keyspace_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-        """
-        return pulumi.get(self, "keyspace_name")
-
-    @keyspace_name.setter
-    def keyspace_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "keyspace_name", value)
-
-    @property
-    @pulumi.getter(name="PartitionKeyColumns")
-    def partition_key_columns(self) -> pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-        """
-        return pulumi.get(self, "partition_key_columns")
-
-    @partition_key_columns.setter
-    def partition_key_columns(self, value: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]):
-        pulumi.set(self, "partition_key_columns", value)
-
-    @property
-    @pulumi.getter(name="BillingMode")
-    def billing_mode(self) -> Optional[pulumi.Input['TableBillingModeArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        """
-        return pulumi.get(self, "billing_mode")
-
-    @billing_mode.setter
-    def billing_mode(self, value: Optional[pulumi.Input['TableBillingModeArgs']]):
-        pulumi.set(self, "billing_mode", value)
-
-    @property
-    @pulumi.getter(name="ClusteringKeyColumns")
-    def clustering_key_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-        """
-        return pulumi.get(self, "clustering_key_columns")
-
-    @clustering_key_columns.setter
-    def clustering_key_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]):
-        pulumi.set(self, "clustering_key_columns", value)
-
-    @property
-    @pulumi.getter(name="RegularColumns")
-    def regular_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-        """
-        return pulumi.get(self, "regular_columns")
-
-    @regular_columns.setter
-    def regular_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
-        pulumi.set(self, "regular_columns", value)
-
-    @property
-    @pulumi.getter(name="TableName")
-    def table_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-        """
-        return pulumi.get(self, "table_name")
-
-    @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type

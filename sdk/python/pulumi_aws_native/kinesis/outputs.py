@@ -7,102 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'StreamAttributes',
-    'StreamProperties',
     'StreamStreamEncryption',
 ]
-
-@pulumi.output_type
-class StreamAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str):
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StreamProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
-    """
-    def __init__(__self__, *,
-                 shard_count: int,
-                 name: Optional[str] = None,
-                 retention_period_hours: Optional[int] = None,
-                 stream_encryption: Optional['outputs.StreamStreamEncryption'] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
-        :param int shard_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
-        :param int retention_period_hours: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-        :param 'StreamStreamEncryptionArgs' stream_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-        """
-        pulumi.set(__self__, "shard_count", shard_count)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if retention_period_hours is not None:
-            pulumi.set(__self__, "retention_period_hours", retention_period_hours)
-        if stream_encryption is not None:
-            pulumi.set(__self__, "stream_encryption", stream_encryption)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ShardCount")
-    def shard_count(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-        """
-        return pulumi.get(self, "shard_count")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="RetentionPeriodHours")
-    def retention_period_hours(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-        """
-        return pulumi.get(self, "retention_period_hours")
-
-    @property
-    @pulumi.getter(name="StreamEncryption")
-    def stream_encryption(self) -> Optional['outputs.StreamStreamEncryption']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
-        """
-        return pulumi.get(self, "stream_encryption")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamStreamEncryption(dict):

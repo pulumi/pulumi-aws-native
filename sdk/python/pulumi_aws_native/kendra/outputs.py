@@ -13,7 +13,6 @@ from .. import outputs as _root_outputs
 __all__ = [
     'DataSourceAccessControlListConfiguration',
     'DataSourceAclConfiguration',
-    'DataSourceAttributes',
     'DataSourceChangeDetectingColumns',
     'DataSourceColumnConfiguration',
     'DataSourceConfluenceAttachmentConfiguration',
@@ -41,7 +40,6 @@ __all__ = [
     'DataSourceOneDriveConfiguration',
     'DataSourceOneDriveUserList',
     'DataSourceOneDriveUsers',
-    'DataSourceProperties',
     'DataSourceS3DataSourceConfiguration',
     'DataSourceS3Path',
     'DataSourceSalesforceChatterFeedConfiguration',
@@ -61,17 +59,13 @@ __all__ = [
     'DataSourceSharePointConfiguration',
     'DataSourceSqlConfiguration',
     'DataSourceTagList',
-    'FaqAttributes',
-    'FaqProperties',
     'FaqS3Path',
     'FaqTagList',
-    'IndexAttributes',
     'IndexCapacityUnitsConfiguration',
     'IndexDocumentMetadataConfiguration',
     'IndexDocumentMetadataConfigurationList',
     'IndexJsonTokenTypeConfiguration',
     'IndexJwtTokenTypeConfiguration',
-    'IndexProperties',
     'IndexRelevance',
     'IndexSearch',
     'IndexServerSideEncryptionConfiguration',
@@ -128,28 +122,6 @@ class DataSourceAclConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname
         """
         return pulumi.get(self, "allowed_groups_column_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DataSourceAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1441,113 +1413,6 @@ class DataSourceOneDriveUsers(dict):
 
 
 @pulumi.output_type
-class DataSourceProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html
-    """
-    def __init__(__self__, *,
-                 index_id: str,
-                 name: str,
-                 type: str,
-                 data_source_configuration: Optional['outputs.DataSourceDataSourceConfiguration'] = None,
-                 description: Optional[str] = None,
-                 role_arn: Optional[str] = None,
-                 schedule: Optional[str] = None,
-                 tags: Optional['outputs.DataSourceTagList'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html
-        :param str index_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
-        :param 'DataSourceDataSourceConfigurationArgs' data_source_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
-        :param str schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
-        :param 'DataSourceTagListArgs' tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
-        """
-        pulumi.set(__self__, "index_id", index_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if data_source_configuration is not None:
-            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="IndexId")
-    def index_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
-        """
-        return pulumi.get(self, "index_id")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="Type")
-    def type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="DataSourceConfiguration")
-    def data_source_configuration(self) -> Optional['outputs.DataSourceDataSourceConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
-        """
-        return pulumi.get(self, "data_source_configuration")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="Schedule")
-    def schedule(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
-        """
-        return pulumi.get(self, "schedule")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional['outputs.DataSourceTagList']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class DataSourceS3DataSourceConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html
@@ -2646,122 +2511,6 @@ class DataSourceTagList(dict):
 
 
 @pulumi.output_type
-class FaqAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class FaqProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
-    """
-    def __init__(__self__, *,
-                 index_id: str,
-                 name: str,
-                 role_arn: str,
-                 s3_path: 'outputs.FaqS3Path',
-                 description: Optional[str] = None,
-                 file_format: Optional[str] = None,
-                 tags: Optional['outputs.FaqTagList'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
-        :param str index_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
-        :param 'FaqS3PathArgs' s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
-        :param str file_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
-        :param 'FaqTagListArgs' tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
-        """
-        pulumi.set(__self__, "index_id", index_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "s3_path", s3_path)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if file_format is not None:
-            pulumi.set(__self__, "file_format", file_format)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="IndexId")
-    def index_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
-        """
-        return pulumi.get(self, "index_id")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="S3Path")
-    def s3_path(self) -> 'outputs.FaqS3Path':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
-        """
-        return pulumi.get(self, "s3_path")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="FileFormat")
-    def file_format(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
-        """
-        return pulumi.get(self, "file_format")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional['outputs.FaqTagList']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class FaqS3Path(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html
@@ -2818,28 +2567,6 @@ class FaqTagList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
         """
         return pulumi.get(self, "tag_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class IndexAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3095,137 +2822,6 @@ class IndexJwtTokenTypeConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-usernameattributefield
         """
         return pulumi.get(self, "user_name_attribute_field")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class IndexProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
-    """
-    def __init__(__self__, *,
-                 edition: str,
-                 name: str,
-                 role_arn: str,
-                 capacity_units: Optional['outputs.IndexCapacityUnitsConfiguration'] = None,
-                 description: Optional[str] = None,
-                 document_metadata_configurations: Optional['outputs.IndexDocumentMetadataConfigurationList'] = None,
-                 server_side_encryption_configuration: Optional['outputs.IndexServerSideEncryptionConfiguration'] = None,
-                 tags: Optional['outputs.IndexTagList'] = None,
-                 user_context_policy: Optional[str] = None,
-                 user_token_configurations: Optional['outputs.IndexUserTokenConfigurationList'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
-        :param str edition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
-        :param 'IndexCapacityUnitsConfigurationArgs' capacity_units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
-        :param 'IndexDocumentMetadataConfigurationListArgs' document_metadata_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-        :param 'IndexServerSideEncryptionConfigurationArgs' server_side_encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
-        :param 'IndexTagListArgs' tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-        :param str user_context_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
-        :param 'IndexUserTokenConfigurationListArgs' user_token_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-        """
-        pulumi.set(__self__, "edition", edition)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if capacity_units is not None:
-            pulumi.set(__self__, "capacity_units", capacity_units)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if document_metadata_configurations is not None:
-            pulumi.set(__self__, "document_metadata_configurations", document_metadata_configurations)
-        if server_side_encryption_configuration is not None:
-            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if user_context_policy is not None:
-            pulumi.set(__self__, "user_context_policy", user_context_policy)
-        if user_token_configurations is not None:
-            pulumi.set(__self__, "user_token_configurations", user_token_configurations)
-
-    @property
-    @pulumi.getter(name="Edition")
-    def edition(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
-        """
-        return pulumi.get(self, "edition")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="CapacityUnits")
-    def capacity_units(self) -> Optional['outputs.IndexCapacityUnitsConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
-        """
-        return pulumi.get(self, "capacity_units")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="DocumentMetadataConfigurations")
-    def document_metadata_configurations(self) -> Optional['outputs.IndexDocumentMetadataConfigurationList']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-        """
-        return pulumi.get(self, "document_metadata_configurations")
-
-    @property
-    @pulumi.getter(name="ServerSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional['outputs.IndexServerSideEncryptionConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
-        """
-        return pulumi.get(self, "server_side_encryption_configuration")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional['outputs.IndexTagList']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="UserContextPolicy")
-    def user_context_policy(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
-        """
-        return pulumi.get(self, "user_context_policy")
-
-    @property
-    @pulumi.getter(name="UserTokenConfigurations")
-    def user_token_configurations(self) -> Optional['outputs.IndexUserTokenConfigurationList']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-        """
-        return pulumi.get(self, "user_token_configurations")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -16,10 +16,8 @@ __all__ = [
     'AssessmentAWSService',
     'AssessmentAWSServices',
     'AssessmentAssessmentReportsDestination',
-    'AssessmentAttributes',
     'AssessmentDelegation',
     'AssessmentDelegations',
-    'AssessmentProperties',
     'AssessmentRole',
     'AssessmentRoles',
     'AssessmentScope',
@@ -193,49 +191,6 @@ class AssessmentAssessmentReportsDestination(dict):
 
 
 @pulumi.output_type
-class AssessmentAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 assessment_id: str,
-                 creation_time: float,
-                 delegations: 'outputs.AssessmentDelegations',
-                 framework_id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "assessment_id", assessment_id)
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "delegations", delegations)
-        pulumi.set(__self__, "framework_id", framework_id)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="assessmentId")
-    def assessment_id(self) -> str:
-        return pulumi.get(self, "assessment_id")
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> float:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter
-    def delegations(self) -> 'outputs.AssessmentDelegations':
-        return pulumi.get(self, "delegations")
-
-    @property
-    @pulumi.getter(name="frameworkId")
-    def framework_id(self) -> str:
-        return pulumi.get(self, "framework_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class AssessmentDelegation(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
@@ -402,128 +357,6 @@ class AssessmentDelegations(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
         """
         return pulumi.get(self, "delegations")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AssessmentProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
-    """
-    def __init__(__self__, *,
-                 assessment_reports_destination: Optional['outputs.AssessmentAssessmentReportsDestination'] = None,
-                 aws_account: Optional['outputs.AssessmentAWSAccount'] = None,
-                 description: Optional[str] = None,
-                 framework_id: Optional[str] = None,
-                 name: Optional[str] = None,
-                 roles: Optional['outputs.AssessmentRoles'] = None,
-                 scope: Optional['outputs.AssessmentScope'] = None,
-                 status: Optional[str] = None,
-                 tags: Optional['outputs.AssessmentTags'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
-        :param 'AssessmentAssessmentReportsDestinationArgs' assessment_reports_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
-        :param 'AssessmentAWSAccountArgs' aws_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-        :param str framework_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-        :param 'AssessmentRolesArgs' roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-        :param 'AssessmentScopeArgs' scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-        :param str status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-        :param 'AssessmentTagsArgs' tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-        """
-        if assessment_reports_destination is not None:
-            pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
-        if aws_account is not None:
-            pulumi.set(__self__, "aws_account", aws_account)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if framework_id is not None:
-            pulumi.set(__self__, "framework_id", framework_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="assessmentReportsDestination")
-    def assessment_reports_destination(self) -> Optional['outputs.AssessmentAssessmentReportsDestination']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
-        """
-        return pulumi.get(self, "assessment_reports_destination")
-
-    @property
-    @pulumi.getter(name="awsAccount")
-    def aws_account(self) -> Optional['outputs.AssessmentAWSAccount']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-        """
-        return pulumi.get(self, "aws_account")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="frameworkId")
-    def framework_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-        """
-        return pulumi.get(self, "framework_id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def roles(self) -> Optional['outputs.AssessmentRoles']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-        """
-        return pulumi.get(self, "roles")
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional['outputs.AssessmentScope']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-        """
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional['outputs.AssessmentTags']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

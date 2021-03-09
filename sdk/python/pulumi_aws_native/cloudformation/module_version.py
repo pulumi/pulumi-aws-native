@@ -7,8 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from ._inputs import *
 
 __all__ = ['ModuleVersion']
 
@@ -17,11 +15,8 @@ class ModuleVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ModuleVersionPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 module_name: Optional[pulumi.Input[str]] = None,
+                 module_package: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +25,8 @@ class ModuleVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['ModuleVersionPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+        :param pulumi.Input[str] module_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +45,18 @@ class ModuleVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if module_name is None and not opts.urn:
+                raise TypeError("Missing required property 'module_name'")
+            __props__['module_name'] = module_name
+            __props__['module_package'] = module_package
+            __props__['arn'] = None
+            __props__['description'] = None
+            __props__['documentation_url'] = None
+            __props__['is_default_version'] = None
+            __props__['schema'] = None
+            __props__['time_created'] = None
+            __props__['version_id'] = None
+            __props__['visibility'] = None
         super(ModuleVersion, __self__).__init__(
             'aws-native:CloudFormation:ModuleVersion',
             resource_name,
@@ -86,36 +82,60 @@ class ModuleVersion(pulumi.CustomResource):
         return ModuleVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.ModuleVersionAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="Description")
+    def description(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
+    @pulumi.getter(name="DocumentationUrl")
+    def documentation_url(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "documentation_url")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ModuleVersionProperties']:
+    @pulumi.getter(name="IsDefaultVersion")
+    def is_default_version(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "is_default_version")
+
+    @property
+    @pulumi.getter(name="ModuleName")
+    def module_name(self) -> pulumi.Output[str]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "module_name")
+
+    @property
+    @pulumi.getter(name="ModulePackage")
+    def module_package(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+        """
+        return pulumi.get(self, "module_package")
+
+    @property
+    @pulumi.getter(name="Schema")
+    def schema(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter(name="TimeCreated")
+    def time_created(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter(name="VersionId")
+    def version_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "version_id")
+
+    @property
+    @pulumi.getter(name="Visibility")
+    def visibility(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "visibility")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

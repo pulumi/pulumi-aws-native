@@ -10,7 +10,6 @@ from .. import _utilities, _tables
 
 __all__ = [
     'region',
-    'stack',
 ]
 
 __config__ = pulumi.Config('aws-native')
@@ -18,10 +17,5 @@ __config__ = pulumi.Config('aws-native')
 region = __config__.get('region')
 """
 the region to use for deployments
-"""
-
-stack = __config__.get('stack')
-"""
-the name of the stack to use for deployments
 """
 

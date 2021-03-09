@@ -17,11 +17,11 @@ class ConnectorProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectorProfilePropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
+                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+                 connector_profile_name: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input[str]] = None,
+                 kms_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +30,11 @@ class ConnectorProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['ConnectorProfilePropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] connection_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+        :param pulumi.Input[str] connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+        :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        :param pulumi.Input[str] kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +53,19 @@ class ConnectorProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if connection_mode is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_mode'")
+            __props__['connection_mode'] = connection_mode
+            __props__['connector_profile_config'] = connector_profile_config
+            if connector_profile_name is None and not opts.urn:
+                raise TypeError("Missing required property 'connector_profile_name'")
+            __props__['connector_profile_name'] = connector_profile_name
+            if connector_type is None and not opts.urn:
+                raise TypeError("Missing required property 'connector_type'")
+            __props__['connector_type'] = connector_type
+            __props__['kms_arn'] = kms_arn
+            __props__['connector_profile_arn'] = None
+            __props__['credentials_arn'] = None
         super(ConnectorProfile, __self__).__init__(
             'aws-native:AppFlow:ConnectorProfile',
             resource_name,
@@ -86,36 +91,54 @@ class ConnectorProfile(pulumi.CustomResource):
         return ConnectorProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.ConnectorProfileAttributes']:
+    @pulumi.getter(name="ConnectionMode")
+    def connection_mode(self) -> pulumi.Output[str]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "connection_mode")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="ConnectorProfileArn")
+    def connector_profile_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "connector_profile_arn")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ConnectorProfileConfig")
+    def connector_profile_config(self) -> pulumi.Output[Optional['outputs.ConnectorProfileConnectorProfileConfig']]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "connector_profile_config")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ConnectorProfileProperties']:
+    @pulumi.getter(name="ConnectorProfileName")
+    def connector_profile_name(self) -> pulumi.Output[str]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "connector_profile_name")
+
+    @property
+    @pulumi.getter(name="ConnectorType")
+    def connector_type(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        """
+        return pulumi.get(self, "connector_type")
+
+    @property
+    @pulumi.getter(name="CredentialsArn")
+    def credentials_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "credentials_arn")
+
+    @property
+    @pulumi.getter(name="KMSArn")
+    def kms_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        """
+        return pulumi.get(self, "kms_arn")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

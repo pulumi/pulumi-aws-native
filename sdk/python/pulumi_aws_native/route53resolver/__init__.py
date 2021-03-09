@@ -5,8 +5,6 @@
 # Export this package's modules as members:
 from .resolver_query_logging_config import *
 from .resolver_query_logging_config_association import *
-from ._inputs import *
-from . import outputs
 
 def _register_module():
     import pulumi

@@ -10,10 +10,8 @@ from .. import _utilities, _tables
 
 __all__ = [
     'NotificationChannelNotificationChannelConfigArgs',
-    'NotificationChannelPropertiesArgs',
     'NotificationChannelSnsChannelConfigArgs',
     'ResourceCollectionCloudFormationCollectionFilterArgs',
-    'ResourceCollectionPropertiesArgs',
     'ResourceCollectionResourceCollectionFilterArgs',
 ]
 
@@ -39,29 +37,6 @@ class NotificationChannelNotificationChannelConfigArgs:
     @sns.setter
     def sns(self, value: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']]):
         pulumi.set(self, "sns", value)
-
-
-@pulumi.input_type
-class NotificationChannelPropertiesArgs:
-    def __init__(__self__, *,
-                 config: pulumi.Input['NotificationChannelNotificationChannelConfigArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
-        :param pulumi.Input['NotificationChannelNotificationChannelConfigArgs'] config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        """
-        pulumi.set(__self__, "config", config)
-
-    @property
-    @pulumi.getter(name="Config")
-    def config(self) -> pulumi.Input['NotificationChannelNotificationChannelConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        """
-        return pulumi.get(self, "config")
-
-    @config.setter
-    def config(self, value: pulumi.Input['NotificationChannelNotificationChannelConfigArgs']):
-        pulumi.set(self, "config", value)
 
 
 @pulumi.input_type
@@ -110,29 +85,6 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
     @stack_names.setter
     def stack_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "stack_names", value)
-
-
-@pulumi.input_type
-class ResourceCollectionPropertiesArgs:
-    def __init__(__self__, *,
-                 resource_collection_filter: pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
-        :param pulumi.Input['ResourceCollectionResourceCollectionFilterArgs'] resource_collection_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        """
-        pulumi.set(__self__, "resource_collection_filter", resource_collection_filter)
-
-    @property
-    @pulumi.getter(name="ResourceCollectionFilter")
-    def resource_collection_filter(self) -> pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        """
-        return pulumi.get(self, "resource_collection_filter")
-
-    @resource_collection_filter.setter
-    def resource_collection_filter(self, value: pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']):
-        pulumi.set(self, "resource_collection_filter", value)
 
 
 @pulumi.input_type

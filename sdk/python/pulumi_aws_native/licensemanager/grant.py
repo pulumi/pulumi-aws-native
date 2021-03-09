@@ -19,11 +19,25 @@ class Grant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GrantPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 allowed_operations: Optional[pulumi.Input[pulumi.InputType['GrantAllowedOperationListArgs']]] = None,
+                 client_token: Optional[pulumi.Input[str]] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['GrantFilterListArgs']]] = None,
+                 grant_arns: Optional[pulumi.Input[pulumi.InputType['GrantArnListArgs']]] = None,
+                 grant_name: Optional[pulumi.Input[str]] = None,
+                 grant_status: Optional[pulumi.Input[str]] = None,
+                 granted_operations: Optional[pulumi.Input[pulumi.InputType['GrantAllowedOperationListArgs']]] = None,
+                 grantee_principal_arn: Optional[pulumi.Input[str]] = None,
+                 home_region: Optional[pulumi.Input[str]] = None,
+                 license_arn: Optional[pulumi.Input[str]] = None,
+                 max_results: Optional[pulumi.Input[int]] = None,
+                 next_token: Optional[pulumi.Input[str]] = None,
+                 parent_arn: Optional[pulumi.Input[str]] = None,
+                 principals: Optional[pulumi.Input[pulumi.InputType['GrantArnListArgs']]] = None,
+                 source_version: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 status_reason: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['GrantTagListArgs']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +46,25 @@ class Grant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['GrantPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[pulumi.InputType['GrantAllowedOperationListArgs']] allowed_operations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
+        :param pulumi.Input[str] client_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
+        :param pulumi.Input[pulumi.InputType['GrantFilterListArgs']] filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
+        :param pulumi.Input[pulumi.InputType['GrantArnListArgs']] grant_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
+        :param pulumi.Input[str] grant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+        :param pulumi.Input[str] grant_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
+        :param pulumi.Input[pulumi.InputType['GrantAllowedOperationListArgs']] granted_operations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
+        :param pulumi.Input[str] grantee_principal_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
+        :param pulumi.Input[str] home_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        :param pulumi.Input[str] license_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        :param pulumi.Input[int] max_results: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
+        :param pulumi.Input[str] next_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
+        :param pulumi.Input[str] parent_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
+        :param pulumi.Input[pulumi.InputType['GrantArnListArgs']] principals: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+        :param pulumi.Input[str] source_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
+        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+        :param pulumi.Input[str] status_reason: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
+        :param pulumi.Input[pulumi.InputType['GrantTagListArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
+        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +83,26 @@ class Grant(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['allowed_operations'] = allowed_operations
+            __props__['client_token'] = client_token
+            __props__['filters'] = filters
+            __props__['grant_arns'] = grant_arns
+            __props__['grant_name'] = grant_name
+            __props__['grant_status'] = grant_status
+            __props__['granted_operations'] = granted_operations
+            __props__['grantee_principal_arn'] = grantee_principal_arn
+            __props__['home_region'] = home_region
+            __props__['license_arn'] = license_arn
+            __props__['max_results'] = max_results
+            __props__['next_token'] = next_token
+            __props__['parent_arn'] = parent_arn
+            __props__['principals'] = principals
+            __props__['source_version'] = source_version
+            __props__['status'] = status
+            __props__['status_reason'] = status_reason
+            __props__['tags'] = tags
+            __props__['version'] = version
+            __props__['grant_arn'] = None
         super(Grant, __self__).__init__(
             'aws-native:LicenseManager:Grant',
             resource_name,
@@ -88,36 +128,161 @@ class Grant(pulumi.CustomResource):
         return Grant(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.GrantAttributes']:
+    @pulumi.getter(name="AllowedOperations")
+    def allowed_operations(self) -> pulumi.Output[Optional['outputs.GrantAllowedOperationList']]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "allowed_operations")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ClientToken")
+    def client_token(self) -> pulumi.Output[Optional[str]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "client_token")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="Filters")
+    def filters(self) -> pulumi.Output[Optional['outputs.GrantFilterList']]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "filters")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.GrantProperties']:
+    @pulumi.getter(name="GrantArn")
+    def grant_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "grant_arn")
+
+    @property
+    @pulumi.getter(name="GrantArns")
+    def grant_arns(self) -> pulumi.Output[Optional['outputs.GrantArnList']]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "grant_arns")
+
+    @property
+    @pulumi.getter(name="GrantName")
+    def grant_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+        """
+        return pulumi.get(self, "grant_name")
+
+    @property
+    @pulumi.getter(name="GrantStatus")
+    def grant_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
+        """
+        return pulumi.get(self, "grant_status")
+
+    @property
+    @pulumi.getter(name="GrantedOperations")
+    def granted_operations(self) -> pulumi.Output[Optional['outputs.GrantAllowedOperationList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
+        """
+        return pulumi.get(self, "granted_operations")
+
+    @property
+    @pulumi.getter(name="GranteePrincipalArn")
+    def grantee_principal_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
+        """
+        return pulumi.get(self, "grantee_principal_arn")
+
+    @property
+    @pulumi.getter(name="HomeRegion")
+    def home_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        """
+        return pulumi.get(self, "home_region")
+
+    @property
+    @pulumi.getter(name="LicenseArn")
+    def license_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        """
+        return pulumi.get(self, "license_arn")
+
+    @property
+    @pulumi.getter(name="MaxResults")
+    def max_results(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
+        """
+        return pulumi.get(self, "max_results")
+
+    @property
+    @pulumi.getter(name="NextToken")
+    def next_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
+        """
+        return pulumi.get(self, "next_token")
+
+    @property
+    @pulumi.getter(name="ParentArn")
+    def parent_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
+        """
+        return pulumi.get(self, "parent_arn")
+
+    @property
+    @pulumi.getter(name="Principals")
+    def principals(self) -> pulumi.Output[Optional['outputs.GrantArnList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+        """
+        return pulumi.get(self, "principals")
+
+    @property
+    @pulumi.getter(name="SourceVersion")
+    def source_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
+        """
+        return pulumi.get(self, "source_version")
+
+    @property
+    @pulumi.getter(name="Status")
+    def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="StatusReason")
+    def status_reason(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
+        """
+        return pulumi.get(self, "status_reason")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional['outputs.GrantTagList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="Version")
+    def version(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
+        """
+        return pulumi.get(self, "version")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

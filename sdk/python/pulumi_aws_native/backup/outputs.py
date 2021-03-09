@@ -11,15 +11,11 @@ from . import outputs
 
 __all__ = [
     'BackupPlanAdvancedBackupSettingResourceType',
-    'BackupPlanAttributes',
     'BackupPlanBackupPlanResourceType',
     'BackupPlanBackupRuleResourceType',
     'BackupPlanCopyActionResourceType',
     'BackupPlanLifecycleResourceType',
-    'BackupPlanProperties',
-    'BackupVaultAttributes',
     'BackupVaultNotificationObjectType',
-    'BackupVaultProperties',
 ]
 
 @pulumi.output_type
@@ -53,35 +49,6 @@ class BackupPlanAdvancedBackupSettingResourceType(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
         """
         return pulumi.get(self, "resource_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class BackupPlanAttributes(dict):
-    def __init__(__self__, *,
-                 backup_plan_arn: str,
-                 backup_plan_id: str,
-                 version_id: str):
-        pulumi.set(__self__, "backup_plan_arn", backup_plan_arn)
-        pulumi.set(__self__, "backup_plan_id", backup_plan_id)
-        pulumi.set(__self__, "version_id", version_id)
-
-    @property
-    @pulumi.getter(name="BackupPlanArn")
-    def backup_plan_arn(self) -> str:
-        return pulumi.get(self, "backup_plan_arn")
-
-    @property
-    @pulumi.getter(name="BackupPlanId")
-    def backup_plan_id(self) -> str:
-        return pulumi.get(self, "backup_plan_id")
-
-    @property
-    @pulumi.getter(name="VersionId")
-    def version_id(self) -> str:
-        return pulumi.get(self, "version_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -319,65 +286,6 @@ class BackupPlanLifecycleResourceType(dict):
 
 
 @pulumi.output_type
-class BackupPlanProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
-    """
-    def __init__(__self__, *,
-                 backup_plan: 'outputs.BackupPlanBackupPlanResourceType',
-                 backup_plan_tags: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
-        :param 'BackupPlanBackupPlanResourceTypeArgs' backup_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        :param Union[Any, str] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-        """
-        pulumi.set(__self__, "backup_plan", backup_plan)
-        if backup_plan_tags is not None:
-            pulumi.set(__self__, "backup_plan_tags", backup_plan_tags)
-
-    @property
-    @pulumi.getter(name="BackupPlan")
-    def backup_plan(self) -> 'outputs.BackupPlanBackupPlanResourceType':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        """
-        return pulumi.get(self, "backup_plan")
-
-    @property
-    @pulumi.getter(name="BackupPlanTags")
-    def backup_plan_tags(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-        """
-        return pulumi.get(self, "backup_plan_tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class BackupVaultAttributes(dict):
-    def __init__(__self__, *,
-                 backup_vault_arn: str,
-                 backup_vault_name: str):
-        pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-
-    @property
-    @pulumi.getter(name="BackupVaultArn")
-    def backup_vault_arn(self) -> str:
-        return pulumi.get(self, "backup_vault_arn")
-
-    @property
-    @pulumi.getter(name="BackupVaultName")
-    def backup_vault_name(self) -> str:
-        return pulumi.get(self, "backup_vault_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class BackupVaultNotificationObjectType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
@@ -408,79 +316,6 @@ class BackupVaultNotificationObjectType(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
         """
         return pulumi.get(self, "sns_topic_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class BackupVaultProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
-    """
-    def __init__(__self__, *,
-                 backup_vault_name: str,
-                 access_policy: Optional[str] = None,
-                 backup_vault_tags: Optional[str] = None,
-                 encryption_key_arn: Optional[str] = None,
-                 notifications: Optional['outputs.BackupVaultNotificationObjectType'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
-        :param str backup_vault_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-        :param Union[Any, str] access_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-        :param Union[Any, str] backup_vault_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-        :param str encryption_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-        :param 'BackupVaultNotificationObjectTypeArgs' notifications: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-        """
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-        if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
-        if backup_vault_tags is not None:
-            pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
-        if encryption_key_arn is not None:
-            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
-        if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
-
-    @property
-    @pulumi.getter(name="BackupVaultName")
-    def backup_vault_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-        """
-        return pulumi.get(self, "backup_vault_name")
-
-    @property
-    @pulumi.getter(name="AccessPolicy")
-    def access_policy(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-        """
-        return pulumi.get(self, "access_policy")
-
-    @property
-    @pulumi.getter(name="BackupVaultTags")
-    def backup_vault_tags(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-        """
-        return pulumi.get(self, "backup_vault_tags")
-
-    @property
-    @pulumi.getter(name="EncryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-        """
-        return pulumi.get(self, "encryption_key_arn")
-
-    @property
-    @pulumi.getter(name="Notifications")
-    def notifications(self) -> Optional['outputs.BackupVaultNotificationObjectType']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-        """
-        return pulumi.get(self, "notifications")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

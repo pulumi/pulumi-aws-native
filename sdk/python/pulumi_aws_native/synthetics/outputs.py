@@ -7,39 +7,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'CanaryAttributes',
     'CanaryCode',
-    'CanaryProperties',
     'CanaryRunConfig',
     'CanarySchedule',
     'CanaryVPCConfig',
 ]
-
-@pulumi.output_type
-class CanaryAttributes(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 state: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="State")
-    def state(self) -> str:
-        return pulumi.get(self, "state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CanaryCode(dict):
@@ -110,157 +84,6 @@ class CanaryCode(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
         """
         return pulumi.get(self, "script")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class CanaryProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
-    """
-    def __init__(__self__, *,
-                 artifact_s3_location: str,
-                 code: 'outputs.CanaryCode',
-                 execution_role_arn: str,
-                 name: str,
-                 runtime_version: str,
-                 schedule: 'outputs.CanarySchedule',
-                 start_canary_after_creation: bool,
-                 failure_retention_period: Optional[int] = None,
-                 run_config: Optional['outputs.CanaryRunConfig'] = None,
-                 success_retention_period: Optional[int] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None,
-                 vpc_config: Optional['outputs.CanaryVPCConfig'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
-        :param str artifact_s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
-        :param 'CanaryCodeArgs' code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
-        :param str execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
-        :param str runtime_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
-        :param 'CanaryScheduleArgs' schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
-        :param bool start_canary_after_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
-        :param int failure_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
-        :param 'CanaryRunConfigArgs' run_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-        :param int success_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-        :param 'CanaryVPCConfigArgs' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
-        """
-        pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "runtime_version", runtime_version)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
-        if failure_retention_period is not None:
-            pulumi.set(__self__, "failure_retention_period", failure_retention_period)
-        if run_config is not None:
-            pulumi.set(__self__, "run_config", run_config)
-        if success_retention_period is not None:
-            pulumi.set(__self__, "success_retention_period", success_retention_period)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
-
-    @property
-    @pulumi.getter(name="ArtifactS3Location")
-    def artifact_s3_location(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
-        """
-        return pulumi.get(self, "artifact_s3_location")
-
-    @property
-    @pulumi.getter(name="Code")
-    def code(self) -> 'outputs.CanaryCode':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter(name="ExecutionRoleArn")
-    def execution_role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
-        """
-        return pulumi.get(self, "execution_role_arn")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="RuntimeVersion")
-    def runtime_version(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
-        """
-        return pulumi.get(self, "runtime_version")
-
-    @property
-    @pulumi.getter(name="Schedule")
-    def schedule(self) -> 'outputs.CanarySchedule':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
-        """
-        return pulumi.get(self, "schedule")
-
-    @property
-    @pulumi.getter(name="StartCanaryAfterCreation")
-    def start_canary_after_creation(self) -> bool:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
-        """
-        return pulumi.get(self, "start_canary_after_creation")
-
-    @property
-    @pulumi.getter(name="FailureRetentionPeriod")
-    def failure_retention_period(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
-        """
-        return pulumi.get(self, "failure_retention_period")
-
-    @property
-    @pulumi.getter(name="RunConfig")
-    def run_config(self) -> Optional['outputs.CanaryRunConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-        """
-        return pulumi.get(self, "run_config")
-
-    @property
-    @pulumi.getter(name="SuccessRetentionPeriod")
-    def success_retention_period(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
-        """
-        return pulumi.get(self, "success_retention_period")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="VPCConfig")
-    def vpc_config(self) -> Optional['outputs.CanaryVPCConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
-        """
-        return pulumi.get(self, "vpc_config")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

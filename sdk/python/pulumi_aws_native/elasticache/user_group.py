@@ -17,11 +17,9 @@ class UserGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['UserGroupPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
+                 user_group_id: Optional[pulumi.Input[str]] = None,
+                 user_ids: Optional[pulumi.Input[pulumi.InputType['UserGroupUserIdListArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +28,9 @@ class UserGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['UserGroupPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+        :param pulumi.Input[str] user_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+        :param pulumi.Input[pulumi.InputType['UserGroupUserIdListArgs']] user_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +49,17 @@ class UserGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if engine is None and not opts.urn:
+                raise TypeError("Missing required property 'engine'")
+            __props__['engine'] = engine
+            if user_group_id is None and not opts.urn:
+                raise TypeError("Missing required property 'user_group_id'")
+            __props__['user_group_id'] = user_group_id
+            __props__['user_ids'] = user_ids
+            __props__['arn'] = None
+            __props__['pending_changes'] = None
+            __props__['replication_group_ids'] = None
+            __props__['status'] = None
         super(UserGroup, __self__).__init__(
             'aws-native:ElastiCache:UserGroup',
             resource_name,
@@ -86,36 +85,48 @@ class UserGroup(pulumi.CustomResource):
         return UserGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.UserGroupAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="Engine")
+    def engine(self) -> pulumi.Output[str]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "engine")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
+    @pulumi.getter(name="PendingChanges")
+    def pending_changes(self) -> pulumi.Output['outputs.UserGroupUserGroupPendingChanges']:
+        return pulumi.get(self, "pending_changes")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.UserGroupProperties']:
+    @pulumi.getter(name="ReplicationGroupIds")
+    def replication_group_ids(self) -> pulumi.Output['outputs.UserGroupReplicationGroupIdList']:
+        return pulumi.get(self, "replication_group_ids")
+
+    @property
+    @pulumi.getter(name="Status")
+    def status(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="UserGroupId")
+    def user_group_id(self) -> pulumi.Output[str]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "user_group_id")
+
+    @property
+    @pulumi.getter(name="UserIds")
+    def user_ids(self) -> pulumi.Output[Optional['outputs.UserGroupUserIdList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        """
+        return pulumi.get(self, "user_ids")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

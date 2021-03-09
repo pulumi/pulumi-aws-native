@@ -17,11 +17,16 @@ class TaskSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['TaskSetPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 cluster: Optional[pulumi.Input[str]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 launch_type: Optional[pulumi.Input[str]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
+                 platform_version: Optional[pulumi.Input[str]] = None,
+                 scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
+                 service: Optional[pulumi.Input[str]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]]] = None,
+                 task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +35,16 @@ class TaskSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['TaskSetPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
+        :param pulumi.Input[str] external_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
+        :param pulumi.Input[str] launch_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
+        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
+        :param pulumi.Input[str] platform_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        :param pulumi.Input[str] service: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]] service_registries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        :param pulumi.Input[str] task_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +63,23 @@ class TaskSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if cluster is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster'")
+            __props__['cluster'] = cluster
+            __props__['external_id'] = external_id
+            __props__['launch_type'] = launch_type
+            __props__['load_balancers'] = load_balancers
+            __props__['network_configuration'] = network_configuration
+            __props__['platform_version'] = platform_version
+            __props__['scale'] = scale
+            if service is None and not opts.urn:
+                raise TypeError("Missing required property 'service'")
+            __props__['service'] = service
+            __props__['service_registries'] = service_registries
+            if task_definition is None and not opts.urn:
+                raise TypeError("Missing required property 'task_definition'")
+            __props__['task_definition'] = task_definition
+            __props__['id'] = None
         super(TaskSet, __self__).__init__(
             'aws-native:ECS:TaskSet',
             resource_name,
@@ -86,36 +105,89 @@ class TaskSet(pulumi.CustomResource):
         return TaskSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.TaskSetAttributes']:
+    @pulumi.getter(name="Cluster")
+    def cluster(self) -> pulumi.Output[str]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "cluster")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ExternalId")
+    def external_id(self) -> pulumi.Output[Optional[str]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "external_id")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
+    @pulumi.getter(name="Id")
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.TaskSetProperties']:
+    @pulumi.getter(name="LaunchType")
+    def launch_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "launch_type")
+
+    @property
+    @pulumi.getter(name="LoadBalancers")
+    def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetLoadBalancer']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
+        """
+        return pulumi.get(self, "load_balancers")
+
+    @property
+    @pulumi.getter(name="NetworkConfiguration")
+    def network_configuration(self) -> pulumi.Output[Optional['outputs.TaskSetNetworkConfiguration']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @property
+    @pulumi.getter(name="PlatformVersion")
+    def platform_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        """
+        return pulumi.get(self, "platform_version")
+
+    @property
+    @pulumi.getter(name="Scale")
+    def scale(self) -> pulumi.Output[Optional['outputs.TaskSetScale']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        """
+        return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="Service")
+    def service(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="ServiceRegistries")
+    def service_registries(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetServiceRegistry']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        """
+        return pulumi.get(self, "service_registries")
+
+    @property
+    @pulumi.getter(name="TaskDefinition")
+    def task_definition(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        """
+        return pulumi.get(self, "task_definition")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

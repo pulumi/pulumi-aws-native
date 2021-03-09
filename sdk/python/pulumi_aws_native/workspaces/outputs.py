@@ -7,43 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'ConnectionAliasAttributes',
     'ConnectionAliasConnectionAliasAssociation',
-    'ConnectionAliasProperties',
 ]
-
-@pulumi.output_type
-class ConnectionAliasAttributes(dict):
-    def __init__(__self__, *,
-                 alias_id: str,
-                 associations: Sequence['outputs.ConnectionAliasConnectionAliasAssociation'],
-                 connection_alias_state: str):
-        pulumi.set(__self__, "alias_id", alias_id)
-        pulumi.set(__self__, "associations", associations)
-        pulumi.set(__self__, "connection_alias_state", connection_alias_state)
-
-    @property
-    @pulumi.getter(name="AliasId")
-    def alias_id(self) -> str:
-        return pulumi.get(self, "alias_id")
-
-    @property
-    @pulumi.getter(name="Associations")
-    def associations(self) -> Sequence['outputs.ConnectionAliasConnectionAliasAssociation']:
-        return pulumi.get(self, "associations")
-
-    @property
-    @pulumi.getter(name="ConnectionAliasState")
-    def connection_alias_state(self) -> str:
-        return pulumi.get(self, "connection_alias_state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionAliasConnectionAliasAssociation(dict):
@@ -102,43 +69,6 @@ class ConnectionAliasConnectionAliasAssociation(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
         """
         return pulumi.get(self, "resource_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ConnectionAliasProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
-    """
-    def __init__(__self__, *,
-                 connection_string: str,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
-        :param str connection_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-        """
-        pulumi.set(__self__, "connection_string", connection_string)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ConnectionString")
-    def connection_string(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-        """
-        return pulumi.get(self, "connection_string")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -11,16 +11,12 @@ from . import outputs
 
 __all__ = [
     'AccessPointAccessPointTag',
-    'AccessPointAttributes',
     'AccessPointCreationInfo',
     'AccessPointPosixUser',
-    'AccessPointProperties',
     'AccessPointRootDirectory',
-    'FileSystemAttributes',
     'FileSystemBackupPolicy',
     'FileSystemElasticFileSystemTag',
     'FileSystemLifecyclePolicy',
-    'FileSystemProperties',
 ]
 
 @pulumi.output_type
@@ -56,28 +52,6 @@ class AccessPointAccessPointTag(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AccessPointAttributes(dict):
-    def __init__(__self__, *,
-                 access_point_id: str,
-                 arn: str):
-        pulumi.set(__self__, "access_point_id", access_point_id)
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter(name="AccessPointId")
-    def access_point_id(self) -> str:
-        return pulumi.get(self, "access_point_id")
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -179,79 +153,6 @@ class AccessPointPosixUser(dict):
 
 
 @pulumi.output_type
-class AccessPointProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
-    """
-    def __init__(__self__, *,
-                 file_system_id: str,
-                 access_point_tags: Optional[Sequence['outputs.AccessPointAccessPointTag']] = None,
-                 client_token: Optional[str] = None,
-                 posix_user: Optional['outputs.AccessPointPosixUser'] = None,
-                 root_directory: Optional['outputs.AccessPointRootDirectory'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
-        :param str file_system_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
-        :param Sequence['AccessPointAccessPointTagArgs'] access_point_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        :param str client_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
-        :param 'AccessPointPosixUserArgs' posix_user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
-        :param 'AccessPointRootDirectoryArgs' root_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
-        """
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        if access_point_tags is not None:
-            pulumi.set(__self__, "access_point_tags", access_point_tags)
-        if client_token is not None:
-            pulumi.set(__self__, "client_token", client_token)
-        if posix_user is not None:
-            pulumi.set(__self__, "posix_user", posix_user)
-        if root_directory is not None:
-            pulumi.set(__self__, "root_directory", root_directory)
-
-    @property
-    @pulumi.getter(name="FileSystemId")
-    def file_system_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @property
-    @pulumi.getter(name="AccessPointTags")
-    def access_point_tags(self) -> Optional[Sequence['outputs.AccessPointAccessPointTag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        """
-        return pulumi.get(self, "access_point_tags")
-
-    @property
-    @pulumi.getter(name="ClientToken")
-    def client_token(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
-        """
-        return pulumi.get(self, "client_token")
-
-    @property
-    @pulumi.getter(name="PosixUser")
-    def posix_user(self) -> Optional['outputs.AccessPointPosixUser']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
-        """
-        return pulumi.get(self, "posix_user")
-
-    @property
-    @pulumi.getter(name="RootDirectory")
-    def root_directory(self) -> Optional['outputs.AccessPointRootDirectory']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
-        """
-        return pulumi.get(self, "root_directory")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class AccessPointRootDirectory(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
@@ -284,28 +185,6 @@ class AccessPointRootDirectory(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
         """
         return pulumi.get(self, "path")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class FileSystemAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 file_system_id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "file_system_id", file_system_id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="FileSystemId")
-    def file_system_id(self) -> str:
-        return pulumi.get(self, "file_system_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -392,128 +271,6 @@ class FileSystemLifecyclePolicy(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
         """
         return pulumi.get(self, "transition_to_ia")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class FileSystemProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
-    """
-    def __init__(__self__, *,
-                 backup_policy: Optional['outputs.FileSystemBackupPolicy'] = None,
-                 encrypted: Optional[bool] = None,
-                 file_system_policy: Optional[str] = None,
-                 file_system_tags: Optional[Sequence['outputs.FileSystemElasticFileSystemTag']] = None,
-                 kms_key_id: Optional[str] = None,
-                 lifecycle_policies: Optional[Sequence['outputs.FileSystemLifecyclePolicy']] = None,
-                 performance_mode: Optional[str] = None,
-                 provisioned_throughput_in_mibps: Optional[float] = None,
-                 throughput_mode: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
-        :param 'FileSystemBackupPolicyArgs' backup_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        :param bool encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        :param Union[Any, str] file_system_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        :param Sequence['FileSystemElasticFileSystemTagArgs'] file_system_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        :param Sequence['FileSystemLifecyclePolicyArgs'] lifecycle_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        :param str performance_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        :param float provisioned_throughput_in_mibps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        :param str throughput_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-        """
-        if backup_policy is not None:
-            pulumi.set(__self__, "backup_policy", backup_policy)
-        if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
-        if file_system_policy is not None:
-            pulumi.set(__self__, "file_system_policy", file_system_policy)
-        if file_system_tags is not None:
-            pulumi.set(__self__, "file_system_tags", file_system_tags)
-        if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if lifecycle_policies is not None:
-            pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
-        if performance_mode is not None:
-            pulumi.set(__self__, "performance_mode", performance_mode)
-        if provisioned_throughput_in_mibps is not None:
-            pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
-        if throughput_mode is not None:
-            pulumi.set(__self__, "throughput_mode", throughput_mode)
-
-    @property
-    @pulumi.getter(name="BackupPolicy")
-    def backup_policy(self) -> Optional['outputs.FileSystemBackupPolicy']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        """
-        return pulumi.get(self, "backup_policy")
-
-    @property
-    @pulumi.getter(name="Encrypted")
-    def encrypted(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        """
-        return pulumi.get(self, "encrypted")
-
-    @property
-    @pulumi.getter(name="FileSystemPolicy")
-    def file_system_policy(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        """
-        return pulumi.get(self, "file_system_policy")
-
-    @property
-    @pulumi.getter(name="FileSystemTags")
-    def file_system_tags(self) -> Optional[Sequence['outputs.FileSystemElasticFileSystemTag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        """
-        return pulumi.get(self, "file_system_tags")
-
-    @property
-    @pulumi.getter(name="KmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        """
-        return pulumi.get(self, "kms_key_id")
-
-    @property
-    @pulumi.getter(name="LifecyclePolicies")
-    def lifecycle_policies(self) -> Optional[Sequence['outputs.FileSystemLifecyclePolicy']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        """
-        return pulumi.get(self, "lifecycle_policies")
-
-    @property
-    @pulumi.getter(name="PerformanceMode")
-    def performance_mode(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        """
-        return pulumi.get(self, "performance_mode")
-
-    @property
-    @pulumi.getter(name="ProvisionedThroughputInMibps")
-    def provisioned_throughput_in_mibps(self) -> Optional[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        """
-        return pulumi.get(self, "provisioned_throughput_in_mibps")
-
-    @property
-    @pulumi.getter(name="ThroughputMode")
-    def throughput_mode(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-        """
-        return pulumi.get(self, "throughput_mode")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

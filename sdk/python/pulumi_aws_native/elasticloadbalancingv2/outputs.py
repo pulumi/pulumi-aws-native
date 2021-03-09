@@ -11,16 +11,13 @@ from . import outputs
 
 __all__ = [
     'ListenerAction',
-    'ListenerAttributes',
     'ListenerAuthenticateCognitoConfig',
     'ListenerAuthenticateOidcConfig',
     'ListenerCertificate',
     'ListenerFixedResponseConfig',
     'ListenerForwardConfig',
-    'ListenerProperties',
     'ListenerRedirectConfig',
     'ListenerRuleAction',
-    'ListenerRuleAttributes',
     'ListenerRuleAuthenticateCognitoConfig',
     'ListenerRuleAuthenticateOidcConfig',
     'ListenerRuleFixedResponseConfig',
@@ -29,7 +26,6 @@ __all__ = [
     'ListenerRuleHttpHeaderConfig',
     'ListenerRuleHttpRequestMethodConfig',
     'ListenerRulePathPatternConfig',
-    'ListenerRuleProperties',
     'ListenerRuleQueryStringConfig',
     'ListenerRuleQueryStringKeyValue',
     'ListenerRuleRedirectConfig',
@@ -145,21 +141,6 @@ class ListenerAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
         """
         return pulumi.get(self, "target_group_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ListenerAttributes(dict):
-    def __init__(__self__, *,
-                 listener_arn: str):
-        pulumi.set(__self__, "listener_arn", listener_arn)
-
-    @property
-    @pulumi.getter(name="ListenerArn")
-    def listener_arn(self) -> str:
-        return pulumi.get(self, "listener_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -526,102 +507,6 @@ class ListenerForwardConfig(dict):
 
 
 @pulumi.output_type
-class ListenerProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
-    """
-    def __init__(__self__, *,
-                 default_actions: Sequence['outputs.ListenerAction'],
-                 load_balancer_arn: str,
-                 alpn_policy: Optional[Sequence[str]] = None,
-                 certificates: Optional[Sequence['outputs.ListenerCertificate']] = None,
-                 port: Optional[int] = None,
-                 protocol: Optional[str] = None,
-                 ssl_policy: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
-        :param Sequence['ListenerActionArgs'] default_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-        :param str load_balancer_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-        :param Sequence[str] alpn_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-        :param Sequence['ListenerCertificateArgs'] certificates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-        :param int port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-        :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-        :param str ssl_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-        """
-        pulumi.set(__self__, "default_actions", default_actions)
-        pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
-        if alpn_policy is not None:
-            pulumi.set(__self__, "alpn_policy", alpn_policy)
-        if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-        if ssl_policy is not None:
-            pulumi.set(__self__, "ssl_policy", ssl_policy)
-
-    @property
-    @pulumi.getter(name="DefaultActions")
-    def default_actions(self) -> Sequence['outputs.ListenerAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-        """
-        return pulumi.get(self, "default_actions")
-
-    @property
-    @pulumi.getter(name="LoadBalancerArn")
-    def load_balancer_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-        """
-        return pulumi.get(self, "load_balancer_arn")
-
-    @property
-    @pulumi.getter(name="AlpnPolicy")
-    def alpn_policy(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-        """
-        return pulumi.get(self, "alpn_policy")
-
-    @property
-    @pulumi.getter(name="Certificates")
-    def certificates(self) -> Optional[Sequence['outputs.ListenerCertificate']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-        """
-        return pulumi.get(self, "certificates")
-
-    @property
-    @pulumi.getter(name="Port")
-    def port(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="Protocol")
-    def protocol(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="SslPolicy")
-    def ssl_policy(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-        """
-        return pulumi.get(self, "ssl_policy")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ListenerRedirectConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
@@ -810,15 +695,6 @@ class ListenerRuleAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
         """
         return pulumi.get(self, "target_group_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ListenerRuleAttributes(dict):
-    def __init__(__self__):
-        pass
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1269,64 +1145,6 @@ class ListenerRulePathPatternConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-values
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ListenerRuleProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
-    """
-    def __init__(__self__, *,
-                 actions: Sequence['outputs.ListenerRuleAction'],
-                 conditions: Sequence['outputs.ListenerRuleRuleCondition'],
-                 listener_arn: str,
-                 priority: int):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
-        :param Sequence['ListenerRuleActionArgs'] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-        :param Sequence['ListenerRuleRuleConditionArgs'] conditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-        :param str listener_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-        :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-        """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "conditions", conditions)
-        pulumi.set(__self__, "listener_arn", listener_arn)
-        pulumi.set(__self__, "priority", priority)
-
-    @property
-    @pulumi.getter(name="Actions")
-    def actions(self) -> Sequence['outputs.ListenerRuleAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-        """
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter(name="Conditions")
-    def conditions(self) -> Sequence['outputs.ListenerRuleRuleCondition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-        """
-        return pulumi.get(self, "conditions")
-
-    @property
-    @pulumi.getter(name="ListenerArn")
-    def listener_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-        """
-        return pulumi.get(self, "listener_arn")
-
-    @property
-    @pulumi.getter(name="Priority")
-    def priority(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-        """
-        return pulumi.get(self, "priority")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

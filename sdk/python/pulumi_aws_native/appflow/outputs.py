@@ -8,11 +8,9 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
     'ConnectorProfileAmplitudeConnectorProfileCredentials',
-    'ConnectorProfileAttributes',
     'ConnectorProfileConnectorOAuthRequest',
     'ConnectorProfileConnectorProfileConfig',
     'ConnectorProfileConnectorProfileCredentials',
@@ -26,7 +24,6 @@ __all__ = [
     'ConnectorProfileInforNexusConnectorProfileProperties',
     'ConnectorProfileMarketoConnectorProfileCredentials',
     'ConnectorProfileMarketoConnectorProfileProperties',
-    'ConnectorProfileProperties',
     'ConnectorProfileRedshiftConnectorProfileCredentials',
     'ConnectorProfileRedshiftConnectorProfileProperties',
     'ConnectorProfileSalesforceConnectorProfileCredentials',
@@ -45,7 +42,6 @@ __all__ = [
     'ConnectorProfileZendeskConnectorProfileProperties',
     'FlowAggregationConfig',
     'FlowAmplitudeSourceProperties',
-    'FlowAttributes',
     'FlowConnectorOperator',
     'FlowDatadogSourceProperties',
     'FlowDestinationConnectorProperties',
@@ -58,7 +54,6 @@ __all__ = [
     'FlowInforNexusSourceProperties',
     'FlowMarketoSourceProperties',
     'FlowPrefixConfig',
-    'FlowProperties',
     'FlowRedshiftDestinationProperties',
     'FlowS3DestinationProperties',
     'FlowS3OutputFormatConfig',
@@ -113,28 +108,6 @@ class ConnectorProfileAmplitudeConnectorProfileCredentials(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
         """
         return pulumi.get(self, "secret_key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ConnectorProfileAttributes(dict):
-    def __init__(__self__, *,
-                 connector_profile_arn: str,
-                 credentials_arn: str):
-        pulumi.set(__self__, "connector_profile_arn", connector_profile_arn)
-        pulumi.set(__self__, "credentials_arn", credentials_arn)
-
-    @property
-    @pulumi.getter(name="ConnectorProfileArn")
-    def connector_profile_arn(self) -> str:
-        return pulumi.get(self, "connector_profile_arn")
-
-    @property
-    @pulumi.getter(name="CredentialsArn")
-    def credentials_arn(self) -> str:
-        return pulumi.get(self, "credentials_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -907,77 +880,6 @@ class ConnectorProfileMarketoConnectorProfileProperties(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
-    """
-    def __init__(__self__, *,
-                 connection_mode: str,
-                 connector_profile_name: str,
-                 connector_type: str,
-                 connector_profile_config: Optional['outputs.ConnectorProfileConnectorProfileConfig'] = None,
-                 kms_arn: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
-        :param str connection_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-        :param str connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-        :param str connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-        :param 'ConnectorProfileConnectorProfileConfigArgs' connector_profile_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
-        :param str kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
-        """
-        pulumi.set(__self__, "connection_mode", connection_mode)
-        pulumi.set(__self__, "connector_profile_name", connector_profile_name)
-        pulumi.set(__self__, "connector_type", connector_type)
-        if connector_profile_config is not None:
-            pulumi.set(__self__, "connector_profile_config", connector_profile_config)
-        if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
-
-    @property
-    @pulumi.getter(name="ConnectionMode")
-    def connection_mode(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-        """
-        return pulumi.get(self, "connection_mode")
-
-    @property
-    @pulumi.getter(name="ConnectorProfileName")
-    def connector_profile_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-        """
-        return pulumi.get(self, "connector_profile_name")
-
-    @property
-    @pulumi.getter(name="ConnectorType")
-    def connector_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-        """
-        return pulumi.get(self, "connector_type")
-
-    @property
-    @pulumi.getter(name="ConnectorProfileConfig")
-    def connector_profile_config(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
-        """
-        return pulumi.get(self, "connector_profile_config")
-
-    @property
-    @pulumi.getter(name="KMSArn")
-    def kms_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
-        """
-        return pulumi.get(self, "kms_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ConnectorProfileRedshiftConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html
@@ -1697,21 +1599,6 @@ class FlowAmplitudeSourceProperties(dict):
 
 
 @pulumi.output_type
-class FlowAttributes(dict):
-    def __init__(__self__, *,
-                 flow_arn: str):
-        pulumi.set(__self__, "flow_arn", flow_arn)
-
-    @property
-    @pulumi.getter(name="FlowArn")
-    def flow_arn(self) -> str:
-        return pulumi.get(self, "flow_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class FlowConnectorOperator(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html
@@ -2298,111 +2185,6 @@ class FlowPrefixConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
         """
         return pulumi.get(self, "prefix_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class FlowProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
-    """
-    def __init__(__self__, *,
-                 destination_flow_config_list: Sequence['outputs.FlowDestinationFlowConfig'],
-                 flow_name: str,
-                 source_flow_config: 'outputs.FlowSourceFlowConfig',
-                 tasks: Sequence['outputs.FlowTask'],
-                 trigger_config: 'outputs.FlowTriggerConfig',
-                 description: Optional[str] = None,
-                 kms_arn: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
-        :param Sequence['FlowDestinationFlowConfigArgs'] destination_flow_config_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-        :param str flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        :param 'FlowSourceFlowConfigArgs' source_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-        :param Sequence['FlowTaskArgs'] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-        :param 'FlowTriggerConfigArgs' trigger_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-        :param str kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
-        """
-        pulumi.set(__self__, "destination_flow_config_list", destination_flow_config_list)
-        pulumi.set(__self__, "flow_name", flow_name)
-        pulumi.set(__self__, "source_flow_config", source_flow_config)
-        pulumi.set(__self__, "tasks", tasks)
-        pulumi.set(__self__, "trigger_config", trigger_config)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="DestinationFlowConfigList")
-    def destination_flow_config_list(self) -> Sequence['outputs.FlowDestinationFlowConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-        """
-        return pulumi.get(self, "destination_flow_config_list")
-
-    @property
-    @pulumi.getter(name="FlowName")
-    def flow_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        """
-        return pulumi.get(self, "flow_name")
-
-    @property
-    @pulumi.getter(name="SourceFlowConfig")
-    def source_flow_config(self) -> 'outputs.FlowSourceFlowConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-        """
-        return pulumi.get(self, "source_flow_config")
-
-    @property
-    @pulumi.getter(name="Tasks")
-    def tasks(self) -> Sequence['outputs.FlowTask']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-        """
-        return pulumi.get(self, "tasks")
-
-    @property
-    @pulumi.getter(name="TriggerConfig")
-    def trigger_config(self) -> 'outputs.FlowTriggerConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-        """
-        return pulumi.get(self, "trigger_config")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="KMSArn")
-    def kms_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-        """
-        return pulumi.get(self, "kms_arn")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

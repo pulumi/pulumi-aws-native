@@ -7,99 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from .. import _inputs as _root_inputs
 
 __all__ = [
-    'StreamPropertiesArgs',
     'StreamStreamEncryptionArgs',
 ]
-
-@pulumi.input_type
-class StreamPropertiesArgs:
-    def __init__(__self__, *,
-                 shard_count: pulumi.Input[int],
-                 name: Optional[pulumi.Input[str]] = None,
-                 retention_period_hours: Optional[pulumi.Input[int]] = None,
-                 stream_encryption: Optional[pulumi.Input['StreamStreamEncryptionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
-        :param pulumi.Input[int] shard_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
-        :param pulumi.Input[int] retention_period_hours: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-        :param pulumi.Input['StreamStreamEncryptionArgs'] stream_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-        """
-        pulumi.set(__self__, "shard_count", shard_count)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if retention_period_hours is not None:
-            pulumi.set(__self__, "retention_period_hours", retention_period_hours)
-        if stream_encryption is not None:
-            pulumi.set(__self__, "stream_encryption", stream_encryption)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ShardCount")
-    def shard_count(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-        """
-        return pulumi.get(self, "shard_count")
-
-    @shard_count.setter
-    def shard_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "shard_count", value)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="RetentionPeriodHours")
-    def retention_period_hours(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-        """
-        return pulumi.get(self, "retention_period_hours")
-
-    @retention_period_hours.setter
-    def retention_period_hours(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention_period_hours", value)
-
-    @property
-    @pulumi.getter(name="StreamEncryption")
-    def stream_encryption(self) -> Optional[pulumi.Input['StreamStreamEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
-        """
-        return pulumi.get(self, "stream_encryption")
-
-    @stream_encryption.setter
-    def stream_encryption(self, value: Optional[pulumi.Input['StreamStreamEncryptionArgs']]):
-        pulumi.set(self, "stream_encryption", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.input_type
 class StreamStreamEncryptionArgs:

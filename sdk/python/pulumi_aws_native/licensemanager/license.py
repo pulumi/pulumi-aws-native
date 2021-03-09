@@ -19,11 +19,25 @@ class License(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LicensePropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 beneficiary: Optional[pulumi.Input[str]] = None,
+                 client_token: Optional[pulumi.Input[str]] = None,
+                 consumption_configuration: Optional[pulumi.Input[pulumi.InputType['LicenseConsumptionConfigurationArgs']]] = None,
+                 entitlements: Optional[pulumi.Input[pulumi.InputType['LicenseEntitlementListArgs']]] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['LicenseFilterListArgs']]] = None,
+                 home_region: Optional[pulumi.Input[str]] = None,
+                 issuer: Optional[pulumi.Input[pulumi.InputType['LicenseIssuerDataArgs']]] = None,
+                 license_arns: Optional[pulumi.Input[pulumi.InputType['LicenseArnListArgs']]] = None,
+                 license_metadata: Optional[pulumi.Input[pulumi.InputType['LicenseMetadataListArgs']]] = None,
+                 license_name: Optional[pulumi.Input[str]] = None,
+                 max_results: Optional[pulumi.Input[int]] = None,
+                 next_token: Optional[pulumi.Input[str]] = None,
+                 product_name: Optional[pulumi.Input[str]] = None,
+                 product_sku: Optional[pulumi.Input[str]] = None,
+                 source_version: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['LicenseTagListArgs']]] = None,
+                 validity: Optional[pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +46,25 @@ class License(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['LicensePropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] beneficiary: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
+        :param pulumi.Input[str] client_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
+        :param pulumi.Input[pulumi.InputType['LicenseConsumptionConfigurationArgs']] consumption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
+        :param pulumi.Input[pulumi.InputType['LicenseEntitlementListArgs']] entitlements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
+        :param pulumi.Input[pulumi.InputType['LicenseFilterListArgs']] filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
+        :param pulumi.Input[str] home_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        :param pulumi.Input[pulumi.InputType['LicenseIssuerDataArgs']] issuer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
+        :param pulumi.Input[pulumi.InputType['LicenseArnListArgs']] license_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
+        :param pulumi.Input[pulumi.InputType['LicenseMetadataListArgs']] license_metadata: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
+        :param pulumi.Input[str] license_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        :param pulumi.Input[int] max_results: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
+        :param pulumi.Input[str] next_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
+        :param pulumi.Input[str] product_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        :param pulumi.Input[str] product_sku: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        :param pulumi.Input[str] source_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
+        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
+        :param pulumi.Input[pulumi.InputType['LicenseTagListArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
+        :param pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']] validity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
+        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +83,36 @@ class License(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['beneficiary'] = beneficiary
+            __props__['client_token'] = client_token
+            if consumption_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'consumption_configuration'")
+            __props__['consumption_configuration'] = consumption_configuration
+            if entitlements is None and not opts.urn:
+                raise TypeError("Missing required property 'entitlements'")
+            __props__['entitlements'] = entitlements
+            __props__['filters'] = filters
+            if home_region is None and not opts.urn:
+                raise TypeError("Missing required property 'home_region'")
+            __props__['home_region'] = home_region
+            if issuer is None and not opts.urn:
+                raise TypeError("Missing required property 'issuer'")
+            __props__['issuer'] = issuer
+            __props__['license_arns'] = license_arns
+            __props__['license_metadata'] = license_metadata
+            __props__['license_name'] = license_name
+            __props__['max_results'] = max_results
+            __props__['next_token'] = next_token
+            __props__['product_name'] = product_name
+            __props__['product_sku'] = product_sku
+            __props__['source_version'] = source_version
+            __props__['status'] = status
+            __props__['tags'] = tags
+            if validity is None and not opts.urn:
+                raise TypeError("Missing required property 'validity'")
+            __props__['validity'] = validity
+            __props__['version'] = version
+            __props__['license_arn'] = None
         super(License, __self__).__init__(
             'aws-native:LicenseManager:License',
             resource_name,
@@ -88,36 +138,161 @@ class License(pulumi.CustomResource):
         return License(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.LicenseAttributes']:
+    @pulumi.getter(name="Beneficiary")
+    def beneficiary(self) -> pulumi.Output[Optional[str]]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "beneficiary")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ClientToken")
+    def client_token(self) -> pulumi.Output[Optional[str]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "client_token")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ConsumptionConfiguration")
+    def consumption_configuration(self) -> pulumi.Output['outputs.LicenseConsumptionConfiguration']:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "consumption_configuration")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.LicenseProperties']:
+    @pulumi.getter(name="Entitlements")
+    def entitlements(self) -> pulumi.Output['outputs.LicenseEntitlementList']:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "entitlements")
+
+    @property
+    @pulumi.getter(name="Filters")
+    def filters(self) -> pulumi.Output[Optional['outputs.LicenseFilterList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="HomeRegion")
+    def home_region(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        """
+        return pulumi.get(self, "home_region")
+
+    @property
+    @pulumi.getter(name="Issuer")
+    def issuer(self) -> pulumi.Output['outputs.LicenseIssuerData']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="LicenseArn")
+    def license_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "license_arn")
+
+    @property
+    @pulumi.getter(name="LicenseArns")
+    def license_arns(self) -> pulumi.Output[Optional['outputs.LicenseArnList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
+        """
+        return pulumi.get(self, "license_arns")
+
+    @property
+    @pulumi.getter(name="LicenseMetadata")
+    def license_metadata(self) -> pulumi.Output[Optional['outputs.LicenseMetadataList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
+        """
+        return pulumi.get(self, "license_metadata")
+
+    @property
+    @pulumi.getter(name="LicenseName")
+    def license_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        """
+        return pulumi.get(self, "license_name")
+
+    @property
+    @pulumi.getter(name="MaxResults")
+    def max_results(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
+        """
+        return pulumi.get(self, "max_results")
+
+    @property
+    @pulumi.getter(name="NextToken")
+    def next_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
+        """
+        return pulumi.get(self, "next_token")
+
+    @property
+    @pulumi.getter(name="ProductName")
+    def product_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        """
+        return pulumi.get(self, "product_name")
+
+    @property
+    @pulumi.getter(name="ProductSKU")
+    def product_sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        """
+        return pulumi.get(self, "product_sku")
+
+    @property
+    @pulumi.getter(name="SourceVersion")
+    def source_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
+        """
+        return pulumi.get(self, "source_version")
+
+    @property
+    @pulumi.getter(name="Status")
+    def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional['outputs.LicenseTagList']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="Validity")
+    def validity(self) -> pulumi.Output['outputs.LicenseValidityDateFormat']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
+        """
+        return pulumi.get(self, "validity")
+
+    @property
+    @pulumi.getter(name="Version")
+    def version(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version
+        """
+        return pulumi.get(self, "version")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

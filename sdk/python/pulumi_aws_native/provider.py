@@ -16,7 +16,6 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 stack: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -25,7 +24,6 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] region: the region to use for deployments
-        :param pulumi.Input[str] stack: the name of the stack to use for deployments
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -47,9 +45,6 @@ class Provider(pulumi.ProviderResource):
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__['region'] = region
-            if stack is None and not opts.urn:
-                raise TypeError("Missing required property 'stack'")
-            __props__['stack'] = stack
         super(Provider, __self__).__init__(
             'aws-native',
             resource_name,
@@ -63,14 +58,6 @@ class Provider(pulumi.ProviderResource):
         the region to use for deployments
         """
         return pulumi.get(self, "region")
-
-    @property
-    @pulumi.getter
-    def stack(self) -> pulumi.Output[str]:
-        """
-        the name of the stack to use for deployments
-        """
-        return pulumi.get(self, "stack")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

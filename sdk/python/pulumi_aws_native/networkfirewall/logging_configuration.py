@@ -17,11 +17,9 @@ class LoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 firewall_arn: Optional[pulumi.Input[str]] = None,
+                 firewall_name: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +28,9 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['LoggingConfigurationPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] firewall_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
+        :param pulumi.Input[str] firewall_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
+        :param pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']] logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +49,13 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if firewall_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'firewall_arn'")
+            __props__['firewall_arn'] = firewall_arn
+            __props__['firewall_name'] = firewall_name
+            if logging_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'logging_configuration'")
+            __props__['logging_configuration'] = logging_configuration
         super(LoggingConfiguration, __self__).__init__(
             'aws-native:NetworkFirewall:LoggingConfiguration',
             resource_name,
@@ -86,36 +81,28 @@ class LoggingConfiguration(pulumi.CustomResource):
         return LoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.LoggingConfigurationAttributes']:
+    @pulumi.getter(name="FirewallArn")
+    def firewall_arn(self) -> pulumi.Output[str]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "firewall_arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="FirewallName")
+    def firewall_name(self) -> pulumi.Output[Optional[str]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "firewall_name")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="LoggingConfiguration")
+    def logging_configuration(self) -> pulumi.Output['outputs.LoggingConfigurationLoggingConfiguration']:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
         """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.LoggingConfigurationProperties']:
-        """
-        The input properties associated with the resource
-        """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "logging_configuration")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -7,10 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from .. import _inputs as _root_inputs
 
 __all__ = [
-    'AccessPointPropertiesArgs',
     'AccessPointPublicAccessBlockConfigurationArgs',
     'AccessPointVpcConfigurationArgs',
     'StorageLensAccountLevelArgs',
@@ -22,146 +20,10 @@ __all__ = [
     'StorageLensEncryptionArgs',
     'StorageLensPrefixLevelArgs',
     'StorageLensPrefixLevelStorageMetricsArgs',
-    'StorageLensPropertiesArgs',
     'StorageLensS3BucketDestinationArgs',
     'StorageLensSelectionCriteriaArgs',
     'StorageLensStorageLensConfigurationArgs',
 ]
-
-@pulumi.input_type
-class AccessPointPropertiesArgs:
-    def __init__(__self__, *,
-                 bucket: pulumi.Input[str],
-                 creation_date: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 network_origin: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 policy_status: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
-        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
-        :param pulumi.Input[str] creation_date: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-        :param pulumi.Input[str] network_origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
-        :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
-        :param pulumi.Input[Union[Any, str]] policy_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-        :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
-        :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
-        """
-        pulumi.set(__self__, "bucket", bucket)
-        if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if network_origin is not None:
-            pulumi.set(__self__, "network_origin", network_origin)
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-        if policy_status is not None:
-            pulumi.set(__self__, "policy_status", policy_status)
-        if public_access_block_configuration is not None:
-            pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
-        if vpc_configuration is not None:
-            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
-
-    @property
-    @pulumi.getter(name="Bucket")
-    def bucket(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
-        """
-        return pulumi.get(self, "bucket")
-
-    @bucket.setter
-    def bucket(self, value: pulumi.Input[str]):
-        pulumi.set(self, "bucket", value)
-
-    @property
-    @pulumi.getter(name="CreationDate")
-    def creation_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
-        """
-        return pulumi.get(self, "creation_date")
-
-    @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "creation_date", value)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="NetworkOrigin")
-    def network_origin(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
-        """
-        return pulumi.get(self, "network_origin")
-
-    @network_origin.setter
-    def network_origin(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_origin", value)
-
-    @property
-    @pulumi.getter(name="Policy")
-    def policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
-        """
-        return pulumi.get(self, "policy")
-
-    @policy.setter
-    def policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "policy", value)
-
-    @property
-    @pulumi.getter(name="PolicyStatus")
-    def policy_status(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-        """
-        return pulumi.get(self, "policy_status")
-
-    @policy_status.setter
-    def policy_status(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "policy_status", value)
-
-    @property
-    @pulumi.getter(name="PublicAccessBlockConfiguration")
-    def public_access_block_configuration(self) -> Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
-        """
-        return pulumi.get(self, "public_access_block_configuration")
-
-    @public_access_block_configuration.setter
-    def public_access_block_configuration(self, value: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']]):
-        pulumi.set(self, "public_access_block_configuration", value)
-
-    @property
-    @pulumi.getter(name="VpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['AccessPointVpcConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
-        """
-        return pulumi.get(self, "vpc_configuration")
-
-    @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']]):
-        pulumi.set(self, "vpc_configuration", value)
-
 
 @pulumi.input_type
 class AccessPointPublicAccessBlockConfigurationArgs:
@@ -518,45 +380,6 @@ class StorageLensPrefixLevelStorageMetricsArgs:
     @selection_criteria.setter
     def selection_criteria(self, value: Optional[pulumi.Input['StorageLensSelectionCriteriaArgs']]):
         pulumi.set(self, "selection_criteria", value)
-
-
-@pulumi.input_type
-class StorageLensPropertiesArgs:
-    def __init__(__self__, *,
-                 storage_lens_configuration: pulumi.Input['StorageLensStorageLensConfigurationArgs'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
-        :param pulumi.Input['StorageLensStorageLensConfigurationArgs'] storage_lens_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-        """
-        pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="StorageLensConfiguration")
-    def storage_lens_configuration(self) -> pulumi.Input['StorageLensStorageLensConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-        """
-        return pulumi.get(self, "storage_lens_configuration")
-
-    @storage_lens_configuration.setter
-    def storage_lens_configuration(self, value: pulumi.Input['StorageLensStorageLensConfigurationArgs']):
-        pulumi.set(self, "storage_lens_configuration", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

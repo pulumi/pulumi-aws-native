@@ -17,11 +17,7 @@ class ResourceCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +26,7 @@ class ResourceCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['ResourceCollectionPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']] resource_collection_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +45,10 @@ class ResourceCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if resource_collection_filter is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_collection_filter'")
+            __props__['resource_collection_filter'] = resource_collection_filter
+            __props__['resource_collection_type'] = None
         super(ResourceCollection, __self__).__init__(
             'aws-native:DevOpsGuru:ResourceCollection',
             resource_name,
@@ -86,36 +74,17 @@ class ResourceCollection(pulumi.CustomResource):
         return ResourceCollection(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.ResourceCollectionAttributes']:
+    @pulumi.getter(name="ResourceCollectionFilter")
+    def resource_collection_filter(self) -> pulumi.Output['outputs.ResourceCollectionResourceCollectionFilter']:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "resource_collection_filter")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ResourceCollectionProperties']:
-        """
-        The input properties associated with the resource
-        """
-        return pulumi.get(self, "properties")
+    @pulumi.getter(name="ResourceCollectionType")
+    def resource_collection_type(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "resource_collection_type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

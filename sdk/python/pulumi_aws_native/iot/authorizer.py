@@ -17,11 +17,13 @@ class Authorizer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AuthorizerPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 authorizer_function_arn: Optional[pulumi.Input[str]] = None,
+                 authorizer_name: Optional[pulumi.Input[str]] = None,
+                 signing_disabled: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['AuthorizerTagsArgs']]] = None,
+                 token_key_name: Optional[pulumi.Input[str]] = None,
+                 token_signing_public_keys: Optional[pulumi.Input[pulumi.InputType['AuthorizerTokenSigningPublicKeysArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +32,13 @@ class Authorizer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['AuthorizerPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] authorizer_function_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
+        :param pulumi.Input[str] authorizer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
+        :param pulumi.Input[bool] signing_disabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
+        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
+        :param pulumi.Input[pulumi.InputType['AuthorizerTagsArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
+        :param pulumi.Input[str] token_key_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+        :param pulumi.Input[pulumi.InputType['AuthorizerTokenSigningPublicKeysArgs']] token_signing_public_keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +57,16 @@ class Authorizer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if authorizer_function_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'authorizer_function_arn'")
+            __props__['authorizer_function_arn'] = authorizer_function_arn
+            __props__['authorizer_name'] = authorizer_name
+            __props__['signing_disabled'] = signing_disabled
+            __props__['status'] = status
+            __props__['tags'] = tags
+            __props__['token_key_name'] = token_key_name
+            __props__['token_signing_public_keys'] = token_signing_public_keys
+            __props__['arn'] = None
         super(Authorizer, __self__).__init__(
             'aws-native:IoT:Authorizer',
             resource_name,
@@ -86,36 +92,65 @@ class Authorizer(pulumi.CustomResource):
         return Authorizer(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.AuthorizerAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="AuthorizerFunctionArn")
+    def authorizer_function_arn(self) -> pulumi.Output[str]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "authorizer_function_arn")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="AuthorizerName")
+    def authorizer_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "authorizer_name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.AuthorizerProperties']:
+    @pulumi.getter(name="SigningDisabled")
+    def signing_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "signing_disabled")
+
+    @property
+    @pulumi.getter(name="Status")
+    def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional['outputs.AuthorizerTags']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="TokenKeyName")
+    def token_key_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+        """
+        return pulumi.get(self, "token_key_name")
+
+    @property
+    @pulumi.getter(name="TokenSigningPublicKeys")
+    def token_signing_public_keys(self) -> pulumi.Output[Optional['outputs.AuthorizerTokenSigningPublicKeys']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
+        """
+        return pulumi.get(self, "token_signing_public_keys")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -13,22 +13,16 @@ __all__ = [
     'CachePolicyCookiesConfigArgs',
     'CachePolicyHeadersConfigArgs',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs',
-    'CachePolicyPropertiesArgs',
     'CachePolicyQueryStringsConfigArgs',
     'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs',
-    'CloudFrontOriginAccessIdentityPropertiesArgs',
     'KeyGroupKeyGroupConfigArgs',
-    'KeyGroupPropertiesArgs',
     'OriginRequestPolicyCookiesConfigArgs',
     'OriginRequestPolicyHeadersConfigArgs',
     'OriginRequestPolicyOriginRequestPolicyConfigArgs',
-    'OriginRequestPolicyPropertiesArgs',
     'OriginRequestPolicyQueryStringsConfigArgs',
-    'PublicKeyPropertiesArgs',
     'PublicKeyPublicKeyConfigArgs',
     'RealtimeLogConfigEndPointArgs',
     'RealtimeLogConfigKinesisStreamConfigArgs',
-    'RealtimeLogConfigPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -293,29 +287,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
 
 
 @pulumi.input_type
-class CachePolicyPropertiesArgs:
-    def __init__(__self__, *,
-                 cache_policy_config: pulumi.Input['CachePolicyCachePolicyConfigArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
-        :param pulumi.Input['CachePolicyCachePolicyConfigArgs'] cache_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        """
-        pulumi.set(__self__, "cache_policy_config", cache_policy_config)
-
-    @property
-    @pulumi.getter(name="CachePolicyConfig")
-    def cache_policy_config(self) -> pulumi.Input['CachePolicyCachePolicyConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        """
-        return pulumi.get(self, "cache_policy_config")
-
-    @cache_policy_config.setter
-    def cache_policy_config(self, value: pulumi.Input['CachePolicyCachePolicyConfigArgs']):
-        pulumi.set(self, "cache_policy_config", value)
-
-
-@pulumi.input_type
 class CachePolicyQueryStringsConfigArgs:
     def __init__(__self__, *,
                  query_string_behavior: pulumi.Input[str],
@@ -378,29 +349,6 @@ class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs:
 
 
 @pulumi.input_type
-class CloudFrontOriginAccessIdentityPropertiesArgs:
-    def __init__(__self__, *,
-                 cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
-        :param pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs'] cloud_front_origin_access_identity_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-        """
-        pulumi.set(__self__, "cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
-
-    @property
-    @pulumi.getter(name="CloudFrontOriginAccessIdentityConfig")
-    def cloud_front_origin_access_identity_config(self) -> pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-        """
-        return pulumi.get(self, "cloud_front_origin_access_identity_config")
-
-    @cloud_front_origin_access_identity_config.setter
-    def cloud_front_origin_access_identity_config(self, value: pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']):
-        pulumi.set(self, "cloud_front_origin_access_identity_config", value)
-
-
-@pulumi.input_type
 class KeyGroupKeyGroupConfigArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -452,29 +400,6 @@ class KeyGroupKeyGroupConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
-
-
-@pulumi.input_type
-class KeyGroupPropertiesArgs:
-    def __init__(__self__, *,
-                 key_group_config: pulumi.Input['KeyGroupKeyGroupConfigArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
-        :param pulumi.Input['KeyGroupKeyGroupConfigArgs'] key_group_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        """
-        pulumi.set(__self__, "key_group_config", key_group_config)
-
-    @property
-    @pulumi.getter(name="KeyGroupConfig")
-    def key_group_config(self) -> pulumi.Input['KeyGroupKeyGroupConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        """
-        return pulumi.get(self, "key_group_config")
-
-    @key_group_config.setter
-    def key_group_config(self, value: pulumi.Input['KeyGroupKeyGroupConfigArgs']):
-        pulumi.set(self, "key_group_config", value)
 
 
 @pulumi.input_type
@@ -640,29 +565,6 @@ class OriginRequestPolicyOriginRequestPolicyConfigArgs:
 
 
 @pulumi.input_type
-class OriginRequestPolicyPropertiesArgs:
-    def __init__(__self__, *,
-                 origin_request_policy_config: pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
-        :param pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs'] origin_request_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        """
-        pulumi.set(__self__, "origin_request_policy_config", origin_request_policy_config)
-
-    @property
-    @pulumi.getter(name="OriginRequestPolicyConfig")
-    def origin_request_policy_config(self) -> pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        """
-        return pulumi.get(self, "origin_request_policy_config")
-
-    @origin_request_policy_config.setter
-    def origin_request_policy_config(self, value: pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']):
-        pulumi.set(self, "origin_request_policy_config", value)
-
-
-@pulumi.input_type
 class OriginRequestPolicyQueryStringsConfigArgs:
     def __init__(__self__, *,
                  query_string_behavior: pulumi.Input[str],
@@ -699,29 +601,6 @@ class OriginRequestPolicyQueryStringsConfigArgs:
     @query_strings.setter
     def query_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "query_strings", value)
-
-
-@pulumi.input_type
-class PublicKeyPropertiesArgs:
-    def __init__(__self__, *,
-                 public_key_config: pulumi.Input['PublicKeyPublicKeyConfigArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
-        :param pulumi.Input['PublicKeyPublicKeyConfigArgs'] public_key_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        """
-        pulumi.set(__self__, "public_key_config", public_key_config)
-
-    @property
-    @pulumi.getter(name="PublicKeyConfig")
-    def public_key_config(self) -> pulumi.Input['PublicKeyPublicKeyConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        """
-        return pulumi.get(self, "public_key_config")
-
-    @public_key_config.setter
-    def public_key_config(self, value: pulumi.Input['PublicKeyPublicKeyConfigArgs']):
-        pulumi.set(self, "public_key_config", value)
 
 
 @pulumi.input_type
@@ -867,73 +746,5 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
     @stream_arn.setter
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
-
-
-@pulumi.input_type
-class RealtimeLogConfigPropertiesArgs:
-    def __init__(__self__, *,
-                 end_points: pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]],
-                 fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str],
-                 sampling_rate: pulumi.Input[float]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
-        :param pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]] end_points: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        :param pulumi.Input[float] sampling_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        """
-        pulumi.set(__self__, "end_points", end_points)
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sampling_rate", sampling_rate)
-
-    @property
-    @pulumi.getter(name="EndPoints")
-    def end_points(self) -> pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        """
-        return pulumi.get(self, "end_points")
-
-    @end_points.setter
-    def end_points(self, value: pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]]):
-        pulumi.set(self, "end_points", value)
-
-    @property
-    @pulumi.getter(name="Fields")
-    def fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        """
-        return pulumi.get(self, "fields")
-
-    @fields.setter
-    def fields(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "fields", value)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="SamplingRate")
-    def sampling_rate(self) -> pulumi.Input[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        """
-        return pulumi.get(self, "sampling_rate")
-
-    @sampling_rate.setter
-    def sampling_rate(self, value: pulumi.Input[float]):
-        pulumi.set(self, "sampling_rate", value)
 
 

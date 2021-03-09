@@ -18,7 +18,6 @@ __all__ = [
     'ComponentVersionLambdaFunctionRecipeSourceArgs',
     'ComponentVersionLambdaLinuxProcessParamsArgs',
     'ComponentVersionLambdaVolumeMountArgs',
-    'ComponentVersionPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -667,61 +666,5 @@ class ComponentVersionLambdaVolumeMountArgs:
     @source_path.setter
     def source_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_path", value)
-
-
-@pulumi.input_type
-class ComponentVersionPropertiesArgs:
-    def __init__(__self__, *,
-                 inline_recipe: Optional[pulumi.Input[str]] = None,
-                 lambda_function: Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
-        :param pulumi.Input[str] inline_recipe: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        :param pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs'] lambda_function: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-        """
-        if inline_recipe is not None:
-            pulumi.set(__self__, "inline_recipe", inline_recipe)
-        if lambda_function is not None:
-            pulumi.set(__self__, "lambda_function", lambda_function)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="InlineRecipe")
-    def inline_recipe(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        """
-        return pulumi.get(self, "inline_recipe")
-
-    @inline_recipe.setter
-    def inline_recipe(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "inline_recipe", value)
-
-    @property
-    @pulumi.getter(name="LambdaFunction")
-    def lambda_function(self) -> Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-        """
-        return pulumi.get(self, "lambda_function")
-
-    @lambda_function.setter
-    def lambda_function(self, value: Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']]):
-        pulumi.set(self, "lambda_function", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
 

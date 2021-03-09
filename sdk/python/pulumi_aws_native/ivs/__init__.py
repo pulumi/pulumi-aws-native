@@ -6,8 +6,6 @@
 from .channel import *
 from .playback_key_pair import *
 from .stream_key import *
-from ._inputs import *
-from . import outputs
 
 def _register_module():
     import pulumi

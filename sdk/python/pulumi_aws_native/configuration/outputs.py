@@ -7,25 +7,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = [
-    'ConformancePackAttributes',
     'ConformancePackConformancePackInputParameter',
-    'ConformancePackProperties',
-    'OrganizationConformancePackAttributes',
     'OrganizationConformancePackConformancePackInputParameter',
-    'OrganizationConformancePackProperties',
 ]
-
-@pulumi.output_type
-class ConformancePackAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConformancePackConformancePackInputParameter(dict):
@@ -64,100 +50,6 @@ class ConformancePackConformancePackInputParameter(dict):
 
 
 @pulumi.output_type
-class ConformancePackProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
-    """
-    def __init__(__self__, *,
-                 conformance_pack_name: str,
-                 conformance_pack_input_parameters: Optional[Sequence['outputs.ConformancePackConformancePackInputParameter']] = None,
-                 delivery_s3_bucket: Optional[str] = None,
-                 delivery_s3_key_prefix: Optional[str] = None,
-                 template_body: Optional[str] = None,
-                 template_s3_uri: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
-        :param str conformance_pack_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
-        :param Sequence['ConformancePackConformancePackInputParameterArgs'] conformance_pack_input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
-        :param str delivery_s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-        :param str delivery_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
-        :param str template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
-        :param str template_s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
-        """
-        pulumi.set(__self__, "conformance_pack_name", conformance_pack_name)
-        if conformance_pack_input_parameters is not None:
-            pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
-        if delivery_s3_bucket is not None:
-            pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
-        if delivery_s3_key_prefix is not None:
-            pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
-        if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
-        if template_s3_uri is not None:
-            pulumi.set(__self__, "template_s3_uri", template_s3_uri)
-
-    @property
-    @pulumi.getter(name="ConformancePackName")
-    def conformance_pack_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
-        """
-        return pulumi.get(self, "conformance_pack_name")
-
-    @property
-    @pulumi.getter(name="ConformancePackInputParameters")
-    def conformance_pack_input_parameters(self) -> Optional[Sequence['outputs.ConformancePackConformancePackInputParameter']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
-        """
-        return pulumi.get(self, "conformance_pack_input_parameters")
-
-    @property
-    @pulumi.getter(name="DeliveryS3Bucket")
-    def delivery_s3_bucket(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-        """
-        return pulumi.get(self, "delivery_s3_bucket")
-
-    @property
-    @pulumi.getter(name="DeliveryS3KeyPrefix")
-    def delivery_s3_key_prefix(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
-        """
-        return pulumi.get(self, "delivery_s3_key_prefix")
-
-    @property
-    @pulumi.getter(name="TemplateBody")
-    def template_body(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
-        """
-        return pulumi.get(self, "template_body")
-
-    @property
-    @pulumi.getter(name="TemplateS3Uri")
-    def template_s3_uri(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
-        """
-        return pulumi.get(self, "template_s3_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class OrganizationConformancePackAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class OrganizationConformancePackConformancePackInputParameter(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
@@ -188,103 +80,6 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
         """
         return pulumi.get(self, "parameter_value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class OrganizationConformancePackProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
-    """
-    def __init__(__self__, *,
-                 organization_conformance_pack_name: str,
-                 conformance_pack_input_parameters: Optional[Sequence['outputs.OrganizationConformancePackConformancePackInputParameter']] = None,
-                 delivery_s3_bucket: Optional[str] = None,
-                 delivery_s3_key_prefix: Optional[str] = None,
-                 excluded_accounts: Optional[Sequence[str]] = None,
-                 template_body: Optional[str] = None,
-                 template_s3_uri: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
-        :param str organization_conformance_pack_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
-        :param Sequence['OrganizationConformancePackConformancePackInputParameterArgs'] conformance_pack_input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
-        :param str delivery_s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-        :param str delivery_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
-        :param Sequence[str] excluded_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
-        :param str template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
-        :param str template_s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
-        """
-        pulumi.set(__self__, "organization_conformance_pack_name", organization_conformance_pack_name)
-        if conformance_pack_input_parameters is not None:
-            pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
-        if delivery_s3_bucket is not None:
-            pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
-        if delivery_s3_key_prefix is not None:
-            pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
-        if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
-        if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
-        if template_s3_uri is not None:
-            pulumi.set(__self__, "template_s3_uri", template_s3_uri)
-
-    @property
-    @pulumi.getter(name="OrganizationConformancePackName")
-    def organization_conformance_pack_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
-        """
-        return pulumi.get(self, "organization_conformance_pack_name")
-
-    @property
-    @pulumi.getter(name="ConformancePackInputParameters")
-    def conformance_pack_input_parameters(self) -> Optional[Sequence['outputs.OrganizationConformancePackConformancePackInputParameter']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
-        """
-        return pulumi.get(self, "conformance_pack_input_parameters")
-
-    @property
-    @pulumi.getter(name="DeliveryS3Bucket")
-    def delivery_s3_bucket(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-        """
-        return pulumi.get(self, "delivery_s3_bucket")
-
-    @property
-    @pulumi.getter(name="DeliveryS3KeyPrefix")
-    def delivery_s3_key_prefix(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
-        """
-        return pulumi.get(self, "delivery_s3_key_prefix")
-
-    @property
-    @pulumi.getter(name="ExcludedAccounts")
-    def excluded_accounts(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
-        """
-        return pulumi.get(self, "excluded_accounts")
-
-    @property
-    @pulumi.getter(name="TemplateBody")
-    def template_body(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
-        """
-        return pulumi.get(self, "template_body")
-
-    @property
-    @pulumi.getter(name="TemplateS3Uri")
-    def template_s3_uri(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
-        """
-        return pulumi.get(self, "template_s3_uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -10,8 +10,6 @@ from .get_partition import *
 from .get_region import *
 from .get_ssm_parameter_list import *
 from .get_ssm_parameter_string import *
-from .get_stack_id import *
-from .get_stack_name import *
 from .get_url_suffix import *
 from .import_value import *
 from .provider import *

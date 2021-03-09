@@ -17,11 +17,16 @@ class EndpointGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['EndpointGroupPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]]] = None,
+                 endpoint_group_region: Optional[pulumi.Input[str]] = None,
+                 health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 health_check_port: Optional[pulumi.Input[int]] = None,
+                 health_check_protocol: Optional[pulumi.Input[str]] = None,
+                 listener_arn: Optional[pulumi.Input[str]] = None,
+                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]]] = None,
+                 threshold_count: Optional[pulumi.Input[int]] = None,
+                 traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +35,16 @@ class EndpointGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['EndpointGroupPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+        :param pulumi.Input[str] endpoint_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+        :param pulumi.Input[int] health_check_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+        :param pulumi.Input[str] health_check_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
+        :param pulumi.Input[int] health_check_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        :param pulumi.Input[str] health_check_protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        :param pulumi.Input[str] listener_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        :param pulumi.Input[int] threshold_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        :param pulumi.Input[float] traffic_dial_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +63,21 @@ class EndpointGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['endpoint_configurations'] = endpoint_configurations
+            if endpoint_group_region is None and not opts.urn:
+                raise TypeError("Missing required property 'endpoint_group_region'")
+            __props__['endpoint_group_region'] = endpoint_group_region
+            __props__['health_check_interval_seconds'] = health_check_interval_seconds
+            __props__['health_check_path'] = health_check_path
+            __props__['health_check_port'] = health_check_port
+            __props__['health_check_protocol'] = health_check_protocol
+            if listener_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'listener_arn'")
+            __props__['listener_arn'] = listener_arn
+            __props__['port_overrides'] = port_overrides
+            __props__['threshold_count'] = threshold_count
+            __props__['traffic_dial_percentage'] = traffic_dial_percentage
+            __props__['endpoint_group_arn'] = None
         super(EndpointGroup, __self__).__init__(
             'aws-native:GlobalAccelerator:EndpointGroup',
             resource_name,
@@ -86,36 +103,89 @@ class EndpointGroup(pulumi.CustomResource):
         return EndpointGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.EndpointGroupAttributes']:
+    @pulumi.getter(name="EndpointConfigurations")
+    def endpoint_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGroupEndpointConfiguration']]]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "endpoint_configurations")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="EndpointGroupArn")
+    def endpoint_group_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "endpoint_group_arn")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="EndpointGroupRegion")
+    def endpoint_group_region(self) -> pulumi.Output[str]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "endpoint_group_region")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.EndpointGroupProperties']:
+    @pulumi.getter(name="HealthCheckIntervalSeconds")
+    def health_check_interval_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "health_check_interval_seconds")
+
+    @property
+    @pulumi.getter(name="HealthCheckPath")
+    def health_check_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @property
+    @pulumi.getter(name="HealthCheckPort")
+    def health_check_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        """
+        return pulumi.get(self, "health_check_port")
+
+    @property
+    @pulumi.getter(name="HealthCheckProtocol")
+    def health_check_protocol(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        """
+        return pulumi.get(self, "health_check_protocol")
+
+    @property
+    @pulumi.getter(name="ListenerArn")
+    def listener_arn(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        """
+        return pulumi.get(self, "listener_arn")
+
+    @property
+    @pulumi.getter(name="PortOverrides")
+    def port_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGroupPortOverride']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        """
+        return pulumi.get(self, "port_overrides")
+
+    @property
+    @pulumi.getter(name="ThresholdCount")
+    def threshold_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        """
+        return pulumi.get(self, "threshold_count")
+
+    @property
+    @pulumi.getter(name="TrafficDialPercentage")
+    def traffic_dial_percentage(self) -> pulumi.Output[Optional[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        """
+        return pulumi.get(self, "traffic_dial_percentage")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

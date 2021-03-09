@@ -8,12 +8,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
     'ApplicationAlarm',
     'ApplicationAlarmMetric',
-    'ApplicationAttributes',
     'ApplicationComponentConfiguration',
     'ApplicationComponentMonitoringSetting',
     'ApplicationConfigurationDetails',
@@ -22,7 +20,6 @@ __all__ = [
     'ApplicationLog',
     'ApplicationLogPattern',
     'ApplicationLogPatternSet',
-    'ApplicationProperties',
     'ApplicationSubComponentConfigurationDetails',
     'ApplicationSubComponentTypeConfiguration',
     'ApplicationWindowsEvent',
@@ -85,21 +82,6 @@ class ApplicationAlarmMetric(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
         """
         return pulumi.get(self, "alarm_metric_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ApplicationAttributes(dict):
-    def __init__(__self__, *,
-                 application_arn: str):
-        pulumi.set(__self__, "application_arn", application_arn)
-
-    @property
-    @pulumi.getter(name="ApplicationARN")
-    def application_arn(self) -> str:
-        return pulumi.get(self, "application_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -540,127 +522,6 @@ class ApplicationLogPatternSet(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
         """
         return pulumi.get(self, "pattern_set_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ApplicationProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
-    """
-    def __init__(__self__, *,
-                 resource_group_name: str,
-                 auto_configuration_enabled: Optional[bool] = None,
-                 cwe_monitor_enabled: Optional[bool] = None,
-                 component_monitoring_settings: Optional[Sequence['outputs.ApplicationComponentMonitoringSetting']] = None,
-                 custom_components: Optional[Sequence['outputs.ApplicationCustomComponent']] = None,
-                 log_pattern_sets: Optional[Sequence['outputs.ApplicationLogPatternSet']] = None,
-                 ops_center_enabled: Optional[bool] = None,
-                 ops_item_sns_topic_arn: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
-        :param str resource_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
-        :param bool auto_configuration_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
-        :param bool cwe_monitor_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
-        :param Sequence['ApplicationComponentMonitoringSettingArgs'] component_monitoring_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
-        :param Sequence['ApplicationCustomComponentArgs'] custom_components: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
-        :param Sequence['ApplicationLogPatternSetArgs'] log_pattern_sets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
-        :param bool ops_center_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
-        :param str ops_item_sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-        """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if auto_configuration_enabled is not None:
-            pulumi.set(__self__, "auto_configuration_enabled", auto_configuration_enabled)
-        if cwe_monitor_enabled is not None:
-            pulumi.set(__self__, "cwe_monitor_enabled", cwe_monitor_enabled)
-        if component_monitoring_settings is not None:
-            pulumi.set(__self__, "component_monitoring_settings", component_monitoring_settings)
-        if custom_components is not None:
-            pulumi.set(__self__, "custom_components", custom_components)
-        if log_pattern_sets is not None:
-            pulumi.set(__self__, "log_pattern_sets", log_pattern_sets)
-        if ops_center_enabled is not None:
-            pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
-        if ops_item_sns_topic_arn is not None:
-            pulumi.set(__self__, "ops_item_sns_topic_arn", ops_item_sns_topic_arn)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ResourceGroupName")
-    def resource_group_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter(name="AutoConfigurationEnabled")
-    def auto_configuration_enabled(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
-        """
-        return pulumi.get(self, "auto_configuration_enabled")
-
-    @property
-    @pulumi.getter(name="CWEMonitorEnabled")
-    def cwe_monitor_enabled(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
-        """
-        return pulumi.get(self, "cwe_monitor_enabled")
-
-    @property
-    @pulumi.getter(name="ComponentMonitoringSettings")
-    def component_monitoring_settings(self) -> Optional[Sequence['outputs.ApplicationComponentMonitoringSetting']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
-        """
-        return pulumi.get(self, "component_monitoring_settings")
-
-    @property
-    @pulumi.getter(name="CustomComponents")
-    def custom_components(self) -> Optional[Sequence['outputs.ApplicationCustomComponent']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
-        """
-        return pulumi.get(self, "custom_components")
-
-    @property
-    @pulumi.getter(name="LogPatternSets")
-    def log_pattern_sets(self) -> Optional[Sequence['outputs.ApplicationLogPatternSet']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
-        """
-        return pulumi.get(self, "log_pattern_sets")
-
-    @property
-    @pulumi.getter(name="OpsCenterEnabled")
-    def ops_center_enabled(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
-        """
-        return pulumi.get(self, "ops_center_enabled")
-
-    @property
-    @pulumi.getter(name="OpsItemSNSTopicArn")
-    def ops_item_sns_topic_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
-        """
-        return pulumi.get(self, "ops_item_sns_topic_arn")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
