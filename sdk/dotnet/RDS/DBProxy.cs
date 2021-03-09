@@ -16,28 +16,70 @@ namespace Pulumi.AwsNative.RDS
     public partial class DBProxy : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.DBProxyAttributes> Attributes { get; private set; } = null!;
+        [Output("Auth")]
+        public Output<ImmutableArray<Outputs.DBProxyAuthFormat>> Auth { get; private set; } = null!;
+
+        [Output("DBProxyArn")]
+        public Output<string> DBProxyArn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("DBProxyName")]
+        public Output<string> DBProxyName { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("DebugLogging")]
+        public Output<bool?> DebugLogging { get; private set; } = null!;
+
+        [Output("Endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DBProxyProperties> Properties { get; private set; } = null!;
+        [Output("EngineFamily")]
+        public Output<string> EngineFamily { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+        /// </summary>
+        [Output("IdleClientTimeout")]
+        public Output<int?> IdleClientTimeout { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+        /// </summary>
+        [Output("RequireTLS")]
+        public Output<bool?> RequireTLS { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+        /// </summary>
+        [Output("RoleArn")]
+        public Output<string> RoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Outputs.DBProxyTagFormat>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+        /// </summary>
+        [Output("VpcSecurityGroupIds")]
+        public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+        /// </summary>
+        [Output("VpcSubnetIds")]
+        public Output<ImmutableArray<string>> VpcSubnetIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +126,89 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBProxyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Auth", required: true)]
+        private InputList<Inputs.DBProxyAuthFormatArgs>? _Auth;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.DBProxyAuthFormatArgs> Auth
+        {
+            get => _Auth ?? (_Auth = new InputList<Inputs.DBProxyAuthFormatArgs>());
+            set => _Auth = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("DBProxyName", required: true)]
+        public Input<string> DBProxyName { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DBProxyPropertiesArgs> Properties { get; set; } = null!;
+        [Input("DebugLogging")]
+        public Input<bool>? DebugLogging { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("EngineFamily", required: true)]
+        public Input<string> EngineFamily { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+        /// </summary>
+        [Input("IdleClientTimeout")]
+        public Input<int>? IdleClientTimeout { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+        /// </summary>
+        [Input("RequireTLS")]
+        public Input<bool>? RequireTLS { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+        /// </summary>
+        [Input("RoleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Inputs.DBProxyTagFormatArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+        /// </summary>
+        public InputList<Inputs.DBProxyTagFormatArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Inputs.DBProxyTagFormatArgs>());
+            set => _Tags = value;
+        }
+
+        [Input("VpcSecurityGroupIds")]
+        private InputList<string>? _VpcSecurityGroupIds;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+        /// </summary>
+        public InputList<string> VpcSecurityGroupIds
+        {
+            get => _VpcSecurityGroupIds ?? (_VpcSecurityGroupIds = new InputList<string>());
+            set => _VpcSecurityGroupIds = value;
+        }
+
+        [Input("VpcSubnetIds", required: true)]
+        private InputList<string>? _VpcSubnetIds;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+        /// </summary>
+        public InputList<string> VpcSubnetIds
+        {
+            get => _VpcSubnetIds ?? (_VpcSubnetIds = new InputList<string>());
+            set => _VpcSubnetIds = value;
+        }
 
         public DBProxyArgs()
         {

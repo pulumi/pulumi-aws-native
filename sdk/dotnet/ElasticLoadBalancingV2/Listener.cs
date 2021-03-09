@@ -16,28 +16,49 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ListenerAttributes> Attributes { get; private set; } = null!;
+        [Output("AlpnPolicy")]
+        public Output<ImmutableArray<string>> AlpnPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("Certificates")]
+        public Output<ImmutableArray<Outputs.ListenerCertificate>> Certificates { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("DefaultActions")]
+        public Output<ImmutableArray<Outputs.ListenerAction>> DefaultActions { get; private set; } = null!;
+
+        [Output("ListenerArn")]
+        public Output<string> ListenerArn { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ListenerProperties> Properties { get; private set; } = null!;
+        [Output("LoadBalancerArn")]
+        public Output<string> LoadBalancerArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
+        /// </summary>
+        [Output("Port")]
+        public Output<int?> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
+        /// </summary>
+        [Output("Protocol")]
+        public Output<string?> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
+        /// </summary>
+        [Output("SslPolicy")]
+        public Output<string?> SslPolicy { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +105,65 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class ListenerArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AlpnPolicy")]
+        private InputList<string>? _AlpnPolicy;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<string> AlpnPolicy
+        {
+            get => _AlpnPolicy ?? (_AlpnPolicy = new InputList<string>());
+            set => _AlpnPolicy = value;
+        }
+
+        [Input("Certificates")]
+        private InputList<Inputs.ListenerCertificateArgs>? _Certificates;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        public InputList<Inputs.ListenerCertificateArgs> Certificates
+        {
+            get => _Certificates ?? (_Certificates = new InputList<Inputs.ListenerCertificateArgs>());
+            set => _Certificates = value;
+        }
+
+        [Input("DefaultActions", required: true)]
+        private InputList<Inputs.ListenerActionArgs>? _DefaultActions;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ListenerPropertiesArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.ListenerActionArgs> DefaultActions
+        {
+            get => _DefaultActions ?? (_DefaultActions = new InputList<Inputs.ListenerActionArgs>());
+            set => _DefaultActions = value;
+        }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("LoadBalancerArn", required: true)]
+        public Input<string> LoadBalancerArn { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
+        /// </summary>
+        [Input("Port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
+        /// </summary>
+        [Input("Protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
+        /// </summary>
+        [Input("SslPolicy")]
+        public Input<string>? SslPolicy { get; set; }
 
         public ListenerArgs()
         {

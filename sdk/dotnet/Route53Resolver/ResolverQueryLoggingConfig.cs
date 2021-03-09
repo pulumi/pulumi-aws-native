@@ -15,29 +15,41 @@ namespace Pulumi.AwsNative.Route53Resolver
     [AwsNativeResourceType("aws-native:Route53Resolver:ResolverQueryLoggingConfig")]
     public partial class ResolverQueryLoggingConfig : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ResolverQueryLoggingConfigAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        [Output("AssociationCount")]
+        public Output<int> AssociationCount { get; private set; } = null!;
+
+        [Output("CreationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        [Output("CreatorRequestId")]
+        public Output<string> CreatorRequestId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("DestinationArn")]
+        public Output<string?> DestinationArn { get; private set; } = null!;
+
+        [Output("Id")]
+        public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Name")]
+        public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ResolverQueryLoggingConfigProperties> Properties { get; private set; } = null!;
+        [Output("OwnerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        [Output("ShareStatus")]
+        public Output<string> ShareStatus { get; private set; } = null!;
+
+        [Output("Status")]
+        public Output<string> Status { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +59,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ResolverQueryLoggingConfig(string name, ResolverQueryLoggingConfigArgs args, CustomResourceOptions? options = null)
+        public ResolverQueryLoggingConfig(string name, ResolverQueryLoggingConfigArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:Route53Resolver:ResolverQueryLoggingConfig", name, args ?? new ResolverQueryLoggingConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,34 +97,16 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class ResolverQueryLoggingConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("DestinationArn")]
+        public Input<string>? DestinationArn { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ResolverQueryLoggingConfigPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-        /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Name")]
+        public Input<string>? Name { get; set; }
 
         public ResolverQueryLoggingConfigArgs()
         {

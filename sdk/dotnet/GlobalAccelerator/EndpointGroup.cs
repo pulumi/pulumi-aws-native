@@ -16,28 +16,67 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     public partial class EndpointGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.EndpointGroupAttributes> Attributes { get; private set; } = null!;
+        [Output("EndpointConfigurations")]
+        public Output<ImmutableArray<Outputs.EndpointGroupEndpointConfiguration>> EndpointConfigurations { get; private set; } = null!;
+
+        [Output("EndpointGroupArn")]
+        public Output<string> EndpointGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("EndpointGroupRegion")]
+        public Output<string> EndpointGroupRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("HealthCheckIntervalSeconds")]
+        public Output<int?> HealthCheckIntervalSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EndpointGroupProperties> Properties { get; private set; } = null!;
+        [Output("HealthCheckPath")]
+        public Output<string?> HealthCheckPath { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        /// </summary>
+        [Output("HealthCheckPort")]
+        public Output<int?> HealthCheckPort { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        /// </summary>
+        [Output("HealthCheckProtocol")]
+        public Output<string?> HealthCheckProtocol { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        /// </summary>
+        [Output("ListenerArn")]
+        public Output<string> ListenerArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        /// </summary>
+        [Output("PortOverrides")]
+        public Output<ImmutableArray<Outputs.EndpointGroupPortOverride>> PortOverrides { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        /// </summary>
+        [Output("ThresholdCount")]
+        public Output<int?> ThresholdCount { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        /// </summary>
+        [Output("TrafficDialPercentage")]
+        public Output<double?> TrafficDialPercentage { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +123,77 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
     public sealed class EndpointGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("EndpointConfigurations")]
+        private InputList<Inputs.EndpointGroupEndpointConfigurationArgs>? _EndpointConfigurations;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.EndpointGroupEndpointConfigurationArgs> EndpointConfigurations
+        {
+            get => _EndpointConfigurations ?? (_EndpointConfigurations = new InputList<Inputs.EndpointGroupEndpointConfigurationArgs>());
+            set => _EndpointConfigurations = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("EndpointGroupRegion", required: true)]
+        public Input<string> EndpointGroupRegion { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.EndpointGroupPropertiesArgs> Properties { get; set; } = null!;
+        [Input("HealthCheckIntervalSeconds")]
+        public Input<int>? HealthCheckIntervalSeconds { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("HealthCheckPath")]
+        public Input<string>? HealthCheckPath { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        /// </summary>
+        [Input("HealthCheckPort")]
+        public Input<int>? HealthCheckPort { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        /// </summary>
+        [Input("HealthCheckProtocol")]
+        public Input<string>? HealthCheckProtocol { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        /// </summary>
+        [Input("ListenerArn", required: true)]
+        public Input<string> ListenerArn { get; set; } = null!;
+
+        [Input("PortOverrides")]
+        private InputList<Inputs.EndpointGroupPortOverrideArgs>? _PortOverrides;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        /// </summary>
+        public InputList<Inputs.EndpointGroupPortOverrideArgs> PortOverrides
+        {
+            get => _PortOverrides ?? (_PortOverrides = new InputList<Inputs.EndpointGroupPortOverrideArgs>());
+            set => _PortOverrides = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        /// </summary>
+        [Input("ThresholdCount")]
+        public Input<int>? ThresholdCount { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        /// </summary>
+        [Input("TrafficDialPercentage")]
+        public Input<double>? TrafficDialPercentage { get; set; }
 
         public EndpointGroupArgs()
         {

@@ -15,29 +15,77 @@ namespace Pulumi.AwsNative.FMS
     [AwsNativeResourceType("aws-native:FMS:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.PolicyAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("DeleteAllPolicyResources")]
+        public Output<bool?> DeleteAllPolicyResources { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("ExcludeMap")]
+        public Output<Outputs.PolicyIEMap?> ExcludeMap { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyProperties> Properties { get; private set; } = null!;
+        [Output("ExcludeResourceTags")]
+        public Output<bool> ExcludeResourceTags { get; private set; } = null!;
+
+        [Output("Id")]
+        public Output<string> Id { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
+        /// </summary>
+        [Output("IncludeMap")]
+        public Output<Outputs.PolicyIEMap?> IncludeMap { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
+        /// </summary>
+        [Output("PolicyName")]
+        public Output<string> PolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
+        /// </summary>
+        [Output("RemediationEnabled")]
+        public Output<bool> RemediationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
+        /// </summary>
+        [Output("ResourceTags")]
+        public Output<ImmutableArray<Outputs.PolicyResourceTag>> ResourceTags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
+        /// </summary>
+        [Output("ResourceType")]
+        public Output<string> ResourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
+        /// </summary>
+        [Output("ResourceTypeList")]
+        public Output<ImmutableArray<string>> ResourceTypeList { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
+        /// </summary>
+        [Output("SecurityServicePolicyData")]
+        public Output<Union<System.Text.Json.JsonElement, string>> SecurityServicePolicyData { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Outputs.PolicyPolicyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +133,88 @@ namespace Pulumi.AwsNative.FMS
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("DeleteAllPolicyResources")]
+        public Input<bool>? DeleteAllPolicyResources { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("ExcludeMap")]
+        public Input<Inputs.PolicyIEMapArgs>? ExcludeMap { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("ExcludeResourceTags", required: true)]
+        public Input<bool> ExcludeResourceTags { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PolicyPropertiesArgs> Properties { get; set; } = null!;
+        [Input("IncludeMap")]
+        public Input<Inputs.PolicyIEMapArgs>? IncludeMap { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("PolicyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
+        /// </summary>
+        [Input("RemediationEnabled", required: true)]
+        public Input<bool> RemediationEnabled { get; set; } = null!;
+
+        [Input("ResourceTags")]
+        private InputList<Inputs.PolicyResourceTagArgs>? _ResourceTags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
+        /// </summary>
+        public InputList<Inputs.PolicyResourceTagArgs> ResourceTags
+        {
+            get => _ResourceTags ?? (_ResourceTags = new InputList<Inputs.PolicyResourceTagArgs>());
+            set => _ResourceTags = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
+        /// </summary>
+        [Input("ResourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        [Input("ResourceTypeList")]
+        private InputList<string>? _ResourceTypeList;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
+        /// </summary>
+        public InputList<string> ResourceTypeList
+        {
+            get => _ResourceTypeList ?? (_ResourceTypeList = new InputList<string>());
+            set => _ResourceTypeList = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
+        /// </summary>
+        [Input("SecurityServicePolicyData", required: true)]
+        public InputUnion<System.Text.Json.JsonElement, string> SecurityServicePolicyData { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Inputs.PolicyPolicyTagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
+        /// </summary>
+        public InputList<Inputs.PolicyPolicyTagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Inputs.PolicyPolicyTagArgs>());
+            set => _Tags = value;
+        }
 
         public PolicyArgs()
         {

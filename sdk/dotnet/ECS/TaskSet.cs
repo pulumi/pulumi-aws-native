@@ -16,28 +16,67 @@ namespace Pulumi.AwsNative.ECS
     public partial class TaskSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.TaskSetAttributes> Attributes { get; private set; } = null!;
+        [Output("Cluster")]
+        public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ExternalId")]
+        public Output<string?> ExternalId { get; private set; } = null!;
+
+        [Output("Id")]
+        public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("LaunchType")]
+        public Output<string?> LaunchType { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TaskSetProperties> Properties { get; private set; } = null!;
+        [Output("LoadBalancers")]
+        public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
+        /// </summary>
+        [Output("NetworkConfiguration")]
+        public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        /// </summary>
+        [Output("PlatformVersion")]
+        public Output<string?> PlatformVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        /// </summary>
+        [Output("Scale")]
+        public Output<Outputs.TaskSetScale?> Scale { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        /// </summary>
+        [Output("Service")]
+        public Output<string> Service { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        /// </summary>
+        [Output("ServiceRegistries")]
+        public Output<ImmutableArray<Outputs.TaskSetServiceRegistry>> ServiceRegistries { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        /// </summary>
+        [Output("TaskDefinition")]
+        public Output<string> TaskDefinition { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +124,76 @@ namespace Pulumi.AwsNative.ECS
     public sealed class TaskSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Cluster", required: true)]
+        public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("ExternalId")]
+        public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("LaunchType")]
+        public Input<string>? LaunchType { get; set; }
+
+        [Input("LoadBalancers")]
+        private InputList<Inputs.TaskSetLoadBalancerArgs>? _LoadBalancers;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.TaskSetPropertiesArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.TaskSetLoadBalancerArgs> LoadBalancers
+        {
+            get => _LoadBalancers ?? (_LoadBalancers = new InputList<Inputs.TaskSetLoadBalancerArgs>());
+            set => _LoadBalancers = value;
+        }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("NetworkConfiguration")]
+        public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        /// </summary>
+        [Input("PlatformVersion")]
+        public Input<string>? PlatformVersion { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        /// </summary>
+        [Input("Scale")]
+        public Input<Inputs.TaskSetScaleArgs>? Scale { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        /// </summary>
+        [Input("Service", required: true)]
+        public Input<string> Service { get; set; } = null!;
+
+        [Input("ServiceRegistries")]
+        private InputList<Inputs.TaskSetServiceRegistryArgs>? _ServiceRegistries;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        /// </summary>
+        public InputList<Inputs.TaskSetServiceRegistryArgs> ServiceRegistries
+        {
+            get => _ServiceRegistries ?? (_ServiceRegistries = new InputList<Inputs.TaskSetServiceRegistryArgs>());
+            set => _ServiceRegistries = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        /// </summary>
+        [Input("TaskDefinition", required: true)]
+        public Input<string> TaskDefinition { get; set; } = null!;
 
         public TaskSetArgs()
         {

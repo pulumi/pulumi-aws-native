@@ -15,29 +15,41 @@ namespace Pulumi.AwsNative.EFS
     [AwsNativeResourceType("aws-native:EFS:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.AccessPointAttributes> Attributes { get; private set; } = null!;
+        [Output("AccessPointId")]
+        public Output<string> AccessPointId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("AccessPointTags")]
+        public Output<ImmutableArray<Outputs.AccessPointAccessPointTag>> AccessPointTags { get; private set; } = null!;
+
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("ClientToken")]
+        public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AccessPointProperties> Properties { get; private set; } = null!;
+        [Output("FileSystemId")]
+        public Output<string> FileSystemId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
+        /// </summary>
+        [Output("PosixUser")]
+        public Output<Outputs.AccessPointPosixUser?> PosixUser { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        /// </summary>
+        [Output("RootDirectory")]
+        public Output<Outputs.AccessPointRootDirectory?> RootDirectory { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +96,41 @@ namespace Pulumi.AwsNative.EFS
 
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AccessPointTags")]
+        private InputList<Inputs.AccessPointAccessPointTagArgs>? _AccessPointTags;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.AccessPointAccessPointTagArgs> AccessPointTags
+        {
+            get => _AccessPointTags ?? (_AccessPointTags = new InputList<Inputs.AccessPointAccessPointTagArgs>());
+            set => _AccessPointTags = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("ClientToken")]
+        public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AccessPointPropertiesArgs> Properties { get; set; } = null!;
+        [Input("FileSystemId", required: true)]
+        public Input<string> FileSystemId { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("PosixUser")]
+        public Input<Inputs.AccessPointPosixUserArgs>? PosixUser { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        /// </summary>
+        [Input("RootDirectory")]
+        public Input<Inputs.AccessPointRootDirectoryArgs>? RootDirectory { get; set; }
 
         public AccessPointArgs()
         {

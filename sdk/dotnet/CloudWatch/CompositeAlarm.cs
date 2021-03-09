@@ -16,28 +16,49 @@ namespace Pulumi.AwsNative.CloudWatch
     public partial class CompositeAlarm : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.CompositeAlarmAttributes> Attributes { get; private set; } = null!;
+        [Output("ActionsEnabled")]
+        public Output<bool?> ActionsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("AlarmActions")]
+        public Output<ImmutableArray<string>> AlarmActions { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("AlarmDescription")]
+        public Output<string?> AlarmDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CompositeAlarmProperties> Properties { get; private set; } = null!;
+        [Output("AlarmName")]
+        public Output<string> AlarmName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+        /// </summary>
+        [Output("AlarmRule")]
+        public Output<string> AlarmRule { get; private set; } = null!;
+
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        /// </summary>
+        [Output("InsufficientDataActions")]
+        public Output<ImmutableArray<string>> InsufficientDataActions { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        /// </summary>
+        [Output("OKActions")]
+        public Output<ImmutableArray<string>> OKActions { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +106,64 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class CompositeAlarmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ActionsEnabled")]
+        public Input<bool>? ActionsEnabled { get; set; }
+
+        [Input("AlarmActions")]
+        private InputList<string>? _AlarmActions;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<string> AlarmActions
+        {
+            get => _AlarmActions ?? (_AlarmActions = new InputList<string>());
+            set => _AlarmActions = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("AlarmDescription")]
+        public Input<string>? AlarmDescription { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CompositeAlarmPropertiesArgs> Properties { get; set; } = null!;
+        [Input("AlarmName", required: true)]
+        public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("AlarmRule", required: true)]
+        public Input<string> AlarmRule { get; set; } = null!;
+
+        [Input("InsufficientDataActions")]
+        private InputList<string>? _InsufficientDataActions;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        /// </summary>
+        public InputList<string> InsufficientDataActions
+        {
+            get => _InsufficientDataActions ?? (_InsufficientDataActions = new InputList<string>());
+            set => _InsufficientDataActions = value;
+        }
+
+        [Input("OKActions")]
+        private InputList<string>? _OKActions;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        /// </summary>
+        public InputList<string> OKActions
+        {
+            get => _OKActions ?? (_OKActions = new InputList<string>());
+            set => _OKActions = value;
+        }
 
         public CompositeAlarmArgs()
         {

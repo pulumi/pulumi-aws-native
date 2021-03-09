@@ -16,28 +16,85 @@ namespace Pulumi.AwsNative.CloudFormation
     public partial class StackSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.StackSetAttributes> Attributes { get; private set; } = null!;
+        [Output("AdministrationRoleARN")]
+        public Output<string?> AdministrationRoleARN { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("AutoDeployment")]
+        public Output<Outputs.StackSetAutoDeployment?> AutoDeployment { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Capabilities")]
+        public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StackSetProperties> Properties { get; private set; } = null!;
+        [Output("Description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+        /// </summary>
+        [Output("ExecutionRoleName")]
+        public Output<string?> ExecutionRoleName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+        /// </summary>
+        [Output("OperationPreferences")]
+        public Output<Outputs.StackSetOperationPreferences?> OperationPreferences { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        /// </summary>
+        [Output("Parameters")]
+        public Output<ImmutableArray<Outputs.StackSetParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        /// </summary>
+        [Output("PermissionModel")]
+        public Output<string> PermissionModel { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        /// </summary>
+        [Output("StackInstancesGroup")]
+        public Output<ImmutableArray<Outputs.StackSetStackInstances>> StackInstancesGroup { get; private set; } = null!;
+
+        [Output("StackSetId")]
+        public Output<string> StackSetId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        /// </summary>
+        [Output("StackSetName")]
+        public Output<string> StackSetName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        /// </summary>
+        [Output("TemplateBody")]
+        public Output<string?> TemplateBody { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        /// </summary>
+        [Output("TemplateURL")]
+        public Output<string?> TemplateURL { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +142,106 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class StackSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AdministrationRoleARN")]
+        public Input<string>? AdministrationRoleARN { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("AutoDeployment")]
+        public Input<Inputs.StackSetAutoDeploymentArgs>? AutoDeployment { get; set; }
+
+        [Input("Capabilities")]
+        private InputList<string>? _Capabilities;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        public InputList<string> Capabilities
+        {
+            get => _Capabilities ?? (_Capabilities = new InputList<string>());
+            set => _Capabilities = value;
+        }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StackSetPropertiesArgs> Properties { get; set; } = null!;
+        [Input("Description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("ExecutionRoleName")]
+        public Input<string>? ExecutionRoleName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+        /// </summary>
+        [Input("OperationPreferences")]
+        public Input<Inputs.StackSetOperationPreferencesArgs>? OperationPreferences { get; set; }
+
+        [Input("Parameters")]
+        private InputList<Inputs.StackSetParameterArgs>? _Parameters;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        /// </summary>
+        public InputList<Inputs.StackSetParameterArgs> Parameters
+        {
+            get => _Parameters ?? (_Parameters = new InputList<Inputs.StackSetParameterArgs>());
+            set => _Parameters = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        /// </summary>
+        [Input("PermissionModel", required: true)]
+        public Input<string> PermissionModel { get; set; } = null!;
+
+        [Input("StackInstancesGroup")]
+        private InputList<Inputs.StackSetStackInstancesArgs>? _StackInstancesGroup;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        /// </summary>
+        public InputList<Inputs.StackSetStackInstancesArgs> StackInstancesGroup
+        {
+            get => _StackInstancesGroup ?? (_StackInstancesGroup = new InputList<Inputs.StackSetStackInstancesArgs>());
+            set => _StackInstancesGroup = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        /// </summary>
+        [Input("StackSetName", required: true)]
+        public Input<string> StackSetName { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        /// </summary>
+        [Input("TemplateBody")]
+        public Input<string>? TemplateBody { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        /// </summary>
+        [Input("TemplateURL")]
+        public Input<string>? TemplateURL { get; set; }
 
         public StackSetArgs()
         {

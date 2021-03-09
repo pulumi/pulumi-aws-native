@@ -16,28 +16,40 @@ namespace Pulumi.AwsNative.Route53
     public partial class HostedZone : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.HostedZoneAttributes> Attributes { get; private set; } = null!;
+        [Output("HostedZoneConfig")]
+        public Output<Outputs.HostedZoneHostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("HostedZoneTags")]
+        public Output<ImmutableArray<Outputs.HostedZoneHostedZoneTag>> HostedZoneTags { get; private set; } = null!;
+
+        [Output("Id")]
+        public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        [Output("NameServers")]
+        public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HostedZoneProperties> Properties { get; private set; } = null!;
+        [Output("QueryLoggingConfig")]
+        public Output<Outputs.HostedZoneQueryLoggingConfig?> QueryLoggingConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+        /// </summary>
+        [Output("VPCs")]
+        public Output<ImmutableArray<Outputs.HostedZoneVPC>> VPCs { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +97,46 @@ namespace Pulumi.AwsNative.Route53
     public sealed class HostedZoneArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("HostedZoneConfig")]
+        public Input<Inputs.HostedZoneHostedZoneConfigArgs>? HostedZoneConfig { get; set; }
+
+        [Input("HostedZoneTags")]
+        private InputList<Inputs.HostedZoneHostedZoneTagArgs>? _HostedZoneTags;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.HostedZoneHostedZoneTagArgs> HostedZoneTags
+        {
+            get => _HostedZoneTags ?? (_HostedZoneTags = new InputList<Inputs.HostedZoneHostedZoneTagArgs>());
+            set => _HostedZoneTags = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("Name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.HostedZonePropertiesArgs> Properties { get; set; } = null!;
+        [Input("QueryLoggingConfig")]
+        public Input<Inputs.HostedZoneQueryLoggingConfigArgs>? QueryLoggingConfig { get; set; }
+
+        [Input("VPCs")]
+        private InputList<Inputs.HostedZoneVPCArgs>? _VPCs;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Inputs.HostedZoneVPCArgs> VPCs
+        {
+            get => _VPCs ?? (_VPCs = new InputList<Inputs.HostedZoneVPCArgs>());
+            set => _VPCs = value;
+        }
 
         public HostedZoneArgs()
         {

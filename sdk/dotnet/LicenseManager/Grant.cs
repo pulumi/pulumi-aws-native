@@ -16,28 +16,121 @@ namespace Pulumi.AwsNative.LicenseManager
     public partial class Grant : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.GrantAttributes> Attributes { get; private set; } = null!;
+        [Output("AllowedOperations")]
+        public Output<Outputs.GrantAllowedOperationList?> AllowedOperations { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ClientToken")]
+        public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Filters")]
+        public Output<Outputs.GrantFilterList?> Filters { get; private set; } = null!;
+
+        [Output("GrantArn")]
+        public Output<string> GrantArn { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GrantProperties> Properties { get; private set; } = null!;
+        [Output("GrantArns")]
+        public Output<Outputs.GrantArnList?> GrantArns { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+        /// </summary>
+        [Output("GrantName")]
+        public Output<string?> GrantName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
+        /// </summary>
+        [Output("GrantStatus")]
+        public Output<string?> GrantStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
+        /// </summary>
+        [Output("GrantedOperations")]
+        public Output<Outputs.GrantAllowedOperationList?> GrantedOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
+        /// </summary>
+        [Output("GranteePrincipalArn")]
+        public Output<string?> GranteePrincipalArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        /// </summary>
+        [Output("HomeRegion")]
+        public Output<string?> HomeRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        /// </summary>
+        [Output("LicenseArn")]
+        public Output<string?> LicenseArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
+        /// </summary>
+        [Output("MaxResults")]
+        public Output<int?> MaxResults { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
+        /// </summary>
+        [Output("NextToken")]
+        public Output<string?> NextToken { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
+        /// </summary>
+        [Output("ParentArn")]
+        public Output<string?> ParentArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+        /// </summary>
+        [Output("Principals")]
+        public Output<Outputs.GrantArnList?> Principals { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
+        /// </summary>
+        [Output("SourceVersion")]
+        public Output<string?> SourceVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+        /// </summary>
+        [Output("Status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
+        /// </summary>
+        [Output("StatusReason")]
+        public Output<string?> StatusReason { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<Outputs.GrantTagList?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
+        /// </summary>
+        [Output("Version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +140,7 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Grant(string name, GrantArgs args, CustomResourceOptions? options = null)
+        public Grant(string name, GrantArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:LicenseManager:Grant", name, args ?? new GrantArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,34 +178,118 @@ namespace Pulumi.AwsNative.LicenseManager
     public sealed class GrantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AllowedOperations")]
+        public Input<Inputs.GrantAllowedOperationListArgs>? AllowedOperations { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("ClientToken")]
+        public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("Filters")]
+        public Input<Inputs.GrantFilterListArgs>? Filters { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.GrantPropertiesArgs> Properties { get; set; } = null!;
+        [Input("GrantArns")]
+        public Input<Inputs.GrantArnListArgs>? GrantArns { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("GrantName")]
+        public Input<string>? GrantName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
+        /// </summary>
+        [Input("GrantStatus")]
+        public Input<string>? GrantStatus { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
+        /// </summary>
+        [Input("GrantedOperations")]
+        public Input<Inputs.GrantAllowedOperationListArgs>? GrantedOperations { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
+        /// </summary>
+        [Input("GranteePrincipalArn")]
+        public Input<string>? GranteePrincipalArn { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        /// </summary>
+        [Input("HomeRegion")]
+        public Input<string>? HomeRegion { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        /// </summary>
+        [Input("LicenseArn")]
+        public Input<string>? LicenseArn { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
+        /// </summary>
+        [Input("MaxResults")]
+        public Input<int>? MaxResults { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
+        /// </summary>
+        [Input("NextToken")]
+        public Input<string>? NextToken { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
+        /// </summary>
+        [Input("ParentArn")]
+        public Input<string>? ParentArn { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+        /// </summary>
+        [Input("Principals")]
+        public Input<Inputs.GrantArnListArgs>? Principals { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
+        /// </summary>
+        [Input("SourceVersion")]
+        public Input<string>? SourceVersion { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+        /// </summary>
+        [Input("Status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
+        /// </summary>
+        [Input("StatusReason")]
+        public Input<string>? StatusReason { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
+        /// </summary>
+        [Input("Tags")]
+        public Input<Inputs.GrantTagListArgs>? Tags { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
+        /// </summary>
+        [Input("Version")]
+        public Input<string>? Version { get; set; }
 
         public GrantArgs()
         {

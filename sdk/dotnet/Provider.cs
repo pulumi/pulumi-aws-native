@@ -18,12 +18,6 @@ namespace Pulumi.AwsNative
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// the name of the stack to use for deployments
-        /// </summary>
-        [Output("stack")]
-        public Output<string> Stack { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -57,12 +51,6 @@ namespace Pulumi.AwsNative
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
-
-        /// <summary>
-        /// the name of the stack to use for deployments
-        /// </summary>
-        [Input("stack", required: true)]
-        public Input<string> Stack { get; set; } = null!;
 
         public ProviderArgs()
         {
