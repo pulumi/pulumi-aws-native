@@ -93,85 +93,11 @@ func getPropertiesReplaces(schema CloudFormationSchema, spec PropertyTypeSpec, r
 	return paths, nil
 }
 
-func makeEmptyCopy(v resource.PropertyValue) resource.PropertyValue {
-	switch {
-	case v.IsArray():
-		array := v.ArrayValue()
-		copy := make([]resource.PropertyValue, len(array))
-		for i, e := range array {
-			copy[i] = makeEmptyCopy(e)
-		}
-		return resource.NewArrayProperty(copy)
-	case v.IsObject():
-		copy := make(resource.PropertyMap)
-		for k, e := range v.ObjectValue() {
-			copy[k] = makeEmptyCopy(e)
-		}
-		return resource.NewObjectProperty(copy)
-	default:
-		return resource.PropertyValue{}
-	}
-}
-
-func preprocessDiff(diff resource.ValueDiff) {
-	switch {
-	case diff.Array != nil:
-		if diff.Array.Updates == nil {
-			diff.Array.Updates = make(map[int]resource.ValueDiff)
-		}
-		for _, v := range diff.Array.Updates {
-			preprocessDiff(v)
-		}
-		for i, v := range diff.Array.Adds {
-			if d := makeEmptyCopy(v).Diff(v); d != nil {
-				diff.Array.Updates[i] = *d
-			}
-		}
-		for i, v := range diff.Array.Deletes {
-			if d := v.Diff(makeEmptyCopy(v)); d != nil {
-				diff.Array.Updates[i] = *d
-			}
-		}
-	case diff.Object != nil:
-		if diff.Object.Updates == nil {
-			diff.Object.Updates = make(map[resource.PropertyKey]resource.ValueDiff)
-		}
-		for _, v := range diff.Object.Updates {
-			preprocessDiff(v)
-		}
-		for k, v := range diff.Object.Adds {
-			if d := makeEmptyCopy(v).Diff(v); d != nil {
-				diff.Object.Updates[k] = *d
-			}
-		}
-		for k, v := range diff.Object.Deletes {
-			if d := v.Diff(makeEmptyCopy(v)); d != nil {
-				diff.Object.Updates[k] = *d
-			}
-		}
-	}
-}
-
-func GetResourceReplaces(schema CloudFormationSchema, resourceType string, diff resource.ValueDiff) ([]string, error) {
+func GetResourceReplaces(schema CloudFormationSchema, resourceType string, diff *resource.ObjectDiff) ([]string, error) {
 	// Fetch the schema for the resource type.
 	resourceSpec, ok := schema.ResourceTypes[resourceType]
 	if !ok {
 		return nil, errors.Errorf("unknown resource type %v", resourceType)
 	}
-
-	// Preprocess the diff to turn all changes into updates.
-	switch {
-	case diff.Object != nil:
-		preprocessDiff(diff)
-	case diff.Old.HasValue():
-		if d := diff.Old.Diff(makeEmptyCopy(diff.Old)); d != nil {
-			diff = *d
-		}
-	case diff.New.HasValue():
-		if d := diff.New.Diff(makeEmptyCopy(diff.New)); d != nil {
-			diff = *d
-		}
-	}
-
-	return getPropertiesReplaces(schema, resourceSpec.PropertyTypeSpec, resourceType, "", diff.Object)
+	return getPropertiesReplaces(schema, resourceSpec.PropertyTypeSpec, resourceType, "", diff)
 }

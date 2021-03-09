@@ -103,16 +103,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		return nil, err
 	}
 
-	stack, ok := news["stack"]
-	if !ok {
-		failures := []*pulumirpc.CheckFailure{{Property: "stack", Reason: "missing required property 'stack'"}}
-		return &pulumirpc.CheckResponse{Failures: failures}, nil
-	}
-	if !stack.IsString() && !stack.IsComputed() {
-		failures := []*pulumirpc.CheckFailure{{Property: "stack", Reason: "'stack' must be a string"}}
-		return &pulumirpc.CheckResponse{Failures: failures}, nil
-	}
-
 	region, ok := news["region"]
 	if !ok {
 		failures := []*pulumirpc.CheckFailure{{Property: "region", Reason: "missing required property 'region'"}}
@@ -124,7 +114,7 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 	}
 
 	for k := range news {
-		if k != "stack" && k != "region" && k != "version" {
+		if k != "region" && k != "version" {
 			failures := []*pulumirpc.CheckFailure{{Property: string(k), Reason: fmt.Sprintf("unknown property '%v'", k)}}
 			return &pulumirpc.CheckResponse{Failures: failures}, nil
 		}
@@ -314,53 +304,12 @@ func filterNullProperties(m resource.PropertyMap) resource.PropertyMap {
 func validateInputs(sch schema.CloudFormationSchema, resourceType string, inputs resource.PropertyMap) ([]*pulumirpc.CheckFailure, error) {
 	var checkFailures []*pulumirpc.CheckFailure
 
-	if logicalID, ok := inputs["logicalId"]; ok {
-		if !logicalID.IsString() && !logicalID.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "logicalId", Reason: "logicalId must be a string"})
-		}
+	failures, err := schema.ValidateResource(sch, resourceType, inputs)
+	if err != nil {
+		return nil, err
 	}
-
-	if metadataV, ok := inputs["metadata"]; ok {
-		if !metadataV.IsObject() && !metadataV.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "metadata", Reason: "metadata must be an object"})
-		}
-	}
-	if creationPolicyV, ok := inputs["creationPolicy"]; ok {
-		if !creationPolicyV.IsObject() && !creationPolicyV.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "creationPolicy", Reason: "creationPolicy must be an object"})
-		}
-	}
-	if deletionPolicyV, ok := inputs["deletionPolicy"]; ok {
-		if !deletionPolicyV.IsString() && !deletionPolicyV.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "deletionPolicy", Reason: "deletionPolicy must be a string"})
-		}
-	}
-	if updatePolicyV, ok := inputs["updatePolicy"]; ok {
-		if !updatePolicyV.IsObject() && !updatePolicyV.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "updatePolicy", Reason: "updatePolicy must be an object"})
-		}
-	}
-	if updateReplacePolicyV, ok := inputs["updateReplacePolicy"]; ok {
-		if !updateReplacePolicyV.IsString() && !updateReplacePolicyV.IsComputed() {
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "updateReplacePolicy", Reason: "updateReplacePolicy must be a string"})
-		}
-	}
-
-	if propertiesV, ok := inputs["properties"]; ok {
-		switch {
-		case propertiesV.IsObject():
-			failures, err := schema.ValidateResource(sch, resourceType, propertiesV.ObjectValue())
-			if err != nil {
-				return nil, err
-			}
-			for _, f := range failures {
-				checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: f.Path, Reason: f.Reason})
-			}
-		case propertiesV.IsComputed():
-			// Nothing we can do here.
-		default:
-			checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: "properties", Reason: "properties must be an object"})
-		}
+	for _, f := range failures {
+		checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: f.Path, Reason: f.Reason})
 	}
 
 	return checkFailures, nil
@@ -409,17 +358,6 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	return &pulumirpc.CheckResponse{Failures: failures}, nil
 }
 
-func getPropertiesDiff(inputDiff *resource.ObjectDiff) (resource.ValueDiff, bool) {
-	if add, ok := inputDiff.Adds["properties"]; ok {
-		return resource.ValueDiff{New: add}, true
-	}
-	if del, ok := inputDiff.Deletes["properties"]; ok {
-		return resource.ValueDiff{Old: del}, true
-	}
-	diff, ok := inputDiff.Updates["properties"]
-	return diff, ok
-}
-
 func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
@@ -439,7 +377,6 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	if err != nil {
 		return nil, errors.Wrapf(err, "create failed because malformed resource inputs")
 	}
-	delete(oldState, "attributes")
 	oldInputs := oldState
 
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
@@ -458,13 +395,11 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	}
 
 	var replaces []string
-	if propertiesDiff, ok := getPropertiesDiff(diff); ok {
-		rs, err := schema.GetResourceReplaces(p.schema, resourceType, propertiesDiff)
-		if err != nil {
-			return nil, err
-		}
-		replaces = rs
+	rs, err := schema.GetResourceReplaces(p.schema, resourceType, diff)
+	if err != nil {
+		return nil, err
 	}
+	replaces = rs
 
 	return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_SOME, Replaces: replaces}, nil
 }
@@ -492,28 +427,28 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, err
 	}
 
-	properties, _ := inputs["properties"].(map[string]interface{})
-	desiredState, err := json.Marshal(properties)
+	desiredState, err := json.Marshal(inputs)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to marshal as JSON")
 	}
 	desiredStateStr := string(desiredState)
 
-	clientToken := aws.String(uuid.New().String())
+	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, resourceType, clientToken, desiredStateStr)
 	res, err := p.cfn.CreateResourceWithContext(ctx, &cloudformation.CreateResourceInput{
-		ClientToken:  clientToken,
+		ClientToken:  aws.String(clientToken),
 		TypeName:     aws.String(resourceType),
 		DesiredState: aws.String(desiredStateStr),
 	})
 	if err != nil {
 		return nil, errors.Wrapf(err, "creating resource")
 	}
-	if err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+	pi, err := p.waitForResourceOpCompletion(ctx, res.ProgressEvent)
+	if err != nil {
 		return nil, err
 	}
 
-	id := aws.StringValue(res.ProgressEvent.Identifier)
+	id := aws.StringValue(pi.Identifier)
 	glog.V(9).Infof("%s.GetResource %q id %q", label, resourceType, id)
 	outputs, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
@@ -562,10 +497,8 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		return nil, err
 	}
 
-	inputsMap := map[string]interface{}{
-		// TODO: this is very simplified, we need to make it schema-based.
-		"properties": outputs,
-	}
+	// TODO: this is very simplified, we need to make it schema-based.
+	inputsMap := outputs
 
 	inputs, err := plugin.MarshalProperties(resource.NewPropertyMapFromMap(inputsMap), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.state", label),
@@ -607,7 +540,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, err
 	}
 
-	diff := olds.Diff(news["properties"].ObjectValue())
+	diff := olds.Diff(news)
 	var ops []*cloudformation.PatchOperation
 	for k, v := range diff.Updates {
 		op := cloudformation.PatchOperation{
@@ -623,21 +556,23 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		}
 		ops = append(ops, &op)
 	}
-	// TODO: Handle Adds and Deletes
-
-	clientToken := aws.String(uuid.New().String())
-	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %q", label, resourceType, id, clientToken, ops)
-	res, err := p.cfn.UpdateResourceWithContext(ctx, &cloudformation.UpdateResourceInput{
-		ClientToken:     clientToken,
-		TypeName:        aws.String(resourceType),
-		Identifier:      aws.String(id),
-		PatchOperations: ops,
-	})
-	if err != nil {
-		return nil, err
-	}
-	if err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
-		return nil, err
+	// TODO: Handle Adds and Deletes.
+	// The below if len(ops) > 0 is there to avoid errors when we miss an update or a delete of a property.
+	if len(ops) > 0 {
+		clientToken := uuid.New().String()
+		glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %q", label, resourceType, id, clientToken, ops)
+		res, err := p.cfn.UpdateResourceWithContext(ctx, &cloudformation.UpdateResourceInput{
+			ClientToken:     aws.String(clientToken),
+			TypeName:        aws.String(resourceType),
+			Identifier:      aws.String(id),
+			PatchOperations: ops,
+		})
+		if err != nil {
+			return nil, err
+		}
+		if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+			return nil, err
+		}
 	}
 
 	outputs, err := p.readResourceState(ctx, resourceType, id)
@@ -669,14 +604,14 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	}
 	id := req.GetId()
 
-	clientToken := aws.String(uuid.New().String())
+	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, resourceType, id, clientToken)
 	res, err := p.cfn.DeleteResourceWithContext(ctx, &cloudformation.DeleteResourceInput{
-		ClientToken: clientToken,
+		ClientToken: aws.String(clientToken),
 		TypeName:    aws.String(resourceType),
 		Identifier:  aws.String(id),
 	})
-	if err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+	if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
 		return nil, err
 	}
 
@@ -763,25 +698,27 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 	return outputs, nil
 }
 
-func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloudformation.ProgressEvent) error {
+func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloudformation.ProgressEvent) (*cloudformation.ProgressEvent, error) {
 	for {
 		status := aws.StringValue(pi.OperationStatus)
 		glog.V(9).Infof("waiting for resource %q: status %q", pi.Identifier, status)
 		switch status {
 		case "SUCCESS":
-			return nil
+			return pi, nil
+		case "FAILED":
+			return nil, errors.Errorf("operation %s failed with %q: %s", aws.StringValue(pi.Operation), aws.StringValue(pi.ErrorCode), aws.StringValue(pi.StatusMessage))
 		case "IN_PROGRESS":
 			// TODO: back-off?
 			time.Sleep(1 * time.Second)
 		default:
-			return errors.Errorf("unknown status %q", status)
+			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
 		}
 
 		output, err := p.cfn.GetResourceRequestStatusWithContext(ctx, &cloudformation.GetResourceRequestStatusInput{
 			RequestToken: pi.RequestToken,
 		})
 		if err != nil {
-			return errors.Wrap(err, "getting resource request status")
+			return nil, errors.Wrap(err, "getting resource request status")
 		}
 		pi = output.ProgressEvent
 	}
