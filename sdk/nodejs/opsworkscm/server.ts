@@ -35,22 +35,93 @@ export class Server extends pulumi.CustomResource {
         return obj['__pulumiType'] === Server.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.OpsWorksCM.ServerAttributes>;
+    public readonly AssociatePublicIpAddress!: pulumi.Output<boolean | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly BackupId!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly BackupRetentionCount!: pulumi.Output<number | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
      */
-    public readonly properties!: pulumi.Output<outputs.OpsWorksCM.ServerProperties>;
+    public readonly CustomCertificate!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
+     */
+    public readonly CustomDomain!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
+     */
+    public readonly CustomPrivateKey!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
+     */
+    public readonly DisableAutomatedBackup!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly Endpoint!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
+     */
+    public readonly Engine!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
+     */
+    public readonly EngineAttributes!: pulumi.Output<outputs.OpsWorksCM.ServerEngineAttribute[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
+     */
+    public readonly EngineModel!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
+     */
+    public readonly EngineVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
+     */
+    public readonly InstanceProfileArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
+     */
+    public readonly InstanceType!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
+     */
+    public readonly KeyPair!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
+     */
+    public readonly PreferredBackupWindow!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
+     */
+    public readonly PreferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
+     */
+    public readonly SecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
+     */
+    public readonly ServerName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
+     */
+    public readonly ServiceRoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
+     */
+    public readonly SubnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -62,20 +133,64 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.InstanceProfileArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InstanceProfileArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.InstanceType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InstanceType'");
+            }
+            if ((!args || args.ServiceRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ServiceRoleArn'");
+            }
+            inputs["AssociatePublicIpAddress"] = args ? args.AssociatePublicIpAddress : undefined;
+            inputs["BackupId"] = args ? args.BackupId : undefined;
+            inputs["BackupRetentionCount"] = args ? args.BackupRetentionCount : undefined;
+            inputs["CustomCertificate"] = args ? args.CustomCertificate : undefined;
+            inputs["CustomDomain"] = args ? args.CustomDomain : undefined;
+            inputs["CustomPrivateKey"] = args ? args.CustomPrivateKey : undefined;
+            inputs["DisableAutomatedBackup"] = args ? args.DisableAutomatedBackup : undefined;
+            inputs["Engine"] = args ? args.Engine : undefined;
+            inputs["EngineAttributes"] = args ? args.EngineAttributes : undefined;
+            inputs["EngineModel"] = args ? args.EngineModel : undefined;
+            inputs["EngineVersion"] = args ? args.EngineVersion : undefined;
+            inputs["InstanceProfileArn"] = args ? args.InstanceProfileArn : undefined;
+            inputs["InstanceType"] = args ? args.InstanceType : undefined;
+            inputs["KeyPair"] = args ? args.KeyPair : undefined;
+            inputs["PreferredBackupWindow"] = args ? args.PreferredBackupWindow : undefined;
+            inputs["PreferredMaintenanceWindow"] = args ? args.PreferredMaintenanceWindow : undefined;
+            inputs["SecurityGroupIds"] = args ? args.SecurityGroupIds : undefined;
+            inputs["ServerName"] = args ? args.ServerName : undefined;
+            inputs["ServiceRoleArn"] = args ? args.ServiceRoleArn : undefined;
+            inputs["SubnetIds"] = args ? args.SubnetIds : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Endpoint"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["AssociatePublicIpAddress"] = undefined /*out*/;
+            inputs["BackupId"] = undefined /*out*/;
+            inputs["BackupRetentionCount"] = undefined /*out*/;
+            inputs["CustomCertificate"] = undefined /*out*/;
+            inputs["CustomDomain"] = undefined /*out*/;
+            inputs["CustomPrivateKey"] = undefined /*out*/;
+            inputs["DisableAutomatedBackup"] = undefined /*out*/;
+            inputs["Endpoint"] = undefined /*out*/;
+            inputs["Engine"] = undefined /*out*/;
+            inputs["EngineAttributes"] = undefined /*out*/;
+            inputs["EngineModel"] = undefined /*out*/;
+            inputs["EngineVersion"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["InstanceProfileArn"] = undefined /*out*/;
+            inputs["InstanceType"] = undefined /*out*/;
+            inputs["KeyPair"] = undefined /*out*/;
+            inputs["PreferredBackupWindow"] = undefined /*out*/;
+            inputs["PreferredMaintenanceWindow"] = undefined /*out*/;
+            inputs["SecurityGroupIds"] = undefined /*out*/;
+            inputs["ServerName"] = undefined /*out*/;
+            inputs["ServiceRoleArn"] = undefined /*out*/;
+            inputs["SubnetIds"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +208,87 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AssociatePublicIpAddress?: pulumi.Input<boolean>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly BackupId?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly BackupRetentionCount?: pulumi.Input<number>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
      */
-    readonly properties: pulumi.Input<inputs.OpsWorksCM.ServerProperties>;
+    readonly CustomCertificate?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly CustomDomain?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
+     */
+    readonly CustomPrivateKey?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
+     */
+    readonly DisableAutomatedBackup?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
+     */
+    readonly Engine?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
+     */
+    readonly EngineAttributes?: pulumi.Input<pulumi.Input<inputs.OpsWorksCM.ServerEngineAttribute>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
+     */
+    readonly EngineModel?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
+     */
+    readonly EngineVersion?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
+     */
+    readonly InstanceProfileArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
+     */
+    readonly InstanceType: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
+     */
+    readonly KeyPair?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
+     */
+    readonly PreferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
+     */
+    readonly PreferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
+     */
+    readonly SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
+     */
+    readonly ServerName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
+     */
+    readonly ServiceRoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
+     */
+    readonly SubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

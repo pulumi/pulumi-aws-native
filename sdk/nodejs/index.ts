@@ -12,8 +12,6 @@ export * from "./getPartition";
 export * from "./getRegion";
 export * from "./getSsmParameterList";
 export * from "./getSsmParameterString";
-export * from "./getStackId";
-export * from "./getStackName";
 export * from "./getUrlSuffix";
 export * from "./importValue";
 export * from "./provider";

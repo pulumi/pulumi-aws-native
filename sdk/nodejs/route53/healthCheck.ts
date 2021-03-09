@@ -36,21 +36,14 @@ export class HealthCheck extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Route53.HealthCheckAttributes>;
+    public readonly HealthCheckConfig!: pulumi.Output<any | string>;
+    public /*out*/ readonly HealthCheckId!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.Route53.HealthCheckProperties>;
+    public readonly HealthCheckTags!: pulumi.Output<outputs.Route53.HealthCheckHealthCheckTag[] | undefined>;
 
     /**
      * Create a HealthCheck resource with the given unique name, arguments, and options.
@@ -62,20 +55,16 @@ export class HealthCheck extends pulumi.CustomResource {
     constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.HealthCheckConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'HealthCheckConfig'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["HealthCheckConfig"] = args ? args.HealthCheckConfig : undefined;
+            inputs["HealthCheckTags"] = args ? args.HealthCheckTags : undefined;
+            inputs["HealthCheckId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["HealthCheckConfig"] = undefined /*out*/;
+            inputs["HealthCheckId"] = undefined /*out*/;
+            inputs["HealthCheckTags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +82,11 @@ export class HealthCheck extends pulumi.CustomResource {
  */
 export interface HealthCheckArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly HealthCheckConfig: pulumi.Input<any | string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    readonly logicalId?: pulumi.Input<string>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.Route53.HealthCheckProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly HealthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTag>[]>;
 }

@@ -35,22 +35,34 @@ export class MetricStream extends pulumi.CustomResource {
         return obj['__pulumiType'] === MetricStream.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly CreationDate!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.CloudWatch.MetricStreamAttributes>;
+    public readonly ExcludeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly FirehoseArn!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly IncludeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
+    public /*out*/ readonly LastUpdateDate!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
      */
-    public readonly properties!: pulumi.Output<outputs.CloudWatch.MetricStreamProperties>;
+    public readonly Name!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    public /*out*/ readonly State!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MetricStream resource with the given unique name, arguments, and options.
@@ -62,20 +74,33 @@ export class MetricStream extends pulumi.CustomResource {
     constructor(name: string, args: MetricStreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.FirehoseArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FirehoseArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            inputs["ExcludeFilters"] = args ? args.ExcludeFilters : undefined;
+            inputs["FirehoseArn"] = args ? args.FirehoseArn : undefined;
+            inputs["IncludeFilters"] = args ? args.IncludeFilters : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CreationDate"] = undefined /*out*/;
+            inputs["LastUpdateDate"] = undefined /*out*/;
+            inputs["State"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CreationDate"] = undefined /*out*/;
+            inputs["ExcludeFilters"] = undefined /*out*/;
+            inputs["FirehoseArn"] = undefined /*out*/;
+            inputs["IncludeFilters"] = undefined /*out*/;
+            inputs["LastUpdateDate"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["State"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +118,27 @@ export class MetricStream extends pulumi.CustomResource {
  */
 export interface MetricStreamArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ExcludeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilter>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly FirehoseArn: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly IncludeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilter>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
      */
-    readonly properties: pulumi.Input<inputs.CloudWatch.MetricStreamProperties>;
+    readonly Name?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -35,22 +35,48 @@ export class Index extends pulumi.CustomResource {
         return obj['__pulumiType'] === Index.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Kendra.IndexAttributes>;
+    public readonly CapacityUnits!: pulumi.Output<outputs.Kendra.IndexCapacityUnitsConfiguration | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DocumentMetadataConfigurations!: pulumi.Output<outputs.Kendra.IndexDocumentMetadataConfigurationList | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
-    public readonly properties!: pulumi.Output<outputs.Kendra.IndexProperties>;
+    public readonly Edition!: pulumi.Output<string>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
+     */
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
+     */
+    public readonly ServerSideEncryptionConfiguration!: pulumi.Output<outputs.Kendra.IndexServerSideEncryptionConfiguration | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Kendra.IndexTagList | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
+     */
+    public readonly UserContextPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
+     */
+    public readonly UserTokenConfigurations!: pulumi.Output<outputs.Kendra.IndexUserTokenConfigurationList | undefined>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -62,20 +88,40 @@ export class Index extends pulumi.CustomResource {
     constructor(name: string, args: IndexArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Edition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Edition'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            inputs["CapacityUnits"] = args ? args.CapacityUnits : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["DocumentMetadataConfigurations"] = args ? args.DocumentMetadataConfigurations : undefined;
+            inputs["Edition"] = args ? args.Edition : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["ServerSideEncryptionConfiguration"] = args ? args.ServerSideEncryptionConfiguration : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["UserContextPolicy"] = args ? args.UserContextPolicy : undefined;
+            inputs["UserTokenConfigurations"] = args ? args.UserTokenConfigurations : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CapacityUnits"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["DocumentMetadataConfigurations"] = undefined /*out*/;
+            inputs["Edition"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["ServerSideEncryptionConfiguration"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["UserContextPolicy"] = undefined /*out*/;
+            inputs["UserTokenConfigurations"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +139,43 @@ export class Index extends pulumi.CustomResource {
  */
 export interface IndexArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly CapacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfiguration>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DocumentMetadataConfigurations?: pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationList>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
-    readonly properties: pulumi.Input<inputs.Kendra.IndexProperties>;
+    readonly Edition: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
+     */
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
+     */
+    readonly ServerSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfiguration>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
+     */
+    readonly Tags?: pulumi.Input<inputs.Kendra.IndexTagList>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
+     */
+    readonly UserContextPolicy?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
+     */
+    readonly UserTokenConfigurations?: pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationList>;
 }

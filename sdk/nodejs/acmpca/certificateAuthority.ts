@@ -35,22 +35,32 @@ export class CertificateAuthority extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificateAuthority.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly CertificateSigningRequest!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityAttributes>;
+    public readonly KeyAlgorithm!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly RevocationConfiguration!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly SigningAlgorithm!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    public readonly properties!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityProperties>;
+    public readonly Subject!: pulumi.Output<outputs.ACMPCA.CertificateAuthoritySubject>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+     */
+    public readonly Type!: pulumi.Output<string>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -62,20 +72,35 @@ export class CertificateAuthority extends pulumi.CustomResource {
     constructor(name: string, args: CertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.KeyAlgorithm === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'KeyAlgorithm'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.SigningAlgorithm === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SigningAlgorithm'");
+            }
+            if ((!args || args.Subject === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Subject'");
+            }
+            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Type'");
+            }
+            inputs["KeyAlgorithm"] = args ? args.KeyAlgorithm : undefined;
+            inputs["RevocationConfiguration"] = args ? args.RevocationConfiguration : undefined;
+            inputs["SigningAlgorithm"] = args ? args.SigningAlgorithm : undefined;
+            inputs["Subject"] = args ? args.Subject : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CertificateSigningRequest"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CertificateSigningRequest"] = undefined /*out*/;
+            inputs["KeyAlgorithm"] = undefined /*out*/;
+            inputs["RevocationConfiguration"] = undefined /*out*/;
+            inputs["SigningAlgorithm"] = undefined /*out*/;
+            inputs["Subject"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +118,27 @@ export class CertificateAuthority extends pulumi.CustomResource {
  */
 export interface CertificateAuthorityArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly KeyAlgorithm: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly RevocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfiguration>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly SigningAlgorithm: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    readonly properties: pulumi.Input<inputs.ACMPCA.CertificateAuthorityProperties>;
+    readonly Subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubject>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+     */
+    readonly Type: pulumi.Input<string>;
 }

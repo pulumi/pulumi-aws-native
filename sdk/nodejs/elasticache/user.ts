@@ -36,21 +36,33 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ElastiCache.UserAttributes>;
+    public readonly AccessString!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly Authentication!: pulumi.Output<outputs.ElastiCache.UserAuthentication>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Engine!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly NoPasswordRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    public readonly properties!: pulumi.Output<outputs.ElastiCache.UserProperties>;
+    public readonly Passwords!: pulumi.Output<outputs.ElastiCache.UserPasswordList | undefined>;
+    public /*out*/ readonly Status!: pulumi.Output<string>;
+    public /*out*/ readonly UserGroupIds!: pulumi.Output<outputs.ElastiCache.UserUserGroupIdList>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+     */
+    public readonly UserId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+     */
+    public readonly UserName!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -62,20 +74,36 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Engine === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Engine'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.UserId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'UserId'");
+            }
+            if ((!args || args.UserName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'UserName'");
+            }
+            inputs["AccessString"] = args ? args.AccessString : undefined;
+            inputs["Engine"] = args ? args.Engine : undefined;
+            inputs["NoPasswordRequired"] = args ? args.NoPasswordRequired : undefined;
+            inputs["Passwords"] = args ? args.Passwords : undefined;
+            inputs["UserId"] = args ? args.UserId : undefined;
+            inputs["UserName"] = args ? args.UserName : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Authentication"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
+            inputs["UserGroupIds"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AccessString"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Authentication"] = undefined /*out*/;
+            inputs["Engine"] = undefined /*out*/;
+            inputs["NoPasswordRequired"] = undefined /*out*/;
+            inputs["Passwords"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
+            inputs["UserGroupIds"] = undefined /*out*/;
+            inputs["UserId"] = undefined /*out*/;
+            inputs["UserName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +121,27 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AccessString?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Engine: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly NoPasswordRequired?: pulumi.Input<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    readonly properties: pulumi.Input<inputs.ElastiCache.UserProperties>;
+    readonly Passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordList>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly UserId: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+     */
+    readonly UserName: pulumi.Input<string>;
 }

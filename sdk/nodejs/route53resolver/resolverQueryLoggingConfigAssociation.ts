@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,22 +34,19 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
         return obj['__pulumiType'] === ResolverQueryLoggingConfigAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
+    public /*out*/ readonly Error!: pulumi.Output<string>;
+    public /*out*/ readonly ErrorMessage!: pulumi.Output<string>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Route53Resolver.ResolverQueryLoggingConfigAssociationAttributes>;
+    public readonly ResolverQueryLogConfigId!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.Route53Resolver.ResolverQueryLoggingConfigAssociationProperties>;
+    public readonly ResourceId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Status!: pulumi.Output<string>;
 
     /**
      * Create a ResolverQueryLoggingConfigAssociation resource with the given unique name, arguments, and options.
@@ -59,23 +55,24 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResolverQueryLoggingConfigAssociationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ResolverQueryLoggingConfigAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["ResolverQueryLogConfigId"] = args ? args.ResolverQueryLogConfigId : undefined;
+            inputs["ResourceId"] = args ? args.ResourceId : undefined;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["Error"] = undefined /*out*/;
+            inputs["ErrorMessage"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["Error"] = undefined /*out*/;
+            inputs["ErrorMessage"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["ResolverQueryLogConfigId"] = undefined /*out*/;
+            inputs["ResourceId"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +90,11 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
  */
 export interface ResolverQueryLoggingConfigAssociationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ResolverQueryLogConfigId?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
      */
-    readonly logicalId?: pulumi.Input<string>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.Route53Resolver.ResolverQueryLoggingConfigAssociationProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly ResourceId?: pulumi.Input<string>;
 }

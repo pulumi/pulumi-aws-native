@@ -36,21 +36,29 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SageMaker.PipelineAttributes>;
+    public readonly PipelineDefinition!: pulumi.Output<any | string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly PipelineDescription!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly PipelineDisplayName!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
      */
-    public readonly properties!: pulumi.Output<outputs.SageMaker.PipelineProperties>;
+    public readonly PipelineName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -62,20 +70,28 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.PipelineDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PipelineDefinition'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.PipelineName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PipelineName'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            inputs["PipelineDefinition"] = args ? args.PipelineDefinition : undefined;
+            inputs["PipelineDescription"] = args ? args.PipelineDescription : undefined;
+            inputs["PipelineDisplayName"] = args ? args.PipelineDisplayName : undefined;
+            inputs["PipelineName"] = args ? args.PipelineName : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["PipelineDefinition"] = undefined /*out*/;
+            inputs["PipelineDescription"] = undefined /*out*/;
+            inputs["PipelineDisplayName"] = undefined /*out*/;
+            inputs["PipelineName"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +109,27 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly PipelineDefinition: pulumi.Input<any | string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly PipelineDescription?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly PipelineDisplayName?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
      */
-    readonly properties: pulumi.Input<inputs.SageMaker.PipelineProperties>;
+    readonly PipelineName: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

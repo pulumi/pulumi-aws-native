@@ -35,22 +35,28 @@ export class Accelerator extends pulumi.CustomResource {
         return obj['__pulumiType'] === Accelerator.__pulumiType;
     }
 
+    public /*out*/ readonly AcceleratorArn!: pulumi.Output<string>;
+    public /*out*/ readonly DnsName!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.GlobalAccelerator.AcceleratorAttributes>;
+    public readonly Enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly IpAddressType!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly IpAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
      */
-    public readonly properties!: pulumi.Output<outputs.GlobalAccelerator.AcceleratorProperties>;
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -62,20 +68,24 @@ export class Accelerator extends pulumi.CustomResource {
     constructor(name: string, args: AcceleratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Enabled"] = args ? args.Enabled : undefined;
+            inputs["IpAddressType"] = args ? args.IpAddressType : undefined;
+            inputs["IpAddresses"] = args ? args.IpAddresses : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["AcceleratorArn"] = undefined /*out*/;
+            inputs["DnsName"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AcceleratorArn"] = undefined /*out*/;
+            inputs["DnsName"] = undefined /*out*/;
+            inputs["Enabled"] = undefined /*out*/;
+            inputs["IpAddressType"] = undefined /*out*/;
+            inputs["IpAddresses"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,23 @@ export class Accelerator extends pulumi.CustomResource {
  */
 export interface AcceleratorArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Enabled?: pulumi.Input<boolean>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly IpAddressType?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly IpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
      */
-    readonly properties: pulumi.Input<inputs.GlobalAccelerator.AcceleratorProperties>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

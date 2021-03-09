@@ -36,21 +36,38 @@ export class Flow extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.AppFlow.FlowAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DestinationFlowConfigList!: pulumi.Output<outputs.AppFlow.FlowDestinationFlowConfig[]>;
+    public /*out*/ readonly FlowArn!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly FlowName!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
      */
-    public readonly properties!: pulumi.Output<outputs.AppFlow.FlowProperties>;
+    public readonly KMSArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+     */
+    public readonly SourceFlowConfig!: pulumi.Output<outputs.AppFlow.FlowSourceFlowConfig>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+     */
+    public readonly Tasks!: pulumi.Output<outputs.AppFlow.FlowTask[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+     */
+    public readonly TriggerConfig!: pulumi.Output<outputs.AppFlow.FlowTriggerConfig>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -62,20 +79,40 @@ export class Flow extends pulumi.CustomResource {
     constructor(name: string, args: FlowArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.DestinationFlowConfigList === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DestinationFlowConfigList'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.FlowName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FlowName'");
+            }
+            if ((!args || args.SourceFlowConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SourceFlowConfig'");
+            }
+            if ((!args || args.Tasks === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Tasks'");
+            }
+            if ((!args || args.TriggerConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TriggerConfig'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["DestinationFlowConfigList"] = args ? args.DestinationFlowConfigList : undefined;
+            inputs["FlowName"] = args ? args.FlowName : undefined;
+            inputs["KMSArn"] = args ? args.KMSArn : undefined;
+            inputs["SourceFlowConfig"] = args ? args.SourceFlowConfig : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Tasks"] = args ? args.Tasks : undefined;
+            inputs["TriggerConfig"] = args ? args.TriggerConfig : undefined;
+            inputs["FlowArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["DestinationFlowConfigList"] = undefined /*out*/;
+            inputs["FlowArn"] = undefined /*out*/;
+            inputs["FlowName"] = undefined /*out*/;
+            inputs["KMSArn"] = undefined /*out*/;
+            inputs["SourceFlowConfig"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Tasks"] = undefined /*out*/;
+            inputs["TriggerConfig"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +130,35 @@ export class Flow extends pulumi.CustomResource {
  */
 export interface FlowArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DestinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfig>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly FlowName: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
      */
-    readonly properties: pulumi.Input<inputs.AppFlow.FlowProperties>;
+    readonly KMSArn?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly SourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfig>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+     */
+    readonly Tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTask>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+     */
+    readonly TriggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfig>;
 }

@@ -36,21 +36,31 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.NetworkFirewall.RuleGroupAttributes>;
+    public readonly Capacity!: pulumi.Output<number>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly RuleGroup!: pulumi.Output<outputs.NetworkFirewall.RuleGroupRuleGroup | undefined>;
+    public /*out*/ readonly RuleGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly RuleGroupId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
      */
-    public readonly properties!: pulumi.Output<outputs.NetworkFirewall.RuleGroupProperties>;
+    public readonly RuleGroupName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
+     */
+    public readonly Type!: pulumi.Output<string>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -62,20 +72,32 @@ export class RuleGroup extends pulumi.CustomResource {
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Capacity === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Capacity'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.RuleGroupName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RuleGroupName'");
+            }
+            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Type'");
+            }
+            inputs["Capacity"] = args ? args.Capacity : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["RuleGroup"] = args ? args.RuleGroup : undefined;
+            inputs["RuleGroupName"] = args ? args.RuleGroupName : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
+            inputs["RuleGroupArn"] = undefined /*out*/;
+            inputs["RuleGroupId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Capacity"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["RuleGroup"] = undefined /*out*/;
+            inputs["RuleGroupArn"] = undefined /*out*/;
+            inputs["RuleGroupId"] = undefined /*out*/;
+            inputs["RuleGroupName"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,27 @@ export class RuleGroup extends pulumi.CustomResource {
  */
 export interface RuleGroupArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Capacity: pulumi.Input<number>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly RuleGroup?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleGroup>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
      */
-    readonly properties: pulumi.Input<inputs.NetworkFirewall.RuleGroupProperties>;
+    readonly RuleGroupName: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
+     */
+    readonly Type: pulumi.Input<string>;
 }

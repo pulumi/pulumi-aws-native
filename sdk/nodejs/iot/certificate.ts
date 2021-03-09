@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,22 +34,28 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoT.CertificateAttributes>;
+    public readonly CACertificatePem!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly CertificateMode!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly CertificatePem!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
      */
-    public readonly properties!: pulumi.Output<outputs.IoT.CertificateProperties>;
+    public readonly CertificateSigningRequest!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
+     */
+    public readonly Status!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -62,20 +67,24 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Status === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Status'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["CACertificatePem"] = args ? args.CACertificatePem : undefined;
+            inputs["CertificateMode"] = args ? args.CertificateMode : undefined;
+            inputs["CertificatePem"] = args ? args.CertificatePem : undefined;
+            inputs["CertificateSigningRequest"] = args ? args.CertificateSigningRequest : undefined;
+            inputs["Status"] = args ? args.Status : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CACertificatePem"] = undefined /*out*/;
+            inputs["CertificateMode"] = undefined /*out*/;
+            inputs["CertificatePem"] = undefined /*out*/;
+            inputs["CertificateSigningRequest"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +102,23 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly CACertificatePem?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly CertificateMode?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly CertificatePem?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
      */
-    readonly properties: pulumi.Input<inputs.IoT.CertificateProperties>;
+    readonly CertificateSigningRequest?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Status: pulumi.Input<string>;
 }

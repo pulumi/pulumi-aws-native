@@ -36,21 +36,37 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.S3.AccessPointAttributes>;
+    public readonly Bucket!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly CreationDate!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Name!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
      */
-    public readonly properties!: pulumi.Output<outputs.S3.AccessPointProperties>;
+    public readonly NetworkOrigin!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
+     */
+    public readonly Policy!: pulumi.Output<any | string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
+     */
+    public readonly PolicyStatus!: pulumi.Output<any | string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
+     */
+    public readonly PublicAccessBlockConfiguration!: pulumi.Output<outputs.S3.AccessPointPublicAccessBlockConfiguration | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
+     */
+    public readonly VpcConfiguration!: pulumi.Output<outputs.S3.AccessPointVpcConfiguration | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -62,20 +78,26 @@ export class AccessPoint extends pulumi.CustomResource {
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Bucket === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Bucket'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Bucket"] = args ? args.Bucket : undefined;
+            inputs["CreationDate"] = args ? args.CreationDate : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["NetworkOrigin"] = args ? args.NetworkOrigin : undefined;
+            inputs["Policy"] = args ? args.Policy : undefined;
+            inputs["PolicyStatus"] = args ? args.PolicyStatus : undefined;
+            inputs["PublicAccessBlockConfiguration"] = args ? args.PublicAccessBlockConfiguration : undefined;
+            inputs["VpcConfiguration"] = args ? args.VpcConfiguration : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Bucket"] = undefined /*out*/;
+            inputs["CreationDate"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["NetworkOrigin"] = undefined /*out*/;
+            inputs["Policy"] = undefined /*out*/;
+            inputs["PolicyStatus"] = undefined /*out*/;
+            inputs["PublicAccessBlockConfiguration"] = undefined /*out*/;
+            inputs["VpcConfiguration"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,35 @@ export class AccessPoint extends pulumi.CustomResource {
  */
 export interface AccessPointArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Bucket: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly CreationDate?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Name?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
      */
-    readonly properties: pulumi.Input<inputs.S3.AccessPointProperties>;
+    readonly NetworkOrigin?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Policy?: pulumi.Input<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
+     */
+    readonly PolicyStatus?: pulumi.Input<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
+     */
+    readonly PublicAccessBlockConfiguration?: pulumi.Input<inputs.S3.AccessPointPublicAccessBlockConfiguration>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
+     */
+    readonly VpcConfiguration?: pulumi.Input<inputs.S3.AccessPointVpcConfiguration>;
 }

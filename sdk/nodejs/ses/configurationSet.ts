@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,21 +35,9 @@ export class ConfigurationSet extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SES.ConfigurationSetAttributes>;
-    /**
-     * An explicit logical ID for the resource
-     */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.SES.ConfigurationSetProperties>;
+    public readonly Name!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -59,23 +46,12 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Name"] = args ? args.Name : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +69,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
  */
 export interface ConfigurationSetArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
-    /**
-     * An explicit logical ID for the resource
-     */
-    readonly logicalId?: pulumi.Input<string>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.SES.ConfigurationSetProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Name?: pulumi.Input<string>;
 }

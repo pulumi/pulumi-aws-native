@@ -35,22 +35,23 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === RealtimeLogConfig.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.CloudFront.RealtimeLogConfigAttributes>;
+    public readonly EndPoints!: pulumi.Output<outputs.CloudFront.RealtimeLogConfigEndPoint[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Fields!: pulumi.Output<string[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Name!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
      */
-    public readonly properties!: pulumi.Output<outputs.CloudFront.RealtimeLogConfigProperties>;
+    public readonly SamplingRate!: pulumi.Output<number>;
 
     /**
      * Create a RealtimeLogConfig resource with the given unique name, arguments, and options.
@@ -62,20 +63,29 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     constructor(name: string, args: RealtimeLogConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.EndPoints === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'EndPoints'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Fields === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Fields'");
+            }
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.SamplingRate === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SamplingRate'");
+            }
+            inputs["EndPoints"] = args ? args.EndPoints : undefined;
+            inputs["Fields"] = args ? args.Fields : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["SamplingRate"] = args ? args.SamplingRate : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["EndPoints"] = undefined /*out*/;
+            inputs["Fields"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["SamplingRate"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,19 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
  */
 export interface RealtimeLogConfigArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly EndPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPoint>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Fields: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
      */
-    readonly properties: pulumi.Input<inputs.CloudFront.RealtimeLogConfigProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly SamplingRate: pulumi.Input<number>;
 }

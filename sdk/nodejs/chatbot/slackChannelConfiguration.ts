@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,22 +34,31 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === SlackChannelConfiguration.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Chatbot.SlackChannelConfigurationAttributes>;
+    public readonly ConfigurationName!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly IamRoleArn!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly LoggingLevel!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
      */
-    public readonly properties!: pulumi.Output<outputs.Chatbot.SlackChannelConfigurationProperties>;
+    public readonly SlackChannelId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
+     */
+    public readonly SlackWorkspaceId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+     */
+    public readonly SnsTopicArns!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SlackChannelConfiguration resource with the given unique name, arguments, and options.
@@ -62,20 +70,33 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: SlackChannelConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ConfigurationName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ConfigurationName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.IamRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'IamRoleArn'");
+            }
+            if ((!args || args.SlackChannelId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SlackChannelId'");
+            }
+            if ((!args || args.SlackWorkspaceId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SlackWorkspaceId'");
+            }
+            inputs["ConfigurationName"] = args ? args.ConfigurationName : undefined;
+            inputs["IamRoleArn"] = args ? args.IamRoleArn : undefined;
+            inputs["LoggingLevel"] = args ? args.LoggingLevel : undefined;
+            inputs["SlackChannelId"] = args ? args.SlackChannelId : undefined;
+            inputs["SlackWorkspaceId"] = args ? args.SlackWorkspaceId : undefined;
+            inputs["SnsTopicArns"] = args ? args.SnsTopicArns : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ConfigurationName"] = undefined /*out*/;
+            inputs["IamRoleArn"] = undefined /*out*/;
+            inputs["LoggingLevel"] = undefined /*out*/;
+            inputs["SlackChannelId"] = undefined /*out*/;
+            inputs["SlackWorkspaceId"] = undefined /*out*/;
+            inputs["SnsTopicArns"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +114,27 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
  */
 export interface SlackChannelConfigurationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ConfigurationName: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly IamRoleArn: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly LoggingLevel?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
      */
-    readonly properties: pulumi.Input<inputs.Chatbot.SlackChannelConfigurationProperties>;
+    readonly SlackChannelId: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly SlackWorkspaceId: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+     */
+    readonly SnsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
 }

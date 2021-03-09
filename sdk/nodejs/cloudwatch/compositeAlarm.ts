@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,21 +35,34 @@ export class CompositeAlarm extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.CloudWatch.CompositeAlarmAttributes>;
+    public readonly ActionsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly AlarmActions!: pulumi.Output<string[] | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly AlarmDescription!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
      */
-    public readonly properties!: pulumi.Output<outputs.CloudWatch.CompositeAlarmProperties>;
+    public readonly AlarmName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+     */
+    public readonly AlarmRule!: pulumi.Output<string>;
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+     */
+    public readonly InsufficientDataActions!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+     */
+    public readonly OKActions!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -62,20 +74,29 @@ export class CompositeAlarm extends pulumi.CustomResource {
     constructor(name: string, args: CompositeAlarmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.AlarmName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AlarmName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.AlarmRule === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AlarmRule'");
+            }
+            inputs["ActionsEnabled"] = args ? args.ActionsEnabled : undefined;
+            inputs["AlarmActions"] = args ? args.AlarmActions : undefined;
+            inputs["AlarmDescription"] = args ? args.AlarmDescription : undefined;
+            inputs["AlarmName"] = args ? args.AlarmName : undefined;
+            inputs["AlarmRule"] = args ? args.AlarmRule : undefined;
+            inputs["InsufficientDataActions"] = args ? args.InsufficientDataActions : undefined;
+            inputs["OKActions"] = args ? args.OKActions : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ActionsEnabled"] = undefined /*out*/;
+            inputs["AlarmActions"] = undefined /*out*/;
+            inputs["AlarmDescription"] = undefined /*out*/;
+            inputs["AlarmName"] = undefined /*out*/;
+            inputs["AlarmRule"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["InsufficientDataActions"] = undefined /*out*/;
+            inputs["OKActions"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +114,31 @@ export class CompositeAlarm extends pulumi.CustomResource {
  */
 export interface CompositeAlarmArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ActionsEnabled?: pulumi.Input<boolean>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly AlarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly AlarmDescription?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
      */
-    readonly properties: pulumi.Input<inputs.CloudWatch.CompositeAlarmProperties>;
+    readonly AlarmName: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly AlarmRule: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+     */
+    readonly InsufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+     */
+    readonly OKActions?: pulumi.Input<pulumi.Input<string>[]>;
 }

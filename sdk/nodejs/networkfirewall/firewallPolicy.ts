@@ -36,21 +36,23 @@ export class FirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.NetworkFirewall.FirewallPolicyAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly FirewallPolicy!: pulumi.Output<outputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
+    public /*out*/ readonly FirewallPolicyArn!: pulumi.Output<string>;
+    public /*out*/ readonly FirewallPolicyId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly FirewallPolicyName!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
      */
-    public readonly properties!: pulumi.Output<outputs.NetworkFirewall.FirewallPolicyProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -62,20 +64,25 @@ export class FirewallPolicy extends pulumi.CustomResource {
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.FirewallPolicy === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FirewallPolicy'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.FirewallPolicyName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FirewallPolicyName'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["FirewallPolicy"] = args ? args.FirewallPolicy : undefined;
+            inputs["FirewallPolicyName"] = args ? args.FirewallPolicyName : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["FirewallPolicyArn"] = undefined /*out*/;
+            inputs["FirewallPolicyId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["FirewallPolicy"] = undefined /*out*/;
+            inputs["FirewallPolicyArn"] = undefined /*out*/;
+            inputs["FirewallPolicyId"] = undefined /*out*/;
+            inputs["FirewallPolicyName"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +100,19 @@ export class FirewallPolicy extends pulumi.CustomResource {
  */
 export interface FirewallPolicyArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly FirewallPolicy: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly FirewallPolicyName: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
      */
-    readonly properties: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

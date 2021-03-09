@@ -35,22 +35,28 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
+    public /*out*/ readonly AccessPointId!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.EFS.AccessPointAttributes>;
+    public readonly AccessPointTags!: pulumi.Output<outputs.EFS.AccessPointAccessPointTag[] | undefined>;
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ClientToken!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly FileSystemId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
      */
-    public readonly properties!: pulumi.Output<outputs.EFS.AccessPointProperties>;
+    public readonly PosixUser!: pulumi.Output<outputs.EFS.AccessPointPosixUser | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+     */
+    public readonly RootDirectory!: pulumi.Output<outputs.EFS.AccessPointRootDirectory | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -62,20 +68,24 @@ export class AccessPoint extends pulumi.CustomResource {
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.FileSystemId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FileSystemId'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AccessPointTags"] = args ? args.AccessPointTags : undefined;
+            inputs["ClientToken"] = args ? args.ClientToken : undefined;
+            inputs["FileSystemId"] = args ? args.FileSystemId : undefined;
+            inputs["PosixUser"] = args ? args.PosixUser : undefined;
+            inputs["RootDirectory"] = args ? args.RootDirectory : undefined;
+            inputs["AccessPointId"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AccessPointId"] = undefined /*out*/;
+            inputs["AccessPointTags"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ClientToken"] = undefined /*out*/;
+            inputs["FileSystemId"] = undefined /*out*/;
+            inputs["PosixUser"] = undefined /*out*/;
+            inputs["RootDirectory"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,23 @@ export class AccessPoint extends pulumi.CustomResource {
  */
 export interface AccessPointArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AccessPointTags?: pulumi.Input<pulumi.Input<inputs.EFS.AccessPointAccessPointTag>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ClientToken?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly FileSystemId: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
      */
-    readonly properties: pulumi.Input<inputs.EFS.AccessPointProperties>;
+    readonly PosixUser?: pulumi.Input<inputs.EFS.AccessPointPosixUser>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RootDirectory?: pulumi.Input<inputs.EFS.AccessPointRootDirectory>;
 }

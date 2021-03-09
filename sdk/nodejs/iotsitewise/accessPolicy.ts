@@ -35,22 +35,20 @@ export class AccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPolicy.__pulumiType;
     }
 
+    public /*out*/ readonly AccessPolicyArn!: pulumi.Output<string>;
+    public /*out*/ readonly AccessPolicyId!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAttributes>;
+    public readonly AccessPolicyIdentity!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly AccessPolicyPermission!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyProperties>;
+    public readonly AccessPolicyResource!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -62,20 +60,26 @@ export class AccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.AccessPolicyIdentity === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AccessPolicyIdentity'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.AccessPolicyPermission === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AccessPolicyPermission'");
+            }
+            if ((!args || args.AccessPolicyResource === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AccessPolicyResource'");
+            }
+            inputs["AccessPolicyIdentity"] = args ? args.AccessPolicyIdentity : undefined;
+            inputs["AccessPolicyPermission"] = args ? args.AccessPolicyPermission : undefined;
+            inputs["AccessPolicyResource"] = args ? args.AccessPolicyResource : undefined;
+            inputs["AccessPolicyArn"] = undefined /*out*/;
+            inputs["AccessPolicyId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AccessPolicyArn"] = undefined /*out*/;
+            inputs["AccessPolicyId"] = undefined /*out*/;
+            inputs["AccessPolicyIdentity"] = undefined /*out*/;
+            inputs["AccessPolicyPermission"] = undefined /*out*/;
+            inputs["AccessPolicyResource"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +97,15 @@ export class AccessPolicy extends pulumi.CustomResource {
  */
 export interface AccessPolicyArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AccessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly AccessPolicyPermission: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.IoTSiteWise.AccessPolicyProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly AccessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
 }

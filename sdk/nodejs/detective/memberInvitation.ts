@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,21 +35,21 @@ export class MemberInvitation extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Detective.MemberInvitationAttributes>;
+    public readonly GraphArn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly MemberEmailAddress!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly MemberId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
      */
-    public readonly properties!: pulumi.Output<outputs.Detective.MemberInvitationProperties>;
+    public readonly Message!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MemberInvitation resource with the given unique name, arguments, and options.
@@ -62,20 +61,24 @@ export class MemberInvitation extends pulumi.CustomResource {
     constructor(name: string, args: MemberInvitationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.GraphArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'GraphArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.MemberEmailAddress === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'MemberEmailAddress'");
+            }
+            if ((!args || args.MemberId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'MemberId'");
+            }
+            inputs["GraphArn"] = args ? args.GraphArn : undefined;
+            inputs["MemberEmailAddress"] = args ? args.MemberEmailAddress : undefined;
+            inputs["MemberId"] = args ? args.MemberId : undefined;
+            inputs["Message"] = args ? args.Message : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["GraphArn"] = undefined /*out*/;
+            inputs["MemberEmailAddress"] = undefined /*out*/;
+            inputs["MemberId"] = undefined /*out*/;
+            inputs["Message"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +96,19 @@ export class MemberInvitation extends pulumi.CustomResource {
  */
 export interface MemberInvitationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly GraphArn: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly MemberEmailAddress: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly MemberId: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
      */
-    readonly properties: pulumi.Input<inputs.Detective.MemberInvitationProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Message?: pulumi.Input<string>;
 }

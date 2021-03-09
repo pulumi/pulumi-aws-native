@@ -36,21 +36,22 @@ export class DeviceFleet extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SageMaker.DeviceFleetAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly DeviceFleetName!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly OutputConfig!: pulumi.Output<outputs.SageMaker.DeviceFleetEdgeOutputConfig>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly RoleArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
      */
-    public readonly properties!: pulumi.Output<outputs.SageMaker.DeviceFleetProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag | undefined>;
 
     /**
      * Create a DeviceFleet resource with the given unique name, arguments, and options.
@@ -62,20 +63,23 @@ export class DeviceFleet extends pulumi.CustomResource {
     constructor(name: string, args: DeviceFleetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.OutputConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'OutputConfig'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["OutputConfig"] = args ? args.OutputConfig : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["DeviceFleetName"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["DeviceFleetName"] = undefined /*out*/;
+            inputs["OutputConfig"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +97,19 @@ export class DeviceFleet extends pulumi.CustomResource {
  */
 export interface DeviceFleetArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly OutputConfig: pulumi.Input<inputs.SageMaker.DeviceFleetEdgeOutputConfig>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly RoleArn: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
      */
-    readonly properties: pulumi.Input<inputs.SageMaker.DeviceFleetProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<inputs.Tag>;
 }

@@ -18,42 +18,6 @@ export interface Tag {
     Value: string;
 }
 export namespace ACMPCA {
-    export interface CertificateAttributes {
-        Arn: string;
-        Certificate: string;
-    }
-
-    export interface CertificateAuthorityActivationAttributes {
-        CompleteCertificateChain: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
-     */
-    export interface CertificateAuthorityActivationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
-         */
-        Certificate: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
-         */
-        CertificateAuthorityArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
-         */
-        CertificateChain?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
-         */
-        Status?: string;
-    }
-
-    export interface CertificateAuthorityAttributes {
-        Arn: string;
-        CertificateSigningRequest: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
      */
@@ -74,36 +38,6 @@ export namespace ACMPCA {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
          */
         S3BucketName?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
-     */
-    export interface CertificateAuthorityProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
-         */
-        KeyAlgorithm: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
-         */
-        RevocationConfiguration?: outputs.ACMPCA.CertificateAuthorityRevocationConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
-         */
-        SigningAlgorithm: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-         */
-        Subject: outputs.ACMPCA.CertificateAuthoritySubject;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
-         */
-        Type: string;
     }
 
     /**
@@ -179,32 +113,6 @@ export namespace ACMPCA {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
-     */
-    export interface CertificateProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
-         */
-        CertificateAuthorityArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
-         */
-        CertificateSigningRequest: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
-         */
-        SigningAlgorithm: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
-         */
-        TemplateArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
-         */
-        Validity: outputs.ACMPCA.CertificateValidity;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
      */
     export interface CertificateValidity {
@@ -234,10 +142,6 @@ export namespace AccessAnalyzer {
         RuleName: string;
     }
 
-    export interface AnalyzerAttributes {
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
      */
@@ -263,72 +167,9 @@ export namespace AccessAnalyzer {
          */
         Property: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
-     */
-    export interface AnalyzerProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
-         */
-        AnalyzerName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-         */
-        ArchiveRules?: outputs.AccessAnalyzer.AnalyzerArchiveRule[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
-         */
-        Type: string;
-    }
 }
 
 export namespace ApiGateway {
-    export interface ApiKeyAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html
-     */
-    export interface ApiKeyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
-         */
-        CustomerId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
-         */
-        Enabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid
-         */
-        GenerateDistinctId?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
-         */
-        StageKeys?: outputs.ApiGateway.ApiKeyStageKey[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
-         */
-        Value?: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
      */
@@ -341,51 +182,6 @@ export namespace ApiGateway {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
          */
         StageName?: string;
-    }
-
-    export interface ClientCertificateAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
-     */
-    export interface ClientCertificateProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface DocumentationVersionAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
-     */
-    export interface DocumentationVersionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
-         */
-        DocumentationVersion: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
-         */
-        RestApiId: string;
-    }
-
-    export interface DomainNameAttributes {
-        DistributionDomainName: string;
-        DistributionHostedZoneId: string;
-        RegionalDomainName: string;
-        RegionalHostedZoneId: string;
     }
 
     /**
@@ -411,40 +207,6 @@ export namespace ApiGateway {
          */
         TruststoreVersion?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
-     */
-    export interface DomainNameProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
-         */
-        CertificateArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-         */
-        DomainName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
-         */
-        EndpointConfiguration?: outputs.ApiGateway.DomainNameEndpointConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
-         */
-        MutualTlsAuthentication?: outputs.ApiGateway.DomainNameMutualTlsAuthentication;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
-         */
-        RegionalCertificateArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
-         */
-        SecurityPolicy?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace AppFlow {
@@ -460,11 +222,6 @@ export namespace AppFlow {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
          */
         SecretKey: string;
-    }
-
-    export interface ConnectorProfileAttributes {
-        ConnectorProfileArn: string;
-        CredentialsArn: string;
     }
 
     /**
@@ -746,32 +503,6 @@ export namespace AppFlow {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
-     */
-    export interface ConnectorProfileProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-         */
-        ConnectionMode: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
-         */
-        ConnectorProfileConfig?: outputs.AppFlow.ConnectorProfileConnectorProfileConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-         */
-        ConnectorProfileName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-         */
-        ConnectorType: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
-         */
-        KMSArn?: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html
      */
     export interface ConnectorProfileRedshiftConnectorProfileCredentials {
@@ -1043,10 +774,6 @@ export namespace AppFlow {
         Object: string;
     }
 
-    export interface FlowAttributes {
-        FlowArn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html
      */
@@ -1261,44 +988,6 @@ export namespace AppFlow {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
          */
         PrefixType?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
-     */
-    export interface FlowProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-         */
-        DestinationFlowConfigList: outputs.AppFlow.FlowDestinationFlowConfig[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-         */
-        FlowName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-         */
-        KMSArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-         */
-        SourceFlowConfig: outputs.AppFlow.FlowSourceFlowConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-         */
-        Tasks: outputs.AppFlow.FlowTask[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-         */
-        TriggerConfig: outputs.AppFlow.FlowTriggerConfig;
     }
 
     /**
@@ -1713,10 +1402,6 @@ export namespace ApplicationInsights {
         AlarmMetricName: string;
     }
 
-    export interface ApplicationAttributes {
-        ApplicationARN: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
      */
@@ -1878,48 +1563,6 @@ export namespace ApplicationInsights {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
-     */
-    export interface ApplicationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
-         */
-        AutoConfigurationEnabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
-         */
-        CWEMonitorEnabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
-         */
-        ComponentMonitoringSettings?: outputs.ApplicationInsights.ApplicationComponentMonitoringSetting[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
-         */
-        CustomComponents?: outputs.ApplicationInsights.ApplicationCustomComponent[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
-         */
-        LogPatternSets?: outputs.ApplicationInsights.ApplicationLogPatternSet[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
-         */
-        OpsCenterEnabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
-         */
-        OpsItemSNSTopicArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
-         */
-        ResourceGroupName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
      */
     export interface ApplicationSubComponentConfigurationDetails {
@@ -1975,35 +1618,6 @@ export namespace ApplicationInsights {
 }
 
 export namespace Athena {
-    export interface DataCatalogAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
-     */
-    export interface DataCatalogProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
-         */
-        Parameters?: {[key: string]: string};
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
-         */
-        Tags?: outputs.Athena.DataCatalogTags;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
-         */
-        Type: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
      */
@@ -2012,40 +1626,6 @@ export namespace Athena {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
          */
         Tags?: outputs.Tag[];
-    }
-
-    export interface NamedQueryAttributes {
-        NamedQueryId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
-     */
-    export interface NamedQueryProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
-         */
-        Database: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
-         */
-        QueryString: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
-         */
-        WorkGroup?: string;
-    }
-
-    export interface WorkGroupAttributes {
-        CreationTime: string;
     }
 
     /**
@@ -2060,40 +1640,6 @@ export namespace Athena {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
          */
         KmsKey?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html
-     */
-    export interface WorkGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
-         */
-        RecursiveDeleteOption?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
-         */
-        State?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
-         */
-        Tags?: outputs.Athena.WorkGroupTags;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
-         */
-        WorkGroupConfiguration?: outputs.Athena.WorkGroupWorkGroupConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
-         */
-        WorkGroupConfigurationUpdates?: outputs.Athena.WorkGroupWorkGroupConfigurationUpdates;
     }
 
     /**
@@ -2262,14 +1808,6 @@ export namespace AuditManager {
         destinationType?: string;
     }
 
-    export interface AssessmentAttributes {
-        arn: string;
-        assessmentId: string;
-        creationTime: number;
-        delegations: outputs.AuditManager.AssessmentDelegations;
-        frameworkId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
      */
@@ -2331,48 +1869,6 @@ export namespace AuditManager {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
-     */
-    export interface AssessmentProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
-         */
-        assessmentReportsDestination?: outputs.AuditManager.AssessmentAssessmentReportsDestination;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-         */
-        awsAccount?: outputs.AuditManager.AssessmentAWSAccount;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-         */
-        description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-         */
-        frameworkId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-         */
-        name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-         */
-        roles?: outputs.AuditManager.AssessmentRoles;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-         */
-        scope?: outputs.AuditManager.AssessmentScope;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-         */
-        status?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-         */
-        tags?: outputs.AuditManager.AssessmentTags;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
      */
     export interface AssessmentRole {
@@ -2421,9 +1917,6 @@ export namespace AuditManager {
     }
 }
 
-export namespace AutoScaling {
-}
-
 export namespace Backup {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
@@ -2437,12 +1930,6 @@ export namespace Backup {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
          */
         ResourceType: string;
-    }
-
-    export interface BackupPlanAttributes {
-        BackupPlanArn: string;
-        BackupPlanId: string;
-        VersionId: string;
     }
 
     /**
@@ -2530,25 +2017,6 @@ export namespace Backup {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
-     */
-    export interface BackupPlanProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-         */
-        BackupPlan: outputs.Backup.BackupPlanBackupPlanResourceType;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-         */
-        BackupPlanTags?: any | string;
-    }
-
-    export interface BackupVaultAttributes {
-        BackupVaultArn: string;
-        BackupVaultName: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
      */
     export interface BackupVaultNotificationObjectType {
@@ -2561,51 +2029,9 @@ export namespace Backup {
          */
         SNSTopicArn: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
-     */
-    export interface BackupVaultProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-         */
-        AccessPolicy?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-         */
-        BackupVaultName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-         */
-        BackupVaultTags?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-         */
-        EncryptionKeyArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-         */
-        Notifications?: outputs.Backup.BackupVaultNotificationObjectType;
-    }
 }
 
 export namespace Cassandra {
-    export interface KeyspaceAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
-     */
-    export interface KeyspaceProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
-         */
-        KeyspaceName?: string;
-    }
-
-    export interface TableAttributes {
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html
      */
@@ -2649,36 +2075,6 @@ export namespace Cassandra {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
-     */
-    export interface TableProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-         */
-        BillingMode?: outputs.Cassandra.TableBillingMode;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-         */
-        ClusteringKeyColumns?: outputs.Cassandra.TableClusteringKeyColumn[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-         */
-        KeyspaceName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-         */
-        PartitionKeyColumns: outputs.Cassandra.TableColumn[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-         */
-        RegularColumns?: outputs.Cassandra.TableColumn[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-         */
-        TableName?: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html
      */
     export interface TableProvisionedThroughput {
@@ -2693,93 +2089,7 @@ export namespace Cassandra {
     }
 }
 
-export namespace Chatbot {
-    export interface SlackChannelConfigurationAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html
-     */
-    export interface SlackChannelConfigurationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
-         */
-        ConfigurationName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
-         */
-        IamRoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
-         */
-        LoggingLevel?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
-         */
-        SlackChannelId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
-         */
-        SlackWorkspaceId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
-         */
-        SnsTopicArns?: string[];
-    }
-}
-
 export namespace CloudFormation {
-    export interface ModuleDefaultVersionAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
-     */
-    export interface ModuleDefaultVersionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
-         */
-        Arn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
-         */
-        ModuleName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
-         */
-        VersionId?: string;
-    }
-
-    export interface ModuleVersionAttributes {
-        Arn: string;
-        Description: string;
-        DocumentationUrl: string;
-        IsDefaultVersion: boolean;
-        Schema: string;
-        TimeCreated: string;
-        VersionId: string;
-        Visibility: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
-     */
-    export interface ModuleVersionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
-         */
-        ModuleName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
-         */
-        ModulePackage?: string;
-    }
-
-    export interface StackSetAttributes {
-        StackSetId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
      */
@@ -2849,64 +2159,6 @@ export namespace CloudFormation {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
-     */
-    export interface StackSetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
-         */
-        AdministrationRoleARN?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
-         */
-        AutoDeployment?: outputs.CloudFormation.StackSetAutoDeployment;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
-         */
-        Capabilities?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
-         */
-        ExecutionRoleName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
-         */
-        OperationPreferences?: outputs.CloudFormation.StackSetOperationPreferences;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
-         */
-        Parameters?: outputs.CloudFormation.StackSetParameter[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
-         */
-        PermissionModel: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
-         */
-        StackInstancesGroup?: outputs.CloudFormation.StackSetStackInstances[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
-         */
-        StackSetName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
-         */
-        TemplateBody?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
-         */
-        TemplateURL?: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
      */
     export interface StackSetStackInstances {
@@ -2926,11 +2178,6 @@ export namespace CloudFormation {
 }
 
 export namespace CloudFront {
-    export interface CachePolicyAttributes {
-        Id: string;
-        LastModifiedTime: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
      */
@@ -3016,16 +2263,6 @@ export namespace CloudFront {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
-     */
-    export interface CachePolicyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-         */
-        CachePolicyConfig: outputs.CloudFront.CachePolicyCachePolicyConfig;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
      */
     export interface CachePolicyQueryStringsConfig {
@@ -3039,10 +2276,6 @@ export namespace CloudFront {
         QueryStrings?: string[];
     }
 
-    export interface CloudFrontOriginAccessIdentityAttributes {
-        S3CanonicalUserId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
      */
@@ -3051,21 +2284,6 @@ export namespace CloudFront {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
          */
         Comment: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
-     */
-    export interface CloudFrontOriginAccessIdentityProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-         */
-        CloudFrontOriginAccessIdentityConfig: outputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig;
-    }
-
-    export interface KeyGroupAttributes {
-        Id: string;
-        LastModifiedTime: string;
     }
 
     /**
@@ -3084,21 +2302,6 @@ export namespace CloudFront {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
          */
         Name: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
-     */
-    export interface KeyGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-         */
-        KeyGroupConfig: outputs.CloudFront.KeyGroupKeyGroupConfig;
-    }
-
-    export interface OriginRequestPolicyAttributes {
-        Id: string;
-        LastModifiedTime: string;
     }
 
     /**
@@ -3156,16 +2359,6 @@ export namespace CloudFront {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
-     */
-    export interface OriginRequestPolicyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-         */
-        OriginRequestPolicyConfig: outputs.CloudFront.OriginRequestPolicyOriginRequestPolicyConfig;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
      */
     export interface OriginRequestPolicyQueryStringsConfig {
@@ -3177,21 +2370,6 @@ export namespace CloudFront {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
          */
         QueryStrings?: string[];
-    }
-
-    export interface PublicKeyAttributes {
-        CreatedTime: string;
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
-     */
-    export interface PublicKeyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-         */
-        PublicKeyConfig: outputs.CloudFront.PublicKeyPublicKeyConfig;
     }
 
     /**
@@ -3214,10 +2392,6 @@ export namespace CloudFront {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
          */
         Name: string;
-    }
-
-    export interface RealtimeLogConfigAttributes {
-        Arn: string;
     }
 
     /**
@@ -3247,76 +2421,9 @@ export namespace CloudFront {
          */
         StreamArn: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
-     */
-    export interface RealtimeLogConfigProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-         */
-        EndPoints: outputs.CloudFront.RealtimeLogConfigEndPoint[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-         */
-        Fields: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-         */
-        SamplingRate: number;
-    }
 }
 
 export namespace CloudWatch {
-    export interface CompositeAlarmAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
-     */
-    export interface CompositeAlarmProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
-         */
-        ActionsEnabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
-         */
-        AlarmActions?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
-         */
-        AlarmDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
-         */
-        AlarmName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
-         */
-        AlarmRule: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
-         */
-        InsufficientDataActions?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
-         */
-        OKActions?: string[];
-    }
-
-    export interface MetricStreamAttributes {
-        Arn: string;
-        CreationDate: string;
-        LastUpdateDate: string;
-        State: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
      */
@@ -3326,119 +2433,9 @@ export namespace CloudWatch {
          */
         Namespace: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
-     */
-    export interface MetricStreamProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
-         */
-        ExcludeFilters?: outputs.CloudWatch.MetricStreamMetricStreamFilter[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
-         */
-        FirehoseArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
-         */
-        IncludeFilters?: outputs.CloudWatch.MetricStreamMetricStreamFilter[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-}
-
-export namespace CodeArtifact {
-    export interface DomainAttributes {
-        Arn: string;
-        EncryptionKey: string;
-        Name: string;
-        Owner: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
-     */
-    export interface DomainProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
-         */
-        DomainName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
-         */
-        EncryptionKey?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
-         */
-        PermissionsPolicyDocument?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface RepositoryAttributes {
-        Arn: string;
-        DomainName: string;
-        DomainOwner: string;
-        Name: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
-     */
-    export interface RepositoryProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
-         */
-        DomainName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
-         */
-        DomainOwner?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
-         */
-        ExternalConnections?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
-         */
-        PermissionsPolicyDocument?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
-         */
-        RepositoryName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
-         */
-        Upstreams?: string[];
-    }
 }
 
 export namespace CodeGuruProfiler {
-    export interface ProfilingGroupAttributes {
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
      */
@@ -3452,100 +2449,9 @@ export namespace CodeGuruProfiler {
          */
         channelUri: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
-     */
-    export interface ProfilingGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
-         */
-        AgentPermissions?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
-         */
-        AnomalyDetectionNotificationConfiguration?: outputs.CodeGuruProfiler.ProfilingGroupChannel[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
-         */
-        ComputePlatform?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
-         */
-        ProfilingGroupName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-}
-
-export namespace CodeGuruReviewer {
-    export interface RepositoryAssociationAttributes {
-        AssociationArn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html
-     */
-    export interface RepositoryAssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
-         */
-        ConnectionArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
-         */
-        Owner?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
-         */
-        Type: string;
-    }
-}
-
-export namespace CodeStarConnections {
-    export interface ConnectionAttributes {
-        ConnectionArn: string;
-        ConnectionStatus: string;
-        OwnerAccountId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
-     */
-    export interface ConnectionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
-         */
-        ConnectionName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
-         */
-        HostArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
-         */
-        ProviderType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace Configuration {
-    export interface ConformancePackAttributes {
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
      */
@@ -3561,39 +2467,6 @@ export namespace Configuration {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
-     */
-    export interface ConformancePackProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
-         */
-        ConformancePackInputParameters?: outputs.Configuration.ConformancePackConformancePackInputParameter[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
-         */
-        ConformancePackName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-         */
-        DeliveryS3Bucket?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
-         */
-        DeliveryS3KeyPrefix?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
-         */
-        TemplateBody?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
-         */
-        TemplateS3Uri?: string;
-    }
-
-    export interface OrganizationConformancePackAttributes {
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
      */
     export interface OrganizationConformancePackConformancePackInputParameter {
@@ -3606,71 +2479,9 @@ export namespace Configuration {
          */
         ParameterValue: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
-     */
-    export interface OrganizationConformancePackProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
-         */
-        ConformancePackInputParameters?: outputs.Configuration.OrganizationConformancePackConformancePackInputParameter[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-         */
-        DeliveryS3Bucket?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
-         */
-        DeliveryS3KeyPrefix?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
-         */
-        ExcludedAccounts?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
-         */
-        OrganizationConformancePackName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
-         */
-        TemplateBody?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
-         */
-        TemplateS3Uri?: string;
-    }
 }
 
 export namespace DataBrew {
-    export interface DatasetAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html
-     */
-    export interface DatasetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
-         */
-        FormatOptions?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
-         */
-        Input: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface JobAttributes {
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
      */
@@ -3698,72 +2509,6 @@ export namespace DataBrew {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html
-     */
-    export interface JobProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
-         */
-        DatasetName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
-         */
-        EncryptionKeyArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
-         */
-        EncryptionMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
-         */
-        LogSubscription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
-         */
-        MaxCapacity?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
-         */
-        MaxRetries?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
-         */
-        OutputLocation?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
-         */
-        Outputs?: outputs.DataBrew.JobOutput[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
-         */
-        ProjectName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
-         */
-        Recipe?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
-         */
-        Timeout?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
-         */
-        Type: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
      */
     export interface JobS3Location {
@@ -3775,39 +2520,6 @@ export namespace DataBrew {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
          */
         Key?: string;
-    }
-
-    export interface ProjectAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html
-     */
-    export interface ProjectProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
-         */
-        DatasetName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
-         */
-        RecipeName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
-         */
-        Sample?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
-         */
-        Tags?: outputs.Tag[];
     }
 
     /**
@@ -3822,9 +2534,6 @@ export namespace DataBrew {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
          */
         Parameters?: any;
-    }
-
-    export interface RecipeAttributes {
     }
 
     /**
@@ -3846,28 +2555,6 @@ export namespace DataBrew {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
-     */
-    export interface RecipeProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
-         */
-        Steps: outputs.DataBrew.RecipeRecipeStep[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
      */
     export interface RecipeRecipeStep {
@@ -3881,74 +2568,9 @@ export namespace DataBrew {
         ConditionExpressions?: outputs.DataBrew.RecipeConditionExpression[];
     }
 
-    export interface ScheduleAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html
-     */
-    export interface ScheduleProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
-         */
-        CronExpression: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
-         */
-        JobNames?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-}
-
-export namespace Detective {
-    export interface GraphAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html
-     */
-    export interface GraphProperties {
-    }
-
-    export interface MemberInvitationAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
-     */
-    export interface MemberInvitationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
-         */
-        GraphArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
-         */
-        MemberEmailAddress: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
-         */
-        MemberId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
-         */
-        Message?: string;
-    }
 }
 
 export namespace DevOpsGuru {
-    export interface NotificationChannelAttributes {
-        Id: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
      */
@@ -3957,16 +2579,6 @@ export namespace DevOpsGuru {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
          */
         Sns?: outputs.DevOpsGuru.NotificationChannelSnsChannelConfig;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
-     */
-    export interface NotificationChannelProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-         */
-        Config: outputs.DevOpsGuru.NotificationChannelNotificationChannelConfig;
     }
 
     /**
@@ -3979,10 +2591,6 @@ export namespace DevOpsGuru {
         TopicArn?: string;
     }
 
-    export interface ResourceCollectionAttributes {
-        ResourceCollectionType: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
      */
@@ -3991,16 +2599,6 @@ export namespace DevOpsGuru {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
          */
         StackNames?: string[];
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
-     */
-    export interface ResourceCollectionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-         */
-        ResourceCollectionFilter: outputs.DevOpsGuru.ResourceCollectionResourceCollectionFilter;
     }
 
     /**
@@ -4015,26 +2613,6 @@ export namespace DevOpsGuru {
 }
 
 export namespace EC2 {
-    export interface CarrierGatewayAttributes {
-        CarrierGatewayId: string;
-        OwnerId: string;
-        State: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
-     */
-    export interface CarrierGatewayProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
-         */
-        Tags?: outputs.EC2.CarrierGatewayTags;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
-         */
-        VpcId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
      */
@@ -4043,121 +2621,6 @@ export namespace EC2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
          */
         Tags?: outputs.Tag[];
-    }
-
-    export interface FlowLogAttributes {
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
-     */
-    export interface FlowLogProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
-         */
-        DeliverLogsPermissionArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
-         */
-        LogDestination?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
-         */
-        LogDestinationType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
-         */
-        LogFormat?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
-         */
-        LogGroupName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
-         */
-        MaxAggregationInterval?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
-         */
-        ResourceId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
-         */
-        ResourceType: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
-         */
-        TrafficType: string;
-    }
-
-    export interface GatewayRouteTableAssociationAttributes {
-        AssociationId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
-     */
-    export interface GatewayRouteTableAssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
-         */
-        GatewayId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
-         */
-        RouteTableId: string;
-    }
-
-    export interface LocalGatewayRouteAttributes {
-        State: string;
-        Type: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
-     */
-    export interface LocalGatewayRouteProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
-         */
-        DestinationCidrBlock: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
-         */
-        LocalGatewayRouteTableId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
-         */
-        LocalGatewayVirtualInterfaceGroupId: string;
-    }
-
-    export interface LocalGatewayRouteTableVPCAssociationAttributes {
-        LocalGatewayId: string;
-        LocalGatewayRouteTableVpcAssociationId: string;
-        State: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html
-     */
-    export interface LocalGatewayRouteTableVPCAssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
-         */
-        LocalGatewayRouteTableId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
-         */
-        Tags?: outputs.EC2.LocalGatewayRouteTableVPCAssociationTags;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
-         */
-        VpcId: string;
     }
 
     /**
@@ -4364,18 +2827,6 @@ export namespace EC2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid
          */
         SecurityGroupId?: string;
-    }
-
-    export interface NetworkInsightsAnalysisAttributes {
-        AlternatePathHints: outputs.EC2.NetworkInsightsAnalysisAlternatePathHint[];
-        Explanations: outputs.EC2.NetworkInsightsAnalysisExplanation[];
-        ForwardPathComponents: outputs.EC2.NetworkInsightsAnalysisPathComponent[];
-        NetworkInsightsAnalysisArn: string;
-        NetworkInsightsAnalysisId: string;
-        NetworkPathFound: boolean;
-        ReturnPathComponents: outputs.EC2.NetworkInsightsAnalysisPathComponent[];
-        StartDate: string;
-        Status: string;
     }
 
     /**
@@ -4629,75 +3080,6 @@ export namespace EC2 {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
-     */
-    export interface NetworkInsightsAnalysisProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-         */
-        FilterInArns?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-         */
-        NetworkInsightsPathId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-         */
-        StatusMessage?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface NetworkInsightsPathAttributes {
-        CreatedDate: string;
-        NetworkInsightsPathArn: string;
-        NetworkInsightsPathId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
-     */
-    export interface NetworkInsightsPathProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-         */
-        Destination: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-         */
-        DestinationIp?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-         */
-        DestinationPort?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-         */
-        Protocol: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-         */
-        Source: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-         */
-        SourceIp?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface PrefixListAttributes {
-        Arn: string;
-        OwnerId: string;
-        PrefixListId: string;
-        Version: number;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html
      */
     export interface PrefixListEntry {
@@ -4710,39 +3092,9 @@ export namespace EC2 {
          */
         Description?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
-     */
-    export interface PrefixListProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
-         */
-        AddressFamily: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
-         */
-        Entries?: outputs.EC2.PrefixListEntry[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
-         */
-        MaxEntries: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
-         */
-        PrefixListName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace ECR {
-    export interface RepositoryAttributes {
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
      */
@@ -4756,42 +3108,9 @@ export namespace ECR {
          */
         RegistryId?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
-     */
-    export interface RepositoryProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-         */
-        ImageScanningConfiguration?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
-         */
-        ImageTagMutability?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-         */
-        LifecyclePolicy?: outputs.ECR.RepositoryLifecyclePolicy;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
-         */
-        RepositoryName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-         */
-        RepositoryPolicyText?: any;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace ECS {
-    export interface CapacityProviderAttributes {
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
      */
@@ -4833,28 +3152,6 @@ export namespace ECS {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html
-     */
-    export interface CapacityProviderProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
-         */
-        AutoScalingGroupProvider: outputs.ECS.CapacityProviderAutoScalingGroupProvider;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface ClusterAttributes {
-        Arn: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html
      */
     export interface ClusterCapacityProviderStrategyItem {
@@ -4884,57 +3181,6 @@ export namespace ECS {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-value
          */
         Value?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
-     */
-    export interface ClusterProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
-         */
-        CapacityProviders?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
-         */
-        ClusterName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
-         */
-        ClusterSettings?: outputs.ECS.ClusterClusterSettings[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
-         */
-        DefaultCapacityProviderStrategy?: outputs.ECS.ClusterCapacityProviderStrategyItem[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface PrimaryTaskSetAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
-     */
-    export interface PrimaryTaskSetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
-         */
-        Cluster: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
-         */
-        Service: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
-         */
-        TaskSetId: string;
-    }
-
-    export interface ServiceAttributes {
-        Name: string;
     }
 
     /**
@@ -5076,96 +3322,6 @@ export namespace ECS {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
-     */
-    export interface ServiceProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-         */
-        CapacityProviderStrategy?: outputs.ECS.ServiceCapacityProviderStrategyItem[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-         */
-        Cluster?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
-         */
-        DeploymentConfiguration?: outputs.ECS.ServiceDeploymentConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
-         */
-        DeploymentController?: outputs.ECS.ServiceDeploymentController;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-         */
-        DesiredCount?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
-         */
-        EnableECSManagedTags?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
-         */
-        HealthCheckGracePeriodSeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
-         */
-        LaunchType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-         */
-        LoadBalancers?: outputs.ECS.ServiceLoadBalancer[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
-         */
-        NetworkConfiguration?: outputs.ECS.ServiceNetworkConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-         */
-        PlacementConstraints?: outputs.ECS.ServicePlacementConstraint[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-         */
-        PlacementStrategies?: outputs.ECS.ServicePlacementStrategy[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
-         */
-        PlatformVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
-         */
-        PropagateTags?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-         */
-        Role?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-         */
-        SchedulingStrategy?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
-         */
-        ServiceArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-         */
-        ServiceName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-         */
-        ServiceRegistries?: outputs.ECS.ServiceServiceRegistry[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-         */
-        TaskDefinition?: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html
      */
     export interface ServiceServiceRegistry {
@@ -5185,10 +3341,6 @@ export namespace ECS {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-registryarn
          */
         RegistryArn?: string;
-    }
-
-    export interface TaskDefinitionAttributes {
-        TaskDefinitionArn: string;
     }
 
     /**
@@ -5646,72 +3798,6 @@ export namespace ECS {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
-     */
-    export interface TaskDefinitionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
-         */
-        ContainerDefinitions?: outputs.ECS.TaskDefinitionContainerDefinition[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
-         */
-        Cpu?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
-         */
-        ExecutionRoleArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
-         */
-        Family?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
-         */
-        InferenceAccelerators?: outputs.ECS.TaskDefinitionInferenceAccelerator[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
-         */
-        IpcMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
-         */
-        Memory?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
-         */
-        NetworkMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
-         */
-        PidMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
-         */
-        PlacementConstraints?: outputs.ECS.TaskDefinitionTaskDefinitionPlacementConstraint[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
-         */
-        ProxyConfiguration?: outputs.ECS.TaskDefinitionProxyConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
-         */
-        RequiresCompatibilities?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
-         */
-        TaskRoleArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
-         */
-        Volumes?: outputs.ECS.TaskDefinitionVolume[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
      */
     export interface TaskDefinitionProxyConfiguration {
@@ -5867,10 +3953,6 @@ export namespace ECS {
         SourceContainer?: string;
     }
 
-    export interface TaskSetAttributes {
-        Id: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html
      */
@@ -5919,52 +4001,6 @@ export namespace ECS {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
          */
         AwsVpcConfiguration?: outputs.ECS.TaskSetAwsVpcConfiguration;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
-     */
-    export interface TaskSetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
-         */
-        Cluster: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
-         */
-        ExternalId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
-         */
-        LaunchType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-         */
-        LoadBalancers?: outputs.ECS.TaskSetLoadBalancer[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-         */
-        NetworkConfiguration?: outputs.ECS.TaskSetNetworkConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
-         */
-        PlatformVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
-         */
-        Scale?: outputs.ECS.TaskSetScale;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
-         */
-        Service: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
-         */
-        ServiceRegistries?: outputs.ECS.TaskSetServiceRegistry[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
-         */
-        TaskDefinition: string;
     }
 
     /**
@@ -6019,11 +4055,6 @@ export namespace EFS {
         Value?: string;
     }
 
-    export interface AccessPointAttributes {
-        AccessPointId: string;
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
      */
@@ -6061,32 +4092,6 @@ export namespace EFS {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
-     */
-    export interface AccessPointProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-         */
-        AccessPointTags?: outputs.EFS.AccessPointAccessPointTag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
-         */
-        ClientToken?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
-         */
-        FileSystemId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
-         */
-        PosixUser?: outputs.EFS.AccessPointPosixUser;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
-         */
-        RootDirectory?: outputs.EFS.AccessPointRootDirectory;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
      */
     export interface AccessPointRootDirectory {
@@ -6098,11 +4103,6 @@ export namespace EFS {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
          */
         Path?: string;
-    }
-
-    export interface FileSystemAttributes {
-        Arn: string;
-        FileSystemId: string;
     }
 
     /**
@@ -6138,55 +4138,9 @@ export namespace EFS {
          */
         TransitionToIA: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
-     */
-    export interface FileSystemProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-         */
-        BackupPolicy?: outputs.EFS.FileSystemBackupPolicy;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-         */
-        Encrypted?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-         */
-        FileSystemPolicy?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-         */
-        FileSystemTags?: outputs.EFS.FileSystemElasticFileSystemTag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-         */
-        KmsKeyId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-         */
-        LifecyclePolicies?: outputs.EFS.FileSystemLifecyclePolicy[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-         */
-        PerformanceMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-         */
-        ProvisionedThroughputInMibps?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-         */
-        ThroughputMode?: string;
-    }
 }
 
 export namespace EKS {
-    export interface FargateProfileAttributes {
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
      */
@@ -6199,36 +4153,6 @@ export namespace EKS {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
          */
         Value: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
-     */
-    export interface FargateProfileProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
-         */
-        ClusterName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
-         */
-        FargateProfileName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
-         */
-        PodExecutionRoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-         */
-        Selectors: outputs.EKS.FargateProfileSelector[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-         */
-        Subnets?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
-         */
-        Tags?: outputs.Tag[];
     }
 
     /**
@@ -6247,13 +4171,6 @@ export namespace EKS {
 }
 
 export namespace ElastiCache {
-    export interface UserAttributes {
-        Arn: string;
-        Authentication: outputs.ElastiCache.UserAuthentication;
-        Status: string;
-        UserGroupIds: outputs.ElastiCache.UserUserGroupIdList;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html
      */
@@ -6266,31 +4183,6 @@ export namespace ElastiCache {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
          */
         Type?: string;
-    }
-
-    export interface UserGroupAttributes {
-        Arn: string;
-        PendingChanges: outputs.ElastiCache.UserGroupUserGroupPendingChanges;
-        ReplicationGroupIds: outputs.ElastiCache.UserGroupReplicationGroupIdList;
-        Status: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
-     */
-    export interface UserGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
-         */
-        Engine: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
-         */
-        UserGroupId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
-         */
-        UserIds?: outputs.ElastiCache.UserGroupUserIdList;
     }
 
     /**
@@ -6335,36 +4227,6 @@ export namespace ElastiCache {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
          */
         PasswordList?: string[];
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
-     */
-    export interface UserProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
-         */
-        AccessString?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
-         */
-        Engine: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
-         */
-        NoPasswordRequired?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-         */
-        Passwords?: outputs.ElastiCache.UserPasswordList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
-         */
-        UserId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
-         */
-        UserName: string;
     }
 
     /**
@@ -6415,10 +4277,6 @@ export namespace ElasticLoadBalancingV2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
          */
         Type: string;
-    }
-
-    export interface ListenerAttributes {
-        ListenerArn: string;
     }
 
     /**
@@ -6552,40 +4410,6 @@ export namespace ElasticLoadBalancingV2 {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
-     */
-    export interface ListenerProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-         */
-        AlpnPolicy?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-         */
-        Certificates?: outputs.ElasticLoadBalancingV2.ListenerCertificate[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-         */
-        DefaultActions: outputs.ElasticLoadBalancingV2.ListenerAction[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-         */
-        LoadBalancerArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-         */
-        Port?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-         */
-        Protocol?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-         */
-        SslPolicy?: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
      */
     export interface ListenerRedirectConfig {
@@ -6651,9 +4475,6 @@ export namespace ElasticLoadBalancingV2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-type
          */
         Type: string;
-    }
-
-    export interface ListenerRuleAttributes {
     }
 
     /**
@@ -6821,28 +4642,6 @@ export namespace ElasticLoadBalancingV2 {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
-     */
-    export interface ListenerRuleProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-         */
-        Actions: outputs.ElasticLoadBalancingV2.ListenerRuleAction[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-         */
-        Conditions: outputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-         */
-        ListenerArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-         */
-        Priority: number;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html
      */
     export interface ListenerRuleQueryStringConfig {
@@ -7001,89 +4800,7 @@ export namespace ElasticLoadBalancingV2 {
     }
 }
 
-export namespace Elasticsearch {
-}
-
-export namespace EventSchemas {
-    export interface RegistryPolicyAttributes {
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
-     */
-    export interface RegistryPolicyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-         */
-        Policy: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-         */
-        RegistryName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-         */
-        RevisionId?: string;
-    }
-}
-
-export namespace Events {
-    export interface ArchiveAttributes {
-        ArchiveName: string;
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
-     */
-    export interface ArchiveProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
-         */
-        ArchiveName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-         */
-        EventPattern?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
-         */
-        RetentionDays?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-         */
-        SourceArn: string;
-    }
-}
-
 export namespace FMS {
-    export interface NotificationChannelAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
-     */
-    export interface NotificationChannelProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-         */
-        SnsRoleName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
-         */
-        SnsTopicArn: string;
-    }
-
-    export interface PolicyAttributes {
-        Arn: string;
-        Id: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
      */
@@ -7113,56 +4830,6 @@ export namespace FMS {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html
-     */
-    export interface PolicyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
-         */
-        DeleteAllPolicyResources?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
-         */
-        ExcludeMap?: outputs.FMS.PolicyIEMap;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
-         */
-        ExcludeResourceTags: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
-         */
-        IncludeMap?: outputs.FMS.PolicyIEMap;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
-         */
-        PolicyName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
-         */
-        RemediationEnabled: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-         */
-        ResourceTags?: outputs.FMS.PolicyResourceTag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-         */
-        ResourceType: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-         */
-        ResourceTypeList?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
-         */
-        SecurityServicePolicyData: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-         */
-        Tags?: outputs.FMS.PolicyPolicyTag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
      */
     export interface PolicyResourceTag {
@@ -7178,28 +4845,6 @@ export namespace FMS {
 }
 
 export namespace GameLift {
-    export interface AliasAttributes {
-        AliasId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
-     */
-    export interface AliasProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
-         */
-        RoutingStrategy: outputs.GameLift.AliasRoutingStrategy;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
      */
@@ -7216,11 +4861,6 @@ export namespace GameLift {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
          */
         Type?: string;
-    }
-
-    export interface GameServerGroupAttributes {
-        AutoScalingGroupArn: string;
-        GameServerGroupArn: string;
     }
 
     /**
@@ -7280,60 +4920,6 @@ export namespace GameLift {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
-     */
-    export interface GameServerGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
-         */
-        AutoScalingPolicy?: outputs.GameLift.GameServerGroupAutoScalingPolicy;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
-         */
-        BalancingStrategy?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
-         */
-        DeleteOption?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
-         */
-        GameServerGroupName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
-         */
-        GameServerProtectionPolicy?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
-         */
-        InstanceDefinitions: outputs.GameLift.GameServerGroupInstanceDefinitions;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
-         */
-        LaunchTemplate: outputs.GameLift.GameServerGroupLaunchTemplate;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
-         */
-        MaxSize?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
-         */
-        MinSize?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-         */
-        Tags?: outputs.GameLift.GameServerGroupTags;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
-         */
-        VpcSubnets?: outputs.GameLift.GameServerGroupVpcSubnets;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
      */
     export interface GameServerGroupTags {
@@ -7365,41 +4951,6 @@ export namespace GameLift {
 }
 
 export namespace GlobalAccelerator {
-    export interface AcceleratorAttributes {
-        AcceleratorArn: string;
-        DnsName: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html
-     */
-    export interface AcceleratorProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
-         */
-        Enabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
-         */
-        IpAddressType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
-         */
-        IpAddresses?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface EndpointGroupAttributes {
-        EndpointGroupArn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html
      */
@@ -7433,56 +4984,6 @@ export namespace GlobalAccelerator {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
-     */
-    export interface EndpointGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
-         */
-        EndpointConfigurations?: outputs.GlobalAccelerator.EndpointGroupEndpointConfiguration[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
-         */
-        EndpointGroupRegion: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
-         */
-        HealthCheckIntervalSeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-         */
-        HealthCheckPath?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
-         */
-        HealthCheckPort?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
-         */
-        HealthCheckProtocol?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
-         */
-        ListenerArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-         */
-        PortOverrides?: outputs.GlobalAccelerator.EndpointGroupPortOverride[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
-         */
-        ThresholdCount?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
-         */
-        TrafficDialPercentage?: number;
-    }
-
-    export interface ListenerAttributes {
-        ListenerArn: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
      */
     export interface ListenerPortRange {
@@ -7495,96 +4996,9 @@ export namespace GlobalAccelerator {
          */
         ToPort: number;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
-     */
-    export interface ListenerProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
-         */
-        AcceleratorArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
-         */
-        ClientAffinity?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-         */
-        PortRanges: outputs.GlobalAccelerator.ListenerPortRange[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
-         */
-        Protocol: string;
-    }
 }
 
 export namespace Glue {
-    export interface RegistryAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html
-     */
-    export interface RegistryProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface SchemaAttributes {
-        Arn: string;
-        InitialSchemaVersionId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
-     */
-    export interface SchemaProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
-         */
-        CheckpointVersion?: outputs.Glue.SchemaSchemaVersion;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
-         */
-        Compatibility: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
-         */
-        DataFormat: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
-         */
-        Registry?: outputs.Glue.SchemaRegistry;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
-         */
-        SchemaDefinition: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
      */
@@ -7613,45 +5027,6 @@ export namespace Glue {
         VersionNumber?: number;
     }
 
-    export interface SchemaVersionAttributes {
-        VersionId: string;
-    }
-
-    export interface SchemaVersionMetadataAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
-     */
-    export interface SchemaVersionMetadataProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
-         */
-        Key: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
-         */
-        SchemaVersionId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
-         */
-        Value: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
-     */
-    export interface SchemaVersionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-         */
-        Schema: outputs.Glue.SchemaVersionSchema;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
-         */
-        SchemaDefinition: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
      */
@@ -7672,12 +5047,6 @@ export namespace Glue {
 }
 
 export namespace GreengrassV2 {
-    export interface ComponentVersionAttributes {
-        Arn: string;
-        ComponentName: string;
-        ComponentVersion: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html
      */
@@ -7875,57 +5244,9 @@ export namespace GreengrassV2 {
          */
         SourcePath?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
-     */
-    export interface ComponentVersionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-         */
-        InlineRecipe?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-         */
-        LambdaFunction?: outputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-         */
-        Tags?: {[key: string]: string};
-    }
 }
 
 export namespace GroundStation {
-    export interface ConfigAttributes {
-        Arn: string;
-        Id: string;
-        Type: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
-     */
-    export interface ConfigProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-         */
-        ConfigData: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface DataflowEndpointGroupAttributes {
-        Arn: string;
-        Id: string;
-        Status: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html
      */
@@ -7963,20 +5284,6 @@ export namespace GroundStation {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
-     */
-    export interface DataflowEndpointGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-         */
-        EndpointDetails: outputs.GroundStation.DataflowEndpointGroupEndpointDetails[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html
      */
     export interface DataflowEndpointGroupSecurityDetails {
@@ -8008,12 +5315,6 @@ export namespace GroundStation {
         Port?: number;
     }
 
-    export interface MissionProfileAttributes {
-        Arn: string;
-        Id: string;
-        Region: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html
      */
@@ -8027,175 +5328,9 @@ export namespace GroundStation {
          */
         Source?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
-     */
-    export interface MissionProfileProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-         */
-        ContactPostPassDurationSeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-         */
-        ContactPrePassDurationSeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-         */
-        DataflowEdges: outputs.GroundStation.MissionProfileDataflowEdge[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
-         */
-        MinimumViableContactDurationSeconds: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-         */
-        TrackingConfigArn: string;
-    }
-}
-
-export namespace IVS {
-    export interface ChannelAttributes {
-        Arn: string;
-        IngestEndpoint: string;
-        PlaybackUrl: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html
-     */
-    export interface ChannelProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
-         */
-        Authorized?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
-         */
-        LatencyMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
-         */
-        Type?: string;
-    }
-
-    export interface PlaybackKeyPairAttributes {
-        Arn: string;
-        Fingerprint: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
-     */
-    export interface PlaybackKeyPairProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
-         */
-        PublicKeyMaterial: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface StreamKeyAttributes {
-        Arn: string;
-        Value: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
-     */
-    export interface StreamKeyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
-         */
-        ChannelArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace ImageBuilder {
-    export interface ComponentAttributes {
-        Arn: string;
-        Encrypted: boolean;
-        Type: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
-     */
-    export interface ComponentProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
-         */
-        ChangeDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
-         */
-        Data?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
-         */
-        KmsKeyId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
-         */
-        Platform: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
-         */
-        SupportedOsVersions?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
-         */
-        Tags?: {[key: string]: string};
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
-         */
-        Uri?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
-         */
-        Version: string;
-    }
-
-    export interface DistributionConfigurationAttributes {
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
      */
@@ -8215,34 +5350,6 @@ export namespace ImageBuilder {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html
-     */
-    export interface DistributionConfigurationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
-         */
-        Distributions: outputs.ImageBuilder.DistributionConfigurationDistribution[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
-         */
-        Tags?: {[key: string]: string};
-    }
-
-    export interface ImageAttributes {
-        Arn: string;
-        ImageId: string;
-        Name: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
      */
     export interface ImageImageTestsConfiguration {
@@ -8254,10 +5361,6 @@ export namespace ImageBuilder {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
          */
         TimeoutMinutes?: number;
-    }
-
-    export interface ImagePipelineAttributes {
-        Arn: string;
     }
 
     /**
@@ -8275,52 +5378,6 @@ export namespace ImageBuilder {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
-     */
-    export interface ImagePipelineProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
-         */
-        DistributionConfigurationArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
-         */
-        EnhancedImageMetadataEnabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
-         */
-        ImageRecipeArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
-         */
-        ImageTestsConfiguration?: outputs.ImageBuilder.ImagePipelineImageTestsConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
-         */
-        InfrastructureConfigurationArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
-         */
-        Schedule?: outputs.ImageBuilder.ImagePipelineSchedule;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
-         */
-        Status?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
-         */
-        Tags?: {[key: string]: string};
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
      */
     export interface ImagePipelineSchedule {
@@ -8332,40 +5389,6 @@ export namespace ImageBuilder {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
          */
         ScheduleExpression?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
-     */
-    export interface ImageProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
-         */
-        DistributionConfigurationArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
-         */
-        EnhancedImageMetadataEnabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
-         */
-        ImageRecipeArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
-         */
-        ImageTestsConfiguration?: outputs.ImageBuilder.ImageImageTestsConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
-         */
-        InfrastructureConfigurationArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
-         */
-        Tags?: {[key: string]: string};
-    }
-
-    export interface ImageRecipeAttributes {
-        Arn: string;
     }
 
     /**
@@ -8434,143 +5457,9 @@ export namespace ImageBuilder {
         VirtualName?: string;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
-     */
-    export interface ImageRecipeProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
-         */
-        BlockDeviceMappings?: outputs.ImageBuilder.ImageRecipeInstanceBlockDeviceMapping[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
-         */
-        Components: outputs.ImageBuilder.ImageRecipeComponentConfiguration[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
-         */
-        ParentImage: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
-         */
-        Tags?: {[key: string]: string};
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
-         */
-        Version: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
-         */
-        WorkingDirectory?: string;
-    }
-
-    export interface InfrastructureConfigurationAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html
-     */
-    export interface InfrastructureConfigurationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
-         */
-        InstanceProfileName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
-         */
-        InstanceTypes?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
-         */
-        KeyPair?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-         */
-        Logging?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
-         */
-        ResourceTags?: {[key: string]: string};
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
-         */
-        SecurityGroupIds?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
-         */
-        SnsTopicArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
-         */
-        SubnetId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
-         */
-        Tags?: {[key: string]: string};
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
-         */
-        TerminateInstanceOnFailure?: boolean;
-    }
-
 }
 
 export namespace IoT {
-    export interface AuthorizerAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
-     */
-    export interface AuthorizerProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-         */
-        AuthorizerFunctionArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-         */
-        AuthorizerName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-         */
-        SigningDisabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-         */
-        Status?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-         */
-        Tags?: outputs.IoT.AuthorizerTags;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-         */
-        TokenKeyName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-         */
-        TokenSigningPublicKeys?: outputs.IoT.AuthorizerTokenSigningPublicKeys;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html
      */
@@ -8585,75 +5474,6 @@ export namespace IoT {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
      */
     export interface AuthorizerTokenSigningPublicKeys {
-    }
-
-    export interface CertificateAttributes {
-        Arn: string;
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
-     */
-    export interface CertificateProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-         */
-        CACertificatePem?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-         */
-        CertificateMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-         */
-        CertificatePem?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-         */
-        CertificateSigningRequest?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-         */
-        Status: string;
-    }
-
-    export interface ProvisioningTemplateAttributes {
-        TemplateArn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
-     */
-    export interface ProvisioningTemplateProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
-         */
-        Enabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
-         */
-        PreProvisioningHook?: outputs.IoT.ProvisioningTemplateProvisioningHook;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
-         */
-        ProvisioningRoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-         */
-        Tags?: outputs.IoT.ProvisioningTemplateTags;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
-         */
-        TemplateBody: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
-         */
-        TemplateName?: string;
     }
 
     /**
@@ -8808,10 +5628,6 @@ export namespace IoT {
         StringValue?: string;
     }
 
-    export interface TopicRuleAttributes {
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html
      */
@@ -8864,11 +5680,6 @@ export namespace IoT {
         RoleArn: string;
     }
 
-    export interface TopicRuleDestinationAttributes {
-        Arn: string;
-        StatusReason: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
      */
@@ -8877,24 +5688,6 @@ export namespace IoT {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
          */
         ConfirmationUrl?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
-     */
-    export interface TopicRuleDestinationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
-         */
-        HttpUrlProperties?: outputs.IoT.TopicRuleDestinationHttpUrlDestinationSummary;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
-         */
-        Status?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
-         */
-        VpcProperties?: outputs.IoT.TopicRuleDestinationVpcDestinationProperties;
     }
 
     /**
@@ -9140,20 +5933,6 @@ export namespace IoT {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
-     */
-    export interface TopicRuleProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-         */
-        RuleName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-         */
-        TopicRulePayload: outputs.IoT.TopicRuleTopicRulePayload;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html
      */
     export interface TopicRulePutAssetPropertyValueEntry {
@@ -9353,11 +6132,6 @@ export namespace IoTSiteWise {
         Project?: outputs.IoTSiteWise.AccessPolicyProject;
     }
 
-    export interface AccessPolicyAttributes {
-        AccessPolicyArn: string;
-        AccessPolicyId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
      */
@@ -9376,24 +6150,6 @@ export namespace IoTSiteWise {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
          */
         id?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
-     */
-    export interface AccessPolicyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
-         */
-        AccessPolicyIdentity: outputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
-         */
-        AccessPolicyPermission: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
-         */
-        AccessPolicyResource: outputs.IoTSiteWise.AccessPolicyAccessPolicyResource;
     }
 
     /**
@@ -9436,11 +6192,6 @@ export namespace IoTSiteWise {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
          */
         NotificationState?: string;
-    }
-
-    export interface AssetAttributes {
-        AssetArn: string;
-        AssetId: string;
     }
 
     /**
@@ -9497,11 +6248,6 @@ export namespace IoTSiteWise {
         DefaultValue?: string;
     }
 
-    export interface AssetModelAttributes {
-        AssetModelArn: string;
-        AssetModelId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
      */
@@ -9542,32 +6288,6 @@ export namespace IoTSiteWise {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
          */
         Tumbling?: outputs.IoTSiteWise.AssetModelTumblingWindow;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
-     */
-    export interface AssetModelProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
-         */
-        AssetModelDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
-         */
-        AssetModelHierarchies?: outputs.IoTSiteWise.AssetModelAssetModelHierarchy[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
-         */
-        AssetModelName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
-         */
-        AssetModelProperties?: outputs.IoTSiteWise.AssetModelAssetModelProperty[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
-         */
-        Tags?: outputs.Tag[];
     }
 
     /**
@@ -9631,67 +6351,6 @@ export namespace IoTSiteWise {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
-     */
-    export interface AssetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-         */
-        AssetHierarchies?: outputs.IoTSiteWise.AssetAssetHierarchy[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
-         */
-        AssetModelId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-         */
-        AssetName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-         */
-        AssetProperties?: outputs.IoTSiteWise.AssetAssetProperty[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface DashboardAttributes {
-        DashboardArn: string;
-        DashboardId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
-     */
-    export interface DashboardProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
-         */
-        DashboardDefinition: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
-         */
-        DashboardDescription: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
-         */
-        DashboardName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
-         */
-        ProjectId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface GatewayAttributes {
-        GatewayId: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
      */
     export interface GatewayGatewayCapabilitySummary {
@@ -9726,36 +6385,6 @@ export namespace IoTSiteWise {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
-     */
-    export interface GatewayProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
-         */
-        GatewayCapabilitySummaries?: outputs.IoTSiteWise.GatewayGatewayCapabilitySummary[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
-         */
-        GatewayName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
-         */
-        GatewayPlatform: outputs.IoTSiteWise.GatewayGatewayPlatform;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface PortalAttributes {
-        PortalArn: string;
-        PortalClientId: string;
-        PortalId: string;
-        PortalStartUrl: string;
-        PortalStatus: outputs.IoTSiteWise.PortalPortalStatus;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html
      */
     export interface PortalMonitorErrorDetails {
@@ -9782,121 +6411,6 @@ export namespace IoTSiteWise {
          */
         state: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
-     */
-    export interface PortalProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
-         */
-        PortalContactEmail: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
-         */
-        PortalDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
-         */
-        PortalName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface ProjectAttributes {
-        ProjectArn: string;
-        ProjectId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
-     */
-    export interface ProjectProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
-         */
-        PortalId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
-         */
-        ProjectDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
-         */
-        ProjectName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-}
-
-export namespace KMS {
-    export interface AliasAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
-     */
-    export interface AliasProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
-         */
-        AliasName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
-         */
-        TargetKeyId: string;
-    }
-
-    export interface KeyAttributes {
-        Arn: string;
-        KeyId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
-     */
-    export interface KeyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
-         */
-        EnableKeyRotation?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
-         */
-        Enabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
-         */
-        KeyPolicy: any;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
-         */
-        KeySpec?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
-         */
-        KeyUsage?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
-         */
-        PendingWindowInDays?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace Kendra {
@@ -9918,11 +6432,6 @@ export namespace Kendra {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname
          */
         AllowedGroupsColumnName: string;
-    }
-
-    export interface DataSourceAttributes {
-        Arn: string;
-        Id: string;
     }
 
     /**
@@ -10400,44 +6909,6 @@ export namespace Kendra {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html
-     */
-    export interface DataSourceProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
-         */
-        DataSourceConfiguration?: outputs.Kendra.DataSourceDataSourceConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
-         */
-        IndexId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
-         */
-        RoleArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
-         */
-        Schedule?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
-         */
-        Tags?: outputs.Kendra.DataSourceTagList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
-         */
-        Type: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html
      */
     export interface DataSourceS3DataSourceConfiguration {
@@ -10835,45 +7306,6 @@ export namespace Kendra {
         TagList?: outputs.Tag[];
     }
 
-    export interface FaqAttributes {
-        Arn: string;
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
-     */
-    export interface FaqProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
-         */
-        FileFormat?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
-         */
-        IndexId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
-         */
-        S3Path: outputs.Kendra.FaqS3Path;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
-         */
-        Tags?: outputs.Kendra.FaqTagList;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html
      */
@@ -10896,11 +7328,6 @@ export namespace Kendra {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
          */
         TagList?: outputs.Tag[];
-    }
-
-    export interface IndexAttributes {
-        Arn: string;
-        Id: string;
     }
 
     /**
@@ -10995,52 +7422,6 @@ export namespace Kendra {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-usernameattributefield
          */
         UserNameAttributeField?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
-     */
-    export interface IndexProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
-         */
-        CapacityUnits?: outputs.Kendra.IndexCapacityUnitsConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-         */
-        DocumentMetadataConfigurations?: outputs.Kendra.IndexDocumentMetadataConfigurationList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
-         */
-        Edition: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
-         */
-        ServerSideEncryptionConfiguration?: outputs.Kendra.IndexServerSideEncryptionConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-         */
-        Tags?: outputs.Kendra.IndexTagList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
-         */
-        UserContextPolicy?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-         */
-        UserTokenConfigurations?: outputs.Kendra.IndexUserTokenConfigurationList;
     }
 
     /**
@@ -11161,36 +7542,6 @@ export namespace Kendra {
 }
 
 export namespace Kinesis {
-    export interface StreamAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
-     */
-    export interface StreamProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-         */
-        RetentionPeriodHours?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-         */
-        ShardCount: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
-         */
-        StreamEncryption?: outputs.Kinesis.StreamStreamEncryption;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html
      */
@@ -11207,10 +7558,6 @@ export namespace Kinesis {
 }
 
 export namespace KinesisFirehose {
-    export interface DeliveryStreamAttributes {
-        Arn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html
      */
@@ -11740,56 +8087,6 @@ export namespace KinesisFirehose {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
-     */
-    export interface DeliveryStreamProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
-         */
-        DeliveryStreamEncryptionConfigurationInput?: outputs.KinesisFirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInput;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-         */
-        DeliveryStreamName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-         */
-        DeliveryStreamType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-         */
-        ElasticsearchDestinationConfiguration?: outputs.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-         */
-        ExtendedS3DestinationConfiguration?: outputs.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-         */
-        HttpEndpointDestinationConfiguration?: outputs.KinesisFirehose.DeliveryStreamHttpEndpointDestinationConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-         */
-        KinesisStreamSourceConfiguration?: outputs.KinesisFirehose.DeliveryStreamKinesisStreamSourceConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-         */
-        RedshiftDestinationConfiguration?: outputs.KinesisFirehose.DeliveryStreamRedshiftDestinationConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-         */
-        S3DestinationConfiguration?: outputs.KinesisFirehose.DeliveryStreamS3DestinationConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-         */
-        SplunkDestinationConfiguration?: outputs.KinesisFirehose.DeliveryStreamSplunkDestinationConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html
      */
     export interface DeliveryStreamRedshiftDestinationConfiguration {
@@ -12023,11 +8320,6 @@ export namespace Lambda {
         SigningProfileVersionArns: string[];
     }
 
-    export interface CodeSigningConfigAttributes {
-        CodeSigningConfigArn: string;
-        CodeSigningConfigId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
      */
@@ -12036,28 +8328,6 @@ export namespace Lambda {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
          */
         UntrustedArtifactOnDeployment: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
-     */
-    export interface CodeSigningConfigProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
-         */
-        AllowedPublishers: outputs.Lambda.CodeSigningConfigAllowedPublishers;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
-         */
-        CodeSigningPolicies?: outputs.Lambda.CodeSigningConfigCodeSigningPolicies;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
-         */
-        Description?: string;
-    }
-
-    export interface EventSourceMappingAttributes {
-        Id: string;
     }
 
     /**
@@ -12088,84 +8358,6 @@ export namespace Lambda {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
          */
         Destination?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
-     */
-    export interface EventSourceMappingProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
-         */
-        BatchSize?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
-         */
-        BisectBatchOnFunctionError?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
-         */
-        DestinationConfig?: outputs.Lambda.EventSourceMappingDestinationConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
-         */
-        Enabled?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
-         */
-        EventSourceArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
-         */
-        FunctionName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
-         */
-        FunctionResponseTypes?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
-         */
-        MaximumBatchingWindowInSeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
-         */
-        MaximumRecordAgeInSeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
-         */
-        MaximumRetryAttempts?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
-         */
-        ParallelizationFactor?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
-         */
-        PartialBatchResponse?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
-         */
-        Queues?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
-         */
-        SelfManagedEventSource?: outputs.Lambda.EventSourceMappingSelfManagedEventSource;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
-         */
-        SourceAccessConfigurations?: outputs.Lambda.EventSourceMappingSourceAccessConfiguration[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
-         */
-        StartingPosition?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
-         */
-        Topics?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
-         */
-        TumblingWindowInSeconds?: number;
     }
 
     /**
@@ -12214,10 +8406,6 @@ export namespace LicenseManager {
         ArnList?: string[];
     }
 
-    export interface GrantAttributes {
-        GrantArn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html
      */
@@ -12240,88 +8428,6 @@ export namespace LicenseManager {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
          */
         FilterList?: outputs.LicenseManager.GrantFilter[];
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
-     */
-    export interface GrantProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-         */
-        AllowedOperations?: outputs.LicenseManager.GrantAllowedOperationList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
-         */
-        ClientToken?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
-         */
-        Filters?: outputs.LicenseManager.GrantFilterList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
-         */
-        GrantArns?: outputs.LicenseManager.GrantArnList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
-         */
-        GrantName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
-         */
-        GrantStatus?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
-         */
-        GrantedOperations?: outputs.LicenseManager.GrantAllowedOperationList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
-         */
-        GranteePrincipalArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
-         */
-        HomeRegion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
-         */
-        LicenseArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
-         */
-        MaxResults?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
-         */
-        NextToken?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
-         */
-        ParentArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-         */
-        Principals?: outputs.LicenseManager.GrantArnList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
-         */
-        SourceVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-         */
-        Status?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
-         */
-        StatusReason?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
-         */
-        Tags?: outputs.LicenseManager.GrantTagList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
-         */
-        Version?: string;
     }
 
     /**
@@ -12352,10 +8458,6 @@ export namespace LicenseManager {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html#cfn-licensemanager-license-arnlist-arnlist
          */
         ArnList?: string[];
-    }
-
-    export interface LicenseAttributes {
-        LicenseArn: string;
     }
 
     /**
@@ -12497,88 +8599,6 @@ export namespace LicenseManager {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
-     */
-    export interface LicenseProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-         */
-        Beneficiary?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
-         */
-        ClientToken?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-         */
-        ConsumptionConfiguration: outputs.LicenseManager.LicenseConsumptionConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-         */
-        Entitlements: outputs.LicenseManager.LicenseEntitlementList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
-         */
-        Filters?: outputs.LicenseManager.LicenseFilterList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
-         */
-        HomeRegion: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-         */
-        Issuer: outputs.LicenseManager.LicenseIssuerData;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
-         */
-        LicenseArns?: outputs.LicenseManager.LicenseArnList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-         */
-        LicenseMetadata?: outputs.LicenseManager.LicenseMetadataList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
-         */
-        LicenseName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
-         */
-        MaxResults?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
-         */
-        NextToken?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
-         */
-        ProductName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
-         */
-        ProductSKU?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
-         */
-        SourceVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-         */
-        Status?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
-         */
-        Tags?: outputs.LicenseManager.LicenseTagList;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-         */
-        Validity: outputs.LicenseManager.LicenseValidityDateFormat;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version
-         */
-        Version?: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
      */
     export interface LicenseProvisionalConfiguration {
@@ -12651,44 +8671,11 @@ export namespace LicenseManager {
     }
 }
 
-export namespace Logs {
-    export interface LogGroupAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
-     */
-    export interface LogGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
-         */
-        KmsKeyId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
-         */
-        LogGroupName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
-         */
-        RetentionInDays?: number;
-    }
-}
-
 export namespace MWAA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-airflowconfigurationoptions.html
      */
     export interface EnvironmentAirflowConfigurationOptions {
-    }
-
-    export interface EnvironmentAttributes {
-        Arn: string;
-        CreatedAt: string;
-        LastUpdate: outputs.MWAA.EnvironmentLastUpdate;
-        Name: string;
-        ServiceRoleArn: string;
-        Status: string;
     }
 
     /**
@@ -12768,84 +8755,6 @@ export namespace MWAA {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
-     */
-    export interface EnvironmentProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
-         */
-        AirflowConfigurationOptions?: outputs.MWAA.EnvironmentAirflowConfigurationOptions;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
-         */
-        AirflowVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
-         */
-        DagS3Path?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
-         */
-        EnvironmentClass?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
-         */
-        ExecutionRoleArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
-         */
-        KmsKey?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
-         */
-        LoggingConfiguration?: outputs.MWAA.EnvironmentLoggingConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
-         */
-        MaxWorkers?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
-         */
-        NetworkConfiguration?: outputs.MWAA.EnvironmentNetworkConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
-         */
-        PluginsS3ObjectVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
-         */
-        PluginsS3Path?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
-         */
-        RequirementsS3ObjectVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
-         */
-        RequirementsS3Path?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
-         */
-        SourceBucketArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
-         */
-        Tags?: outputs.MWAA.EnvironmentTagMap;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
-         */
-        WebserverAccessMode?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-         */
-        WebserverUrl?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
-         */
-        WeeklyMaintenanceWindowStart?: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html
      */
     export interface EnvironmentSecurityGroupList {
@@ -12887,49 +8796,6 @@ export namespace MWAA {
 }
 
 export namespace Macie {
-    export interface CustomDataIdentifierAttributes {
-        Arn: string;
-        CreatedAt: string;
-        Deleted: boolean;
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
-     */
-    export interface CustomDataIdentifierProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
-         */
-        IgnoreWords?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
-         */
-        Keywords?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
-         */
-        MaximumMatchDistance?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
-         */
-        Regex: string;
-    }
-
-    export interface FindingsFilterAttributes {
-        Arn: string;
-        FindingsFilterListItems: outputs.Macie.FindingsFilterFindingsFilterListItem[];
-        Id: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html
      */
@@ -12959,59 +8825,9 @@ export namespace Macie {
          */
         Name?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
-     */
-    export interface FindingsFilterProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
-         */
-        Action?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
-         */
-        FindingCriteria: outputs.Macie.FindingsFilterFindingCriteria;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
-         */
-        Position?: number;
-    }
-
-    export interface SessionAttributes {
-        AwsAccountId: string;
-        ServiceRole: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
-     */
-    export interface SessionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
-         */
-        FindingPublishingFrequency?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
-         */
-        Status?: string;
-    }
 }
 
 export namespace MediaPackage {
-    export interface AssetAttributes {
-        Arn: string;
-        CreatedAt: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
      */
@@ -13024,45 +8840,6 @@ export namespace MediaPackage {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
          */
         Url: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
-     */
-    export interface AssetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-         */
-        EgressEndpoints?: outputs.MediaPackage.AssetEgressEndpoint[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-         */
-        Id: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
-         */
-        PackagingGroupId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
-         */
-        ResourceId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
-         */
-        SourceArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
-         */
-        SourceRoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface ChannelAttributes {
-        Arn: string;
-        HlsIngest: outputs.MediaPackage.ChannelHlsIngest;
     }
 
     /**
@@ -13095,29 +8872,6 @@ export namespace MediaPackage {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
          */
         Username?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
-     */
-    export interface ChannelProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-         */
-        Id: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface OriginEndpointAttributes {
-        Arn: string;
-        Url: string;
     }
 
     /**
@@ -13401,68 +9155,6 @@ export namespace MediaPackage {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
-     */
-    export interface OriginEndpointProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-         */
-        Authorization?: outputs.MediaPackage.OriginEndpointAuthorization;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
-         */
-        ChannelId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-         */
-        CmafPackage?: outputs.MediaPackage.OriginEndpointCmafPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-         */
-        DashPackage?: outputs.MediaPackage.OriginEndpointDashPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-         */
-        HlsPackage?: outputs.MediaPackage.OriginEndpointHlsPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-         */
-        Id: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
-         */
-        ManifestName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-         */
-        MssPackage?: outputs.MediaPackage.OriginEndpointMssPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
-         */
-        Origination?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
-         */
-        StartoverWindowSeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
-         */
-        TimeDelaySeconds?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
-         */
-        Whitelist?: string[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
      */
     export interface OriginEndpointSpekeKeyProvider {
@@ -13504,10 +9196,6 @@ export namespace MediaPackage {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
          */
         StreamOrder?: string;
-    }
-
-    export interface PackagingConfigurationAttributes {
-        Arn: string;
     }
 
     /**
@@ -13713,40 +9401,6 @@ export namespace MediaPackage {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
-     */
-    export interface PackagingConfigurationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
-         */
-        CmafPackage?: outputs.MediaPackage.PackagingConfigurationCmafPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
-         */
-        DashPackage?: outputs.MediaPackage.PackagingConfigurationDashPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
-         */
-        HlsPackage?: outputs.MediaPackage.PackagingConfigurationHlsPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-         */
-        Id: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
-         */
-        MssPackage?: outputs.MediaPackage.PackagingConfigurationMssPackage;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
-         */
-        PackagingGroupId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
      */
     export interface PackagingConfigurationStreamSelection {
@@ -13764,11 +9418,6 @@ export namespace MediaPackage {
         StreamOrder?: string;
     }
 
-    export interface PackagingGroupAttributes {
-        Arn: string;
-        DomainName: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
      */
@@ -13782,33 +9431,9 @@ export namespace MediaPackage {
          */
         SecretsRoleArn: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
-     */
-    export interface PackagingGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-         */
-        Authorization?: outputs.MediaPackage.PackagingGroupAuthorization;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-         */
-        Id: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace NetworkFirewall {
-    export interface FirewallAttributes {
-        EndpointIds: string[];
-        FirewallArn: string;
-        FirewallId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html
      */
@@ -13817,11 +9442,6 @@ export namespace NetworkFirewall {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html#cfn-networkfirewall-firewallpolicy-actiondefinition-publishmetricaction
          */
         PublishMetricAction?: outputs.NetworkFirewall.FirewallPolicyPublishMetricAction;
-    }
-
-    export interface FirewallPolicyAttributes {
-        FirewallPolicyArn: string;
-        FirewallPolicyId: string;
     }
 
     /**
@@ -13895,28 +9515,6 @@ export namespace NetworkFirewall {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
-     */
-    export interface FirewallPolicyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-         */
-        FirewallPolicy: outputs.NetworkFirewall.FirewallPolicyFirewallPolicy;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-         */
-        FirewallPolicyName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html
      */
     export interface FirewallPolicyPublishMetricAction {
@@ -13981,48 +9579,6 @@ export namespace NetworkFirewall {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
-     */
-    export interface FirewallProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-         */
-        DeleteProtection?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-         */
-        FirewallName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-         */
-        FirewallPolicyArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
-         */
-        FirewallPolicyChangeProtection?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-         */
-        SubnetChangeProtection?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-         */
-        SubnetMappings: outputs.NetworkFirewall.FirewallSubnetMapping[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-         */
-        VpcId: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html
      */
     export interface FirewallSubnetMapping {
@@ -14030,9 +9586,6 @@ export namespace NetworkFirewall {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-subnetid
          */
         SubnetId: string;
-    }
-
-    export interface LoggingConfigurationAttributes {
     }
 
     /**
@@ -14074,24 +9627,6 @@ export namespace NetworkFirewall {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
-     */
-    export interface LoggingConfigurationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-         */
-        FirewallArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-         */
-        FirewallName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-         */
-        LoggingConfiguration: outputs.NetworkFirewall.LoggingConfigurationLoggingConfiguration;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html
      */
     export interface RuleGroupActionDefinition {
@@ -14119,11 +9654,6 @@ export namespace NetworkFirewall {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
          */
         Addresses?: outputs.NetworkFirewall.RuleGroupAddress[];
-    }
-
-    export interface RuleGroupAttributes {
-        RuleGroupArn: string;
-        RuleGroupId: string;
     }
 
     /**
@@ -14282,36 +9812,6 @@ export namespace NetworkFirewall {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
          */
         Definition?: outputs.NetworkFirewall.RuleGroupVariableDefinitionList;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
-     */
-    export interface RuleGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-         */
-        Capacity: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-         */
-        RuleGroup?: outputs.NetworkFirewall.RuleGroupRuleGroup;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
-         */
-        RuleGroupName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-         */
-        Type: string;
     }
 
     /**
@@ -14552,36 +10052,6 @@ export namespace NetworkFirewall {
 }
 
 export namespace NetworkManager {
-    export interface CustomerGatewayAssociationAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
-     */
-    export interface CustomerGatewayAssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
-         */
-        CustomerGatewayArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
-         */
-        DeviceId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
-         */
-        GlobalNetworkId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
-         */
-        LinkId?: string;
-    }
-
-    export interface DeviceAttributes {
-        DeviceArn: string;
-        DeviceId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html
      */
@@ -14601,93 +10071,6 @@ export namespace NetworkManager {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html
-     */
-    export interface DeviceProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
-         */
-        GlobalNetworkId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
-         */
-        Location?: outputs.NetworkManager.DeviceLocation;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
-         */
-        Model?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
-         */
-        SerialNumber?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
-         */
-        SiteId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
-         */
-        Type?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
-         */
-        Vendor?: string;
-    }
-
-    export interface GlobalNetworkAttributes {
-        Arn: string;
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
-     */
-    export interface GlobalNetworkProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface LinkAssociationAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
-     */
-    export interface LinkAssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
-         */
-        DeviceId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
-         */
-        GlobalNetworkId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
-         */
-        LinkId: string;
-    }
-
-    export interface LinkAttributes {
-        LinkArn: string;
-        LinkId: string;
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
      */
     export interface LinkBandwidth {
@@ -14699,45 +10082,6 @@ export namespace NetworkManager {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
          */
         UploadSpeed?: number;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html
-     */
-    export interface LinkProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
-         */
-        Bandwidth: outputs.NetworkManager.LinkBandwidth;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
-         */
-        GlobalNetworkId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
-         */
-        Provider?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
-         */
-        SiteId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
-         */
-        Type?: string;
-    }
-
-    export interface SiteAttributes {
-        SiteArn: string;
-        SiteId: string;
     }
 
     /**
@@ -14757,54 +10101,9 @@ export namespace NetworkManager {
          */
         Longitude?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
-     */
-    export interface SiteProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
-         */
-        GlobalNetworkId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
-         */
-        Location?: outputs.NetworkManager.SiteLocation;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface TransitGatewayRegistrationAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
-     */
-    export interface TransitGatewayRegistrationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
-         */
-        GlobalNetworkId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
-         */
-        TransitGatewayArn: string;
-    }
 }
 
 export namespace OpsWorksCM {
-    export interface ServerAttributes {
-        Arn: string;
-        Endpoint: string;
-        Id: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html
      */
@@ -14818,104 +10117,9 @@ export namespace OpsWorksCM {
          */
         Value?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html
-     */
-    export interface ServerProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
-         */
-        AssociatePublicIpAddress?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
-         */
-        BackupId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
-         */
-        BackupRetentionCount?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
-         */
-        CustomCertificate?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
-         */
-        CustomDomain?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
-         */
-        CustomPrivateKey?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
-         */
-        DisableAutomatedBackup?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
-         */
-        Engine?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
-         */
-        EngineAttributes?: outputs.OpsWorksCM.ServerEngineAttribute[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
-         */
-        EngineModel?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
-         */
-        EngineVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
-         */
-        InstanceProfileArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
-         */
-        InstanceType: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
-         */
-        KeyPair?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
-         */
-        PreferredBackupWindow?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
-         */
-        PreferredMaintenanceWindow?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
-         */
-        SecurityGroupIds?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
-         */
-        ServerName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
-         */
-        ServiceRoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
-         */
-        SubnetIds?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace QLDB {
-    export interface StreamAttributes {
-        Arn: string;
-        Id: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html
      */
@@ -14929,48 +10133,9 @@ export namespace QLDB {
          */
         StreamArn?: string;
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
-     */
-    export interface StreamProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
-         */
-        ExclusiveEndTime?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
-         */
-        InclusiveStartTime: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
-         */
-        KinesisConfiguration: outputs.QLDB.StreamKinesisConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
-         */
-        LedgerName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
-         */
-        StreamName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace RDS {
-    export interface DBProxyAttributes {
-        DBProxyArn: string;
-        Endpoint: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
      */
@@ -14998,52 +10163,6 @@ export namespace RDS {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
-     */
-    export interface DBProxyProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
-         */
-        Auth: outputs.RDS.DBProxyAuthFormat[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
-         */
-        DBProxyName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
-         */
-        DebugLogging?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
-         */
-        EngineFamily: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
-         */
-        IdleClientTimeout?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
-         */
-        RequireTLS?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
-         */
-        Tags?: outputs.RDS.DBProxyTagFormat[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
-         */
-        VpcSecurityGroupIds?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
-         */
-        VpcSubnetIds: string[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
      */
     export interface DBProxyTagFormat {
@@ -15055,10 +10174,6 @@ export namespace RDS {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-value
          */
         Value?: string;
-    }
-
-    export interface DBProxyTargetGroupAttributes {
-        TargetGroupArn: string;
     }
 
     /**
@@ -15086,94 +10201,9 @@ export namespace RDS {
          */
         SessionPinningFilters?: string[];
     }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
-     */
-    export interface DBProxyTargetGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
-         */
-        ConnectionPoolConfigurationInfo?: outputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
-         */
-        DBClusterIdentifiers?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
-         */
-        DBInstanceIdentifiers?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
-         */
-        DBProxyName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
-         */
-        TargetGroupName: string;
-    }
-
-    export interface GlobalClusterAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
-     */
-    export interface GlobalClusterProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
-         */
-        DeletionProtection?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
-         */
-        Engine?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
-         */
-        EngineVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
-         */
-        GlobalClusterIdentifier?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
-         */
-        SourceDBClusterIdentifier?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
-         */
-        StorageEncrypted?: boolean;
-    }
 }
 
 export namespace ResourceGroups {
-    export interface GroupAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html
-     */
-    export interface GroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
-         */
-        ResourceQuery?: outputs.ResourceGroups.GroupResourceQuery;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
      */
@@ -15222,10 +10252,6 @@ export namespace ResourceGroups {
 }
 
 export namespace Route53 {
-    export interface HealthCheckAttributes {
-        HealthCheckId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
      */
@@ -15238,25 +10264,6 @@ export namespace Route53 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
          */
         Value: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
-     */
-    export interface HealthCheckProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-         */
-        HealthCheckConfig: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-         */
-        HealthCheckTags?: outputs.Route53.HealthCheckHealthCheckTag[];
-    }
-
-    export interface HostedZoneAttributes {
-        Id: string;
-        NameServers: string[];
     }
 
     /**
@@ -15284,32 +10291,6 @@ export namespace Route53 {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
-     */
-    export interface HostedZoneProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-         */
-        HostedZoneConfig?: outputs.Route53.HostedZoneHostedZoneConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-         */
-        HostedZoneTags?: outputs.Route53.HostedZoneHostedZoneTag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-         */
-        QueryLoggingConfig?: outputs.Route53.HostedZoneQueryLoggingConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-         */
-        VPCs?: outputs.Route53.HostedZoneVPC[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
      */
     export interface HostedZoneQueryLoggingConfig {
@@ -15334,97 +10315,7 @@ export namespace Route53 {
     }
 }
 
-export namespace Route53Resolver {
-    export interface ResolverQueryLoggingConfigAssociationAttributes {
-        CreationTime: string;
-        Error: string;
-        ErrorMessage: string;
-        Id: string;
-        Status: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
-     */
-    export interface ResolverQueryLoggingConfigAssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
-         */
-        ResolverQueryLogConfigId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
-         */
-        ResourceId?: string;
-    }
-
-    export interface ResolverQueryLoggingConfigAttributes {
-        Arn: string;
-        AssociationCount: number;
-        CreationTime: string;
-        CreatorRequestId: string;
-        Id: string;
-        OwnerId: string;
-        ShareStatus: string;
-        Status: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
-     */
-    export interface ResolverQueryLoggingConfigProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
-         */
-        DestinationArn?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
-         */
-        Name?: string;
-    }
-}
-
 export namespace S3 {
-    export interface AccessPointAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
-     */
-    export interface AccessPointProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
-         */
-        Bucket: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
-         */
-        CreationDate?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
-         */
-        NetworkOrigin?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
-         */
-        Policy?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-         */
-        PolicyStatus?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
-         */
-        PublicAccessBlockConfiguration?: outputs.S3.AccessPointPublicAccessBlockConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
-         */
-        VpcConfiguration?: outputs.S3.AccessPointVpcConfiguration;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
      */
@@ -15479,10 +10370,6 @@ export namespace S3 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
          */
         IsEnabled?: boolean;
-    }
-
-    export interface StorageLensAttributes {
-        StorageLensArn: string;
     }
 
     /**
@@ -15561,20 +10448,6 @@ export namespace S3 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
          */
         SelectionCriteria?: outputs.S3.StorageLensSelectionCriteria;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
-     */
-    export interface StorageLensProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-         */
-        StorageLensConfiguration: outputs.S3.StorageLensStorageLensConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-         */
-        Tags?: outputs.Tag[];
     }
 
     /**
@@ -15664,26 +10537,7 @@ export namespace S3 {
     }
 }
 
-export namespace SES {
-    export interface ConfigurationSetAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
-     */
-    export interface ConfigurationSetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
-         */
-        Name?: string;
-    }
-}
-
 export namespace SSM {
-    export interface AssociationAttributes {
-        AssociationId: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
      */
@@ -15702,72 +10556,6 @@ export namespace SSM {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
          */
         ParameterValues?: string[];
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
-     */
-    export interface AssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
-         */
-        ApplyOnlyAtCronInterval?: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
-         */
-        AssociationName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-         */
-        AutomationTargetParameterName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-         */
-        ComplianceSeverity?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
-         */
-        DocumentVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-         */
-        InstanceId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
-         */
-        MaxConcurrency?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-         */
-        MaxErrors?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-         */
-        OutputLocation?: outputs.SSM.AssociationInstanceAssociationOutputLocation;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-         */
-        Parameters?: {[key: string]: outputs.SSM.AssociationParameterValues};
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
-         */
-        ScheduleExpression?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-         */
-        SyncCompliance?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-         */
-        Targets?: outputs.SSM.AssociationTarget[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
-         */
-        WaitForSuccessTimeoutSeconds?: number;
     }
 
     /**
@@ -15803,106 +10591,7 @@ export namespace SSM {
     }
 }
 
-export namespace SSO {
-    export interface AssignmentAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
-     */
-    export interface AssignmentProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
-         */
-        InstanceArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
-         */
-        PermissionSetArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
-         */
-        PrincipalId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
-         */
-        PrincipalType: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
-         */
-        TargetId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
-         */
-        TargetType: string;
-    }
-
-    export interface InstanceAccessControlAttributeConfigurationAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
-     */
-    export interface InstanceAccessControlAttributeConfigurationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
-         */
-        InstanceAccessControlAttributeConfiguration: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
-         */
-        InstanceArn: string;
-    }
-
-    export interface PermissionSetAttributes {
-        PermissionSetArn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
-     */
-    export interface PermissionSetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
-         */
-        InlinePolicy?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
-         */
-        InstanceArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
-         */
-        ManagedPolicies?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
-         */
-        RelayStateType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
-         */
-        SessionDuration?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-}
-
 export namespace SageMaker {
-    export interface DataQualityJobDefinitionAttributes {
-        CreationTime: string;
-        JobDefinitionArn: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
      */
@@ -16074,52 +10763,6 @@ export namespace SageMaker {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html
-     */
-    export interface DataQualityJobDefinitionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
-         */
-        DataQualityAppSpecification: outputs.SageMaker.DataQualityJobDefinitionDataQualityAppSpecification;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
-         */
-        DataQualityBaselineConfig?: outputs.SageMaker.DataQualityJobDefinitionDataQualityBaselineConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
-         */
-        DataQualityJobInput: outputs.SageMaker.DataQualityJobDefinitionDataQualityJobInput;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
-         */
-        DataQualityJobOutputConfig: outputs.SageMaker.DataQualityJobDefinitionMonitoringOutputConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
-         */
-        JobDefinitionName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
-         */
-        JobResources: outputs.SageMaker.DataQualityJobDefinitionMonitoringResources;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
-         */
-        NetworkConfig?: outputs.SageMaker.DataQualityJobDefinitionNetworkConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
-         */
-        StoppingCondition?: outputs.SageMaker.DataQualityJobDefinitionStoppingCondition;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
      */
     export interface DataQualityJobDefinitionS3Output {
@@ -16171,14 +10814,6 @@ export namespace SageMaker {
         Subnets: string[];
     }
 
-    export interface DeviceAttributes {
-        DeviceFleetName: string;
-    }
-
-    export interface DeviceFleetAttributes {
-        DeviceFleetName: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
      */
@@ -16191,47 +10826,6 @@ export namespace SageMaker {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-s3outputlocation
          */
         S3OutputLocation: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html
-     */
-    export interface DeviceFleetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
-         */
-        OutputConfig: outputs.SageMaker.DeviceFleetEdgeOutputConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-         */
-        Tags?: outputs.Tag;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
-     */
-    export interface DeviceProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-         */
-        Device?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-         */
-        Tags?: outputs.Tag;
-    }
-
-    export interface ModelBiasJobDefinitionAttributes {
-        CreationTime: string;
-        JobDefinitionArn: string;
     }
 
     /**
@@ -16427,52 +11021,6 @@ export namespace SageMaker {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
-     */
-    export interface ModelBiasJobDefinitionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
-         */
-        JobDefinitionName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
-         */
-        JobResources: outputs.SageMaker.ModelBiasJobDefinitionMonitoringResources;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
-         */
-        ModelBiasAppSpecification: outputs.SageMaker.ModelBiasJobDefinitionModelBiasAppSpecification;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
-         */
-        ModelBiasBaselineConfig?: outputs.SageMaker.ModelBiasJobDefinitionModelBiasBaselineConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
-         */
-        ModelBiasJobInput: outputs.SageMaker.ModelBiasJobDefinitionModelBiasJobInput;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
-         */
-        ModelBiasJobOutputConfig: outputs.SageMaker.ModelBiasJobDefinitionMonitoringOutputConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
-         */
-        NetworkConfig?: outputs.SageMaker.ModelBiasJobDefinitionNetworkConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
-         */
-        StoppingCondition?: outputs.SageMaker.ModelBiasJobDefinitionStoppingCondition;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
      */
     export interface ModelBiasJobDefinitionS3Output {
@@ -16512,11 +11060,6 @@ export namespace SageMaker {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
          */
         Subnets: string[];
-    }
-
-    export interface ModelExplainabilityJobDefinitionAttributes {
-        CreationTime: string;
-        JobDefinitionArn: string;
     }
 
     /**
@@ -16686,52 +11229,6 @@ export namespace SageMaker {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html
-     */
-    export interface ModelExplainabilityJobDefinitionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
-         */
-        JobDefinitionName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
-         */
-        JobResources: outputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringResources;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
-         */
-        ModelExplainabilityAppSpecification: outputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
-         */
-        ModelExplainabilityBaselineConfig?: outputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
-         */
-        ModelExplainabilityJobInput: outputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInput;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
-         */
-        ModelExplainabilityJobOutputConfig: outputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringOutputConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
-         */
-        NetworkConfig?: outputs.SageMaker.ModelExplainabilityJobDefinitionNetworkConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
-         */
-        StoppingCondition?: outputs.SageMaker.ModelExplainabilityJobDefinitionStoppingCondition;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
      */
     export interface ModelExplainabilityJobDefinitionS3Output {
@@ -16771,39 +11268,6 @@ export namespace SageMaker {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
          */
         Subnets: string[];
-    }
-
-    export interface ModelPackageGroupAttributes {
-        CreationTime: string;
-        ModelPackageGroupArn: string;
-        ModelPackageGroupStatus: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
-     */
-    export interface ModelPackageGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-         */
-        ModelPackageGroupDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-         */
-        ModelPackageGroupName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-         */
-        ModelPackageGroupPolicy?: any;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface ModelQualityJobDefinitionAttributes {
-        CreationTime: string;
-        JobDefinitionArn: string;
     }
 
     /**
@@ -17011,52 +11475,6 @@ export namespace SageMaker {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
-     */
-    export interface ModelQualityJobDefinitionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-         */
-        JobDefinitionName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-         */
-        JobResources: outputs.SageMaker.ModelQualityJobDefinitionMonitoringResources;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-         */
-        ModelQualityAppSpecification: outputs.SageMaker.ModelQualityJobDefinitionModelQualityAppSpecification;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-         */
-        ModelQualityBaselineConfig?: outputs.SageMaker.ModelQualityJobDefinitionModelQualityBaselineConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-         */
-        ModelQualityJobInput: outputs.SageMaker.ModelQualityJobDefinitionModelQualityJobInput;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-         */
-        ModelQualityJobOutputConfig: outputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-         */
-        NetworkConfig?: outputs.SageMaker.ModelQualityJobDefinitionNetworkConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
-         */
-        StoppingCondition?: outputs.SageMaker.ModelQualityJobDefinitionStoppingCondition;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
      */
     export interface ModelQualityJobDefinitionS3Output {
@@ -17096,12 +11514,6 @@ export namespace SageMaker {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
          */
         Subnets: string[];
-    }
-
-    export interface MonitoringScheduleAttributes {
-        CreationTime: string;
-        LastModifiedTime: string;
-        MonitoringScheduleArn: string;
     }
 
     /**
@@ -17379,40 +11791,6 @@ export namespace SageMaker {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
-     */
-    export interface MonitoringScheduleProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-         */
-        EndpointName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
-         */
-        FailureReason?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
-         */
-        LastMonitoringExecutionSummary?: outputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-         */
-        MonitoringScheduleConfig: outputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-         */
-        MonitoringScheduleName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
-         */
-        MonitoringScheduleStatus?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
      */
     export interface MonitoringScheduleS3Output {
@@ -17473,133 +11851,9 @@ export namespace SageMaker {
          */
         Subnets: string[];
     }
-
-    export interface PipelineAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
-     */
-    export interface PipelineProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
-         */
-        PipelineDefinition: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
-         */
-        PipelineDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
-         */
-        PipelineDisplayName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
-         */
-        PipelineName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface ProjectAttributes {
-        CreationTime: string;
-        ProjectArn: string;
-        ProjectId: string;
-        ProjectStatus: string;
-        ServiceCatalogProvisionedProductDetails: any | string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
-     */
-    export interface ProjectProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-         */
-        ProjectDescription?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-         */
-        ProjectName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
-         */
-        ServiceCatalogProvisioningDetails: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-         */
-        Tags?: outputs.Tag[];
-    }
 }
 
 export namespace ServiceCatalog {
-    export interface CloudFormationProvisionedProductAttributes {
-        CloudformationStackArn: string;
-        Outputs: {[key: string]: string};
-        ProvisionedProductId: string;
-        RecordId: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
-     */
-    export interface CloudFormationProvisionedProductProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-         */
-        AcceptLanguage?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-         */
-        NotificationArns?: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-         */
-        PathId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-         */
-        PathName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-         */
-        ProductId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-         */
-        ProductName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-         */
-        ProvisionedProductName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-         */
-        ProvisioningArtifactId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-         */
-        ProvisioningArtifactName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-         */
-        ProvisioningParameters?: outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-         */
-        ProvisioningPreferences?: outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
      */
@@ -17650,60 +11904,6 @@ export namespace ServiceCatalog {
 }
 
 export namespace Signer {
-    export interface ProfilePermissionAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
-     */
-    export interface ProfilePermissionProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-         */
-        Action: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-         */
-        Principal: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-         */
-        ProfileName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
-         */
-        ProfileVersion?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
-         */
-        StatementId: string;
-    }
-
-    export interface SigningProfileAttributes {
-        Arn: string;
-        ProfileName: string;
-        ProfileVersion: string;
-        ProfileVersionArn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
-     */
-    export interface SigningProfileProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
-         */
-        PlatformId: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
-         */
-        SignatureValidityPeriod?: outputs.Signer.SigningProfileSignatureValidityPeriod;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html
      */
@@ -17720,11 +11920,6 @@ export namespace Signer {
 }
 
 export namespace StepFunctions {
-    export interface StateMachineAttributes {
-        Arn: string;
-        Name: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
      */
@@ -17767,48 +11962,6 @@ export namespace StepFunctions {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
          */
         Level?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
-     */
-    export interface StateMachineProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
-         */
-        DefinitionS3Location?: outputs.StepFunctions.StateMachineS3Location;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-         */
-        DefinitionString?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-         */
-        DefinitionSubstitutions?: outputs.StepFunctions.StateMachineDefinitionSubstitutions;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
-         */
-        LoggingConfiguration?: outputs.StepFunctions.StateMachineLoggingConfiguration;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-         */
-        RoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-         */
-        StateMachineName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-         */
-        StateMachineType?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-         */
-        Tags?: outputs.StepFunctions.StateMachineTagsEntry[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-         */
-        TracingConfiguration?: outputs.StepFunctions.StateMachineTracingConfiguration;
     }
 
     /**
@@ -17855,11 +12008,6 @@ export namespace StepFunctions {
 }
 
 export namespace Synthetics {
-    export interface CanaryAttributes {
-        Id: string;
-        State: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
      */
@@ -17884,60 +12032,6 @@ export namespace Synthetics {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
          */
         Script?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
-     */
-    export interface CanaryProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
-         */
-        ArtifactS3Location: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
-         */
-        Code: outputs.Synthetics.CanaryCode;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
-         */
-        ExecutionRoleArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
-         */
-        FailureRetentionPeriod?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
-         */
-        Name: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-         */
-        RunConfig?: outputs.Synthetics.CanaryRunConfig;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
-         */
-        RuntimeVersion: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
-         */
-        Schedule: outputs.Synthetics.CanarySchedule;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
-         */
-        StartCanaryAfterCreation: boolean;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
-         */
-        SuccessRetentionPeriod?: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
-         */
-        VPCConfig?: outputs.Synthetics.CanaryVPCConfig;
     }
 
     /**
@@ -17995,123 +12089,7 @@ export namespace Synthetics {
     }
 }
 
-export namespace Timestream {
-    export interface DatabaseAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html
-     */
-    export interface DatabaseProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-databasename
-         */
-        DatabaseName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-kmskeyid
-         */
-        KmsKeyId?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface TableAttributes {
-        Arn: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html
-     */
-    export interface TableProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
-         */
-        DatabaseName: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
-         */
-        RetentionProperties?: any | string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename
-         */
-        TableName?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-}
-
 export namespace WAFv2 {
-    export interface IPSetAttributes {
-        Arn: string;
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
-     */
-    export interface IPSetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-         */
-        Addresses: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-         */
-        IPAddressVersion: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-         */
-        Scope: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
-    export interface RegexPatternSetAttributes {
-        Arn: string;
-        Id: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html
-     */
-    export interface RegexPatternSetProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regularexpressionlist
-         */
-        RegularExpressionList: string[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-scope
-         */
-        Scope: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-tags
-         */
-        Tags?: outputs.Tag[];
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html
      */
@@ -18130,11 +12108,6 @@ export namespace WAFv2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
          */
         Statements: outputs.WAFv2.RuleGroupStatementThree[];
-    }
-
-    export interface RuleGroupAttributes {
-        Arn: string;
-        Id: string;
     }
 
     /**
@@ -18295,40 +12268,6 @@ export namespace WAFv2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
          */
         Statements: outputs.WAFv2.RuleGroupStatementThree[];
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
-     */
-    export interface RuleGroupProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-         */
-        Capacity: number;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-         */
-        Rules?: outputs.WAFv2.RuleGroupRule[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-         */
-        Scope: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
-         */
-        VisibilityConfig: outputs.WAFv2.RuleGroupVisibilityConfig;
     }
 
     /**
@@ -18673,29 +12612,6 @@ export namespace WAFv2 {
         Statements: outputs.WAFv2.WebACLStatementThree[];
     }
 
-    export interface WebACLAssociationAttributes {
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
-     */
-    export interface WebACLAssociationProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-         */
-        ResourceArn: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-         */
-        WebACLArn: string;
-    }
-
-    export interface WebACLAttributes {
-        Arn: string;
-        Capacity: number;
-        Id: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
      */
@@ -18910,40 +12826,6 @@ export namespace WAFv2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
          */
         None?: any | string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
-     */
-    export interface WebACLProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-         */
-        DefaultAction: outputs.WAFv2.WebACLDefaultAction;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-         */
-        Description?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-         */
-        Name?: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-         */
-        Rules?: outputs.WAFv2.WebACLRule[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-         */
-        Scope: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-         */
-        Tags?: outputs.Tag[];
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
-         */
-        VisibilityConfig: outputs.WAFv2.WebACLVisibilityConfig;
     }
 
     /**
@@ -19312,12 +13194,6 @@ export namespace WAFv2 {
 }
 
 export namespace WorkSpaces {
-    export interface ConnectionAliasAttributes {
-        AliasId: string;
-        Associations: outputs.WorkSpaces.ConnectionAliasConnectionAliasAssociation[];
-        ConnectionAliasState: string;
-    }
-
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
      */
@@ -19338,19 +13214,5 @@ export namespace WorkSpaces {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
          */
         ResourceId?: string;
-    }
-
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
-     */
-    export interface ConnectionAliasProperties {
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-         */
-        ConnectionString: string;
-        /**
-         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-         */
-        Tags?: outputs.Tag[];
     }
 }

@@ -36,21 +36,31 @@ export class IPSet extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.WAFv2.IPSetAttributes>;
+    public readonly Addresses!: pulumi.Output<string[]>;
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly IPAddressVersion!: pulumi.Output<string>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
      */
-    public readonly properties!: pulumi.Output<outputs.WAFv2.IPSetProperties>;
+    public readonly Name!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
+     */
+    public readonly Scope!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IPSet resource with the given unique name, arguments, and options.
@@ -62,20 +72,32 @@ export class IPSet extends pulumi.CustomResource {
     constructor(name: string, args: IPSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Addresses === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Addresses'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.IPAddressVersion === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'IPAddressVersion'");
+            }
+            if ((!args || args.Scope === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Scope'");
+            }
+            inputs["Addresses"] = args ? args.Addresses : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["IPAddressVersion"] = args ? args.IPAddressVersion : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Scope"] = args ? args.Scope : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Addresses"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["IPAddressVersion"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Scope"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,27 @@ export class IPSet extends pulumi.CustomResource {
  */
 export interface IPSetArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Addresses: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly IPAddressVersion: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
      */
-    readonly properties: pulumi.Input<inputs.WAFv2.IPSetProperties>;
+    readonly Name?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Scope: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

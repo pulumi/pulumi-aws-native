@@ -35,22 +35,37 @@ export class MonitoringSchedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoringSchedule.__pulumiType;
     }
 
+    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SageMaker.MonitoringScheduleAttributes>;
+    public readonly EndpointName!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly FailureReason!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly LastModifiedTime!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly LastMonitoringExecutionSummary!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
+    public /*out*/ readonly MonitoringScheduleArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    public readonly properties!: pulumi.Output<outputs.SageMaker.MonitoringScheduleProperties>;
+    public readonly MonitoringScheduleConfig!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
+     */
+    public readonly MonitoringScheduleName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+     */
+    public readonly MonitoringScheduleStatus!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MonitoringSchedule resource with the given unique name, arguments, and options.
@@ -62,20 +77,33 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     constructor(name: string, args: MonitoringScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.MonitoringScheduleConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'MonitoringScheduleConfig'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.MonitoringScheduleName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'MonitoringScheduleName'");
+            }
+            inputs["EndpointName"] = args ? args.EndpointName : undefined;
+            inputs["FailureReason"] = args ? args.FailureReason : undefined;
+            inputs["LastMonitoringExecutionSummary"] = args ? args.LastMonitoringExecutionSummary : undefined;
+            inputs["MonitoringScheduleConfig"] = args ? args.MonitoringScheduleConfig : undefined;
+            inputs["MonitoringScheduleName"] = args ? args.MonitoringScheduleName : undefined;
+            inputs["MonitoringScheduleStatus"] = args ? args.MonitoringScheduleStatus : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["LastModifiedTime"] = undefined /*out*/;
+            inputs["MonitoringScheduleArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["EndpointName"] = undefined /*out*/;
+            inputs["FailureReason"] = undefined /*out*/;
+            inputs["LastModifiedTime"] = undefined /*out*/;
+            inputs["LastMonitoringExecutionSummary"] = undefined /*out*/;
+            inputs["MonitoringScheduleArn"] = undefined /*out*/;
+            inputs["MonitoringScheduleConfig"] = undefined /*out*/;
+            inputs["MonitoringScheduleName"] = undefined /*out*/;
+            inputs["MonitoringScheduleStatus"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +121,31 @@ export class MonitoringSchedule extends pulumi.CustomResource {
  */
 export interface MonitoringScheduleArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly EndpointName?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly FailureReason?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly LastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    readonly properties: pulumi.Input<inputs.SageMaker.MonitoringScheduleProperties>;
+    readonly MonitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly MonitoringScheduleName: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+     */
+    readonly MonitoringScheduleStatus?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -36,21 +36,27 @@ export class ConnectorProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.AppFlow.ConnectorProfileAttributes>;
+    public readonly ConnectionMode!: pulumi.Output<string>;
+    public /*out*/ readonly ConnectorProfileArn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ConnectorProfileConfig!: pulumi.Output<outputs.AppFlow.ConnectorProfileConnectorProfileConfig | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ConnectorProfileName!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
      */
-    public readonly properties!: pulumi.Output<outputs.AppFlow.ConnectorProfileProperties>;
+    public readonly ConnectorType!: pulumi.Output<string>;
+    public /*out*/ readonly CredentialsArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+     */
+    public readonly KMSArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConnectorProfile resource with the given unique name, arguments, and options.
@@ -62,20 +68,30 @@ export class ConnectorProfile extends pulumi.CustomResource {
     constructor(name: string, args: ConnectorProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ConnectionMode === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ConnectionMode'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.ConnectorProfileName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ConnectorProfileName'");
+            }
+            if ((!args || args.ConnectorType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ConnectorType'");
+            }
+            inputs["ConnectionMode"] = args ? args.ConnectionMode : undefined;
+            inputs["ConnectorProfileConfig"] = args ? args.ConnectorProfileConfig : undefined;
+            inputs["ConnectorProfileName"] = args ? args.ConnectorProfileName : undefined;
+            inputs["ConnectorType"] = args ? args.ConnectorType : undefined;
+            inputs["KMSArn"] = args ? args.KMSArn : undefined;
+            inputs["ConnectorProfileArn"] = undefined /*out*/;
+            inputs["CredentialsArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ConnectionMode"] = undefined /*out*/;
+            inputs["ConnectorProfileArn"] = undefined /*out*/;
+            inputs["ConnectorProfileConfig"] = undefined /*out*/;
+            inputs["ConnectorProfileName"] = undefined /*out*/;
+            inputs["ConnectorType"] = undefined /*out*/;
+            inputs["CredentialsArn"] = undefined /*out*/;
+            inputs["KMSArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +109,23 @@ export class ConnectorProfile extends pulumi.CustomResource {
  */
 export interface ConnectorProfileArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ConnectionMode: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ConnectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfig>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ConnectorProfileName: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
      */
-    readonly properties: pulumi.Input<inputs.AppFlow.ConnectorProfileProperties>;
+    readonly ConnectorType: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly KMSArn?: pulumi.Input<string>;
 }

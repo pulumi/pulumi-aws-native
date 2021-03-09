@@ -36,21 +36,29 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.DataBrew.ProjectAttributes>;
+    public readonly DatasetName!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Name!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly RecipeName!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
      */
-    public readonly properties!: pulumi.Output<outputs.DataBrew.ProjectProperties>;
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
+     */
+    public readonly Sample!: pulumi.Output<any | string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -62,20 +70,31 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.DatasetName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DatasetName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.RecipeName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RecipeName'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            inputs["DatasetName"] = args ? args.DatasetName : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["RecipeName"] = args ? args.RecipeName : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["Sample"] = args ? args.Sample : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["DatasetName"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RecipeName"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["Sample"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +112,27 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly DatasetName: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly RecipeName: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
      */
-    readonly properties: pulumi.Input<inputs.DataBrew.ProjectProperties>;
+    readonly RoleArn: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Sample?: pulumi.Input<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

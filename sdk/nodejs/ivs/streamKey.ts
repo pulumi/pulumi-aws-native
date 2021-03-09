@@ -35,22 +35,16 @@ export class StreamKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamKey.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IVS.StreamKeyAttributes>;
+    public readonly ChannelArn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.IVS.StreamKeyProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public /*out*/ readonly Value!: pulumi.Output<string>;
 
     /**
      * Create a StreamKey resource with the given unique name, arguments, and options.
@@ -62,20 +56,18 @@ export class StreamKey extends pulumi.CustomResource {
     constructor(name: string, args: StreamKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ChannelArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ChannelArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["ChannelArn"] = args ? args.ChannelArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Value"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ChannelArn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Value"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +85,11 @@ export class StreamKey extends pulumi.CustomResource {
  */
 export interface StreamKeyArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ChannelArn: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
      */
-    readonly logicalId?: pulumi.Input<string>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.IVS.StreamKeyProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -35,22 +35,56 @@ export class GameServerGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === GameServerGroup.__pulumiType;
     }
 
+    public /*out*/ readonly AutoScalingGroupArn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.GameLift.GameServerGroupAttributes>;
+    public readonly AutoScalingPolicy!: pulumi.Output<outputs.GameLift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly BalancingStrategy!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DeleteOption!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly GameServerGroupArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
      */
-    public readonly properties!: pulumi.Output<outputs.GameLift.GameServerGroupProperties>;
+    public readonly GameServerGroupName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+     */
+    public readonly GameServerProtectionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+     */
+    public readonly InstanceDefinitions!: pulumi.Output<outputs.GameLift.GameServerGroupInstanceDefinitions>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+     */
+    public readonly LaunchTemplate!: pulumi.Output<outputs.GameLift.GameServerGroupLaunchTemplate>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+     */
+    public readonly MaxSize!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+     */
+    public readonly MinSize!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.GameLift.GameServerGroupTags | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+     */
+    public readonly VpcSubnets!: pulumi.Output<outputs.GameLift.GameServerGroupVpcSubnets | undefined>;
 
     /**
      * Create a GameServerGroup resource with the given unique name, arguments, and options.
@@ -62,20 +96,47 @@ export class GameServerGroup extends pulumi.CustomResource {
     constructor(name: string, args: GameServerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.GameServerGroupName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'GameServerGroupName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.InstanceDefinitions === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InstanceDefinitions'");
+            }
+            if ((!args || args.LaunchTemplate === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'LaunchTemplate'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            inputs["AutoScalingPolicy"] = args ? args.AutoScalingPolicy : undefined;
+            inputs["BalancingStrategy"] = args ? args.BalancingStrategy : undefined;
+            inputs["DeleteOption"] = args ? args.DeleteOption : undefined;
+            inputs["GameServerGroupName"] = args ? args.GameServerGroupName : undefined;
+            inputs["GameServerProtectionPolicy"] = args ? args.GameServerProtectionPolicy : undefined;
+            inputs["InstanceDefinitions"] = args ? args.InstanceDefinitions : undefined;
+            inputs["LaunchTemplate"] = args ? args.LaunchTemplate : undefined;
+            inputs["MaxSize"] = args ? args.MaxSize : undefined;
+            inputs["MinSize"] = args ? args.MinSize : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["VpcSubnets"] = args ? args.VpcSubnets : undefined;
+            inputs["AutoScalingGroupArn"] = undefined /*out*/;
+            inputs["GameServerGroupArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AutoScalingGroupArn"] = undefined /*out*/;
+            inputs["AutoScalingPolicy"] = undefined /*out*/;
+            inputs["BalancingStrategy"] = undefined /*out*/;
+            inputs["DeleteOption"] = undefined /*out*/;
+            inputs["GameServerGroupArn"] = undefined /*out*/;
+            inputs["GameServerGroupName"] = undefined /*out*/;
+            inputs["GameServerProtectionPolicy"] = undefined /*out*/;
+            inputs["InstanceDefinitions"] = undefined /*out*/;
+            inputs["LaunchTemplate"] = undefined /*out*/;
+            inputs["MaxSize"] = undefined /*out*/;
+            inputs["MinSize"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["VpcSubnets"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +154,51 @@ export class GameServerGroup extends pulumi.CustomResource {
  */
 export interface GameServerGroupArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AutoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicy>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly BalancingStrategy?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DeleteOption?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
      */
-    readonly properties: pulumi.Input<inputs.GameLift.GameServerGroupProperties>;
+    readonly GameServerGroupName: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly GameServerProtectionPolicy?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+     */
+    readonly InstanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitions>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+     */
+    readonly LaunchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplate>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+     */
+    readonly MaxSize?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+     */
+    readonly MinSize?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+     */
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+     */
+    readonly Tags?: pulumi.Input<inputs.GameLift.GameServerGroupTags>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+     */
+    readonly VpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnets>;
 }

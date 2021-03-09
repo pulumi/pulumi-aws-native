@@ -35,22 +35,33 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ImageBuilder.ImageAttributes>;
+    public readonly DistributionConfigurationArn!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly EnhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly ImageId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ImageRecipeArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
-    public readonly properties!: pulumi.Output<outputs.ImageBuilder.ImageProperties>;
+    public readonly ImageTestsConfiguration!: pulumi.Output<outputs.ImageBuilder.ImageImageTestsConfiguration | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+     */
+    public readonly InfrastructureConfigurationArn!: pulumi.Output<string>;
+    public /*out*/ readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+     */
+    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -62,20 +73,31 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ImageRecipeArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ImageRecipeArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.InfrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InfrastructureConfigurationArn'");
+            }
+            inputs["DistributionConfigurationArn"] = args ? args.DistributionConfigurationArn : undefined;
+            inputs["EnhancedImageMetadataEnabled"] = args ? args.EnhancedImageMetadataEnabled : undefined;
+            inputs["ImageRecipeArn"] = args ? args.ImageRecipeArn : undefined;
+            inputs["ImageTestsConfiguration"] = args ? args.ImageTestsConfiguration : undefined;
+            inputs["InfrastructureConfigurationArn"] = args ? args.InfrastructureConfigurationArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ImageId"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["DistributionConfigurationArn"] = undefined /*out*/;
+            inputs["EnhancedImageMetadataEnabled"] = undefined /*out*/;
+            inputs["ImageId"] = undefined /*out*/;
+            inputs["ImageRecipeArn"] = undefined /*out*/;
+            inputs["ImageTestsConfiguration"] = undefined /*out*/;
+            inputs["InfrastructureConfigurationArn"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,27 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly DistributionConfigurationArn?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly EnhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ImageRecipeArn: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
-    readonly properties: pulumi.Input<inputs.ImageBuilder.ImageProperties>;
+    readonly ImageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageImageTestsConfiguration>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly InfrastructureConfigurationArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+     */
+    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

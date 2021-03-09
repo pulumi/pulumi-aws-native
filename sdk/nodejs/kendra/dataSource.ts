@@ -35,22 +35,40 @@ export class DataSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataSource.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Kendra.DataSourceAttributes>;
+    public readonly DataSourceConfiguration!: pulumi.Output<outputs.Kendra.DataSourceDataSourceConfiguration | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly IndexId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
      */
-    public readonly properties!: pulumi.Output<outputs.Kendra.DataSourceProperties>;
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
+     */
+    public readonly Schedule!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Kendra.DataSourceTagList | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
+     */
+    public readonly Type!: pulumi.Output<string>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -62,20 +80,36 @@ export class DataSource extends pulumi.CustomResource {
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.IndexId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'IndexId'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Type'");
+            }
+            inputs["DataSourceConfiguration"] = args ? args.DataSourceConfiguration : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["IndexId"] = args ? args.IndexId : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["Schedule"] = args ? args.Schedule : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["DataSourceConfiguration"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["IndexId"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["Schedule"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +127,35 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly DataSourceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceConfiguration>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly IndexId: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
      */
-    readonly properties: pulumi.Input<inputs.Kendra.DataSourceProperties>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RoleArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
+     */
+    readonly Schedule?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
+     */
+    readonly Tags?: pulumi.Input<inputs.Kendra.DataSourceTagList>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
+     */
+    readonly Type: pulumi.Input<string>;
 }

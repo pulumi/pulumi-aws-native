@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,21 +35,29 @@ export class Assignment extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SSO.AssignmentAttributes>;
+    public readonly InstanceArn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly PermissionSetArn!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly PrincipalId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
      */
-    public readonly properties!: pulumi.Output<outputs.SSO.AssignmentProperties>;
+    public readonly PrincipalType!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+     */
+    public readonly TargetId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+     */
+    public readonly TargetType!: pulumi.Output<string>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -62,20 +69,37 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.InstanceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InstanceArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.PermissionSetArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PermissionSetArn'");
+            }
+            if ((!args || args.PrincipalId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PrincipalId'");
+            }
+            if ((!args || args.PrincipalType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PrincipalType'");
+            }
+            if ((!args || args.TargetId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TargetId'");
+            }
+            if ((!args || args.TargetType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TargetType'");
+            }
+            inputs["InstanceArn"] = args ? args.InstanceArn : undefined;
+            inputs["PermissionSetArn"] = args ? args.PermissionSetArn : undefined;
+            inputs["PrincipalId"] = args ? args.PrincipalId : undefined;
+            inputs["PrincipalType"] = args ? args.PrincipalType : undefined;
+            inputs["TargetId"] = args ? args.TargetId : undefined;
+            inputs["TargetType"] = args ? args.TargetType : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["InstanceArn"] = undefined /*out*/;
+            inputs["PermissionSetArn"] = undefined /*out*/;
+            inputs["PrincipalId"] = undefined /*out*/;
+            inputs["PrincipalType"] = undefined /*out*/;
+            inputs["TargetId"] = undefined /*out*/;
+            inputs["TargetType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +117,27 @@ export class Assignment extends pulumi.CustomResource {
  */
 export interface AssignmentArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly InstanceArn: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly PermissionSetArn: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly PrincipalId: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
      */
-    readonly properties: pulumi.Input<inputs.SSO.AssignmentProperties>;
+    readonly PrincipalType: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly TargetId: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+     */
+    readonly TargetType: pulumi.Input<string>;
 }

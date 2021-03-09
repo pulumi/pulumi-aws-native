@@ -35,22 +35,27 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ECS.ClusterAttributes>;
+    public readonly CapacityProviders!: pulumi.Output<string[] | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ClusterName!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ClusterSettings!: pulumi.Output<outputs.ECS.ClusterClusterSettings[] | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
      */
-    public readonly properties!: pulumi.Output<outputs.ECS.ClusterProperties>;
+    public readonly DefaultCapacityProviderStrategy!: pulumi.Output<outputs.ECS.ClusterCapacityProviderStrategyItem[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -59,23 +64,22 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["CapacityProviders"] = args ? args.CapacityProviders : undefined;
+            inputs["ClusterName"] = args ? args.ClusterName : undefined;
+            inputs["ClusterSettings"] = args ? args.ClusterSettings : undefined;
+            inputs["DefaultCapacityProviderStrategy"] = args ? args.DefaultCapacityProviderStrategy : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CapacityProviders"] = undefined /*out*/;
+            inputs["ClusterName"] = undefined /*out*/;
+            inputs["ClusterSettings"] = undefined /*out*/;
+            inputs["DefaultCapacityProviderStrategy"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +97,23 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly CapacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ClusterName?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ClusterSettings?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterClusterSettings>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
      */
-    readonly properties: pulumi.Input<inputs.ECS.ClusterProperties>;
+    readonly DefaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterCapacityProviderStrategyItem>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

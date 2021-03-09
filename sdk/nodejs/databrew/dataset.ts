@@ -36,21 +36,21 @@ export class Dataset extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.DataBrew.DatasetAttributes>;
+    public readonly FormatOptions!: pulumi.Output<any | string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Input!: pulumi.Output<any | string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Name!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
      */
-    public readonly properties!: pulumi.Output<outputs.DataBrew.DatasetProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -62,20 +62,21 @@ export class Dataset extends pulumi.CustomResource {
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Input === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Input'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            inputs["FormatOptions"] = args ? args.FormatOptions : undefined;
+            inputs["Input"] = args ? args.Input : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["FormatOptions"] = undefined /*out*/;
+            inputs["Input"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +94,19 @@ export class Dataset extends pulumi.CustomResource {
  */
 export interface DatasetArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly FormatOptions?: pulumi.Input<any | string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Input: pulumi.Input<any | string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
      */
-    readonly properties: pulumi.Input<inputs.DataBrew.DatasetProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

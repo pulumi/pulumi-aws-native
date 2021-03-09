@@ -35,22 +35,36 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.WAFv2.RuleGroupAttributes>;
+    public readonly Capacity!: pulumi.Output<number>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Name!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
      */
-    public readonly properties!: pulumi.Output<outputs.WAFv2.RuleGroupProperties>;
+    public readonly Rules!: pulumi.Output<outputs.WAFv2.RuleGroupRule[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
+     */
+    public readonly Scope!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
+     */
+    public readonly VisibilityConfig!: pulumi.Output<outputs.WAFv2.RuleGroupVisibilityConfig>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -62,20 +76,34 @@ export class RuleGroup extends pulumi.CustomResource {
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Capacity === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Capacity'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Scope === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Scope'");
+            }
+            if ((!args || args.VisibilityConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'VisibilityConfig'");
+            }
+            inputs["Capacity"] = args ? args.Capacity : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Rules"] = args ? args.Rules : undefined;
+            inputs["Scope"] = args ? args.Scope : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["VisibilityConfig"] = args ? args.VisibilityConfig : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Capacity"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Rules"] = undefined /*out*/;
+            inputs["Scope"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["VisibilityConfig"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +121,31 @@ export class RuleGroup extends pulumi.CustomResource {
  */
 export interface RuleGroupArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Capacity: pulumi.Input<number>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Name?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
      */
-    readonly properties: pulumi.Input<inputs.WAFv2.RuleGroupProperties>;
+    readonly Rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupRule>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Scope: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
+     */
+    readonly VisibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfig>;
 }

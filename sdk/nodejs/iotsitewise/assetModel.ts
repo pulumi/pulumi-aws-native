@@ -35,22 +35,28 @@ export class AssetModel extends pulumi.CustomResource {
         return obj['__pulumiType'] === AssetModel.__pulumiType;
     }
 
+    public /*out*/ readonly AssetModelArn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoTSiteWise.AssetModelAttributes>;
+    public readonly AssetModelDescription!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly AssetModelHierarchies!: pulumi.Output<outputs.IoTSiteWise.AssetModelAssetModelHierarchy[] | undefined>;
+    public /*out*/ readonly AssetModelId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly AssetModelName!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
      */
-    public readonly properties!: pulumi.Output<outputs.IoTSiteWise.AssetModelProperties>;
+    public readonly AssetModelProperties!: pulumi.Output<outputs.IoTSiteWise.AssetModelAssetModelProperty[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AssetModel resource with the given unique name, arguments, and options.
@@ -62,20 +68,24 @@ export class AssetModel extends pulumi.CustomResource {
     constructor(name: string, args: AssetModelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.AssetModelName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AssetModelName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AssetModelDescription"] = args ? args.AssetModelDescription : undefined;
+            inputs["AssetModelHierarchies"] = args ? args.AssetModelHierarchies : undefined;
+            inputs["AssetModelName"] = args ? args.AssetModelName : undefined;
+            inputs["AssetModelProperties"] = args ? args.AssetModelProperties : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["AssetModelArn"] = undefined /*out*/;
+            inputs["AssetModelId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AssetModelArn"] = undefined /*out*/;
+            inputs["AssetModelDescription"] = undefined /*out*/;
+            inputs["AssetModelHierarchies"] = undefined /*out*/;
+            inputs["AssetModelId"] = undefined /*out*/;
+            inputs["AssetModelName"] = undefined /*out*/;
+            inputs["AssetModelProperties"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,23 @@ export class AssetModel extends pulumi.CustomResource {
  */
 export interface AssetModelArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AssetModelDescription?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly AssetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelAssetModelHierarchy>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly AssetModelName: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
      */
-    readonly properties: pulumi.Input<inputs.IoTSiteWise.AssetModelProperties>;
+    readonly AssetModelProperties?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelAssetModelProperty>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

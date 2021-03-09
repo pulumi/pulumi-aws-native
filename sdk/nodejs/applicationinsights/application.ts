@@ -35,22 +35,43 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    public /*out*/ readonly ApplicationARN!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ApplicationInsights.ApplicationAttributes>;
+    public readonly AutoConfigurationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly CWEMonitorEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ComponentMonitoringSettings!: pulumi.Output<outputs.ApplicationInsights.ApplicationComponentMonitoringSetting[] | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
      */
-    public readonly properties!: pulumi.Output<outputs.ApplicationInsights.ApplicationProperties>;
+    public readonly CustomComponents!: pulumi.Output<outputs.ApplicationInsights.ApplicationCustomComponent[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+     */
+    public readonly LogPatternSets!: pulumi.Output<outputs.ApplicationInsights.ApplicationLogPatternSet[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+     */
+    public readonly OpsCenterEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+     */
+    public readonly OpsItemSNSTopicArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+     */
+    public readonly ResourceGroupName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -62,20 +83,30 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ResourceGroupName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ResourceGroupName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AutoConfigurationEnabled"] = args ? args.AutoConfigurationEnabled : undefined;
+            inputs["CWEMonitorEnabled"] = args ? args.CWEMonitorEnabled : undefined;
+            inputs["ComponentMonitoringSettings"] = args ? args.ComponentMonitoringSettings : undefined;
+            inputs["CustomComponents"] = args ? args.CustomComponents : undefined;
+            inputs["LogPatternSets"] = args ? args.LogPatternSets : undefined;
+            inputs["OpsCenterEnabled"] = args ? args.OpsCenterEnabled : undefined;
+            inputs["OpsItemSNSTopicArn"] = args ? args.OpsItemSNSTopicArn : undefined;
+            inputs["ResourceGroupName"] = args ? args.ResourceGroupName : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["ApplicationARN"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ApplicationARN"] = undefined /*out*/;
+            inputs["AutoConfigurationEnabled"] = undefined /*out*/;
+            inputs["CWEMonitorEnabled"] = undefined /*out*/;
+            inputs["ComponentMonitoringSettings"] = undefined /*out*/;
+            inputs["CustomComponents"] = undefined /*out*/;
+            inputs["LogPatternSets"] = undefined /*out*/;
+            inputs["OpsCenterEnabled"] = undefined /*out*/;
+            inputs["OpsItemSNSTopicArn"] = undefined /*out*/;
+            inputs["ResourceGroupName"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +124,39 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AutoConfigurationEnabled?: pulumi.Input<boolean>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly CWEMonitorEnabled?: pulumi.Input<boolean>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ComponentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationComponentMonitoringSetting>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
      */
-    readonly properties: pulumi.Input<inputs.ApplicationInsights.ApplicationProperties>;
+    readonly CustomComponents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationCustomComponent>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly LogPatternSets?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPatternSet>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+     */
+    readonly OpsCenterEnabled?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+     */
+    readonly OpsItemSNSTopicArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+     */
+    readonly ResourceGroupName: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

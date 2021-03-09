@@ -35,22 +35,40 @@ export class Key extends pulumi.CustomResource {
         return obj['__pulumiType'] === Key.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.KMS.KeyAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly EnableKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Enabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly KeyId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
      */
-    public readonly properties!: pulumi.Output<outputs.KMS.KeyProperties>;
+    public readonly KeyPolicy!: pulumi.Output<any>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+     */
+    public readonly KeySpec!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+     */
+    public readonly KeyUsage!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+     */
+    public readonly PendingWindowInDays!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -62,20 +80,30 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.KeyPolicy === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'KeyPolicy'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["EnableKeyRotation"] = args ? args.EnableKeyRotation : undefined;
+            inputs["Enabled"] = args ? args.Enabled : undefined;
+            inputs["KeyPolicy"] = args ? args.KeyPolicy : undefined;
+            inputs["KeySpec"] = args ? args.KeySpec : undefined;
+            inputs["KeyUsage"] = args ? args.KeyUsage : undefined;
+            inputs["PendingWindowInDays"] = args ? args.PendingWindowInDays : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["KeyId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["EnableKeyRotation"] = undefined /*out*/;
+            inputs["Enabled"] = undefined /*out*/;
+            inputs["KeyId"] = undefined /*out*/;
+            inputs["KeyPolicy"] = undefined /*out*/;
+            inputs["KeySpec"] = undefined /*out*/;
+            inputs["KeyUsage"] = undefined /*out*/;
+            inputs["PendingWindowInDays"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +121,35 @@ export class Key extends pulumi.CustomResource {
  */
 export interface KeyArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly EnableKeyRotation?: pulumi.Input<boolean>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Enabled?: pulumi.Input<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
      */
-    readonly properties: pulumi.Input<inputs.KMS.KeyProperties>;
+    readonly KeyPolicy: any;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly KeySpec?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+     */
+    readonly KeyUsage?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+     */
+    readonly PendingWindowInDays?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -36,21 +36,10 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.CloudFront.CloudFrontOriginAccessIdentityAttributes>;
-    /**
-     * An explicit logical ID for the resource
-     */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.CloudFront.CloudFrontOriginAccessIdentityProperties>;
+    public readonly CloudFrontOriginAccessIdentityConfig!: pulumi.Output<outputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig>;
+    public /*out*/ readonly S3CanonicalUserId!: pulumi.Output<string>;
 
     /**
      * Create a CloudFrontOriginAccessIdentity resource with the given unique name, arguments, and options.
@@ -62,20 +51,14 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
     constructor(name: string, args: CloudFrontOriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.CloudFrontOriginAccessIdentityConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'CloudFrontOriginAccessIdentityConfig'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["CloudFrontOriginAccessIdentityConfig"] = args ? args.CloudFrontOriginAccessIdentityConfig : undefined;
+            inputs["S3CanonicalUserId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CloudFrontOriginAccessIdentityConfig"] = undefined /*out*/;
+            inputs["S3CanonicalUserId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +76,7 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
  */
 export interface CloudFrontOriginAccessIdentityArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
-    /**
-     * An explicit logical ID for the resource
-     */
-    readonly logicalId?: pulumi.Input<string>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.CloudFront.CloudFrontOriginAccessIdentityProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly CloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig>;
 }

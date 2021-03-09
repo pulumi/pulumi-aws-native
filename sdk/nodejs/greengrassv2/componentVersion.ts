@@ -35,22 +35,21 @@ export class ComponentVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ComponentVersion.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly ComponentName!: pulumi.Output<string>;
+    public /*out*/ readonly ComponentVersion!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.GreengrassV2.ComponentVersionAttributes>;
+    public readonly InlineRecipe!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly LambdaFunction!: pulumi.Output<outputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.GreengrassV2.ComponentVersionProperties>;
+    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ComponentVersion resource with the given unique name, arguments, and options.
@@ -59,23 +58,22 @@ export class ComponentVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ComponentVersionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ComponentVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["InlineRecipe"] = args ? args.InlineRecipe : undefined;
+            inputs["LambdaFunction"] = args ? args.LambdaFunction : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ComponentName"] = undefined /*out*/;
+            inputs["ComponentVersion"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ComponentName"] = undefined /*out*/;
+            inputs["ComponentVersion"] = undefined /*out*/;
+            inputs["InlineRecipe"] = undefined /*out*/;
+            inputs["LambdaFunction"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +91,15 @@ export class ComponentVersion extends pulumi.CustomResource {
  */
 export interface ComponentVersionArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly InlineRecipe?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly LambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.GreengrassV2.ComponentVersionProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

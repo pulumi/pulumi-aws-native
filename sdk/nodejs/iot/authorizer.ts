@@ -35,22 +35,35 @@ export class Authorizer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Authorizer.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoT.AuthorizerAttributes>;
+    public readonly AuthorizerFunctionArn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly AuthorizerName!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly SigningDisabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
      */
-    public readonly properties!: pulumi.Output<outputs.IoT.AuthorizerProperties>;
+    public readonly Status!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.IoT.AuthorizerTags | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+     */
+    public readonly TokenKeyName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
+     */
+    public readonly TokenSigningPublicKeys!: pulumi.Output<outputs.IoT.AuthorizerTokenSigningPublicKeys | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -62,20 +75,26 @@ export class Authorizer extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.AuthorizerFunctionArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AuthorizerFunctionArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AuthorizerFunctionArn"] = args ? args.AuthorizerFunctionArn : undefined;
+            inputs["AuthorizerName"] = args ? args.AuthorizerName : undefined;
+            inputs["SigningDisabled"] = args ? args.SigningDisabled : undefined;
+            inputs["Status"] = args ? args.Status : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["TokenKeyName"] = args ? args.TokenKeyName : undefined;
+            inputs["TokenSigningPublicKeys"] = args ? args.TokenSigningPublicKeys : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["AuthorizerFunctionArn"] = undefined /*out*/;
+            inputs["AuthorizerName"] = undefined /*out*/;
+            inputs["SigningDisabled"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["TokenKeyName"] = undefined /*out*/;
+            inputs["TokenSigningPublicKeys"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +112,31 @@ export class Authorizer extends pulumi.CustomResource {
  */
 export interface AuthorizerArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AuthorizerFunctionArn: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly AuthorizerName?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly SigningDisabled?: pulumi.Input<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
      */
-    readonly properties: pulumi.Input<inputs.IoT.AuthorizerProperties>;
+    readonly Status?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<inputs.IoT.AuthorizerTags>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
+     */
+    readonly TokenKeyName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
+     */
+    readonly TokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeys>;
 }

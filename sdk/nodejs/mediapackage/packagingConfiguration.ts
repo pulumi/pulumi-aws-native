@@ -35,22 +35,35 @@ export class PackagingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === PackagingConfiguration.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationAttributes>;
+    public readonly CmafPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationCmafPackage | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DashPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationDashPackage | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly HlsPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationHlsPackage | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
-    public readonly properties!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationProperties>;
+    public readonly Id!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+     */
+    public readonly MssPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationMssPackage | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+     */
+    public readonly PackagingGroupId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PackagingConfiguration resource with the given unique name, arguments, and options.
@@ -62,20 +75,29 @@ export class PackagingConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: PackagingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Id === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Id'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.PackagingGroupId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PackagingGroupId'");
+            }
+            inputs["CmafPackage"] = args ? args.CmafPackage : undefined;
+            inputs["DashPackage"] = args ? args.DashPackage : undefined;
+            inputs["HlsPackage"] = args ? args.HlsPackage : undefined;
+            inputs["Id"] = args ? args.Id : undefined;
+            inputs["MssPackage"] = args ? args.MssPackage : undefined;
+            inputs["PackagingGroupId"] = args ? args.PackagingGroupId : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CmafPackage"] = undefined /*out*/;
+            inputs["DashPackage"] = undefined /*out*/;
+            inputs["HlsPackage"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["MssPackage"] = undefined /*out*/;
+            inputs["PackagingGroupId"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,31 @@ export class PackagingConfiguration extends pulumi.CustomResource {
  */
 export interface PackagingConfigurationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly CmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackage>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackage>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly HlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackage>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
-    readonly properties: pulumi.Input<inputs.MediaPackage.PackagingConfigurationProperties>;
+    readonly Id: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly MssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackage>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+     */
+    readonly PackagingGroupId: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

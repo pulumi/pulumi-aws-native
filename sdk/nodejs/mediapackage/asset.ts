@@ -35,22 +35,36 @@ export class Asset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Asset.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly CreatedAt!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.MediaPackage.AssetAttributes>;
+    public readonly EgressEndpoints!: pulumi.Output<outputs.MediaPackage.AssetEgressEndpoint[] | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Id!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly PackagingGroupId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
      */
-    public readonly properties!: pulumi.Output<outputs.MediaPackage.AssetProperties>;
+    public readonly ResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+     */
+    public readonly SourceArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+     */
+    public readonly SourceRoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -62,20 +76,37 @@ export class Asset extends pulumi.CustomResource {
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Id === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Id'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.PackagingGroupId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PackagingGroupId'");
+            }
+            if ((!args || args.SourceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SourceArn'");
+            }
+            if ((!args || args.SourceRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SourceRoleArn'");
+            }
+            inputs["EgressEndpoints"] = args ? args.EgressEndpoints : undefined;
+            inputs["Id"] = args ? args.Id : undefined;
+            inputs["PackagingGroupId"] = args ? args.PackagingGroupId : undefined;
+            inputs["ResourceId"] = args ? args.ResourceId : undefined;
+            inputs["SourceArn"] = args ? args.SourceArn : undefined;
+            inputs["SourceRoleArn"] = args ? args.SourceRoleArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CreatedAt"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CreatedAt"] = undefined /*out*/;
+            inputs["EgressEndpoints"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["PackagingGroupId"] = undefined /*out*/;
+            inputs["ResourceId"] = undefined /*out*/;
+            inputs["SourceArn"] = undefined /*out*/;
+            inputs["SourceRoleArn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +124,31 @@ export class Asset extends pulumi.CustomResource {
  */
 export interface AssetArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly EgressEndpoints?: pulumi.Input<pulumi.Input<inputs.MediaPackage.AssetEgressEndpoint>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Id: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly PackagingGroupId: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
      */
-    readonly properties: pulumi.Input<inputs.MediaPackage.AssetProperties>;
+    readonly ResourceId?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly SourceArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+     */
+    readonly SourceRoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

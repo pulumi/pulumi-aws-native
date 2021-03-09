@@ -36,21 +36,14 @@ export class SchemaVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Glue.SchemaVersionAttributes>;
+    public readonly Schema!: pulumi.Output<outputs.Glue.SchemaVersionSchema>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.Glue.SchemaVersionProperties>;
+    public readonly SchemaDefinition!: pulumi.Output<string>;
+    public /*out*/ readonly VersionId!: pulumi.Output<string>;
 
     /**
      * Create a SchemaVersion resource with the given unique name, arguments, and options.
@@ -62,20 +55,19 @@ export class SchemaVersion extends pulumi.CustomResource {
     constructor(name: string, args: SchemaVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Schema === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Schema'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.SchemaDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SchemaDefinition'");
+            }
+            inputs["Schema"] = args ? args.Schema : undefined;
+            inputs["SchemaDefinition"] = args ? args.SchemaDefinition : undefined;
+            inputs["VersionId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Schema"] = undefined /*out*/;
+            inputs["SchemaDefinition"] = undefined /*out*/;
+            inputs["VersionId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +85,11 @@ export class SchemaVersion extends pulumi.CustomResource {
  */
 export interface SchemaVersionArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Schema: pulumi.Input<inputs.Glue.SchemaVersionSchema>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
      */
-    readonly logicalId?: pulumi.Input<string>;
-    /**
-     * Arbitrary structured data associated with the resource
-     */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.Glue.SchemaVersionProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly SchemaDefinition: pulumi.Input<string>;
 }

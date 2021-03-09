@@ -35,22 +35,28 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
+    public /*out*/ readonly DashboardArn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoTSiteWise.DashboardAttributes>;
+    public readonly DashboardDefinition!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DashboardDescription!: pulumi.Output<string>;
+    public /*out*/ readonly DashboardId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DashboardName!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
      */
-    public readonly properties!: pulumi.Output<outputs.IoTSiteWise.DashboardProperties>;
+    public readonly ProjectId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -62,20 +68,30 @@ export class Dashboard extends pulumi.CustomResource {
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.DashboardDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DashboardDefinition'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.DashboardDescription === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DashboardDescription'");
+            }
+            if ((!args || args.DashboardName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DashboardName'");
+            }
+            inputs["DashboardDefinition"] = args ? args.DashboardDefinition : undefined;
+            inputs["DashboardDescription"] = args ? args.DashboardDescription : undefined;
+            inputs["DashboardName"] = args ? args.DashboardName : undefined;
+            inputs["ProjectId"] = args ? args.ProjectId : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["DashboardArn"] = undefined /*out*/;
+            inputs["DashboardId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["DashboardArn"] = undefined /*out*/;
+            inputs["DashboardDefinition"] = undefined /*out*/;
+            inputs["DashboardDescription"] = undefined /*out*/;
+            inputs["DashboardId"] = undefined /*out*/;
+            inputs["DashboardName"] = undefined /*out*/;
+            inputs["ProjectId"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +109,23 @@ export class Dashboard extends pulumi.CustomResource {
  */
 export interface DashboardArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly DashboardDefinition: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DashboardDescription: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DashboardName: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
      */
-    readonly properties: pulumi.Input<inputs.IoTSiteWise.DashboardProperties>;
+    readonly ProjectId?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

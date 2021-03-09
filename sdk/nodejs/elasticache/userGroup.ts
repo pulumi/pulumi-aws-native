@@ -35,22 +35,22 @@ export class UserGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroup.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ElastiCache.UserGroupAttributes>;
+    public readonly Engine!: pulumi.Output<string>;
+    public /*out*/ readonly PendingChanges!: pulumi.Output<outputs.ElastiCache.UserGroupUserGroupPendingChanges>;
+    public /*out*/ readonly ReplicationGroupIds!: pulumi.Output<outputs.ElastiCache.UserGroupReplicationGroupIdList>;
+    public /*out*/ readonly Status!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly UserGroupId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.ElastiCache.UserGroupProperties>;
+    public readonly UserIds!: pulumi.Output<outputs.ElastiCache.UserGroupUserIdList | undefined>;
 
     /**
      * Create a UserGroup resource with the given unique name, arguments, and options.
@@ -62,20 +62,27 @@ export class UserGroup extends pulumi.CustomResource {
     constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Engine === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Engine'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.UserGroupId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'UserGroupId'");
+            }
+            inputs["Engine"] = args ? args.Engine : undefined;
+            inputs["UserGroupId"] = args ? args.UserGroupId : undefined;
+            inputs["UserIds"] = args ? args.UserIds : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["PendingChanges"] = undefined /*out*/;
+            inputs["ReplicationGroupIds"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Engine"] = undefined /*out*/;
+            inputs["PendingChanges"] = undefined /*out*/;
+            inputs["ReplicationGroupIds"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
+            inputs["UserGroupId"] = undefined /*out*/;
+            inputs["UserIds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +100,15 @@ export class UserGroup extends pulumi.CustomResource {
  */
 export interface UserGroupArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Engine: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly UserGroupId: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.ElastiCache.UserGroupProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly UserIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdList>;
 }

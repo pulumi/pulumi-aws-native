@@ -35,22 +35,25 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
+    public /*out*/ readonly ConnectionArn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.CodeStarConnections.ConnectionAttributes>;
+    public readonly ConnectionName!: pulumi.Output<string>;
+    public /*out*/ readonly ConnectionStatus!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly HostArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly OwnerAccountId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ProviderType!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
      */
-    public readonly properties!: pulumi.Output<outputs.CodeStarConnections.ConnectionProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -62,20 +65,24 @@ export class Connection extends pulumi.CustomResource {
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ConnectionName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ConnectionName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["ConnectionName"] = args ? args.ConnectionName : undefined;
+            inputs["HostArn"] = args ? args.HostArn : undefined;
+            inputs["ProviderType"] = args ? args.ProviderType : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["ConnectionArn"] = undefined /*out*/;
+            inputs["ConnectionStatus"] = undefined /*out*/;
+            inputs["OwnerAccountId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ConnectionArn"] = undefined /*out*/;
+            inputs["ConnectionName"] = undefined /*out*/;
+            inputs["ConnectionStatus"] = undefined /*out*/;
+            inputs["HostArn"] = undefined /*out*/;
+            inputs["OwnerAccountId"] = undefined /*out*/;
+            inputs["ProviderType"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +100,19 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ConnectionName: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly HostArn?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ProviderType?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
      */
-    readonly properties: pulumi.Input<inputs.CodeStarConnections.ConnectionProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }
