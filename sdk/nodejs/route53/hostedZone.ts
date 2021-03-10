@@ -36,21 +36,27 @@ export class HostedZone extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Route53.HostedZoneAttributes>;
+    public readonly HostedZoneConfig!: pulumi.Output<outputs.Route53.HostedZoneHostedZoneConfig | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly HostedZoneTags!: pulumi.Output<outputs.Route53.HostedZoneHostedZoneTag[] | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Name!: pulumi.Output<string>;
+    public /*out*/ readonly NameServers!: pulumi.Output<string[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
      */
-    public readonly properties!: pulumi.Output<outputs.Route53.HostedZoneProperties>;
+    public readonly QueryLoggingConfig!: pulumi.Output<outputs.Route53.HostedZoneQueryLoggingConfig | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+     */
+    public readonly VPCs!: pulumi.Output<outputs.Route53.HostedZoneVPC[] | undefined>;
 
     /**
      * Create a HostedZone resource with the given unique name, arguments, and options.
@@ -62,20 +68,24 @@ export class HostedZone extends pulumi.CustomResource {
     constructor(name: string, args: HostedZoneArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["HostedZoneConfig"] = args ? args.HostedZoneConfig : undefined;
+            inputs["HostedZoneTags"] = args ? args.HostedZoneTags : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["QueryLoggingConfig"] = args ? args.QueryLoggingConfig : undefined;
+            inputs["VPCs"] = args ? args.VPCs : undefined;
+            inputs["Id"] = undefined /*out*/;
+            inputs["NameServers"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["HostedZoneConfig"] = undefined /*out*/;
+            inputs["HostedZoneTags"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["NameServers"] = undefined /*out*/;
+            inputs["QueryLoggingConfig"] = undefined /*out*/;
+            inputs["VPCs"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,23 @@ export class HostedZone extends pulumi.CustomResource {
  */
 export interface HostedZoneArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly HostedZoneConfig?: pulumi.Input<inputs.Route53.HostedZoneHostedZoneConfig>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly HostedZoneTags?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneHostedZoneTag>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
      */
-    readonly properties: pulumi.Input<inputs.Route53.HostedZoneProperties>;
+    readonly QueryLoggingConfig?: pulumi.Input<inputs.Route53.HostedZoneQueryLoggingConfig>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly VPCs?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneVPC>[]>;
 }

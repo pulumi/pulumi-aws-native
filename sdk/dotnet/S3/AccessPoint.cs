@@ -16,28 +16,52 @@ namespace Pulumi.AwsNative.S3
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.AccessPointAttributes> Attributes { get; private set; } = null!;
+        [Output("Bucket")]
+        public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("CreationDate")]
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Name")]
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AccessPointProperties> Properties { get; private set; } = null!;
+        [Output("NetworkOrigin")]
+        public Output<string?> NetworkOrigin { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
+        /// </summary>
+        [Output("Policy")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> Policy { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
+        /// </summary>
+        [Output("PolicyStatus")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> PolicyStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
+        /// </summary>
+        [Output("PublicAccessBlockConfiguration")]
+        public Output<Outputs.AccessPointPublicAccessBlockConfiguration?> PublicAccessBlockConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
+        /// </summary>
+        [Output("VpcConfiguration")]
+        public Output<Outputs.AccessPointVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +109,52 @@ namespace Pulumi.AwsNative.S3
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Bucket", required: true)]
+        public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("CreationDate")]
+        public Input<string>? CreationDate { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("Name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AccessPointPropertiesArgs> Properties { get; set; } = null!;
+        [Input("NetworkOrigin")]
+        public Input<string>? NetworkOrigin { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Policy")]
+        public InputUnion<System.Text.Json.JsonElement, string>? Policy { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
+        /// </summary>
+        [Input("PolicyStatus")]
+        public InputUnion<System.Text.Json.JsonElement, string>? PolicyStatus { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
+        /// </summary>
+        [Input("PublicAccessBlockConfiguration")]
+        public Input<Inputs.AccessPointPublicAccessBlockConfigurationArgs>? PublicAccessBlockConfiguration { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
+        /// </summary>
+        [Input("VpcConfiguration")]
+        public Input<Inputs.AccessPointVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public AccessPointArgs()
         {

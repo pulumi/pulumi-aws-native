@@ -7,34 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = [
-    'HealthCheckAttributes',
     'HealthCheckHealthCheckTag',
-    'HealthCheckProperties',
-    'HostedZoneAttributes',
     'HostedZoneHostedZoneConfig',
     'HostedZoneHostedZoneTag',
-    'HostedZoneProperties',
     'HostedZoneQueryLoggingConfig',
     'HostedZoneVPC',
 ]
-
-@pulumi.output_type
-class HealthCheckAttributes(dict):
-    def __init__(__self__, *,
-                 health_check_id: str):
-        pulumi.set(__self__, "health_check_id", health_check_id)
-
-    @property
-    @pulumi.getter(name="HealthCheckId")
-    def health_check_id(self) -> str:
-        return pulumi.get(self, "health_check_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthCheckHealthCheckTag(dict):
@@ -67,65 +47,6 @@ class HealthCheckHealthCheckTag(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class HealthCheckProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
-    """
-    def __init__(__self__, *,
-                 health_check_config: str,
-                 health_check_tags: Optional[Sequence['outputs.HealthCheckHealthCheckTag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
-        :param Union[Any, str] health_check_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-        :param Sequence['HealthCheckHealthCheckTagArgs'] health_check_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-        """
-        pulumi.set(__self__, "health_check_config", health_check_config)
-        if health_check_tags is not None:
-            pulumi.set(__self__, "health_check_tags", health_check_tags)
-
-    @property
-    @pulumi.getter(name="HealthCheckConfig")
-    def health_check_config(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-        """
-        return pulumi.get(self, "health_check_config")
-
-    @property
-    @pulumi.getter(name="HealthCheckTags")
-    def health_check_tags(self) -> Optional[Sequence['outputs.HealthCheckHealthCheckTag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-        """
-        return pulumi.get(self, "health_check_tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class HostedZoneAttributes(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 name_servers: Sequence[str]):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name_servers", name_servers)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="NameServers")
-    def name_servers(self) -> Sequence[str]:
-        return pulumi.get(self, "name_servers")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -188,79 +109,6 @@ class HostedZoneHostedZoneTag(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class HostedZoneProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 hosted_zone_config: Optional['outputs.HostedZoneHostedZoneConfig'] = None,
-                 hosted_zone_tags: Optional[Sequence['outputs.HostedZoneHostedZoneTag']] = None,
-                 query_logging_config: Optional['outputs.HostedZoneQueryLoggingConfig'] = None,
-                 vpcs: Optional[Sequence['outputs.HostedZoneVPC']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-        :param 'HostedZoneHostedZoneConfigArgs' hosted_zone_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        :param Sequence['HostedZoneHostedZoneTagArgs'] hosted_zone_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-        :param 'HostedZoneQueryLoggingConfigArgs' query_logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        :param Sequence['HostedZoneVPCArgs'] vpcs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-        """
-        pulumi.set(__self__, "name", name)
-        if hosted_zone_config is not None:
-            pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
-        if hosted_zone_tags is not None:
-            pulumi.set(__self__, "hosted_zone_tags", hosted_zone_tags)
-        if query_logging_config is not None:
-            pulumi.set(__self__, "query_logging_config", query_logging_config)
-        if vpcs is not None:
-            pulumi.set(__self__, "vpcs", vpcs)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="HostedZoneConfig")
-    def hosted_zone_config(self) -> Optional['outputs.HostedZoneHostedZoneConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        """
-        return pulumi.get(self, "hosted_zone_config")
-
-    @property
-    @pulumi.getter(name="HostedZoneTags")
-    def hosted_zone_tags(self) -> Optional[Sequence['outputs.HostedZoneHostedZoneTag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-        """
-        return pulumi.get(self, "hosted_zone_tags")
-
-    @property
-    @pulumi.getter(name="QueryLoggingConfig")
-    def query_logging_config(self) -> Optional['outputs.HostedZoneQueryLoggingConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        """
-        return pulumi.get(self, "query_logging_config")
-
-    @property
-    @pulumi.getter(name="VPCs")
-    def vpcs(self) -> Optional[Sequence['outputs.HostedZoneVPC']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-        """
-        return pulumi.get(self, "vpcs")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

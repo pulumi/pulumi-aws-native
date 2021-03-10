@@ -36,21 +36,22 @@ export class Analyzer extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.AccessAnalyzer.AnalyzerAttributes>;
+    public readonly AnalyzerName!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ArchiveRules!: pulumi.Output<outputs.AccessAnalyzer.AnalyzerArchiveRule[] | undefined>;
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
      */
-    public readonly properties!: pulumi.Output<outputs.AccessAnalyzer.AnalyzerProperties>;
+    public readonly Type!: pulumi.Output<string>;
 
     /**
      * Create a Analyzer resource with the given unique name, arguments, and options.
@@ -62,20 +63,20 @@ export class Analyzer extends pulumi.CustomResource {
     constructor(name: string, args: AnalyzerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Type'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AnalyzerName"] = args ? args.AnalyzerName : undefined;
+            inputs["ArchiveRules"] = args ? args.ArchiveRules : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AnalyzerName"] = undefined /*out*/;
+            inputs["ArchiveRules"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +94,19 @@ export class Analyzer extends pulumi.CustomResource {
  */
 export interface AnalyzerArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AnalyzerName?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ArchiveRules?: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerArchiveRule>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
      */
-    readonly properties: pulumi.Input<inputs.AccessAnalyzer.AnalyzerProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Type: pulumi.Input<string>;
 }

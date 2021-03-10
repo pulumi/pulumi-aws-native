@@ -15,29 +15,53 @@ namespace Pulumi.AwsNative.CloudWatch
     [AwsNativeResourceType("aws-native:CloudWatch:MetricStream")]
     public partial class MetricStream : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.MetricStreamAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        [Output("CreationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ExcludeFilters")]
+        public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> ExcludeFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("FirehoseArn")]
+        public Output<string> FirehoseArn { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MetricStreamProperties> Properties { get; private set; } = null!;
+        [Output("IncludeFilters")]
+        public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> IncludeFilters { get; private set; } = null!;
+
+        [Output("LastUpdateDate")]
+        public Output<string> LastUpdateDate { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        /// </summary>
+        [Output("Name")]
+        public Output<string?> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        /// </summary>
+        [Output("RoleArn")]
+        public Output<string> RoleArn { get; private set; } = null!;
+
+        [Output("State")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +108,59 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class MetricStreamArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ExcludeFilters")]
+        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _ExcludeFilters;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.MetricStreamMetricStreamFilterArgs> ExcludeFilters
+        {
+            get => _ExcludeFilters ?? (_ExcludeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
+            set => _ExcludeFilters = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("FirehoseArn", required: true)]
+        public Input<string> FirehoseArn { get; set; } = null!;
+
+        [Input("IncludeFilters")]
+        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _IncludeFilters;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.MetricStreamPropertiesArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.MetricStreamMetricStreamFilterArgs> IncludeFilters
+        {
+            get => _IncludeFilters ?? (_IncludeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
+            set => _IncludeFilters = value;
+        }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        /// </summary>
+        [Input("RoleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public MetricStreamArgs()
         {

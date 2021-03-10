@@ -15,29 +15,71 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:SageMaker:DataQualityJobDefinition")]
     public partial class DataQualityJobDefinition : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.DataQualityJobDefinitionAttributes> Attributes { get; private set; } = null!;
+        [Output("CreationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("DataQualityAppSpecification")]
+        public Output<Outputs.DataQualityJobDefinitionDataQualityAppSpecification> DataQualityAppSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("DataQualityBaselineConfig")]
+        public Output<Outputs.DataQualityJobDefinitionDataQualityBaselineConfig?> DataQualityBaselineConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DataQualityJobDefinitionProperties> Properties { get; private set; } = null!;
+        [Output("DataQualityJobInput")]
+        public Output<Outputs.DataQualityJobDefinitionDataQualityJobInput> DataQualityJobInput { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
+        /// </summary>
+        [Output("DataQualityJobOutputConfig")]
+        public Output<Outputs.DataQualityJobDefinitionMonitoringOutputConfig> DataQualityJobOutputConfig { get; private set; } = null!;
+
+        [Output("JobDefinitionArn")]
+        public Output<string> JobDefinitionArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
+        /// </summary>
+        [Output("JobDefinitionName")]
+        public Output<string?> JobDefinitionName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
+        /// </summary>
+        [Output("JobResources")]
+        public Output<Outputs.DataQualityJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
+        /// </summary>
+        [Output("NetworkConfig")]
+        public Output<Outputs.DataQualityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
+        /// </summary>
+        [Output("RoleArn")]
+        public Output<string> RoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
+        /// </summary>
+        [Output("StoppingCondition")]
+        public Output<Outputs.DataQualityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +127,70 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class DataQualityJobDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("DataQualityAppSpecification", required: true)]
+        public Input<Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs> DataQualityAppSpecification { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("DataQualityBaselineConfig")]
+        public Input<Inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs>? DataQualityBaselineConfig { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("DataQualityJobInput", required: true)]
+        public Input<Inputs.DataQualityJobDefinitionDataQualityJobInputArgs> DataQualityJobInput { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DataQualityJobDefinitionPropertiesArgs> Properties { get; set; } = null!;
+        [Input("DataQualityJobOutputConfig", required: true)]
+        public Input<Inputs.DataQualityJobDefinitionMonitoringOutputConfigArgs> DataQualityJobOutputConfig { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("JobDefinitionName")]
+        public Input<string>? JobDefinitionName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
+        /// </summary>
+        [Input("JobResources", required: true)]
+        public Input<Inputs.DataQualityJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
+        /// </summary>
+        [Input("NetworkConfig")]
+        public Input<Inputs.DataQualityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
+        /// </summary>
+        [Input("RoleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
+        /// </summary>
+        [Input("StoppingCondition")]
+        public Input<Inputs.DataQualityJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public DataQualityJobDefinitionArgs()
         {

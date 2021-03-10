@@ -16,28 +16,49 @@ namespace Pulumi.AwsNative.IoT
     public partial class ProvisioningTemplate : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ProvisioningTemplateAttributes> Attributes { get; private set; } = null!;
+        [Output("Description")]
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("Enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("PreProvisioningHook")]
+        public Output<Outputs.ProvisioningTemplateProvisioningHook?> PreProvisioningHook { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProvisioningTemplateProperties> Properties { get; private set; } = null!;
+        [Output("ProvisioningRoleArn")]
+        public Output<string> ProvisioningRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<Outputs.ProvisioningTemplateTags?> Tags { get; private set; } = null!;
+
+        [Output("TemplateArn")]
+        public Output<string> TemplateArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
+        /// </summary>
+        [Output("TemplateBody")]
+        public Output<string> TemplateBody { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
+        /// </summary>
+        [Output("TemplateName")]
+        public Output<string?> TemplateName { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +106,46 @@ namespace Pulumi.AwsNative.IoT
     public sealed class ProvisioningTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("Enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("PreProvisioningHook")]
+        public Input<Inputs.ProvisioningTemplateProvisioningHookArgs>? PreProvisioningHook { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ProvisioningTemplatePropertiesArgs> Properties { get; set; } = null!;
+        [Input("ProvisioningRoleArn", required: true)]
+        public Input<string> ProvisioningRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Tags")]
+        public Input<Inputs.ProvisioningTemplateTagsArgs>? Tags { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
+        /// </summary>
+        [Input("TemplateBody", required: true)]
+        public Input<string> TemplateBody { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
+        /// </summary>
+        [Input("TemplateName")]
+        public Input<string>? TemplateName { get; set; }
 
         public ProvisioningTemplateArgs()
         {

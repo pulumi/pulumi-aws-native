@@ -129,8 +129,6 @@
         "getRegion.ts",
         "getSsmParameterList.ts",
         "getSsmParameterString.ts",
-        "getStackId.ts",
-        "getStackName.ts",
         "getUrlSuffix.ts",
         "globalaccelerator/accelerator.ts",
         "globalaccelerator/endpointGroup.ts",

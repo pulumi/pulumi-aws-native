@@ -35,22 +35,31 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ECR.RepositoryAttributes>;
+    public readonly ImageScanningConfiguration!: pulumi.Output<any | string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ImageTagMutability!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly LifecyclePolicy!: pulumi.Output<outputs.ECR.RepositoryLifecyclePolicy | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */
-    public readonly properties!: pulumi.Output<outputs.ECR.RepositoryProperties>;
+    public readonly RepositoryName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+     */
+    public readonly RepositoryPolicyText!: pulumi.Output<any | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -59,23 +68,24 @@ export class Repository extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["ImageScanningConfiguration"] = args ? args.ImageScanningConfiguration : undefined;
+            inputs["ImageTagMutability"] = args ? args.ImageTagMutability : undefined;
+            inputs["LifecyclePolicy"] = args ? args.LifecyclePolicy : undefined;
+            inputs["RepositoryName"] = args ? args.RepositoryName : undefined;
+            inputs["RepositoryPolicyText"] = args ? args.RepositoryPolicyText : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ImageScanningConfiguration"] = undefined /*out*/;
+            inputs["ImageTagMutability"] = undefined /*out*/;
+            inputs["LifecyclePolicy"] = undefined /*out*/;
+            inputs["RepositoryName"] = undefined /*out*/;
+            inputs["RepositoryPolicyText"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,27 @@ export class Repository extends pulumi.CustomResource {
  */
 export interface RepositoryArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ImageScanningConfiguration?: pulumi.Input<any | string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ImageTagMutability?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly LifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicy>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */
-    readonly properties: pulumi.Input<inputs.ECR.RepositoryProperties>;
+    readonly RepositoryName?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RepositoryPolicyText?: any;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

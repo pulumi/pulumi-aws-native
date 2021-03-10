@@ -35,22 +35,37 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsPath.__pulumiType;
     }
 
+    public /*out*/ readonly CreatedDate!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.EC2.NetworkInsightsPathAttributes>;
+    public readonly Destination!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DestinationIp!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DestinationPort!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly NetworkInsightsPathArn!: pulumi.Output<string>;
+    public /*out*/ readonly NetworkInsightsPathId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
      */
-    public readonly properties!: pulumi.Output<outputs.EC2.NetworkInsightsPathProperties>;
+    public readonly Protocol!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
+     */
+    public readonly Source!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
+     */
+    public readonly SourceIp!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsPath resource with the given unique name, arguments, and options.
@@ -62,20 +77,36 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     constructor(name: string, args: NetworkInsightsPathArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Destination === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Destination'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Protocol === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Protocol'");
+            }
+            if ((!args || args.Source === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Source'");
+            }
+            inputs["Destination"] = args ? args.Destination : undefined;
+            inputs["DestinationIp"] = args ? args.DestinationIp : undefined;
+            inputs["DestinationPort"] = args ? args.DestinationPort : undefined;
+            inputs["Protocol"] = args ? args.Protocol : undefined;
+            inputs["Source"] = args ? args.Source : undefined;
+            inputs["SourceIp"] = args ? args.SourceIp : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["CreatedDate"] = undefined /*out*/;
+            inputs["NetworkInsightsPathArn"] = undefined /*out*/;
+            inputs["NetworkInsightsPathId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CreatedDate"] = undefined /*out*/;
+            inputs["Destination"] = undefined /*out*/;
+            inputs["DestinationIp"] = undefined /*out*/;
+            inputs["DestinationPort"] = undefined /*out*/;
+            inputs["NetworkInsightsPathArn"] = undefined /*out*/;
+            inputs["NetworkInsightsPathId"] = undefined /*out*/;
+            inputs["Protocol"] = undefined /*out*/;
+            inputs["Source"] = undefined /*out*/;
+            inputs["SourceIp"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +124,31 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
  */
 export interface NetworkInsightsPathArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Destination: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DestinationIp?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DestinationPort?: pulumi.Input<number>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
      */
-    readonly properties: pulumi.Input<inputs.EC2.NetworkInsightsPathProperties>;
+    readonly Protocol: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Source: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
+     */
+    readonly SourceIp?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

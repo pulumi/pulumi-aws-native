@@ -19,11 +19,16 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 job_definition_name: Optional[pulumi.Input[str]] = None,
+                 job_resources: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringResourcesArgs']]] = None,
+                 model_bias_app_specification: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasAppSpecificationArgs']]] = None,
+                 model_bias_baseline_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]] = None,
+                 model_bias_job_input: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasJobInputArgs']]] = None,
+                 model_bias_job_output_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringOutputConfigArgs']]] = None,
+                 network_config: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionNetworkConfigArgs']]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 stopping_condition: Optional[pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionStoppingConditionArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +37,16 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringResourcesArgs']] job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasAppSpecificationArgs']] model_bias_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']] model_bias_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionModelBiasJobInputArgs']] model_bias_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionMonitoringOutputConfigArgs']] model_bias_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionNetworkConfigArgs']] network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
+        :param pulumi.Input[pulumi.InputType['ModelBiasJobDefinitionStoppingConditionArgs']] stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +65,28 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['job_definition_name'] = job_definition_name
+            if job_resources is None and not opts.urn:
+                raise TypeError("Missing required property 'job_resources'")
+            __props__['job_resources'] = job_resources
+            if model_bias_app_specification is None and not opts.urn:
+                raise TypeError("Missing required property 'model_bias_app_specification'")
+            __props__['model_bias_app_specification'] = model_bias_app_specification
+            __props__['model_bias_baseline_config'] = model_bias_baseline_config
+            if model_bias_job_input is None and not opts.urn:
+                raise TypeError("Missing required property 'model_bias_job_input'")
+            __props__['model_bias_job_input'] = model_bias_job_input
+            if model_bias_job_output_config is None and not opts.urn:
+                raise TypeError("Missing required property 'model_bias_job_output_config'")
+            __props__['model_bias_job_output_config'] = model_bias_job_output_config
+            __props__['network_config'] = network_config
+            if role_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'role_arn'")
+            __props__['role_arn'] = role_arn
+            __props__['stopping_condition'] = stopping_condition
+            __props__['tags'] = tags
+            __props__['creation_time'] = None
+            __props__['job_definition_arn'] = None
         super(ModelBiasJobDefinition, __self__).__init__(
             'aws-native:SageMaker:ModelBiasJobDefinition',
             resource_name,
@@ -88,36 +112,94 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
         return ModelBiasJobDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="CreationTime")
+    def creation_time(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "creation_time")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="JobDefinitionArn")
+    def job_definition_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "job_definition_arn")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="JobDefinitionName")
+    def job_definition_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "job_definition_name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionProperties']:
+    @pulumi.getter(name="JobResources")
+    def job_resources(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionMonitoringResources']:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "job_resources")
+
+    @property
+    @pulumi.getter(name="ModelBiasAppSpecification")
+    def model_bias_app_specification(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionModelBiasAppSpecification']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
+        """
+        return pulumi.get(self, "model_bias_app_specification")
+
+    @property
+    @pulumi.getter(name="ModelBiasBaselineConfig")
+    def model_bias_baseline_config(self) -> pulumi.Output[Optional['outputs.ModelBiasJobDefinitionModelBiasBaselineConfig']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
+        """
+        return pulumi.get(self, "model_bias_baseline_config")
+
+    @property
+    @pulumi.getter(name="ModelBiasJobInput")
+    def model_bias_job_input(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionModelBiasJobInput']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
+        """
+        return pulumi.get(self, "model_bias_job_input")
+
+    @property
+    @pulumi.getter(name="ModelBiasJobOutputConfig")
+    def model_bias_job_output_config(self) -> pulumi.Output['outputs.ModelBiasJobDefinitionMonitoringOutputConfig']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
+        """
+        return pulumi.get(self, "model_bias_job_output_config")
+
+    @property
+    @pulumi.getter(name="NetworkConfig")
+    def network_config(self) -> pulumi.Output[Optional['outputs.ModelBiasJobDefinitionNetworkConfig']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
+        """
+        return pulumi.get(self, "network_config")
+
+    @property
+    @pulumi.getter(name="RoleArn")
+    def role_arn(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="StoppingCondition")
+    def stopping_condition(self) -> pulumi.Output[Optional['outputs.ModelBiasJobDefinitionStoppingCondition']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
+        """
+        return pulumi.get(self, "stopping_condition")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

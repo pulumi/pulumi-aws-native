@@ -10,7 +10,6 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'ComponentVersionAttributes',
     'ComponentVersionComponentDependencyRequirement',
     'ComponentVersionComponentPlatform',
     'ComponentVersionLambdaContainerParams',
@@ -20,37 +19,7 @@ __all__ = [
     'ComponentVersionLambdaFunctionRecipeSource',
     'ComponentVersionLambdaLinuxProcessParams',
     'ComponentVersionLambdaVolumeMount',
-    'ComponentVersionProperties',
 ]
-
-@pulumi.output_type
-class ComponentVersionAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 component_name: str,
-                 component_version: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "component_name", component_name)
-        pulumi.set(__self__, "component_version", component_version)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="ComponentName")
-    def component_name(self) -> str:
-        return pulumi.get(self, "component_name")
-
-    @property
-    @pulumi.getter(name="ComponentVersion")
-    def component_version(self) -> str:
-        return pulumi.get(self, "component_version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComponentVersionComponentDependencyRequirement(dict):
@@ -605,56 +574,6 @@ class ComponentVersionLambdaVolumeMount(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-sourcepath
         """
         return pulumi.get(self, "source_path")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ComponentVersionProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
-    """
-    def __init__(__self__, *,
-                 inline_recipe: Optional[str] = None,
-                 lambda_function: Optional['outputs.ComponentVersionLambdaFunctionRecipeSource'] = None,
-                 tags: Optional[Mapping[str, str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
-        :param str inline_recipe: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        :param 'ComponentVersionLambdaFunctionRecipeSourceArgs' lambda_function: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-        :param Mapping[str, str] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-        """
-        if inline_recipe is not None:
-            pulumi.set(__self__, "inline_recipe", inline_recipe)
-        if lambda_function is not None:
-            pulumi.set(__self__, "lambda_function", lambda_function)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="InlineRecipe")
-    def inline_recipe(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        """
-        return pulumi.get(self, "inline_recipe")
-
-    @property
-    @pulumi.getter(name="LambdaFunction")
-    def lambda_function(self) -> Optional['outputs.ComponentVersionLambdaFunctionRecipeSource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-        """
-        return pulumi.get(self, "lambda_function")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

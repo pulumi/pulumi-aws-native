@@ -19,11 +19,19 @@ class StackSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['StackSetPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 administration_role_arn: Optional[pulumi.Input[str]] = None,
+                 auto_deployment: Optional[pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 execution_role_name: Optional[pulumi.Input[str]] = None,
+                 operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]]] = None,
+                 permission_model: Optional[pulumi.Input[str]] = None,
+                 stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]]] = None,
+                 stack_set_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 template_body: Optional[pulumi.Input[str]] = None,
+                 template_url: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +40,19 @@ class StackSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['StackSetPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] administration_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+        :param pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']] auto_deployment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+        :param pulumi.Input[str] execution_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+        :param pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']] operation_preferences: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        :param pulumi.Input[str] permission_model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]] stack_instances_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        :param pulumi.Input[str] stack_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        :param pulumi.Input[str] template_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +71,24 @@ class StackSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['administration_role_arn'] = administration_role_arn
+            __props__['auto_deployment'] = auto_deployment
+            __props__['capabilities'] = capabilities
+            __props__['description'] = description
+            __props__['execution_role_name'] = execution_role_name
+            __props__['operation_preferences'] = operation_preferences
+            __props__['parameters'] = parameters
+            if permission_model is None and not opts.urn:
+                raise TypeError("Missing required property 'permission_model'")
+            __props__['permission_model'] = permission_model
+            __props__['stack_instances_group'] = stack_instances_group
+            if stack_set_name is None and not opts.urn:
+                raise TypeError("Missing required property 'stack_set_name'")
+            __props__['stack_set_name'] = stack_set_name
+            __props__['tags'] = tags
+            __props__['template_body'] = template_body
+            __props__['template_url'] = template_url
+            __props__['stack_set_id'] = None
         super(StackSet, __self__).__init__(
             'aws-native:CloudFormation:StackSet',
             resource_name,
@@ -88,36 +114,113 @@ class StackSet(pulumi.CustomResource):
         return StackSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.StackSetAttributes']:
+    @pulumi.getter(name="AdministrationRoleARN")
+    def administration_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "administration_role_arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="AutoDeployment")
+    def auto_deployment(self) -> pulumi.Output[Optional['outputs.StackSetAutoDeployment']]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "auto_deployment")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="Capabilities")
+    def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "capabilities")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.StackSetProperties']:
+    @pulumi.getter(name="Description")
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ExecutionRoleName")
+    def execution_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+        """
+        return pulumi.get(self, "execution_role_name")
+
+    @property
+    @pulumi.getter(name="OperationPreferences")
+    def operation_preferences(self) -> pulumi.Output[Optional['outputs.StackSetOperationPreferences']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
+        """
+        return pulumi.get(self, "operation_preferences")
+
+    @property
+    @pulumi.getter(name="Parameters")
+    def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetParameter']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="PermissionModel")
+    def permission_model(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        """
+        return pulumi.get(self, "permission_model")
+
+    @property
+    @pulumi.getter(name="StackInstancesGroup")
+    def stack_instances_group(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetStackInstances']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        """
+        return pulumi.get(self, "stack_instances_group")
+
+    @property
+    @pulumi.getter(name="StackSetId")
+    def stack_set_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "stack_set_id")
+
+    @property
+    @pulumi.getter(name="StackSetName")
+    def stack_set_name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        """
+        return pulumi.get(self, "stack_set_name")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="TemplateBody")
+    def template_body(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        """
+        return pulumi.get(self, "template_body")
+
+    @property
+    @pulumi.getter(name="TemplateURL")
+    def template_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        """
+        return pulumi.get(self, "template_url")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

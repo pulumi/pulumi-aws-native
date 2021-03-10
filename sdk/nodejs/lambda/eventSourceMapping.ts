@@ -36,21 +36,78 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Lambda.EventSourceMappingAttributes>;
+    public readonly BatchSize!: pulumi.Output<number | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly BisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DestinationConfig!: pulumi.Output<outputs.Lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
      */
-    public readonly properties!: pulumi.Output<outputs.Lambda.EventSourceMappingProperties>;
+    public readonly Enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+     */
+    public readonly EventSourceArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+     */
+    public readonly FunctionName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+     */
+    public readonly FunctionResponseTypes!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+     */
+    public readonly MaximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+     */
+    public readonly MaximumRecordAgeInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+     */
+    public readonly MaximumRetryAttempts!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+     */
+    public readonly ParallelizationFactor!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+     */
+    public readonly PartialBatchResponse!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+     */
+    public readonly Queues!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+     */
+    public readonly SelfManagedEventSource!: pulumi.Output<outputs.Lambda.EventSourceMappingSelfManagedEventSource | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+     */
+    public readonly SourceAccessConfigurations!: pulumi.Output<outputs.Lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+     */
+    public readonly StartingPosition!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+     */
+    public readonly Topics!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+     */
+    public readonly TumblingWindowInSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a EventSourceMapping resource with the given unique name, arguments, and options.
@@ -62,20 +119,48 @@ export class EventSourceMapping extends pulumi.CustomResource {
     constructor(name: string, args: EventSourceMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.FunctionName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FunctionName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["BatchSize"] = args ? args.BatchSize : undefined;
+            inputs["BisectBatchOnFunctionError"] = args ? args.BisectBatchOnFunctionError : undefined;
+            inputs["DestinationConfig"] = args ? args.DestinationConfig : undefined;
+            inputs["Enabled"] = args ? args.Enabled : undefined;
+            inputs["EventSourceArn"] = args ? args.EventSourceArn : undefined;
+            inputs["FunctionName"] = args ? args.FunctionName : undefined;
+            inputs["FunctionResponseTypes"] = args ? args.FunctionResponseTypes : undefined;
+            inputs["MaximumBatchingWindowInSeconds"] = args ? args.MaximumBatchingWindowInSeconds : undefined;
+            inputs["MaximumRecordAgeInSeconds"] = args ? args.MaximumRecordAgeInSeconds : undefined;
+            inputs["MaximumRetryAttempts"] = args ? args.MaximumRetryAttempts : undefined;
+            inputs["ParallelizationFactor"] = args ? args.ParallelizationFactor : undefined;
+            inputs["PartialBatchResponse"] = args ? args.PartialBatchResponse : undefined;
+            inputs["Queues"] = args ? args.Queues : undefined;
+            inputs["SelfManagedEventSource"] = args ? args.SelfManagedEventSource : undefined;
+            inputs["SourceAccessConfigurations"] = args ? args.SourceAccessConfigurations : undefined;
+            inputs["StartingPosition"] = args ? args.StartingPosition : undefined;
+            inputs["Topics"] = args ? args.Topics : undefined;
+            inputs["TumblingWindowInSeconds"] = args ? args.TumblingWindowInSeconds : undefined;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["BatchSize"] = undefined /*out*/;
+            inputs["BisectBatchOnFunctionError"] = undefined /*out*/;
+            inputs["DestinationConfig"] = undefined /*out*/;
+            inputs["Enabled"] = undefined /*out*/;
+            inputs["EventSourceArn"] = undefined /*out*/;
+            inputs["FunctionName"] = undefined /*out*/;
+            inputs["FunctionResponseTypes"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["MaximumBatchingWindowInSeconds"] = undefined /*out*/;
+            inputs["MaximumRecordAgeInSeconds"] = undefined /*out*/;
+            inputs["MaximumRetryAttempts"] = undefined /*out*/;
+            inputs["ParallelizationFactor"] = undefined /*out*/;
+            inputs["PartialBatchResponse"] = undefined /*out*/;
+            inputs["Queues"] = undefined /*out*/;
+            inputs["SelfManagedEventSource"] = undefined /*out*/;
+            inputs["SourceAccessConfigurations"] = undefined /*out*/;
+            inputs["StartingPosition"] = undefined /*out*/;
+            inputs["Topics"] = undefined /*out*/;
+            inputs["TumblingWindowInSeconds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +178,75 @@ export class EventSourceMapping extends pulumi.CustomResource {
  */
 export interface EventSourceMappingArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly BatchSize?: pulumi.Input<number>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly BisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DestinationConfig?: pulumi.Input<inputs.Lambda.EventSourceMappingDestinationConfig>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
      */
-    readonly properties: pulumi.Input<inputs.Lambda.EventSourceMappingProperties>;
+    readonly Enabled?: pulumi.Input<boolean>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly EventSourceArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+     */
+    readonly FunctionName: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+     */
+    readonly FunctionResponseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+     */
+    readonly MaximumBatchingWindowInSeconds?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+     */
+    readonly MaximumRecordAgeInSeconds?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+     */
+    readonly MaximumRetryAttempts?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+     */
+    readonly ParallelizationFactor?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+     */
+    readonly PartialBatchResponse?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+     */
+    readonly Queues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+     */
+    readonly SelfManagedEventSource?: pulumi.Input<inputs.Lambda.EventSourceMappingSelfManagedEventSource>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+     */
+    readonly SourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.Lambda.EventSourceMappingSourceAccessConfiguration>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+     */
+    readonly StartingPosition?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+     */
+    readonly Topics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+     */
+    readonly TumblingWindowInSeconds?: pulumi.Input<number>;
 }

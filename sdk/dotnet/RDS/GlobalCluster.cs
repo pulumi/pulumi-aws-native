@@ -16,28 +16,40 @@ namespace Pulumi.AwsNative.RDS
     public partial class GlobalCluster : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.GlobalClusterAttributes> Attributes { get; private set; } = null!;
+        [Output("DeletionProtection")]
+        public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("Engine")]
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("EngineVersion")]
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GlobalClusterProperties> Properties { get; private set; } = null!;
+        [Output("GlobalClusterIdentifier")]
+        public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+        /// </summary>
+        [Output("SourceDBClusterIdentifier")]
+        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+        /// </summary>
+        [Output("StorageEncrypted")]
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +59,7 @@ namespace Pulumi.AwsNative.RDS
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GlobalCluster(string name, GlobalClusterArgs args, CustomResourceOptions? options = null)
+        public GlobalCluster(string name, GlobalClusterArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:RDS:GlobalCluster", name, args ?? new GlobalClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,34 +97,40 @@ namespace Pulumi.AwsNative.RDS
     public sealed class GlobalClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("DeletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("Engine")]
+        public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("EngineVersion")]
+        public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.GlobalClusterPropertiesArgs> Properties { get; set; } = null!;
+        [Input("GlobalClusterIdentifier")]
+        public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("SourceDBClusterIdentifier")]
+        public Input<string>? SourceDBClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+        /// </summary>
+        [Input("StorageEncrypted")]
+        public Input<bool>? StorageEncrypted { get; set; }
 
         public GlobalClusterArgs()
         {

@@ -23,10 +23,6 @@ export class Provider extends pulumi.ProviderResource {
      * the region to use for deployments
      */
     public readonly region!: pulumi.Output<string>;
-    /**
-     * the name of the stack to use for deployments
-     */
-    public readonly stack!: pulumi.Output<string>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -41,11 +37,7 @@ export class Provider extends pulumi.ProviderResource {
             if ((!args || args.region === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'region'");
             }
-            if ((!args || args.stack === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'stack'");
-            }
             inputs["region"] = args ? args.region : undefined;
-            inputs["stack"] = args ? args.stack : undefined;
         }
         if (!opts) {
             opts = {}
@@ -66,8 +58,4 @@ export interface ProviderArgs {
      * the region to use for deployments
      */
     readonly region: pulumi.Input<string>;
-    /**
-     * the name of the stack to use for deployments
-     */
-    readonly stack: pulumi.Input<string>;
 }

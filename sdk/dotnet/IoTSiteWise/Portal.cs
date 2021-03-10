@@ -15,29 +15,50 @@ namespace Pulumi.AwsNative.IoTSiteWise
     [AwsNativeResourceType("aws-native:IoTSiteWise:Portal")]
     public partial class Portal : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.PortalAttributes> Attributes { get; private set; } = null!;
+        [Output("PortalArn")]
+        public Output<string> PortalArn { get; private set; } = null!;
+
+        [Output("PortalClientId")]
+        public Output<string> PortalClientId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("PortalContactEmail")]
+        public Output<string> PortalContactEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("PortalDescription")]
+        public Output<string?> PortalDescription { get; private set; } = null!;
+
+        [Output("PortalId")]
+        public Output<string> PortalId { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PortalProperties> Properties { get; private set; } = null!;
+        [Output("PortalName")]
+        public Output<string> PortalName { get; private set; } = null!;
+
+        [Output("PortalStartUrl")]
+        public Output<string> PortalStartUrl { get; private set; } = null!;
+
+        [Output("PortalStatus")]
+        public Output<Outputs.PortalPortalStatus> PortalStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        /// </summary>
+        [Output("RoleArn")]
+        public Output<string> RoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +106,40 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class PortalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("PortalContactEmail", required: true)]
+        public Input<string> PortalContactEmail { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("PortalDescription")]
+        public Input<string>? PortalDescription { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("PortalName", required: true)]
+        public Input<string> PortalName { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PortalPropertiesArgs> Properties { get; set; } = null!;
+        [Input("RoleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public PortalArgs()
         {

@@ -36,7 +36,7 @@ func TestVpcSingleInstanceInSubnet(t *testing.T) {
 	stack := getStackName(t)
 	defer deleteStack(t, stack)
 
-	test := getJSBaseOptions(t, stack).
+	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "vpc-single-instance-in-subnet"),
 		})
@@ -91,13 +91,12 @@ func getBaseOptions() integration.ProgramTestOptions {
 	}
 }
 
-func getJSBaseOptions(t *testing.T, stackName string) integration.ProgramTestOptions {
+func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	base := getBaseOptions()
 	baseJS := base.With(integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws-native:region": envRegion,
-			"aws-native:stack":  stackName,
 		},
 		Dependencies: []string{
 			"@pulumi/aws-native",

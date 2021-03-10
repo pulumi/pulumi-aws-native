@@ -7,8 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from ._inputs import *
 
 __all__ = ['ResolverQueryLoggingConfig']
 
@@ -17,11 +15,8 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ResolverQueryLoggingConfigPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +25,8 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['ResolverQueryLoggingConfigPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] destination_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +45,16 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['destination_arn'] = destination_arn
+            __props__['name'] = name
+            __props__['arn'] = None
+            __props__['association_count'] = None
+            __props__['creation_time'] = None
+            __props__['creator_request_id'] = None
+            __props__['id'] = None
+            __props__['owner_id'] = None
+            __props__['share_status'] = None
+            __props__['status'] = None
         super(ResolverQueryLoggingConfig, __self__).__init__(
             'aws-native:Route53Resolver:ResolverQueryLoggingConfig',
             resource_name,
@@ -86,36 +80,60 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         return ResolverQueryLoggingConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.ResolverQueryLoggingConfigAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="AssociationCount")
+    def association_count(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "association_count")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
+    @pulumi.getter(name="CreationTime")
+    def creation_time(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "creation_time")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ResolverQueryLoggingConfigProperties']:
+    @pulumi.getter(name="CreatorRequestId")
+    def creator_request_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "creator_request_id")
+
+    @property
+    @pulumi.getter(name="DestinationArn")
+    def destination_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter(name="Id")
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="Name")
+    def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="OwnerId")
+    def owner_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="ShareStatus")
+    def share_status(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "share_status")
+
+    @property
+    @pulumi.getter(name="Status")
+    def status(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "status")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

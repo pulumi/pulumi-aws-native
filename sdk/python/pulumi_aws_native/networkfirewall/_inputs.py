@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from .. import _inputs as _root_inputs
 
 __all__ = [
     'FirewallPolicyActionDefinitionArgs',
@@ -16,19 +15,16 @@ __all__ = [
     'FirewallPolicyDimensionArgs',
     'FirewallPolicyDimensionsArgs',
     'FirewallPolicyFirewallPolicyArgs',
-    'FirewallPolicyPropertiesArgs',
     'FirewallPolicyPublishMetricActionArgs',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyStatefulRuleGroupReferencesArgs',
     'FirewallPolicyStatelessActionsArgs',
     'FirewallPolicyStatelessRuleGroupReferenceArgs',
     'FirewallPolicyStatelessRuleGroupReferencesArgs',
-    'FirewallPropertiesArgs',
     'FirewallSubnetMappingArgs',
     'LoggingConfigurationLogDestinationConfigArgs',
     'LoggingConfigurationLogDestinationConfigsArgs',
     'LoggingConfigurationLoggingConfigurationArgs',
-    'LoggingConfigurationPropertiesArgs',
     'RuleGroupActionDefinitionArgs',
     'RuleGroupAddressArgs',
     'RuleGroupAddressesArgs',
@@ -43,7 +39,6 @@ __all__ = [
     'RuleGroupPortRangeArgs',
     'RuleGroupPortRangesArgs',
     'RuleGroupPortSetArgs',
-    'RuleGroupPropertiesArgs',
     'RuleGroupProtocolNumbersArgs',
     'RuleGroupPublishMetricActionArgs',
     'RuleGroupRuleDefinitionArgs',
@@ -284,76 +279,6 @@ class FirewallPolicyFirewallPolicyArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyPropertiesArgs:
-    def __init__(__self__, *,
-                 firewall_policy: pulumi.Input['FirewallPolicyFirewallPolicyArgs'],
-                 firewall_policy_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
-        :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        :param pulumi.Input[str] firewall_policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-        """
-        pulumi.set(__self__, "firewall_policy", firewall_policy)
-        pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="FirewallPolicy")
-    def firewall_policy(self) -> pulumi.Input['FirewallPolicyFirewallPolicyArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        """
-        return pulumi.get(self, "firewall_policy")
-
-    @firewall_policy.setter
-    def firewall_policy(self, value: pulumi.Input['FirewallPolicyFirewallPolicyArgs']):
-        pulumi.set(self, "firewall_policy", value)
-
-    @property
-    @pulumi.getter(name="FirewallPolicyName")
-    def firewall_policy_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        """
-        return pulumi.get(self, "firewall_policy_name")
-
-    @firewall_policy_name.setter
-    def firewall_policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "firewall_policy_name", value)
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
 class FirewallPolicyPublishMetricActionArgs:
     def __init__(__self__, *,
                  dimensions: pulumi.Input['FirewallPolicyDimensionsArgs']):
@@ -510,154 +435,6 @@ class FirewallPolicyStatelessRuleGroupReferencesArgs:
 
 
 @pulumi.input_type
-class FirewallPropertiesArgs:
-    def __init__(__self__, *,
-                 firewall_name: pulumi.Input[str],
-                 firewall_policy_arn: pulumi.Input[str],
-                 subnet_mappings: pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]],
-                 vpc_id: pulumi.Input[str],
-                 delete_protection: Optional[pulumi.Input[bool]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
-                 subnet_change_protection: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
-        :param pulumi.Input[str] firewall_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-        :param pulumi.Input[str] firewall_policy_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-        :param pulumi.Input[bool] delete_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-        :param pulumi.Input[bool] firewall_policy_change_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
-        :param pulumi.Input[bool] subnet_change_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-        """
-        pulumi.set(__self__, "firewall_name", firewall_name)
-        pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
-        pulumi.set(__self__, "subnet_mappings", subnet_mappings)
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if firewall_policy_change_protection is not None:
-            pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
-        if subnet_change_protection is not None:
-            pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="FirewallName")
-    def firewall_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-        """
-        return pulumi.get(self, "firewall_name")
-
-    @firewall_name.setter
-    def firewall_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "firewall_name", value)
-
-    @property
-    @pulumi.getter(name="FirewallPolicyArn")
-    def firewall_policy_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-        """
-        return pulumi.get(self, "firewall_policy_arn")
-
-    @firewall_policy_arn.setter
-    def firewall_policy_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "firewall_policy_arn", value)
-
-    @property
-    @pulumi.getter(name="SubnetMappings")
-    def subnet_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-        """
-        return pulumi.get(self, "subnet_mappings")
-
-    @subnet_mappings.setter
-    def subnet_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]):
-        pulumi.set(self, "subnet_mappings", value)
-
-    @property
-    @pulumi.getter(name="VpcId")
-    def vpc_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-        """
-        return pulumi.get(self, "vpc_id")
-
-    @vpc_id.setter
-    def vpc_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vpc_id", value)
-
-    @property
-    @pulumi.getter(name="DeleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-        """
-        return pulumi.get(self, "delete_protection")
-
-    @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "delete_protection", value)
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="FirewallPolicyChangeProtection")
-    def firewall_policy_change_protection(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
-        """
-        return pulumi.get(self, "firewall_policy_change_protection")
-
-    @firewall_policy_change_protection.setter
-    def firewall_policy_change_protection(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "firewall_policy_change_protection", value)
-
-    @property
-    @pulumi.getter(name="SubnetChangeProtection")
-    def subnet_change_protection(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-        """
-        return pulumi.get(self, "subnet_change_protection")
-
-    @subnet_change_protection.setter
-    def subnet_change_protection(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "subnet_change_protection", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
 class FirewallSubnetMappingArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str]):
@@ -778,60 +555,6 @@ class LoggingConfigurationLoggingConfigurationArgs:
     @log_destination_configs.setter
     def log_destination_configs(self, value: pulumi.Input['LoggingConfigurationLogDestinationConfigsArgs']):
         pulumi.set(self, "log_destination_configs", value)
-
-
-@pulumi.input_type
-class LoggingConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 firewall_arn: pulumi.Input[str],
-                 logging_configuration: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'],
-                 firewall_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
-        :param pulumi.Input[str] firewall_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-        :param pulumi.Input[str] firewall_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-        """
-        pulumi.set(__self__, "firewall_arn", firewall_arn)
-        pulumi.set(__self__, "logging_configuration", logging_configuration)
-        if firewall_name is not None:
-            pulumi.set(__self__, "firewall_name", firewall_name)
-
-    @property
-    @pulumi.getter(name="FirewallArn")
-    def firewall_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        """
-        return pulumi.get(self, "firewall_arn")
-
-    @firewall_arn.setter
-    def firewall_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "firewall_arn", value)
-
-    @property
-    @pulumi.getter(name="LoggingConfiguration")
-    def logging_configuration(self) -> pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-        """
-        return pulumi.get(self, "logging_configuration")
-
-    @logging_configuration.setter
-    def logging_configuration(self, value: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']):
-        pulumi.set(self, "logging_configuration", value)
-
-    @property
-    @pulumi.getter(name="FirewallName")
-    def firewall_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-        """
-        return pulumi.get(self, "firewall_name")
-
-    @firewall_name.setter
-    def firewall_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "firewall_name", value)
 
 
 @pulumi.input_type
@@ -1348,107 +1071,6 @@ class RuleGroupPortSetArgs:
     @definition.setter
     def definition(self, value: Optional[pulumi.Input['RuleGroupVariableDefinitionListArgs']]):
         pulumi.set(self, "definition", value)
-
-
-@pulumi.input_type
-class RuleGroupPropertiesArgs:
-    def __init__(__self__, *,
-                 capacity: pulumi.Input[int],
-                 rule_group_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
-        :param pulumi.Input[int] capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-        :param pulumi.Input[str] rule_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-        :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-        """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "rule_group_name", rule_group_name)
-        pulumi.set(__self__, "type", type)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if rule_group is not None:
-            pulumi.set(__self__, "rule_group", rule_group)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Capacity")
-    def capacity(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: pulumi.Input[int]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter(name="RuleGroupName")
-    def rule_group_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
-        """
-        return pulumi.get(self, "rule_group_name")
-
-    @rule_group_name.setter
-    def rule_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "rule_group_name", value)
-
-    @property
-    @pulumi.getter(name="Type")
-    def type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="RuleGroup")
-    def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-        """
-        return pulumi.get(self, "rule_group")
-
-    @rule_group.setter
-    def rule_group(self, value: Optional[pulumi.Input['RuleGroupRuleGroupArgs']]):
-        pulumi.set(self, "rule_group", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

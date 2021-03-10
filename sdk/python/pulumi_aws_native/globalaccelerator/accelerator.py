@@ -7,10 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._inputs import *
 
 __all__ = ['Accelerator']
 
@@ -19,11 +17,11 @@ class Accelerator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AcceleratorPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +30,11 @@ class Accelerator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['AcceleratorPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+        :param pulumi.Input[str] ip_address_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +53,15 @@ class Accelerator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['enabled'] = enabled
+            __props__['ip_address_type'] = ip_address_type
+            __props__['ip_addresses'] = ip_addresses
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
+            __props__['name'] = name
+            __props__['tags'] = tags
+            __props__['accelerator_arn'] = None
+            __props__['dns_name'] = None
         super(Accelerator, __self__).__init__(
             'aws-native:GlobalAccelerator:Accelerator',
             resource_name,
@@ -88,36 +87,54 @@ class Accelerator(pulumi.CustomResource):
         return Accelerator(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.AcceleratorAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="AcceleratorArn")
+    def accelerator_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "accelerator_arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="DnsName")
+    def dns_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "dns_name")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="Enabled")
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.AcceleratorProperties']:
+    @pulumi.getter(name="IpAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="IpAddresses")
+    def ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter(name="Name")
+    def name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

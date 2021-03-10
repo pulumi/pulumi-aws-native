@@ -16,28 +16,22 @@ namespace Pulumi.AwsNative.NetworkManager
     public partial class LinkAssociation : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.LinkAssociationAttributes> Attributes { get; private set; } = null!;
+        [Output("DeviceId")]
+        public Output<string> DeviceId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("GlobalNetworkId")]
+        public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LinkAssociationProperties> Properties { get; private set; } = null!;
+        [Output("LinkId")]
+        public Output<string> LinkId { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +79,22 @@ namespace Pulumi.AwsNative.NetworkManager
     public sealed class LinkAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("DeviceId", required: true)]
+        public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("GlobalNetworkId", required: true)]
+        public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.LinkAssociationPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-        /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("LinkId", required: true)]
+        public Input<string> LinkId { get; set; } = null!;
 
         public LinkAssociationArgs()
         {

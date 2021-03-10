@@ -35,22 +35,48 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelExplainabilityJobDefinition.__pulumiType;
     }
 
+    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
+    public /*out*/ readonly JobDefinitionArn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionAttributes>;
+    public readonly JobDefinitionName!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly JobResources!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringResources>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ModelExplainabilityAppSpecification!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
      */
-    public readonly properties!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionProperties>;
+    public readonly ModelExplainabilityBaselineConfig!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
+     */
+    public readonly ModelExplainabilityJobInput!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInput>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
+     */
+    public readonly ModelExplainabilityJobOutputConfig!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringOutputConfig>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
+     */
+    public readonly NetworkConfig!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionNetworkConfig | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
+     */
+    public readonly StoppingCondition!: pulumi.Output<outputs.SageMaker.ModelExplainabilityJobDefinitionStoppingCondition | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ModelExplainabilityJobDefinition resource with the given unique name, arguments, and options.
@@ -62,20 +88,46 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
     constructor(name: string, args: ModelExplainabilityJobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.JobResources === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'JobResources'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.ModelExplainabilityAppSpecification === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ModelExplainabilityAppSpecification'");
+            }
+            if ((!args || args.ModelExplainabilityJobInput === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ModelExplainabilityJobInput'");
+            }
+            if ((!args || args.ModelExplainabilityJobOutputConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ModelExplainabilityJobOutputConfig'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            inputs["JobDefinitionName"] = args ? args.JobDefinitionName : undefined;
+            inputs["JobResources"] = args ? args.JobResources : undefined;
+            inputs["ModelExplainabilityAppSpecification"] = args ? args.ModelExplainabilityAppSpecification : undefined;
+            inputs["ModelExplainabilityBaselineConfig"] = args ? args.ModelExplainabilityBaselineConfig : undefined;
+            inputs["ModelExplainabilityJobInput"] = args ? args.ModelExplainabilityJobInput : undefined;
+            inputs["ModelExplainabilityJobOutputConfig"] = args ? args.ModelExplainabilityJobOutputConfig : undefined;
+            inputs["NetworkConfig"] = args ? args.NetworkConfig : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["StoppingCondition"] = args ? args.StoppingCondition : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["JobDefinitionArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["JobDefinitionArn"] = undefined /*out*/;
+            inputs["JobDefinitionName"] = undefined /*out*/;
+            inputs["JobResources"] = undefined /*out*/;
+            inputs["ModelExplainabilityAppSpecification"] = undefined /*out*/;
+            inputs["ModelExplainabilityBaselineConfig"] = undefined /*out*/;
+            inputs["ModelExplainabilityJobInput"] = undefined /*out*/;
+            inputs["ModelExplainabilityJobOutputConfig"] = undefined /*out*/;
+            inputs["NetworkConfig"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["StoppingCondition"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +145,43 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
  */
 export interface ModelExplainabilityJobDefinitionArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly JobDefinitionName?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly JobResources: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringResources>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ModelExplainabilityAppSpecification: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
      */
-    readonly properties: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionProperties>;
+    readonly ModelExplainabilityBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly ModelExplainabilityJobInput: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInput>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
+     */
+    readonly ModelExplainabilityJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringOutputConfig>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
+     */
+    readonly NetworkConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionNetworkConfig>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
+     */
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
+     */
+    readonly StoppingCondition?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionStoppingCondition>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -7,36 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'StreamAttributes',
     'StreamKinesisConfiguration',
-    'StreamProperties',
 ]
-
-@pulumi.output_type
-class StreamAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamKinesisConfiguration(dict):
@@ -71,99 +45,6 @@ class StreamKinesisConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
         """
         return pulumi.get(self, "stream_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StreamProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
-    """
-    def __init__(__self__, *,
-                 inclusive_start_time: str,
-                 kinesis_configuration: 'outputs.StreamKinesisConfiguration',
-                 ledger_name: str,
-                 role_arn: str,
-                 stream_name: str,
-                 exclusive_end_time: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
-        :param str inclusive_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
-        :param 'StreamKinesisConfigurationArgs' kinesis_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
-        :param str ledger_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
-        :param str stream_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
-        :param str exclusive_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
-        """
-        pulumi.set(__self__, "inclusive_start_time", inclusive_start_time)
-        pulumi.set(__self__, "kinesis_configuration", kinesis_configuration)
-        pulumi.set(__self__, "ledger_name", ledger_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_name", stream_name)
-        if exclusive_end_time is not None:
-            pulumi.set(__self__, "exclusive_end_time", exclusive_end_time)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="InclusiveStartTime")
-    def inclusive_start_time(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
-        """
-        return pulumi.get(self, "inclusive_start_time")
-
-    @property
-    @pulumi.getter(name="KinesisConfiguration")
-    def kinesis_configuration(self) -> 'outputs.StreamKinesisConfiguration':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
-        """
-        return pulumi.get(self, "kinesis_configuration")
-
-    @property
-    @pulumi.getter(name="LedgerName")
-    def ledger_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
-        """
-        return pulumi.get(self, "ledger_name")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="StreamName")
-    def stream_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
-        """
-        return pulumi.get(self, "stream_name")
-
-    @property
-    @pulumi.getter(name="ExclusiveEndTime")
-    def exclusive_end_time(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
-        """
-        return pulumi.get(self, "exclusive_end_time")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

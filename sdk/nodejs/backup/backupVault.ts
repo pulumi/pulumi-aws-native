@@ -36,21 +36,23 @@ export class BackupVault extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Backup.BackupVaultAttributes>;
+    public readonly AccessPolicy!: pulumi.Output<any | string | undefined>;
+    public /*out*/ readonly BackupVaultArn!: pulumi.Output<string>;
+    public readonly BackupVaultName!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly BackupVaultTags!: pulumi.Output<any | string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly EncryptionKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    public readonly properties!: pulumi.Output<outputs.Backup.BackupVaultProperties>;
+    public readonly Notifications!: pulumi.Output<outputs.Backup.BackupVaultNotificationObjectType | undefined>;
 
     /**
      * Create a BackupVault resource with the given unique name, arguments, and options.
@@ -62,20 +64,22 @@ export class BackupVault extends pulumi.CustomResource {
     constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.BackupVaultName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'BackupVaultName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AccessPolicy"] = args ? args.AccessPolicy : undefined;
+            inputs["BackupVaultName"] = args ? args.BackupVaultName : undefined;
+            inputs["BackupVaultTags"] = args ? args.BackupVaultTags : undefined;
+            inputs["EncryptionKeyArn"] = args ? args.EncryptionKeyArn : undefined;
+            inputs["Notifications"] = args ? args.Notifications : undefined;
+            inputs["BackupVaultArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AccessPolicy"] = undefined /*out*/;
+            inputs["BackupVaultArn"] = undefined /*out*/;
+            inputs["BackupVaultName"] = undefined /*out*/;
+            inputs["BackupVaultTags"] = undefined /*out*/;
+            inputs["EncryptionKeyArn"] = undefined /*out*/;
+            inputs["Notifications"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +97,23 @@ export class BackupVault extends pulumi.CustomResource {
  */
 export interface BackupVaultArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AccessPolicy?: pulumi.Input<any | string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly BackupVaultName: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly BackupVaultTags?: pulumi.Input<any | string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
      */
-    readonly properties: pulumi.Input<inputs.Backup.BackupVaultProperties>;
+    readonly EncryptionKeyArn?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectType>;
 }

@@ -36,21 +36,43 @@ export class Device extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.NetworkManager.DeviceAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly DeviceArn!: pulumi.Output<string>;
+    public /*out*/ readonly DeviceId!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly GlobalNetworkId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Location!: pulumi.Output<outputs.NetworkManager.DeviceLocation | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
      */
-    public readonly properties!: pulumi.Output<outputs.NetworkManager.DeviceProperties>;
+    public readonly Model!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
+     */
+    public readonly SerialNumber!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
+     */
+    public readonly SiteId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
+     */
+    public readonly Type!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+     */
+    public readonly Vendor!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -62,20 +84,32 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'GlobalNetworkId'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
+            inputs["Location"] = args ? args.Location : undefined;
+            inputs["Model"] = args ? args.Model : undefined;
+            inputs["SerialNumber"] = args ? args.SerialNumber : undefined;
+            inputs["SiteId"] = args ? args.SiteId : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
+            inputs["Vendor"] = args ? args.Vendor : undefined;
+            inputs["DeviceArn"] = undefined /*out*/;
+            inputs["DeviceId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["DeviceArn"] = undefined /*out*/;
+            inputs["DeviceId"] = undefined /*out*/;
+            inputs["GlobalNetworkId"] = undefined /*out*/;
+            inputs["Location"] = undefined /*out*/;
+            inputs["Model"] = undefined /*out*/;
+            inputs["SerialNumber"] = undefined /*out*/;
+            inputs["SiteId"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
+            inputs["Vendor"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +127,39 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly GlobalNetworkId: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Location?: pulumi.Input<inputs.NetworkManager.DeviceLocation>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
      */
-    readonly properties: pulumi.Input<inputs.NetworkManager.DeviceProperties>;
+    readonly Model?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly SerialNumber?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
+     */
+    readonly SiteId?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
+     */
+    readonly Type?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+     */
+    readonly Vendor?: pulumi.Input<string>;
 }

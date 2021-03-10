@@ -36,21 +36,29 @@ export class ConformancePack extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Configuration.ConformancePackAttributes>;
+    public readonly ConformancePackInputParameters!: pulumi.Output<outputs.Configuration.ConformancePackConformancePackInputParameter[] | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ConformancePackName!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DeliveryS3Bucket!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
      */
-    public readonly properties!: pulumi.Output<outputs.Configuration.ConformancePackProperties>;
+    public readonly DeliveryS3KeyPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+     */
+    public readonly TemplateBody!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+     */
+    public readonly TemplateS3Uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -62,20 +70,22 @@ export class ConformancePack extends pulumi.CustomResource {
     constructor(name: string, args: ConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ConformancePackName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ConformancePackName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["ConformancePackInputParameters"] = args ? args.ConformancePackInputParameters : undefined;
+            inputs["ConformancePackName"] = args ? args.ConformancePackName : undefined;
+            inputs["DeliveryS3Bucket"] = args ? args.DeliveryS3Bucket : undefined;
+            inputs["DeliveryS3KeyPrefix"] = args ? args.DeliveryS3KeyPrefix : undefined;
+            inputs["TemplateBody"] = args ? args.TemplateBody : undefined;
+            inputs["TemplateS3Uri"] = args ? args.TemplateS3Uri : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ConformancePackInputParameters"] = undefined /*out*/;
+            inputs["ConformancePackName"] = undefined /*out*/;
+            inputs["DeliveryS3Bucket"] = undefined /*out*/;
+            inputs["DeliveryS3KeyPrefix"] = undefined /*out*/;
+            inputs["TemplateBody"] = undefined /*out*/;
+            inputs["TemplateS3Uri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,27 @@ export class ConformancePack extends pulumi.CustomResource {
  */
 export interface ConformancePackArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ConformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameter>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ConformancePackName: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DeliveryS3Bucket?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
      */
-    readonly properties: pulumi.Input<inputs.Configuration.ConformancePackProperties>;
+    readonly DeliveryS3KeyPrefix?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly TemplateBody?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+     */
+    readonly TemplateS3Uri?: pulumi.Input<string>;
 }

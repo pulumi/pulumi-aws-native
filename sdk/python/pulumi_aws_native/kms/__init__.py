@@ -5,8 +5,6 @@
 # Export this package's modules as members:
 from .alias import *
 from .key import *
-from ._inputs import *
-from . import outputs
 
 def _register_module():
     import pulumi

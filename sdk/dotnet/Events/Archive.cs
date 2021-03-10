@@ -15,29 +15,35 @@ namespace Pulumi.AwsNative.Events
     [AwsNativeResourceType("aws-native:Events:Archive")]
     public partial class Archive : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ArchiveAttributes> Attributes { get; private set; } = null!;
+        [Output("ArchiveName")]
+        public Output<string> ArchiveName { get; private set; } = null!;
+
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("Description")]
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("EventPattern")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> EventPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ArchiveProperties> Properties { get; private set; } = null!;
+        [Output("RetentionDays")]
+        public Output<int?> RetentionDays { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
+        /// </summary>
+        [Output("SourceArn")]
+        public Output<string> SourceArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +91,34 @@ namespace Pulumi.AwsNative.Events
     public sealed class ArchiveArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ArchiveName")]
+        public Input<string>? ArchiveName { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("Description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("EventPattern")]
+        public InputUnion<System.Text.Json.JsonElement, string>? EventPattern { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ArchivePropertiesArgs> Properties { get; set; } = null!;
+        [Input("RetentionDays")]
+        public Input<int>? RetentionDays { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("SourceArn", required: true)]
+        public Input<string> SourceArn { get; set; } = null!;
 
         public ArchiveArgs()
         {

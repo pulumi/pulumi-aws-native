@@ -19,11 +19,18 @@ class Canary(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CanaryPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 artifact_s3_location: Optional[pulumi.Input[str]] = None,
+                 code: Optional[pulumi.Input[pulumi.InputType['CanaryCodeArgs']]] = None,
+                 execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 failure_retention_period: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
+                 start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
+                 success_retention_period: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +39,18 @@ class Canary(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['CanaryPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] artifact_s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
+        :param pulumi.Input[pulumi.InputType['CanaryCodeArgs']] code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
+        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
+        :param pulumi.Input[int] failure_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
+        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']] run_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
+        :param pulumi.Input[str] runtime_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
+        :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
+        :param pulumi.Input[bool] start_canary_after_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+        :param pulumi.Input[int] success_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
+        :param pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']] vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +69,34 @@ class Canary(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if artifact_s3_location is None and not opts.urn:
+                raise TypeError("Missing required property 'artifact_s3_location'")
+            __props__['artifact_s3_location'] = artifact_s3_location
+            if code is None and not opts.urn:
+                raise TypeError("Missing required property 'code'")
+            __props__['code'] = code
+            if execution_role_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'execution_role_arn'")
+            __props__['execution_role_arn'] = execution_role_arn
+            __props__['failure_retention_period'] = failure_retention_period
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
+            __props__['name'] = name
+            __props__['run_config'] = run_config
+            if runtime_version is None and not opts.urn:
+                raise TypeError("Missing required property 'runtime_version'")
+            __props__['runtime_version'] = runtime_version
+            if schedule is None and not opts.urn:
+                raise TypeError("Missing required property 'schedule'")
+            __props__['schedule'] = schedule
+            if start_canary_after_creation is None and not opts.urn:
+                raise TypeError("Missing required property 'start_canary_after_creation'")
+            __props__['start_canary_after_creation'] = start_canary_after_creation
+            __props__['success_retention_period'] = success_retention_period
+            __props__['tags'] = tags
+            __props__['vpc_config'] = vpc_config
+            __props__['id'] = None
+            __props__['state'] = None
         super(Canary, __self__).__init__(
             'aws-native:Synthetics:Canary',
             resource_name,
@@ -88,36 +122,110 @@ class Canary(pulumi.CustomResource):
         return Canary(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.CanaryAttributes']:
+    @pulumi.getter(name="ArtifactS3Location")
+    def artifact_s3_location(self) -> pulumi.Output[str]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "artifact_s3_location")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="Code")
+    def code(self) -> pulumi.Output['outputs.CanaryCode']:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "code")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ExecutionRoleArn")
+    def execution_role_arn(self) -> pulumi.Output[str]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "execution_role_arn")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.CanaryProperties']:
+    @pulumi.getter(name="FailureRetentionPeriod")
+    def failure_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "failure_retention_period")
+
+    @property
+    @pulumi.getter(name="Id")
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="Name")
+    def name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="RunConfig")
+    def run_config(self) -> pulumi.Output[Optional['outputs.CanaryRunConfig']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
+        """
+        return pulumi.get(self, "run_config")
+
+    @property
+    @pulumi.getter(name="RuntimeVersion")
+    def runtime_version(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @property
+    @pulumi.getter(name="Schedule")
+    def schedule(self) -> pulumi.Output['outputs.CanarySchedule']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="StartCanaryAfterCreation")
+    def start_canary_after_creation(self) -> pulumi.Output[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+        """
+        return pulumi.get(self, "start_canary_after_creation")
+
+    @property
+    @pulumi.getter(name="State")
+    def state(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="SuccessRetentionPeriod")
+    def success_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
+        """
+        return pulumi.get(self, "success_retention_period")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="VPCConfig")
+    def vpc_config(self) -> pulumi.Output[Optional['outputs.CanaryVPCConfig']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+        """
+        return pulumi.get(self, "vpc_config")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

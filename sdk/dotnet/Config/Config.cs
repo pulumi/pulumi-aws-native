@@ -13,10 +13,5 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static string? Region { get; set; } = __config.Get("region");
 
-        /// <summary>
-        /// the name of the stack to use for deployments
-        /// </summary>
-        public static string? Stack { get; set; } = __config.Get("stack");
-
     }
 }

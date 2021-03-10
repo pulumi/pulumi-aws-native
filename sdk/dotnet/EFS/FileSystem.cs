@@ -15,29 +15,65 @@ namespace Pulumi.AwsNative.EFS
     [AwsNativeResourceType("aws-native:EFS:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.FileSystemAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("BackupPolicy")]
+        public Output<Outputs.FileSystemBackupPolicy?> BackupPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Encrypted")]
+        public Output<bool?> Encrypted { get; private set; } = null!;
+
+        [Output("FileSystemId")]
+        public Output<string> FileSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FileSystemProperties> Properties { get; private set; } = null!;
+        [Output("FileSystemPolicy")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> FileSystemPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
+        /// </summary>
+        [Output("FileSystemTags")]
+        public Output<ImmutableArray<Outputs.FileSystemElasticFileSystemTag>> FileSystemTags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
+        /// </summary>
+        [Output("KmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+        /// </summary>
+        [Output("LifecyclePolicies")]
+        public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
+        /// </summary>
+        [Output("PerformanceMode")]
+        public Output<string?> PerformanceMode { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
+        /// </summary>
+        [Output("ProvisionedThroughputInMibps")]
+        public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+        /// </summary>
+        [Output("ThroughputMode")]
+        public Output<string?> ThroughputMode { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +83,7 @@ namespace Pulumi.AwsNative.EFS
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public FileSystem(string name, FileSystemArgs args, CustomResourceOptions? options = null)
+        public FileSystem(string name, FileSystemArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:EFS:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,34 +121,70 @@ namespace Pulumi.AwsNative.EFS
     public sealed class FileSystemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("BackupPolicy")]
+        public Input<Inputs.FileSystemBackupPolicyArgs>? BackupPolicy { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("Encrypted")]
+        public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("FileSystemPolicy")]
+        public InputUnion<System.Text.Json.JsonElement, string>? FileSystemPolicy { get; set; }
+
+        [Input("FileSystemTags")]
+        private InputList<Inputs.FileSystemElasticFileSystemTagArgs>? _FileSystemTags;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FileSystemPropertiesArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.FileSystemElasticFileSystemTagArgs> FileSystemTags
+        {
+            get => _FileSystemTags ?? (_FileSystemTags = new InputList<Inputs.FileSystemElasticFileSystemTagArgs>());
+            set => _FileSystemTags = value;
+        }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("KmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
+
+        [Input("LifecyclePolicies")]
+        private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _LifecyclePolicies;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+        /// </summary>
+        public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
+        {
+            get => _LifecyclePolicies ?? (_LifecyclePolicies = new InputList<Inputs.FileSystemLifecyclePolicyArgs>());
+            set => _LifecyclePolicies = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
+        /// </summary>
+        [Input("PerformanceMode")]
+        public Input<string>? PerformanceMode { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
+        /// </summary>
+        [Input("ProvisionedThroughputInMibps")]
+        public Input<double>? ProvisionedThroughputInMibps { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+        /// </summary>
+        [Input("ThroughputMode")]
+        public Input<string>? ThroughputMode { get; set; }
 
         public FileSystemArgs()
         {

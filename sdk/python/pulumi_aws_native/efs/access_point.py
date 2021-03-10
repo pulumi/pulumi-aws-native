@@ -17,11 +17,11 @@ class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AccessPointPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointAccessPointTagArgs']]]]] = None,
+                 client_token: Optional[pulumi.Input[str]] = None,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
+                 root_directory: Optional[pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +30,11 @@ class AccessPoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['AccessPointPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointAccessPointTagArgs']]]] access_point_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
+        :param pulumi.Input[str] client_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
+        :param pulumi.Input[str] file_system_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
+        :param pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']] posix_user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
+        :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +53,15 @@ class AccessPoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['access_point_tags'] = access_point_tags
+            __props__['client_token'] = client_token
+            if file_system_id is None and not opts.urn:
+                raise TypeError("Missing required property 'file_system_id'")
+            __props__['file_system_id'] = file_system_id
+            __props__['posix_user'] = posix_user
+            __props__['root_directory'] = root_directory
+            __props__['access_point_id'] = None
+            __props__['arn'] = None
         super(AccessPoint, __self__).__init__(
             'aws-native:EFS:AccessPoint',
             resource_name,
@@ -86,36 +87,54 @@ class AccessPoint(pulumi.CustomResource):
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.AccessPointAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="AccessPointId")
+    def access_point_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "access_point_id")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="AccessPointTags")
+    def access_point_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessPointAccessPointTag']]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "access_point_tags")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.AccessPointProperties']:
+    @pulumi.getter(name="ClientToken")
+    def client_token(self) -> pulumi.Output[Optional[str]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "client_token")
+
+    @property
+    @pulumi.getter(name="FileSystemId")
+    def file_system_id(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="PosixUser")
+    def posix_user(self) -> pulumi.Output[Optional['outputs.AccessPointPosixUser']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
+        """
+        return pulumi.get(self, "posix_user")
+
+    @property
+    @pulumi.getter(name="RootDirectory")
+    def root_directory(self) -> pulumi.Output[Optional['outputs.AccessPointRootDirectory']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        """
+        return pulumi.get(self, "root_directory")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

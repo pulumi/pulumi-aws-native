@@ -35,22 +35,29 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IVS.ChannelAttributes>;
+    public readonly Authorized!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly IngestEndpoint!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly LatencyMode!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly PlaybackUrl!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
      */
-    public readonly properties!: pulumi.Output<outputs.IVS.ChannelProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
+     */
+    public readonly Type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -59,23 +66,26 @@ export class Channel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Authorized"] = args ? args.Authorized : undefined;
+            inputs["LatencyMode"] = args ? args.LatencyMode : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["IngestEndpoint"] = undefined /*out*/;
+            inputs["PlaybackUrl"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Authorized"] = undefined /*out*/;
+            inputs["IngestEndpoint"] = undefined /*out*/;
+            inputs["LatencyMode"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["PlaybackUrl"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,23 @@ export class Channel extends pulumi.CustomResource {
  */
 export interface ChannelArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Authorized?: pulumi.Input<boolean>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly LatencyMode?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Name?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
      */
-    readonly properties: pulumi.Input<inputs.IVS.ChannelProperties>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Type?: pulumi.Input<string>;
 }

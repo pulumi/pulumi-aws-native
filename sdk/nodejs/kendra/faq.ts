@@ -35,22 +35,36 @@ export class Faq extends pulumi.CustomResource {
         return obj['__pulumiType'] === Faq.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Kendra.FaqAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly FileFormat!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly IndexId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
      */
-    public readonly properties!: pulumi.Output<outputs.Kendra.FaqProperties>;
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
+     */
+    public readonly S3Path!: pulumi.Output<outputs.Kendra.FaqS3Path>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Kendra.FaqTagList | undefined>;
 
     /**
      * Create a Faq resource with the given unique name, arguments, and options.
@@ -62,20 +76,37 @@ export class Faq extends pulumi.CustomResource {
     constructor(name: string, args: FaqArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.IndexId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'IndexId'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            if ((!args || args.S3Path === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'S3Path'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["FileFormat"] = args ? args.FileFormat : undefined;
+            inputs["IndexId"] = args ? args.IndexId : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["S3Path"] = args ? args.S3Path : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["FileFormat"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["IndexId"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["S3Path"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +124,31 @@ export class Faq extends pulumi.CustomResource {
  */
 export interface FaqArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly FileFormat?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly IndexId: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
      */
-    readonly properties: pulumi.Input<inputs.Kendra.FaqProperties>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
+     */
+    readonly S3Path: pulumi.Input<inputs.Kendra.FaqS3Path>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
+     */
+    readonly Tags?: pulumi.Input<inputs.Kendra.FaqTagList>;
 }

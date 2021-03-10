@@ -16,28 +16,25 @@ namespace Pulumi.AwsNative.Backup
     public partial class BackupPlan : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.BackupPlanAttributes> Attributes { get; private set; } = null!;
+        [Output("BackupPlan")]
+        public Output<Outputs.BackupPlanBackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
+
+        [Output("BackupPlanArn")]
+        public Output<string> BackupPlanArn { get; private set; } = null!;
+
+        [Output("BackupPlanId")]
+        public Output<string> BackupPlanId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("BackupPlanTags")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> BackupPlanTags { get; private set; } = null!;
 
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BackupPlanProperties> Properties { get; private set; } = null!;
+        [Output("VersionId")]
+        public Output<string> VersionId { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +82,16 @@ namespace Pulumi.AwsNative.Backup
     public sealed class BackupPlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("BackupPlan", required: true)]
+        public Input<Inputs.BackupPlanBackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BackupPlanPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-        /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("BackupPlanTags")]
+        public InputUnion<System.Text.Json.JsonElement, string>? BackupPlanTags { get; set; }
 
         public BackupPlanArgs()
         {

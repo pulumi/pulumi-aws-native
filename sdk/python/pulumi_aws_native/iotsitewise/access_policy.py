@@ -17,11 +17,9 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AccessPolicyPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 access_policy_identity: Optional[pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyIdentityArgs']]] = None,
+                 access_policy_permission: Optional[pulumi.Input[str]] = None,
+                 access_policy_resource: Optional[pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyResourceArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +28,9 @@ class AccessPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['AccessPolicyPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyIdentityArgs']] access_policy_identity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
+        :param pulumi.Input[str] access_policy_permission: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
+        :param pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyResourceArgs']] access_policy_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +49,17 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if access_policy_identity is None and not opts.urn:
+                raise TypeError("Missing required property 'access_policy_identity'")
+            __props__['access_policy_identity'] = access_policy_identity
+            if access_policy_permission is None and not opts.urn:
+                raise TypeError("Missing required property 'access_policy_permission'")
+            __props__['access_policy_permission'] = access_policy_permission
+            if access_policy_resource is None and not opts.urn:
+                raise TypeError("Missing required property 'access_policy_resource'")
+            __props__['access_policy_resource'] = access_policy_resource
+            __props__['access_policy_arn'] = None
+            __props__['access_policy_id'] = None
         super(AccessPolicy, __self__).__init__(
             'aws-native:IoTSiteWise:AccessPolicy',
             resource_name,
@@ -86,36 +85,38 @@ class AccessPolicy(pulumi.CustomResource):
         return AccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.AccessPolicyAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="AccessPolicyArn")
+    def access_policy_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "access_policy_arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="AccessPolicyId")
+    def access_policy_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "access_policy_id")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="AccessPolicyIdentity")
+    def access_policy_identity(self) -> pulumi.Output['outputs.AccessPolicyAccessPolicyIdentity']:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "access_policy_identity")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.AccessPolicyProperties']:
+    @pulumi.getter(name="AccessPolicyPermission")
+    def access_policy_permission(self) -> pulumi.Output[str]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "access_policy_permission")
+
+    @property
+    @pulumi.getter(name="AccessPolicyResource")
+    def access_policy_resource(self) -> pulumi.Output['outputs.AccessPolicyAccessPolicyResource']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+        """
+        return pulumi.get(self, "access_policy_resource")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

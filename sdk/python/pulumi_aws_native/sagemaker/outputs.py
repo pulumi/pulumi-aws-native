@@ -8,10 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'DataQualityJobDefinitionAttributes',
     'DataQualityJobDefinitionClusterConfig',
     'DataQualityJobDefinitionConstraintsResource',
     'DataQualityJobDefinitionDataQualityAppSpecification',
@@ -23,17 +21,11 @@ __all__ = [
     'DataQualityJobDefinitionMonitoringOutputConfig',
     'DataQualityJobDefinitionMonitoringResources',
     'DataQualityJobDefinitionNetworkConfig',
-    'DataQualityJobDefinitionProperties',
     'DataQualityJobDefinitionS3Output',
     'DataQualityJobDefinitionStatisticsResource',
     'DataQualityJobDefinitionStoppingCondition',
     'DataQualityJobDefinitionVpcConfig',
-    'DeviceAttributes',
-    'DeviceFleetAttributes',
     'DeviceFleetEdgeOutputConfig',
-    'DeviceFleetProperties',
-    'DeviceProperties',
-    'ModelBiasJobDefinitionAttributes',
     'ModelBiasJobDefinitionClusterConfig',
     'ModelBiasJobDefinitionConstraintsResource',
     'ModelBiasJobDefinitionEndpointInput',
@@ -46,11 +38,9 @@ __all__ = [
     'ModelBiasJobDefinitionMonitoringOutputConfig',
     'ModelBiasJobDefinitionMonitoringResources',
     'ModelBiasJobDefinitionNetworkConfig',
-    'ModelBiasJobDefinitionProperties',
     'ModelBiasJobDefinitionS3Output',
     'ModelBiasJobDefinitionStoppingCondition',
     'ModelBiasJobDefinitionVpcConfig',
-    'ModelExplainabilityJobDefinitionAttributes',
     'ModelExplainabilityJobDefinitionClusterConfig',
     'ModelExplainabilityJobDefinitionConstraintsResource',
     'ModelExplainabilityJobDefinitionEndpointInput',
@@ -62,13 +52,9 @@ __all__ = [
     'ModelExplainabilityJobDefinitionMonitoringOutputConfig',
     'ModelExplainabilityJobDefinitionMonitoringResources',
     'ModelExplainabilityJobDefinitionNetworkConfig',
-    'ModelExplainabilityJobDefinitionProperties',
     'ModelExplainabilityJobDefinitionS3Output',
     'ModelExplainabilityJobDefinitionStoppingCondition',
     'ModelExplainabilityJobDefinitionVpcConfig',
-    'ModelPackageGroupAttributes',
-    'ModelPackageGroupProperties',
-    'ModelQualityJobDefinitionAttributes',
     'ModelQualityJobDefinitionClusterConfig',
     'ModelQualityJobDefinitionConstraintsResource',
     'ModelQualityJobDefinitionEndpointInput',
@@ -81,11 +67,9 @@ __all__ = [
     'ModelQualityJobDefinitionMonitoringOutputConfig',
     'ModelQualityJobDefinitionMonitoringResources',
     'ModelQualityJobDefinitionNetworkConfig',
-    'ModelQualityJobDefinitionProperties',
     'ModelQualityJobDefinitionS3Output',
     'ModelQualityJobDefinitionStoppingCondition',
     'ModelQualityJobDefinitionVpcConfig',
-    'MonitoringScheduleAttributes',
     'MonitoringScheduleBaselineConfig',
     'MonitoringScheduleClusterConfig',
     'MonitoringScheduleConstraintsResource',
@@ -101,39 +85,12 @@ __all__ = [
     'MonitoringScheduleMonitoringResources',
     'MonitoringScheduleMonitoringScheduleConfig',
     'MonitoringScheduleNetworkConfig',
-    'MonitoringScheduleProperties',
     'MonitoringScheduleS3Output',
     'MonitoringScheduleScheduleConfig',
     'MonitoringScheduleStatisticsResource',
     'MonitoringScheduleStoppingCondition',
     'MonitoringScheduleVpcConfig',
-    'PipelineAttributes',
-    'PipelineProperties',
-    'ProjectAttributes',
-    'ProjectProperties',
 ]
-
-@pulumi.output_type
-class DataQualityJobDefinitionAttributes(dict):
-    def __init__(__self__, *,
-                 creation_time: str,
-                 job_definition_arn: str):
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "job_definition_arn", job_definition_arn)
-
-    @property
-    @pulumi.getter(name="CreationTime")
-    def creation_time(self) -> str:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="JobDefinitionArn")
-    def job_definition_arn(self) -> str:
-        return pulumi.get(self, "job_definition_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionClusterConfig(dict):
@@ -593,135 +550,6 @@ class DataQualityJobDefinitionNetworkConfig(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html
-    """
-    def __init__(__self__, *,
-                 data_quality_app_specification: 'outputs.DataQualityJobDefinitionDataQualityAppSpecification',
-                 data_quality_job_input: 'outputs.DataQualityJobDefinitionDataQualityJobInput',
-                 data_quality_job_output_config: 'outputs.DataQualityJobDefinitionMonitoringOutputConfig',
-                 job_resources: 'outputs.DataQualityJobDefinitionMonitoringResources',
-                 role_arn: str,
-                 data_quality_baseline_config: Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfig'] = None,
-                 job_definition_name: Optional[str] = None,
-                 network_config: Optional['outputs.DataQualityJobDefinitionNetworkConfig'] = None,
-                 stopping_condition: Optional['outputs.DataQualityJobDefinitionStoppingCondition'] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html
-        :param 'DataQualityJobDefinitionDataQualityAppSpecificationArgs' data_quality_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
-        :param 'DataQualityJobDefinitionDataQualityJobInputArgs' data_quality_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
-        :param 'DataQualityJobDefinitionMonitoringOutputConfigArgs' data_quality_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
-        :param 'DataQualityJobDefinitionMonitoringResourcesArgs' job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
-        :param 'DataQualityJobDefinitionDataQualityBaselineConfigArgs' data_quality_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
-        :param str job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
-        :param 'DataQualityJobDefinitionNetworkConfigArgs' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
-        :param 'DataQualityJobDefinitionStoppingConditionArgs' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
-        """
-        pulumi.set(__self__, "data_quality_app_specification", data_quality_app_specification)
-        pulumi.set(__self__, "data_quality_job_input", data_quality_job_input)
-        pulumi.set(__self__, "data_quality_job_output_config", data_quality_job_output_config)
-        pulumi.set(__self__, "job_resources", job_resources)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if data_quality_baseline_config is not None:
-            pulumi.set(__self__, "data_quality_baseline_config", data_quality_baseline_config)
-        if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
-        if network_config is not None:
-            pulumi.set(__self__, "network_config", network_config)
-        if stopping_condition is not None:
-            pulumi.set(__self__, "stopping_condition", stopping_condition)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="DataQualityAppSpecification")
-    def data_quality_app_specification(self) -> 'outputs.DataQualityJobDefinitionDataQualityAppSpecification':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
-        """
-        return pulumi.get(self, "data_quality_app_specification")
-
-    @property
-    @pulumi.getter(name="DataQualityJobInput")
-    def data_quality_job_input(self) -> 'outputs.DataQualityJobDefinitionDataQualityJobInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
-        """
-        return pulumi.get(self, "data_quality_job_input")
-
-    @property
-    @pulumi.getter(name="DataQualityJobOutputConfig")
-    def data_quality_job_output_config(self) -> 'outputs.DataQualityJobDefinitionMonitoringOutputConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
-        """
-        return pulumi.get(self, "data_quality_job_output_config")
-
-    @property
-    @pulumi.getter(name="JobResources")
-    def job_resources(self) -> 'outputs.DataQualityJobDefinitionMonitoringResources':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
-        """
-        return pulumi.get(self, "job_resources")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="DataQualityBaselineConfig")
-    def data_quality_baseline_config(self) -> Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
-        """
-        return pulumi.get(self, "data_quality_baseline_config")
-
-    @property
-    @pulumi.getter(name="JobDefinitionName")
-    def job_definition_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
-        """
-        return pulumi.get(self, "job_definition_name")
-
-    @property
-    @pulumi.getter(name="NetworkConfig")
-    def network_config(self) -> Optional['outputs.DataQualityJobDefinitionNetworkConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
-        """
-        return pulumi.get(self, "network_config")
-
-    @property
-    @pulumi.getter(name="StoppingCondition")
-    def stopping_condition(self) -> Optional['outputs.DataQualityJobDefinitionStoppingCondition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
-        """
-        return pulumi.get(self, "stopping_condition")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class DataQualityJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
@@ -857,36 +685,6 @@ class DataQualityJobDefinitionVpcConfig(dict):
 
 
 @pulumi.output_type
-class DeviceAttributes(dict):
-    def __init__(__self__, *,
-                 device_fleet_name: str):
-        pulumi.set(__self__, "device_fleet_name", device_fleet_name)
-
-    @property
-    @pulumi.getter(name="DeviceFleetName")
-    def device_fleet_name(self) -> str:
-        return pulumi.get(self, "device_fleet_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DeviceFleetAttributes(dict):
-    def __init__(__self__, *,
-                 device_fleet_name: str):
-        pulumi.set(__self__, "device_fleet_name", device_fleet_name)
-
-    @property
-    @pulumi.getter(name="DeviceFleetName")
-    def device_fleet_name(self) -> str:
-        return pulumi.get(self, "device_fleet_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class DeviceFleetEdgeOutputConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
@@ -918,126 +716,6 @@ class DeviceFleetEdgeOutputConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
         """
         return pulumi.get(self, "kms_key_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DeviceFleetProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html
-    """
-    def __init__(__self__, *,
-                 output_config: 'outputs.DeviceFleetEdgeOutputConfig',
-                 role_arn: str,
-                 description: Optional[str] = None,
-                 tags: Optional['_root_outputs.Tag'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html
-        :param 'DeviceFleetEdgeOutputConfigArgs' output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
-        :param '_root_inputs.TagArgs' tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-        """
-        pulumi.set(__self__, "output_config", output_config)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="OutputConfig")
-    def output_config(self) -> 'outputs.DeviceFleetEdgeOutputConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
-        """
-        return pulumi.get(self, "output_config")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional['_root_outputs.Tag']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DeviceProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
-    """
-    def __init__(__self__, *,
-                 device: Optional[str] = None,
-                 tags: Optional['_root_outputs.Tag'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
-        :param Union[Any, str] device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-        :param '_root_inputs.TagArgs' tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-        """
-        if device is not None:
-            pulumi.set(__self__, "device", device)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Device")
-    def device(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-        """
-        return pulumi.get(self, "device")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional['_root_outputs.Tag']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ModelBiasJobDefinitionAttributes(dict):
-    def __init__(__self__, *,
-                 creation_time: str,
-                 job_definition_arn: str):
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "job_definition_arn", job_definition_arn)
-
-    @property
-    @pulumi.getter(name="CreationTime")
-    def creation_time(self) -> str:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="JobDefinitionArn")
-    def job_definition_arn(self) -> str:
-        return pulumi.get(self, "job_definition_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1560,135 +1238,6 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
 
 
 @pulumi.output_type
-class ModelBiasJobDefinitionProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
-    """
-    def __init__(__self__, *,
-                 job_resources: 'outputs.ModelBiasJobDefinitionMonitoringResources',
-                 model_bias_app_specification: 'outputs.ModelBiasJobDefinitionModelBiasAppSpecification',
-                 model_bias_job_input: 'outputs.ModelBiasJobDefinitionModelBiasJobInput',
-                 model_bias_job_output_config: 'outputs.ModelBiasJobDefinitionMonitoringOutputConfig',
-                 role_arn: str,
-                 job_definition_name: Optional[str] = None,
-                 model_bias_baseline_config: Optional['outputs.ModelBiasJobDefinitionModelBiasBaselineConfig'] = None,
-                 network_config: Optional['outputs.ModelBiasJobDefinitionNetworkConfig'] = None,
-                 stopping_condition: Optional['outputs.ModelBiasJobDefinitionStoppingCondition'] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
-        :param 'ModelBiasJobDefinitionMonitoringResourcesArgs' job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
-        :param 'ModelBiasJobDefinitionModelBiasAppSpecificationArgs' model_bias_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
-        :param 'ModelBiasJobDefinitionModelBiasJobInputArgs' model_bias_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
-        :param 'ModelBiasJobDefinitionMonitoringOutputConfigArgs' model_bias_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
-        :param str job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
-        :param 'ModelBiasJobDefinitionModelBiasBaselineConfigArgs' model_bias_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
-        :param 'ModelBiasJobDefinitionNetworkConfigArgs' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
-        :param 'ModelBiasJobDefinitionStoppingConditionArgs' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
-        """
-        pulumi.set(__self__, "job_resources", job_resources)
-        pulumi.set(__self__, "model_bias_app_specification", model_bias_app_specification)
-        pulumi.set(__self__, "model_bias_job_input", model_bias_job_input)
-        pulumi.set(__self__, "model_bias_job_output_config", model_bias_job_output_config)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
-        if model_bias_baseline_config is not None:
-            pulumi.set(__self__, "model_bias_baseline_config", model_bias_baseline_config)
-        if network_config is not None:
-            pulumi.set(__self__, "network_config", network_config)
-        if stopping_condition is not None:
-            pulumi.set(__self__, "stopping_condition", stopping_condition)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="JobResources")
-    def job_resources(self) -> 'outputs.ModelBiasJobDefinitionMonitoringResources':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
-        """
-        return pulumi.get(self, "job_resources")
-
-    @property
-    @pulumi.getter(name="ModelBiasAppSpecification")
-    def model_bias_app_specification(self) -> 'outputs.ModelBiasJobDefinitionModelBiasAppSpecification':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
-        """
-        return pulumi.get(self, "model_bias_app_specification")
-
-    @property
-    @pulumi.getter(name="ModelBiasJobInput")
-    def model_bias_job_input(self) -> 'outputs.ModelBiasJobDefinitionModelBiasJobInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
-        """
-        return pulumi.get(self, "model_bias_job_input")
-
-    @property
-    @pulumi.getter(name="ModelBiasJobOutputConfig")
-    def model_bias_job_output_config(self) -> 'outputs.ModelBiasJobDefinitionMonitoringOutputConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
-        """
-        return pulumi.get(self, "model_bias_job_output_config")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="JobDefinitionName")
-    def job_definition_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
-        """
-        return pulumi.get(self, "job_definition_name")
-
-    @property
-    @pulumi.getter(name="ModelBiasBaselineConfig")
-    def model_bias_baseline_config(self) -> Optional['outputs.ModelBiasJobDefinitionModelBiasBaselineConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
-        """
-        return pulumi.get(self, "model_bias_baseline_config")
-
-    @property
-    @pulumi.getter(name="NetworkConfig")
-    def network_config(self) -> Optional['outputs.ModelBiasJobDefinitionNetworkConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
-        """
-        return pulumi.get(self, "network_config")
-
-    @property
-    @pulumi.getter(name="StoppingCondition")
-    def stopping_condition(self) -> Optional['outputs.ModelBiasJobDefinitionStoppingCondition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
-        """
-        return pulumi.get(self, "stopping_condition")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ModelBiasJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
@@ -1792,28 +1341,6 @@ class ModelBiasJobDefinitionVpcConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
         """
         return pulumi.get(self, "subnets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ModelExplainabilityJobDefinitionAttributes(dict):
-    def __init__(__self__, *,
-                 creation_time: str,
-                 job_definition_arn: str):
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "job_definition_arn", job_definition_arn)
-
-    @property
-    @pulumi.getter(name="CreationTime")
-    def creation_time(self) -> str:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="JobDefinitionArn")
-    def job_definition_arn(self) -> str:
-        return pulumi.get(self, "job_definition_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2264,135 +1791,6 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
 
 
 @pulumi.output_type
-class ModelExplainabilityJobDefinitionProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html
-    """
-    def __init__(__self__, *,
-                 job_resources: 'outputs.ModelExplainabilityJobDefinitionMonitoringResources',
-                 model_explainability_app_specification: 'outputs.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification',
-                 model_explainability_job_input: 'outputs.ModelExplainabilityJobDefinitionModelExplainabilityJobInput',
-                 model_explainability_job_output_config: 'outputs.ModelExplainabilityJobDefinitionMonitoringOutputConfig',
-                 role_arn: str,
-                 job_definition_name: Optional[str] = None,
-                 model_explainability_baseline_config: Optional['outputs.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig'] = None,
-                 network_config: Optional['outputs.ModelExplainabilityJobDefinitionNetworkConfig'] = None,
-                 stopping_condition: Optional['outputs.ModelExplainabilityJobDefinitionStoppingCondition'] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html
-        :param 'ModelExplainabilityJobDefinitionMonitoringResourcesArgs' job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
-        :param 'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs' model_explainability_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
-        :param 'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs' model_explainability_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
-        :param 'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs' model_explainability_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
-        :param str job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
-        :param 'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs' model_explainability_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
-        :param 'ModelExplainabilityJobDefinitionNetworkConfigArgs' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
-        :param 'ModelExplainabilityJobDefinitionStoppingConditionArgs' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
-        """
-        pulumi.set(__self__, "job_resources", job_resources)
-        pulumi.set(__self__, "model_explainability_app_specification", model_explainability_app_specification)
-        pulumi.set(__self__, "model_explainability_job_input", model_explainability_job_input)
-        pulumi.set(__self__, "model_explainability_job_output_config", model_explainability_job_output_config)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
-        if model_explainability_baseline_config is not None:
-            pulumi.set(__self__, "model_explainability_baseline_config", model_explainability_baseline_config)
-        if network_config is not None:
-            pulumi.set(__self__, "network_config", network_config)
-        if stopping_condition is not None:
-            pulumi.set(__self__, "stopping_condition", stopping_condition)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="JobResources")
-    def job_resources(self) -> 'outputs.ModelExplainabilityJobDefinitionMonitoringResources':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
-        """
-        return pulumi.get(self, "job_resources")
-
-    @property
-    @pulumi.getter(name="ModelExplainabilityAppSpecification")
-    def model_explainability_app_specification(self) -> 'outputs.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
-        """
-        return pulumi.get(self, "model_explainability_app_specification")
-
-    @property
-    @pulumi.getter(name="ModelExplainabilityJobInput")
-    def model_explainability_job_input(self) -> 'outputs.ModelExplainabilityJobDefinitionModelExplainabilityJobInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
-        """
-        return pulumi.get(self, "model_explainability_job_input")
-
-    @property
-    @pulumi.getter(name="ModelExplainabilityJobOutputConfig")
-    def model_explainability_job_output_config(self) -> 'outputs.ModelExplainabilityJobDefinitionMonitoringOutputConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
-        """
-        return pulumi.get(self, "model_explainability_job_output_config")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="JobDefinitionName")
-    def job_definition_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
-        """
-        return pulumi.get(self, "job_definition_name")
-
-    @property
-    @pulumi.getter(name="ModelExplainabilityBaselineConfig")
-    def model_explainability_baseline_config(self) -> Optional['outputs.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
-        """
-        return pulumi.get(self, "model_explainability_baseline_config")
-
-    @property
-    @pulumi.getter(name="NetworkConfig")
-    def network_config(self) -> Optional['outputs.ModelExplainabilityJobDefinitionNetworkConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
-        """
-        return pulumi.get(self, "network_config")
-
-    @property
-    @pulumi.getter(name="StoppingCondition")
-    def stopping_condition(self) -> Optional['outputs.ModelExplainabilityJobDefinitionStoppingCondition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
-        """
-        return pulumi.get(self, "stopping_condition")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ModelExplainabilityJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
@@ -2496,118 +1894,6 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
         """
         return pulumi.get(self, "subnets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ModelPackageGroupAttributes(dict):
-    def __init__(__self__, *,
-                 creation_time: str,
-                 model_package_group_arn: str,
-                 model_package_group_status: str):
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "model_package_group_arn", model_package_group_arn)
-        pulumi.set(__self__, "model_package_group_status", model_package_group_status)
-
-    @property
-    @pulumi.getter(name="CreationTime")
-    def creation_time(self) -> str:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="ModelPackageGroupArn")
-    def model_package_group_arn(self) -> str:
-        return pulumi.get(self, "model_package_group_arn")
-
-    @property
-    @pulumi.getter(name="ModelPackageGroupStatus")
-    def model_package_group_status(self) -> str:
-        return pulumi.get(self, "model_package_group_status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ModelPackageGroupProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
-    """
-    def __init__(__self__, *,
-                 model_package_group_name: str,
-                 model_package_group_description: Optional[str] = None,
-                 model_package_group_policy: Optional[Any] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
-        :param str model_package_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-        :param str model_package_group_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-        :param Any model_package_group_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-        """
-        pulumi.set(__self__, "model_package_group_name", model_package_group_name)
-        if model_package_group_description is not None:
-            pulumi.set(__self__, "model_package_group_description", model_package_group_description)
-        if model_package_group_policy is not None:
-            pulumi.set(__self__, "model_package_group_policy", model_package_group_policy)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ModelPackageGroupName")
-    def model_package_group_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-        """
-        return pulumi.get(self, "model_package_group_name")
-
-    @property
-    @pulumi.getter(name="ModelPackageGroupDescription")
-    def model_package_group_description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-        """
-        return pulumi.get(self, "model_package_group_description")
-
-    @property
-    @pulumi.getter(name="ModelPackageGroupPolicy")
-    def model_package_group_policy(self) -> Optional[Any]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-        """
-        return pulumi.get(self, "model_package_group_policy")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ModelQualityJobDefinitionAttributes(dict):
-    def __init__(__self__, *,
-                 creation_time: str,
-                 job_definition_arn: str):
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "job_definition_arn", job_definition_arn)
-
-    @property
-    @pulumi.getter(name="CreationTime")
-    def creation_time(self) -> str:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="JobDefinitionArn")
-    def job_definition_arn(self) -> str:
-        return pulumi.get(self, "job_definition_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3166,135 +2452,6 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
 
 
 @pulumi.output_type
-class ModelQualityJobDefinitionProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
-    """
-    def __init__(__self__, *,
-                 job_resources: 'outputs.ModelQualityJobDefinitionMonitoringResources',
-                 model_quality_app_specification: 'outputs.ModelQualityJobDefinitionModelQualityAppSpecification',
-                 model_quality_job_input: 'outputs.ModelQualityJobDefinitionModelQualityJobInput',
-                 model_quality_job_output_config: 'outputs.ModelQualityJobDefinitionMonitoringOutputConfig',
-                 role_arn: str,
-                 job_definition_name: Optional[str] = None,
-                 model_quality_baseline_config: Optional['outputs.ModelQualityJobDefinitionModelQualityBaselineConfig'] = None,
-                 network_config: Optional['outputs.ModelQualityJobDefinitionNetworkConfig'] = None,
-                 stopping_condition: Optional['outputs.ModelQualityJobDefinitionStoppingCondition'] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
-        :param 'ModelQualityJobDefinitionMonitoringResourcesArgs' job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-        :param 'ModelQualityJobDefinitionModelQualityAppSpecificationArgs' model_quality_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-        :param 'ModelQualityJobDefinitionModelQualityJobInputArgs' model_quality_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-        :param 'ModelQualityJobDefinitionMonitoringOutputConfigArgs' model_quality_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
-        :param str job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-        :param 'ModelQualityJobDefinitionModelQualityBaselineConfigArgs' model_quality_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-        :param 'ModelQualityJobDefinitionNetworkConfigArgs' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-        :param 'ModelQualityJobDefinitionStoppingConditionArgs' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
-        """
-        pulumi.set(__self__, "job_resources", job_resources)
-        pulumi.set(__self__, "model_quality_app_specification", model_quality_app_specification)
-        pulumi.set(__self__, "model_quality_job_input", model_quality_job_input)
-        pulumi.set(__self__, "model_quality_job_output_config", model_quality_job_output_config)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
-        if model_quality_baseline_config is not None:
-            pulumi.set(__self__, "model_quality_baseline_config", model_quality_baseline_config)
-        if network_config is not None:
-            pulumi.set(__self__, "network_config", network_config)
-        if stopping_condition is not None:
-            pulumi.set(__self__, "stopping_condition", stopping_condition)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="JobResources")
-    def job_resources(self) -> 'outputs.ModelQualityJobDefinitionMonitoringResources':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-        """
-        return pulumi.get(self, "job_resources")
-
-    @property
-    @pulumi.getter(name="ModelQualityAppSpecification")
-    def model_quality_app_specification(self) -> 'outputs.ModelQualityJobDefinitionModelQualityAppSpecification':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-        """
-        return pulumi.get(self, "model_quality_app_specification")
-
-    @property
-    @pulumi.getter(name="ModelQualityJobInput")
-    def model_quality_job_input(self) -> 'outputs.ModelQualityJobDefinitionModelQualityJobInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-        """
-        return pulumi.get(self, "model_quality_job_input")
-
-    @property
-    @pulumi.getter(name="ModelQualityJobOutputConfig")
-    def model_quality_job_output_config(self) -> 'outputs.ModelQualityJobDefinitionMonitoringOutputConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-        """
-        return pulumi.get(self, "model_quality_job_output_config")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="JobDefinitionName")
-    def job_definition_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-        """
-        return pulumi.get(self, "job_definition_name")
-
-    @property
-    @pulumi.getter(name="ModelQualityBaselineConfig")
-    def model_quality_baseline_config(self) -> Optional['outputs.ModelQualityJobDefinitionModelQualityBaselineConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-        """
-        return pulumi.get(self, "model_quality_baseline_config")
-
-    @property
-    @pulumi.getter(name="NetworkConfig")
-    def network_config(self) -> Optional['outputs.ModelQualityJobDefinitionNetworkConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-        """
-        return pulumi.get(self, "network_config")
-
-    @property
-    @pulumi.getter(name="StoppingCondition")
-    def stopping_condition(self) -> Optional['outputs.ModelQualityJobDefinitionStoppingCondition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
-        """
-        return pulumi.get(self, "stopping_condition")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ModelQualityJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
@@ -3398,35 +2555,6 @@ class ModelQualityJobDefinitionVpcConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
         """
         return pulumi.get(self, "subnets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MonitoringScheduleAttributes(dict):
-    def __init__(__self__, *,
-                 creation_time: str,
-                 last_modified_time: str,
-                 monitoring_schedule_arn: str):
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "monitoring_schedule_arn", monitoring_schedule_arn)
-
-    @property
-    @pulumi.getter(name="CreationTime")
-    def creation_time(self) -> str:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="LastModifiedTime")
-    def last_modified_time(self) -> str:
-        return pulumi.get(self, "last_modified_time")
-
-    @property
-    @pulumi.getter(name="MonitoringScheduleArn")
-    def monitoring_schedule_arn(self) -> str:
-        return pulumi.get(self, "monitoring_schedule_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4176,102 +3304,6 @@ class MonitoringScheduleNetworkConfig(dict):
 
 
 @pulumi.output_type
-class MonitoringScheduleProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
-    """
-    def __init__(__self__, *,
-                 monitoring_schedule_config: 'outputs.MonitoringScheduleMonitoringScheduleConfig',
-                 monitoring_schedule_name: str,
-                 endpoint_name: Optional[str] = None,
-                 failure_reason: Optional[str] = None,
-                 last_monitoring_execution_summary: Optional['outputs.MonitoringScheduleMonitoringExecutionSummary'] = None,
-                 monitoring_schedule_status: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
-        :param 'MonitoringScheduleMonitoringScheduleConfigArgs' monitoring_schedule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        :param str monitoring_schedule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        :param str endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        :param str failure_reason: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
-        :param 'MonitoringScheduleMonitoringExecutionSummaryArgs' last_monitoring_execution_summary: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
-        :param str monitoring_schedule_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
-        """
-        pulumi.set(__self__, "monitoring_schedule_config", monitoring_schedule_config)
-        pulumi.set(__self__, "monitoring_schedule_name", monitoring_schedule_name)
-        if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
-        if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
-        if last_monitoring_execution_summary is not None:
-            pulumi.set(__self__, "last_monitoring_execution_summary", last_monitoring_execution_summary)
-        if monitoring_schedule_status is not None:
-            pulumi.set(__self__, "monitoring_schedule_status", monitoring_schedule_status)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="MonitoringScheduleConfig")
-    def monitoring_schedule_config(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        """
-        return pulumi.get(self, "monitoring_schedule_config")
-
-    @property
-    @pulumi.getter(name="MonitoringScheduleName")
-    def monitoring_schedule_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        """
-        return pulumi.get(self, "monitoring_schedule_name")
-
-    @property
-    @pulumi.getter(name="EndpointName")
-    def endpoint_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        """
-        return pulumi.get(self, "endpoint_name")
-
-    @property
-    @pulumi.getter(name="FailureReason")
-    def failure_reason(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
-        """
-        return pulumi.get(self, "failure_reason")
-
-    @property
-    @pulumi.getter(name="LastMonitoringExecutionSummary")
-    def last_monitoring_execution_summary(self) -> Optional['outputs.MonitoringScheduleMonitoringExecutionSummary']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
-        """
-        return pulumi.get(self, "last_monitoring_execution_summary")
-
-    @property
-    @pulumi.getter(name="MonitoringScheduleStatus")
-    def monitoring_schedule_status(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
-        """
-        return pulumi.get(self, "monitoring_schedule_status")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class MonitoringScheduleS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
@@ -4426,201 +3458,6 @@ class MonitoringScheduleVpcConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
         """
         return pulumi.get(self, "subnets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PipelineAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PipelineProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
-    """
-    def __init__(__self__, *,
-                 pipeline_definition: str,
-                 pipeline_name: str,
-                 role_arn: str,
-                 pipeline_description: Optional[str] = None,
-                 pipeline_display_name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
-        :param Union[Any, str] pipeline_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
-        :param str pipeline_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
-        :param str pipeline_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
-        :param str pipeline_display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
-        """
-        pulumi.set(__self__, "pipeline_definition", pipeline_definition)
-        pulumi.set(__self__, "pipeline_name", pipeline_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if pipeline_description is not None:
-            pulumi.set(__self__, "pipeline_description", pipeline_description)
-        if pipeline_display_name is not None:
-            pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="PipelineDefinition")
-    def pipeline_definition(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
-        """
-        return pulumi.get(self, "pipeline_definition")
-
-    @property
-    @pulumi.getter(name="PipelineName")
-    def pipeline_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
-        """
-        return pulumi.get(self, "pipeline_name")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="PipelineDescription")
-    def pipeline_description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
-        """
-        return pulumi.get(self, "pipeline_description")
-
-    @property
-    @pulumi.getter(name="PipelineDisplayName")
-    def pipeline_display_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
-        """
-        return pulumi.get(self, "pipeline_display_name")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ProjectAttributes(dict):
-    def __init__(__self__, *,
-                 creation_time: str,
-                 project_arn: str,
-                 project_id: str,
-                 project_status: str,
-                 service_catalog_provisioned_product_details: str):
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "project_arn", project_arn)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "project_status", project_status)
-        pulumi.set(__self__, "service_catalog_provisioned_product_details", service_catalog_provisioned_product_details)
-
-    @property
-    @pulumi.getter(name="CreationTime")
-    def creation_time(self) -> str:
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="ProjectArn")
-    def project_arn(self) -> str:
-        return pulumi.get(self, "project_arn")
-
-    @property
-    @pulumi.getter(name="ProjectId")
-    def project_id(self) -> str:
-        return pulumi.get(self, "project_id")
-
-    @property
-    @pulumi.getter(name="ProjectStatus")
-    def project_status(self) -> str:
-        return pulumi.get(self, "project_status")
-
-    @property
-    @pulumi.getter(name="ServiceCatalogProvisionedProductDetails")
-    def service_catalog_provisioned_product_details(self) -> str:
-        return pulumi.get(self, "service_catalog_provisioned_product_details")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ProjectProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
-    """
-    def __init__(__self__, *,
-                 project_name: str,
-                 service_catalog_provisioning_details: str,
-                 project_description: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
-        :param str project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        :param Union[Any, str] service_catalog_provisioning_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
-        :param str project_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-        """
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
-        if project_description is not None:
-            pulumi.set(__self__, "project_description", project_description)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ProjectName")
-    def project_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        """
-        return pulumi.get(self, "project_name")
-
-    @property
-    @pulumi.getter(name="ServiceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
-        """
-        return pulumi.get(self, "service_catalog_provisioning_details")
-
-    @property
-    @pulumi.getter(name="ProjectDescription")
-    def project_description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        """
-        return pulumi.get(self, "project_description")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

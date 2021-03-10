@@ -15,29 +15,41 @@ namespace Pulumi.AwsNative.IoTSiteWise
     [AwsNativeResourceType("aws-native:IoTSiteWise:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.AssetAttributes> Attributes { get; private set; } = null!;
+        [Output("AssetArn")]
+        public Output<string> AssetArn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("AssetHierarchies")]
+        public Output<ImmutableArray<Outputs.AssetAssetHierarchy>> AssetHierarchies { get; private set; } = null!;
+
+        [Output("AssetId")]
+        public Output<string> AssetId { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("AssetModelId")]
+        public Output<string> AssetModelId { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AssetProperties> Properties { get; private set; } = null!;
+        [Output("AssetName")]
+        public Output<string> AssetName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
+        /// </summary>
+        [Output("AssetProperties")]
+        public Output<ImmutableArray<Outputs.AssetAssetProperty>> AssetProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +96,53 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
     public sealed class AssetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AssetHierarchies")]
+        private InputList<Inputs.AssetAssetHierarchyArgs>? _AssetHierarchies;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.AssetAssetHierarchyArgs> AssetHierarchies
+        {
+            get => _AssetHierarchies ?? (_AssetHierarchies = new InputList<Inputs.AssetAssetHierarchyArgs>());
+            set => _AssetHierarchies = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("AssetModelId", required: true)]
+        public Input<string> AssetModelId { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AssetPropertiesArgs> Properties { get; set; } = null!;
+        [Input("AssetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
+
+        [Input("AssetProperties")]
+        private InputList<Inputs.AssetAssetPropertyArgs>? _AssetProperties;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Inputs.AssetAssetPropertyArgs> AssetProperties
+        {
+            get => _AssetProperties ?? (_AssetProperties = new InputList<Inputs.AssetAssetPropertyArgs>());
+            set => _AssetProperties = value;
+        }
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public AssetArgs()
         {

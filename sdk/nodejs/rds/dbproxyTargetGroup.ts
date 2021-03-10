@@ -36,21 +36,26 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.RDS.DBProxyTargetGroupAttributes>;
+    public readonly ConnectionPoolConfigurationInfo!: pulumi.Output<outputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DBClusterIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DBInstanceIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
      */
-    public readonly properties!: pulumi.Output<outputs.RDS.DBProxyTargetGroupProperties>;
+    public readonly DBProxyName!: pulumi.Output<string>;
+    public /*out*/ readonly TargetGroupArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+     */
+    public readonly TargetGroupName!: pulumi.Output<string>;
 
     /**
      * Create a DBProxyTargetGroup resource with the given unique name, arguments, and options.
@@ -62,20 +67,25 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
     constructor(name: string, args: DBProxyTargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.DBProxyName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DBProxyName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.TargetGroupName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TargetGroupName'");
+            }
+            inputs["ConnectionPoolConfigurationInfo"] = args ? args.ConnectionPoolConfigurationInfo : undefined;
+            inputs["DBClusterIdentifiers"] = args ? args.DBClusterIdentifiers : undefined;
+            inputs["DBInstanceIdentifiers"] = args ? args.DBInstanceIdentifiers : undefined;
+            inputs["DBProxyName"] = args ? args.DBProxyName : undefined;
+            inputs["TargetGroupName"] = args ? args.TargetGroupName : undefined;
+            inputs["TargetGroupArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ConnectionPoolConfigurationInfo"] = undefined /*out*/;
+            inputs["DBClusterIdentifiers"] = undefined /*out*/;
+            inputs["DBInstanceIdentifiers"] = undefined /*out*/;
+            inputs["DBProxyName"] = undefined /*out*/;
+            inputs["TargetGroupArn"] = undefined /*out*/;
+            inputs["TargetGroupName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +103,23 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
  */
 export interface DBProxyTargetGroupArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ConnectionPoolConfigurationInfo?: pulumi.Input<inputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DBClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DBInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
      */
-    readonly properties: pulumi.Input<inputs.RDS.DBProxyTargetGroupProperties>;
+    readonly DBProxyName: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly TargetGroupName: pulumi.Input<string>;
 }

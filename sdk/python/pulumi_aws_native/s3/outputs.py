@@ -8,16 +8,12 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'AccessPointAttributes',
-    'AccessPointProperties',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointVpcConfiguration',
     'StorageLensAccountLevel',
     'StorageLensActivityMetrics',
-    'StorageLensAttributes',
     'StorageLensAwsOrg',
     'StorageLensBucketLevel',
     'StorageLensBucketsAndRegions',
@@ -25,129 +21,10 @@ __all__ = [
     'StorageLensEncryption',
     'StorageLensPrefixLevel',
     'StorageLensPrefixLevelStorageMetrics',
-    'StorageLensProperties',
     'StorageLensS3BucketDestination',
     'StorageLensSelectionCriteria',
     'StorageLensStorageLensConfiguration',
 ]
-
-@pulumi.output_type
-class AccessPointAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AccessPointProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
-    """
-    def __init__(__self__, *,
-                 bucket: str,
-                 creation_date: Optional[str] = None,
-                 name: Optional[str] = None,
-                 network_origin: Optional[str] = None,
-                 policy: Optional[str] = None,
-                 policy_status: Optional[str] = None,
-                 public_access_block_configuration: Optional['outputs.AccessPointPublicAccessBlockConfiguration'] = None,
-                 vpc_configuration: Optional['outputs.AccessPointVpcConfiguration'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
-        :param str bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
-        :param str creation_date: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-        :param str network_origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
-        :param Union[Any, str] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
-        :param Union[Any, str] policy_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-        :param 'AccessPointPublicAccessBlockConfigurationArgs' public_access_block_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
-        :param 'AccessPointVpcConfigurationArgs' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
-        """
-        pulumi.set(__self__, "bucket", bucket)
-        if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if network_origin is not None:
-            pulumi.set(__self__, "network_origin", network_origin)
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-        if policy_status is not None:
-            pulumi.set(__self__, "policy_status", policy_status)
-        if public_access_block_configuration is not None:
-            pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
-        if vpc_configuration is not None:
-            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
-
-    @property
-    @pulumi.getter(name="Bucket")
-    def bucket(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
-        """
-        return pulumi.get(self, "bucket")
-
-    @property
-    @pulumi.getter(name="CreationDate")
-    def creation_date(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="NetworkOrigin")
-    def network_origin(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
-        """
-        return pulumi.get(self, "network_origin")
-
-    @property
-    @pulumi.getter(name="Policy")
-    def policy(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
-        """
-        return pulumi.get(self, "policy")
-
-    @property
-    @pulumi.getter(name="PolicyStatus")
-    def policy_status(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-        """
-        return pulumi.get(self, "policy_status")
-
-    @property
-    @pulumi.getter(name="PublicAccessBlockConfiguration")
-    def public_access_block_configuration(self) -> Optional['outputs.AccessPointPublicAccessBlockConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
-        """
-        return pulumi.get(self, "public_access_block_configuration")
-
-    @property
-    @pulumi.getter(name="VpcConfiguration")
-    def vpc_configuration(self) -> Optional['outputs.AccessPointVpcConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
-        """
-        return pulumi.get(self, "vpc_configuration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointPublicAccessBlockConfiguration(dict):
@@ -295,21 +172,6 @@ class StorageLensActivityMetrics(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
         """
         return pulumi.get(self, "is_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StorageLensAttributes(dict):
-    def __init__(__self__, *,
-                 storage_lens_arn: str):
-        pulumi.set(__self__, "storage_lens_arn", storage_lens_arn)
-
-    @property
-    @pulumi.getter(name="StorageLensArn")
-    def storage_lens_arn(self) -> str:
-        return pulumi.get(self, "storage_lens_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -514,43 +376,6 @@ class StorageLensPrefixLevelStorageMetrics(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
         """
         return pulumi.get(self, "selection_criteria")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StorageLensProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
-    """
-    def __init__(__self__, *,
-                 storage_lens_configuration: 'outputs.StorageLensStorageLensConfiguration',
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
-        :param 'StorageLensStorageLensConfigurationArgs' storage_lens_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-        """
-        pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="StorageLensConfiguration")
-    def storage_lens_configuration(self) -> 'outputs.StorageLensStorageLensConfiguration':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-        """
-        return pulumi.get(self, "storage_lens_configuration")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

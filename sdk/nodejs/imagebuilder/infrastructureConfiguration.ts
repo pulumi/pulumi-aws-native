@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,22 +34,55 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === InfrastructureConfiguration.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ImageBuilder.InfrastructureConfigurationAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly InstanceProfileName!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly InstanceTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
      */
-    public readonly properties!: pulumi.Output<outputs.ImageBuilder.InfrastructureConfigurationProperties>;
+    public readonly KeyPair!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
+     */
+    public readonly Logging!: pulumi.Output<any | string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
+     */
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+     */
+    public readonly ResourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+     */
+    public readonly SecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+     */
+    public readonly SnsTopicArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+     */
+    public readonly SubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
+     */
+    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+     */
+    public readonly TerminateInstanceOnFailure!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a InfrastructureConfiguration resource with the given unique name, arguments, and options.
@@ -62,20 +94,39 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: InfrastructureConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.InstanceProfileName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InstanceProfileName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["InstanceProfileName"] = args ? args.InstanceProfileName : undefined;
+            inputs["InstanceTypes"] = args ? args.InstanceTypes : undefined;
+            inputs["KeyPair"] = args ? args.KeyPair : undefined;
+            inputs["Logging"] = args ? args.Logging : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["ResourceTags"] = args ? args.ResourceTags : undefined;
+            inputs["SecurityGroupIds"] = args ? args.SecurityGroupIds : undefined;
+            inputs["SnsTopicArn"] = args ? args.SnsTopicArn : undefined;
+            inputs["SubnetId"] = args ? args.SubnetId : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["TerminateInstanceOnFailure"] = args ? args.TerminateInstanceOnFailure : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["InstanceProfileName"] = undefined /*out*/;
+            inputs["InstanceTypes"] = undefined /*out*/;
+            inputs["KeyPair"] = undefined /*out*/;
+            inputs["Logging"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["ResourceTags"] = undefined /*out*/;
+            inputs["SecurityGroupIds"] = undefined /*out*/;
+            inputs["SnsTopicArn"] = undefined /*out*/;
+            inputs["SubnetId"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["TerminateInstanceOnFailure"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +144,51 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
  */
 export interface InfrastructureConfigurationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly InstanceProfileName: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly InstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
      */
-    readonly properties: pulumi.Input<inputs.ImageBuilder.InfrastructureConfigurationProperties>;
+    readonly KeyPair?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Logging?: pulumi.Input<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
+     */
+    readonly Name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+     */
+    readonly ResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+     */
+    readonly SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+     */
+    readonly SnsTopicArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+     */
+    readonly SubnetId?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
+     */
+    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+     */
+    readonly TerminateInstanceOnFailure?: pulumi.Input<boolean>;
 }

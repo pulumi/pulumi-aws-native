@@ -16,28 +16,31 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ListenerAttributes> Attributes { get; private set; } = null!;
+        [Output("AcceleratorArn")]
+        public Output<string> AcceleratorArn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ClientAffinity")]
+        public Output<string?> ClientAffinity { get; private set; } = null!;
+
+        [Output("ListenerArn")]
+        public Output<string> ListenerArn { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("PortRanges")]
+        public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ListenerProperties> Properties { get; private set; } = null!;
+        [Output("Protocol")]
+        public Output<string> Protocol { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +88,34 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     public sealed class ListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AcceleratorArn", required: true)]
+        public Input<string> AcceleratorArn { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("ClientAffinity")]
+        public Input<string>? ClientAffinity { get; set; }
+
+        [Input("PortRanges", required: true)]
+        private InputList<Inputs.ListenerPortRangeArgs>? _PortRanges;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        public InputList<Inputs.ListenerPortRangeArgs> PortRanges
+        {
+            get => _PortRanges ?? (_PortRanges = new InputList<Inputs.ListenerPortRangeArgs>());
+            set => _PortRanges = value;
+        }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ListenerPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-        /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Protocol", required: true)]
+        public Input<string> Protocol { get; set; } = null!;
 
         public ListenerArgs()
         {

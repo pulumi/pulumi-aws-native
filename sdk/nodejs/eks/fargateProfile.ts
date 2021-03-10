@@ -35,22 +35,31 @@ export class FargateProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === FargateProfile.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.EKS.FargateProfileAttributes>;
+    public readonly ClusterName!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly FargateProfileName!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly PodExecutionRoleArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
      */
-    public readonly properties!: pulumi.Output<outputs.EKS.FargateProfileProperties>;
+    public readonly Selectors!: pulumi.Output<outputs.EKS.FargateProfileSelector[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
+     */
+    public readonly Subnets!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FargateProfile resource with the given unique name, arguments, and options.
@@ -62,20 +71,30 @@ export class FargateProfile extends pulumi.CustomResource {
     constructor(name: string, args: FargateProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ClusterName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ClusterName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.PodExecutionRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PodExecutionRoleArn'");
+            }
+            if ((!args || args.Selectors === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Selectors'");
+            }
+            inputs["ClusterName"] = args ? args.ClusterName : undefined;
+            inputs["FargateProfileName"] = args ? args.FargateProfileName : undefined;
+            inputs["PodExecutionRoleArn"] = args ? args.PodExecutionRoleArn : undefined;
+            inputs["Selectors"] = args ? args.Selectors : undefined;
+            inputs["Subnets"] = args ? args.Subnets : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ClusterName"] = undefined /*out*/;
+            inputs["FargateProfileName"] = undefined /*out*/;
+            inputs["PodExecutionRoleArn"] = undefined /*out*/;
+            inputs["Selectors"] = undefined /*out*/;
+            inputs["Subnets"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +112,27 @@ export class FargateProfile extends pulumi.CustomResource {
  */
 export interface FargateProfileArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ClusterName: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly FargateProfileName?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly PodExecutionRoleArn: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
      */
-    readonly properties: pulumi.Input<inputs.EKS.FargateProfileProperties>;
+    readonly Selectors: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileSelector>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

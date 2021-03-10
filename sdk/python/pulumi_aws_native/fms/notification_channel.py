@@ -7,8 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from ._inputs import *
 
 __all__ = ['NotificationChannel']
 
@@ -17,11 +15,8 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationChannelPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 sns_role_name: Optional[pulumi.Input[str]] = None,
+                 sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +25,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['NotificationChannelPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] sns_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
+        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +45,12 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            if sns_role_name is None and not opts.urn:
+                raise TypeError("Missing required property 'sns_role_name'")
+            __props__['sns_role_name'] = sns_role_name
+            if sns_topic_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'sns_topic_arn'")
+            __props__['sns_topic_arn'] = sns_topic_arn
         super(NotificationChannel, __self__).__init__(
             'aws-native:FMS:NotificationChannel',
             resource_name,
@@ -86,36 +76,20 @@ class NotificationChannel(pulumi.CustomResource):
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.NotificationChannelAttributes']:
+    @pulumi.getter(name="SnsRoleName")
+    def sns_role_name(self) -> pulumi.Output[str]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "sns_role_name")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="SnsTopicArn")
+    def sns_topic_arn(self) -> pulumi.Output[str]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
         """
-        return pulumi.get(self, "logical_id")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.NotificationChannelProperties']:
-        """
-        The input properties associated with the resource
-        """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "sns_topic_arn")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

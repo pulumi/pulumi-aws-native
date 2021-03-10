@@ -16,28 +16,34 @@ namespace Pulumi.AwsNative.Backup
     public partial class BackupVault : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.BackupVaultAttributes> Attributes { get; private set; } = null!;
+        [Output("AccessPolicy")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> AccessPolicy { get; private set; } = null!;
+
+        [Output("BackupVaultArn")]
+        public Output<string> BackupVaultArn { get; private set; } = null!;
+
+        [Output("BackupVaultName")]
+        public Output<string> BackupVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("BackupVaultTags")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> BackupVaultTags { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("EncryptionKeyArn")]
+        public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BackupVaultProperties> Properties { get; private set; } = null!;
+        [Output("Notifications")]
+        public Output<Outputs.BackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +91,34 @@ namespace Pulumi.AwsNative.Backup
     public sealed class BackupVaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AccessPolicy")]
+        public InputUnion<System.Text.Json.JsonElement, string>? AccessPolicy { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("BackupVaultName", required: true)]
+        public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("BackupVaultTags")]
+        public InputUnion<System.Text.Json.JsonElement, string>? BackupVaultTags { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BackupVaultPropertiesArgs> Properties { get; set; } = null!;
+        [Input("EncryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Notifications")]
+        public Input<Inputs.BackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }
 
         public BackupVaultArgs()
         {

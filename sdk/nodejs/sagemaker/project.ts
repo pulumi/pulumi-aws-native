@@ -35,22 +35,27 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
+    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
+    public /*out*/ readonly ProjectArn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SageMaker.ProjectAttributes>;
+    public readonly ProjectDescription!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ProjectId!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ProjectName!: pulumi.Output<string>;
+    public /*out*/ readonly ProjectStatus!: pulumi.Output<string>;
+    public /*out*/ readonly ServiceCatalogProvisionedProductDetails!: pulumi.Output<any | string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ServiceCatalogProvisioningDetails!: pulumi.Output<any | string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
      */
-    public readonly properties!: pulumi.Output<outputs.SageMaker.ProjectProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -62,20 +67,31 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ProjectName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ProjectName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.ServiceCatalogProvisioningDetails === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ServiceCatalogProvisioningDetails'");
+            }
+            inputs["ProjectDescription"] = args ? args.ProjectDescription : undefined;
+            inputs["ProjectName"] = args ? args.ProjectName : undefined;
+            inputs["ServiceCatalogProvisioningDetails"] = args ? args.ServiceCatalogProvisioningDetails : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["ProjectArn"] = undefined /*out*/;
+            inputs["ProjectId"] = undefined /*out*/;
+            inputs["ProjectStatus"] = undefined /*out*/;
+            inputs["ServiceCatalogProvisionedProductDetails"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["ProjectArn"] = undefined /*out*/;
+            inputs["ProjectDescription"] = undefined /*out*/;
+            inputs["ProjectId"] = undefined /*out*/;
+            inputs["ProjectName"] = undefined /*out*/;
+            inputs["ProjectStatus"] = undefined /*out*/;
+            inputs["ServiceCatalogProvisionedProductDetails"] = undefined /*out*/;
+            inputs["ServiceCatalogProvisioningDetails"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +109,19 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ProjectDescription?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ProjectName: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ServiceCatalogProvisioningDetails: pulumi.Input<any | string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
      */
-    readonly properties: pulumi.Input<inputs.SageMaker.ProjectProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

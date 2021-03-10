@@ -16,28 +16,10 @@ namespace Pulumi.AwsNative.Cassandra
     public partial class Keyspace : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.KeyspaceAttributes> Attributes { get; private set; } = null!;
-
-        /// <summary>
-        /// An explicit logical ID for the resource
-        /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.KeyspaceProperties> Properties { get; private set; } = null!;
+        [Output("KeyspaceName")]
+        public Output<string?> KeyspaceName { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +29,7 @@ namespace Pulumi.AwsNative.Cassandra
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Keyspace(string name, KeyspaceArgs args, CustomResourceOptions? options = null)
+        public Keyspace(string name, KeyspaceArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:Cassandra:Keyspace", name, args ?? new KeyspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,34 +67,10 @@ namespace Pulumi.AwsNative.Cassandra
     public sealed class KeyspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
-
-        /// <summary>
-        /// An explicit logical ID for the resource
-        /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.KeyspacePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-        /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("KeyspaceName")]
+        public Input<string>? KeyspaceName { get; set; }
 
         public KeyspaceArgs()
         {

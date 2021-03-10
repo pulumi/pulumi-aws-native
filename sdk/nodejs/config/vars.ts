@@ -10,7 +10,3 @@ let __config = new pulumi.Config("aws-native");
  * the region to use for deployments
  */
 export let region: string | undefined = __config.get("region");
-/**
- * the name of the stack to use for deployments
- */
-export let stack: string | undefined = __config.get("stack");

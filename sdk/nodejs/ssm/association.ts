@@ -36,21 +36,66 @@ export class Association extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.SSM.AssociationAttributes>;
+    public readonly ApplyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly AssociationId!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly AssociationName!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly AutomationTargetParameterName!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
      */
-    public readonly properties!: pulumi.Output<outputs.SSM.AssociationProperties>;
+    public readonly ComplianceSeverity!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+     */
+    public readonly DocumentVersion!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+     */
+    public readonly InstanceId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+     */
+    public readonly MaxConcurrency!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
+     */
+    public readonly MaxErrors!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+     */
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+     */
+    public readonly OutputLocation!: pulumi.Output<outputs.SSM.AssociationInstanceAssociationOutputLocation | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+     */
+    public readonly Parameters!: pulumi.Output<{[key: string]: outputs.SSM.AssociationParameterValues} | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+     */
+    public readonly ScheduleExpression!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
+     */
+    public readonly SyncCompliance!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+     */
+    public readonly Targets!: pulumi.Output<outputs.SSM.AssociationTarget[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+     */
+    public readonly WaitForSuccessTimeoutSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -62,20 +107,42 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["ApplyOnlyAtCronInterval"] = args ? args.ApplyOnlyAtCronInterval : undefined;
+            inputs["AssociationName"] = args ? args.AssociationName : undefined;
+            inputs["AutomationTargetParameterName"] = args ? args.AutomationTargetParameterName : undefined;
+            inputs["ComplianceSeverity"] = args ? args.ComplianceSeverity : undefined;
+            inputs["DocumentVersion"] = args ? args.DocumentVersion : undefined;
+            inputs["InstanceId"] = args ? args.InstanceId : undefined;
+            inputs["MaxConcurrency"] = args ? args.MaxConcurrency : undefined;
+            inputs["MaxErrors"] = args ? args.MaxErrors : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["OutputLocation"] = args ? args.OutputLocation : undefined;
+            inputs["Parameters"] = args ? args.Parameters : undefined;
+            inputs["ScheduleExpression"] = args ? args.ScheduleExpression : undefined;
+            inputs["SyncCompliance"] = args ? args.SyncCompliance : undefined;
+            inputs["Targets"] = args ? args.Targets : undefined;
+            inputs["WaitForSuccessTimeoutSeconds"] = args ? args.WaitForSuccessTimeoutSeconds : undefined;
+            inputs["AssociationId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ApplyOnlyAtCronInterval"] = undefined /*out*/;
+            inputs["AssociationId"] = undefined /*out*/;
+            inputs["AssociationName"] = undefined /*out*/;
+            inputs["AutomationTargetParameterName"] = undefined /*out*/;
+            inputs["ComplianceSeverity"] = undefined /*out*/;
+            inputs["DocumentVersion"] = undefined /*out*/;
+            inputs["InstanceId"] = undefined /*out*/;
+            inputs["MaxConcurrency"] = undefined /*out*/;
+            inputs["MaxErrors"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["OutputLocation"] = undefined /*out*/;
+            inputs["Parameters"] = undefined /*out*/;
+            inputs["ScheduleExpression"] = undefined /*out*/;
+            inputs["SyncCompliance"] = undefined /*out*/;
+            inputs["Targets"] = undefined /*out*/;
+            inputs["WaitForSuccessTimeoutSeconds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +160,63 @@ export class Association extends pulumi.CustomResource {
  */
 export interface AssociationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ApplyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly AssociationName?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly AutomationTargetParameterName?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
      */
-    readonly properties: pulumi.Input<inputs.SSM.AssociationProperties>;
+    readonly ComplianceSeverity?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly DocumentVersion?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+     */
+    readonly InstanceId?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+     */
+    readonly MaxConcurrency?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
+     */
+    readonly MaxErrors?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+     */
+    readonly Name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+     */
+    readonly OutputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocation>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+     */
+    readonly Parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValues>}>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+     */
+    readonly ScheduleExpression?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
+     */
+    readonly SyncCompliance?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+     */
+    readonly Targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTarget>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+     */
+    readonly WaitForSuccessTimeoutSeconds?: pulumi.Input<number>;
 }

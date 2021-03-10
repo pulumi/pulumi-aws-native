@@ -35,22 +35,37 @@ export class MissionProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === MissionProfile.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.GroundStation.MissionProfileAttributes>;
+    public readonly ContactPostPassDurationSeconds!: pulumi.Output<number | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ContactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DataflowEdges!: pulumi.Output<outputs.GroundStation.MissionProfileDataflowEdge[]>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
      */
-    public readonly properties!: pulumi.Output<outputs.GroundStation.MissionProfileProperties>;
+    public readonly MinimumViableContactDurationSeconds!: pulumi.Output<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+     */
+    public readonly Name!: pulumi.Output<string>;
+    public /*out*/ readonly Region!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
+     */
+    public readonly TrackingConfigArn!: pulumi.Output<string>;
 
     /**
      * Create a MissionProfile resource with the given unique name, arguments, and options.
@@ -62,20 +77,39 @@ export class MissionProfile extends pulumi.CustomResource {
     constructor(name: string, args: MissionProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.DataflowEdges === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DataflowEdges'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.MinimumViableContactDurationSeconds === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'MinimumViableContactDurationSeconds'");
+            }
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.TrackingConfigArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TrackingConfigArn'");
+            }
+            inputs["ContactPostPassDurationSeconds"] = args ? args.ContactPostPassDurationSeconds : undefined;
+            inputs["ContactPrePassDurationSeconds"] = args ? args.ContactPrePassDurationSeconds : undefined;
+            inputs["DataflowEdges"] = args ? args.DataflowEdges : undefined;
+            inputs["MinimumViableContactDurationSeconds"] = args ? args.MinimumViableContactDurationSeconds : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["TrackingConfigArn"] = args ? args.TrackingConfigArn : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["Region"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ContactPostPassDurationSeconds"] = undefined /*out*/;
+            inputs["ContactPrePassDurationSeconds"] = undefined /*out*/;
+            inputs["DataflowEdges"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["MinimumViableContactDurationSeconds"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Region"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["TrackingConfigArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +127,31 @@ export class MissionProfile extends pulumi.CustomResource {
  */
 export interface MissionProfileArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ContactPostPassDurationSeconds?: pulumi.Input<number>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ContactPrePassDurationSeconds?: pulumi.Input<number>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DataflowEdges: pulumi.Input<pulumi.Input<inputs.GroundStation.MissionProfileDataflowEdge>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
      */
-    readonly properties: pulumi.Input<inputs.GroundStation.MissionProfileProperties>;
+    readonly MinimumViableContactDurationSeconds: pulumi.Input<number>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
+     */
+    readonly TrackingConfigArn: pulumi.Input<string>;
 }

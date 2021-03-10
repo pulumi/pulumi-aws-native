@@ -19,11 +19,13 @@ class Stream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['StreamPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 exclusive_end_time: Optional[pulumi.Input[str]] = None,
+                 inclusive_start_time: Optional[pulumi.Input[str]] = None,
+                 kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']]] = None,
+                 ledger_name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 stream_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +34,13 @@ class Stream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['StreamPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[str] exclusive_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
+        :param pulumi.Input[str] inclusive_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
+        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']] kinesis_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+        :param pulumi.Input[str] ledger_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
+        :param pulumi.Input[str] stream_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +59,25 @@ class Stream(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['exclusive_end_time'] = exclusive_end_time
+            if inclusive_start_time is None and not opts.urn:
+                raise TypeError("Missing required property 'inclusive_start_time'")
+            __props__['inclusive_start_time'] = inclusive_start_time
+            if kinesis_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'kinesis_configuration'")
+            __props__['kinesis_configuration'] = kinesis_configuration
+            if ledger_name is None and not opts.urn:
+                raise TypeError("Missing required property 'ledger_name'")
+            __props__['ledger_name'] = ledger_name
+            if role_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'role_arn'")
+            __props__['role_arn'] = role_arn
+            if stream_name is None and not opts.urn:
+                raise TypeError("Missing required property 'stream_name'")
+            __props__['stream_name'] = stream_name
+            __props__['tags'] = tags
+            __props__['arn'] = None
+            __props__['id'] = None
         super(Stream, __self__).__init__(
             'aws-native:QLDB:Stream',
             resource_name,
@@ -88,36 +103,70 @@ class Stream(pulumi.CustomResource):
         return Stream(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.StreamAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ExclusiveEndTime")
+    def exclusive_end_time(self) -> pulumi.Output[Optional[str]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "exclusive_end_time")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
+    @pulumi.getter(name="Id")
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.StreamProperties']:
+    @pulumi.getter(name="InclusiveStartTime")
+    def inclusive_start_time(self) -> pulumi.Output[str]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "inclusive_start_time")
+
+    @property
+    @pulumi.getter(name="KinesisConfiguration")
+    def kinesis_configuration(self) -> pulumi.Output['outputs.StreamKinesisConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+        """
+        return pulumi.get(self, "kinesis_configuration")
+
+    @property
+    @pulumi.getter(name="LedgerName")
+    def ledger_name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
+        """
+        return pulumi.get(self, "ledger_name")
+
+    @property
+    @pulumi.getter(name="RoleArn")
+    def role_arn(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="StreamName")
+    def stream_name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+        """
+        return pulumi.get(self, "stream_name")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

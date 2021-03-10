@@ -15,29 +15,44 @@ namespace Pulumi.AwsNative.Chatbot
     [AwsNativeResourceType("aws-native:Chatbot:SlackChannelConfiguration")]
     public partial class SlackChannelConfiguration : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.SlackChannelConfigurationAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ConfigurationName")]
+        public Output<string> ConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("IamRoleArn")]
+        public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SlackChannelConfigurationProperties> Properties { get; private set; } = null!;
+        [Output("LoggingLevel")]
+        public Output<string?> LoggingLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
+        /// </summary>
+        [Output("SlackChannelId")]
+        public Output<string> SlackChannelId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
+        /// </summary>
+        [Output("SlackWorkspaceId")]
+        public Output<string> SlackWorkspaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+        /// </summary>
+        [Output("SnsTopicArns")]
+        public Output<ImmutableArray<string>> SnsTopicArns { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +100,46 @@ namespace Pulumi.AwsNative.Chatbot
     public sealed class SlackChannelConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ConfigurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("IamRoleArn", required: true)]
+        public Input<string> IamRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("LoggingLevel")]
+        public Input<string>? LoggingLevel { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SlackChannelConfigurationPropertiesArgs> Properties { get; set; } = null!;
+        [Input("SlackChannelId", required: true)]
+        public Input<string> SlackChannelId { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("SlackWorkspaceId", required: true)]
+        public Input<string> SlackWorkspaceId { get; set; } = null!;
+
+        [Input("SnsTopicArns")]
+        private InputList<string>? _SnsTopicArns;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+        /// </summary>
+        public InputList<string> SnsTopicArns
+        {
+            get => _SnsTopicArns ?? (_SnsTopicArns = new InputList<string>());
+            set => _SnsTopicArns = value;
+        }
 
         public SlackChannelConfigurationArgs()
         {

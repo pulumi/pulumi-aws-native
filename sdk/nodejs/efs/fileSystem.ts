@@ -35,22 +35,44 @@ export class FileSystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileSystem.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.EFS.FileSystemAttributes>;
+    public readonly BackupPolicy!: pulumi.Output<outputs.EFS.FileSystemBackupPolicy | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Encrypted!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly FileSystemId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly FileSystemPolicy!: pulumi.Output<any | string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    public readonly properties!: pulumi.Output<outputs.EFS.FileSystemProperties>;
+    public readonly FileSystemTags!: pulumi.Output<outputs.EFS.FileSystemElasticFileSystemTag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
+     */
+    public readonly KmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+     */
+    public readonly LifecyclePolicies!: pulumi.Output<outputs.EFS.FileSystemLifecyclePolicy[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
+     */
+    public readonly PerformanceMode!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
+     */
+    public readonly ProvisionedThroughputInMibps!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+     */
+    public readonly ThroughputMode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FileSystem resource with the given unique name, arguments, and options.
@@ -59,23 +81,32 @@ export class FileSystem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FileSystemArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["BackupPolicy"] = args ? args.BackupPolicy : undefined;
+            inputs["Encrypted"] = args ? args.Encrypted : undefined;
+            inputs["FileSystemPolicy"] = args ? args.FileSystemPolicy : undefined;
+            inputs["FileSystemTags"] = args ? args.FileSystemTags : undefined;
+            inputs["KmsKeyId"] = args ? args.KmsKeyId : undefined;
+            inputs["LifecyclePolicies"] = args ? args.LifecyclePolicies : undefined;
+            inputs["PerformanceMode"] = args ? args.PerformanceMode : undefined;
+            inputs["ProvisionedThroughputInMibps"] = args ? args.ProvisionedThroughputInMibps : undefined;
+            inputs["ThroughputMode"] = args ? args.ThroughputMode : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["FileSystemId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["BackupPolicy"] = undefined /*out*/;
+            inputs["Encrypted"] = undefined /*out*/;
+            inputs["FileSystemId"] = undefined /*out*/;
+            inputs["FileSystemPolicy"] = undefined /*out*/;
+            inputs["FileSystemTags"] = undefined /*out*/;
+            inputs["KmsKeyId"] = undefined /*out*/;
+            inputs["LifecyclePolicies"] = undefined /*out*/;
+            inputs["PerformanceMode"] = undefined /*out*/;
+            inputs["ProvisionedThroughputInMibps"] = undefined /*out*/;
+            inputs["ThroughputMode"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +124,39 @@ export class FileSystem extends pulumi.CustomResource {
  */
 export interface FileSystemArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly BackupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicy>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Encrypted?: pulumi.Input<boolean>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly FileSystemPolicy?: pulumi.Input<any | string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    readonly properties: pulumi.Input<inputs.EFS.FileSystemProperties>;
+    readonly FileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTag>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly KmsKeyId?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+     */
+    readonly LifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicy>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
+     */
+    readonly PerformanceMode?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
+     */
+    readonly ProvisionedThroughputInMibps?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+     */
+    readonly ThroughputMode?: pulumi.Input<string>;
 }

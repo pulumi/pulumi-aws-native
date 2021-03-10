@@ -9,11 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
-    'AuthorizerPropertiesArgs',
     'AuthorizerTagsArgs',
     'AuthorizerTokenSigningPublicKeysArgs',
-    'CertificatePropertiesArgs',
-    'ProvisioningTemplatePropertiesArgs',
     'ProvisioningTemplateProvisioningHookArgs',
     'ProvisioningTemplateTagsArgs',
     'TopicRuleActionArgs',
@@ -23,7 +20,6 @@ __all__ = [
     'TopicRuleCloudwatchAlarmActionArgs',
     'TopicRuleCloudwatchMetricActionArgs',
     'TopicRuleDestinationHttpUrlDestinationSummaryArgs',
-    'TopicRuleDestinationPropertiesArgs',
     'TopicRuleDestinationVpcDestinationPropertiesArgs',
     'TopicRuleDynamoDBActionArgs',
     'TopicRuleDynamoDBv2ActionArgs',
@@ -37,7 +33,6 @@ __all__ = [
     'TopicRuleIotSiteWiseActionArgs',
     'TopicRuleKinesisActionArgs',
     'TopicRuleLambdaActionArgs',
-    'TopicRulePropertiesArgs',
     'TopicRulePutAssetPropertyValueEntryArgs',
     'TopicRulePutItemInputArgs',
     'TopicRuleRepublishActionArgs',
@@ -48,125 +43,6 @@ __all__ = [
     'TopicRuleStepFunctionsActionArgs',
     'TopicRuleTopicRulePayloadArgs',
 ]
-
-@pulumi.input_type
-class AuthorizerPropertiesArgs:
-    def __init__(__self__, *,
-                 authorizer_function_arn: pulumi.Input[str],
-                 authorizer_name: Optional[pulumi.Input[str]] = None,
-                 signing_disabled: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['AuthorizerTagsArgs']] = None,
-                 token_key_name: Optional[pulumi.Input[str]] = None,
-                 token_signing_public_keys: Optional[pulumi.Input['AuthorizerTokenSigningPublicKeysArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
-        :param pulumi.Input[str] authorizer_function_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-        :param pulumi.Input[str] authorizer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-        :param pulumi.Input[bool] signing_disabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-        :param pulumi.Input['AuthorizerTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-        :param pulumi.Input[str] token_key_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-        :param pulumi.Input['AuthorizerTokenSigningPublicKeysArgs'] token_signing_public_keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-        """
-        pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
-        if authorizer_name is not None:
-            pulumi.set(__self__, "authorizer_name", authorizer_name)
-        if signing_disabled is not None:
-            pulumi.set(__self__, "signing_disabled", signing_disabled)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if token_key_name is not None:
-            pulumi.set(__self__, "token_key_name", token_key_name)
-        if token_signing_public_keys is not None:
-            pulumi.set(__self__, "token_signing_public_keys", token_signing_public_keys)
-
-    @property
-    @pulumi.getter(name="AuthorizerFunctionArn")
-    def authorizer_function_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-        """
-        return pulumi.get(self, "authorizer_function_arn")
-
-    @authorizer_function_arn.setter
-    def authorizer_function_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "authorizer_function_arn", value)
-
-    @property
-    @pulumi.getter(name="AuthorizerName")
-    def authorizer_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-        """
-        return pulumi.get(self, "authorizer_name")
-
-    @authorizer_name.setter
-    def authorizer_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "authorizer_name", value)
-
-    @property
-    @pulumi.getter(name="SigningDisabled")
-    def signing_disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-        """
-        return pulumi.get(self, "signing_disabled")
-
-    @signing_disabled.setter
-    def signing_disabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "signing_disabled", value)
-
-    @property
-    @pulumi.getter(name="Status")
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input['AuthorizerTagsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AuthorizerTagsArgs']]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="TokenKeyName")
-    def token_key_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-        """
-        return pulumi.get(self, "token_key_name")
-
-    @token_key_name.setter
-    def token_key_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "token_key_name", value)
-
-    @property
-    @pulumi.getter(name="TokenSigningPublicKeys")
-    def token_signing_public_keys(self) -> Optional[pulumi.Input['AuthorizerTokenSigningPublicKeysArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-        """
-        return pulumi.get(self, "token_signing_public_keys")
-
-    @token_signing_public_keys.setter
-    def token_signing_public_keys(self, value: Optional[pulumi.Input['AuthorizerTokenSigningPublicKeysArgs']]):
-        pulumi.set(self, "token_signing_public_keys", value)
-
 
 @pulumi.input_type
 class AuthorizerTagsArgs:
@@ -199,211 +75,6 @@ class AuthorizerTokenSigningPublicKeysArgs:
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
         """
         pass
-
-
-@pulumi.input_type
-class CertificatePropertiesArgs:
-    def __init__(__self__, *,
-                 status: pulumi.Input[str],
-                 ca_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input[str]] = None,
-                 certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_signing_request: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-        :param pulumi.Input[str] ca_certificate_pem: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-        :param pulumi.Input[str] certificate_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-        :param pulumi.Input[str] certificate_pem: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-        :param pulumi.Input[str] certificate_signing_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-        """
-        pulumi.set(__self__, "status", status)
-        if ca_certificate_pem is not None:
-            pulumi.set(__self__, "ca_certificate_pem", ca_certificate_pem)
-        if certificate_mode is not None:
-            pulumi.set(__self__, "certificate_mode", certificate_mode)
-        if certificate_pem is not None:
-            pulumi.set(__self__, "certificate_pem", certificate_pem)
-        if certificate_signing_request is not None:
-            pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
-
-    @property
-    @pulumi.getter(name="Status")
-    def status(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[str]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="CACertificatePem")
-    def ca_certificate_pem(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-        """
-        return pulumi.get(self, "ca_certificate_pem")
-
-    @ca_certificate_pem.setter
-    def ca_certificate_pem(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ca_certificate_pem", value)
-
-    @property
-    @pulumi.getter(name="CertificateMode")
-    def certificate_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-        """
-        return pulumi.get(self, "certificate_mode")
-
-    @certificate_mode.setter
-    def certificate_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certificate_mode", value)
-
-    @property
-    @pulumi.getter(name="CertificatePem")
-    def certificate_pem(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-        """
-        return pulumi.get(self, "certificate_pem")
-
-    @certificate_pem.setter
-    def certificate_pem(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certificate_pem", value)
-
-    @property
-    @pulumi.getter(name="CertificateSigningRequest")
-    def certificate_signing_request(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-        """
-        return pulumi.get(self, "certificate_signing_request")
-
-    @certificate_signing_request.setter
-    def certificate_signing_request(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certificate_signing_request", value)
-
-
-@pulumi.input_type
-class ProvisioningTemplatePropertiesArgs:
-    def __init__(__self__, *,
-                 provisioning_role_arn: pulumi.Input[str],
-                 template_body: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']] = None,
-                 tags: Optional[pulumi.Input['ProvisioningTemplateTagsArgs']] = None,
-                 template_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
-        :param pulumi.Input[str] provisioning_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
-        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
-        :param pulumi.Input['ProvisioningTemplateProvisioningHookArgs'] pre_provisioning_hook: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
-        :param pulumi.Input['ProvisioningTemplateTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-        :param pulumi.Input[str] template_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
-        """
-        pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
-        pulumi.set(__self__, "template_body", template_body)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if pre_provisioning_hook is not None:
-            pulumi.set(__self__, "pre_provisioning_hook", pre_provisioning_hook)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
-
-    @property
-    @pulumi.getter(name="ProvisioningRoleArn")
-    def provisioning_role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
-        """
-        return pulumi.get(self, "provisioning_role_arn")
-
-    @provisioning_role_arn.setter
-    def provisioning_role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provisioning_role_arn", value)
-
-    @property
-    @pulumi.getter(name="TemplateBody")
-    def template_body(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
-        """
-        return pulumi.get(self, "template_body")
-
-    @template_body.setter
-    def template_body(self, value: pulumi.Input[str]):
-        pulumi.set(self, "template_body", value)
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="Enabled")
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="PreProvisioningHook")
-    def pre_provisioning_hook(self) -> Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
-        """
-        return pulumi.get(self, "pre_provisioning_hook")
-
-    @pre_provisioning_hook.setter
-    def pre_provisioning_hook(self, value: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']]):
-        pulumi.set(self, "pre_provisioning_hook", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input['ProvisioningTemplateTagsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input['ProvisioningTemplateTagsArgs']]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="TemplateName")
-    def template_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
-        """
-        return pulumi.get(self, "template_name")
-
-    @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "template_name", value)
 
 
 @pulumi.input_type
@@ -1104,62 +775,6 @@ class TopicRuleDestinationHttpUrlDestinationSummaryArgs:
     @confirmation_url.setter
     def confirmation_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "confirmation_url", value)
-
-
-@pulumi.input_type
-class TopicRuleDestinationPropertiesArgs:
-    def __init__(__self__, *,
-                 http_url_properties: Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 vpc_properties: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
-        :param pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs'] http_url_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
-        :param pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs'] vpc_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
-        """
-        if http_url_properties is not None:
-            pulumi.set(__self__, "http_url_properties", http_url_properties)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if vpc_properties is not None:
-            pulumi.set(__self__, "vpc_properties", vpc_properties)
-
-    @property
-    @pulumi.getter(name="HttpUrlProperties")
-    def http_url_properties(self) -> Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
-        """
-        return pulumi.get(self, "http_url_properties")
-
-    @http_url_properties.setter
-    def http_url_properties(self, value: Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]):
-        pulumi.set(self, "http_url_properties", value)
-
-    @property
-    @pulumi.getter(name="Status")
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="VpcProperties")
-    def vpc_properties(self) -> Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
-        """
-        return pulumi.get(self, "vpc_properties")
-
-    @vpc_properties.setter
-    def vpc_properties(self, value: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']]):
-        pulumi.set(self, "vpc_properties", value)
 
 
 @pulumi.input_type
@@ -1898,45 +1513,6 @@ class TopicRuleLambdaActionArgs:
     @function_arn.setter
     def function_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "function_arn", value)
-
-
-@pulumi.input_type
-class TopicRulePropertiesArgs:
-    def __init__(__self__, *,
-                 topic_rule_payload: pulumi.Input['TopicRuleTopicRulePayloadArgs'],
-                 rule_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
-        :param pulumi.Input['TopicRuleTopicRulePayloadArgs'] topic_rule_payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-        """
-        pulumi.set(__self__, "topic_rule_payload", topic_rule_payload)
-        if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
-
-    @property
-    @pulumi.getter(name="TopicRulePayload")
-    def topic_rule_payload(self) -> pulumi.Input['TopicRuleTopicRulePayloadArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-        """
-        return pulumi.get(self, "topic_rule_payload")
-
-    @topic_rule_payload.setter
-    def topic_rule_payload(self, value: pulumi.Input['TopicRuleTopicRulePayloadArgs']):
-        pulumi.set(self, "topic_rule_payload", value)
-
-    @property
-    @pulumi.getter(name="RuleName")
-    def rule_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rule_name", value)
 
 
 @pulumi.input_type

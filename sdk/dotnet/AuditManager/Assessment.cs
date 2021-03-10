@@ -15,29 +15,68 @@ namespace Pulumi.AwsNative.AuditManager
     [AwsNativeResourceType("aws-native:AuditManager:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.AssessmentAttributes> Attributes { get; private set; } = null!;
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        [Output("assessmentId")]
+        public Output<string> AssessmentId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("assessmentReportsDestination")]
+        public Output<Outputs.AssessmentAssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("awsAccount")]
+        public Output<Outputs.AssessmentAWSAccount?> AwsAccount { get; private set; } = null!;
+
+        [Output("creationTime")]
+        public Output<double> CreationTime { get; private set; } = null!;
+
+        [Output("delegations")]
+        public Output<Outputs.AssessmentDelegations> Delegations { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AssessmentProperties> Properties { get; private set; } = null!;
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        [Output("frameworkId")]
+        public Output<string> FrameworkId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
+        /// </summary>
+        [Output("name")]
+        public Output<string?> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        /// </summary>
+        [Output("roles")]
+        public Output<Outputs.AssessmentRoles?> Roles { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
+        /// </summary>
+        [Output("scope")]
+        public Output<Outputs.AssessmentScope?> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        /// </summary>
+        [Output("tags")]
+        public Output<Outputs.AssessmentTags?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +86,7 @@ namespace Pulumi.AwsNative.AuditManager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
+        public Assessment(string name, AssessmentArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:AuditManager:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,34 +124,58 @@ namespace Pulumi.AwsNative.AuditManager
     public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("assessmentReportsDestination")]
+        public Input<Inputs.AssessmentAssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("awsAccount")]
+        public Input<Inputs.AssessmentAWSAccountArgs>? AwsAccount { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AssessmentPropertiesArgs> Properties { get; set; } = null!;
+        [Input("frameworkId")]
+        public Input<string>? FrameworkId { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        /// </summary>
+        [Input("roles")]
+        public Input<Inputs.AssessmentRolesArgs>? Roles { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
+        /// </summary>
+        [Input("scope")]
+        public Input<Inputs.AssessmentScopeArgs>? Scope { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        /// </summary>
+        [Input("tags")]
+        public Input<Inputs.AssessmentTagsArgs>? Tags { get; set; }
 
         public AssessmentArgs()
         {

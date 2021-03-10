@@ -16,28 +16,37 @@ namespace Pulumi.AwsNative.RDS
     public partial class DBProxyTargetGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.DBProxyTargetGroupAttributes> Attributes { get; private set; } = null!;
+        [Output("ConnectionPoolConfigurationInfo")]
+        public Output<Outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat?> ConnectionPoolConfigurationInfo { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("DBClusterIdentifiers")]
+        public Output<ImmutableArray<string>> DBClusterIdentifiers { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("DBInstanceIdentifiers")]
+        public Output<ImmutableArray<string>> DBInstanceIdentifiers { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DBProxyTargetGroupProperties> Properties { get; private set; } = null!;
+        [Output("DBProxyName")]
+        public Output<string> DBProxyName { get; private set; } = null!;
+
+        [Output("TargetGroupArn")]
+        public Output<string> TargetGroupArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+        /// </summary>
+        [Output("TargetGroupName")]
+        public Output<string> TargetGroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +94,46 @@ namespace Pulumi.AwsNative.RDS
     public sealed class DBProxyTargetGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ConnectionPoolConfigurationInfo")]
+        public Input<Inputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>? ConnectionPoolConfigurationInfo { get; set; }
+
+        [Input("DBClusterIdentifiers")]
+        private InputList<string>? _DBClusterIdentifiers;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<string> DBClusterIdentifiers
+        {
+            get => _DBClusterIdentifiers ?? (_DBClusterIdentifiers = new InputList<string>());
+            set => _DBClusterIdentifiers = value;
+        }
+
+        [Input("DBInstanceIdentifiers")]
+        private InputList<string>? _DBInstanceIdentifiers;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        public InputList<string> DBInstanceIdentifiers
+        {
+            get => _DBInstanceIdentifiers ?? (_DBInstanceIdentifiers = new InputList<string>());
+            set => _DBInstanceIdentifiers = value;
+        }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DBProxyTargetGroupPropertiesArgs> Properties { get; set; } = null!;
+        [Input("DBProxyName", required: true)]
+        public Input<string> DBProxyName { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("TargetGroupName", required: true)]
+        public Input<string> TargetGroupName { get; set; } = null!;
 
         public DBProxyTargetGroupArgs()
         {

@@ -15,29 +15,62 @@ namespace Pulumi.AwsNative.ApplicationInsights
     [AwsNativeResourceType("aws-native:ApplicationInsights:Application")]
     public partial class Application : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ApplicationAttributes> Attributes { get; private set; } = null!;
+        [Output("ApplicationARN")]
+        public Output<string> ApplicationARN { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("AutoConfigurationEnabled")]
+        public Output<bool?> AutoConfigurationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("CWEMonitorEnabled")]
+        public Output<bool?> CWEMonitorEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationProperties> Properties { get; private set; } = null!;
+        [Output("ComponentMonitoringSettings")]
+        public Output<ImmutableArray<Outputs.ApplicationComponentMonitoringSetting>> ComponentMonitoringSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+        /// </summary>
+        [Output("CustomComponents")]
+        public Output<ImmutableArray<Outputs.ApplicationCustomComponent>> CustomComponents { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+        /// </summary>
+        [Output("LogPatternSets")]
+        public Output<ImmutableArray<Outputs.ApplicationLogPatternSet>> LogPatternSets { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+        /// </summary>
+        [Output("OpsCenterEnabled")]
+        public Output<bool?> OpsCenterEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+        /// </summary>
+        [Output("OpsItemSNSTopicArn")]
+        public Output<string?> OpsItemSNSTopicArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+        /// </summary>
+        [Output("ResourceGroupName")]
+        public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +118,82 @@ namespace Pulumi.AwsNative.ApplicationInsights
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AutoConfigurationEnabled")]
+        public Input<bool>? AutoConfigurationEnabled { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("CWEMonitorEnabled")]
+        public Input<bool>? CWEMonitorEnabled { get; set; }
+
+        [Input("ComponentMonitoringSettings")]
+        private InputList<Inputs.ApplicationComponentMonitoringSettingArgs>? _ComponentMonitoringSettings;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        public InputList<Inputs.ApplicationComponentMonitoringSettingArgs> ComponentMonitoringSettings
+        {
+            get => _ComponentMonitoringSettings ?? (_ComponentMonitoringSettings = new InputList<Inputs.ApplicationComponentMonitoringSettingArgs>());
+            set => _ComponentMonitoringSettings = value;
+        }
+
+        [Input("CustomComponents")]
+        private InputList<Inputs.ApplicationCustomComponentArgs>? _CustomComponents;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApplicationPropertiesArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.ApplicationCustomComponentArgs> CustomComponents
+        {
+            get => _CustomComponents ?? (_CustomComponents = new InputList<Inputs.ApplicationCustomComponentArgs>());
+            set => _CustomComponents = value;
+        }
+
+        [Input("LogPatternSets")]
+        private InputList<Inputs.ApplicationLogPatternSetArgs>? _LogPatternSets;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Inputs.ApplicationLogPatternSetArgs> LogPatternSets
+        {
+            get => _LogPatternSets ?? (_LogPatternSets = new InputList<Inputs.ApplicationLogPatternSetArgs>());
+            set => _LogPatternSets = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+        /// </summary>
+        [Input("OpsCenterEnabled")]
+        public Input<bool>? OpsCenterEnabled { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+        /// </summary>
+        [Input("OpsItemSNSTopicArn")]
+        public Input<string>? OpsItemSNSTopicArn { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+        /// </summary>
+        [Input("ResourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public ApplicationArgs()
         {

@@ -35,22 +35,43 @@ export class Assessment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assessment.__pulumiType;
     }
 
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly assessmentId!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.AuditManager.AssessmentAttributes>;
+    public readonly assessmentReportsDestination!: pulumi.Output<outputs.AuditManager.AssessmentAssessmentReportsDestination | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly awsAccount!: pulumi.Output<outputs.AuditManager.AssessmentAWSAccount | undefined>;
+    public /*out*/ readonly creationTime!: pulumi.Output<number>;
+    public /*out*/ readonly delegations!: pulumi.Output<outputs.AuditManager.AssessmentDelegations>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly frameworkId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
      */
-    public readonly properties!: pulumi.Output<outputs.AuditManager.AssessmentProperties>;
+    public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+     */
+    public readonly roles!: pulumi.Output<outputs.AuditManager.AssessmentRoles | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
+     */
+    public readonly scope!: pulumi.Output<outputs.AuditManager.AssessmentScope | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+     */
+    public readonly tags!: pulumi.Output<outputs.AuditManager.AssessmentTags | undefined>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -59,23 +80,36 @@ export class Assessment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
+            inputs["awsAccount"] = args ? args.awsAccount : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["frameworkId"] = args ? args.frameworkId : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["roles"] = args ? args.roles : undefined;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["assessmentId"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["delegations"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["assessmentId"] = undefined /*out*/;
+            inputs["assessmentReportsDestination"] = undefined /*out*/;
+            inputs["awsAccount"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["delegations"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["frameworkId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["roles"] = undefined /*out*/;
+            inputs["scope"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +127,39 @@ export class Assessment extends pulumi.CustomResource {
  */
 export interface AssessmentArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly assessmentReportsDestination?: pulumi.Input<inputs.AuditManager.AssessmentAssessmentReportsDestination>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly awsAccount?: pulumi.Input<inputs.AuditManager.AssessmentAWSAccount>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly description?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
      */
-    readonly properties: pulumi.Input<inputs.AuditManager.AssessmentProperties>;
+    readonly frameworkId?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+     */
+    readonly roles?: pulumi.Input<inputs.AuditManager.AssessmentRoles>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
+     */
+    readonly scope?: pulumi.Input<inputs.AuditManager.AssessmentScope>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+     */
+    readonly tags?: pulumi.Input<inputs.AuditManager.AssessmentTags>;
 }

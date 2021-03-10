@@ -35,22 +35,20 @@ export class TopicRuleDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === TopicRuleDestination.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoT.TopicRuleDestinationAttributes>;
+    public readonly HttpUrlProperties!: pulumi.Output<outputs.IoT.TopicRuleDestinationHttpUrlDestinationSummary | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Status!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly StatusReason!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.IoT.TopicRuleDestinationProperties>;
+    public readonly VpcProperties!: pulumi.Output<outputs.IoT.TopicRuleDestinationVpcDestinationProperties | undefined>;
 
     /**
      * Create a TopicRuleDestination resource with the given unique name, arguments, and options.
@@ -59,23 +57,20 @@ export class TopicRuleDestination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicRuleDestinationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: TopicRuleDestinationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["HttpUrlProperties"] = args ? args.HttpUrlProperties : undefined;
+            inputs["Status"] = args ? args.Status : undefined;
+            inputs["VpcProperties"] = args ? args.VpcProperties : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["StatusReason"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["HttpUrlProperties"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
+            inputs["StatusReason"] = undefined /*out*/;
+            inputs["VpcProperties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +88,15 @@ export class TopicRuleDestination extends pulumi.CustomResource {
  */
 export interface TopicRuleDestinationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly HttpUrlProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationHttpUrlDestinationSummary>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Status?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
      */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.IoT.TopicRuleDestinationProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly VpcProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationVpcDestinationProperties>;
 }

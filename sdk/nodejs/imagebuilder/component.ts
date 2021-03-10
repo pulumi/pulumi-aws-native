@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,22 +34,49 @@ export class Component extends pulumi.CustomResource {
         return obj['__pulumiType'] === Component.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ImageBuilder.ComponentAttributes>;
+    public readonly ChangeDescription!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Data!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Encrypted!: pulumi.Output<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
      */
-    public readonly properties!: pulumi.Output<outputs.ImageBuilder.ComponentProperties>;
+    public readonly KmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
+     */
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+     */
+    public readonly Platform!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+     */
+    public readonly SupportedOsVersions!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
+     */
+    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly Type!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+     */
+    public readonly Uri!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+     */
+    public readonly Version!: pulumi.Output<string>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -62,20 +88,42 @@ export class Component extends pulumi.CustomResource {
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Platform === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Platform'");
+            }
+            if ((!args || args.Version === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Version'");
+            }
+            inputs["ChangeDescription"] = args ? args.ChangeDescription : undefined;
+            inputs["Data"] = args ? args.Data : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["KmsKeyId"] = args ? args.KmsKeyId : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Platform"] = args ? args.Platform : undefined;
+            inputs["SupportedOsVersions"] = args ? args.SupportedOsVersions : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Uri"] = args ? args.Uri : undefined;
+            inputs["Version"] = args ? args.Version : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Encrypted"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ChangeDescription"] = undefined /*out*/;
+            inputs["Data"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Encrypted"] = undefined /*out*/;
+            inputs["KmsKeyId"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Platform"] = undefined /*out*/;
+            inputs["SupportedOsVersions"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
+            inputs["Uri"] = undefined /*out*/;
+            inputs["Version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +141,43 @@ export class Component extends pulumi.CustomResource {
  */
 export interface ComponentArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ChangeDescription?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Data?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
      */
-    readonly properties: pulumi.Input<inputs.ImageBuilder.ComponentProperties>;
+    readonly KmsKeyId?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+     */
+    readonly Platform: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+     */
+    readonly SupportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
+     */
+    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+     */
+    readonly Uri?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+     */
+    readonly Version: pulumi.Input<string>;
 }

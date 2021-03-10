@@ -35,22 +35,40 @@ export class Schema extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schema.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Glue.SchemaAttributes>;
+    public readonly CheckpointVersion!: pulumi.Output<outputs.Glue.SchemaSchemaVersion | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Compatibility!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DataFormat!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
      */
-    public readonly properties!: pulumi.Output<outputs.Glue.SchemaProperties>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly InitialSchemaVersionId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+     */
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+     */
+    public readonly Registry!: pulumi.Output<outputs.Glue.SchemaRegistry | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+     */
+    public readonly SchemaDefinition!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -62,20 +80,39 @@ export class Schema extends pulumi.CustomResource {
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Compatibility === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Compatibility'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.DataFormat === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DataFormat'");
+            }
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.SchemaDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SchemaDefinition'");
+            }
+            inputs["CheckpointVersion"] = args ? args.CheckpointVersion : undefined;
+            inputs["Compatibility"] = args ? args.Compatibility : undefined;
+            inputs["DataFormat"] = args ? args.DataFormat : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Registry"] = args ? args.Registry : undefined;
+            inputs["SchemaDefinition"] = args ? args.SchemaDefinition : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["InitialSchemaVersionId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["CheckpointVersion"] = undefined /*out*/;
+            inputs["Compatibility"] = undefined /*out*/;
+            inputs["DataFormat"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["InitialSchemaVersionId"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Registry"] = undefined /*out*/;
+            inputs["SchemaDefinition"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +130,35 @@ export class Schema extends pulumi.CustomResource {
  */
 export interface SchemaArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly CheckpointVersion?: pulumi.Input<inputs.Glue.SchemaSchemaVersion>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Compatibility: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DataFormat: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
      */
-    readonly properties: pulumi.Input<inputs.Glue.SchemaProperties>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+     */
+    readonly Registry?: pulumi.Input<inputs.Glue.SchemaRegistry>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+     */
+    readonly SchemaDefinition: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

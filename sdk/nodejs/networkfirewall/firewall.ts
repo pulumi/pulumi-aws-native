@@ -36,21 +36,44 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.NetworkFirewall.FirewallAttributes>;
+    public readonly DeleteProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly EndpointIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly FirewallArn!: pulumi.Output<string>;
+    public /*out*/ readonly FirewallId!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly FirewallName!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
      */
-    public readonly properties!: pulumi.Output<outputs.NetworkFirewall.FirewallProperties>;
+    public readonly FirewallPolicyArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
+     */
+    public readonly FirewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
+     */
+    public readonly SubnetChangeProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
+     */
+    public readonly SubnetMappings!: pulumi.Output<outputs.NetworkFirewall.FirewallSubnetMapping[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
+     */
+    public readonly VpcId!: pulumi.Output<string>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.
@@ -62,20 +85,43 @@ export class Firewall extends pulumi.CustomResource {
     constructor(name: string, args: FirewallArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.FirewallName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FirewallName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.FirewallPolicyArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'FirewallPolicyArn'");
+            }
+            if ((!args || args.SubnetMappings === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SubnetMappings'");
+            }
+            if ((!args || args.VpcId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'VpcId'");
+            }
+            inputs["DeleteProtection"] = args ? args.DeleteProtection : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["FirewallName"] = args ? args.FirewallName : undefined;
+            inputs["FirewallPolicyArn"] = args ? args.FirewallPolicyArn : undefined;
+            inputs["FirewallPolicyChangeProtection"] = args ? args.FirewallPolicyChangeProtection : undefined;
+            inputs["SubnetChangeProtection"] = args ? args.SubnetChangeProtection : undefined;
+            inputs["SubnetMappings"] = args ? args.SubnetMappings : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["VpcId"] = args ? args.VpcId : undefined;
+            inputs["EndpointIds"] = undefined /*out*/;
+            inputs["FirewallArn"] = undefined /*out*/;
+            inputs["FirewallId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["DeleteProtection"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["EndpointIds"] = undefined /*out*/;
+            inputs["FirewallArn"] = undefined /*out*/;
+            inputs["FirewallId"] = undefined /*out*/;
+            inputs["FirewallName"] = undefined /*out*/;
+            inputs["FirewallPolicyArn"] = undefined /*out*/;
+            inputs["FirewallPolicyChangeProtection"] = undefined /*out*/;
+            inputs["SubnetChangeProtection"] = undefined /*out*/;
+            inputs["SubnetMappings"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["VpcId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +139,39 @@ export class Firewall extends pulumi.CustomResource {
  */
 export interface FirewallArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly DeleteProtection?: pulumi.Input<boolean>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly FirewallName: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
      */
-    readonly properties: pulumi.Input<inputs.NetworkFirewall.FirewallProperties>;
+    readonly FirewallPolicyArn: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly FirewallPolicyChangeProtection?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
+     */
+    readonly SubnetChangeProtection?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
+     */
+    readonly SubnetMappings: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallSubnetMapping>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
+     */
+    readonly VpcId: pulumi.Input<string>;
 }

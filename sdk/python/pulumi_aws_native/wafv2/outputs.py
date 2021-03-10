@@ -8,16 +8,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'IPSetAttributes',
-    'IPSetProperties',
-    'RegexPatternSetAttributes',
-    'RegexPatternSetProperties',
     'RuleGroupAndStatementOne',
     'RuleGroupAndStatementTwo',
-    'RuleGroupAttributes',
     'RuleGroupByteMatchStatement',
     'RuleGroupFieldToMatch',
     'RuleGroupForwardedIPConfiguration',
@@ -28,7 +22,6 @@ __all__ = [
     'RuleGroupNotStatementTwo',
     'RuleGroupOrStatementOne',
     'RuleGroupOrStatementTwo',
-    'RuleGroupProperties',
     'RuleGroupRateBasedStatementOne',
     'RuleGroupRateBasedStatementTwo',
     'RuleGroupRegexPatternSetReferenceStatement',
@@ -44,9 +37,6 @@ __all__ = [
     'RuleGroupXssMatchStatement',
     'WebACLAndStatementOne',
     'WebACLAndStatementTwo',
-    'WebACLAssociationAttributes',
-    'WebACLAssociationProperties',
-    'WebACLAttributes',
     'WebACLByteMatchStatement',
     'WebACLDefaultAction',
     'WebACLExcludedRule',
@@ -61,7 +51,6 @@ __all__ = [
     'WebACLOrStatementOne',
     'WebACLOrStatementTwo',
     'WebACLOverrideAction',
-    'WebACLProperties',
     'WebACLRateBasedStatementOne',
     'WebACLRateBasedStatementTwo',
     'WebACLRegexPatternSetReferenceStatement',
@@ -77,205 +66,6 @@ __all__ = [
     'WebACLVisibilityConfig',
     'WebACLXssMatchStatement',
 ]
-
-@pulumi.output_type
-class IPSetAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class IPSetProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
-    """
-    def __init__(__self__, *,
-                 addresses: Sequence[str],
-                 ip_address_version: str,
-                 scope: str,
-                 description: Optional[str] = None,
-                 name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
-        :param Sequence[str] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-        :param str ip_address_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-        :param str scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-        """
-        pulumi.set(__self__, "addresses", addresses)
-        pulumi.set(__self__, "ip_address_version", ip_address_version)
-        pulumi.set(__self__, "scope", scope)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Addresses")
-    def addresses(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-        """
-        return pulumi.get(self, "addresses")
-
-    @property
-    @pulumi.getter(name="IPAddressVersion")
-    def ip_address_version(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-        """
-        return pulumi.get(self, "ip_address_version")
-
-    @property
-    @pulumi.getter(name="Scope")
-    def scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-        """
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RegexPatternSetAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RegexPatternSetProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html
-    """
-    def __init__(__self__, *,
-                 regular_expression_list: Sequence[str],
-                 scope: str,
-                 description: Optional[str] = None,
-                 name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html
-        :param Sequence[str] regular_expression_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regularexpressionlist
-        :param str scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-scope
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-description
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-name
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-tags
-        """
-        pulumi.set(__self__, "regular_expression_list", regular_expression_list)
-        pulumi.set(__self__, "scope", scope)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="RegularExpressionList")
-    def regular_expression_list(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-regularexpressionlist
-        """
-        return pulumi.get(self, "regular_expression_list")
-
-    @property
-    @pulumi.getter(name="Scope")
-    def scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-scope
-        """
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupAndStatementOne(dict):
@@ -322,28 +112,6 @@ class RuleGroupAndStatementTwo(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
         """
         return pulumi.get(self, "statements")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RuleGroupAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -771,101 +539,6 @@ class RuleGroupOrStatementTwo(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
         """
         return pulumi.get(self, "statements")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RuleGroupProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
-    """
-    def __init__(__self__, *,
-                 capacity: int,
-                 scope: str,
-                 visibility_config: 'outputs.RuleGroupVisibilityConfig',
-                 description: Optional[str] = None,
-                 name: Optional[str] = None,
-                 rules: Optional[Sequence['outputs.RuleGroupRule']] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
-        :param int capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-        :param str scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-        :param 'RuleGroupVisibilityConfigArgs' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-        :param Sequence['RuleGroupRuleArgs'] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-        """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "visibility_config", visibility_config)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Capacity")
-    def capacity(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter(name="Scope")
-    def scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-        """
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter(name="VisibilityConfig")
-    def visibility_config(self) -> 'outputs.RuleGroupVisibilityConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
-        """
-        return pulumi.get(self, "visibility_config")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="Rules")
-    def rules(self) -> Optional[Sequence['outputs.RuleGroupRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-        """
-        return pulumi.get(self, "rules")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1812,80 +1485,6 @@ class WebACLAndStatementTwo(dict):
 
 
 @pulumi.output_type
-class WebACLAssociationAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WebACLAssociationProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
-    """
-    def __init__(__self__, *,
-                 resource_arn: str,
-                 web_acl_arn: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
-        :param str resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-        :param str web_acl_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-        """
-        pulumi.set(__self__, "resource_arn", resource_arn)
-        pulumi.set(__self__, "web_acl_arn", web_acl_arn)
-
-    @property
-    @pulumi.getter(name="ResourceArn")
-    def resource_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-        """
-        return pulumi.get(self, "resource_arn")
-
-    @property
-    @pulumi.getter(name="WebACLArn")
-    def web_acl_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-        """
-        return pulumi.get(self, "web_acl_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WebACLAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 capacity: int,
-                 id: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Capacity")
-    def capacity(self) -> int:
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class WebACLByteMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
@@ -2456,101 +2055,6 @@ class WebACLOverrideAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
         """
         return pulumi.get(self, "none")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WebACLProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
-    """
-    def __init__(__self__, *,
-                 default_action: 'outputs.WebACLDefaultAction',
-                 scope: str,
-                 visibility_config: 'outputs.WebACLVisibilityConfig',
-                 description: Optional[str] = None,
-                 name: Optional[str] = None,
-                 rules: Optional[Sequence['outputs.WebACLRule']] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
-        :param 'WebACLDefaultActionArgs' default_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-        :param str scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-        :param 'WebACLVisibilityConfigArgs' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-        :param Sequence['WebACLRuleArgs'] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-        """
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "visibility_config", visibility_config)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="DefaultAction")
-    def default_action(self) -> 'outputs.WebACLDefaultAction':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-        """
-        return pulumi.get(self, "default_action")
-
-    @property
-    @pulumi.getter(name="Scope")
-    def scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-        """
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter(name="VisibilityConfig")
-    def visibility_config(self) -> 'outputs.WebACLVisibilityConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
-        """
-        return pulumi.get(self, "visibility_config")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="Rules")
-    def rules(self) -> Optional[Sequence['outputs.WebACLRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-        """
-        return pulumi.get(self, "rules")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

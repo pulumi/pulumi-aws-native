@@ -16,28 +16,40 @@ namespace Pulumi.AwsNative.AppFlow
     public partial class ConnectorProfile : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ConnectorProfileAttributes> Attributes { get; private set; } = null!;
+        [Output("ConnectionMode")]
+        public Output<string> ConnectionMode { get; private set; } = null!;
+
+        [Output("ConnectorProfileArn")]
+        public Output<string> ConnectorProfileArn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ConnectorProfileConfig")]
+        public Output<Outputs.ConnectorProfileConnectorProfileConfig?> ConnectorProfileConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("ConnectorProfileName")]
+        public Output<string> ConnectorProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConnectorProfileProperties> Properties { get; private set; } = null!;
+        [Output("ConnectorType")]
+        public Output<string> ConnectorType { get; private set; } = null!;
+
+        [Output("CredentialsArn")]
+        public Output<string> CredentialsArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        /// </summary>
+        [Output("KMSArn")]
+        public Output<string?> KMSArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +97,34 @@ namespace Pulumi.AwsNative.AppFlow
     public sealed class ConnectorProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ConnectionMode", required: true)]
+        public Input<string> ConnectionMode { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("ConnectorProfileConfig")]
+        public Input<Inputs.ConnectorProfileConnectorProfileConfigArgs>? ConnectorProfileConfig { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("ConnectorProfileName", required: true)]
+        public Input<string> ConnectorProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ConnectorProfilePropertiesArgs> Properties { get; set; } = null!;
+        [Input("ConnectorType", required: true)]
+        public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("KMSArn")]
+        public Input<string>? KMSArn { get; set; }
 
         public ConnectorProfileArgs()
         {

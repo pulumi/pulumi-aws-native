@@ -16,28 +16,52 @@ namespace Pulumi.AwsNative.ElastiCache
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.UserAttributes> Attributes { get; private set; } = null!;
+        [Output("AccessString")]
+        public Output<string?> AccessString { get; private set; } = null!;
+
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        [Output("Authentication")]
+        public Output<Outputs.UserAuthentication> Authentication { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("Engine")]
+        public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("NoPasswordRequired")]
+        public Output<bool?> NoPasswordRequired { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.UserProperties> Properties { get; private set; } = null!;
+        [Output("Passwords")]
+        public Output<Outputs.UserPasswordList?> Passwords { get; private set; } = null!;
+
+        [Output("Status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        [Output("UserGroupIds")]
+        public Output<Outputs.UserUserGroupIdList> UserGroupIds { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+        /// </summary>
+        [Output("UserId")]
+        public Output<string> UserId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+        /// </summary>
+        [Output("UserName")]
+        public Output<string> UserName { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +109,40 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("AccessString")]
+        public Input<string>? AccessString { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("Engine", required: true)]
+        public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("NoPasswordRequired")]
+        public Input<bool>? NoPasswordRequired { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.UserPropertiesArgs> Properties { get; set; } = null!;
+        [Input("Passwords")]
+        public Input<Inputs.UserPasswordListArgs>? Passwords { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("UserId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+        /// </summary>
+        [Input("UserName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public UserArgs()
         {

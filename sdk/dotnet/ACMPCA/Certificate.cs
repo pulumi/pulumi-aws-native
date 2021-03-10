@@ -15,29 +15,41 @@ namespace Pulumi.AwsNative.ACMPCA
     [AwsNativeResourceType("aws-native:ACMPCA:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.CertificateAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        [Output("Certificate")]
+        public Output<string> CertificateValue { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("CertificateAuthorityArn")]
+        public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("CertificateSigningRequest")]
+        public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CertificateProperties> Properties { get; private set; } = null!;
+        [Output("SigningAlgorithm")]
+        public Output<string> SigningAlgorithm { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
+        /// </summary>
+        [Output("TemplateArn")]
+        public Output<string?> TemplateArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
+        /// </summary>
+        [Output("Validity")]
+        public Output<Outputs.CertificateValidity> Validity { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +97,34 @@ namespace Pulumi.AwsNative.ACMPCA
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("CertificateAuthorityArn", required: true)]
+        public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("CertificateSigningRequest", required: true)]
+        public Input<string> CertificateSigningRequest { get; set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("SigningAlgorithm", required: true)]
+        public Input<string> SigningAlgorithm { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CertificatePropertiesArgs> Properties { get; set; } = null!;
+        [Input("TemplateArn")]
+        public Input<string>? TemplateArn { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Validity", required: true)]
+        public Input<Inputs.CertificateValidityArgs> Validity { get; set; } = null!;
 
         public CertificateArgs()
         {

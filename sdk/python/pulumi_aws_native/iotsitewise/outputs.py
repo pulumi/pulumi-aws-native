@@ -8,45 +8,30 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
     'AccessPolicyAccessPolicyIdentity',
     'AccessPolicyAccessPolicyResource',
-    'AccessPolicyAttributes',
     'AccessPolicyPortal',
     'AccessPolicyProject',
-    'AccessPolicyProperties',
     'AccessPolicyUser',
     'AssetAssetHierarchy',
     'AssetAssetProperty',
-    'AssetAttributes',
     'AssetModelAssetModelHierarchy',
     'AssetModelAssetModelProperty',
     'AssetModelAttribute',
-    'AssetModelAttributes',
     'AssetModelExpressionVariable',
     'AssetModelMetric',
     'AssetModelMetricWindow',
-    'AssetModelProperties',
     'AssetModelPropertyType',
     'AssetModelTransform',
     'AssetModelTumblingWindow',
     'AssetModelVariableValue',
-    'AssetProperties',
-    'DashboardAttributes',
-    'DashboardProperties',
-    'GatewayAttributes',
     'GatewayGatewayCapabilitySummary',
     'GatewayGatewayPlatform',
     'GatewayGreengrass',
-    'GatewayProperties',
-    'PortalAttributes',
     'PortalMonitorErrorDetails',
     'PortalPortalStatus',
-    'PortalProperties',
-    'ProjectAttributes',
-    'ProjectProperties',
 ]
 
 @pulumi.output_type
@@ -114,28 +99,6 @@ class AccessPolicyAccessPolicyResource(dict):
 
 
 @pulumi.output_type
-class AccessPolicyAttributes(dict):
-    def __init__(__self__, *,
-                 access_policy_arn: str,
-                 access_policy_id: str):
-        pulumi.set(__self__, "access_policy_arn", access_policy_arn)
-        pulumi.set(__self__, "access_policy_id", access_policy_id)
-
-    @property
-    @pulumi.getter(name="AccessPolicyArn")
-    def access_policy_arn(self) -> str:
-        return pulumi.get(self, "access_policy_arn")
-
-    @property
-    @pulumi.getter(name="AccessPolicyId")
-    def access_policy_id(self) -> str:
-        return pulumi.get(self, "access_policy_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class AccessPolicyPortal(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
@@ -182,53 +145,6 @@ class AccessPolicyProject(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AccessPolicyProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
-    """
-    def __init__(__self__, *,
-                 access_policy_identity: 'outputs.AccessPolicyAccessPolicyIdentity',
-                 access_policy_permission: str,
-                 access_policy_resource: 'outputs.AccessPolicyAccessPolicyResource'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
-        :param 'AccessPolicyAccessPolicyIdentityArgs' access_policy_identity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
-        :param str access_policy_permission: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
-        :param 'AccessPolicyAccessPolicyResourceArgs' access_policy_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
-        """
-        pulumi.set(__self__, "access_policy_identity", access_policy_identity)
-        pulumi.set(__self__, "access_policy_permission", access_policy_permission)
-        pulumi.set(__self__, "access_policy_resource", access_policy_resource)
-
-    @property
-    @pulumi.getter(name="AccessPolicyIdentity")
-    def access_policy_identity(self) -> 'outputs.AccessPolicyAccessPolicyIdentity':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
-        """
-        return pulumi.get(self, "access_policy_identity")
-
-    @property
-    @pulumi.getter(name="AccessPolicyPermission")
-    def access_policy_permission(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
-        """
-        return pulumi.get(self, "access_policy_permission")
-
-    @property
-    @pulumi.getter(name="AccessPolicyResource")
-    def access_policy_resource(self) -> 'outputs.AccessPolicyAccessPolicyResource':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
-        """
-        return pulumi.get(self, "access_policy_resource")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -340,28 +256,6 @@ class AssetAssetProperty(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
         """
         return pulumi.get(self, "notification_state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AssetAttributes(dict):
-    def __init__(__self__, *,
-                 asset_arn: str,
-                 asset_id: str):
-        pulumi.set(__self__, "asset_arn", asset_arn)
-        pulumi.set(__self__, "asset_id", asset_id)
-
-    @property
-    @pulumi.getter(name="AssetArn")
-    def asset_arn(self) -> str:
-        return pulumi.get(self, "asset_arn")
-
-    @property
-    @pulumi.getter(name="AssetId")
-    def asset_id(self) -> str:
-        return pulumi.get(self, "asset_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -511,28 +405,6 @@ class AssetModelAttribute(dict):
 
 
 @pulumi.output_type
-class AssetModelAttributes(dict):
-    def __init__(__self__, *,
-                 asset_model_arn: str,
-                 asset_model_id: str):
-        pulumi.set(__self__, "asset_model_arn", asset_model_arn)
-        pulumi.set(__self__, "asset_model_id", asset_model_id)
-
-    @property
-    @pulumi.getter(name="AssetModelArn")
-    def asset_model_arn(self) -> str:
-        return pulumi.get(self, "asset_model_arn")
-
-    @property
-    @pulumi.getter(name="AssetModelId")
-    def asset_model_id(self) -> str:
-        return pulumi.get(self, "asset_model_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class AssetModelExpressionVariable(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
@@ -636,79 +508,6 @@ class AssetModelMetricWindow(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
         """
         return pulumi.get(self, "tumbling")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AssetModelProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
-    """
-    def __init__(__self__, *,
-                 asset_model_name: str,
-                 asset_model_description: Optional[str] = None,
-                 asset_model_hierarchies: Optional[Sequence['outputs.AssetModelAssetModelHierarchy']] = None,
-                 asset_model_properties: Optional[Sequence['outputs.AssetModelAssetModelProperty']] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
-        :param str asset_model_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
-        :param str asset_model_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
-        :param Sequence['AssetModelAssetModelHierarchyArgs'] asset_model_hierarchies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
-        :param Sequence['AssetModelAssetModelPropertyArgs'] asset_model_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
-        """
-        pulumi.set(__self__, "asset_model_name", asset_model_name)
-        if asset_model_description is not None:
-            pulumi.set(__self__, "asset_model_description", asset_model_description)
-        if asset_model_hierarchies is not None:
-            pulumi.set(__self__, "asset_model_hierarchies", asset_model_hierarchies)
-        if asset_model_properties is not None:
-            pulumi.set(__self__, "asset_model_properties", asset_model_properties)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="AssetModelName")
-    def asset_model_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
-        """
-        return pulumi.get(self, "asset_model_name")
-
-    @property
-    @pulumi.getter(name="AssetModelDescription")
-    def asset_model_description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
-        """
-        return pulumi.get(self, "asset_model_description")
-
-    @property
-    @pulumi.getter(name="AssetModelHierarchies")
-    def asset_model_hierarchies(self) -> Optional[Sequence['outputs.AssetModelAssetModelHierarchy']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
-        """
-        return pulumi.get(self, "asset_model_hierarchies")
-
-    @property
-    @pulumi.getter(name="AssetModelProperties")
-    def asset_model_properties(self) -> Optional[Sequence['outputs.AssetModelAssetModelProperty']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
-        """
-        return pulumi.get(self, "asset_model_properties")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -874,186 +673,6 @@ class AssetModelVariableValue(dict):
 
 
 @pulumi.output_type
-class AssetProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
-    """
-    def __init__(__self__, *,
-                 asset_model_id: str,
-                 asset_name: str,
-                 asset_hierarchies: Optional[Sequence['outputs.AssetAssetHierarchy']] = None,
-                 asset_properties: Optional[Sequence['outputs.AssetAssetProperty']] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
-        :param str asset_model_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
-        :param str asset_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-        :param Sequence['AssetAssetHierarchyArgs'] asset_hierarchies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-        :param Sequence['AssetAssetPropertyArgs'] asset_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
-        """
-        pulumi.set(__self__, "asset_model_id", asset_model_id)
-        pulumi.set(__self__, "asset_name", asset_name)
-        if asset_hierarchies is not None:
-            pulumi.set(__self__, "asset_hierarchies", asset_hierarchies)
-        if asset_properties is not None:
-            pulumi.set(__self__, "asset_properties", asset_properties)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="AssetModelId")
-    def asset_model_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
-        """
-        return pulumi.get(self, "asset_model_id")
-
-    @property
-    @pulumi.getter(name="AssetName")
-    def asset_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-        """
-        return pulumi.get(self, "asset_name")
-
-    @property
-    @pulumi.getter(name="AssetHierarchies")
-    def asset_hierarchies(self) -> Optional[Sequence['outputs.AssetAssetHierarchy']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-        """
-        return pulumi.get(self, "asset_hierarchies")
-
-    @property
-    @pulumi.getter(name="AssetProperties")
-    def asset_properties(self) -> Optional[Sequence['outputs.AssetAssetProperty']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-        """
-        return pulumi.get(self, "asset_properties")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DashboardAttributes(dict):
-    def __init__(__self__, *,
-                 dashboard_arn: str,
-                 dashboard_id: str):
-        pulumi.set(__self__, "dashboard_arn", dashboard_arn)
-        pulumi.set(__self__, "dashboard_id", dashboard_id)
-
-    @property
-    @pulumi.getter(name="DashboardArn")
-    def dashboard_arn(self) -> str:
-        return pulumi.get(self, "dashboard_arn")
-
-    @property
-    @pulumi.getter(name="DashboardId")
-    def dashboard_id(self) -> str:
-        return pulumi.get(self, "dashboard_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DashboardProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
-    """
-    def __init__(__self__, *,
-                 dashboard_definition: str,
-                 dashboard_description: str,
-                 dashboard_name: str,
-                 project_id: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
-        :param str dashboard_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
-        :param str dashboard_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
-        :param str dashboard_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
-        :param str project_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
-        """
-        pulumi.set(__self__, "dashboard_definition", dashboard_definition)
-        pulumi.set(__self__, "dashboard_description", dashboard_description)
-        pulumi.set(__self__, "dashboard_name", dashboard_name)
-        if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="DashboardDefinition")
-    def dashboard_definition(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
-        """
-        return pulumi.get(self, "dashboard_definition")
-
-    @property
-    @pulumi.getter(name="DashboardDescription")
-    def dashboard_description(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
-        """
-        return pulumi.get(self, "dashboard_description")
-
-    @property
-    @pulumi.getter(name="DashboardName")
-    def dashboard_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
-        """
-        return pulumi.get(self, "dashboard_name")
-
-    @property
-    @pulumi.getter(name="ProjectId")
-    def project_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
-        """
-        return pulumi.get(self, "project_id")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class GatewayAttributes(dict):
-    def __init__(__self__, *,
-                 gateway_id: str):
-        pulumi.set(__self__, "gateway_id", gateway_id)
-
-    @property
-    @pulumi.getter(name="GatewayId")
-    def gateway_id(self) -> str:
-        return pulumi.get(self, "gateway_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class GatewayGatewayCapabilitySummary(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
@@ -1141,109 +760,6 @@ class GatewayGreengrass(dict):
 
 
 @pulumi.output_type
-class GatewayProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
-    """
-    def __init__(__self__, *,
-                 gateway_name: str,
-                 gateway_platform: 'outputs.GatewayGatewayPlatform',
-                 gateway_capability_summaries: Optional[Sequence['outputs.GatewayGatewayCapabilitySummary']] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
-        :param str gateway_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
-        :param 'GatewayGatewayPlatformArgs' gateway_platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
-        :param Sequence['GatewayGatewayCapabilitySummaryArgs'] gateway_capability_summaries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
-        """
-        pulumi.set(__self__, "gateway_name", gateway_name)
-        pulumi.set(__self__, "gateway_platform", gateway_platform)
-        if gateway_capability_summaries is not None:
-            pulumi.set(__self__, "gateway_capability_summaries", gateway_capability_summaries)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="GatewayName")
-    def gateway_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @property
-    @pulumi.getter(name="GatewayPlatform")
-    def gateway_platform(self) -> 'outputs.GatewayGatewayPlatform':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
-        """
-        return pulumi.get(self, "gateway_platform")
-
-    @property
-    @pulumi.getter(name="GatewayCapabilitySummaries")
-    def gateway_capability_summaries(self) -> Optional[Sequence['outputs.GatewayGatewayCapabilitySummary']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
-        """
-        return pulumi.get(self, "gateway_capability_summaries")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PortalAttributes(dict):
-    def __init__(__self__, *,
-                 portal_arn: str,
-                 portal_client_id: str,
-                 portal_id: str,
-                 portal_start_url: str,
-                 portal_status: 'outputs.PortalPortalStatus'):
-        pulumi.set(__self__, "portal_arn", portal_arn)
-        pulumi.set(__self__, "portal_client_id", portal_client_id)
-        pulumi.set(__self__, "portal_id", portal_id)
-        pulumi.set(__self__, "portal_start_url", portal_start_url)
-        pulumi.set(__self__, "portal_status", portal_status)
-
-    @property
-    @pulumi.getter(name="PortalArn")
-    def portal_arn(self) -> str:
-        return pulumi.get(self, "portal_arn")
-
-    @property
-    @pulumi.getter(name="PortalClientId")
-    def portal_client_id(self) -> str:
-        return pulumi.get(self, "portal_client_id")
-
-    @property
-    @pulumi.getter(name="PortalId")
-    def portal_id(self) -> str:
-        return pulumi.get(self, "portal_id")
-
-    @property
-    @pulumi.getter(name="PortalStartUrl")
-    def portal_start_url(self) -> str:
-        return pulumi.get(self, "portal_start_url")
-
-    @property
-    @pulumi.getter(name="PortalStatus")
-    def portal_status(self) -> 'outputs.PortalPortalStatus':
-        return pulumi.get(self, "portal_status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class PortalMonitorErrorDetails(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html
@@ -1313,159 +829,6 @@ class PortalPortalStatus(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
         """
         return pulumi.get(self, "error")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PortalProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
-    """
-    def __init__(__self__, *,
-                 portal_contact_email: str,
-                 portal_name: str,
-                 role_arn: str,
-                 portal_description: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
-        :param str portal_contact_email: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
-        :param str portal_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
-        :param str portal_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
-        """
-        pulumi.set(__self__, "portal_contact_email", portal_contact_email)
-        pulumi.set(__self__, "portal_name", portal_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        if portal_description is not None:
-            pulumi.set(__self__, "portal_description", portal_description)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="PortalContactEmail")
-    def portal_contact_email(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
-        """
-        return pulumi.get(self, "portal_contact_email")
-
-    @property
-    @pulumi.getter(name="PortalName")
-    def portal_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
-        """
-        return pulumi.get(self, "portal_name")
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="PortalDescription")
-    def portal_description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
-        """
-        return pulumi.get(self, "portal_description")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ProjectAttributes(dict):
-    def __init__(__self__, *,
-                 project_arn: str,
-                 project_id: str):
-        pulumi.set(__self__, "project_arn", project_arn)
-        pulumi.set(__self__, "project_id", project_id)
-
-    @property
-    @pulumi.getter(name="ProjectArn")
-    def project_arn(self) -> str:
-        return pulumi.get(self, "project_arn")
-
-    @property
-    @pulumi.getter(name="ProjectId")
-    def project_id(self) -> str:
-        return pulumi.get(self, "project_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ProjectProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
-    """
-    def __init__(__self__, *,
-                 portal_id: str,
-                 project_name: str,
-                 project_description: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
-        :param str portal_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
-        :param str project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
-        :param str project_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
-        """
-        pulumi.set(__self__, "portal_id", portal_id)
-        pulumi.set(__self__, "project_name", project_name)
-        if project_description is not None:
-            pulumi.set(__self__, "project_description", project_description)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="PortalId")
-    def portal_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
-        """
-        return pulumi.get(self, "portal_id")
-
-    @property
-    @pulumi.getter(name="ProjectName")
-    def project_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
-        """
-        return pulumi.get(self, "project_name")
-
-    @property
-    @pulumi.getter(name="ProjectDescription")
-    def project_description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
-        """
-        return pulumi.get(self, "project_description")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

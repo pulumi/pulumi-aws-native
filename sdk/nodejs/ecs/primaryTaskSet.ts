@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,21 +35,17 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ECS.PrimaryTaskSetAttributes>;
+    public readonly Cluster!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Service!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.ECS.PrimaryTaskSetProperties>;
+    public readonly TaskSetId!: pulumi.Output<string>;
 
     /**
      * Create a PrimaryTaskSet resource with the given unique name, arguments, and options.
@@ -62,20 +57,22 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
     constructor(name: string, args: PrimaryTaskSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Cluster === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Cluster'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Service === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Service'");
+            }
+            if ((!args || args.TaskSetId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TaskSetId'");
+            }
+            inputs["Cluster"] = args ? args.Cluster : undefined;
+            inputs["Service"] = args ? args.Service : undefined;
+            inputs["TaskSetId"] = args ? args.TaskSetId : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Cluster"] = undefined /*out*/;
+            inputs["Service"] = undefined /*out*/;
+            inputs["TaskSetId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +90,15 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
  */
 export interface PrimaryTaskSetArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Cluster: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Service: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
      */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.ECS.PrimaryTaskSetProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly TaskSetId: pulumi.Input<string>;
 }

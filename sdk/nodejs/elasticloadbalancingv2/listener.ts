@@ -36,21 +36,34 @@ export class Listener extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerAttributes>;
+    public readonly AlpnPolicy!: pulumi.Output<string[] | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Certificates!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerCertificate[] | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DefaultActions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerAction[]>;
+    public /*out*/ readonly ListenerArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
      */
-    public readonly properties!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerProperties>;
+    public readonly LoadBalancerArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
+     */
+    public readonly Port!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
+     */
+    public readonly Protocol!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
+     */
+    public readonly SslPolicy!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -62,20 +75,29 @@ export class Listener extends pulumi.CustomResource {
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.DefaultActions === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DefaultActions'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.LoadBalancerArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'LoadBalancerArn'");
+            }
+            inputs["AlpnPolicy"] = args ? args.AlpnPolicy : undefined;
+            inputs["Certificates"] = args ? args.Certificates : undefined;
+            inputs["DefaultActions"] = args ? args.DefaultActions : undefined;
+            inputs["LoadBalancerArn"] = args ? args.LoadBalancerArn : undefined;
+            inputs["Port"] = args ? args.Port : undefined;
+            inputs["Protocol"] = args ? args.Protocol : undefined;
+            inputs["SslPolicy"] = args ? args.SslPolicy : undefined;
+            inputs["ListenerArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AlpnPolicy"] = undefined /*out*/;
+            inputs["Certificates"] = undefined /*out*/;
+            inputs["DefaultActions"] = undefined /*out*/;
+            inputs["ListenerArn"] = undefined /*out*/;
+            inputs["LoadBalancerArn"] = undefined /*out*/;
+            inputs["Port"] = undefined /*out*/;
+            inputs["Protocol"] = undefined /*out*/;
+            inputs["SslPolicy"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,31 @@ export class Listener extends pulumi.CustomResource {
  */
 export interface ListenerArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AlpnPolicy?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Certificates?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerCertificate>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DefaultActions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerAction>[]>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
      */
-    readonly properties: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerProperties>;
+    readonly LoadBalancerArn: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Port?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
+     */
+    readonly Protocol?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
+     */
+    readonly SslPolicy?: pulumi.Input<string>;
 }

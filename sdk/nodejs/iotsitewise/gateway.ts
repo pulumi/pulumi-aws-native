@@ -36,21 +36,22 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoTSiteWise.GatewayAttributes>;
+    public readonly GatewayCapabilitySummaries!: pulumi.Output<outputs.IoTSiteWise.GatewayGatewayCapabilitySummary[] | undefined>;
+    public /*out*/ readonly GatewayId!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly GatewayName!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly GatewayPlatform!: pulumi.Output<outputs.IoTSiteWise.GatewayGatewayPlatform>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
      */
-    public readonly properties!: pulumi.Output<outputs.IoTSiteWise.GatewayProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -62,20 +63,23 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.GatewayName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'GatewayName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.GatewayPlatform === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'GatewayPlatform'");
+            }
+            inputs["GatewayCapabilitySummaries"] = args ? args.GatewayCapabilitySummaries : undefined;
+            inputs["GatewayName"] = args ? args.GatewayName : undefined;
+            inputs["GatewayPlatform"] = args ? args.GatewayPlatform : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["GatewayId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["GatewayCapabilitySummaries"] = undefined /*out*/;
+            inputs["GatewayId"] = undefined /*out*/;
+            inputs["GatewayName"] = undefined /*out*/;
+            inputs["GatewayPlatform"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +97,19 @@ export class Gateway extends pulumi.CustomResource {
  */
 export interface GatewayArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly GatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.GatewayGatewayCapabilitySummary>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly GatewayName: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly GatewayPlatform: pulumi.Input<inputs.IoTSiteWise.GatewayGatewayPlatform>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
      */
-    readonly properties: pulumi.Input<inputs.IoTSiteWise.GatewayProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

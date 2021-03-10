@@ -35,22 +35,44 @@ export class StateMachine extends pulumi.CustomResource {
         return obj['__pulumiType'] === StateMachine.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.StepFunctions.StateMachineAttributes>;
+    public readonly DefinitionS3Location!: pulumi.Output<outputs.StepFunctions.StateMachineS3Location | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DefinitionString!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DefinitionSubstitutions!: pulumi.Output<outputs.StepFunctions.StateMachineDefinitionSubstitutions | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
      */
-    public readonly properties!: pulumi.Output<outputs.StepFunctions.StateMachineProperties>;
+    public readonly LoggingConfiguration!: pulumi.Output<outputs.StepFunctions.StateMachineLoggingConfiguration | undefined>;
+    public /*out*/ readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
+     */
+    public readonly StateMachineName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
+     */
+    public readonly StateMachineType!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.StepFunctions.StateMachineTagsEntry[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
+     */
+    public readonly TracingConfiguration!: pulumi.Output<outputs.StepFunctions.StateMachineTracingConfiguration | undefined>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -62,20 +84,32 @@ export class StateMachine extends pulumi.CustomResource {
     constructor(name: string, args: StateMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["DefinitionS3Location"] = args ? args.DefinitionS3Location : undefined;
+            inputs["DefinitionString"] = args ? args.DefinitionString : undefined;
+            inputs["DefinitionSubstitutions"] = args ? args.DefinitionSubstitutions : undefined;
+            inputs["LoggingConfiguration"] = args ? args.LoggingConfiguration : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["StateMachineName"] = args ? args.StateMachineName : undefined;
+            inputs["StateMachineType"] = args ? args.StateMachineType : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["TracingConfiguration"] = args ? args.TracingConfiguration : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["DefinitionS3Location"] = undefined /*out*/;
+            inputs["DefinitionString"] = undefined /*out*/;
+            inputs["DefinitionSubstitutions"] = undefined /*out*/;
+            inputs["LoggingConfiguration"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["StateMachineName"] = undefined /*out*/;
+            inputs["StateMachineType"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["TracingConfiguration"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +127,39 @@ export class StateMachine extends pulumi.CustomResource {
  */
 export interface StateMachineArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly DefinitionS3Location?: pulumi.Input<inputs.StepFunctions.StateMachineS3Location>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DefinitionString?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DefinitionSubstitutions?: pulumi.Input<inputs.StepFunctions.StateMachineDefinitionSubstitutions>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
      */
-    readonly properties: pulumi.Input<inputs.StepFunctions.StateMachineProperties>;
+    readonly LoggingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineLoggingConfiguration>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
+     */
+    readonly StateMachineName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
+     */
+    readonly StateMachineType?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.StepFunctions.StateMachineTagsEntry>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
+     */
+    readonly TracingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineTracingConfiguration>;
 }

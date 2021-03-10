@@ -16,28 +16,97 @@ namespace Pulumi.AwsNative.SSM
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.AssociationAttributes> Attributes { get; private set; } = null!;
+        [Output("ApplyOnlyAtCronInterval")]
+        public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
+
+        [Output("AssociationId")]
+        public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("AssociationName")]
+        public Output<string?> AssociationName { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("AutomationTargetParameterName")]
+        public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AssociationProperties> Properties { get; private set; } = null!;
+        [Output("ComplianceSeverity")]
+        public Output<string?> ComplianceSeverity { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+        /// </summary>
+        [Output("DocumentVersion")]
+        public Output<string?> DocumentVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+        /// </summary>
+        [Output("InstanceId")]
+        public Output<string?> InstanceId { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+        /// </summary>
+        [Output("MaxConcurrency")]
+        public Output<string?> MaxConcurrency { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
+        /// </summary>
+        [Output("MaxErrors")]
+        public Output<string?> MaxErrors { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+        /// </summary>
+        [Output("Name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+        /// </summary>
+        [Output("OutputLocation")]
+        public Output<Outputs.AssociationInstanceAssociationOutputLocation?> OutputLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+        /// </summary>
+        [Output("Parameters")]
+        public Output<ImmutableDictionary<string, Outputs.AssociationParameterValues>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+        /// </summary>
+        [Output("ScheduleExpression")]
+        public Output<string?> ScheduleExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
+        /// </summary>
+        [Output("SyncCompliance")]
+        public Output<string?> SyncCompliance { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+        /// </summary>
+        [Output("Targets")]
+        public Output<ImmutableArray<Outputs.AssociationTarget>> Targets { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+        /// </summary>
+        [Output("WaitForSuccessTimeoutSeconds")]
+        public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +154,106 @@ namespace Pulumi.AwsNative.SSM
     public sealed class AssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ApplyOnlyAtCronInterval")]
+        public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("AssociationName")]
+        public Input<string>? AssociationName { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("AutomationTargetParameterName")]
+        public Input<string>? AutomationTargetParameterName { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AssociationPropertiesArgs> Properties { get; set; } = null!;
+        [Input("ComplianceSeverity")]
+        public Input<string>? ComplianceSeverity { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("DocumentVersion")]
+        public Input<string>? DocumentVersion { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+        /// </summary>
+        [Input("InstanceId")]
+        public Input<string>? InstanceId { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+        /// </summary>
+        [Input("MaxConcurrency")]
+        public Input<string>? MaxConcurrency { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
+        /// </summary>
+        [Input("MaxErrors")]
+        public Input<string>? MaxErrors { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+        /// </summary>
+        [Input("Name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+        /// </summary>
+        [Input("OutputLocation")]
+        public Input<Inputs.AssociationInstanceAssociationOutputLocationArgs>? OutputLocation { get; set; }
+
+        [Input("Parameters")]
+        private InputMap<Inputs.AssociationParameterValuesArgs>? _Parameters;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+        /// </summary>
+        public InputMap<Inputs.AssociationParameterValuesArgs> Parameters
+        {
+            get => _Parameters ?? (_Parameters = new InputMap<Inputs.AssociationParameterValuesArgs>());
+            set => _Parameters = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+        /// </summary>
+        [Input("ScheduleExpression")]
+        public Input<string>? ScheduleExpression { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
+        /// </summary>
+        [Input("SyncCompliance")]
+        public Input<string>? SyncCompliance { get; set; }
+
+        [Input("Targets")]
+        private InputList<Inputs.AssociationTargetArgs>? _Targets;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+        /// </summary>
+        public InputList<Inputs.AssociationTargetArgs> Targets
+        {
+            get => _Targets ?? (_Targets = new InputList<Inputs.AssociationTargetArgs>());
+            set => _Targets = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+        /// </summary>
+        [Input("WaitForSuccessTimeoutSeconds")]
+        public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
 
         public AssociationArgs()
         {

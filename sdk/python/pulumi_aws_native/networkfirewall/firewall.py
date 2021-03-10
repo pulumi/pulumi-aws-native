@@ -19,11 +19,15 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['FirewallPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 delete_protection: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 firewall_name: Optional[pulumi.Input[str]] = None,
+                 firewall_policy_arn: Optional[pulumi.Input[str]] = None,
+                 firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
+                 subnet_change_protection: Optional[pulumi.Input[bool]] = None,
+                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +36,15 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['FirewallPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[bool] delete_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
+        :param pulumi.Input[str] firewall_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
+        :param pulumi.Input[str] firewall_policy_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
+        :param pulumi.Input[bool] firewall_policy_change_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
+        :param pulumi.Input[bool] subnet_change_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]] subnet_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
+        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +63,26 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['delete_protection'] = delete_protection
+            __props__['description'] = description
+            if firewall_name is None and not opts.urn:
+                raise TypeError("Missing required property 'firewall_name'")
+            __props__['firewall_name'] = firewall_name
+            if firewall_policy_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'firewall_policy_arn'")
+            __props__['firewall_policy_arn'] = firewall_policy_arn
+            __props__['firewall_policy_change_protection'] = firewall_policy_change_protection
+            __props__['subnet_change_protection'] = subnet_change_protection
+            if subnet_mappings is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet_mappings'")
+            __props__['subnet_mappings'] = subnet_mappings
+            __props__['tags'] = tags
+            if vpc_id is None and not opts.urn:
+                raise TypeError("Missing required property 'vpc_id'")
+            __props__['vpc_id'] = vpc_id
+            __props__['endpoint_ids'] = None
+            __props__['firewall_arn'] = None
+            __props__['firewall_id'] = None
         super(Firewall, __self__).__init__(
             'aws-native:NetworkFirewall:Firewall',
             resource_name,
@@ -88,36 +108,91 @@ class Firewall(pulumi.CustomResource):
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.FirewallAttributes']:
+    @pulumi.getter(name="DeleteProtection")
+    def delete_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "delete_protection")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="Description")
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
-        """
-        Arbitrary structured data associated with the resource
-        """
-        return pulumi.get(self, "metadata")
+    @pulumi.getter(name="EndpointIds")
+    def endpoint_ids(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "endpoint_ids")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.FirewallProperties']:
+    @pulumi.getter(name="FirewallArn")
+    def firewall_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "firewall_arn")
+
+    @property
+    @pulumi.getter(name="FirewallId")
+    def firewall_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "firewall_id")
+
+    @property
+    @pulumi.getter(name="FirewallName")
+    def firewall_name(self) -> pulumi.Output[str]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "firewall_name")
+
+    @property
+    @pulumi.getter(name="FirewallPolicyArn")
+    def firewall_policy_arn(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
+        """
+        return pulumi.get(self, "firewall_policy_arn")
+
+    @property
+    @pulumi.getter(name="FirewallPolicyChangeProtection")
+    def firewall_policy_change_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
+        """
+        return pulumi.get(self, "firewall_policy_change_protection")
+
+    @property
+    @pulumi.getter(name="SubnetChangeProtection")
+    def subnet_change_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
+        """
+        return pulumi.get(self, "subnet_change_protection")
+
+    @property
+    @pulumi.getter(name="SubnetMappings")
+    def subnet_mappings(self) -> pulumi.Output[Sequence['outputs.FirewallSubnetMapping']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
+        """
+        return pulumi.get(self, "subnet_mappings")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="VpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
+        """
+        return pulumi.get(self, "vpc_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -14,9 +14,7 @@ __all__ = [
     'BackupPlanBackupRuleResourceTypeArgs',
     'BackupPlanCopyActionResourceTypeArgs',
     'BackupPlanLifecycleResourceTypeArgs',
-    'BackupPlanPropertiesArgs',
     'BackupVaultNotificationObjectTypeArgs',
-    'BackupVaultPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -325,45 +323,6 @@ class BackupPlanLifecycleResourceTypeArgs:
 
 
 @pulumi.input_type
-class BackupPlanPropertiesArgs:
-    def __init__(__self__, *,
-                 backup_plan: pulumi.Input['BackupPlanBackupPlanResourceTypeArgs'],
-                 backup_plan_tags: Optional[pulumi.Input[Union[Any, str]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
-        :param pulumi.Input['BackupPlanBackupPlanResourceTypeArgs'] backup_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        :param pulumi.Input[Union[Any, str]] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-        """
-        pulumi.set(__self__, "backup_plan", backup_plan)
-        if backup_plan_tags is not None:
-            pulumi.set(__self__, "backup_plan_tags", backup_plan_tags)
-
-    @property
-    @pulumi.getter(name="BackupPlan")
-    def backup_plan(self) -> pulumi.Input['BackupPlanBackupPlanResourceTypeArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        """
-        return pulumi.get(self, "backup_plan")
-
-    @backup_plan.setter
-    def backup_plan(self, value: pulumi.Input['BackupPlanBackupPlanResourceTypeArgs']):
-        pulumi.set(self, "backup_plan", value)
-
-    @property
-    @pulumi.getter(name="BackupPlanTags")
-    def backup_plan_tags(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-        """
-        return pulumi.get(self, "backup_plan_tags")
-
-    @backup_plan_tags.setter
-    def backup_plan_tags(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "backup_plan_tags", value)
-
-
-@pulumi.input_type
 class BackupVaultNotificationObjectTypeArgs:
     def __init__(__self__, *,
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -399,92 +358,5 @@ class BackupVaultNotificationObjectTypeArgs:
     @sns_topic_arn.setter
     def sns_topic_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "sns_topic_arn", value)
-
-
-@pulumi.input_type
-class BackupVaultPropertiesArgs:
-    def __init__(__self__, *,
-                 backup_vault_name: pulumi.Input[str],
-                 access_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 backup_vault_tags: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
-        :param pulumi.Input[str] backup_vault_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-        :param pulumi.Input[Union[Any, str]] access_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-        :param pulumi.Input[Union[Any, str]] backup_vault_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-        :param pulumi.Input[str] encryption_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-        :param pulumi.Input['BackupVaultNotificationObjectTypeArgs'] notifications: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-        """
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-        if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
-        if backup_vault_tags is not None:
-            pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
-        if encryption_key_arn is not None:
-            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
-        if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
-
-    @property
-    @pulumi.getter(name="BackupVaultName")
-    def backup_vault_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-        """
-        return pulumi.get(self, "backup_vault_name")
-
-    @backup_vault_name.setter
-    def backup_vault_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "backup_vault_name", value)
-
-    @property
-    @pulumi.getter(name="AccessPolicy")
-    def access_policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-        """
-        return pulumi.get(self, "access_policy")
-
-    @access_policy.setter
-    def access_policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "access_policy", value)
-
-    @property
-    @pulumi.getter(name="BackupVaultTags")
-    def backup_vault_tags(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-        """
-        return pulumi.get(self, "backup_vault_tags")
-
-    @backup_vault_tags.setter
-    def backup_vault_tags(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "backup_vault_tags", value)
-
-    @property
-    @pulumi.getter(name="EncryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-        """
-        return pulumi.get(self, "encryption_key_arn")
-
-    @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "encryption_key_arn", value)
-
-    @property
-    @pulumi.getter(name="Notifications")
-    def notifications(self) -> Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-        """
-        return pulumi.get(self, "notifications")
-
-    @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']]):
-        pulumi.set(self, "notifications", value)
 
 

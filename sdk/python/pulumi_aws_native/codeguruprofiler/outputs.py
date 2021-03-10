@@ -7,29 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'ProfilingGroupAttributes',
     'ProfilingGroupChannel',
-    'ProfilingGroupProperties',
 ]
-
-@pulumi.output_type
-class ProfilingGroupAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str):
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProfilingGroupChannel(dict):
@@ -63,79 +44,6 @@ class ProfilingGroupChannel(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
         """
         return pulumi.get(self, "channel_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ProfilingGroupProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
-    """
-    def __init__(__self__, *,
-                 profiling_group_name: str,
-                 agent_permissions: Optional[str] = None,
-                 anomaly_detection_notification_configuration: Optional[Sequence['outputs.ProfilingGroupChannel']] = None,
-                 compute_platform: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
-        :param str profiling_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
-        :param Union[Any, str] agent_permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
-        :param Sequence['ProfilingGroupChannelArgs'] anomaly_detection_notification_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
-        :param str compute_platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
-        """
-        pulumi.set(__self__, "profiling_group_name", profiling_group_name)
-        if agent_permissions is not None:
-            pulumi.set(__self__, "agent_permissions", agent_permissions)
-        if anomaly_detection_notification_configuration is not None:
-            pulumi.set(__self__, "anomaly_detection_notification_configuration", anomaly_detection_notification_configuration)
-        if compute_platform is not None:
-            pulumi.set(__self__, "compute_platform", compute_platform)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ProfilingGroupName")
-    def profiling_group_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
-        """
-        return pulumi.get(self, "profiling_group_name")
-
-    @property
-    @pulumi.getter(name="AgentPermissions")
-    def agent_permissions(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
-        """
-        return pulumi.get(self, "agent_permissions")
-
-    @property
-    @pulumi.getter(name="AnomalyDetectionNotificationConfiguration")
-    def anomaly_detection_notification_configuration(self) -> Optional[Sequence['outputs.ProfilingGroupChannel']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
-        """
-        return pulumi.get(self, "anomaly_detection_notification_configuration")
-
-    @property
-    @pulumi.getter(name="ComputePlatform")
-    def compute_platform(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
-        """
-        return pulumi.get(self, "compute_platform")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -36,21 +36,37 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ApiGateway.DomainNameAttributes>;
+    public readonly CertificateArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly DistributionDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly DistributionHostedZoneId!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DomainName!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly EndpointConfiguration!: pulumi.Output<outputs.ApiGateway.DomainNameEndpointConfiguration | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
-    public readonly properties!: pulumi.Output<outputs.ApiGateway.DomainNameProperties>;
+    public readonly MutualTlsAuthentication!: pulumi.Output<outputs.ApiGateway.DomainNameMutualTlsAuthentication | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
+     */
+    public readonly RegionalCertificateArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly RegionalDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly RegionalHostedZoneId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
+     */
+    public readonly SecurityPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -59,23 +75,32 @@ export class DomainName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["CertificateArn"] = args ? args.CertificateArn : undefined;
+            inputs["DomainName"] = args ? args.DomainName : undefined;
+            inputs["EndpointConfiguration"] = args ? args.EndpointConfiguration : undefined;
+            inputs["MutualTlsAuthentication"] = args ? args.MutualTlsAuthentication : undefined;
+            inputs["RegionalCertificateArn"] = args ? args.RegionalCertificateArn : undefined;
+            inputs["SecurityPolicy"] = args ? args.SecurityPolicy : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["DistributionDomainName"] = undefined /*out*/;
+            inputs["DistributionHostedZoneId"] = undefined /*out*/;
+            inputs["RegionalDomainName"] = undefined /*out*/;
+            inputs["RegionalHostedZoneId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CertificateArn"] = undefined /*out*/;
+            inputs["DistributionDomainName"] = undefined /*out*/;
+            inputs["DistributionHostedZoneId"] = undefined /*out*/;
+            inputs["DomainName"] = undefined /*out*/;
+            inputs["EndpointConfiguration"] = undefined /*out*/;
+            inputs["MutualTlsAuthentication"] = undefined /*out*/;
+            inputs["RegionalCertificateArn"] = undefined /*out*/;
+            inputs["RegionalDomainName"] = undefined /*out*/;
+            inputs["RegionalHostedZoneId"] = undefined /*out*/;
+            inputs["SecurityPolicy"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +118,31 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly CertificateArn?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DomainName?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly EndpointConfiguration?: pulumi.Input<inputs.ApiGateway.DomainNameEndpointConfiguration>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
-    readonly properties: pulumi.Input<inputs.ApiGateway.DomainNameProperties>;
+    readonly MutualTlsAuthentication?: pulumi.Input<inputs.ApiGateway.DomainNameMutualTlsAuthentication>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RegionalCertificateArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
+     */
+    readonly SecurityPolicy?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

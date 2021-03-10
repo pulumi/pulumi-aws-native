@@ -16,28 +16,13 @@ namespace Pulumi.AwsNative.DevOpsGuru
     public partial class ResourceCollection : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ResourceCollectionAttributes> Attributes { get; private set; } = null!;
+        [Output("ResourceCollectionFilter")]
+        public Output<Outputs.ResourceCollectionResourceCollectionFilter> ResourceCollectionFilter { get; private set; } = null!;
 
-        /// <summary>
-        /// An explicit logical ID for the resource
-        /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ResourceCollectionProperties> Properties { get; private set; } = null!;
+        [Output("ResourceCollectionType")]
+        public Output<string> ResourceCollectionType { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +70,10 @@ namespace Pulumi.AwsNative.DevOpsGuru
     public sealed class ResourceCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
-
-        /// <summary>
-        /// An explicit logical ID for the resource
-        /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ResourceCollectionPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-        /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("ResourceCollectionFilter", required: true)]
+        public Input<Inputs.ResourceCollectionResourceCollectionFilterArgs> ResourceCollectionFilter { get; set; } = null!;
 
         public ResourceCollectionArgs()
         {

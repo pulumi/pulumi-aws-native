@@ -36,21 +36,29 @@ export class PrefixList extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.EC2.PrefixListAttributes>;
+    public readonly AddressFamily!: pulumi.Output<string>;
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Entries!: pulumi.Output<outputs.EC2.PrefixListEntry[] | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly MaxEntries!: pulumi.Output<number>;
+    public /*out*/ readonly OwnerId!: pulumi.Output<string>;
+    public /*out*/ readonly PrefixListId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
      */
-    public readonly properties!: pulumi.Output<outputs.EC2.PrefixListProperties>;
+    public readonly PrefixListName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public /*out*/ readonly Version!: pulumi.Output<number>;
 
     /**
      * Create a PrefixList resource with the given unique name, arguments, and options.
@@ -62,20 +70,34 @@ export class PrefixList extends pulumi.CustomResource {
     constructor(name: string, args: PrefixListArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.AddressFamily === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AddressFamily'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.MaxEntries === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'MaxEntries'");
+            }
+            if ((!args || args.PrefixListName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'PrefixListName'");
+            }
+            inputs["AddressFamily"] = args ? args.AddressFamily : undefined;
+            inputs["Entries"] = args ? args.Entries : undefined;
+            inputs["MaxEntries"] = args ? args.MaxEntries : undefined;
+            inputs["PrefixListName"] = args ? args.PrefixListName : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["OwnerId"] = undefined /*out*/;
+            inputs["PrefixListId"] = undefined /*out*/;
+            inputs["Version"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AddressFamily"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Entries"] = undefined /*out*/;
+            inputs["MaxEntries"] = undefined /*out*/;
+            inputs["OwnerId"] = undefined /*out*/;
+            inputs["PrefixListId"] = undefined /*out*/;
+            inputs["PrefixListName"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,23 @@ export class PrefixList extends pulumi.CustomResource {
  */
 export interface PrefixListArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AddressFamily: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Entries?: pulumi.Input<pulumi.Input<inputs.EC2.PrefixListEntry>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly MaxEntries: pulumi.Input<number>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
      */
-    readonly properties: pulumi.Input<inputs.EC2.PrefixListProperties>;
+    readonly PrefixListName: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

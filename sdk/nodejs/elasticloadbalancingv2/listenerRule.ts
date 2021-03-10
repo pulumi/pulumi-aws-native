@@ -36,21 +36,21 @@ export class ListenerRule extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleAttributes>;
+    public readonly Actions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleAction[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Conditions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ListenerArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
      */
-    public readonly properties!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleProperties>;
+    public readonly Priority!: pulumi.Output<number>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -62,20 +62,27 @@ export class ListenerRule extends pulumi.CustomResource {
     constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Actions === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Actions'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Conditions === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Conditions'");
+            }
+            if ((!args || args.ListenerArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ListenerArn'");
+            }
+            if ((!args || args.Priority === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Priority'");
+            }
+            inputs["Actions"] = args ? args.Actions : undefined;
+            inputs["Conditions"] = args ? args.Conditions : undefined;
+            inputs["ListenerArn"] = args ? args.ListenerArn : undefined;
+            inputs["Priority"] = args ? args.Priority : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Actions"] = undefined /*out*/;
+            inputs["Conditions"] = undefined /*out*/;
+            inputs["ListenerArn"] = undefined /*out*/;
+            inputs["Priority"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +100,19 @@ export class ListenerRule extends pulumi.CustomResource {
  */
 export interface ListenerRuleArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Actions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAction>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Conditions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ListenerArn: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
      */
-    readonly properties: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Priority: pulumi.Input<number>;
 }

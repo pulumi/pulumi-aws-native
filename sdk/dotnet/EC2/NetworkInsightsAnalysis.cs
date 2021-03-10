@@ -15,29 +15,56 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:EC2:NetworkInsightsAnalysis")]
     public partial class NetworkInsightsAnalysis : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.NetworkInsightsAnalysisAttributes> Attributes { get; private set; } = null!;
+        [Output("AlternatePathHints")]
+        public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint>> AlternatePathHints { get; private set; } = null!;
+
+        [Output("Explanations")]
+        public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation>> Explanations { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("FilterInArns")]
+        public Output<ImmutableArray<string>> FilterInArns { get; private set; } = null!;
+
+        [Output("ForwardPathComponents")]
+        public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent>> ForwardPathComponents { get; private set; } = null!;
+
+        [Output("NetworkInsightsAnalysisArn")]
+        public Output<string> NetworkInsightsAnalysisArn { get; private set; } = null!;
+
+        [Output("NetworkInsightsAnalysisId")]
+        public Output<string> NetworkInsightsAnalysisId { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("NetworkInsightsPathId")]
+        public Output<string> NetworkInsightsPathId { get; private set; } = null!;
+
+        [Output("NetworkPathFound")]
+        public Output<bool> NetworkPathFound { get; private set; } = null!;
+
+        [Output("ReturnPathComponents")]
+        public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent>> ReturnPathComponents { get; private set; } = null!;
+
+        [Output("StartDate")]
+        public Output<string> StartDate { get; private set; } = null!;
+
+        [Output("Status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkInsightsAnalysisProperties> Properties { get; private set; } = null!;
+        [Output("StatusMessage")]
+        public Output<string?> StatusMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +111,41 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class NetworkInsightsAnalysisArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("FilterInArns")]
+        private InputList<string>? _FilterInArns;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<string> FilterInArns
+        {
+            get => _FilterInArns ?? (_FilterInArns = new InputList<string>());
+            set => _FilterInArns = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("NetworkInsightsPathId", required: true)]
+        public Input<string> NetworkInsightsPathId { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.NetworkInsightsAnalysisPropertiesArgs> Properties { get; set; } = null!;
+        [Input("StatusMessage")]
+        public Input<string>? StatusMessage { get; set; }
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public NetworkInsightsAnalysisArgs()
         {

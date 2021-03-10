@@ -10,10 +10,8 @@ from .. import _utilities, _tables
 
 __all__ = [
     'HealthCheckHealthCheckTagArgs',
-    'HealthCheckPropertiesArgs',
     'HostedZoneHostedZoneConfigArgs',
     'HostedZoneHostedZoneTagArgs',
-    'HostedZonePropertiesArgs',
     'HostedZoneQueryLoggingConfigArgs',
     'HostedZoneVPCArgs',
 ]
@@ -54,45 +52,6 @@ class HealthCheckHealthCheckTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class HealthCheckPropertiesArgs:
-    def __init__(__self__, *,
-                 health_check_config: pulumi.Input[Union[Any, str]],
-                 health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
-        :param pulumi.Input[Union[Any, str]] health_check_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-        :param pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]] health_check_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-        """
-        pulumi.set(__self__, "health_check_config", health_check_config)
-        if health_check_tags is not None:
-            pulumi.set(__self__, "health_check_tags", health_check_tags)
-
-    @property
-    @pulumi.getter(name="HealthCheckConfig")
-    def health_check_config(self) -> pulumi.Input[Union[Any, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-        """
-        return pulumi.get(self, "health_check_config")
-
-    @health_check_config.setter
-    def health_check_config(self, value: pulumi.Input[Union[Any, str]]):
-        pulumi.set(self, "health_check_config", value)
-
-    @property
-    @pulumi.getter(name="HealthCheckTags")
-    def health_check_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
-        """
-        return pulumi.get(self, "health_check_tags")
-
-    @health_check_tags.setter
-    def health_check_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]]]):
-        pulumi.set(self, "health_check_tags", value)
 
 
 @pulumi.input_type
@@ -155,93 +114,6 @@ class HostedZoneHostedZoneTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class HostedZonePropertiesArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 hosted_zone_config: Optional[pulumi.Input['HostedZoneHostedZoneConfigArgs']] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]]] = None,
-                 query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-        :param pulumi.Input['HostedZoneHostedZoneConfigArgs'] hosted_zone_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]] hosted_zone_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-        :param pulumi.Input['HostedZoneQueryLoggingConfigArgs'] query_logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]] vpcs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-        """
-        pulumi.set(__self__, "name", name)
-        if hosted_zone_config is not None:
-            pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
-        if hosted_zone_tags is not None:
-            pulumi.set(__self__, "hosted_zone_tags", hosted_zone_tags)
-        if query_logging_config is not None:
-            pulumi.set(__self__, "query_logging_config", query_logging_config)
-        if vpcs is not None:
-            pulumi.set(__self__, "vpcs", vpcs)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="HostedZoneConfig")
-    def hosted_zone_config(self) -> Optional[pulumi.Input['HostedZoneHostedZoneConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        """
-        return pulumi.get(self, "hosted_zone_config")
-
-    @hosted_zone_config.setter
-    def hosted_zone_config(self, value: Optional[pulumi.Input['HostedZoneHostedZoneConfigArgs']]):
-        pulumi.set(self, "hosted_zone_config", value)
-
-    @property
-    @pulumi.getter(name="HostedZoneTags")
-    def hosted_zone_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-        """
-        return pulumi.get(self, "hosted_zone_tags")
-
-    @hosted_zone_tags.setter
-    def hosted_zone_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]]]):
-        pulumi.set(self, "hosted_zone_tags", value)
-
-    @property
-    @pulumi.getter(name="QueryLoggingConfig")
-    def query_logging_config(self) -> Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        """
-        return pulumi.get(self, "query_logging_config")
-
-    @query_logging_config.setter
-    def query_logging_config(self, value: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']]):
-        pulumi.set(self, "query_logging_config", value)
-
-    @property
-    @pulumi.getter(name="VPCs")
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
-        """
-        return pulumi.get(self, "vpcs")
-
-    @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]]):
-        pulumi.set(self, "vpcs", value)
 
 
 @pulumi.input_type

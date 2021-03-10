@@ -36,21 +36,82 @@ export class Grant extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.LicenseManager.GrantAttributes>;
+    public readonly AllowedOperations!: pulumi.Output<outputs.LicenseManager.GrantAllowedOperationList | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ClientToken!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Filters!: pulumi.Output<outputs.LicenseManager.GrantFilterList | undefined>;
+    public /*out*/ readonly GrantArn!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
      */
-    public readonly properties!: pulumi.Output<outputs.LicenseManager.GrantProperties>;
+    public readonly GrantArns!: pulumi.Output<outputs.LicenseManager.GrantArnList | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+     */
+    public readonly GrantName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
+     */
+    public readonly GrantStatus!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
+     */
+    public readonly GrantedOperations!: pulumi.Output<outputs.LicenseManager.GrantAllowedOperationList | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
+     */
+    public readonly GranteePrincipalArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+     */
+    public readonly HomeRegion!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+     */
+    public readonly LicenseArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
+     */
+    public readonly MaxResults!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
+     */
+    public readonly NextToken!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
+     */
+    public readonly ParentArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+     */
+    public readonly Principals!: pulumi.Output<outputs.LicenseManager.GrantArnList | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
+     */
+    public readonly SourceVersion!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+     */
+    public readonly Status!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
+     */
+    public readonly StatusReason!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.LicenseManager.GrantTagList | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
+     */
+    public readonly Version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Grant resource with the given unique name, arguments, and options.
@@ -59,23 +120,50 @@ export class Grant extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GrantArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: GrantArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AllowedOperations"] = args ? args.AllowedOperations : undefined;
+            inputs["ClientToken"] = args ? args.ClientToken : undefined;
+            inputs["Filters"] = args ? args.Filters : undefined;
+            inputs["GrantArns"] = args ? args.GrantArns : undefined;
+            inputs["GrantName"] = args ? args.GrantName : undefined;
+            inputs["GrantStatus"] = args ? args.GrantStatus : undefined;
+            inputs["GrantedOperations"] = args ? args.GrantedOperations : undefined;
+            inputs["GranteePrincipalArn"] = args ? args.GranteePrincipalArn : undefined;
+            inputs["HomeRegion"] = args ? args.HomeRegion : undefined;
+            inputs["LicenseArn"] = args ? args.LicenseArn : undefined;
+            inputs["MaxResults"] = args ? args.MaxResults : undefined;
+            inputs["NextToken"] = args ? args.NextToken : undefined;
+            inputs["ParentArn"] = args ? args.ParentArn : undefined;
+            inputs["Principals"] = args ? args.Principals : undefined;
+            inputs["SourceVersion"] = args ? args.SourceVersion : undefined;
+            inputs["Status"] = args ? args.Status : undefined;
+            inputs["StatusReason"] = args ? args.StatusReason : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Version"] = args ? args.Version : undefined;
+            inputs["GrantArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AllowedOperations"] = undefined /*out*/;
+            inputs["ClientToken"] = undefined /*out*/;
+            inputs["Filters"] = undefined /*out*/;
+            inputs["GrantArn"] = undefined /*out*/;
+            inputs["GrantArns"] = undefined /*out*/;
+            inputs["GrantName"] = undefined /*out*/;
+            inputs["GrantStatus"] = undefined /*out*/;
+            inputs["GrantedOperations"] = undefined /*out*/;
+            inputs["GranteePrincipalArn"] = undefined /*out*/;
+            inputs["HomeRegion"] = undefined /*out*/;
+            inputs["LicenseArn"] = undefined /*out*/;
+            inputs["MaxResults"] = undefined /*out*/;
+            inputs["NextToken"] = undefined /*out*/;
+            inputs["ParentArn"] = undefined /*out*/;
+            inputs["Principals"] = undefined /*out*/;
+            inputs["SourceVersion"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
+            inputs["StatusReason"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +181,79 @@ export class Grant extends pulumi.CustomResource {
  */
 export interface GrantArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AllowedOperations?: pulumi.Input<inputs.LicenseManager.GrantAllowedOperationList>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ClientToken?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Filters?: pulumi.Input<inputs.LicenseManager.GrantFilterList>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
      */
-    readonly properties: pulumi.Input<inputs.LicenseManager.GrantProperties>;
+    readonly GrantArns?: pulumi.Input<inputs.LicenseManager.GrantArnList>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly GrantName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
+     */
+    readonly GrantStatus?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
+     */
+    readonly GrantedOperations?: pulumi.Input<inputs.LicenseManager.GrantAllowedOperationList>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
+     */
+    readonly GranteePrincipalArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+     */
+    readonly HomeRegion?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+     */
+    readonly LicenseArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
+     */
+    readonly MaxResults?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
+     */
+    readonly NextToken?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
+     */
+    readonly ParentArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+     */
+    readonly Principals?: pulumi.Input<inputs.LicenseManager.GrantArnList>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
+     */
+    readonly SourceVersion?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+     */
+    readonly Status?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
+     */
+    readonly StatusReason?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
+     */
+    readonly Tags?: pulumi.Input<inputs.LicenseManager.GrantTagList>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
+     */
+    readonly Version?: pulumi.Input<string>;
 }

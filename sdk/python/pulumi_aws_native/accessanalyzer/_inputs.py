@@ -7,12 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from .. import _inputs as _root_inputs
 
 __all__ = [
     'AnalyzerArchiveRuleArgs',
     'AnalyzerFilterArgs',
-    'AnalyzerPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -138,76 +136,5 @@ class AnalyzerFilterArgs:
     @property.setter
     def property(self, value: pulumi.Input[str]):
         pulumi.set(self, "property", value)
-
-
-@pulumi.input_type
-class AnalyzerPropertiesArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 analyzer_name: Optional[pulumi.Input[str]] = None,
-                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
-        :param pulumi.Input[str] analyzer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]] archive_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
-        """
-        pulumi.set(__self__, "type", type)
-        if analyzer_name is not None:
-            pulumi.set(__self__, "analyzer_name", analyzer_name)
-        if archive_rules is not None:
-            pulumi.set(__self__, "archive_rules", archive_rules)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Type")
-    def type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="AnalyzerName")
-    def analyzer_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
-        """
-        return pulumi.get(self, "analyzer_name")
-
-    @analyzer_name.setter
-    def analyzer_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "analyzer_name", value)
-
-    @property
-    @pulumi.getter(name="ArchiveRules")
-    def archive_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        """
-        return pulumi.get(self, "archive_rules")
-
-    @archive_rules.setter
-    def archive_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]):
-        pulumi.set(self, "archive_rules", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 

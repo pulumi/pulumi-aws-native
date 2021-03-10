@@ -15,29 +15,38 @@ namespace Pulumi.AwsNative.ECS
     [AwsNativeResourceType("aws-native:ECS:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ClusterAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("CapacityProviders")]
+        public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("ClusterName")]
+        public Output<string?> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ClusterProperties> Properties { get; private set; } = null!;
+        [Output("ClusterSettings")]
+        public Output<ImmutableArray<Outputs.ClusterClusterSettings>> ClusterSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
+        /// </summary>
+        [Output("DefaultCapacityProviderStrategy")]
+        public Output<ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem>> DefaultCapacityProviderStrategy { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -47,7 +56,7 @@ namespace Pulumi.AwsNative.ECS
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
+        public Cluster(string name, ClusterArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ECS:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -84,35 +93,59 @@ namespace Pulumi.AwsNative.ECS
 
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("CapacityProviders")]
+        private InputList<string>? _CapacityProviders;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<string> CapacityProviders
+        {
+            get => _CapacityProviders ?? (_CapacityProviders = new InputList<string>());
+            set => _CapacityProviders = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("ClusterName")]
+        public Input<string>? ClusterName { get; set; }
+
+        [Input("ClusterSettings")]
+        private InputList<Inputs.ClusterClusterSettingsArgs>? _ClusterSettings;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ClusterPropertiesArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.ClusterClusterSettingsArgs> ClusterSettings
+        {
+            get => _ClusterSettings ?? (_ClusterSettings = new InputList<Inputs.ClusterClusterSettingsArgs>());
+            set => _ClusterSettings = value;
+        }
+
+        [Input("DefaultCapacityProviderStrategy")]
+        private InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>? _DefaultCapacityProviderStrategy;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Inputs.ClusterCapacityProviderStrategyItemArgs> DefaultCapacityProviderStrategy
+        {
+            get => _DefaultCapacityProviderStrategy ?? (_DefaultCapacityProviderStrategy = new InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>());
+            set => _DefaultCapacityProviderStrategy = value;
+        }
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public ClusterArgs()
         {

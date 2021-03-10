@@ -5,8 +5,6 @@
 # Export this package's modules as members:
 from .graph import *
 from .member_invitation import *
-from ._inputs import *
-from . import outputs
 
 def _register_module():
     import pulumi

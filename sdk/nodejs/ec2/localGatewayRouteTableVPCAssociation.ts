@@ -35,22 +35,21 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
         return obj['__pulumiType'] === LocalGatewayRouteTableVPCAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly LocalGatewayId!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.EC2.LocalGatewayRouteTableVPCAssociationAttributes>;
+    public readonly LocalGatewayRouteTableId!: pulumi.Output<string>;
+    public /*out*/ readonly LocalGatewayRouteTableVpcAssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly State!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Tags!: pulumi.Output<outputs.EC2.LocalGatewayRouteTableVPCAssociationTags | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.EC2.LocalGatewayRouteTableVPCAssociationProperties>;
+    public readonly VpcId!: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRouteTableVPCAssociation resource with the given unique name, arguments, and options.
@@ -62,20 +61,25 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
     constructor(name: string, args: LocalGatewayRouteTableVPCAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.LocalGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'LocalGatewayRouteTableId'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.VpcId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'VpcId'");
+            }
+            inputs["LocalGatewayRouteTableId"] = args ? args.LocalGatewayRouteTableId : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["VpcId"] = args ? args.VpcId : undefined;
+            inputs["LocalGatewayId"] = undefined /*out*/;
+            inputs["LocalGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
+            inputs["State"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["LocalGatewayId"] = undefined /*out*/;
+            inputs["LocalGatewayRouteTableId"] = undefined /*out*/;
+            inputs["LocalGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
+            inputs["State"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["VpcId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +97,15 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
  */
 export interface LocalGatewayRouteTableVPCAssociationArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly LocalGatewayRouteTableId: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationTags>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
      */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly VpcId: pulumi.Input<string>;
 }

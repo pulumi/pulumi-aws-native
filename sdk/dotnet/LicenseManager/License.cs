@@ -16,28 +16,121 @@ namespace Pulumi.AwsNative.LicenseManager
     public partial class License : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.LicenseAttributes> Attributes { get; private set; } = null!;
+        [Output("Beneficiary")]
+        public Output<string?> Beneficiary { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ClientToken")]
+        public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("ConsumptionConfiguration")]
+        public Output<Outputs.LicenseConsumptionConfiguration> ConsumptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LicenseProperties> Properties { get; private set; } = null!;
+        [Output("Entitlements")]
+        public Output<Outputs.LicenseEntitlementList> Entitlements { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
+        /// </summary>
+        [Output("Filters")]
+        public Output<Outputs.LicenseFilterList?> Filters { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        /// </summary>
+        [Output("HomeRegion")]
+        public Output<string> HomeRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
+        /// </summary>
+        [Output("Issuer")]
+        public Output<Outputs.LicenseIssuerData> Issuer { get; private set; } = null!;
+
+        [Output("LicenseArn")]
+        public Output<string> LicenseArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
+        /// </summary>
+        [Output("LicenseArns")]
+        public Output<Outputs.LicenseArnList?> LicenseArns { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
+        /// </summary>
+        [Output("LicenseMetadata")]
+        public Output<Outputs.LicenseMetadataList?> LicenseMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        /// </summary>
+        [Output("LicenseName")]
+        public Output<string?> LicenseName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
+        /// </summary>
+        [Output("MaxResults")]
+        public Output<int?> MaxResults { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
+        /// </summary>
+        [Output("NextToken")]
+        public Output<string?> NextToken { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        /// </summary>
+        [Output("ProductName")]
+        public Output<string?> ProductName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        /// </summary>
+        [Output("ProductSKU")]
+        public Output<string?> ProductSKU { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
+        /// </summary>
+        [Output("SourceVersion")]
+        public Output<string?> SourceVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
+        /// </summary>
+        [Output("Status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<Outputs.LicenseTagList?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
+        /// </summary>
+        [Output("Validity")]
+        public Output<Outputs.LicenseValidityDateFormat> Validity { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version
+        /// </summary>
+        [Output("Version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +178,118 @@ namespace Pulumi.AwsNative.LicenseManager
     public sealed class LicenseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Beneficiary")]
+        public Input<string>? Beneficiary { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("ClientToken")]
+        public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("ConsumptionConfiguration", required: true)]
+        public Input<Inputs.LicenseConsumptionConfigurationArgs> ConsumptionConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.LicensePropertiesArgs> Properties { get; set; } = null!;
+        [Input("Entitlements", required: true)]
+        public Input<Inputs.LicenseEntitlementListArgs> Entitlements { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Filters")]
+        public Input<Inputs.LicenseFilterListArgs>? Filters { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        /// </summary>
+        [Input("HomeRegion", required: true)]
+        public Input<string> HomeRegion { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
+        /// </summary>
+        [Input("Issuer", required: true)]
+        public Input<Inputs.LicenseIssuerDataArgs> Issuer { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
+        /// </summary>
+        [Input("LicenseArns")]
+        public Input<Inputs.LicenseArnListArgs>? LicenseArns { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
+        /// </summary>
+        [Input("LicenseMetadata")]
+        public Input<Inputs.LicenseMetadataListArgs>? LicenseMetadata { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        /// </summary>
+        [Input("LicenseName")]
+        public Input<string>? LicenseName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
+        /// </summary>
+        [Input("MaxResults")]
+        public Input<int>? MaxResults { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
+        /// </summary>
+        [Input("NextToken")]
+        public Input<string>? NextToken { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        /// </summary>
+        [Input("ProductName")]
+        public Input<string>? ProductName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        /// </summary>
+        [Input("ProductSKU")]
+        public Input<string>? ProductSKU { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
+        /// </summary>
+        [Input("SourceVersion")]
+        public Input<string>? SourceVersion { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
+        /// </summary>
+        [Input("Status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
+        /// </summary>
+        [Input("Tags")]
+        public Input<Inputs.LicenseTagListArgs>? Tags { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
+        /// </summary>
+        [Input("Validity", required: true)]
+        public Input<Inputs.LicenseValidityDateFormatArgs> Validity { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version
+        /// </summary>
+        [Input("Version")]
+        public Input<string>? Version { get; set; }
 
         public LicenseArgs()
         {

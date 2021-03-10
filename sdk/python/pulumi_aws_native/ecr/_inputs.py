@@ -7,11 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from .. import _inputs as _root_inputs
 
 __all__ = [
     'RepositoryLifecyclePolicyArgs',
-    'RepositoryPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -52,109 +50,5 @@ class RepositoryLifecyclePolicyArgs:
     @registry_id.setter
     def registry_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registry_id", value)
-
-
-@pulumi.input_type
-class RepositoryPropertiesArgs:
-    def __init__(__self__, *,
-                 image_scanning_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 image_tag_mutability: Optional[pulumi.Input[str]] = None,
-                 lifecycle_policy: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']] = None,
-                 repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
-        :param pulumi.Input[Union[Any, str]] image_scanning_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-        :param pulumi.Input[str] image_tag_mutability: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
-        :param pulumi.Input['RepositoryLifecyclePolicyArgs'] lifecycle_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-        :param pulumi.Input[str] repository_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
-        :param Any repository_policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
-        """
-        if image_scanning_configuration is not None:
-            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
-        if image_tag_mutability is not None:
-            pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
-        if lifecycle_policy is not None:
-            pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
-        if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
-        if repository_policy_text is not None:
-            pulumi.set(__self__, "repository_policy_text", repository_policy_text)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ImageScanningConfiguration")
-    def image_scanning_configuration(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-        """
-        return pulumi.get(self, "image_scanning_configuration")
-
-    @image_scanning_configuration.setter
-    def image_scanning_configuration(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "image_scanning_configuration", value)
-
-    @property
-    @pulumi.getter(name="ImageTagMutability")
-    def image_tag_mutability(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
-        """
-        return pulumi.get(self, "image_tag_mutability")
-
-    @image_tag_mutability.setter
-    def image_tag_mutability(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "image_tag_mutability", value)
-
-    @property
-    @pulumi.getter(name="LifecyclePolicy")
-    def lifecycle_policy(self) -> Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-        """
-        return pulumi.get(self, "lifecycle_policy")
-
-    @lifecycle_policy.setter
-    def lifecycle_policy(self, value: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']]):
-        pulumi.set(self, "lifecycle_policy", value)
-
-    @property
-    @pulumi.getter(name="RepositoryName")
-    def repository_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
-        """
-        return pulumi.get(self, "repository_name")
-
-    @repository_name.setter
-    def repository_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "repository_name", value)
-
-    @property
-    @pulumi.getter(name="RepositoryPolicyText")
-    def repository_policy_text(self) -> Optional[Any]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-        """
-        return pulumi.get(self, "repository_policy_text")
-
-    @repository_policy_text.setter
-    def repository_policy_text(self, value: Optional[Any]):
-        pulumi.set(self, "repository_policy_text", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 

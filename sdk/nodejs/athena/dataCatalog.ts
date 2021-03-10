@@ -36,21 +36,25 @@ export class DataCatalog extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Athena.DataCatalogAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Name!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
      */
-    public readonly properties!: pulumi.Output<outputs.Athena.DataCatalogProperties>;
+    public readonly Tags!: pulumi.Output<outputs.Athena.DataCatalogTags | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+     */
+    public readonly Type!: pulumi.Output<string>;
 
     /**
      * Create a DataCatalog resource with the given unique name, arguments, and options.
@@ -62,20 +66,23 @@ export class DataCatalog extends pulumi.CustomResource {
     constructor(name: string, args: DataCatalogArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Type'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Parameters"] = args ? args.Parameters : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Parameters"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +100,23 @@ export class DataCatalog extends pulumi.CustomResource {
  */
 export interface DataCatalogArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
      */
-    readonly properties: pulumi.Input<inputs.Athena.DataCatalogProperties>;
+    readonly Tags?: pulumi.Input<inputs.Athena.DataCatalogTags>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Type: pulumi.Input<string>;
 }

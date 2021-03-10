@@ -15,29 +15,71 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:SageMaker:ModelExplainabilityJobDefinition")]
     public partial class ModelExplainabilityJobDefinition : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ModelExplainabilityJobDefinitionAttributes> Attributes { get; private set; } = null!;
+        [Output("CreationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        [Output("JobDefinitionArn")]
+        public Output<string> JobDefinitionArn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("JobDefinitionName")]
+        public Output<string?> JobDefinitionName { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("JobResources")]
+        public Output<Outputs.ModelExplainabilityJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ModelExplainabilityJobDefinitionProperties> Properties { get; private set; } = null!;
+        [Output("ModelExplainabilityAppSpecification")]
+        public Output<Outputs.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification> ModelExplainabilityAppSpecification { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
+        /// </summary>
+        [Output("ModelExplainabilityBaselineConfig")]
+        public Output<Outputs.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig?> ModelExplainabilityBaselineConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
+        /// </summary>
+        [Output("ModelExplainabilityJobInput")]
+        public Output<Outputs.ModelExplainabilityJobDefinitionModelExplainabilityJobInput> ModelExplainabilityJobInput { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
+        /// </summary>
+        [Output("ModelExplainabilityJobOutputConfig")]
+        public Output<Outputs.ModelExplainabilityJobDefinitionMonitoringOutputConfig> ModelExplainabilityJobOutputConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
+        /// </summary>
+        [Output("NetworkConfig")]
+        public Output<Outputs.ModelExplainabilityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
+        /// </summary>
+        [Output("RoleArn")]
+        public Output<string> RoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
+        /// </summary>
+        [Output("StoppingCondition")]
+        public Output<Outputs.ModelExplainabilityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +127,70 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class ModelExplainabilityJobDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("JobDefinitionName")]
+        public Input<string>? JobDefinitionName { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("JobResources", required: true)]
+        public Input<Inputs.ModelExplainabilityJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("ModelExplainabilityAppSpecification", required: true)]
+        public Input<Inputs.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs> ModelExplainabilityAppSpecification { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ModelExplainabilityJobDefinitionPropertiesArgs> Properties { get; set; } = null!;
+        [Input("ModelExplainabilityBaselineConfig")]
+        public Input<Inputs.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs>? ModelExplainabilityBaselineConfig { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("ModelExplainabilityJobInput", required: true)]
+        public Input<Inputs.ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs> ModelExplainabilityJobInput { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
+        /// </summary>
+        [Input("ModelExplainabilityJobOutputConfig", required: true)]
+        public Input<Inputs.ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs> ModelExplainabilityJobOutputConfig { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
+        /// </summary>
+        [Input("NetworkConfig")]
+        public Input<Inputs.ModelExplainabilityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
+        /// </summary>
+        [Input("RoleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
+        /// </summary>
+        [Input("StoppingCondition")]
+        public Input<Inputs.ModelExplainabilityJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public ModelExplainabilityJobDefinitionArgs()
         {

@@ -16,28 +16,55 @@ namespace Pulumi.AwsNative.AppFlow
     public partial class Flow : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.FlowAttributes> Attributes { get; private set; } = null!;
+        [Output("Description")]
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("DestinationFlowConfigList")]
+        public Output<ImmutableArray<Outputs.FlowDestinationFlowConfig>> DestinationFlowConfigList { get; private set; } = null!;
+
+        [Output("FlowArn")]
+        public Output<string> FlowArn { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("FlowName")]
+        public Output<string> FlowName { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FlowProperties> Properties { get; private set; } = null!;
+        [Output("KMSArn")]
+        public Output<string?> KMSArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        /// </summary>
+        [Output("SourceFlowConfig")]
+        public Output<Outputs.FlowSourceFlowConfig> SourceFlowConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        /// </summary>
+        [Output("Tasks")]
+        public Output<ImmutableArray<Outputs.FlowTask>> Tasks { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        /// </summary>
+        [Output("TriggerConfig")]
+        public Output<Outputs.FlowTriggerConfig> TriggerConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +112,70 @@ namespace Pulumi.AwsNative.AppFlow
     public sealed class FlowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("DestinationFlowConfigList", required: true)]
+        private InputList<Inputs.FlowDestinationFlowConfigArgs>? _DestinationFlowConfigList;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.FlowDestinationFlowConfigArgs> DestinationFlowConfigList
+        {
+            get => _DestinationFlowConfigList ?? (_DestinationFlowConfigList = new InputList<Inputs.FlowDestinationFlowConfigArgs>());
+            set => _DestinationFlowConfigList = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("FlowName", required: true)]
+        public Input<string> FlowName { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FlowPropertiesArgs> Properties { get; set; } = null!;
+        [Input("KMSArn")]
+        public Input<string>? KMSArn { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("SourceFlowConfig", required: true)]
+        public Input<Inputs.FlowSourceFlowConfigArgs> SourceFlowConfig { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
+
+        [Input("Tasks", required: true)]
+        private InputList<Inputs.FlowTaskArgs>? _Tasks;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        /// </summary>
+        public InputList<Inputs.FlowTaskArgs> Tasks
+        {
+            get => _Tasks ?? (_Tasks = new InputList<Inputs.FlowTaskArgs>());
+            set => _Tasks = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        /// </summary>
+        [Input("TriggerConfig", required: true)]
+        public Input<Inputs.FlowTriggerConfigArgs> TriggerConfig { get; set; } = null!;
 
         public FlowArgs()
         {

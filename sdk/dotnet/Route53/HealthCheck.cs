@@ -16,28 +16,19 @@ namespace Pulumi.AwsNative.Route53
     public partial class HealthCheck : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.HealthCheckAttributes> Attributes { get; private set; } = null!;
+        [Output("HealthCheckConfig")]
+        public Output<Union<System.Text.Json.JsonElement, string>> HealthCheckConfig { get; private set; } = null!;
+
+        [Output("HealthCheckId")]
+        public Output<string> HealthCheckId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HealthCheckProperties> Properties { get; private set; } = null!;
+        [Output("HealthCheckTags")]
+        public Output<ImmutableArray<Outputs.HealthCheckHealthCheckTag>> HealthCheckTags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +76,22 @@ namespace Pulumi.AwsNative.Route53
     public sealed class HealthCheckArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("HealthCheckConfig", required: true)]
+        public InputUnion<System.Text.Json.JsonElement, string> HealthCheckConfig { get; set; } = null!;
+
+        [Input("HealthCheckTags")]
+        private InputList<Inputs.HealthCheckHealthCheckTagArgs>? _HealthCheckTags;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
-
-        /// <summary>
-        /// Arbitrary structured data associated with the resource
-        /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
-
-        /// <summary>
-        /// The input properties associated with the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.HealthCheckPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-        /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Inputs.HealthCheckHealthCheckTagArgs> HealthCheckTags
+        {
+            get => _HealthCheckTags ?? (_HealthCheckTags = new InputList<Inputs.HealthCheckHealthCheckTagArgs>());
+            set => _HealthCheckTags = value;
+        }
 
         public HealthCheckArgs()
         {

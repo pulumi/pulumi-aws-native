@@ -36,21 +36,34 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.IoT.ProvisioningTemplateAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly PreProvisioningHook!: pulumi.Output<outputs.IoT.ProvisioningTemplateProvisioningHook | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */
-    public readonly properties!: pulumi.Output<outputs.IoT.ProvisioningTemplateProperties>;
+    public readonly ProvisioningRoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.IoT.ProvisioningTemplateTags | undefined>;
+    public /*out*/ readonly TemplateArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
+     */
+    public readonly TemplateBody!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
+     */
+    public readonly TemplateName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -62,20 +75,29 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     constructor(name: string, args: ProvisioningTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ProvisioningRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ProvisioningRoleArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.TemplateBody === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TemplateBody'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Enabled"] = args ? args.Enabled : undefined;
+            inputs["PreProvisioningHook"] = args ? args.PreProvisioningHook : undefined;
+            inputs["ProvisioningRoleArn"] = args ? args.ProvisioningRoleArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["TemplateBody"] = args ? args.TemplateBody : undefined;
+            inputs["TemplateName"] = args ? args.TemplateName : undefined;
+            inputs["TemplateArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Enabled"] = undefined /*out*/;
+            inputs["PreProvisioningHook"] = undefined /*out*/;
+            inputs["ProvisioningRoleArn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["TemplateArn"] = undefined /*out*/;
+            inputs["TemplateBody"] = undefined /*out*/;
+            inputs["TemplateName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +115,31 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
  */
 export interface ProvisioningTemplateArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Enabled?: pulumi.Input<boolean>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly PreProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHook>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */
-    readonly properties: pulumi.Input<inputs.IoT.ProvisioningTemplateProperties>;
+    readonly ProvisioningRoleArn: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<inputs.IoT.ProvisioningTemplateTags>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
+     */
+    readonly TemplateBody: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
+     */
+    readonly TemplateName?: pulumi.Input<string>;
 }

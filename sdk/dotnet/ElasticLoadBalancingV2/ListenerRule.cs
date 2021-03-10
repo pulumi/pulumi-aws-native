@@ -16,28 +16,28 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     public partial class ListenerRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ListenerRuleAttributes> Attributes { get; private set; } = null!;
+        [Output("Actions")]
+        public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("Conditions")]
+        public Output<ImmutableArray<Outputs.ListenerRuleRuleCondition>> Conditions { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("ListenerArn")]
+        public Output<string> ListenerArn { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ListenerRuleProperties> Properties { get; private set; } = null!;
+        [Output("Priority")]
+        public Output<int> Priority { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +84,41 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class ListenerRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Actions", required: true)]
+        private InputList<Inputs.ListenerRuleActionArgs>? _Actions;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.ListenerRuleActionArgs> Actions
+        {
+            get => _Actions ?? (_Actions = new InputList<Inputs.ListenerRuleActionArgs>());
+            set => _Actions = value;
+        }
+
+        [Input("Conditions", required: true)]
+        private InputList<Inputs.ListenerRuleRuleConditionArgs>? _Conditions;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        public InputList<Inputs.ListenerRuleRuleConditionArgs> Conditions
+        {
+            get => _Conditions ?? (_Conditions = new InputList<Inputs.ListenerRuleRuleConditionArgs>());
+            set => _Conditions = value;
+        }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ListenerRulePropertiesArgs> Properties { get; set; } = null!;
+        [Input("ListenerArn", required: true)]
+        public Input<string> ListenerArn { get; set; } = null!;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
 
         public ListenerRuleArgs()
         {

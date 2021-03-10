@@ -36,21 +36,37 @@ export class ApiKey extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ApiGateway.ApiKeyAttributes>;
+    public readonly CustomerId!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid
      */
-    public readonly properties!: pulumi.Output<outputs.ApiGateway.ApiKeyProperties>;
+    public readonly GenerateDistinctId!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name
+     */
+    public readonly Name!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
+     */
+    public readonly StageKeys!: pulumi.Output<outputs.ApiGateway.ApiKeyStageKey[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
+     */
+    public readonly Value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -59,23 +75,26 @@ export class ApiKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["CustomerId"] = args ? args.CustomerId : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Enabled"] = args ? args.Enabled : undefined;
+            inputs["GenerateDistinctId"] = args ? args.GenerateDistinctId : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["StageKeys"] = args ? args.StageKeys : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Value"] = args ? args.Value : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CustomerId"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Enabled"] = undefined /*out*/;
+            inputs["GenerateDistinctId"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["StageKeys"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Value"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +112,35 @@ export class ApiKey extends pulumi.CustomResource {
  */
 export interface ApiKeyArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly CustomerId?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Enabled?: pulumi.Input<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid
      */
-    readonly properties: pulumi.Input<inputs.ApiGateway.ApiKeyProperties>;
+    readonly GenerateDistinctId?: pulumi.Input<boolean>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Name?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
+     */
+    readonly StageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKey>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
+     */
+    readonly Value?: pulumi.Input<string>;
 }

@@ -10,30 +10,11 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'NotificationChannelAttributes',
     'NotificationChannelNotificationChannelConfig',
-    'NotificationChannelProperties',
     'NotificationChannelSnsChannelConfig',
-    'ResourceCollectionAttributes',
     'ResourceCollectionCloudFormationCollectionFilter',
-    'ResourceCollectionProperties',
     'ResourceCollectionResourceCollectionFilter',
 ]
-
-@pulumi.output_type
-class NotificationChannelAttributes(dict):
-    def __init__(__self__, *,
-                 id: str):
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationChannelNotificationChannelConfig(dict):
@@ -56,31 +37,6 @@ class NotificationChannelNotificationChannelConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
         """
         return pulumi.get(self, "sns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class NotificationChannelProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
-    """
-    def __init__(__self__, *,
-                 config: 'outputs.NotificationChannelNotificationChannelConfig'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
-        :param 'NotificationChannelNotificationChannelConfigArgs' config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        """
-        pulumi.set(__self__, "config", config)
-
-    @property
-    @pulumi.getter(name="Config")
-    def config(self) -> 'outputs.NotificationChannelNotificationChannelConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        """
-        return pulumi.get(self, "config")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -113,21 +69,6 @@ class NotificationChannelSnsChannelConfig(dict):
 
 
 @pulumi.output_type
-class ResourceCollectionAttributes(dict):
-    def __init__(__self__, *,
-                 resource_collection_type: str):
-        pulumi.set(__self__, "resource_collection_type", resource_collection_type)
-
-    @property
-    @pulumi.getter(name="ResourceCollectionType")
-    def resource_collection_type(self) -> str:
-        return pulumi.get(self, "resource_collection_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ResourceCollectionCloudFormationCollectionFilter(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
@@ -148,31 +89,6 @@ class ResourceCollectionCloudFormationCollectionFilter(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
         """
         return pulumi.get(self, "stack_names")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ResourceCollectionProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
-    """
-    def __init__(__self__, *,
-                 resource_collection_filter: 'outputs.ResourceCollectionResourceCollectionFilter'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
-        :param 'ResourceCollectionResourceCollectionFilterArgs' resource_collection_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        """
-        pulumi.set(__self__, "resource_collection_filter", resource_collection_filter)
-
-    @property
-    @pulumi.getter(name="ResourceCollectionFilter")
-    def resource_collection_filter(self) -> 'outputs.ResourceCollectionResourceCollectionFilter':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        """
-        return pulumi.get(self, "resource_collection_filter")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

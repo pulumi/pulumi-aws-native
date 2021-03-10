@@ -10,59 +10,11 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'KeyspaceAttributes',
-    'KeyspaceProperties',
-    'TableAttributes',
     'TableBillingMode',
     'TableClusteringKeyColumn',
     'TableColumn',
-    'TableProperties',
     'TableProvisionedThroughput',
 ]
-
-@pulumi.output_type
-class KeyspaceAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class KeyspaceProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
-    """
-    def __init__(__self__, *,
-                 keyspace_name: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
-        :param str keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
-        """
-        if keyspace_name is not None:
-            pulumi.set(__self__, "keyspace_name", keyspace_name)
-
-    @property
-    @pulumi.getter(name="KeyspaceName")
-    def keyspace_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
-        """
-        return pulumi.get(self, "keyspace_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class TableAttributes(dict):
-    def __init__(__self__):
-        pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableBillingMode(dict):
@@ -169,90 +121,6 @@ class TableColumn(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype
         """
         return pulumi.get(self, "column_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class TableProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
-    """
-    def __init__(__self__, *,
-                 keyspace_name: str,
-                 partition_key_columns: Sequence['outputs.TableColumn'],
-                 billing_mode: Optional['outputs.TableBillingMode'] = None,
-                 clustering_key_columns: Optional[Sequence['outputs.TableClusteringKeyColumn']] = None,
-                 regular_columns: Optional[Sequence['outputs.TableColumn']] = None,
-                 table_name: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
-        :param str keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-        :param Sequence['TableColumnArgs'] partition_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-        :param 'TableBillingModeArgs' billing_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        :param Sequence['TableClusteringKeyColumnArgs'] clustering_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-        :param Sequence['TableColumnArgs'] regular_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-        :param str table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-        """
-        pulumi.set(__self__, "keyspace_name", keyspace_name)
-        pulumi.set(__self__, "partition_key_columns", partition_key_columns)
-        if billing_mode is not None:
-            pulumi.set(__self__, "billing_mode", billing_mode)
-        if clustering_key_columns is not None:
-            pulumi.set(__self__, "clustering_key_columns", clustering_key_columns)
-        if regular_columns is not None:
-            pulumi.set(__self__, "regular_columns", regular_columns)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
-
-    @property
-    @pulumi.getter(name="KeyspaceName")
-    def keyspace_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-        """
-        return pulumi.get(self, "keyspace_name")
-
-    @property
-    @pulumi.getter(name="PartitionKeyColumns")
-    def partition_key_columns(self) -> Sequence['outputs.TableColumn']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-        """
-        return pulumi.get(self, "partition_key_columns")
-
-    @property
-    @pulumi.getter(name="BillingMode")
-    def billing_mode(self) -> Optional['outputs.TableBillingMode']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        """
-        return pulumi.get(self, "billing_mode")
-
-    @property
-    @pulumi.getter(name="ClusteringKeyColumns")
-    def clustering_key_columns(self) -> Optional[Sequence['outputs.TableClusteringKeyColumn']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-        """
-        return pulumi.get(self, "clustering_key_columns")
-
-    @property
-    @pulumi.getter(name="RegularColumns")
-    def regular_columns(self) -> Optional[Sequence['outputs.TableColumn']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-        """
-        return pulumi.get(self, "regular_columns")
-
-    @property
-    @pulumi.getter(name="TableName")
-    def table_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-        """
-        return pulumi.get(self, "table_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

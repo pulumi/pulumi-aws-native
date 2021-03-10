@@ -16,28 +16,40 @@ namespace Pulumi.AwsNative.Configuration
     public partial class ConformancePack : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ConformancePackAttributes> Attributes { get; private set; } = null!;
+        [Output("ConformancePackInputParameters")]
+        public Output<ImmutableArray<Outputs.ConformancePackConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ConformancePackName")]
+        public Output<string> ConformancePackName { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("DeliveryS3Bucket")]
+        public Output<string?> DeliveryS3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConformancePackProperties> Properties { get; private set; } = null!;
+        [Output("DeliveryS3KeyPrefix")]
+        public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+        /// </summary>
+        [Output("TemplateBody")]
+        public Output<string?> TemplateBody { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        /// </summary>
+        [Output("TemplateS3Uri")]
+        public Output<string?> TemplateS3Uri { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +96,47 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class ConformancePackArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ConformancePackInputParameters")]
+        private InputList<Inputs.ConformancePackConformancePackInputParameterArgs>? _ConformancePackInputParameters;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.ConformancePackConformancePackInputParameterArgs> ConformancePackInputParameters
+        {
+            get => _ConformancePackInputParameters ?? (_ConformancePackInputParameters = new InputList<Inputs.ConformancePackConformancePackInputParameterArgs>());
+            set => _ConformancePackInputParameters = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("ConformancePackName", required: true)]
+        public Input<string> ConformancePackName { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ConformancePackPropertiesArgs> Properties { get; set; } = null!;
+        [Input("DeliveryS3Bucket")]
+        public Input<string>? DeliveryS3Bucket { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("DeliveryS3KeyPrefix")]
+        public Input<string>? DeliveryS3KeyPrefix { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+        /// </summary>
+        [Input("TemplateBody")]
+        public Input<string>? TemplateBody { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        /// </summary>
+        [Input("TemplateS3Uri")]
+        public Input<string>? TemplateS3Uri { get; set; }
 
         public ConformancePackArgs()
         {

@@ -35,22 +35,34 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.CodeArtifact.RepositoryAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly DomainName!: pulumi.Output<string>;
+    public readonly DomainOwner!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ExternalConnections!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly Name!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly PermissionsPolicyDocument!: pulumi.Output<any | string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
      */
-    public readonly properties!: pulumi.Output<outputs.CodeArtifact.RepositoryProperties>;
+    public readonly RepositoryName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+     */
+    public readonly Upstreams!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -62,20 +74,33 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.DomainName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DomainName'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.RepositoryName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RepositoryName'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["DomainName"] = args ? args.DomainName : undefined;
+            inputs["DomainOwner"] = args ? args.DomainOwner : undefined;
+            inputs["ExternalConnections"] = args ? args.ExternalConnections : undefined;
+            inputs["PermissionsPolicyDocument"] = args ? args.PermissionsPolicyDocument : undefined;
+            inputs["RepositoryName"] = args ? args.RepositoryName : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Upstreams"] = args ? args.Upstreams : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["DomainName"] = undefined /*out*/;
+            inputs["DomainOwner"] = undefined /*out*/;
+            inputs["ExternalConnections"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["PermissionsPolicyDocument"] = undefined /*out*/;
+            inputs["RepositoryName"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Upstreams"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +118,35 @@ export class Repository extends pulumi.CustomResource {
  */
 export interface RepositoryArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DomainName: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DomainOwner?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
      */
-    readonly properties: pulumi.Input<inputs.CodeArtifact.RepositoryProperties>;
+    readonly ExternalConnections?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly PermissionsPolicyDocument?: pulumi.Input<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+     */
+    readonly RepositoryName: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+     */
+    readonly Upstreams?: pulumi.Input<pulumi.Input<string>[]>;
 }

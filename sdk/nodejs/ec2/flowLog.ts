@@ -36,21 +36,46 @@ export class FlowLog extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.EC2.FlowLogAttributes>;
+    public readonly DeliverLogsPermissionArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly LogDestination!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly LogDestinationType!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
      */
-    public readonly properties!: pulumi.Output<outputs.EC2.FlowLogProperties>;
+    public readonly LogFormat!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
+     */
+    public readonly LogGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+     */
+    public readonly MaxAggregationInterval!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
+     */
+    public readonly ResourceId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
+     */
+    public readonly ResourceType!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
+     */
+    public readonly TrafficType!: pulumi.Output<string>;
 
     /**
      * Create a FlowLog resource with the given unique name, arguments, and options.
@@ -62,20 +87,38 @@ export class FlowLog extends pulumi.CustomResource {
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ResourceId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ResourceId'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.ResourceType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ResourceType'");
+            }
+            if ((!args || args.TrafficType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TrafficType'");
+            }
+            inputs["DeliverLogsPermissionArn"] = args ? args.DeliverLogsPermissionArn : undefined;
+            inputs["LogDestination"] = args ? args.LogDestination : undefined;
+            inputs["LogDestinationType"] = args ? args.LogDestinationType : undefined;
+            inputs["LogFormat"] = args ? args.LogFormat : undefined;
+            inputs["LogGroupName"] = args ? args.LogGroupName : undefined;
+            inputs["MaxAggregationInterval"] = args ? args.MaxAggregationInterval : undefined;
+            inputs["ResourceId"] = args ? args.ResourceId : undefined;
+            inputs["ResourceType"] = args ? args.ResourceType : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["TrafficType"] = args ? args.TrafficType : undefined;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["DeliverLogsPermissionArn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["LogDestination"] = undefined /*out*/;
+            inputs["LogDestinationType"] = undefined /*out*/;
+            inputs["LogFormat"] = undefined /*out*/;
+            inputs["LogGroupName"] = undefined /*out*/;
+            inputs["MaxAggregationInterval"] = undefined /*out*/;
+            inputs["ResourceId"] = undefined /*out*/;
+            inputs["ResourceType"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["TrafficType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +136,43 @@ export class FlowLog extends pulumi.CustomResource {
  */
 export interface FlowLogArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly DeliverLogsPermissionArn?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly LogDestination?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly LogDestinationType?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
      */
-    readonly properties: pulumi.Input<inputs.EC2.FlowLogProperties>;
+    readonly LogFormat?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly LogGroupName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+     */
+    readonly MaxAggregationInterval?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
+     */
+    readonly ResourceId: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
+     */
+    readonly ResourceType: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
+     */
+    readonly TrafficType: pulumi.Input<string>;
 }

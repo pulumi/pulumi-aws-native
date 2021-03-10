@@ -8,17 +8,11 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'AssetAttributes',
     'AssetEgressEndpoint',
-    'AssetProperties',
-    'ChannelAttributes',
     'ChannelHlsIngest',
     'ChannelIngestEndpoint',
-    'ChannelProperties',
-    'OriginEndpointAttributes',
     'OriginEndpointAuthorization',
     'OriginEndpointCmafEncryption',
     'OriginEndpointCmafPackage',
@@ -29,10 +23,8 @@ __all__ = [
     'OriginEndpointHlsPackage',
     'OriginEndpointMssEncryption',
     'OriginEndpointMssPackage',
-    'OriginEndpointProperties',
     'OriginEndpointSpekeKeyProvider',
     'OriginEndpointStreamSelection',
-    'PackagingConfigurationAttributes',
     'PackagingConfigurationCmafEncryption',
     'PackagingConfigurationCmafPackage',
     'PackagingConfigurationDashEncryption',
@@ -44,34 +36,9 @@ __all__ = [
     'PackagingConfigurationMssEncryption',
     'PackagingConfigurationMssManifest',
     'PackagingConfigurationMssPackage',
-    'PackagingConfigurationProperties',
     'PackagingConfigurationStreamSelection',
-    'PackagingGroupAttributes',
     'PackagingGroupAuthorization',
-    'PackagingGroupProperties',
 ]
-
-@pulumi.output_type
-class AssetAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 created_at: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "created_at", created_at)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="CreatedAt")
-    def created_at(self) -> str:
-        return pulumi.get(self, "created_at")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetEgressEndpoint(dict):
@@ -104,122 +71,6 @@ class AssetEgressEndpoint(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
         """
         return pulumi.get(self, "url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AssetProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 packaging_group_id: str,
-                 source_arn: str,
-                 source_role_arn: str,
-                 egress_endpoints: Optional[Sequence['outputs.AssetEgressEndpoint']] = None,
-                 resource_id: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        :param str packaging_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
-        :param str source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
-        :param str source_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
-        :param Sequence['AssetEgressEndpointArgs'] egress_endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-        :param str resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "packaging_group_id", packaging_group_id)
-        pulumi.set(__self__, "source_arn", source_arn)
-        pulumi.set(__self__, "source_role_arn", source_role_arn)
-        if egress_endpoints is not None:
-            pulumi.set(__self__, "egress_endpoints", egress_endpoints)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="PackagingGroupId")
-    def packaging_group_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
-        """
-        return pulumi.get(self, "packaging_group_id")
-
-    @property
-    @pulumi.getter(name="SourceArn")
-    def source_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
-        """
-        return pulumi.get(self, "source_arn")
-
-    @property
-    @pulumi.getter(name="SourceRoleArn")
-    def source_role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
-        """
-        return pulumi.get(self, "source_role_arn")
-
-    @property
-    @pulumi.getter(name="EgressEndpoints")
-    def egress_endpoints(self) -> Optional[Sequence['outputs.AssetEgressEndpoint']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-        """
-        return pulumi.get(self, "egress_endpoints")
-
-    @property
-    @pulumi.getter(name="ResourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
-        """
-        return pulumi.get(self, "resource_id")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ChannelAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 hls_ingest: 'outputs.ChannelHlsIngest'):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "hls_ingest", hls_ingest)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="HlsIngest")
-    def hls_ingest(self) -> 'outputs.ChannelHlsIngest':
-        return pulumi.get(self, "hls_ingest")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -308,77 +159,6 @@ class ChannelIngestEndpoint(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ChannelProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 description: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
-        """
-        pulumi.set(__self__, "id", id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class OriginEndpointAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 url: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Url")
-    def url(self) -> str:
-        return pulumi.get(self, "url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1178,186 +958,6 @@ class OriginEndpointMssPackage(dict):
 
 
 @pulumi.output_type
-class OriginEndpointProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
-    """
-    def __init__(__self__, *,
-                 channel_id: str,
-                 id: str,
-                 authorization: Optional['outputs.OriginEndpointAuthorization'] = None,
-                 cmaf_package: Optional['outputs.OriginEndpointCmafPackage'] = None,
-                 dash_package: Optional['outputs.OriginEndpointDashPackage'] = None,
-                 description: Optional[str] = None,
-                 hls_package: Optional['outputs.OriginEndpointHlsPackage'] = None,
-                 manifest_name: Optional[str] = None,
-                 mss_package: Optional['outputs.OriginEndpointMssPackage'] = None,
-                 origination: Optional[str] = None,
-                 startover_window_seconds: Optional[int] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None,
-                 time_delay_seconds: Optional[int] = None,
-                 whitelist: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
-        :param str channel_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-        :param 'OriginEndpointAuthorizationArgs' authorization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-        :param 'OriginEndpointCmafPackageArgs' cmaf_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-        :param 'OriginEndpointDashPackageArgs' dash_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
-        :param 'OriginEndpointHlsPackageArgs' hls_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-        :param str manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
-        :param 'OriginEndpointMssPackageArgs' mss_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-        :param str origination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
-        :param int startover_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
-        :param int time_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
-        :param Sequence[str] whitelist: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
-        """
-        pulumi.set(__self__, "channel_id", channel_id)
-        pulumi.set(__self__, "id", id)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
-        if cmaf_package is not None:
-            pulumi.set(__self__, "cmaf_package", cmaf_package)
-        if dash_package is not None:
-            pulumi.set(__self__, "dash_package", dash_package)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if hls_package is not None:
-            pulumi.set(__self__, "hls_package", hls_package)
-        if manifest_name is not None:
-            pulumi.set(__self__, "manifest_name", manifest_name)
-        if mss_package is not None:
-            pulumi.set(__self__, "mss_package", mss_package)
-        if origination is not None:
-            pulumi.set(__self__, "origination", origination)
-        if startover_window_seconds is not None:
-            pulumi.set(__self__, "startover_window_seconds", startover_window_seconds)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if time_delay_seconds is not None:
-            pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
-        if whitelist is not None:
-            pulumi.set(__self__, "whitelist", whitelist)
-
-    @property
-    @pulumi.getter(name="ChannelId")
-    def channel_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
-        """
-        return pulumi.get(self, "channel_id")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="Authorization")
-    def authorization(self) -> Optional['outputs.OriginEndpointAuthorization']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-        """
-        return pulumi.get(self, "authorization")
-
-    @property
-    @pulumi.getter(name="CmafPackage")
-    def cmaf_package(self) -> Optional['outputs.OriginEndpointCmafPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-        """
-        return pulumi.get(self, "cmaf_package")
-
-    @property
-    @pulumi.getter(name="DashPackage")
-    def dash_package(self) -> Optional['outputs.OriginEndpointDashPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-        """
-        return pulumi.get(self, "dash_package")
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="HlsPackage")
-    def hls_package(self) -> Optional['outputs.OriginEndpointHlsPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-        """
-        return pulumi.get(self, "hls_package")
-
-    @property
-    @pulumi.getter(name="ManifestName")
-    def manifest_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
-        """
-        return pulumi.get(self, "manifest_name")
-
-    @property
-    @pulumi.getter(name="MssPackage")
-    def mss_package(self) -> Optional['outputs.OriginEndpointMssPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-        """
-        return pulumi.get(self, "mss_package")
-
-    @property
-    @pulumi.getter(name="Origination")
-    def origination(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
-        """
-        return pulumi.get(self, "origination")
-
-    @property
-    @pulumi.getter(name="StartoverWindowSeconds")
-    def startover_window_seconds(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
-        """
-        return pulumi.get(self, "startover_window_seconds")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="TimeDelaySeconds")
-    def time_delay_seconds(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
-        """
-        return pulumi.get(self, "time_delay_seconds")
-
-    @property
-    @pulumi.getter(name="Whitelist")
-    def whitelist(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
-        """
-        return pulumi.get(self, "whitelist")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class OriginEndpointSpekeKeyProvider(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
@@ -1472,21 +1072,6 @@ class OriginEndpointStreamSelection(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
         """
         return pulumi.get(self, "stream_order")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PackagingConfigurationAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str):
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2047,102 +1632,6 @@ class PackagingConfigurationMssPackage(dict):
 
 
 @pulumi.output_type
-class PackagingConfigurationProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 packaging_group_id: str,
-                 cmaf_package: Optional['outputs.PackagingConfigurationCmafPackage'] = None,
-                 dash_package: Optional['outputs.PackagingConfigurationDashPackage'] = None,
-                 hls_package: Optional['outputs.PackagingConfigurationHlsPackage'] = None,
-                 mss_package: Optional['outputs.PackagingConfigurationMssPackage'] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-        :param str packaging_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
-        :param 'PackagingConfigurationCmafPackageArgs' cmaf_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
-        :param 'PackagingConfigurationDashPackageArgs' dash_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
-        :param 'PackagingConfigurationHlsPackageArgs' hls_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
-        :param 'PackagingConfigurationMssPackageArgs' mss_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "packaging_group_id", packaging_group_id)
-        if cmaf_package is not None:
-            pulumi.set(__self__, "cmaf_package", cmaf_package)
-        if dash_package is not None:
-            pulumi.set(__self__, "dash_package", dash_package)
-        if hls_package is not None:
-            pulumi.set(__self__, "hls_package", hls_package)
-        if mss_package is not None:
-            pulumi.set(__self__, "mss_package", mss_package)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="PackagingGroupId")
-    def packaging_group_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
-        """
-        return pulumi.get(self, "packaging_group_id")
-
-    @property
-    @pulumi.getter(name="CmafPackage")
-    def cmaf_package(self) -> Optional['outputs.PackagingConfigurationCmafPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
-        """
-        return pulumi.get(self, "cmaf_package")
-
-    @property
-    @pulumi.getter(name="DashPackage")
-    def dash_package(self) -> Optional['outputs.PackagingConfigurationDashPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
-        """
-        return pulumi.get(self, "dash_package")
-
-    @property
-    @pulumi.getter(name="HlsPackage")
-    def hls_package(self) -> Optional['outputs.PackagingConfigurationHlsPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
-        """
-        return pulumi.get(self, "hls_package")
-
-    @property
-    @pulumi.getter(name="MssPackage")
-    def mss_package(self) -> Optional['outputs.PackagingConfigurationMssPackage']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
-        """
-        return pulumi.get(self, "mss_package")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class PackagingConfigurationStreamSelection(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
@@ -2193,28 +1682,6 @@ class PackagingConfigurationStreamSelection(dict):
 
 
 @pulumi.output_type
-class PackagingGroupAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 domain_name: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "domain_name", domain_name)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="DomainName")
-    def domain_name(self) -> str:
-        return pulumi.get(self, "domain_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class PackagingGroupAuthorization(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
@@ -2245,55 +1712,6 @@ class PackagingGroupAuthorization(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
         """
         return pulumi.get(self, "secrets_role_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PackagingGroupProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 authorization: Optional['outputs.PackagingGroupAuthorization'] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        :param 'PackagingGroupAuthorizationArgs' authorization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-        """
-        pulumi.set(__self__, "id", id)
-        if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="Authorization")
-    def authorization(self) -> Optional['outputs.PackagingGroupAuthorization']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-        """
-        return pulumi.get(self, "authorization")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

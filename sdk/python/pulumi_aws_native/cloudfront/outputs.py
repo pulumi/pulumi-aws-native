@@ -10,55 +10,21 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'CachePolicyAttributes',
     'CachePolicyCachePolicyConfig',
     'CachePolicyCookiesConfig',
     'CachePolicyHeadersConfig',
     'CachePolicyParametersInCacheKeyAndForwardedToOrigin',
-    'CachePolicyProperties',
     'CachePolicyQueryStringsConfig',
-    'CloudFrontOriginAccessIdentityAttributes',
     'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig',
-    'CloudFrontOriginAccessIdentityProperties',
-    'KeyGroupAttributes',
     'KeyGroupKeyGroupConfig',
-    'KeyGroupProperties',
-    'OriginRequestPolicyAttributes',
     'OriginRequestPolicyCookiesConfig',
     'OriginRequestPolicyHeadersConfig',
     'OriginRequestPolicyOriginRequestPolicyConfig',
-    'OriginRequestPolicyProperties',
     'OriginRequestPolicyQueryStringsConfig',
-    'PublicKeyAttributes',
-    'PublicKeyProperties',
     'PublicKeyPublicKeyConfig',
-    'RealtimeLogConfigAttributes',
     'RealtimeLogConfigEndPoint',
     'RealtimeLogConfigKinesisStreamConfig',
-    'RealtimeLogConfigProperties',
 ]
-
-@pulumi.output_type
-class CachePolicyAttributes(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 last_modified_time: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="LastModifiedTime")
-    def last_modified_time(self) -> str:
-        return pulumi.get(self, "last_modified_time")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyCachePolicyConfig(dict):
@@ -286,31 +252,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
 
 
 @pulumi.output_type
-class CachePolicyProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
-    """
-    def __init__(__self__, *,
-                 cache_policy_config: 'outputs.CachePolicyCachePolicyConfig'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
-        :param 'CachePolicyCachePolicyConfigArgs' cache_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        """
-        pulumi.set(__self__, "cache_policy_config", cache_policy_config)
-
-    @property
-    @pulumi.getter(name="CachePolicyConfig")
-    def cache_policy_config(self) -> 'outputs.CachePolicyCachePolicyConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        """
-        return pulumi.get(self, "cache_policy_config")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class CachePolicyQueryStringsConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
@@ -348,21 +289,6 @@ class CachePolicyQueryStringsConfig(dict):
 
 
 @pulumi.output_type
-class CloudFrontOriginAccessIdentityAttributes(dict):
-    def __init__(__self__, *,
-                 s3_canonical_user_id: str):
-        pulumi.set(__self__, "s3_canonical_user_id", s3_canonical_user_id)
-
-    @property
-    @pulumi.getter(name="S3CanonicalUserId")
-    def s3_canonical_user_id(self) -> str:
-        return pulumi.get(self, "s3_canonical_user_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
@@ -382,53 +308,6 @@ class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
         """
         return pulumi.get(self, "comment")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class CloudFrontOriginAccessIdentityProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
-    """
-    def __init__(__self__, *,
-                 cloud_front_origin_access_identity_config: 'outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
-        :param 'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs' cloud_front_origin_access_identity_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-        """
-        pulumi.set(__self__, "cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
-
-    @property
-    @pulumi.getter(name="CloudFrontOriginAccessIdentityConfig")
-    def cloud_front_origin_access_identity_config(self) -> 'outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-        """
-        return pulumi.get(self, "cloud_front_origin_access_identity_config")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class KeyGroupAttributes(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 last_modified_time: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="LastModifiedTime")
-    def last_modified_time(self) -> str:
-        return pulumi.get(self, "last_modified_time")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -477,53 +356,6 @@ class KeyGroupKeyGroupConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
         """
         return pulumi.get(self, "comment")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class KeyGroupProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
-    """
-    def __init__(__self__, *,
-                 key_group_config: 'outputs.KeyGroupKeyGroupConfig'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
-        :param 'KeyGroupKeyGroupConfigArgs' key_group_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        """
-        pulumi.set(__self__, "key_group_config", key_group_config)
-
-    @property
-    @pulumi.getter(name="KeyGroupConfig")
-    def key_group_config(self) -> 'outputs.KeyGroupKeyGroupConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        """
-        return pulumi.get(self, "key_group_config")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class OriginRequestPolicyAttributes(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 last_modified_time: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="LastModifiedTime")
-    def last_modified_time(self) -> str:
-        return pulumi.get(self, "last_modified_time")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -674,31 +506,6 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
 
 
 @pulumi.output_type
-class OriginRequestPolicyProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
-    """
-    def __init__(__self__, *,
-                 origin_request_policy_config: 'outputs.OriginRequestPolicyOriginRequestPolicyConfig'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
-        :param 'OriginRequestPolicyOriginRequestPolicyConfigArgs' origin_request_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        """
-        pulumi.set(__self__, "origin_request_policy_config", origin_request_policy_config)
-
-    @property
-    @pulumi.getter(name="OriginRequestPolicyConfig")
-    def origin_request_policy_config(self) -> 'outputs.OriginRequestPolicyOriginRequestPolicyConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        """
-        return pulumi.get(self, "origin_request_policy_config")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class OriginRequestPolicyQueryStringsConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
@@ -730,53 +537,6 @@ class OriginRequestPolicyQueryStringsConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
         """
         return pulumi.get(self, "query_strings")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PublicKeyAttributes(dict):
-    def __init__(__self__, *,
-                 created_time: str,
-                 id: str):
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="CreatedTime")
-    def created_time(self) -> str:
-        return pulumi.get(self, "created_time")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PublicKeyProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
-    """
-    def __init__(__self__, *,
-                 public_key_config: 'outputs.PublicKeyPublicKeyConfig'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
-        :param 'PublicKeyPublicKeyConfigArgs' public_key_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        """
-        pulumi.set(__self__, "public_key_config", public_key_config)
-
-    @property
-    @pulumi.getter(name="PublicKeyConfig")
-    def public_key_config(self) -> 'outputs.PublicKeyPublicKeyConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        """
-        return pulumi.get(self, "public_key_config")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -836,21 +596,6 @@ class PublicKeyPublicKeyConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
         """
         return pulumi.get(self, "comment")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RealtimeLogConfigAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str):
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -923,64 +668,6 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
         """
         return pulumi.get(self, "stream_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RealtimeLogConfigProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
-    """
-    def __init__(__self__, *,
-                 end_points: Sequence['outputs.RealtimeLogConfigEndPoint'],
-                 fields: Sequence[str],
-                 name: str,
-                 sampling_rate: float):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
-        :param Sequence['RealtimeLogConfigEndPointArgs'] end_points: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        :param Sequence[str] fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        :param float sampling_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        """
-        pulumi.set(__self__, "end_points", end_points)
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sampling_rate", sampling_rate)
-
-    @property
-    @pulumi.getter(name="EndPoints")
-    def end_points(self) -> Sequence['outputs.RealtimeLogConfigEndPoint']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        """
-        return pulumi.get(self, "end_points")
-
-    @property
-    @pulumi.getter(name="Fields")
-    def fields(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        """
-        return pulumi.get(self, "fields")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="SamplingRate")
-    def sampling_rate(self) -> float:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        """
-        return pulumi.get(self, "sampling_rate")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

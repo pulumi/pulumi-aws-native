@@ -19,11 +19,13 @@ class MissionProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['MissionProfilePropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+                 dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]]] = None,
+                 minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +34,13 @@ class MissionProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['MissionProfilePropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[int] contact_post_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+        :param pulumi.Input[int] contact_pre_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]] dataflow_edges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
+        :param pulumi.Input[int] minimum_viable_contact_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
+        :param pulumi.Input[str] tracking_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +59,24 @@ class MissionProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['contact_post_pass_duration_seconds'] = contact_post_pass_duration_seconds
+            __props__['contact_pre_pass_duration_seconds'] = contact_pre_pass_duration_seconds
+            if dataflow_edges is None and not opts.urn:
+                raise TypeError("Missing required property 'dataflow_edges'")
+            __props__['dataflow_edges'] = dataflow_edges
+            if minimum_viable_contact_duration_seconds is None and not opts.urn:
+                raise TypeError("Missing required property 'minimum_viable_contact_duration_seconds'")
+            __props__['minimum_viable_contact_duration_seconds'] = minimum_viable_contact_duration_seconds
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
+            __props__['name'] = name
+            __props__['tags'] = tags
+            if tracking_config_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'tracking_config_arn'")
+            __props__['tracking_config_arn'] = tracking_config_arn
+            __props__['arn'] = None
+            __props__['id'] = None
+            __props__['region'] = None
         super(MissionProfile, __self__).__init__(
             'aws-native:GroundStation:MissionProfile',
             resource_name,
@@ -88,36 +102,75 @@ class MissionProfile(pulumi.CustomResource):
         return MissionProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.MissionProfileAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ContactPostPassDurationSeconds")
+    def contact_post_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "contact_post_pass_duration_seconds")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ContactPrePassDurationSeconds")
+    def contact_pre_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.MissionProfileProperties']:
+    @pulumi.getter(name="DataflowEdges")
+    def dataflow_edges(self) -> pulumi.Output[Sequence['outputs.MissionProfileDataflowEdge']]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "dataflow_edges")
+
+    @property
+    @pulumi.getter(name="Id")
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="MinimumViableContactDurationSeconds")
+    def minimum_viable_contact_duration_seconds(self) -> pulumi.Output[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+        """
+        return pulumi.get(self, "minimum_viable_contact_duration_seconds")
+
+    @property
+    @pulumi.getter(name="Name")
+    def name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="Region")
+    def region(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="TrackingConfigArn")
+    def tracking_config_arn(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
+        """
+        return pulumi.get(self, "tracking_config_arn")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

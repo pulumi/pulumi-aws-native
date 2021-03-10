@@ -36,21 +36,57 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductAttributes>;
+    public readonly AcceptLanguage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly CloudformationStackArn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly NotificationArns!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly Outputs!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly PathId!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
      */
-    public readonly properties!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProperties>;
+    public readonly PathName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
+     */
+    public readonly ProductId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
+     */
+    public readonly ProductName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ProvisionedProductId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
+     */
+    public readonly ProvisionedProductName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
+     */
+    public readonly ProvisioningArtifactId!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
+     */
+    public readonly ProvisioningArtifactName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
+     */
+    public readonly ProvisioningParameters!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
+     */
+    public readonly ProvisioningPreferences!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
+    public /*out*/ readonly RecordId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CloudFormationProvisionedProduct resource with the given unique name, arguments, and options.
@@ -59,23 +95,42 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CloudFormationProvisionedProductArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: CloudFormationProvisionedProductArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AcceptLanguage"] = args ? args.AcceptLanguage : undefined;
+            inputs["NotificationArns"] = args ? args.NotificationArns : undefined;
+            inputs["PathId"] = args ? args.PathId : undefined;
+            inputs["PathName"] = args ? args.PathName : undefined;
+            inputs["ProductId"] = args ? args.ProductId : undefined;
+            inputs["ProductName"] = args ? args.ProductName : undefined;
+            inputs["ProvisionedProductName"] = args ? args.ProvisionedProductName : undefined;
+            inputs["ProvisioningArtifactId"] = args ? args.ProvisioningArtifactId : undefined;
+            inputs["ProvisioningArtifactName"] = args ? args.ProvisioningArtifactName : undefined;
+            inputs["ProvisioningParameters"] = args ? args.ProvisioningParameters : undefined;
+            inputs["ProvisioningPreferences"] = args ? args.ProvisioningPreferences : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["CloudformationStackArn"] = undefined /*out*/;
+            inputs["Outputs"] = undefined /*out*/;
+            inputs["ProvisionedProductId"] = undefined /*out*/;
+            inputs["RecordId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AcceptLanguage"] = undefined /*out*/;
+            inputs["CloudformationStackArn"] = undefined /*out*/;
+            inputs["NotificationArns"] = undefined /*out*/;
+            inputs["Outputs"] = undefined /*out*/;
+            inputs["PathId"] = undefined /*out*/;
+            inputs["PathName"] = undefined /*out*/;
+            inputs["ProductId"] = undefined /*out*/;
+            inputs["ProductName"] = undefined /*out*/;
+            inputs["ProvisionedProductId"] = undefined /*out*/;
+            inputs["ProvisionedProductName"] = undefined /*out*/;
+            inputs["ProvisioningArtifactId"] = undefined /*out*/;
+            inputs["ProvisioningArtifactName"] = undefined /*out*/;
+            inputs["ProvisioningParameters"] = undefined /*out*/;
+            inputs["ProvisioningPreferences"] = undefined /*out*/;
+            inputs["RecordId"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +148,51 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
  */
 export interface CloudFormationProvisionedProductArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AcceptLanguage?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly NotificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly PathId?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
      */
-    readonly properties: pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProperties>;
+    readonly PathName?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly ProductId?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
+     */
+    readonly ProductName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
+     */
+    readonly ProvisionedProductName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
+     */
+    readonly ProvisioningArtifactId?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
+     */
+    readonly ProvisioningArtifactName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
+     */
+    readonly ProvisioningParameters?: pulumi.Input<pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
+     */
+    readonly ProvisioningPreferences?: pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

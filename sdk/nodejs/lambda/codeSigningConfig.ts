@@ -36,21 +36,19 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Lambda.CodeSigningConfigAttributes>;
+    public readonly AllowedPublishers!: pulumi.Output<outputs.Lambda.CodeSigningConfigAllowedPublishers>;
+    public /*out*/ readonly CodeSigningConfigArn!: pulumi.Output<string>;
+    public /*out*/ readonly CodeSigningConfigId!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly CodeSigningPolicies!: pulumi.Output<outputs.Lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
-    /**
-     * The input properties associated with the resource
-     */
-    public readonly properties!: pulumi.Output<outputs.Lambda.CodeSigningConfigProperties>;
+    public readonly Description!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -62,20 +60,20 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     constructor(name: string, args: CodeSigningConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.AllowedPublishers === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'AllowedPublishers'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["AllowedPublishers"] = args ? args.AllowedPublishers : undefined;
+            inputs["CodeSigningPolicies"] = args ? args.CodeSigningPolicies : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["CodeSigningConfigArn"] = undefined /*out*/;
+            inputs["CodeSigningConfigId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AllowedPublishers"] = undefined /*out*/;
+            inputs["CodeSigningConfigArn"] = undefined /*out*/;
+            inputs["CodeSigningConfigId"] = undefined /*out*/;
+            inputs["CodeSigningPolicies"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +91,15 @@ export class CodeSigningConfig extends pulumi.CustomResource {
  */
 export interface CodeSigningConfigArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly AllowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishers>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly CodeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPolicies>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */
-    readonly metadata?: pulumi.Input<any | string>;
-    /**
-     * The input properties associated with the resource
-     */
-    readonly properties: pulumi.Input<inputs.Lambda.CodeSigningConfigProperties>;
-    /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-     */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
 }

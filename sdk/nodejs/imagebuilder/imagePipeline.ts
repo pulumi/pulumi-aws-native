@@ -35,22 +35,47 @@ export class ImagePipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImagePipeline.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ImageBuilder.ImagePipelineAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DistributionConfigurationArn!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly EnhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
      */
-    public readonly properties!: pulumi.Output<outputs.ImageBuilder.ImagePipelineProperties>;
+    public readonly ImageRecipeArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
+     */
+    public readonly ImageTestsConfiguration!: pulumi.Output<outputs.ImageBuilder.ImagePipelineImageTestsConfiguration | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
+     */
+    public readonly InfrastructureConfigurationArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
+     */
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
+     */
+    public readonly Schedule!: pulumi.Output<outputs.ImageBuilder.ImagePipelineSchedule | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
+     */
+    public readonly Status!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+     */
+    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ImagePipeline resource with the given unique name, arguments, and options.
@@ -62,20 +87,38 @@ export class ImagePipeline extends pulumi.CustomResource {
     constructor(name: string, args: ImagePipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ImageRecipeArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ImageRecipeArn'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.InfrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InfrastructureConfigurationArn'");
+            }
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["DistributionConfigurationArn"] = args ? args.DistributionConfigurationArn : undefined;
+            inputs["EnhancedImageMetadataEnabled"] = args ? args.EnhancedImageMetadataEnabled : undefined;
+            inputs["ImageRecipeArn"] = args ? args.ImageRecipeArn : undefined;
+            inputs["ImageTestsConfiguration"] = args ? args.ImageTestsConfiguration : undefined;
+            inputs["InfrastructureConfigurationArn"] = args ? args.InfrastructureConfigurationArn : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["Schedule"] = args ? args.Schedule : undefined;
+            inputs["Status"] = args ? args.Status : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["DistributionConfigurationArn"] = undefined /*out*/;
+            inputs["EnhancedImageMetadataEnabled"] = undefined /*out*/;
+            inputs["ImageRecipeArn"] = undefined /*out*/;
+            inputs["ImageTestsConfiguration"] = undefined /*out*/;
+            inputs["InfrastructureConfigurationArn"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["Schedule"] = undefined /*out*/;
+            inputs["Status"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +136,43 @@ export class ImagePipeline extends pulumi.CustomResource {
  */
 export interface ImagePipelineArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DistributionConfigurationArn?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly EnhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
      */
-    readonly properties: pulumi.Input<inputs.ImageBuilder.ImagePipelineProperties>;
+    readonly ImageRecipeArn: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly ImageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImagePipelineImageTestsConfiguration>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
+     */
+    readonly InfrastructureConfigurationArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
+     */
+    readonly Name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
+     */
+    readonly Schedule?: pulumi.Input<inputs.ImageBuilder.ImagePipelineSchedule>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
+     */
+    readonly Status?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+     */
+    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

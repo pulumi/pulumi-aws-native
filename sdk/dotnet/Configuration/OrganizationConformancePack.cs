@@ -16,28 +16,46 @@ namespace Pulumi.AwsNative.Configuration
     public partial class OrganizationConformancePack : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.OrganizationConformancePackAttributes> Attributes { get; private set; } = null!;
+        [Output("ConformancePackInputParameters")]
+        public Output<ImmutableArray<Outputs.OrganizationConformancePackConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("DeliveryS3Bucket")]
+        public Output<string?> DeliveryS3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("DeliveryS3KeyPrefix")]
+        public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OrganizationConformancePackProperties> Properties { get; private set; } = null!;
+        [Output("ExcludedAccounts")]
+        public Output<ImmutableArray<string>> ExcludedAccounts { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
+        /// </summary>
+        [Output("OrganizationConformancePackName")]
+        public Output<string> OrganizationConformancePackName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
+        /// </summary>
+        [Output("TemplateBody")]
+        public Output<string?> TemplateBody { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        /// </summary>
+        [Output("TemplateS3Uri")]
+        public Output<string?> TemplateS3Uri { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +102,59 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class OrganizationConformancePackArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("ConformancePackInputParameters")]
+        private InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>? _ConformancePackInputParameters;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs> ConformancePackInputParameters
+        {
+            get => _ConformancePackInputParameters ?? (_ConformancePackInputParameters = new InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>());
+            set => _ConformancePackInputParameters = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("DeliveryS3Bucket")]
+        public Input<string>? DeliveryS3Bucket { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.OrganizationConformancePackPropertiesArgs> Properties { get; set; } = null!;
+        [Input("DeliveryS3KeyPrefix")]
+        public Input<string>? DeliveryS3KeyPrefix { get; set; }
+
+        [Input("ExcludedAccounts")]
+        private InputList<string>? _ExcludedAccounts;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<string> ExcludedAccounts
+        {
+            get => _ExcludedAccounts ?? (_ExcludedAccounts = new InputList<string>());
+            set => _ExcludedAccounts = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
+        /// </summary>
+        [Input("OrganizationConformancePackName", required: true)]
+        public Input<string> OrganizationConformancePackName { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
+        /// </summary>
+        [Input("TemplateBody")]
+        public Input<string>? TemplateBody { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        /// </summary>
+        [Input("TemplateS3Uri")]
+        public Input<string>? TemplateS3Uri { get; set; }
 
         public OrganizationConformancePackArgs()
         {

@@ -16,28 +16,31 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.GatewayAttributes> Attributes { get; private set; } = null!;
+        [Output("GatewayCapabilitySummaries")]
+        public Output<ImmutableArray<Outputs.GatewayGatewayCapabilitySummary>> GatewayCapabilitySummaries { get; private set; } = null!;
+
+        [Output("GatewayId")]
+        public Output<string> GatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("GatewayName")]
+        public Output<string> GatewayName { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("GatewayPlatform")]
+        public Output<Outputs.GatewayGatewayPlatform> GatewayPlatform { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GatewayProperties> Properties { get; private set; } = null!;
+        [Output("Tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +87,41 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
     public sealed class GatewayArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("GatewayCapabilitySummaries")]
+        private InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>? _GatewayCapabilitySummaries;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.GatewayGatewayCapabilitySummaryArgs> GatewayCapabilitySummaries
+        {
+            get => _GatewayCapabilitySummaries ?? (_GatewayCapabilitySummaries = new InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>());
+            set => _GatewayCapabilitySummaries = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("GatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.GatewayPropertiesArgs> Properties { get; set; } = null!;
+        [Input("GatewayPlatform", required: true)]
+        public Input<Inputs.GatewayGatewayPlatformArgs> GatewayPlatform { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _Tags = value;
+        }
 
         public GatewayArgs()
         {

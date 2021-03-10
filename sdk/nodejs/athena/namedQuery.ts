@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,21 +35,26 @@ export class NamedQuery extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Athena.NamedQueryAttributes>;
+    public readonly Database!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly NamedQueryId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
      */
-    public readonly properties!: pulumi.Output<outputs.Athena.NamedQueryProperties>;
+    public readonly QueryString!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+     */
+    public readonly WorkGroup!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NamedQuery resource with the given unique name, arguments, and options.
@@ -62,20 +66,25 @@ export class NamedQuery extends pulumi.CustomResource {
     constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Database === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Database'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.QueryString === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'QueryString'");
+            }
+            inputs["Database"] = args ? args.Database : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["QueryString"] = args ? args.QueryString : undefined;
+            inputs["WorkGroup"] = args ? args.WorkGroup : undefined;
+            inputs["NamedQueryId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Database"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["NamedQueryId"] = undefined /*out*/;
+            inputs["QueryString"] = undefined /*out*/;
+            inputs["WorkGroup"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +102,23 @@ export class NamedQuery extends pulumi.CustomResource {
  */
 export interface NamedQueryArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Database: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Name?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
      */
-    readonly properties: pulumi.Input<inputs.Athena.NamedQueryProperties>;
+    readonly QueryString: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly WorkGroup?: pulumi.Input<string>;
 }

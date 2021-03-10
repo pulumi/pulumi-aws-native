@@ -35,22 +35,36 @@ export class Stream extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stream.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.QLDB.StreamAttributes>;
+    public readonly ExclusiveEndTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly InclusiveStartTime!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly KinesisConfiguration!: pulumi.Output<outputs.QLDB.StreamKinesisConfiguration>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
      */
-    public readonly properties!: pulumi.Output<outputs.QLDB.StreamProperties>;
+    public readonly LedgerName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+     */
+    public readonly StreamName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -62,20 +76,40 @@ export class Stream extends pulumi.CustomResource {
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.InclusiveStartTime === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'InclusiveStartTime'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.KinesisConfiguration === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'KinesisConfiguration'");
+            }
+            if ((!args || args.LedgerName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'LedgerName'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            if ((!args || args.StreamName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'StreamName'");
+            }
+            inputs["ExclusiveEndTime"] = args ? args.ExclusiveEndTime : undefined;
+            inputs["InclusiveStartTime"] = args ? args.InclusiveStartTime : undefined;
+            inputs["KinesisConfiguration"] = args ? args.KinesisConfiguration : undefined;
+            inputs["LedgerName"] = args ? args.LedgerName : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["StreamName"] = args ? args.StreamName : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["ExclusiveEndTime"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["InclusiveStartTime"] = undefined /*out*/;
+            inputs["KinesisConfiguration"] = undefined /*out*/;
+            inputs["LedgerName"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["StreamName"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +127,31 @@ export class Stream extends pulumi.CustomResource {
  */
 export interface StreamArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ExclusiveEndTime?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly InclusiveStartTime: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly KinesisConfiguration: pulumi.Input<inputs.QLDB.StreamKinesisConfiguration>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
      */
-    readonly properties: pulumi.Input<inputs.QLDB.StreamProperties>;
+    readonly LedgerName: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
+     */
+    readonly StreamName: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -17,11 +17,15 @@ class FileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['FileSystemPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 backup_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 file_system_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
+                 performance_mode: Optional[pulumi.Input[str]] = None,
+                 provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+                 throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,11 +34,15 @@ class FileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['FileSystemPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']] backup_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+        :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
+        :param pulumi.Input[Union[Any, str]] file_system_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]] file_system_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
+        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+        :param pulumi.Input[str] performance_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
+        :param pulumi.Input[float] provisioned_throughput_in_mibps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
+        :param pulumi.Input[str] throughput_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +61,17 @@ class FileSystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['backup_policy'] = backup_policy
+            __props__['encrypted'] = encrypted
+            __props__['file_system_policy'] = file_system_policy
+            __props__['file_system_tags'] = file_system_tags
+            __props__['kms_key_id'] = kms_key_id
+            __props__['lifecycle_policies'] = lifecycle_policies
+            __props__['performance_mode'] = performance_mode
+            __props__['provisioned_throughput_in_mibps'] = provisioned_throughput_in_mibps
+            __props__['throughput_mode'] = throughput_mode
+            __props__['arn'] = None
+            __props__['file_system_id'] = None
         super(FileSystem, __self__).__init__(
             'aws-native:EFS:FileSystem',
             resource_name,
@@ -86,36 +97,86 @@ class FileSystem(pulumi.CustomResource):
         return FileSystem(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.FileSystemAttributes']:
-        """
-        The attributes associated with the resource
-        """
-        return pulumi.get(self, "attributes")
+    @pulumi.getter(name="Arn")
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="BackupPolicy")
+    def backup_policy(self) -> pulumi.Output[Optional['outputs.FileSystemBackupPolicy']]:
         """
-        An explicit logical ID for the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         """
-        return pulumi.get(self, "logical_id")
+        return pulumi.get(self, "backup_policy")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="Encrypted")
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "encrypted")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.FileSystemProperties']:
+    @pulumi.getter(name="FileSystemId")
+    def file_system_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="FileSystemPolicy")
+    def file_system_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "file_system_policy")
+
+    @property
+    @pulumi.getter(name="FileSystemTags")
+    def file_system_tags(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemElasticFileSystemTag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
+        """
+        return pulumi.get(self, "file_system_tags")
+
+    @property
+    @pulumi.getter(name="KmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="LifecyclePolicies")
+    def lifecycle_policies(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemLifecyclePolicy']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
+        """
+        return pulumi.get(self, "lifecycle_policies")
+
+    @property
+    @pulumi.getter(name="PerformanceMode")
+    def performance_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
+        """
+        return pulumi.get(self, "performance_mode")
+
+    @property
+    @pulumi.getter(name="ProvisionedThroughputInMibps")
+    def provisioned_throughput_in_mibps(self) -> pulumi.Output[Optional[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
+        """
+        return pulumi.get(self, "provisioned_throughput_in_mibps")
+
+    @property
+    @pulumi.getter(name="ThroughputMode")
+    def throughput_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+        """
+        return pulumi.get(self, "throughput_mode")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -36,21 +36,66 @@ export class TaskDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ECS.TaskDefinitionAttributes>;
+    public readonly ContainerDefinitions!: pulumi.Output<outputs.ECS.TaskDefinitionContainerDefinition[] | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Cpu!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ExecutionRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
      */
-    public readonly properties!: pulumi.Output<outputs.ECS.TaskDefinitionProperties>;
+    public readonly Family!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
+     */
+    public readonly InferenceAccelerators!: pulumi.Output<outputs.ECS.TaskDefinitionInferenceAccelerator[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
+     */
+    public readonly IpcMode!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
+     */
+    public readonly Memory!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
+     */
+    public readonly NetworkMode!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
+     */
+    public readonly PidMode!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
+     */
+    public readonly PlacementConstraints!: pulumi.Output<outputs.ECS.TaskDefinitionTaskDefinitionPlacementConstraint[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
+     */
+    public readonly ProxyConfiguration!: pulumi.Output<outputs.ECS.TaskDefinitionProxyConfiguration | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
+     */
+    public readonly RequiresCompatibilities!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public /*out*/ readonly TaskDefinitionArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
+     */
+    public readonly TaskRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
+     */
+    public readonly Volumes!: pulumi.Output<outputs.ECS.TaskDefinitionVolume[] | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -59,23 +104,42 @@ export class TaskDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TaskDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: TaskDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
-            }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["ContainerDefinitions"] = args ? args.ContainerDefinitions : undefined;
+            inputs["Cpu"] = args ? args.Cpu : undefined;
+            inputs["ExecutionRoleArn"] = args ? args.ExecutionRoleArn : undefined;
+            inputs["Family"] = args ? args.Family : undefined;
+            inputs["InferenceAccelerators"] = args ? args.InferenceAccelerators : undefined;
+            inputs["IpcMode"] = args ? args.IpcMode : undefined;
+            inputs["Memory"] = args ? args.Memory : undefined;
+            inputs["NetworkMode"] = args ? args.NetworkMode : undefined;
+            inputs["PidMode"] = args ? args.PidMode : undefined;
+            inputs["PlacementConstraints"] = args ? args.PlacementConstraints : undefined;
+            inputs["ProxyConfiguration"] = args ? args.ProxyConfiguration : undefined;
+            inputs["RequiresCompatibilities"] = args ? args.RequiresCompatibilities : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["TaskRoleArn"] = args ? args.TaskRoleArn : undefined;
+            inputs["Volumes"] = args ? args.Volumes : undefined;
+            inputs["TaskDefinitionArn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ContainerDefinitions"] = undefined /*out*/;
+            inputs["Cpu"] = undefined /*out*/;
+            inputs["ExecutionRoleArn"] = undefined /*out*/;
+            inputs["Family"] = undefined /*out*/;
+            inputs["InferenceAccelerators"] = undefined /*out*/;
+            inputs["IpcMode"] = undefined /*out*/;
+            inputs["Memory"] = undefined /*out*/;
+            inputs["NetworkMode"] = undefined /*out*/;
+            inputs["PidMode"] = undefined /*out*/;
+            inputs["PlacementConstraints"] = undefined /*out*/;
+            inputs["ProxyConfiguration"] = undefined /*out*/;
+            inputs["RequiresCompatibilities"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["TaskDefinitionArn"] = undefined /*out*/;
+            inputs["TaskRoleArn"] = undefined /*out*/;
+            inputs["Volumes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +157,63 @@ export class TaskDefinition extends pulumi.CustomResource {
  */
 export interface TaskDefinitionArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly ContainerDefinitions?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionContainerDefinition>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Cpu?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ExecutionRoleArn?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
      */
-    readonly properties: pulumi.Input<inputs.ECS.TaskDefinitionProperties>;
+    readonly Family?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly InferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionInferenceAccelerator>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
+     */
+    readonly IpcMode?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
+     */
+    readonly Memory?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
+     */
+    readonly NetworkMode?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
+     */
+    readonly PidMode?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
+     */
+    readonly PlacementConstraints?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionTaskDefinitionPlacementConstraint>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
+     */
+    readonly ProxyConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionProxyConfiguration>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
+     */
+    readonly RequiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
+     */
+    readonly TaskRoleArn?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
+     */
+    readonly Volumes?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionVolume>[]>;
 }

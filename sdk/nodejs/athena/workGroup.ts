@@ -35,22 +35,35 @@ export class WorkGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkGroup.__pulumiType;
     }
 
+    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Athena.WorkGroupAttributes>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Name!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly RecursiveDeleteOption!: pulumi.Output<boolean | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
      */
-    public readonly properties!: pulumi.Output<outputs.Athena.WorkGroupProperties>;
+    public readonly State!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Athena.WorkGroupTags | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+     */
+    public readonly WorkGroupConfiguration!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfiguration | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+     */
+    public readonly WorkGroupConfigurationUpdates!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
 
     /**
      * Create a WorkGroup resource with the given unique name, arguments, and options.
@@ -62,20 +75,26 @@ export class WorkGroup extends pulumi.CustomResource {
     constructor(name: string, args: WorkGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["RecursiveDeleteOption"] = args ? args.RecursiveDeleteOption : undefined;
+            inputs["State"] = args ? args.State : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["WorkGroupConfiguration"] = args ? args.WorkGroupConfiguration : undefined;
+            inputs["WorkGroupConfigurationUpdates"] = args ? args.WorkGroupConfigurationUpdates : undefined;
+            inputs["CreationTime"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["CreationTime"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RecursiveDeleteOption"] = undefined /*out*/;
+            inputs["State"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["WorkGroupConfiguration"] = undefined /*out*/;
+            inputs["WorkGroupConfigurationUpdates"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +112,31 @@ export class WorkGroup extends pulumi.CustomResource {
  */
 export interface WorkGroupArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly RecursiveDeleteOption?: pulumi.Input<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
      */
-    readonly properties: pulumi.Input<inputs.Athena.WorkGroupProperties>;
+    readonly State?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<inputs.Athena.WorkGroupTags>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+     */
+    readonly WorkGroupConfiguration?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfiguration>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+     */
+    readonly WorkGroupConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationUpdates>;
 }

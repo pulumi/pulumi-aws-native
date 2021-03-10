@@ -7,72 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from .. import _inputs as _root_inputs
 
 __all__ = [
-    'ConfigPropertiesArgs',
     'DataflowEndpointGroupDataflowEndpointArgs',
     'DataflowEndpointGroupEndpointDetailsArgs',
-    'DataflowEndpointGroupPropertiesArgs',
     'DataflowEndpointGroupSecurityDetailsArgs',
     'DataflowEndpointGroupSocketAddressArgs',
     'MissionProfileDataflowEdgeArgs',
-    'MissionProfilePropertiesArgs',
 ]
-
-@pulumi.input_type
-class ConfigPropertiesArgs:
-    def __init__(__self__, *,
-                 config_data: pulumi.Input[Union[Any, str]],
-                 name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
-        :param pulumi.Input[Union[Any, str]] config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-        """
-        pulumi.set(__self__, "config_data", config_data)
-        pulumi.set(__self__, "name", name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ConfigData")
-    def config_data(self) -> pulumi.Input[Union[Any, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-        """
-        return pulumi.get(self, "config_data")
-
-    @config_data.setter
-    def config_data(self, value: pulumi.Input[Union[Any, str]]):
-        pulumi.set(self, "config_data", value)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.input_type
 class DataflowEndpointGroupDataflowEndpointArgs:
@@ -184,45 +126,6 @@ class DataflowEndpointGroupEndpointDetailsArgs:
     @security_details.setter
     def security_details(self, value: Optional[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs']]):
         pulumi.set(self, "security_details", value)
-
-
-@pulumi.input_type
-class DataflowEndpointGroupPropertiesArgs:
-    def __init__(__self__, *,
-                 endpoint_details: pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
-        :param pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]] endpoint_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-        """
-        pulumi.set(__self__, "endpoint_details", endpoint_details)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="EndpointDetails")
-    def endpoint_details(self) -> pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        """
-        return pulumi.get(self, "endpoint_details")
-
-    @endpoint_details.setter
-    def endpoint_details(self, value: pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]]):
-        pulumi.set(self, "endpoint_details", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -359,121 +262,5 @@ class MissionProfileDataflowEdgeArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
-
-
-@pulumi.input_type
-class MissionProfilePropertiesArgs:
-    def __init__(__self__, *,
-                 dataflow_edges: pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]],
-                 minimum_viable_contact_duration_seconds: pulumi.Input[int],
-                 name: pulumi.Input[str],
-                 tracking_config_arn: pulumi.Input[str],
-                 contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
-        :param pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]] dataflow_edges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        :param pulumi.Input[int] minimum_viable_contact_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-        :param pulumi.Input[str] tracking_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-        :param pulumi.Input[int] contact_post_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-        :param pulumi.Input[int] contact_pre_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-        """
-        pulumi.set(__self__, "dataflow_edges", dataflow_edges)
-        pulumi.set(__self__, "minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tracking_config_arn", tracking_config_arn)
-        if contact_post_pass_duration_seconds is not None:
-            pulumi.set(__self__, "contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
-        if contact_pre_pass_duration_seconds is not None:
-            pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="DataflowEdges")
-    def dataflow_edges(self) -> pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        """
-        return pulumi.get(self, "dataflow_edges")
-
-    @dataflow_edges.setter
-    def dataflow_edges(self, value: pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]]):
-        pulumi.set(self, "dataflow_edges", value)
-
-    @property
-    @pulumi.getter(name="MinimumViableContactDurationSeconds")
-    def minimum_viable_contact_duration_seconds(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
-        """
-        return pulumi.get(self, "minimum_viable_contact_duration_seconds")
-
-    @minimum_viable_contact_duration_seconds.setter
-    def minimum_viable_contact_duration_seconds(self, value: pulumi.Input[int]):
-        pulumi.set(self, "minimum_viable_contact_duration_seconds", value)
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="TrackingConfigArn")
-    def tracking_config_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-        """
-        return pulumi.get(self, "tracking_config_arn")
-
-    @tracking_config_arn.setter
-    def tracking_config_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "tracking_config_arn", value)
-
-    @property
-    @pulumi.getter(name="ContactPostPassDurationSeconds")
-    def contact_post_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-        """
-        return pulumi.get(self, "contact_post_pass_duration_seconds")
-
-    @contact_post_pass_duration_seconds.setter
-    def contact_post_pass_duration_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "contact_post_pass_duration_seconds", value)
-
-    @property
-    @pulumi.getter(name="ContactPrePassDurationSeconds")
-    def contact_pre_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-        """
-        return pulumi.get(self, "contact_pre_pass_duration_seconds")
-
-    @contact_pre_pass_duration_seconds.setter
-    def contact_pre_pass_duration_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "contact_pre_pass_duration_seconds", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 

@@ -35,22 +35,39 @@ export class ImageRecipe extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImageRecipe.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ImageBuilder.ImageRecipeAttributes>;
+    public readonly BlockDeviceMappings!: pulumi.Output<outputs.ImageBuilder.ImageRecipeInstanceBlockDeviceMapping[] | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Components!: pulumi.Output<outputs.ImageBuilder.ImageRecipeComponentConfiguration[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
      */
-    public readonly properties!: pulumi.Output<outputs.ImageBuilder.ImageRecipeProperties>;
+    public readonly Name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+     */
+    public readonly ParentImage!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+     */
+    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+     */
+    public readonly Version!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+     */
+    public readonly WorkingDirectory!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ImageRecipe resource with the given unique name, arguments, and options.
@@ -62,20 +79,37 @@ export class ImageRecipe extends pulumi.CustomResource {
     constructor(name: string, args: ImageRecipeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Components === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Components'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Name'");
+            }
+            if ((!args || args.ParentImage === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ParentImage'");
+            }
+            if ((!args || args.Version === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Version'");
+            }
+            inputs["BlockDeviceMappings"] = args ? args.BlockDeviceMappings : undefined;
+            inputs["Components"] = args ? args.Components : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["ParentImage"] = args ? args.ParentImage : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Version"] = args ? args.Version : undefined;
+            inputs["WorkingDirectory"] = args ? args.WorkingDirectory : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["BlockDeviceMappings"] = undefined /*out*/;
+            inputs["Components"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["ParentImage"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Version"] = undefined /*out*/;
+            inputs["WorkingDirectory"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +127,35 @@ export class ImageRecipe extends pulumi.CustomResource {
  */
 export interface ImageRecipeArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly BlockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeInstanceBlockDeviceMapping>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Components: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeComponentConfiguration>[]>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
      */
-    readonly properties: pulumi.Input<inputs.ImageBuilder.ImageRecipeProperties>;
+    readonly Name: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly ParentImage: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+     */
+    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+     */
+    readonly Version: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+     */
+    readonly WorkingDirectory?: pulumi.Input<string>;
 }

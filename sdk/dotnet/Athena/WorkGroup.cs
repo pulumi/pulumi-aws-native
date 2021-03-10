@@ -15,29 +15,50 @@ namespace Pulumi.AwsNative.Athena
     [AwsNativeResourceType("aws-native:Athena:WorkGroup")]
     public partial class WorkGroup : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.WorkGroupAttributes> Attributes { get; private set; } = null!;
+        [Output("CreationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("Description")]
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Name")]
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkGroupProperties> Properties { get; private set; } = null!;
+        [Output("RecursiveDeleteOption")]
+        public Output<bool?> RecursiveDeleteOption { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
+        /// </summary>
+        [Output("State")]
+        public Output<string?> State { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<Outputs.WorkGroupTags?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+        /// </summary>
+        [Output("WorkGroupConfiguration")]
+        public Output<Outputs.WorkGroupWorkGroupConfiguration?> WorkGroupConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+        /// </summary>
+        [Output("WorkGroupConfigurationUpdates")]
+        public Output<Outputs.WorkGroupWorkGroupConfigurationUpdates?> WorkGroupConfigurationUpdates { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +106,46 @@ namespace Pulumi.AwsNative.Athena
     public sealed class WorkGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("Description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        [Input("Name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("RecursiveDeleteOption")]
+        public Input<bool>? RecursiveDeleteOption { get; set; }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.WorkGroupPropertiesArgs> Properties { get; set; } = null!;
+        [Input("State")]
+        public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Tags")]
+        public Input<Inputs.WorkGroupTagsArgs>? Tags { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+        /// </summary>
+        [Input("WorkGroupConfiguration")]
+        public Input<Inputs.WorkGroupWorkGroupConfigurationArgs>? WorkGroupConfiguration { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+        /// </summary>
+        [Input("WorkGroupConfigurationUpdates")]
+        public Input<Inputs.WorkGroupWorkGroupConfigurationUpdatesArgs>? WorkGroupConfigurationUpdates { get; set; }
 
         public WorkGroupArgs()
         {

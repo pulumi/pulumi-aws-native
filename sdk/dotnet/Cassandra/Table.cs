@@ -16,28 +16,40 @@ namespace Pulumi.AwsNative.Cassandra
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
         /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.TableAttributes> Attributes { get; private set; } = null!;
+        [Output("BillingMode")]
+        public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("ClusteringKeyColumns")]
+        public Output<ImmutableArray<Outputs.TableClusteringKeyColumn>> ClusteringKeyColumns { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("KeyspaceName")]
+        public Output<string> KeyspaceName { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TableProperties> Properties { get; private set; } = null!;
+        [Output("PartitionKeyColumns")]
+        public Output<ImmutableArray<Outputs.TableColumn>> PartitionKeyColumns { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+        /// </summary>
+        [Output("RegularColumns")]
+        public Output<ImmutableArray<Outputs.TableColumn>> RegularColumns { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+        /// </summary>
+        [Output("TableName")]
+        public Output<string?> TableName { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,34 +97,58 @@ namespace Pulumi.AwsNative.Cassandra
     public sealed class TableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
         /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("BillingMode")]
+        public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
+
+        [Input("ClusteringKeyColumns")]
+        private InputList<Inputs.TableClusteringKeyColumnArgs>? _ClusteringKeyColumns;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.TableClusteringKeyColumnArgs> ClusteringKeyColumns
+        {
+            get => _ClusteringKeyColumns ?? (_ClusteringKeyColumns = new InputList<Inputs.TableClusteringKeyColumnArgs>());
+            set => _ClusteringKeyColumns = value;
+        }
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        [Input("KeyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
+
+        [Input("PartitionKeyColumns", required: true)]
+        private InputList<Inputs.TableColumnArgs>? _PartitionKeyColumns;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.TablePropertiesArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.TableColumnArgs> PartitionKeyColumns
+        {
+            get => _PartitionKeyColumns ?? (_PartitionKeyColumns = new InputList<Inputs.TableColumnArgs>());
+            set => _PartitionKeyColumns = value;
+        }
+
+        [Input("RegularColumns")]
+        private InputList<Inputs.TableColumnArgs>? _RegularColumns;
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        public InputList<Inputs.TableColumnArgs> RegularColumns
+        {
+            get => _RegularColumns ?? (_RegularColumns = new InputList<Inputs.TableColumnArgs>());
+            set => _RegularColumns = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+        /// </summary>
+        [Input("TableName")]
+        public Input<string>? TableName { get; set; }
 
         public TableArgs()
         {

@@ -10,38 +10,14 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'StateMachineAttributes',
     'StateMachineCloudWatchLogsLogGroup',
     'StateMachineDefinitionSubstitutions',
     'StateMachineLogDestination',
     'StateMachineLoggingConfiguration',
-    'StateMachineProperties',
     'StateMachineS3Location',
     'StateMachineTagsEntry',
     'StateMachineTracingConfiguration',
 ]
-
-@pulumi.output_type
-class StateMachineAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 name: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StateMachineCloudWatchLogsLogGroup(dict):
@@ -155,127 +131,6 @@ class StateMachineLoggingConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
         """
         return pulumi.get(self, "level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StateMachineProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
-    """
-    def __init__(__self__, *,
-                 role_arn: str,
-                 definition_s3_location: Optional['outputs.StateMachineS3Location'] = None,
-                 definition_string: Optional[str] = None,
-                 definition_substitutions: Optional['outputs.StateMachineDefinitionSubstitutions'] = None,
-                 logging_configuration: Optional['outputs.StateMachineLoggingConfiguration'] = None,
-                 state_machine_name: Optional[str] = None,
-                 state_machine_type: Optional[str] = None,
-                 tags: Optional[Sequence['outputs.StateMachineTagsEntry']] = None,
-                 tracing_configuration: Optional['outputs.StateMachineTracingConfiguration'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-        :param 'StateMachineS3LocationArgs' definition_s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
-        :param str definition_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-        :param 'StateMachineDefinitionSubstitutionsArgs' definition_substitutions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-        :param 'StateMachineLoggingConfigurationArgs' logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
-        :param str state_machine_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-        :param str state_machine_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-        :param Sequence['StateMachineTagsEntryArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-        :param 'StateMachineTracingConfigurationArgs' tracing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-        """
-        pulumi.set(__self__, "role_arn", role_arn)
-        if definition_s3_location is not None:
-            pulumi.set(__self__, "definition_s3_location", definition_s3_location)
-        if definition_string is not None:
-            pulumi.set(__self__, "definition_string", definition_string)
-        if definition_substitutions is not None:
-            pulumi.set(__self__, "definition_substitutions", definition_substitutions)
-        if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
-        if state_machine_name is not None:
-            pulumi.set(__self__, "state_machine_name", state_machine_name)
-        if state_machine_type is not None:
-            pulumi.set(__self__, "state_machine_type", state_machine_type)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if tracing_configuration is not None:
-            pulumi.set(__self__, "tracing_configuration", tracing_configuration)
-
-    @property
-    @pulumi.getter(name="RoleArn")
-    def role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="DefinitionS3Location")
-    def definition_s3_location(self) -> Optional['outputs.StateMachineS3Location']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
-        """
-        return pulumi.get(self, "definition_s3_location")
-
-    @property
-    @pulumi.getter(name="DefinitionString")
-    def definition_string(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-        """
-        return pulumi.get(self, "definition_string")
-
-    @property
-    @pulumi.getter(name="DefinitionSubstitutions")
-    def definition_substitutions(self) -> Optional['outputs.StateMachineDefinitionSubstitutions']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-        """
-        return pulumi.get(self, "definition_substitutions")
-
-    @property
-    @pulumi.getter(name="LoggingConfiguration")
-    def logging_configuration(self) -> Optional['outputs.StateMachineLoggingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
-        """
-        return pulumi.get(self, "logging_configuration")
-
-    @property
-    @pulumi.getter(name="StateMachineName")
-    def state_machine_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-        """
-        return pulumi.get(self, "state_machine_name")
-
-    @property
-    @pulumi.getter(name="StateMachineType")
-    def state_machine_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-        """
-        return pulumi.get(self, "state_machine_type")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['outputs.StateMachineTagsEntry']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="TracingConfiguration")
-    def tracing_configuration(self) -> Optional['outputs.StateMachineTracingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-        """
-        return pulumi.get(self, "tracing_configuration")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -15,29 +15,56 @@ namespace Pulumi.AwsNative.ImageBuilder
     [AwsNativeResourceType("aws-native:ImageBuilder:ImageRecipe")]
     public partial class ImageRecipe : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes associated with the resource
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.ImageRecipeAttributes> Attributes { get; private set; } = null!;
+        [Output("Arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
         /// </summary>
-        [Output("logicalId")]
-        public Output<string?> LogicalId { get; private set; } = null!;
+        [Output("BlockDeviceMappings")]
+        public Output<ImmutableArray<Outputs.ImageRecipeInstanceBlockDeviceMapping>> BlockDeviceMappings { get; private set; } = null!;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
         /// </summary>
-        [Output("metadata")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Metadata { get; private set; } = null!;
+        [Output("Components")]
+        public Output<ImmutableArray<Outputs.ImageRecipeComponentConfiguration>> Components { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ImageRecipeProperties> Properties { get; private set; } = null!;
+        [Output("Description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
+        /// </summary>
+        [Output("Name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+        /// </summary>
+        [Output("ParentImage")]
+        public Output<string> ParentImage { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+        /// </summary>
+        [Output("Tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+        /// </summary>
+        [Output("Version")]
+        public Output<string> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        /// </summary>
+        [Output("WorkingDirectory")]
+        public Output<string?> WorkingDirectory { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,35 +111,71 @@ namespace Pulumi.AwsNative.ImageBuilder
 
     public sealed class ImageRecipeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        /// </summary>
-        [Input("deletionPolicy")]
-        public Input<string>? DeletionPolicy { get; set; }
+        [Input("BlockDeviceMappings")]
+        private InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>? _BlockDeviceMappings;
 
         /// <summary>
-        /// An explicit logical ID for the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
         /// </summary>
-        [Input("logicalId")]
-        public Input<string>? LogicalId { get; set; }
+        public InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs> BlockDeviceMappings
+        {
+            get => _BlockDeviceMappings ?? (_BlockDeviceMappings = new InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>());
+            set => _BlockDeviceMappings = value;
+        }
+
+        [Input("Components", required: true)]
+        private InputList<Inputs.ImageRecipeComponentConfigurationArgs>? _Components;
 
         /// <summary>
-        /// Arbitrary structured data associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
         /// </summary>
-        [Input("metadata")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Metadata { get; set; }
+        public InputList<Inputs.ImageRecipeComponentConfigurationArgs> Components
+        {
+            get => _Components ?? (_Components = new InputList<Inputs.ImageRecipeComponentConfigurationArgs>());
+            set => _Components = value;
+        }
 
         /// <summary>
-        /// The input properties associated with the resource
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ImageRecipePropertiesArgs> Properties { get; set; } = null!;
+        [Input("Description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
         /// </summary>
-        [Input("updateReplacePolicy")]
-        public Input<string>? UpdateReplacePolicy { get; set; }
+        [Input("Name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+        /// </summary>
+        [Input("ParentImage", required: true)]
+        public Input<string> ParentImage { get; set; } = null!;
+
+        [Input("Tags")]
+        private InputMap<string>? _Tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _Tags ?? (_Tags = new InputMap<string>());
+            set => _Tags = value;
+        }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+        /// </summary>
+        [Input("Version", required: true)]
+        public Input<string> Version { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        /// </summary>
+        [Input("WorkingDirectory")]
+        public Input<string>? WorkingDirectory { get; set; }
 
         public ImageRecipeArgs()
         {

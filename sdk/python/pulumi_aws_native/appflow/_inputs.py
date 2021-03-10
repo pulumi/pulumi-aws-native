@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from .. import _inputs as _root_inputs
 
 __all__ = [
     'ConnectorProfileAmplitudeConnectorProfileCredentialsArgs',
@@ -24,7 +23,6 @@ __all__ = [
     'ConnectorProfileInforNexusConnectorProfilePropertiesArgs',
     'ConnectorProfileMarketoConnectorProfileCredentialsArgs',
     'ConnectorProfileMarketoConnectorProfilePropertiesArgs',
-    'ConnectorProfilePropertiesArgs',
     'ConnectorProfileRedshiftConnectorProfileCredentialsArgs',
     'ConnectorProfileRedshiftConnectorProfilePropertiesArgs',
     'ConnectorProfileSalesforceConnectorProfileCredentialsArgs',
@@ -55,7 +53,6 @@ __all__ = [
     'FlowInforNexusSourcePropertiesArgs',
     'FlowMarketoSourcePropertiesArgs',
     'FlowPrefixConfigArgs',
-    'FlowPropertiesArgs',
     'FlowRedshiftDestinationPropertiesArgs',
     'FlowS3DestinationPropertiesArgs',
     'FlowS3OutputFormatConfigArgs',
@@ -1003,91 +1000,6 @@ class ConnectorProfileMarketoConnectorProfilePropertiesArgs:
     @instance_url.setter
     def instance_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_url", value)
-
-
-@pulumi.input_type
-class ConnectorProfilePropertiesArgs:
-    def __init__(__self__, *,
-                 connection_mode: pulumi.Input[str],
-                 connector_profile_name: pulumi.Input[str],
-                 connector_type: pulumi.Input[str],
-                 connector_profile_config: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']] = None,
-                 kms_arn: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
-        :param pulumi.Input[str] connection_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-        :param pulumi.Input[str] connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-        :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
-        :param pulumi.Input[str] kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
-        """
-        pulumi.set(__self__, "connection_mode", connection_mode)
-        pulumi.set(__self__, "connector_profile_name", connector_profile_name)
-        pulumi.set(__self__, "connector_type", connector_type)
-        if connector_profile_config is not None:
-            pulumi.set(__self__, "connector_profile_config", connector_profile_config)
-        if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
-
-    @property
-    @pulumi.getter(name="ConnectionMode")
-    def connection_mode(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-        """
-        return pulumi.get(self, "connection_mode")
-
-    @connection_mode.setter
-    def connection_mode(self, value: pulumi.Input[str]):
-        pulumi.set(self, "connection_mode", value)
-
-    @property
-    @pulumi.getter(name="ConnectorProfileName")
-    def connector_profile_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-        """
-        return pulumi.get(self, "connector_profile_name")
-
-    @connector_profile_name.setter
-    def connector_profile_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "connector_profile_name", value)
-
-    @property
-    @pulumi.getter(name="ConnectorType")
-    def connector_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-        """
-        return pulumi.get(self, "connector_type")
-
-    @connector_type.setter
-    def connector_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "connector_type", value)
-
-    @property
-    @pulumi.getter(name="ConnectorProfileConfig")
-    def connector_profile_config(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
-        """
-        return pulumi.get(self, "connector_profile_config")
-
-    @connector_profile_config.setter
-    def connector_profile_config(self, value: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]):
-        pulumi.set(self, "connector_profile_config", value)
-
-    @property
-    @pulumi.getter(name="KMSArn")
-    def kms_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
-        """
-        return pulumi.get(self, "kms_arn")
-
-    @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kms_arn", value)
 
 
 @pulumi.input_type
@@ -2527,137 +2439,6 @@ class FlowPrefixConfigArgs:
     @prefix_type.setter
     def prefix_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix_type", value)
-
-
-@pulumi.input_type
-class FlowPropertiesArgs:
-    def __init__(__self__, *,
-                 destination_flow_config_list: pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]],
-                 flow_name: pulumi.Input[str],
-                 source_flow_config: pulumi.Input['FlowSourceFlowConfigArgs'],
-                 tasks: pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]],
-                 trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
-                 description: Optional[pulumi.Input[str]] = None,
-                 kms_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
-        :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_config_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-        :param pulumi.Input[str] flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-        :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-        :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-        :param pulumi.Input[str] kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
-        """
-        pulumi.set(__self__, "destination_flow_config_list", destination_flow_config_list)
-        pulumi.set(__self__, "flow_name", flow_name)
-        pulumi.set(__self__, "source_flow_config", source_flow_config)
-        pulumi.set(__self__, "tasks", tasks)
-        pulumi.set(__self__, "trigger_config", trigger_config)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="DestinationFlowConfigList")
-    def destination_flow_config_list(self) -> pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-        """
-        return pulumi.get(self, "destination_flow_config_list")
-
-    @destination_flow_config_list.setter
-    def destination_flow_config_list(self, value: pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]):
-        pulumi.set(self, "destination_flow_config_list", value)
-
-    @property
-    @pulumi.getter(name="FlowName")
-    def flow_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        """
-        return pulumi.get(self, "flow_name")
-
-    @flow_name.setter
-    def flow_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "flow_name", value)
-
-    @property
-    @pulumi.getter(name="SourceFlowConfig")
-    def source_flow_config(self) -> pulumi.Input['FlowSourceFlowConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-        """
-        return pulumi.get(self, "source_flow_config")
-
-    @source_flow_config.setter
-    def source_flow_config(self, value: pulumi.Input['FlowSourceFlowConfigArgs']):
-        pulumi.set(self, "source_flow_config", value)
-
-    @property
-    @pulumi.getter(name="Tasks")
-    def tasks(self) -> pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-        """
-        return pulumi.get(self, "tasks")
-
-    @tasks.setter
-    def tasks(self, value: pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]):
-        pulumi.set(self, "tasks", value)
-
-    @property
-    @pulumi.getter(name="TriggerConfig")
-    def trigger_config(self) -> pulumi.Input['FlowTriggerConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-        """
-        return pulumi.get(self, "trigger_config")
-
-    @trigger_config.setter
-    def trigger_config(self, value: pulumi.Input['FlowTriggerConfigArgs']):
-        pulumi.set(self, "trigger_config", value)
-
-    @property
-    @pulumi.getter(name="Description")
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="KMSArn")
-    def kms_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-        """
-        return pulumi.get(self, "kms_arn")
-
-    @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kms_arn", value)
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

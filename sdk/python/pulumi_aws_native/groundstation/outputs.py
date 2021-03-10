@@ -8,127 +8,14 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'ConfigAttributes',
-    'ConfigProperties',
-    'DataflowEndpointGroupAttributes',
     'DataflowEndpointGroupDataflowEndpoint',
     'DataflowEndpointGroupEndpointDetails',
-    'DataflowEndpointGroupProperties',
     'DataflowEndpointGroupSecurityDetails',
     'DataflowEndpointGroupSocketAddress',
-    'MissionProfileAttributes',
     'MissionProfileDataflowEdge',
-    'MissionProfileProperties',
 ]
-
-@pulumi.output_type
-class ConfigAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 type: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="Type")
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ConfigProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
-    """
-    def __init__(__self__, *,
-                 config_data: str,
-                 name: str,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
-        :param Union[Any, str] config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-        """
-        pulumi.set(__self__, "config_data", config_data)
-        pulumi.set(__self__, "name", name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ConfigData")
-    def config_data(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-        """
-        return pulumi.get(self, "config_data")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DataflowEndpointGroupAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 status: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="Status")
-    def status(self) -> str:
-        return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataflowEndpointGroupDataflowEndpoint(dict):
@@ -231,43 +118,6 @@ class DataflowEndpointGroupEndpointDetails(dict):
 
 
 @pulumi.output_type
-class DataflowEndpointGroupProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
-    """
-    def __init__(__self__, *,
-                 endpoint_details: Sequence['outputs.DataflowEndpointGroupEndpointDetails'],
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
-        :param Sequence['DataflowEndpointGroupEndpointDetailsArgs'] endpoint_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-        """
-        pulumi.set(__self__, "endpoint_details", endpoint_details)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="EndpointDetails")
-    def endpoint_details(self) -> Sequence['outputs.DataflowEndpointGroupEndpointDetails']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        """
-        return pulumi.get(self, "endpoint_details")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class DataflowEndpointGroupSecurityDetails(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html
@@ -356,35 +206,6 @@ class DataflowEndpointGroupSocketAddress(dict):
 
 
 @pulumi.output_type
-class MissionProfileAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 region: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "region", region)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="Id")
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="Region")
-    def region(self) -> str:
-        return pulumi.get(self, "region")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class MissionProfileDataflowEdge(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html
@@ -417,100 +238,6 @@ class MissionProfileDataflowEdge(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source
         """
         return pulumi.get(self, "source")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MissionProfileProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
-    """
-    def __init__(__self__, *,
-                 dataflow_edges: Sequence['outputs.MissionProfileDataflowEdge'],
-                 minimum_viable_contact_duration_seconds: int,
-                 name: str,
-                 tracking_config_arn: str,
-                 contact_post_pass_duration_seconds: Optional[int] = None,
-                 contact_pre_pass_duration_seconds: Optional[int] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
-        :param Sequence['MissionProfileDataflowEdgeArgs'] dataflow_edges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        :param int minimum_viable_contact_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-        :param str tracking_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-        :param int contact_post_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-        :param int contact_pre_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-        """
-        pulumi.set(__self__, "dataflow_edges", dataflow_edges)
-        pulumi.set(__self__, "minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tracking_config_arn", tracking_config_arn)
-        if contact_post_pass_duration_seconds is not None:
-            pulumi.set(__self__, "contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
-        if contact_pre_pass_duration_seconds is not None:
-            pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="DataflowEdges")
-    def dataflow_edges(self) -> Sequence['outputs.MissionProfileDataflowEdge']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        """
-        return pulumi.get(self, "dataflow_edges")
-
-    @property
-    @pulumi.getter(name="MinimumViableContactDurationSeconds")
-    def minimum_viable_contact_duration_seconds(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
-        """
-        return pulumi.get(self, "minimum_viable_contact_duration_seconds")
-
-    @property
-    @pulumi.getter(name="Name")
-    def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="TrackingConfigArn")
-    def tracking_config_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-        """
-        return pulumi.get(self, "tracking_config_arn")
-
-    @property
-    @pulumi.getter(name="ContactPostPassDurationSeconds")
-    def contact_post_pass_duration_seconds(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-        """
-        return pulumi.get(self, "contact_post_pass_duration_seconds")
-
-    @property
-    @pulumi.getter(name="ContactPrePassDurationSeconds")
-    def contact_pre_pass_duration_seconds(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-        """
-        return pulumi.get(self, "contact_pre_pass_duration_seconds")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

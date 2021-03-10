@@ -36,21 +36,46 @@ export class TaskSet extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.ECS.TaskSetAttributes>;
+    public readonly Cluster!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly ExternalId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly Id!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly LaunchType!: pulumi.Output<string | undefined>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    public readonly properties!: pulumi.Output<outputs.ECS.TaskSetProperties>;
+    public readonly LoadBalancers!: pulumi.Output<outputs.ECS.TaskSetLoadBalancer[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
+     */
+    public readonly NetworkConfiguration!: pulumi.Output<outputs.ECS.TaskSetNetworkConfiguration | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+     */
+    public readonly PlatformVersion!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+     */
+    public readonly Scale!: pulumi.Output<outputs.ECS.TaskSetScale | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+     */
+    public readonly Service!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+     */
+    public readonly ServiceRegistries!: pulumi.Output<outputs.ECS.TaskSetServiceRegistry[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+     */
+    public readonly TaskDefinition!: pulumi.Output<string>;
 
     /**
      * Create a TaskSet resource with the given unique name, arguments, and options.
@@ -62,20 +87,38 @@ export class TaskSet extends pulumi.CustomResource {
     constructor(name: string, args: TaskSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Cluster === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Cluster'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.Service === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Service'");
+            }
+            if ((!args || args.TaskDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'TaskDefinition'");
+            }
+            inputs["Cluster"] = args ? args.Cluster : undefined;
+            inputs["ExternalId"] = args ? args.ExternalId : undefined;
+            inputs["LaunchType"] = args ? args.LaunchType : undefined;
+            inputs["LoadBalancers"] = args ? args.LoadBalancers : undefined;
+            inputs["NetworkConfiguration"] = args ? args.NetworkConfiguration : undefined;
+            inputs["PlatformVersion"] = args ? args.PlatformVersion : undefined;
+            inputs["Scale"] = args ? args.Scale : undefined;
+            inputs["Service"] = args ? args.Service : undefined;
+            inputs["ServiceRegistries"] = args ? args.ServiceRegistries : undefined;
+            inputs["TaskDefinition"] = args ? args.TaskDefinition : undefined;
+            inputs["Id"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Cluster"] = undefined /*out*/;
+            inputs["ExternalId"] = undefined /*out*/;
+            inputs["Id"] = undefined /*out*/;
+            inputs["LaunchType"] = undefined /*out*/;
+            inputs["LoadBalancers"] = undefined /*out*/;
+            inputs["NetworkConfiguration"] = undefined /*out*/;
+            inputs["PlatformVersion"] = undefined /*out*/;
+            inputs["Scale"] = undefined /*out*/;
+            inputs["Service"] = undefined /*out*/;
+            inputs["ServiceRegistries"] = undefined /*out*/;
+            inputs["TaskDefinition"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +136,43 @@ export class TaskSet extends pulumi.CustomResource {
  */
 export interface TaskSetArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Cluster: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly ExternalId?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly LaunchType?: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    readonly properties: pulumi.Input<inputs.ECS.TaskSetProperties>;
+    readonly LoadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancer>[]>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly NetworkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfiguration>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+     */
+    readonly PlatformVersion?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+     */
+    readonly Scale?: pulumi.Input<inputs.ECS.TaskSetScale>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+     */
+    readonly Service: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+     */
+    readonly ServiceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistry>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+     */
+    readonly TaskDefinition: pulumi.Input<string>;
 }

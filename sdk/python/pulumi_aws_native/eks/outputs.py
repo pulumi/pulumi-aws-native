@@ -8,29 +8,11 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'FargateProfileAttributes',
     'FargateProfileLabel',
-    'FargateProfileProperties',
     'FargateProfileSelector',
 ]
-
-@pulumi.output_type
-class FargateProfileAttributes(dict):
-    def __init__(__self__, *,
-                 arn: str):
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter(name="Arn")
-    def arn(self) -> str:
-        return pulumi.get(self, "arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FargateProfileLabel(dict):
@@ -63,89 +45,6 @@ class FargateProfileLabel(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class FargateProfileProperties(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
-    """
-    def __init__(__self__, *,
-                 cluster_name: str,
-                 pod_execution_role_arn: str,
-                 selectors: Sequence['outputs.FargateProfileSelector'],
-                 fargate_profile_name: Optional[str] = None,
-                 subnets: Optional[Sequence[str]] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
-        :param str cluster_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
-        :param str pod_execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
-        :param Sequence['FargateProfileSelectorArgs'] selectors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-        :param str fargate_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
-        :param Sequence[str] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
-        """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "pod_execution_role_arn", pod_execution_role_arn)
-        pulumi.set(__self__, "selectors", selectors)
-        if fargate_profile_name is not None:
-            pulumi.set(__self__, "fargate_profile_name", fargate_profile_name)
-        if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ClusterName")
-    def cluster_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @property
-    @pulumi.getter(name="PodExecutionRoleArn")
-    def pod_execution_role_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
-        """
-        return pulumi.get(self, "pod_execution_role_arn")
-
-    @property
-    @pulumi.getter(name="Selectors")
-    def selectors(self) -> Sequence['outputs.FargateProfileSelector']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-        """
-        return pulumi.get(self, "selectors")
-
-    @property
-    @pulumi.getter(name="FargateProfileName")
-    def fargate_profile_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
-        """
-        return pulumi.get(self, "fargate_profile_name")
-
-    @property
-    @pulumi.getter(name="Subnets")
-    def subnets(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-        """
-        return pulumi.get(self, "subnets")
-
-    @property
-    @pulumi.getter(name="Tags")
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

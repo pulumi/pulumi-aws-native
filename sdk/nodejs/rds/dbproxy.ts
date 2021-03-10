@@ -36,21 +36,47 @@ export class DBProxy extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.RDS.DBProxyAttributes>;
+    public readonly Auth!: pulumi.Output<outputs.RDS.DBProxyAuthFormat[]>;
+    public /*out*/ readonly DBProxyArn!: pulumi.Output<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly DBProxyName!: pulumi.Output<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly DebugLogging!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly Endpoint!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
      */
-    public readonly properties!: pulumi.Output<outputs.RDS.DBProxyProperties>;
+    public readonly EngineFamily!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+     */
+    public readonly IdleClientTimeout!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+     */
+    public readonly RequireTLS!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+     */
+    public readonly RoleArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.RDS.DBProxyTagFormat[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+     */
+    public readonly VpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+     */
+    public readonly VpcSubnetIds!: pulumi.Output<string[]>;
 
     /**
      * Create a DBProxy resource with the given unique name, arguments, and options.
@@ -62,20 +88,46 @@ export class DBProxy extends pulumi.CustomResource {
     constructor(name: string, args: DBProxyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Auth === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Auth'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.DBProxyName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'DBProxyName'");
+            }
+            if ((!args || args.EngineFamily === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'EngineFamily'");
+            }
+            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'RoleArn'");
+            }
+            if ((!args || args.VpcSubnetIds === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'VpcSubnetIds'");
+            }
+            inputs["Auth"] = args ? args.Auth : undefined;
+            inputs["DBProxyName"] = args ? args.DBProxyName : undefined;
+            inputs["DebugLogging"] = args ? args.DebugLogging : undefined;
+            inputs["EngineFamily"] = args ? args.EngineFamily : undefined;
+            inputs["IdleClientTimeout"] = args ? args.IdleClientTimeout : undefined;
+            inputs["RequireTLS"] = args ? args.RequireTLS : undefined;
+            inputs["RoleArn"] = args ? args.RoleArn : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["VpcSecurityGroupIds"] = args ? args.VpcSecurityGroupIds : undefined;
+            inputs["VpcSubnetIds"] = args ? args.VpcSubnetIds : undefined;
+            inputs["DBProxyArn"] = undefined /*out*/;
+            inputs["Endpoint"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Auth"] = undefined /*out*/;
+            inputs["DBProxyArn"] = undefined /*out*/;
+            inputs["DBProxyName"] = undefined /*out*/;
+            inputs["DebugLogging"] = undefined /*out*/;
+            inputs["Endpoint"] = undefined /*out*/;
+            inputs["EngineFamily"] = undefined /*out*/;
+            inputs["IdleClientTimeout"] = undefined /*out*/;
+            inputs["RequireTLS"] = undefined /*out*/;
+            inputs["RoleArn"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["VpcSecurityGroupIds"] = undefined /*out*/;
+            inputs["VpcSubnetIds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +145,43 @@ export class DBProxy extends pulumi.CustomResource {
  */
 export interface DBProxyArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormat>[]>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly DBProxyName: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly DebugLogging?: pulumi.Input<boolean>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
      */
-    readonly properties: pulumi.Input<inputs.RDS.DBProxyProperties>;
+    readonly EngineFamily: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly IdleClientTimeout?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+     */
+    readonly RequireTLS?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+     */
+    readonly RoleArn: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormat>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+     */
+    readonly VpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+     */
+    readonly VpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

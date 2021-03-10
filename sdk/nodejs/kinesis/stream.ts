@@ -35,22 +35,27 @@ export class Stream extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stream.__pulumiType;
     }
 
+    public /*out*/ readonly Arn!: pulumi.Output<string>;
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.Kinesis.StreamAttributes>;
+    public readonly Name!: pulumi.Output<string | undefined>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly RetentionPeriodHours!: pulumi.Output<number | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly ShardCount!: pulumi.Output<number>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    public readonly properties!: pulumi.Output<outputs.Kinesis.StreamProperties>;
+    public readonly StreamEncryption!: pulumi.Output<outputs.Kinesis.StreamStreamEncryption | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -62,20 +67,22 @@ export class Stream extends pulumi.CustomResource {
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.ShardCount === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ShardCount'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["RetentionPeriodHours"] = args ? args.RetentionPeriodHours : undefined;
+            inputs["ShardCount"] = args ? args.ShardCount : undefined;
+            inputs["StreamEncryption"] = args ? args.StreamEncryption : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Arn"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Arn"] = undefined /*out*/;
+            inputs["Name"] = undefined /*out*/;
+            inputs["RetentionPeriodHours"] = undefined /*out*/;
+            inputs["ShardCount"] = undefined /*out*/;
+            inputs["StreamEncryption"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +100,23 @@ export class Stream extends pulumi.CustomResource {
  */
 export interface StreamArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Name?: pulumi.Input<string>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly RetentionPeriodHours?: pulumi.Input<number>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly ShardCount: pulumi.Input<number>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    readonly properties: pulumi.Input<inputs.Kinesis.StreamProperties>;
+    readonly StreamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryption>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

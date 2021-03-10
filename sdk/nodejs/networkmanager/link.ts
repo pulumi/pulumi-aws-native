@@ -36,21 +36,35 @@ export class Link extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.NetworkManager.LinkAttributes>;
+    public readonly Bandwidth!: pulumi.Output<outputs.NetworkManager.LinkBandwidth>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
      */
-    public readonly logicalId!: pulumi.Output<string | undefined>;
+    public readonly Description!: pulumi.Output<string | undefined>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
      */
-    public readonly metadata!: pulumi.Output<any | string | undefined>;
+    public readonly GlobalNetworkId!: pulumi.Output<string>;
+    public /*out*/ readonly LinkArn!: pulumi.Output<string>;
+    public /*out*/ readonly LinkId!: pulumi.Output<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
      */
-    public readonly properties!: pulumi.Output<outputs.NetworkManager.LinkProperties>;
+    public readonly Provider!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
+     */
+    public readonly SiteId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
+     */
+    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+     */
+    public readonly Type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Link resource with the given unique name, arguments, and options.
@@ -62,20 +76,34 @@ export class Link extends pulumi.CustomResource {
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.Bandwidth === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'Bandwidth'");
             }
-            inputs["deletionPolicy"] = args ? args.deletionPolicy : undefined;
-            inputs["logicalId"] = args ? args.logicalId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["updateReplacePolicy"] = args ? args.updateReplacePolicy : undefined;
-            inputs["attributes"] = undefined /*out*/;
+            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'GlobalNetworkId'");
+            }
+            if ((!args || args.SiteId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'SiteId'");
+            }
+            inputs["Bandwidth"] = args ? args.Bandwidth : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
+            inputs["Provider"] = args ? args.Provider : undefined;
+            inputs["SiteId"] = args ? args.SiteId : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Type"] = args ? args.Type : undefined;
+            inputs["LinkArn"] = undefined /*out*/;
+            inputs["LinkId"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["logicalId"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["Bandwidth"] = undefined /*out*/;
+            inputs["Description"] = undefined /*out*/;
+            inputs["GlobalNetworkId"] = undefined /*out*/;
+            inputs["LinkArn"] = undefined /*out*/;
+            inputs["LinkId"] = undefined /*out*/;
+            inputs["Provider"] = undefined /*out*/;
+            inputs["SiteId"] = undefined /*out*/;
+            inputs["Tags"] = undefined /*out*/;
+            inputs["Type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,23 +121,31 @@ export class Link extends pulumi.CustomResource {
  */
 export interface LinkArgs {
     /**
-     * With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
      */
-    readonly deletionPolicy?: pulumi.Input<string>;
+    readonly Bandwidth: pulumi.Input<inputs.NetworkManager.LinkBandwidth>;
     /**
-     * An explicit logical ID for the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
      */
-    readonly logicalId?: pulumi.Input<string>;
+    readonly Description?: pulumi.Input<string>;
     /**
-     * Arbitrary structured data associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
      */
-    readonly metadata?: pulumi.Input<any | string>;
+    readonly GlobalNetworkId: pulumi.Input<string>;
     /**
-     * The input properties associated with the resource
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
      */
-    readonly properties: pulumi.Input<inputs.NetworkManager.LinkProperties>;
+    readonly Provider?: pulumi.Input<string>;
     /**
-     * Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
      */
-    readonly updateReplacePolicy?: pulumi.Input<string>;
+    readonly SiteId: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
+     */
+    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+     */
+    readonly Type?: pulumi.Input<string>;
 }

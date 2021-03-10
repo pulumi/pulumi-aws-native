@@ -19,11 +19,10 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_policy: Optional[pulumi.Input[str]] = None,
-                 logical_id: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GatewayPropertiesArgs']]] = None,
-                 update_replace_policy: Optional[pulumi.Input[str]] = None,
+                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
+                 gateway_platform: Optional[pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,11 +31,10 @@ class Gateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deletion_policy: With the deletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You can specify a deletionPolicy attribute for each resource that you want to control. If a resource has no deletionPolicy attribute, AWS CloudFormation deletes the resource by default.
-        :param pulumi.Input[str] logical_id: An explicit logical ID for the resource
-        :param pulumi.Input[Union[Any, str]] metadata: Arbitrary structured data associated with the resource
-        :param pulumi.Input[pulumi.InputType['GatewayPropertiesArgs']] properties: The input properties associated with the resource
-        :param pulumi.Input[str] update_replace_policy: Use the updateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]] gateway_capability_summaries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+        :param pulumi.Input[str] gateway_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+        :param pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']] gateway_platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +53,15 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['deletion_policy'] = deletion_policy
-            __props__['logical_id'] = logical_id
-            __props__['metadata'] = metadata
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
-            __props__['update_replace_policy'] = update_replace_policy
-            __props__['attributes'] = None
+            __props__['gateway_capability_summaries'] = gateway_capability_summaries
+            if gateway_name is None and not opts.urn:
+                raise TypeError("Missing required property 'gateway_name'")
+            __props__['gateway_name'] = gateway_name
+            if gateway_platform is None and not opts.urn:
+                raise TypeError("Missing required property 'gateway_platform'")
+            __props__['gateway_platform'] = gateway_platform
+            __props__['tags'] = tags
+            __props__['gateway_id'] = None
         super(Gateway, __self__).__init__(
             'aws-native:IoTSiteWise:Gateway',
             resource_name,
@@ -88,36 +87,41 @@ class Gateway(pulumi.CustomResource):
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output['outputs.GatewayAttributes']:
+    @pulumi.getter(name="GatewayCapabilitySummaries")
+    def gateway_capability_summaries(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayGatewayCapabilitySummary']]]:
         """
-        The attributes associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "gateway_capability_summaries")
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        An explicit logical ID for the resource
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="GatewayId")
+    def gateway_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "gateway_id")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="GatewayName")
+    def gateway_name(self) -> pulumi.Output[str]:
         """
-        Arbitrary structured data associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "gateway_name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.GatewayProperties']:
+    @pulumi.getter(name="GatewayPlatform")
+    def gateway_platform(self) -> pulumi.Output['outputs.GatewayGatewayPlatform']:
         """
-        The input properties associated with the resource
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "gateway_platform")
+
+    @property
+    @pulumi.getter(name="Tags")
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
