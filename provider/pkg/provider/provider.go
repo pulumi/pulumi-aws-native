@@ -33,6 +33,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/sts"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
+	pbstruct "github.com/golang/protobuf/ptypes/struct"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
@@ -368,28 +369,10 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 		return nil, err
 	}
 
-	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.properties", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
-	})
+	diff, err := p.diffState(req.GetOlds(), req.GetNews(), label)
 	if err != nil {
-		return nil, errors.Wrapf(err, "create failed because malformed resource inputs")
+		return nil, err
 	}
-	oldInputs := oldState
-
-	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.properties", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
-	})
-	if err != nil {
-		return nil, errors.Wrapf(err, "create failed because malformed resource inputs")
-	}
-
-	diff := oldInputs.Diff(newInputs)
 	if diff == nil {
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
@@ -409,36 +392,36 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	label := fmt.Sprintf("%s.Create(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	// Parse inputs
-	newInputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+	// Deserialize RPC inputs.
+	inputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
 		RejectAssets: true,
 		KeepSecrets:  true,
 	})
 	if err != nil {
-		return nil, errors.Wrapf(err, "create failed because malformed resource inputs")
+		return nil, errors.Wrapf(err, "malformed resource inputs")
 	}
-
-	inputs := newInputs.MapRepl(nil, mapReplStripSecrets)
 
 	_, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
 
-	desiredState, err := json.Marshal(inputs)
+	// Serialize inputs as a desired state JSON.
+	jsonBytes, err := json.Marshal(inputs.MapRepl(nil, mapReplStripSecrets))
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to marshal as JSON")
 	}
-	desiredStateStr := string(desiredState)
+	desiredState := string(jsonBytes)
 
+	// Create the resource with Cloud API.
 	clientToken := uuid.New().String()
-	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, resourceType, clientToken, desiredStateStr)
+	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, resourceType, clientToken, desiredState)
 	res, err := p.cfn.CreateResourceWithContext(ctx, &cloudformation.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
 		TypeName:     aws.String(resourceType),
-		DesiredState: aws.String(desiredStateStr),
+		DesiredState: aws.String(desiredState),
 	})
 	if err != nil {
 		return nil, errors.Wrapf(err, "creating resource")
@@ -448,6 +431,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, err
 	}
 
+	// Retrieve the resource state from AWS.
 	id := aws.StringValue(pi.Identifier)
 	glog.V(9).Infof("%s.GetResource %q id %q", label, resourceType, id)
 	outputs, err := p.readResourceState(ctx, resourceType, id)
@@ -455,19 +439,18 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, err
 	}
 
-	stateProps := resource.NewPropertyMapFromMap(outputs)
-	state, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.state", label),
-		KeepUnknowns: true,
-		KeepSecrets:  true,
-	})
+	// Store both outputs and inputs into the state.
+	checkpoint, err := plugin.MarshalProperties(
+		checkpointObject(inputs, outputs),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+	)
 	if err != nil {
 		return nil, err
 	}
 
 	return &pulumirpc.CreateResponse{
 		Id:         id,
-		Properties: state,
+		Properties: checkpoint,
 	}, nil
 }
 
@@ -475,44 +458,79 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Read(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
-
 	id := req.GetId()
+
+	// Retrieve the old state.
+	oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	// Read the resource state from AWS.
 	_, resourceType, err := resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
-
-	outputs, err := p.readResourceState(ctx, resourceType, id)
+	newState, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
 		return nil, err
 	}
 
-	stateProps := resource.NewPropertyMapFromMap(outputs)
-	state, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.state", label),
-		KeepUnknowns: true,
-		KeepSecrets:  true,
-	})
+	// Extract old inputs from the `__inputs` field of the old state.
+	inputs := parseCheckpointObject(oldState)
+	if inputs == nil {
+		// There may be no old state (i.e., importing a new resource).
+		// Extract inputs from the response body.
+		newStateProps := resource.NewPropertyMapFromMap(newState)
+		inputs, err = schema.GetInputsFromState(p.schema, resourceType, newStateProps)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
+		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
+		// 0. We have "old" inputs and outputs before refresh and "new" outputs read from AWS.
+		// 1. Project old outputs to their corresponding input shape (exclude attributes).
+		oldInputProjection, err := schema.GetInputsFromState(p.schema, resourceType, oldState)
+		if err != nil {
+			return nil, err
+		}
+		// 2. Project new outputs to their corresponding input shape (exclude attributes).
+		newStateProps := resource.NewPropertyMapFromMap(newState)
+		newInputProjection, err := schema.GetInputsFromState(p.schema, resourceType, newStateProps)
+		if err != nil {
+			return nil, err
+		}
+		// 3. Calculate the difference between two projections. This should give us actual significant changes
+		// that happened in AWS between the last resource update and its current state.
+		diff := oldInputProjection.Diff(newInputProjection)
+		// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+		inputs = applyDiff(inputs, diff)
+	}
+
+	// Store both outputs and inputs into the state checkpoint.
+	checkpoint, err := plugin.MarshalProperties(
+		checkpointObject(inputs, newState),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+	)
 	if err != nil {
 		return nil, err
 	}
 
-	// TODO: this is very simplified, we need to make it schema-based.
-	inputsMap := outputs
-
-	inputs, err := plugin.MarshalProperties(resource.NewPropertyMapFromMap(inputsMap), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.state", label),
-		KeepUnknowns: true,
-		KeepSecrets:  true,
-	})
+	// Serialize and return the calculated inputs.
+	inputsRecord, err := plugin.MarshalProperties(
+		inputs,
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.inputs", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true})
 	if err != nil {
 		return nil, err
 	}
 
 	return &pulumirpc.ReadResponse{
 		Id:         id,
-		Inputs:     inputs,
-		Properties: state,
+		Inputs:     inputsRecord,
+		Properties: checkpoint,
 	}, nil
 }
 
@@ -527,20 +545,11 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, err
 	}
 
-	olds, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.olds", label),
-	})
-	if err != nil {
-		return nil, err
-	}
-	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.news", label),
-	})
+	diff, err := p.diffState(req.GetOlds(), req.GetNews(), label)
 	if err != nil {
 		return nil, err
 	}
 
-	diff := olds.Diff(news)
 	var ops []*cloudformation.PatchOperation
 	for k, v := range diff.Updates {
 		op := cloudformation.PatchOperation{
@@ -580,17 +589,27 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, err
 	}
 
-	stateProps := resource.NewPropertyMapFromMap(outputs)
-	state, err := plugin.MarshalProperties(stateProps, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.state", label),
+	// Read the inputs to persist them into state.
+	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.newInputs", label),
 		KeepUnknowns: true,
+		RejectAssets: true,
 		KeepSecrets:  true,
 	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
+	}
+
+	// Store both outputs and inputs into the state and return RPC checkpoint.
+	checkpoint, err := plugin.MarshalProperties(
+		checkpointObject(newInputs, outputs),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+	)
 	if err != nil {
 		return nil, err
 	}
 
-	return &pulumirpc.UpdateResponse{Properties: state}, nil
+	return &pulumirpc.UpdateResponse{Properties: checkpoint}, nil
 }
 
 func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) (*pbempty.Empty, error) {
@@ -759,4 +778,69 @@ func getCloudFormationSchema(ctx context.Context, region string) (*schema.CloudF
 	}
 
 	return &sch, nil
+}
+
+// diffState extracts old and new inputs and calculates a diff between them.
+func (p *cfnProvider) diffState(olds *pbstruct.Struct, news *pbstruct.Struct, label string) (*resource.ObjectDiff, error) {
+	oldState, err := plugin.UnmarshalProperties(olds, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.oldState", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
+	}
+
+	// Extract old inputs from the `__inputs` field of the old state.
+	oldInputs := parseCheckpointObject(oldState)
+
+	newInputs, err := plugin.UnmarshalProperties(news, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.newInputs", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
+	}
+
+	return oldInputs.Diff(newInputs), nil
+}
+
+// applyDiff produces a new map as a merge of a calculated diff into an existing map of values.
+func applyDiff(values resource.PropertyMap, diff *resource.ObjectDiff) resource.PropertyMap {
+	if diff == nil {
+		return values
+	}
+
+	result := resource.PropertyMap{}
+	for name, value := range values {
+		if !diff.Deleted(name) {
+			result[name] = value
+		}
+	}
+	for key, value := range diff.Adds {
+		result[key] = value
+	}
+	for key, value := range diff.Updates {
+		result[key] = value.New
+	}
+	return result
+}
+
+// checkpointObject puts inputs in the `__inputs` field of the state.
+func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
+	object := resource.NewPropertyMapFromMap(outputs)
+	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	return object
+}
+
+// parseCheckpointObject returns inputs that are saved in the `__inputs` field of the state.
+func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
+	if inputs, ok := obj["__inputs"]; ok {
+		return inputs.SecretValue().Element.ObjectValue()
+	}
+
+	return nil
 }
