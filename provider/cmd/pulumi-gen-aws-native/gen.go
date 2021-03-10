@@ -35,6 +35,7 @@ func typeToken(typ string) string {
 
 	resourceType, name := components[0], components[1]
 	resourceTypeComponents := strings.Split(resourceType, "::")
+	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
 	moduleName, resourceName := resourceTypeComponents[1], resourceTypeComponents[2]
 
 	// Override the name of the Config module.
@@ -52,6 +53,7 @@ func typeName(typ string) string {
 
 	resourceType := components[0]
 	resourceTypeComponents := strings.Split(resourceType, "::")
+	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
 	return resourceTypeComponents[2]
 }
 
