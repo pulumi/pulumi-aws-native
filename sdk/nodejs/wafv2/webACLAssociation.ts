@@ -37,11 +37,11 @@ export class WebACLAssociation extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
      */
-    public readonly ResourceArn!: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
      */
-    public readonly WebACLArn!: pulumi.Output<string>;
+    public readonly webACLArn!: pulumi.Output<string>;
 
     /**
      * Create a WebACLAssociation resource with the given unique name, arguments, and options.
@@ -53,17 +53,17 @@ export class WebACLAssociation extends pulumi.CustomResource {
     constructor(name: string, args: WebACLAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ResourceArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ResourceArn'");
+            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.WebACLArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'WebACLArn'");
+            if ((!args || args.webACLArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'webACLArn'");
             }
-            inputs["ResourceArn"] = args ? args.ResourceArn : undefined;
-            inputs["WebACLArn"] = args ? args.WebACLArn : undefined;
+            inputs["resourceArn"] = args ? args.resourceArn : undefined;
+            inputs["webACLArn"] = args ? args.webACLArn : undefined;
         } else {
-            inputs["ResourceArn"] = undefined /*out*/;
-            inputs["WebACLArn"] = undefined /*out*/;
+            inputs["resourceArn"] = undefined /*out*/;
+            inputs["webACLArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -83,9 +83,9 @@ export interface WebACLAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
      */
-    readonly ResourceArn: pulumi.Input<string>;
+    readonly resourceArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
      */
-    readonly WebACLArn: pulumi.Input<string>;
+    readonly webACLArn: pulumi.Input<string>;
 }

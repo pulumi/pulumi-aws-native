@@ -38,31 +38,31 @@ export class User extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
      */
-    public readonly AccessString!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly Authentication!: pulumi.Output<outputs.ElastiCache.UserAuthentication>;
+    public readonly accessString!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly authentication!: pulumi.Output<outputs.ElastiCache.UserAuthentication>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
      */
-    public readonly Engine!: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
      */
-    public readonly NoPasswordRequired!: pulumi.Output<boolean | undefined>;
+    public readonly noPasswordRequired!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    public readonly Passwords!: pulumi.Output<outputs.ElastiCache.UserPasswordList | undefined>;
-    public /*out*/ readonly Status!: pulumi.Output<string>;
-    public /*out*/ readonly UserGroupIds!: pulumi.Output<outputs.ElastiCache.UserUserGroupIdList>;
+    public readonly passwords!: pulumi.Output<outputs.ElastiCache.UserPasswordList | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly userGroupIds!: pulumi.Output<outputs.ElastiCache.UserUserGroupIdList>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
      */
-    public readonly UserId!: pulumi.Output<string>;
+    public readonly userId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
      */
-    public readonly UserName!: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -74,36 +74,36 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Engine === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Engine'");
+            if ((!args || args.engine === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.UserId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'UserId'");
+            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'userId'");
             }
-            if ((!args || args.UserName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'UserName'");
+            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'userName'");
             }
-            inputs["AccessString"] = args ? args.AccessString : undefined;
-            inputs["Engine"] = args ? args.Engine : undefined;
-            inputs["NoPasswordRequired"] = args ? args.NoPasswordRequired : undefined;
-            inputs["Passwords"] = args ? args.Passwords : undefined;
-            inputs["UserId"] = args ? args.UserId : undefined;
-            inputs["UserName"] = args ? args.UserName : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Authentication"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
-            inputs["UserGroupIds"] = undefined /*out*/;
+            inputs["accessString"] = args ? args.accessString : undefined;
+            inputs["engine"] = args ? args.engine : undefined;
+            inputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
+            inputs["passwords"] = args ? args.passwords : undefined;
+            inputs["userId"] = args ? args.userId : undefined;
+            inputs["userName"] = args ? args.userName : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["authentication"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["userGroupIds"] = undefined /*out*/;
         } else {
-            inputs["AccessString"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Authentication"] = undefined /*out*/;
-            inputs["Engine"] = undefined /*out*/;
-            inputs["NoPasswordRequired"] = undefined /*out*/;
-            inputs["Passwords"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
-            inputs["UserGroupIds"] = undefined /*out*/;
-            inputs["UserId"] = undefined /*out*/;
-            inputs["UserName"] = undefined /*out*/;
+            inputs["accessString"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["authentication"] = undefined /*out*/;
+            inputs["engine"] = undefined /*out*/;
+            inputs["noPasswordRequired"] = undefined /*out*/;
+            inputs["passwords"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["userGroupIds"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -123,25 +123,25 @@ export interface UserArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
      */
-    readonly AccessString?: pulumi.Input<string>;
+    readonly accessString?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
      */
-    readonly Engine: pulumi.Input<string>;
+    readonly engine: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
      */
-    readonly NoPasswordRequired?: pulumi.Input<boolean>;
+    readonly noPasswordRequired?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    readonly Passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordList>;
+    readonly passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordList>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
      */
-    readonly UserId: pulumi.Input<string>;
+    readonly userId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
      */
-    readonly UserName: pulumi.Input<string>;
+    readonly userName: pulumi.Input<string>;
 }

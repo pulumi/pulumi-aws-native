@@ -35,56 +35,56 @@ export class GameServerGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === GameServerGroup.__pulumiType;
     }
 
-    public /*out*/ readonly AutoScalingGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    public readonly AutoScalingPolicy!: pulumi.Output<outputs.GameLift.GameServerGroupAutoScalingPolicy | undefined>;
+    public readonly autoScalingPolicy!: pulumi.Output<outputs.GameLift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
-    public readonly BalancingStrategy!: pulumi.Output<string | undefined>;
+    public readonly balancingStrategy!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
      */
-    public readonly DeleteOption!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly GameServerGroupArn!: pulumi.Output<string>;
+    public readonly deleteOption!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly gameServerGroupArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
      */
-    public readonly GameServerGroupName!: pulumi.Output<string>;
+    public readonly gameServerGroupName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
      */
-    public readonly GameServerProtectionPolicy!: pulumi.Output<string | undefined>;
+    public readonly gameServerProtectionPolicy!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    public readonly InstanceDefinitions!: pulumi.Output<outputs.GameLift.GameServerGroupInstanceDefinitions>;
+    public readonly instanceDefinitions!: pulumi.Output<outputs.GameLift.GameServerGroupInstanceDefinitions>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
-    public readonly LaunchTemplate!: pulumi.Output<outputs.GameLift.GameServerGroupLaunchTemplate>;
+    public readonly launchTemplate!: pulumi.Output<outputs.GameLift.GameServerGroupLaunchTemplate>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
      */
-    public readonly MaxSize!: pulumi.Output<number | undefined>;
+    public readonly maxSize!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
      */
-    public readonly MinSize!: pulumi.Output<number | undefined>;
+    public readonly minSize!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.GameLift.GameServerGroupTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.GameLift.GameServerGroupTags | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
      */
-    public readonly VpcSubnets!: pulumi.Output<outputs.GameLift.GameServerGroupVpcSubnets | undefined>;
+    public readonly vpcSubnets!: pulumi.Output<outputs.GameLift.GameServerGroupVpcSubnets | undefined>;
 
     /**
      * Create a GameServerGroup resource with the given unique name, arguments, and options.
@@ -96,47 +96,47 @@ export class GameServerGroup extends pulumi.CustomResource {
     constructor(name: string, args: GameServerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.GameServerGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GameServerGroupName'");
+            if ((!args || args.gameServerGroupName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'gameServerGroupName'");
             }
-            if ((!args || args.InstanceDefinitions === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'InstanceDefinitions'");
+            if ((!args || args.instanceDefinitions === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'instanceDefinitions'");
             }
-            if ((!args || args.LaunchTemplate === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'LaunchTemplate'");
+            if ((!args || args.launchTemplate === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'launchTemplate'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["AutoScalingPolicy"] = args ? args.AutoScalingPolicy : undefined;
-            inputs["BalancingStrategy"] = args ? args.BalancingStrategy : undefined;
-            inputs["DeleteOption"] = args ? args.DeleteOption : undefined;
-            inputs["GameServerGroupName"] = args ? args.GameServerGroupName : undefined;
-            inputs["GameServerProtectionPolicy"] = args ? args.GameServerProtectionPolicy : undefined;
-            inputs["InstanceDefinitions"] = args ? args.InstanceDefinitions : undefined;
-            inputs["LaunchTemplate"] = args ? args.LaunchTemplate : undefined;
-            inputs["MaxSize"] = args ? args.MaxSize : undefined;
-            inputs["MinSize"] = args ? args.MinSize : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["VpcSubnets"] = args ? args.VpcSubnets : undefined;
-            inputs["AutoScalingGroupArn"] = undefined /*out*/;
-            inputs["GameServerGroupArn"] = undefined /*out*/;
+            inputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
+            inputs["balancingStrategy"] = args ? args.balancingStrategy : undefined;
+            inputs["deleteOption"] = args ? args.deleteOption : undefined;
+            inputs["gameServerGroupName"] = args ? args.gameServerGroupName : undefined;
+            inputs["gameServerProtectionPolicy"] = args ? args.gameServerProtectionPolicy : undefined;
+            inputs["instanceDefinitions"] = args ? args.instanceDefinitions : undefined;
+            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            inputs["maxSize"] = args ? args.maxSize : undefined;
+            inputs["minSize"] = args ? args.minSize : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
+            inputs["autoScalingGroupArn"] = undefined /*out*/;
+            inputs["gameServerGroupArn"] = undefined /*out*/;
         } else {
-            inputs["AutoScalingGroupArn"] = undefined /*out*/;
-            inputs["AutoScalingPolicy"] = undefined /*out*/;
-            inputs["BalancingStrategy"] = undefined /*out*/;
-            inputs["DeleteOption"] = undefined /*out*/;
-            inputs["GameServerGroupArn"] = undefined /*out*/;
-            inputs["GameServerGroupName"] = undefined /*out*/;
-            inputs["GameServerProtectionPolicy"] = undefined /*out*/;
-            inputs["InstanceDefinitions"] = undefined /*out*/;
-            inputs["LaunchTemplate"] = undefined /*out*/;
-            inputs["MaxSize"] = undefined /*out*/;
-            inputs["MinSize"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["VpcSubnets"] = undefined /*out*/;
+            inputs["autoScalingGroupArn"] = undefined /*out*/;
+            inputs["autoScalingPolicy"] = undefined /*out*/;
+            inputs["balancingStrategy"] = undefined /*out*/;
+            inputs["deleteOption"] = undefined /*out*/;
+            inputs["gameServerGroupArn"] = undefined /*out*/;
+            inputs["gameServerGroupName"] = undefined /*out*/;
+            inputs["gameServerProtectionPolicy"] = undefined /*out*/;
+            inputs["instanceDefinitions"] = undefined /*out*/;
+            inputs["launchTemplate"] = undefined /*out*/;
+            inputs["maxSize"] = undefined /*out*/;
+            inputs["minSize"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["vpcSubnets"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -156,49 +156,49 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    readonly AutoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicy>;
+    readonly autoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicy>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
-    readonly BalancingStrategy?: pulumi.Input<string>;
+    readonly balancingStrategy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
      */
-    readonly DeleteOption?: pulumi.Input<string>;
+    readonly deleteOption?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
      */
-    readonly GameServerGroupName: pulumi.Input<string>;
+    readonly gameServerGroupName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
      */
-    readonly GameServerProtectionPolicy?: pulumi.Input<string>;
+    readonly gameServerProtectionPolicy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    readonly InstanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitions>;
+    readonly instanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitions>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
-    readonly LaunchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplate>;
+    readonly launchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplate>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
      */
-    readonly MaxSize?: pulumi.Input<number>;
+    readonly maxSize?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
      */
-    readonly MinSize?: pulumi.Input<number>;
+    readonly minSize?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
      */
-    readonly Tags?: pulumi.Input<inputs.GameLift.GameServerGroupTags>;
+    readonly tags?: pulumi.Input<inputs.GameLift.GameServerGroupTags>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
      */
-    readonly VpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnets>;
+    readonly vpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnets>;
 }

@@ -35,29 +35,29 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
      */
-    public readonly Authorized!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly IngestEndpoint!: pulumi.Output<string>;
+    public readonly authorized!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly ingestEndpoint!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
      */
-    public readonly LatencyMode!: pulumi.Output<string | undefined>;
+    public readonly latencyMode!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly PlaybackUrl!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly playbackUrl!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
      */
-    public readonly Type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -69,23 +69,23 @@ export class Channel extends pulumi.CustomResource {
     constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["Authorized"] = args ? args.Authorized : undefined;
-            inputs["LatencyMode"] = args ? args.LatencyMode : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["IngestEndpoint"] = undefined /*out*/;
-            inputs["PlaybackUrl"] = undefined /*out*/;
+            inputs["authorized"] = args ? args.authorized : undefined;
+            inputs["latencyMode"] = args ? args.latencyMode : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["ingestEndpoint"] = undefined /*out*/;
+            inputs["playbackUrl"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Authorized"] = undefined /*out*/;
-            inputs["IngestEndpoint"] = undefined /*out*/;
-            inputs["LatencyMode"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["PlaybackUrl"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["authorized"] = undefined /*out*/;
+            inputs["ingestEndpoint"] = undefined /*out*/;
+            inputs["latencyMode"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["playbackUrl"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,21 +105,21 @@ export interface ChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
      */
-    readonly Authorized?: pulumi.Input<boolean>;
+    readonly authorized?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
      */
-    readonly LatencyMode?: pulumi.Input<string>;
+    readonly latencyMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
      */
-    readonly Type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string>;
 }

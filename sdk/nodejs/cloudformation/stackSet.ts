@@ -38,56 +38,56 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
      */
-    public readonly AdministrationRoleARN!: pulumi.Output<string | undefined>;
+    public readonly administrationRoleARN!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
      */
-    public readonly AutoDeployment!: pulumi.Output<outputs.CloudFormation.StackSetAutoDeployment | undefined>;
+    public readonly autoDeployment!: pulumi.Output<outputs.CloudFormation.StackSetAutoDeployment | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
      */
-    public readonly Capabilities!: pulumi.Output<string[] | undefined>;
+    public readonly capabilities!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
      */
-    public readonly ExecutionRoleName!: pulumi.Output<string | undefined>;
+    public readonly executionRoleName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
      */
-    public readonly OperationPreferences!: pulumi.Output<outputs.CloudFormation.StackSetOperationPreferences | undefined>;
+    public readonly operationPreferences!: pulumi.Output<outputs.CloudFormation.StackSetOperationPreferences | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
      */
-    public readonly Parameters!: pulumi.Output<outputs.CloudFormation.StackSetParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.CloudFormation.StackSetParameter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
      */
-    public readonly PermissionModel!: pulumi.Output<string>;
+    public readonly permissionModel!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
      */
-    public readonly StackInstancesGroup!: pulumi.Output<outputs.CloudFormation.StackSetStackInstances[] | undefined>;
-    public /*out*/ readonly StackSetId!: pulumi.Output<string>;
+    public readonly stackInstancesGroup!: pulumi.Output<outputs.CloudFormation.StackSetStackInstances[] | undefined>;
+    public /*out*/ readonly stackSetId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
      */
-    public readonly StackSetName!: pulumi.Output<string>;
+    public readonly stackSetName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
      */
-    public readonly TemplateBody!: pulumi.Output<string | undefined>;
+    public readonly templateBody!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
      */
-    public readonly TemplateURL!: pulumi.Output<string | undefined>;
+    public readonly templateURL!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StackSet resource with the given unique name, arguments, and options.
@@ -99,41 +99,41 @@ export class StackSet extends pulumi.CustomResource {
     constructor(name: string, args: StackSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.PermissionModel === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PermissionModel'");
+            if ((!args || args.permissionModel === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'permissionModel'");
             }
-            if ((!args || args.StackSetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'StackSetName'");
+            if ((!args || args.stackSetName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'stackSetName'");
             }
-            inputs["AdministrationRoleARN"] = args ? args.AdministrationRoleARN : undefined;
-            inputs["AutoDeployment"] = args ? args.AutoDeployment : undefined;
-            inputs["Capabilities"] = args ? args.Capabilities : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["ExecutionRoleName"] = args ? args.ExecutionRoleName : undefined;
-            inputs["OperationPreferences"] = args ? args.OperationPreferences : undefined;
-            inputs["Parameters"] = args ? args.Parameters : undefined;
-            inputs["PermissionModel"] = args ? args.PermissionModel : undefined;
-            inputs["StackInstancesGroup"] = args ? args.StackInstancesGroup : undefined;
-            inputs["StackSetName"] = args ? args.StackSetName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["TemplateBody"] = args ? args.TemplateBody : undefined;
-            inputs["TemplateURL"] = args ? args.TemplateURL : undefined;
-            inputs["StackSetId"] = undefined /*out*/;
+            inputs["administrationRoleARN"] = args ? args.administrationRoleARN : undefined;
+            inputs["autoDeployment"] = args ? args.autoDeployment : undefined;
+            inputs["capabilities"] = args ? args.capabilities : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["executionRoleName"] = args ? args.executionRoleName : undefined;
+            inputs["operationPreferences"] = args ? args.operationPreferences : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["permissionModel"] = args ? args.permissionModel : undefined;
+            inputs["stackInstancesGroup"] = args ? args.stackInstancesGroup : undefined;
+            inputs["stackSetName"] = args ? args.stackSetName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["templateBody"] = args ? args.templateBody : undefined;
+            inputs["templateURL"] = args ? args.templateURL : undefined;
+            inputs["stackSetId"] = undefined /*out*/;
         } else {
-            inputs["AdministrationRoleARN"] = undefined /*out*/;
-            inputs["AutoDeployment"] = undefined /*out*/;
-            inputs["Capabilities"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["ExecutionRoleName"] = undefined /*out*/;
-            inputs["OperationPreferences"] = undefined /*out*/;
-            inputs["Parameters"] = undefined /*out*/;
-            inputs["PermissionModel"] = undefined /*out*/;
-            inputs["StackInstancesGroup"] = undefined /*out*/;
-            inputs["StackSetId"] = undefined /*out*/;
-            inputs["StackSetName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["TemplateBody"] = undefined /*out*/;
-            inputs["TemplateURL"] = undefined /*out*/;
+            inputs["administrationRoleARN"] = undefined /*out*/;
+            inputs["autoDeployment"] = undefined /*out*/;
+            inputs["capabilities"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["executionRoleName"] = undefined /*out*/;
+            inputs["operationPreferences"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["permissionModel"] = undefined /*out*/;
+            inputs["stackInstancesGroup"] = undefined /*out*/;
+            inputs["stackSetId"] = undefined /*out*/;
+            inputs["stackSetName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["templateBody"] = undefined /*out*/;
+            inputs["templateURL"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -153,53 +153,53 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
      */
-    readonly AdministrationRoleARN?: pulumi.Input<string>;
+    readonly administrationRoleARN?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
      */
-    readonly AutoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeployment>;
+    readonly autoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeployment>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
      */
-    readonly Capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
      */
-    readonly ExecutionRoleName?: pulumi.Input<string>;
+    readonly executionRoleName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
      */
-    readonly OperationPreferences?: pulumi.Input<inputs.CloudFormation.StackSetOperationPreferences>;
+    readonly operationPreferences?: pulumi.Input<inputs.CloudFormation.StackSetOperationPreferences>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
      */
-    readonly Parameters?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameter>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
      */
-    readonly PermissionModel: pulumi.Input<string>;
+    readonly permissionModel: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
      */
-    readonly StackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetStackInstances>[]>;
+    readonly stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetStackInstances>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
      */
-    readonly StackSetName: pulumi.Input<string>;
+    readonly stackSetName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
      */
-    readonly TemplateBody?: pulumi.Input<string>;
+    readonly templateBody?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
      */
-    readonly TemplateURL?: pulumi.Input<string>;
+    readonly templateURL?: pulumi.Input<string>;
 }

@@ -35,36 +35,36 @@ export class Stream extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stream.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
      */
-    public readonly ExclusiveEndTime!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly exclusiveEndTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
      */
-    public readonly InclusiveStartTime!: pulumi.Output<string>;
+    public readonly inclusiveStartTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
      */
-    public readonly KinesisConfiguration!: pulumi.Output<outputs.QLDB.StreamKinesisConfiguration>;
+    public readonly kinesisConfiguration!: pulumi.Output<outputs.QLDB.StreamKinesisConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
      */
-    public readonly LedgerName!: pulumi.Output<string>;
+    public readonly ledgerName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
      */
-    public readonly StreamName!: pulumi.Output<string>;
+    public readonly streamName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -76,40 +76,40 @@ export class Stream extends pulumi.CustomResource {
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.InclusiveStartTime === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'InclusiveStartTime'");
+            if ((!args || args.inclusiveStartTime === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'inclusiveStartTime'");
             }
-            if ((!args || args.KinesisConfiguration === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'KinesisConfiguration'");
+            if ((!args || args.kinesisConfiguration === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'kinesisConfiguration'");
             }
-            if ((!args || args.LedgerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'LedgerName'");
+            if ((!args || args.ledgerName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ledgerName'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.StreamName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'StreamName'");
+            if ((!args || args.streamName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'streamName'");
             }
-            inputs["ExclusiveEndTime"] = args ? args.ExclusiveEndTime : undefined;
-            inputs["InclusiveStartTime"] = args ? args.InclusiveStartTime : undefined;
-            inputs["KinesisConfiguration"] = args ? args.KinesisConfiguration : undefined;
-            inputs["LedgerName"] = args ? args.LedgerName : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["StreamName"] = args ? args.StreamName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["exclusiveEndTime"] = args ? args.exclusiveEndTime : undefined;
+            inputs["inclusiveStartTime"] = args ? args.inclusiveStartTime : undefined;
+            inputs["kinesisConfiguration"] = args ? args.kinesisConfiguration : undefined;
+            inputs["ledgerName"] = args ? args.ledgerName : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["streamName"] = args ? args.streamName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ExclusiveEndTime"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["InclusiveStartTime"] = undefined /*out*/;
-            inputs["KinesisConfiguration"] = undefined /*out*/;
-            inputs["LedgerName"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["StreamName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["exclusiveEndTime"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["inclusiveStartTime"] = undefined /*out*/;
+            inputs["kinesisConfiguration"] = undefined /*out*/;
+            inputs["ledgerName"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["streamName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -129,29 +129,29 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
      */
-    readonly ExclusiveEndTime?: pulumi.Input<string>;
+    readonly exclusiveEndTime?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
      */
-    readonly InclusiveStartTime: pulumi.Input<string>;
+    readonly inclusiveStartTime: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
      */
-    readonly KinesisConfiguration: pulumi.Input<inputs.QLDB.StreamKinesisConfiguration>;
+    readonly kinesisConfiguration: pulumi.Input<inputs.QLDB.StreamKinesisConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
      */
-    readonly LedgerName: pulumi.Input<string>;
+    readonly ledgerName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
      */
-    readonly StreamName: pulumi.Input<string>;
+    readonly streamName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

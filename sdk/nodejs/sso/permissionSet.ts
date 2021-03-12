@@ -38,36 +38,36 @@ export class PermissionSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
      */
-    public readonly InlinePolicy!: pulumi.Output<string | undefined>;
+    public readonly inlinePolicy!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
      */
-    public readonly InstanceArn!: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
      */
-    public readonly ManagedPolicies!: pulumi.Output<string[] | undefined>;
+    public readonly managedPolicies!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
      */
-    public readonly Name!: pulumi.Output<string>;
-    public /*out*/ readonly PermissionSetArn!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly permissionSetArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
      */
-    public readonly RelayStateType!: pulumi.Output<string | undefined>;
+    public readonly relayStateType!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
      */
-    public readonly SessionDuration!: pulumi.Output<string | undefined>;
+    public readonly sessionDuration!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PermissionSet resource with the given unique name, arguments, and options.
@@ -79,31 +79,31 @@ export class PermissionSet extends pulumi.CustomResource {
     constructor(name: string, args: PermissionSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.InstanceArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'InstanceArn'");
+            if ((!args || args.instanceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["InlinePolicy"] = args ? args.InlinePolicy : undefined;
-            inputs["InstanceArn"] = args ? args.InstanceArn : undefined;
-            inputs["ManagedPolicies"] = args ? args.ManagedPolicies : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RelayStateType"] = args ? args.RelayStateType : undefined;
-            inputs["SessionDuration"] = args ? args.SessionDuration : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["PermissionSetArn"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
+            inputs["instanceArn"] = args ? args.instanceArn : undefined;
+            inputs["managedPolicies"] = args ? args.managedPolicies : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["relayStateType"] = args ? args.relayStateType : undefined;
+            inputs["sessionDuration"] = args ? args.sessionDuration : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["permissionSetArn"] = undefined /*out*/;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["InlinePolicy"] = undefined /*out*/;
-            inputs["InstanceArn"] = undefined /*out*/;
-            inputs["ManagedPolicies"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["PermissionSetArn"] = undefined /*out*/;
-            inputs["RelayStateType"] = undefined /*out*/;
-            inputs["SessionDuration"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["inlinePolicy"] = undefined /*out*/;
+            inputs["instanceArn"] = undefined /*out*/;
+            inputs["managedPolicies"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["permissionSetArn"] = undefined /*out*/;
+            inputs["relayStateType"] = undefined /*out*/;
+            inputs["sessionDuration"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -123,33 +123,33 @@ export interface PermissionSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
      */
-    readonly InlinePolicy?: pulumi.Input<string>;
+    readonly inlinePolicy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
      */
-    readonly InstanceArn: pulumi.Input<string>;
+    readonly instanceArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
      */
-    readonly ManagedPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly managedPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
      */
-    readonly RelayStateType?: pulumi.Input<string>;
+    readonly relayStateType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
      */
-    readonly SessionDuration?: pulumi.Input<string>;
+    readonly sessionDuration?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

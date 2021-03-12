@@ -35,40 +35,40 @@ export class DataSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataSource.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
      */
-    public readonly DataSourceConfiguration!: pulumi.Output<outputs.Kendra.DataSourceDataSourceConfiguration | undefined>;
+    public readonly dataSourceConfiguration!: pulumi.Output<outputs.Kendra.DataSourceDataSourceConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
      */
-    public readonly IndexId!: pulumi.Output<string>;
+    public readonly indexId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
      */
-    public readonly Schedule!: pulumi.Output<string | undefined>;
+    public readonly schedule!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Kendra.DataSourceTagList | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Kendra.DataSourceTagList | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
      */
-    public readonly Type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -80,36 +80,36 @@ export class DataSource extends pulumi.CustomResource {
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.IndexId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'IndexId'");
+            if ((!args || args.indexId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Type'");
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'type'");
             }
-            inputs["DataSourceConfiguration"] = args ? args.DataSourceConfiguration : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["IndexId"] = args ? args.IndexId : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Schedule"] = args ? args.Schedule : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["indexId"] = args ? args.indexId : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["DataSourceConfiguration"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["IndexId"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Schedule"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["dataSourceConfiguration"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["indexId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["schedule"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -129,33 +129,33 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
      */
-    readonly DataSourceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceConfiguration>;
+    readonly dataSourceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
      */
-    readonly IndexId: pulumi.Input<string>;
+    readonly indexId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
      */
-    readonly RoleArn?: pulumi.Input<string>;
+    readonly roleArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-schedule
      */
-    readonly Schedule?: pulumi.Input<string>;
+    readonly schedule?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
      */
-    readonly Tags?: pulumi.Input<inputs.Kendra.DataSourceTagList>;
+    readonly tags?: pulumi.Input<inputs.Kendra.DataSourceTagList>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
      */
-    readonly Type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }

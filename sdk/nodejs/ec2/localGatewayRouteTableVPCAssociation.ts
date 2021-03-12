@@ -35,21 +35,21 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
         return obj['__pulumiType'] === LocalGatewayRouteTableVPCAssociation.__pulumiType;
     }
 
-    public /*out*/ readonly LocalGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
      */
-    public readonly LocalGatewayRouteTableId!: pulumi.Output<string>;
-    public /*out*/ readonly LocalGatewayRouteTableVpcAssociationId!: pulumi.Output<string>;
-    public /*out*/ readonly State!: pulumi.Output<string>;
+    public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    public /*out*/ readonly localGatewayRouteTableVpcAssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.EC2.LocalGatewayRouteTableVPCAssociationTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.EC2.LocalGatewayRouteTableVPCAssociationTags | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
      */
-    public readonly VpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRouteTableVPCAssociation resource with the given unique name, arguments, and options.
@@ -61,25 +61,25 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
     constructor(name: string, args: LocalGatewayRouteTableVPCAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.LocalGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'LocalGatewayRouteTableId'");
+            if ((!args || args.localGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.VpcId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'VpcId'");
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'vpcId'");
             }
-            inputs["LocalGatewayRouteTableId"] = args ? args.LocalGatewayRouteTableId : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["VpcId"] = args ? args.VpcId : undefined;
-            inputs["LocalGatewayId"] = undefined /*out*/;
-            inputs["LocalGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
+            inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["localGatewayId"] = undefined /*out*/;
+            inputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
         } else {
-            inputs["LocalGatewayId"] = undefined /*out*/;
-            inputs["LocalGatewayRouteTableId"] = undefined /*out*/;
-            inputs["LocalGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["VpcId"] = undefined /*out*/;
+            inputs["localGatewayId"] = undefined /*out*/;
+            inputs["localGatewayRouteTableId"] = undefined /*out*/;
+            inputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,13 +99,13 @@ export interface LocalGatewayRouteTableVPCAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
      */
-    readonly LocalGatewayRouteTableId: pulumi.Input<string>;
+    readonly localGatewayRouteTableId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
      */
-    readonly Tags?: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationTags>;
+    readonly tags?: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationTags>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
      */
-    readonly VpcId: pulumi.Input<string>;
+    readonly vpcId: pulumi.Input<string>;
 }

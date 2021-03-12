@@ -38,44 +38,44 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
      */
-    public readonly EndpointConfigurations!: pulumi.Output<outputs.GlobalAccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
-    public /*out*/ readonly EndpointGroupArn!: pulumi.Output<string>;
+    public readonly endpointConfigurations!: pulumi.Output<outputs.GlobalAccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
+    public /*out*/ readonly endpointGroupArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
      */
-    public readonly EndpointGroupRegion!: pulumi.Output<string>;
+    public readonly endpointGroupRegion!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
      */
-    public readonly HealthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
+    public readonly healthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
      */
-    public readonly HealthCheckPath!: pulumi.Output<string | undefined>;
+    public readonly healthCheckPath!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
      */
-    public readonly HealthCheckPort!: pulumi.Output<number | undefined>;
+    public readonly healthCheckPort!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
      */
-    public readonly HealthCheckProtocol!: pulumi.Output<string | undefined>;
+    public readonly healthCheckProtocol!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
      */
-    public readonly ListenerArn!: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
      */
-    public readonly PortOverrides!: pulumi.Output<outputs.GlobalAccelerator.EndpointGroupPortOverride[] | undefined>;
+    public readonly portOverrides!: pulumi.Output<outputs.GlobalAccelerator.EndpointGroupPortOverride[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
      */
-    public readonly ThresholdCount!: pulumi.Output<number | undefined>;
+    public readonly thresholdCount!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
      */
-    public readonly TrafficDialPercentage!: pulumi.Output<number | undefined>;
+    public readonly trafficDialPercentage!: pulumi.Output<number | undefined>;
 
     /**
      * Create a EndpointGroup resource with the given unique name, arguments, and options.
@@ -87,35 +87,35 @@ export class EndpointGroup extends pulumi.CustomResource {
     constructor(name: string, args: EndpointGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.EndpointGroupRegion === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'EndpointGroupRegion'");
+            if ((!args || args.endpointGroupRegion === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'endpointGroupRegion'");
             }
-            if ((!args || args.ListenerArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ListenerArn'");
+            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["EndpointConfigurations"] = args ? args.EndpointConfigurations : undefined;
-            inputs["EndpointGroupRegion"] = args ? args.EndpointGroupRegion : undefined;
-            inputs["HealthCheckIntervalSeconds"] = args ? args.HealthCheckIntervalSeconds : undefined;
-            inputs["HealthCheckPath"] = args ? args.HealthCheckPath : undefined;
-            inputs["HealthCheckPort"] = args ? args.HealthCheckPort : undefined;
-            inputs["HealthCheckProtocol"] = args ? args.HealthCheckProtocol : undefined;
-            inputs["ListenerArn"] = args ? args.ListenerArn : undefined;
-            inputs["PortOverrides"] = args ? args.PortOverrides : undefined;
-            inputs["ThresholdCount"] = args ? args.ThresholdCount : undefined;
-            inputs["TrafficDialPercentage"] = args ? args.TrafficDialPercentage : undefined;
-            inputs["EndpointGroupArn"] = undefined /*out*/;
+            inputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
+            inputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
+            inputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
+            inputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
+            inputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
+            inputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
+            inputs["listenerArn"] = args ? args.listenerArn : undefined;
+            inputs["portOverrides"] = args ? args.portOverrides : undefined;
+            inputs["thresholdCount"] = args ? args.thresholdCount : undefined;
+            inputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
+            inputs["endpointGroupArn"] = undefined /*out*/;
         } else {
-            inputs["EndpointConfigurations"] = undefined /*out*/;
-            inputs["EndpointGroupArn"] = undefined /*out*/;
-            inputs["EndpointGroupRegion"] = undefined /*out*/;
-            inputs["HealthCheckIntervalSeconds"] = undefined /*out*/;
-            inputs["HealthCheckPath"] = undefined /*out*/;
-            inputs["HealthCheckPort"] = undefined /*out*/;
-            inputs["HealthCheckProtocol"] = undefined /*out*/;
-            inputs["ListenerArn"] = undefined /*out*/;
-            inputs["PortOverrides"] = undefined /*out*/;
-            inputs["ThresholdCount"] = undefined /*out*/;
-            inputs["TrafficDialPercentage"] = undefined /*out*/;
+            inputs["endpointConfigurations"] = undefined /*out*/;
+            inputs["endpointGroupArn"] = undefined /*out*/;
+            inputs["endpointGroupRegion"] = undefined /*out*/;
+            inputs["healthCheckIntervalSeconds"] = undefined /*out*/;
+            inputs["healthCheckPath"] = undefined /*out*/;
+            inputs["healthCheckPort"] = undefined /*out*/;
+            inputs["healthCheckProtocol"] = undefined /*out*/;
+            inputs["listenerArn"] = undefined /*out*/;
+            inputs["portOverrides"] = undefined /*out*/;
+            inputs["thresholdCount"] = undefined /*out*/;
+            inputs["trafficDialPercentage"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -135,41 +135,41 @@ export interface EndpointGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
      */
-    readonly EndpointConfigurations?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupEndpointConfiguration>[]>;
+    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupEndpointConfiguration>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
      */
-    readonly EndpointGroupRegion: pulumi.Input<string>;
+    readonly endpointGroupRegion: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
      */
-    readonly HealthCheckIntervalSeconds?: pulumi.Input<number>;
+    readonly healthCheckIntervalSeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
      */
-    readonly HealthCheckPath?: pulumi.Input<string>;
+    readonly healthCheckPath?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
      */
-    readonly HealthCheckPort?: pulumi.Input<number>;
+    readonly healthCheckPort?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
      */
-    readonly HealthCheckProtocol?: pulumi.Input<string>;
+    readonly healthCheckProtocol?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
      */
-    readonly ListenerArn: pulumi.Input<string>;
+    readonly listenerArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
      */
-    readonly PortOverrides?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupPortOverride>[]>;
+    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupPortOverride>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
      */
-    readonly ThresholdCount?: pulumi.Input<number>;
+    readonly thresholdCount?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
      */
-    readonly TrafficDialPercentage?: pulumi.Input<number>;
+    readonly trafficDialPercentage?: pulumi.Input<number>;
 }

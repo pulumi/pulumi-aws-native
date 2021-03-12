@@ -35,17 +35,17 @@ export class ConnectionAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionAlias.__pulumiType;
     }
 
-    public /*out*/ readonly AliasId!: pulumi.Output<string>;
-    public /*out*/ readonly Associations!: pulumi.Output<outputs.WorkSpaces.ConnectionAliasConnectionAliasAssociation[]>;
-    public /*out*/ readonly ConnectionAliasState!: pulumi.Output<string>;
+    public /*out*/ readonly aliasId!: pulumi.Output<string>;
+    public /*out*/ readonly associations!: pulumi.Output<outputs.WorkSpaces.ConnectionAliasConnectionAliasAssociation[]>;
+    public /*out*/ readonly connectionAliasState!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
      */
-    public readonly ConnectionString!: pulumi.Output<string>;
+    public readonly connectionString!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConnectionAlias resource with the given unique name, arguments, and options.
@@ -57,20 +57,20 @@ export class ConnectionAlias extends pulumi.CustomResource {
     constructor(name: string, args: ConnectionAliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ConnectionString === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ConnectionString'");
+            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'connectionString'");
             }
-            inputs["ConnectionString"] = args ? args.ConnectionString : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["AliasId"] = undefined /*out*/;
-            inputs["Associations"] = undefined /*out*/;
-            inputs["ConnectionAliasState"] = undefined /*out*/;
+            inputs["connectionString"] = args ? args.connectionString : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["aliasId"] = undefined /*out*/;
+            inputs["associations"] = undefined /*out*/;
+            inputs["connectionAliasState"] = undefined /*out*/;
         } else {
-            inputs["AliasId"] = undefined /*out*/;
-            inputs["Associations"] = undefined /*out*/;
-            inputs["ConnectionAliasState"] = undefined /*out*/;
-            inputs["ConnectionString"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["aliasId"] = undefined /*out*/;
+            inputs["associations"] = undefined /*out*/;
+            inputs["connectionAliasState"] = undefined /*out*/;
+            inputs["connectionString"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -90,9 +90,9 @@ export interface ConnectionAliasArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
      */
-    readonly ConnectionString: pulumi.Input<string>;
+    readonly connectionString: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

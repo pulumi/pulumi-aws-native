@@ -35,35 +35,35 @@ export class WorkGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkGroup.__pulumiType;
     }
 
-    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
      */
-    public readonly RecursiveDeleteOption!: pulumi.Output<boolean | undefined>;
+    public readonly recursiveDeleteOption!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
      */
-    public readonly State!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Athena.WorkGroupTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Athena.WorkGroupTags | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
      */
-    public readonly WorkGroupConfiguration!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfiguration | undefined>;
+    public readonly workGroupConfiguration!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
      */
-    public readonly WorkGroupConfigurationUpdates!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
+    public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
 
     /**
      * Create a WorkGroup resource with the given unique name, arguments, and options.
@@ -75,26 +75,26 @@ export class WorkGroup extends pulumi.CustomResource {
     constructor(name: string, args: WorkGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RecursiveDeleteOption"] = args ? args.RecursiveDeleteOption : undefined;
-            inputs["State"] = args ? args.State : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["WorkGroupConfiguration"] = args ? args.WorkGroupConfiguration : undefined;
-            inputs["WorkGroupConfigurationUpdates"] = args ? args.WorkGroupConfigurationUpdates : undefined;
-            inputs["CreationTime"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["recursiveDeleteOption"] = args ? args.recursiveDeleteOption : undefined;
+            inputs["state"] = args ? args.state : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["workGroupConfiguration"] = args ? args.workGroupConfiguration : undefined;
+            inputs["workGroupConfigurationUpdates"] = args ? args.workGroupConfigurationUpdates : undefined;
+            inputs["creationTime"] = undefined /*out*/;
         } else {
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RecursiveDeleteOption"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["WorkGroupConfiguration"] = undefined /*out*/;
-            inputs["WorkGroupConfigurationUpdates"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["recursiveDeleteOption"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["workGroupConfiguration"] = undefined /*out*/;
+            inputs["workGroupConfigurationUpdates"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,29 +114,29 @@ export interface WorkGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
      */
-    readonly RecursiveDeleteOption?: pulumi.Input<boolean>;
+    readonly recursiveDeleteOption?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
      */
-    readonly State?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
      */
-    readonly Tags?: pulumi.Input<inputs.Athena.WorkGroupTags>;
+    readonly tags?: pulumi.Input<inputs.Athena.WorkGroupTags>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
      */
-    readonly WorkGroupConfiguration?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfiguration>;
+    readonly workGroupConfiguration?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
      */
-    readonly WorkGroupConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationUpdates>;
+    readonly workGroupConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationUpdates>;
 }

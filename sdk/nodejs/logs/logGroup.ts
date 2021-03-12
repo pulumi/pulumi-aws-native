@@ -34,19 +34,19 @@ export class LogGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogGroup.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
      */
-    public readonly KmsKeyId!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
      */
-    public readonly LogGroupName!: pulumi.Output<string | undefined>;
+    public readonly logGroupName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
      */
-    public readonly RetentionInDays!: pulumi.Output<number | undefined>;
+    public readonly retentionInDays!: pulumi.Output<number | undefined>;
 
     /**
      * Create a LogGroup resource with the given unique name, arguments, and options.
@@ -58,15 +58,15 @@ export class LogGroup extends pulumi.CustomResource {
     constructor(name: string, args?: LogGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["KmsKeyId"] = args ? args.KmsKeyId : undefined;
-            inputs["LogGroupName"] = args ? args.LogGroupName : undefined;
-            inputs["RetentionInDays"] = args ? args.RetentionInDays : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["logGroupName"] = args ? args.logGroupName : undefined;
+            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["KmsKeyId"] = undefined /*out*/;
-            inputs["LogGroupName"] = undefined /*out*/;
-            inputs["RetentionInDays"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["kmsKeyId"] = undefined /*out*/;
+            inputs["logGroupName"] = undefined /*out*/;
+            inputs["retentionInDays"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -86,13 +86,13 @@ export interface LogGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
      */
-    readonly KmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
      */
-    readonly LogGroupName?: pulumi.Input<string>;
+    readonly logGroupName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
      */
-    readonly RetentionInDays?: pulumi.Input<number>;
+    readonly retentionInDays?: pulumi.Input<number>;
 }

@@ -37,19 +37,19 @@ export class MemberInvitation extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
      */
-    public readonly GraphArn!: pulumi.Output<string>;
+    public readonly graphArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
      */
-    public readonly MemberEmailAddress!: pulumi.Output<string>;
+    public readonly memberEmailAddress!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
      */
-    public readonly MemberId!: pulumi.Output<string>;
+    public readonly memberId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
      */
-    public readonly Message!: pulumi.Output<string | undefined>;
+    public readonly message!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MemberInvitation resource with the given unique name, arguments, and options.
@@ -61,24 +61,24 @@ export class MemberInvitation extends pulumi.CustomResource {
     constructor(name: string, args: MemberInvitationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.GraphArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GraphArn'");
+            if ((!args || args.graphArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'graphArn'");
             }
-            if ((!args || args.MemberEmailAddress === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'MemberEmailAddress'");
+            if ((!args || args.memberEmailAddress === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'memberEmailAddress'");
             }
-            if ((!args || args.MemberId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'MemberId'");
+            if ((!args || args.memberId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'memberId'");
             }
-            inputs["GraphArn"] = args ? args.GraphArn : undefined;
-            inputs["MemberEmailAddress"] = args ? args.MemberEmailAddress : undefined;
-            inputs["MemberId"] = args ? args.MemberId : undefined;
-            inputs["Message"] = args ? args.Message : undefined;
+            inputs["graphArn"] = args ? args.graphArn : undefined;
+            inputs["memberEmailAddress"] = args ? args.memberEmailAddress : undefined;
+            inputs["memberId"] = args ? args.memberId : undefined;
+            inputs["message"] = args ? args.message : undefined;
         } else {
-            inputs["GraphArn"] = undefined /*out*/;
-            inputs["MemberEmailAddress"] = undefined /*out*/;
-            inputs["MemberId"] = undefined /*out*/;
-            inputs["Message"] = undefined /*out*/;
+            inputs["graphArn"] = undefined /*out*/;
+            inputs["memberEmailAddress"] = undefined /*out*/;
+            inputs["memberId"] = undefined /*out*/;
+            inputs["message"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,17 +98,17 @@ export interface MemberInvitationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
      */
-    readonly GraphArn: pulumi.Input<string>;
+    readonly graphArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
      */
-    readonly MemberEmailAddress: pulumi.Input<string>;
+    readonly memberEmailAddress: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
      */
-    readonly MemberId: pulumi.Input<string>;
+    readonly memberId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
      */
-    readonly Message?: pulumi.Input<string>;
+    readonly message?: pulumi.Input<string>;
 }

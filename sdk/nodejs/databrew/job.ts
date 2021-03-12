@@ -38,63 +38,63 @@ export class Job extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
      */
-    public readonly DatasetName!: pulumi.Output<string | undefined>;
+    public readonly datasetName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
      */
-    public readonly EncryptionKeyArn!: pulumi.Output<string | undefined>;
+    public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
      */
-    public readonly EncryptionMode!: pulumi.Output<string | undefined>;
+    public readonly encryptionMode!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
      */
-    public readonly LogSubscription!: pulumi.Output<string | undefined>;
+    public readonly logSubscription!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
      */
-    public readonly MaxCapacity!: pulumi.Output<number | undefined>;
+    public readonly maxCapacity!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
      */
-    public readonly MaxRetries!: pulumi.Output<number | undefined>;
+    public readonly maxRetries!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
      */
-    public readonly OutputLocation!: pulumi.Output<any | string | undefined>;
+    public readonly outputLocation!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
      */
-    public readonly Outputs!: pulumi.Output<outputs.DataBrew.JobOutput[] | undefined>;
+    public readonly outputs!: pulumi.Output<outputs.DataBrew.JobOutput[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
      */
-    public readonly ProjectName!: pulumi.Output<string | undefined>;
+    public readonly projectName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
      */
-    public readonly Recipe!: pulumi.Output<any | string | undefined>;
+    public readonly recipe!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
      */
-    public readonly Timeout!: pulumi.Output<number | undefined>;
+    public readonly timeout!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
      */
-    public readonly Type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -106,46 +106,46 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Type'");
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'type'");
             }
-            inputs["DatasetName"] = args ? args.DatasetName : undefined;
-            inputs["EncryptionKeyArn"] = args ? args.EncryptionKeyArn : undefined;
-            inputs["EncryptionMode"] = args ? args.EncryptionMode : undefined;
-            inputs["LogSubscription"] = args ? args.LogSubscription : undefined;
-            inputs["MaxCapacity"] = args ? args.MaxCapacity : undefined;
-            inputs["MaxRetries"] = args ? args.MaxRetries : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["OutputLocation"] = args ? args.OutputLocation : undefined;
-            inputs["Outputs"] = args ? args.Outputs : undefined;
-            inputs["ProjectName"] = args ? args.ProjectName : undefined;
-            inputs["Recipe"] = args ? args.Recipe : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Timeout"] = args ? args.Timeout : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
+            inputs["datasetName"] = args ? args.datasetName : undefined;
+            inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
+            inputs["encryptionMode"] = args ? args.encryptionMode : undefined;
+            inputs["logSubscription"] = args ? args.logSubscription : undefined;
+            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            inputs["maxRetries"] = args ? args.maxRetries : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["outputLocation"] = args ? args.outputLocation : undefined;
+            inputs["outputs"] = args ? args.outputs : undefined;
+            inputs["projectName"] = args ? args.projectName : undefined;
+            inputs["recipe"] = args ? args.recipe : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["timeout"] = args ? args.timeout : undefined;
+            inputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["DatasetName"] = undefined /*out*/;
-            inputs["EncryptionKeyArn"] = undefined /*out*/;
-            inputs["EncryptionMode"] = undefined /*out*/;
-            inputs["LogSubscription"] = undefined /*out*/;
-            inputs["MaxCapacity"] = undefined /*out*/;
-            inputs["MaxRetries"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["OutputLocation"] = undefined /*out*/;
-            inputs["Outputs"] = undefined /*out*/;
-            inputs["ProjectName"] = undefined /*out*/;
-            inputs["Recipe"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Timeout"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["datasetName"] = undefined /*out*/;
+            inputs["encryptionKeyArn"] = undefined /*out*/;
+            inputs["encryptionMode"] = undefined /*out*/;
+            inputs["logSubscription"] = undefined /*out*/;
+            inputs["maxCapacity"] = undefined /*out*/;
+            inputs["maxRetries"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["outputLocation"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["projectName"] = undefined /*out*/;
+            inputs["recipe"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeout"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -165,61 +165,61 @@ export interface JobArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
      */
-    readonly DatasetName?: pulumi.Input<string>;
+    readonly datasetName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
      */
-    readonly EncryptionKeyArn?: pulumi.Input<string>;
+    readonly encryptionKeyArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
      */
-    readonly EncryptionMode?: pulumi.Input<string>;
+    readonly encryptionMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
      */
-    readonly LogSubscription?: pulumi.Input<string>;
+    readonly logSubscription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
      */
-    readonly MaxCapacity?: pulumi.Input<number>;
+    readonly maxCapacity?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
      */
-    readonly MaxRetries?: pulumi.Input<number>;
+    readonly maxRetries?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
      */
-    readonly OutputLocation?: pulumi.Input<any | string>;
+    readonly outputLocation?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
      */
-    readonly Outputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobOutput>[]>;
+    readonly outputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobOutput>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
      */
-    readonly ProjectName?: pulumi.Input<string>;
+    readonly projectName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
      */
-    readonly Recipe?: pulumi.Input<any | string>;
+    readonly recipe?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
      */
-    readonly Timeout?: pulumi.Input<number>;
+    readonly timeout?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
      */
-    readonly Type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }

@@ -35,19 +35,19 @@ export class Alias extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alias.__pulumiType;
     }
 
-    public /*out*/ readonly AliasId!: pulumi.Output<string>;
+    public /*out*/ readonly aliasId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
      */
-    public readonly RoutingStrategy!: pulumi.Output<outputs.GameLift.AliasRoutingStrategy>;
+    public readonly routingStrategy!: pulumi.Output<outputs.GameLift.AliasRoutingStrategy>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -59,21 +59,21 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.RoutingStrategy === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoutingStrategy'");
+            if ((!args || args.routingStrategy === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'routingStrategy'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RoutingStrategy"] = args ? args.RoutingStrategy : undefined;
-            inputs["AliasId"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["routingStrategy"] = args ? args.routingStrategy : undefined;
+            inputs["aliasId"] = undefined /*out*/;
         } else {
-            inputs["AliasId"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RoutingStrategy"] = undefined /*out*/;
+            inputs["aliasId"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["routingStrategy"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +93,13 @@ export interface AliasArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
      */
-    readonly RoutingStrategy: pulumi.Input<inputs.GameLift.AliasRoutingStrategy>;
+    readonly routingStrategy: pulumi.Input<inputs.GameLift.AliasRoutingStrategy>;
 }

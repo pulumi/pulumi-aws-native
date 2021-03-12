@@ -35,40 +35,40 @@ export class Schema extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schema.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
      */
-    public readonly CheckpointVersion!: pulumi.Output<outputs.Glue.SchemaSchemaVersion | undefined>;
+    public readonly checkpointVersion!: pulumi.Output<outputs.Glue.SchemaSchemaVersion | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
      */
-    public readonly Compatibility!: pulumi.Output<string>;
+    public readonly compatibility!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
      */
-    public readonly DataFormat!: pulumi.Output<string>;
+    public readonly dataFormat!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly InitialSchemaVersionId!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly initialSchemaVersionId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
      */
-    public readonly Registry!: pulumi.Output<outputs.Glue.SchemaRegistry | undefined>;
+    public readonly registry!: pulumi.Output<outputs.Glue.SchemaRegistry | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
      */
-    public readonly SchemaDefinition!: pulumi.Output<string>;
+    public readonly schemaDefinition!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -80,39 +80,39 @@ export class Schema extends pulumi.CustomResource {
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Compatibility === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Compatibility'");
+            if ((!args || args.compatibility === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'compatibility'");
             }
-            if ((!args || args.DataFormat === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DataFormat'");
+            if ((!args || args.dataFormat === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'dataFormat'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.SchemaDefinition === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SchemaDefinition'");
+            if ((!args || args.schemaDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'schemaDefinition'");
             }
-            inputs["CheckpointVersion"] = args ? args.CheckpointVersion : undefined;
-            inputs["Compatibility"] = args ? args.Compatibility : undefined;
-            inputs["DataFormat"] = args ? args.DataFormat : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Registry"] = args ? args.Registry : undefined;
-            inputs["SchemaDefinition"] = args ? args.SchemaDefinition : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["InitialSchemaVersionId"] = undefined /*out*/;
+            inputs["checkpointVersion"] = args ? args.checkpointVersion : undefined;
+            inputs["compatibility"] = args ? args.compatibility : undefined;
+            inputs["dataFormat"] = args ? args.dataFormat : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["registry"] = args ? args.registry : undefined;
+            inputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["initialSchemaVersionId"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CheckpointVersion"] = undefined /*out*/;
-            inputs["Compatibility"] = undefined /*out*/;
-            inputs["DataFormat"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["InitialSchemaVersionId"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Registry"] = undefined /*out*/;
-            inputs["SchemaDefinition"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["checkpointVersion"] = undefined /*out*/;
+            inputs["compatibility"] = undefined /*out*/;
+            inputs["dataFormat"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["initialSchemaVersionId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["registry"] = undefined /*out*/;
+            inputs["schemaDefinition"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,33 +132,33 @@ export interface SchemaArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
      */
-    readonly CheckpointVersion?: pulumi.Input<inputs.Glue.SchemaSchemaVersion>;
+    readonly checkpointVersion?: pulumi.Input<inputs.Glue.SchemaSchemaVersion>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
      */
-    readonly Compatibility: pulumi.Input<string>;
+    readonly compatibility: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
      */
-    readonly DataFormat: pulumi.Input<string>;
+    readonly dataFormat: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
      */
-    readonly Registry?: pulumi.Input<inputs.Glue.SchemaRegistry>;
+    readonly registry?: pulumi.Input<inputs.Glue.SchemaRegistry>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
      */
-    readonly SchemaDefinition: pulumi.Input<string>;
+    readonly schemaDefinition: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

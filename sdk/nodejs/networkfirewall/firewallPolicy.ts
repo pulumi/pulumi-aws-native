@@ -38,21 +38,21 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
      */
-    public readonly FirewallPolicy!: pulumi.Output<outputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
-    public /*out*/ readonly FirewallPolicyArn!: pulumi.Output<string>;
-    public /*out*/ readonly FirewallPolicyId!: pulumi.Output<string>;
+    public readonly firewallPolicy!: pulumi.Output<outputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
+    public /*out*/ readonly firewallPolicyArn!: pulumi.Output<string>;
+    public /*out*/ readonly firewallPolicyId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
      */
-    public readonly FirewallPolicyName!: pulumi.Output<string>;
+    public readonly firewallPolicyName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -64,25 +64,25 @@ export class FirewallPolicy extends pulumi.CustomResource {
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.FirewallPolicy === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FirewallPolicy'");
+            if ((!args || args.firewallPolicy === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'firewallPolicy'");
             }
-            if ((!args || args.FirewallPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FirewallPolicyName'");
+            if ((!args || args.firewallPolicyName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'firewallPolicyName'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["FirewallPolicy"] = args ? args.FirewallPolicy : undefined;
-            inputs["FirewallPolicyName"] = args ? args.FirewallPolicyName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["FirewallPolicyArn"] = undefined /*out*/;
-            inputs["FirewallPolicyId"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
+            inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["firewallPolicyArn"] = undefined /*out*/;
+            inputs["firewallPolicyId"] = undefined /*out*/;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["FirewallPolicy"] = undefined /*out*/;
-            inputs["FirewallPolicyArn"] = undefined /*out*/;
-            inputs["FirewallPolicyId"] = undefined /*out*/;
-            inputs["FirewallPolicyName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["firewallPolicy"] = undefined /*out*/;
+            inputs["firewallPolicyArn"] = undefined /*out*/;
+            inputs["firewallPolicyId"] = undefined /*out*/;
+            inputs["firewallPolicyName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,17 +102,17 @@ export interface FirewallPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
      */
-    readonly FirewallPolicy: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
+    readonly firewallPolicy: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
      */
-    readonly FirewallPolicyName: pulumi.Input<string>;
+    readonly firewallPolicyName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

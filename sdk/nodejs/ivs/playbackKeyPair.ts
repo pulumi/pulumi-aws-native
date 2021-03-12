@@ -35,20 +35,20 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
         return obj['__pulumiType'] === PlaybackKeyPair.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly Fingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
      */
-    public readonly PublicKeyMaterial!: pulumi.Output<string>;
+    public readonly publicKeyMaterial!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PlaybackKeyPair resource with the given unique name, arguments, and options.
@@ -60,20 +60,20 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
     constructor(name: string, args: PlaybackKeyPairArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.PublicKeyMaterial === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PublicKeyMaterial'");
+            if ((!args || args.publicKeyMaterial === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'publicKeyMaterial'");
             }
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["PublicKeyMaterial"] = args ? args.PublicKeyMaterial : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Fingerprint"] = undefined /*out*/;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["fingerprint"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Fingerprint"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["PublicKeyMaterial"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["fingerprint"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["publicKeyMaterial"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +93,13 @@ export interface PlaybackKeyPairArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
      */
-    readonly PublicKeyMaterial: pulumi.Input<string>;
+    readonly publicKeyMaterial: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

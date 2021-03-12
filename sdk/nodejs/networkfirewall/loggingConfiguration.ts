@@ -38,15 +38,15 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
      */
-    public readonly FirewallArn!: pulumi.Output<string>;
+    public readonly firewallArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
      */
-    public readonly FirewallName!: pulumi.Output<string | undefined>;
+    public readonly firewallName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
      */
-    public readonly LoggingConfiguration!: pulumi.Output<outputs.NetworkFirewall.LoggingConfigurationLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.NetworkFirewall.LoggingConfigurationLoggingConfiguration>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -58,19 +58,19 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: LoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.FirewallArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FirewallArn'");
+            if ((!args || args.firewallArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.LoggingConfiguration === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'LoggingConfiguration'");
+            if ((!args || args.loggingConfiguration === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'loggingConfiguration'");
             }
-            inputs["FirewallArn"] = args ? args.FirewallArn : undefined;
-            inputs["FirewallName"] = args ? args.FirewallName : undefined;
-            inputs["LoggingConfiguration"] = args ? args.LoggingConfiguration : undefined;
+            inputs["firewallArn"] = args ? args.firewallArn : undefined;
+            inputs["firewallName"] = args ? args.firewallName : undefined;
+            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
         } else {
-            inputs["FirewallArn"] = undefined /*out*/;
-            inputs["FirewallName"] = undefined /*out*/;
-            inputs["LoggingConfiguration"] = undefined /*out*/;
+            inputs["firewallArn"] = undefined /*out*/;
+            inputs["firewallName"] = undefined /*out*/;
+            inputs["loggingConfiguration"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -90,13 +90,13 @@ export interface LoggingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
      */
-    readonly FirewallArn: pulumi.Input<string>;
+    readonly firewallArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
      */
-    readonly FirewallName?: pulumi.Input<string>;
+    readonly firewallName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
      */
-    readonly LoggingConfiguration: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLoggingConfiguration>;
+    readonly loggingConfiguration: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLoggingConfiguration>;
 }

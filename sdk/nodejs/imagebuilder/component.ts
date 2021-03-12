@@ -34,49 +34,49 @@ export class Component extends pulumi.CustomResource {
         return obj['__pulumiType'] === Component.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
      */
-    public readonly ChangeDescription!: pulumi.Output<string | undefined>;
+    public readonly changeDescription!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
      */
-    public readonly Data!: pulumi.Output<string | undefined>;
+    public readonly data!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Encrypted!: pulumi.Output<boolean>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
      */
-    public readonly KmsKeyId!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
      */
-    public readonly Platform!: pulumi.Output<string>;
+    public readonly platform!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
      */
-    public readonly SupportedOsVersions!: pulumi.Output<string[] | undefined>;
+    public readonly supportedOsVersions!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
      */
-    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly Type!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
      */
-    public readonly Uri!: pulumi.Output<string | undefined>;
+    public readonly uri!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
      */
-    public readonly Version!: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -88,42 +88,42 @@ export class Component extends pulumi.CustomResource {
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.Platform === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Platform'");
+            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.Version === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Version'");
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'version'");
             }
-            inputs["ChangeDescription"] = args ? args.ChangeDescription : undefined;
-            inputs["Data"] = args ? args.Data : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["KmsKeyId"] = args ? args.KmsKeyId : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Platform"] = args ? args.Platform : undefined;
-            inputs["SupportedOsVersions"] = args ? args.SupportedOsVersions : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Uri"] = args ? args.Uri : undefined;
-            inputs["Version"] = args ? args.Version : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Encrypted"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["changeDescription"] = args ? args.changeDescription : undefined;
+            inputs["data"] = args ? args.data : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["platform"] = args ? args.platform : undefined;
+            inputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["uri"] = args ? args.uri : undefined;
+            inputs["version"] = args ? args.version : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["encrypted"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ChangeDescription"] = undefined /*out*/;
-            inputs["Data"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Encrypted"] = undefined /*out*/;
-            inputs["KmsKeyId"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Platform"] = undefined /*out*/;
-            inputs["SupportedOsVersions"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
-            inputs["Uri"] = undefined /*out*/;
-            inputs["Version"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["changeDescription"] = undefined /*out*/;
+            inputs["data"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["encrypted"] = undefined /*out*/;
+            inputs["kmsKeyId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["platform"] = undefined /*out*/;
+            inputs["supportedOsVersions"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uri"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -143,41 +143,41 @@ export interface ComponentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
      */
-    readonly ChangeDescription?: pulumi.Input<string>;
+    readonly changeDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
      */
-    readonly Data?: pulumi.Input<string>;
+    readonly data?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
      */
-    readonly KmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
      */
-    readonly Platform: pulumi.Input<string>;
+    readonly platform: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
      */
-    readonly SupportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
      */
-    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
      */
-    readonly Uri?: pulumi.Input<string>;
+    readonly uri?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
      */
-    readonly Version: pulumi.Input<string>;
+    readonly version: pulumi.Input<string>;
 }

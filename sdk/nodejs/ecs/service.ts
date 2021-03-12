@@ -38,88 +38,88 @@ export class Service extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
      */
-    public readonly CapacityProviderStrategy!: pulumi.Output<outputs.ECS.ServiceCapacityProviderStrategyItem[] | undefined>;
+    public readonly capacityProviderStrategy!: pulumi.Output<outputs.ECS.ServiceCapacityProviderStrategyItem[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
      */
-    public readonly Cluster!: pulumi.Output<string | undefined>;
+    public readonly cluster!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
      */
-    public readonly DeploymentConfiguration!: pulumi.Output<outputs.ECS.ServiceDeploymentConfiguration | undefined>;
+    public readonly deploymentConfiguration!: pulumi.Output<outputs.ECS.ServiceDeploymentConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
      */
-    public readonly DeploymentController!: pulumi.Output<outputs.ECS.ServiceDeploymentController | undefined>;
+    public readonly deploymentController!: pulumi.Output<outputs.ECS.ServiceDeploymentController | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
      */
-    public readonly DesiredCount!: pulumi.Output<number | undefined>;
+    public readonly desiredCount!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
      */
-    public readonly EnableECSManagedTags!: pulumi.Output<boolean | undefined>;
+    public readonly enableECSManagedTags!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
      */
-    public readonly HealthCheckGracePeriodSeconds!: pulumi.Output<number | undefined>;
+    public readonly healthCheckGracePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
      */
-    public readonly LaunchType!: pulumi.Output<string | undefined>;
+    public readonly launchType!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
      */
-    public readonly LoadBalancers!: pulumi.Output<outputs.ECS.ServiceLoadBalancer[] | undefined>;
-    public /*out*/ readonly Name!: pulumi.Output<string>;
+    public readonly loadBalancers!: pulumi.Output<outputs.ECS.ServiceLoadBalancer[] | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
      */
-    public readonly NetworkConfiguration!: pulumi.Output<outputs.ECS.ServiceNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.ECS.ServiceNetworkConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
      */
-    public readonly PlacementConstraints!: pulumi.Output<outputs.ECS.ServicePlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<outputs.ECS.ServicePlacementConstraint[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
      */
-    public readonly PlacementStrategies!: pulumi.Output<outputs.ECS.ServicePlacementStrategy[] | undefined>;
+    public readonly placementStrategies!: pulumi.Output<outputs.ECS.ServicePlacementStrategy[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
      */
-    public readonly PlatformVersion!: pulumi.Output<string | undefined>;
+    public readonly platformVersion!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
      */
-    public readonly PropagateTags!: pulumi.Output<string | undefined>;
+    public readonly propagateTags!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
      */
-    public readonly Role!: pulumi.Output<string | undefined>;
+    public readonly role!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
      */
-    public readonly SchedulingStrategy!: pulumi.Output<string | undefined>;
+    public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
      */
-    public readonly ServiceArn!: pulumi.Output<string | undefined>;
+    public readonly serviceArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
      */
-    public readonly ServiceName!: pulumi.Output<string | undefined>;
+    public readonly serviceName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
      */
-    public readonly ServiceRegistries!: pulumi.Output<outputs.ECS.ServiceServiceRegistry[] | undefined>;
+    public readonly serviceRegistries!: pulumi.Output<outputs.ECS.ServiceServiceRegistry[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
      */
-    public readonly TaskDefinition!: pulumi.Output<string | undefined>;
+    public readonly taskDefinition!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -131,51 +131,51 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["CapacityProviderStrategy"] = args ? args.CapacityProviderStrategy : undefined;
-            inputs["Cluster"] = args ? args.Cluster : undefined;
-            inputs["DeploymentConfiguration"] = args ? args.DeploymentConfiguration : undefined;
-            inputs["DeploymentController"] = args ? args.DeploymentController : undefined;
-            inputs["DesiredCount"] = args ? args.DesiredCount : undefined;
-            inputs["EnableECSManagedTags"] = args ? args.EnableECSManagedTags : undefined;
-            inputs["HealthCheckGracePeriodSeconds"] = args ? args.HealthCheckGracePeriodSeconds : undefined;
-            inputs["LaunchType"] = args ? args.LaunchType : undefined;
-            inputs["LoadBalancers"] = args ? args.LoadBalancers : undefined;
-            inputs["NetworkConfiguration"] = args ? args.NetworkConfiguration : undefined;
-            inputs["PlacementConstraints"] = args ? args.PlacementConstraints : undefined;
-            inputs["PlacementStrategies"] = args ? args.PlacementStrategies : undefined;
-            inputs["PlatformVersion"] = args ? args.PlatformVersion : undefined;
-            inputs["PropagateTags"] = args ? args.PropagateTags : undefined;
-            inputs["Role"] = args ? args.Role : undefined;
-            inputs["SchedulingStrategy"] = args ? args.SchedulingStrategy : undefined;
-            inputs["ServiceArn"] = args ? args.ServiceArn : undefined;
-            inputs["ServiceName"] = args ? args.ServiceName : undefined;
-            inputs["ServiceRegistries"] = args ? args.ServiceRegistries : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["TaskDefinition"] = args ? args.TaskDefinition : undefined;
-            inputs["Name"] = undefined /*out*/;
+            inputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
+            inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
+            inputs["deploymentController"] = args ? args.deploymentController : undefined;
+            inputs["desiredCount"] = args ? args.desiredCount : undefined;
+            inputs["enableECSManagedTags"] = args ? args.enableECSManagedTags : undefined;
+            inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
+            inputs["launchType"] = args ? args.launchType : undefined;
+            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            inputs["placementStrategies"] = args ? args.placementStrategies : undefined;
+            inputs["platformVersion"] = args ? args.platformVersion : undefined;
+            inputs["propagateTags"] = args ? args.propagateTags : undefined;
+            inputs["role"] = args ? args.role : undefined;
+            inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
+            inputs["serviceArn"] = args ? args.serviceArn : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            inputs["name"] = undefined /*out*/;
         } else {
-            inputs["CapacityProviderStrategy"] = undefined /*out*/;
-            inputs["Cluster"] = undefined /*out*/;
-            inputs["DeploymentConfiguration"] = undefined /*out*/;
-            inputs["DeploymentController"] = undefined /*out*/;
-            inputs["DesiredCount"] = undefined /*out*/;
-            inputs["EnableECSManagedTags"] = undefined /*out*/;
-            inputs["HealthCheckGracePeriodSeconds"] = undefined /*out*/;
-            inputs["LaunchType"] = undefined /*out*/;
-            inputs["LoadBalancers"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["NetworkConfiguration"] = undefined /*out*/;
-            inputs["PlacementConstraints"] = undefined /*out*/;
-            inputs["PlacementStrategies"] = undefined /*out*/;
-            inputs["PlatformVersion"] = undefined /*out*/;
-            inputs["PropagateTags"] = undefined /*out*/;
-            inputs["Role"] = undefined /*out*/;
-            inputs["SchedulingStrategy"] = undefined /*out*/;
-            inputs["ServiceArn"] = undefined /*out*/;
-            inputs["ServiceName"] = undefined /*out*/;
-            inputs["ServiceRegistries"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["TaskDefinition"] = undefined /*out*/;
+            inputs["capacityProviderStrategy"] = undefined /*out*/;
+            inputs["cluster"] = undefined /*out*/;
+            inputs["deploymentConfiguration"] = undefined /*out*/;
+            inputs["deploymentController"] = undefined /*out*/;
+            inputs["desiredCount"] = undefined /*out*/;
+            inputs["enableECSManagedTags"] = undefined /*out*/;
+            inputs["healthCheckGracePeriodSeconds"] = undefined /*out*/;
+            inputs["launchType"] = undefined /*out*/;
+            inputs["loadBalancers"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkConfiguration"] = undefined /*out*/;
+            inputs["placementConstraints"] = undefined /*out*/;
+            inputs["placementStrategies"] = undefined /*out*/;
+            inputs["platformVersion"] = undefined /*out*/;
+            inputs["propagateTags"] = undefined /*out*/;
+            inputs["role"] = undefined /*out*/;
+            inputs["schedulingStrategy"] = undefined /*out*/;
+            inputs["serviceArn"] = undefined /*out*/;
+            inputs["serviceName"] = undefined /*out*/;
+            inputs["serviceRegistries"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["taskDefinition"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -195,85 +195,85 @@ export interface ServiceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
      */
-    readonly CapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceCapacityProviderStrategyItem>[]>;
+    readonly capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceCapacityProviderStrategyItem>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
      */
-    readonly Cluster?: pulumi.Input<string>;
+    readonly cluster?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
      */
-    readonly DeploymentConfiguration?: pulumi.Input<inputs.ECS.ServiceDeploymentConfiguration>;
+    readonly deploymentConfiguration?: pulumi.Input<inputs.ECS.ServiceDeploymentConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
      */
-    readonly DeploymentController?: pulumi.Input<inputs.ECS.ServiceDeploymentController>;
+    readonly deploymentController?: pulumi.Input<inputs.ECS.ServiceDeploymentController>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
      */
-    readonly DesiredCount?: pulumi.Input<number>;
+    readonly desiredCount?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
      */
-    readonly EnableECSManagedTags?: pulumi.Input<boolean>;
+    readonly enableECSManagedTags?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
      */
-    readonly HealthCheckGracePeriodSeconds?: pulumi.Input<number>;
+    readonly healthCheckGracePeriodSeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
      */
-    readonly LaunchType?: pulumi.Input<string>;
+    readonly launchType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
      */
-    readonly LoadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceLoadBalancer>[]>;
+    readonly loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceLoadBalancer>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
      */
-    readonly NetworkConfiguration?: pulumi.Input<inputs.ECS.ServiceNetworkConfiguration>;
+    readonly networkConfiguration?: pulumi.Input<inputs.ECS.ServiceNetworkConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
      */
-    readonly PlacementConstraints?: pulumi.Input<pulumi.Input<inputs.ECS.ServicePlacementConstraint>[]>;
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ECS.ServicePlacementConstraint>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
      */
-    readonly PlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ECS.ServicePlacementStrategy>[]>;
+    readonly placementStrategies?: pulumi.Input<pulumi.Input<inputs.ECS.ServicePlacementStrategy>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
      */
-    readonly PlatformVersion?: pulumi.Input<string>;
+    readonly platformVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
      */
-    readonly PropagateTags?: pulumi.Input<string>;
+    readonly propagateTags?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
      */
-    readonly Role?: pulumi.Input<string>;
+    readonly role?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
      */
-    readonly SchedulingStrategy?: pulumi.Input<string>;
+    readonly schedulingStrategy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
      */
-    readonly ServiceArn?: pulumi.Input<string>;
+    readonly serviceArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
      */
-    readonly ServiceName?: pulumi.Input<string>;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
      */
-    readonly ServiceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceServiceRegistry>[]>;
+    readonly serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceServiceRegistry>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
      */
-    readonly TaskDefinition?: pulumi.Input<string>;
+    readonly taskDefinition?: pulumi.Input<string>;
 }

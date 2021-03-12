@@ -35,25 +35,25 @@ export class ModelPackageGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelPackageGroup.__pulumiType;
     }
 
-    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
-    public /*out*/ readonly ModelPackageGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly modelPackageGroupArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
      */
-    public readonly ModelPackageGroupDescription!: pulumi.Output<string | undefined>;
+    public readonly modelPackageGroupDescription!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
      */
-    public readonly ModelPackageGroupName!: pulumi.Output<string>;
+    public readonly modelPackageGroupName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
      */
-    public readonly ModelPackageGroupPolicy!: pulumi.Output<any | undefined>;
-    public /*out*/ readonly ModelPackageGroupStatus!: pulumi.Output<string>;
+    public readonly modelPackageGroupPolicy!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ModelPackageGroup resource with the given unique name, arguments, and options.
@@ -65,24 +65,24 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     constructor(name: string, args: ModelPackageGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ModelPackageGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ModelPackageGroupName'");
+            if ((!args || args.modelPackageGroupName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'modelPackageGroupName'");
             }
-            inputs["ModelPackageGroupDescription"] = args ? args.ModelPackageGroupDescription : undefined;
-            inputs["ModelPackageGroupName"] = args ? args.ModelPackageGroupName : undefined;
-            inputs["ModelPackageGroupPolicy"] = args ? args.ModelPackageGroupPolicy : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["ModelPackageGroupArn"] = undefined /*out*/;
-            inputs["ModelPackageGroupStatus"] = undefined /*out*/;
+            inputs["modelPackageGroupDescription"] = args ? args.modelPackageGroupDescription : undefined;
+            inputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
+            inputs["modelPackageGroupPolicy"] = args ? args.modelPackageGroupPolicy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["modelPackageGroupArn"] = undefined /*out*/;
+            inputs["modelPackageGroupStatus"] = undefined /*out*/;
         } else {
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["ModelPackageGroupArn"] = undefined /*out*/;
-            inputs["ModelPackageGroupDescription"] = undefined /*out*/;
-            inputs["ModelPackageGroupName"] = undefined /*out*/;
-            inputs["ModelPackageGroupPolicy"] = undefined /*out*/;
-            inputs["ModelPackageGroupStatus"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["modelPackageGroupArn"] = undefined /*out*/;
+            inputs["modelPackageGroupDescription"] = undefined /*out*/;
+            inputs["modelPackageGroupName"] = undefined /*out*/;
+            inputs["modelPackageGroupPolicy"] = undefined /*out*/;
+            inputs["modelPackageGroupStatus"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,17 +102,17 @@ export interface ModelPackageGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
      */
-    readonly ModelPackageGroupDescription?: pulumi.Input<string>;
+    readonly modelPackageGroupDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
      */
-    readonly ModelPackageGroupName: pulumi.Input<string>;
+    readonly modelPackageGroupName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
      */
-    readonly ModelPackageGroupPolicy?: any;
+    readonly modelPackageGroupPolicy?: any;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

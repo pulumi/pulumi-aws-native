@@ -35,31 +35,31 @@ export class FargateProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === FargateProfile.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
      */
-    public readonly ClusterName!: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
      */
-    public readonly FargateProfileName!: pulumi.Output<string | undefined>;
+    public readonly fargateProfileName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
      */
-    public readonly PodExecutionRoleArn!: pulumi.Output<string>;
+    public readonly podExecutionRoleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
      */
-    public readonly Selectors!: pulumi.Output<outputs.EKS.FargateProfileSelector[]>;
+    public readonly selectors!: pulumi.Output<outputs.EKS.FargateProfileSelector[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
      */
-    public readonly Subnets!: pulumi.Output<string[] | undefined>;
+    public readonly subnets!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FargateProfile resource with the given unique name, arguments, and options.
@@ -71,30 +71,30 @@ export class FargateProfile extends pulumi.CustomResource {
     constructor(name: string, args: FargateProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ClusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ClusterName'");
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.PodExecutionRoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PodExecutionRoleArn'");
+            if ((!args || args.podExecutionRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'podExecutionRoleArn'");
             }
-            if ((!args || args.Selectors === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Selectors'");
+            if ((!args || args.selectors === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'selectors'");
             }
-            inputs["ClusterName"] = args ? args.ClusterName : undefined;
-            inputs["FargateProfileName"] = args ? args.FargateProfileName : undefined;
-            inputs["PodExecutionRoleArn"] = args ? args.PodExecutionRoleArn : undefined;
-            inputs["Selectors"] = args ? args.Selectors : undefined;
-            inputs["Subnets"] = args ? args.Subnets : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["fargateProfileName"] = args ? args.fargateProfileName : undefined;
+            inputs["podExecutionRoleArn"] = args ? args.podExecutionRoleArn : undefined;
+            inputs["selectors"] = args ? args.selectors : undefined;
+            inputs["subnets"] = args ? args.subnets : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ClusterName"] = undefined /*out*/;
-            inputs["FargateProfileName"] = undefined /*out*/;
-            inputs["PodExecutionRoleArn"] = undefined /*out*/;
-            inputs["Selectors"] = undefined /*out*/;
-            inputs["Subnets"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["clusterName"] = undefined /*out*/;
+            inputs["fargateProfileName"] = undefined /*out*/;
+            inputs["podExecutionRoleArn"] = undefined /*out*/;
+            inputs["selectors"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,25 +114,25 @@ export interface FargateProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
      */
-    readonly ClusterName: pulumi.Input<string>;
+    readonly clusterName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
      */
-    readonly FargateProfileName?: pulumi.Input<string>;
+    readonly fargateProfileName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
      */
-    readonly PodExecutionRoleArn: pulumi.Input<string>;
+    readonly podExecutionRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
      */
-    readonly Selectors: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileSelector>[]>;
+    readonly selectors: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileSelector>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
      */
-    readonly Subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

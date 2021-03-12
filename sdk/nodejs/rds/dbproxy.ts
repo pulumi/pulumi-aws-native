@@ -38,45 +38,45 @@ export class DBProxy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    public readonly Auth!: pulumi.Output<outputs.RDS.DBProxyAuthFormat[]>;
-    public /*out*/ readonly DBProxyArn!: pulumi.Output<string>;
+    public readonly auth!: pulumi.Output<outputs.RDS.DBProxyAuthFormat[]>;
+    public /*out*/ readonly dBProxyArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
      */
-    public readonly DBProxyName!: pulumi.Output<string>;
+    public readonly dBProxyName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
      */
-    public readonly DebugLogging!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly Endpoint!: pulumi.Output<string>;
+    public readonly debugLogging!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
      */
-    public readonly EngineFamily!: pulumi.Output<string>;
+    public readonly engineFamily!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
      */
-    public readonly IdleClientTimeout!: pulumi.Output<number | undefined>;
+    public readonly idleClientTimeout!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
      */
-    public readonly RequireTLS!: pulumi.Output<boolean | undefined>;
+    public readonly requireTLS!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.RDS.DBProxyTagFormat[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.RDS.DBProxyTagFormat[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
      */
-    public readonly VpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
      */
-    public readonly VpcSubnetIds!: pulumi.Output<string[]>;
+    public readonly vpcSubnetIds!: pulumi.Output<string[]>;
 
     /**
      * Create a DBProxy resource with the given unique name, arguments, and options.
@@ -88,46 +88,46 @@ export class DBProxy extends pulumi.CustomResource {
     constructor(name: string, args: DBProxyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Auth === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Auth'");
+            if ((!args || args.auth === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'auth'");
             }
-            if ((!args || args.DBProxyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DBProxyName'");
+            if ((!args || args.dBProxyName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'dBProxyName'");
             }
-            if ((!args || args.EngineFamily === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'EngineFamily'");
+            if ((!args || args.engineFamily === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'engineFamily'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.VpcSubnetIds === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'VpcSubnetIds'");
+            if ((!args || args.vpcSubnetIds === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            inputs["Auth"] = args ? args.Auth : undefined;
-            inputs["DBProxyName"] = args ? args.DBProxyName : undefined;
-            inputs["DebugLogging"] = args ? args.DebugLogging : undefined;
-            inputs["EngineFamily"] = args ? args.EngineFamily : undefined;
-            inputs["IdleClientTimeout"] = args ? args.IdleClientTimeout : undefined;
-            inputs["RequireTLS"] = args ? args.RequireTLS : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["VpcSecurityGroupIds"] = args ? args.VpcSecurityGroupIds : undefined;
-            inputs["VpcSubnetIds"] = args ? args.VpcSubnetIds : undefined;
-            inputs["DBProxyArn"] = undefined /*out*/;
-            inputs["Endpoint"] = undefined /*out*/;
+            inputs["auth"] = args ? args.auth : undefined;
+            inputs["dBProxyName"] = args ? args.dBProxyName : undefined;
+            inputs["debugLogging"] = args ? args.debugLogging : undefined;
+            inputs["engineFamily"] = args ? args.engineFamily : undefined;
+            inputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
+            inputs["requireTLS"] = args ? args.requireTLS : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            inputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            inputs["dBProxyArn"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
         } else {
-            inputs["Auth"] = undefined /*out*/;
-            inputs["DBProxyArn"] = undefined /*out*/;
-            inputs["DBProxyName"] = undefined /*out*/;
-            inputs["DebugLogging"] = undefined /*out*/;
-            inputs["Endpoint"] = undefined /*out*/;
-            inputs["EngineFamily"] = undefined /*out*/;
-            inputs["IdleClientTimeout"] = undefined /*out*/;
-            inputs["RequireTLS"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["VpcSecurityGroupIds"] = undefined /*out*/;
-            inputs["VpcSubnetIds"] = undefined /*out*/;
+            inputs["auth"] = undefined /*out*/;
+            inputs["dBProxyArn"] = undefined /*out*/;
+            inputs["dBProxyName"] = undefined /*out*/;
+            inputs["debugLogging"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["engineFamily"] = undefined /*out*/;
+            inputs["idleClientTimeout"] = undefined /*out*/;
+            inputs["requireTLS"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            inputs["vpcSubnetIds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -147,41 +147,41 @@ export interface DBProxyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    readonly Auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormat>[]>;
+    readonly auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormat>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
      */
-    readonly DBProxyName: pulumi.Input<string>;
+    readonly dBProxyName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
      */
-    readonly DebugLogging?: pulumi.Input<boolean>;
+    readonly debugLogging?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
      */
-    readonly EngineFamily: pulumi.Input<string>;
+    readonly engineFamily: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
      */
-    readonly IdleClientTimeout?: pulumi.Input<number>;
+    readonly idleClientTimeout?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
      */
-    readonly RequireTLS?: pulumi.Input<boolean>;
+    readonly requireTLS?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormat>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormat>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
      */
-    readonly VpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
      */
-    readonly VpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

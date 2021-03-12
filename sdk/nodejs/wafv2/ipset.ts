@@ -38,29 +38,29 @@ export class IPSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
      */
-    public readonly Addresses!: pulumi.Output<string[]>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public readonly addresses!: pulumi.Output<string[]>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
      */
-    public readonly IPAddressVersion!: pulumi.Output<string>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly iPAddressVersion!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
      */
-    public readonly Scope!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IPSet resource with the given unique name, arguments, and options.
@@ -72,32 +72,32 @@ export class IPSet extends pulumi.CustomResource {
     constructor(name: string, args: IPSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Addresses === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Addresses'");
+            if ((!args || args.addresses === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'addresses'");
             }
-            if ((!args || args.IPAddressVersion === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'IPAddressVersion'");
+            if ((!args || args.iPAddressVersion === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'iPAddressVersion'");
             }
-            if ((!args || args.Scope === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Scope'");
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'scope'");
             }
-            inputs["Addresses"] = args ? args.Addresses : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["IPAddressVersion"] = args ? args.IPAddressVersion : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Scope"] = args ? args.Scope : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["addresses"] = args ? args.addresses : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["iPAddressVersion"] = args ? args.iPAddressVersion : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Addresses"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["IPAddressVersion"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Scope"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["addresses"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["iPAddressVersion"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["scope"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,25 +117,25 @@ export interface IPSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
      */
-    readonly Addresses: pulumi.Input<pulumi.Input<string>[]>;
+    readonly addresses: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
      */
-    readonly IPAddressVersion: pulumi.Input<string>;
+    readonly iPAddressVersion: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
      */
-    readonly Scope: pulumi.Input<string>;
+    readonly scope: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

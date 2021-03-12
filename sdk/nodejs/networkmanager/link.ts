@@ -38,33 +38,33 @@ export class Link extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
      */
-    public readonly Bandwidth!: pulumi.Output<outputs.NetworkManager.LinkBandwidth>;
+    public readonly bandwidth!: pulumi.Output<outputs.NetworkManager.LinkBandwidth>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
      */
-    public readonly GlobalNetworkId!: pulumi.Output<string>;
-    public /*out*/ readonly LinkArn!: pulumi.Output<string>;
-    public /*out*/ readonly LinkId!: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
+    public /*out*/ readonly linkArn!: pulumi.Output<string>;
+    public /*out*/ readonly linkId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
      */
-    public readonly Provider!: pulumi.Output<string | undefined>;
+    public readonly provider!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
      */
-    public readonly SiteId!: pulumi.Output<string>;
+    public readonly siteId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
      */
-    public readonly Type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Link resource with the given unique name, arguments, and options.
@@ -76,34 +76,34 @@ export class Link extends pulumi.CustomResource {
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Bandwidth === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Bandwidth'");
+            if ((!args || args.bandwidth === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'bandwidth'");
             }
-            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GlobalNetworkId'");
+            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.SiteId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SiteId'");
+            if ((!args || args.siteId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'siteId'");
             }
-            inputs["Bandwidth"] = args ? args.Bandwidth : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
-            inputs["Provider"] = args ? args.Provider : undefined;
-            inputs["SiteId"] = args ? args.SiteId : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
-            inputs["LinkArn"] = undefined /*out*/;
-            inputs["LinkId"] = undefined /*out*/;
+            inputs["bandwidth"] = args ? args.bandwidth : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            inputs["provider"] = args ? args.provider : undefined;
+            inputs["siteId"] = args ? args.siteId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["linkArn"] = undefined /*out*/;
+            inputs["linkId"] = undefined /*out*/;
         } else {
-            inputs["Bandwidth"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["GlobalNetworkId"] = undefined /*out*/;
-            inputs["LinkArn"] = undefined /*out*/;
-            inputs["LinkId"] = undefined /*out*/;
-            inputs["Provider"] = undefined /*out*/;
-            inputs["SiteId"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["bandwidth"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["globalNetworkId"] = undefined /*out*/;
+            inputs["linkArn"] = undefined /*out*/;
+            inputs["linkId"] = undefined /*out*/;
+            inputs["provider"] = undefined /*out*/;
+            inputs["siteId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -123,29 +123,29 @@ export interface LinkArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
      */
-    readonly Bandwidth: pulumi.Input<inputs.NetworkManager.LinkBandwidth>;
+    readonly bandwidth: pulumi.Input<inputs.NetworkManager.LinkBandwidth>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
      */
-    readonly GlobalNetworkId: pulumi.Input<string>;
+    readonly globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
      */
-    readonly Provider?: pulumi.Input<string>;
+    readonly provider?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
      */
-    readonly SiteId: pulumi.Input<string>;
+    readonly siteId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
      */
-    readonly Type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string>;
 }

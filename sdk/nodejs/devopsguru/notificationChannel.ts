@@ -38,8 +38,8 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
      */
-    public readonly Config!: pulumi.Output<outputs.DevOpsGuru.NotificationChannelNotificationChannelConfig>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly config!: pulumi.Output<outputs.DevOpsGuru.NotificationChannelNotificationChannelConfig>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -51,14 +51,14 @@ export class NotificationChannel extends pulumi.CustomResource {
     constructor(name: string, args: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Config === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Config'");
+            if ((!args || args.config === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'config'");
             }
-            inputs["Config"] = args ? args.Config : undefined;
-            inputs["Id"] = undefined /*out*/;
+            inputs["config"] = args ? args.config : undefined;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Config"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["config"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -78,5 +78,5 @@ export interface NotificationChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
      */
-    readonly Config: pulumi.Input<inputs.DevOpsGuru.NotificationChannelNotificationChannelConfig>;
+    readonly config: pulumi.Input<inputs.DevOpsGuru.NotificationChannelNotificationChannelConfig>;
 }

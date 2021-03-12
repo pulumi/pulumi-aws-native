@@ -34,22 +34,22 @@ export class ModuleVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModuleVersion.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly Description!: pulumi.Output<string>;
-    public /*out*/ readonly DocumentationUrl!: pulumi.Output<string>;
-    public /*out*/ readonly IsDefaultVersion!: pulumi.Output<boolean>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly documentationUrl!: pulumi.Output<string>;
+    public /*out*/ readonly isDefaultVersion!: pulumi.Output<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
      */
-    public readonly ModuleName!: pulumi.Output<string>;
+    public readonly moduleName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
      */
-    public readonly ModulePackage!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Schema!: pulumi.Output<string>;
-    public /*out*/ readonly TimeCreated!: pulumi.Output<string>;
-    public /*out*/ readonly VersionId!: pulumi.Output<string>;
-    public /*out*/ readonly Visibility!: pulumi.Output<string>;
+    public readonly modulePackage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly schema!: pulumi.Output<string>;
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string>;
+    public /*out*/ readonly visibility!: pulumi.Output<string>;
 
     /**
      * Create a ModuleVersion resource with the given unique name, arguments, and options.
@@ -61,30 +61,30 @@ export class ModuleVersion extends pulumi.CustomResource {
     constructor(name: string, args: ModuleVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ModuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ModuleName'");
+            if ((!args || args.moduleName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'moduleName'");
             }
-            inputs["ModuleName"] = args ? args.ModuleName : undefined;
-            inputs["ModulePackage"] = args ? args.ModulePackage : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["DocumentationUrl"] = undefined /*out*/;
-            inputs["IsDefaultVersion"] = undefined /*out*/;
-            inputs["Schema"] = undefined /*out*/;
-            inputs["TimeCreated"] = undefined /*out*/;
-            inputs["VersionId"] = undefined /*out*/;
-            inputs["Visibility"] = undefined /*out*/;
+            inputs["moduleName"] = args ? args.moduleName : undefined;
+            inputs["modulePackage"] = args ? args.modulePackage : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["documentationUrl"] = undefined /*out*/;
+            inputs["isDefaultVersion"] = undefined /*out*/;
+            inputs["schema"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
+            inputs["versionId"] = undefined /*out*/;
+            inputs["visibility"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["DocumentationUrl"] = undefined /*out*/;
-            inputs["IsDefaultVersion"] = undefined /*out*/;
-            inputs["ModuleName"] = undefined /*out*/;
-            inputs["ModulePackage"] = undefined /*out*/;
-            inputs["Schema"] = undefined /*out*/;
-            inputs["TimeCreated"] = undefined /*out*/;
-            inputs["VersionId"] = undefined /*out*/;
-            inputs["Visibility"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["documentationUrl"] = undefined /*out*/;
+            inputs["isDefaultVersion"] = undefined /*out*/;
+            inputs["moduleName"] = undefined /*out*/;
+            inputs["modulePackage"] = undefined /*out*/;
+            inputs["schema"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
+            inputs["versionId"] = undefined /*out*/;
+            inputs["visibility"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -104,9 +104,9 @@ export interface ModuleVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
      */
-    readonly ModuleName: pulumi.Input<string>;
+    readonly moduleName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
      */
-    readonly ModulePackage?: pulumi.Input<string>;
+    readonly modulePackage?: pulumi.Input<string>;
 }

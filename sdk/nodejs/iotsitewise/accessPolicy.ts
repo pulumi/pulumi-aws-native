@@ -35,20 +35,20 @@ export class AccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPolicy.__pulumiType;
     }
 
-    public /*out*/ readonly AccessPolicyArn!: pulumi.Output<string>;
-    public /*out*/ readonly AccessPolicyId!: pulumi.Output<string>;
+    public /*out*/ readonly accessPolicyArn!: pulumi.Output<string>;
+    public /*out*/ readonly accessPolicyId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    public readonly AccessPolicyIdentity!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
+    public readonly accessPolicyIdentity!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
-    public readonly AccessPolicyPermission!: pulumi.Output<string>;
+    public readonly accessPolicyPermission!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    public readonly AccessPolicyResource!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
+    public readonly accessPolicyResource!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -60,26 +60,26 @@ export class AccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AccessPolicyIdentity === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AccessPolicyIdentity'");
+            if ((!args || args.accessPolicyIdentity === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'accessPolicyIdentity'");
             }
-            if ((!args || args.AccessPolicyPermission === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AccessPolicyPermission'");
+            if ((!args || args.accessPolicyPermission === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'accessPolicyPermission'");
             }
-            if ((!args || args.AccessPolicyResource === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AccessPolicyResource'");
+            if ((!args || args.accessPolicyResource === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'accessPolicyResource'");
             }
-            inputs["AccessPolicyIdentity"] = args ? args.AccessPolicyIdentity : undefined;
-            inputs["AccessPolicyPermission"] = args ? args.AccessPolicyPermission : undefined;
-            inputs["AccessPolicyResource"] = args ? args.AccessPolicyResource : undefined;
-            inputs["AccessPolicyArn"] = undefined /*out*/;
-            inputs["AccessPolicyId"] = undefined /*out*/;
+            inputs["accessPolicyIdentity"] = args ? args.accessPolicyIdentity : undefined;
+            inputs["accessPolicyPermission"] = args ? args.accessPolicyPermission : undefined;
+            inputs["accessPolicyResource"] = args ? args.accessPolicyResource : undefined;
+            inputs["accessPolicyArn"] = undefined /*out*/;
+            inputs["accessPolicyId"] = undefined /*out*/;
         } else {
-            inputs["AccessPolicyArn"] = undefined /*out*/;
-            inputs["AccessPolicyId"] = undefined /*out*/;
-            inputs["AccessPolicyIdentity"] = undefined /*out*/;
-            inputs["AccessPolicyPermission"] = undefined /*out*/;
-            inputs["AccessPolicyResource"] = undefined /*out*/;
+            inputs["accessPolicyArn"] = undefined /*out*/;
+            inputs["accessPolicyId"] = undefined /*out*/;
+            inputs["accessPolicyIdentity"] = undefined /*out*/;
+            inputs["accessPolicyPermission"] = undefined /*out*/;
+            inputs["accessPolicyResource"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,13 +99,13 @@ export interface AccessPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    readonly AccessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
+    readonly accessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
-    readonly AccessPolicyPermission: pulumi.Input<string>;
+    readonly accessPolicyPermission: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    readonly AccessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
+    readonly accessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
 }

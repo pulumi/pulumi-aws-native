@@ -35,37 +35,37 @@ export class WebACL extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebACL.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly Capacity!: pulumi.Output<number>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */
-    public readonly DefaultAction!: pulumi.Output<outputs.WAFv2.WebACLDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<outputs.WAFv2.WebACLDefaultAction>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
      */
-    public readonly Rules!: pulumi.Output<outputs.WAFv2.WebACLRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.WAFv2.WebACLRule[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
      */
-    public readonly Scope!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
      */
-    public readonly VisibilityConfig!: pulumi.Output<outputs.WAFv2.WebACLVisibilityConfig>;
+    public readonly visibilityConfig!: pulumi.Output<outputs.WAFv2.WebACLVisibilityConfig>;
 
     /**
      * Create a WebACL resource with the given unique name, arguments, and options.
@@ -77,36 +77,36 @@ export class WebACL extends pulumi.CustomResource {
     constructor(name: string, args: WebACLArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DefaultAction === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DefaultAction'");
+            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.Scope === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Scope'");
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.VisibilityConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'VisibilityConfig'");
+            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'visibilityConfig'");
             }
-            inputs["DefaultAction"] = args ? args.DefaultAction : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Rules"] = args ? args.Rules : undefined;
-            inputs["Scope"] = args ? args.Scope : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["VisibilityConfig"] = args ? args.VisibilityConfig : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Capacity"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["defaultAction"] = args ? args.defaultAction : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["rules"] = args ? args.rules : undefined;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["capacity"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Capacity"] = undefined /*out*/;
-            inputs["DefaultAction"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Rules"] = undefined /*out*/;
-            inputs["Scope"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["VisibilityConfig"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["capacity"] = undefined /*out*/;
+            inputs["defaultAction"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["rules"] = undefined /*out*/;
+            inputs["scope"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["visibilityConfig"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -126,29 +126,29 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */
-    readonly DefaultAction: pulumi.Input<inputs.WAFv2.WebACLDefaultAction>;
+    readonly defaultAction: pulumi.Input<inputs.WAFv2.WebACLDefaultAction>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
      */
-    readonly Rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLRule>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
      */
-    readonly Scope: pulumi.Input<string>;
+    readonly scope: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
      */
-    readonly VisibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfig>;
+    readonly visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfig>;
 }

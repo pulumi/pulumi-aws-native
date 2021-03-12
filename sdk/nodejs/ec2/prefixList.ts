@@ -38,27 +38,27 @@ export class PrefixList extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
      */
-    public readonly AddressFamily!: pulumi.Output<string>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public readonly addressFamily!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
      */
-    public readonly Entries!: pulumi.Output<outputs.EC2.PrefixListEntry[] | undefined>;
+    public readonly entries!: pulumi.Output<outputs.EC2.PrefixListEntry[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
      */
-    public readonly MaxEntries!: pulumi.Output<number>;
-    public /*out*/ readonly OwnerId!: pulumi.Output<string>;
-    public /*out*/ readonly PrefixListId!: pulumi.Output<string>;
+    public readonly maxEntries!: pulumi.Output<number>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly prefixListId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
      */
-    public readonly PrefixListName!: pulumi.Output<string>;
+    public readonly prefixListName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public /*out*/ readonly Version!: pulumi.Output<number>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a PrefixList resource with the given unique name, arguments, and options.
@@ -70,34 +70,34 @@ export class PrefixList extends pulumi.CustomResource {
     constructor(name: string, args: PrefixListArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AddressFamily === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AddressFamily'");
+            if ((!args || args.addressFamily === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.MaxEntries === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'MaxEntries'");
+            if ((!args || args.maxEntries === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'maxEntries'");
             }
-            if ((!args || args.PrefixListName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PrefixListName'");
+            if ((!args || args.prefixListName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'prefixListName'");
             }
-            inputs["AddressFamily"] = args ? args.AddressFamily : undefined;
-            inputs["Entries"] = args ? args.Entries : undefined;
-            inputs["MaxEntries"] = args ? args.MaxEntries : undefined;
-            inputs["PrefixListName"] = args ? args.PrefixListName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["OwnerId"] = undefined /*out*/;
-            inputs["PrefixListId"] = undefined /*out*/;
-            inputs["Version"] = undefined /*out*/;
+            inputs["addressFamily"] = args ? args.addressFamily : undefined;
+            inputs["entries"] = args ? args.entries : undefined;
+            inputs["maxEntries"] = args ? args.maxEntries : undefined;
+            inputs["prefixListName"] = args ? args.prefixListName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
+            inputs["prefixListId"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         } else {
-            inputs["AddressFamily"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Entries"] = undefined /*out*/;
-            inputs["MaxEntries"] = undefined /*out*/;
-            inputs["OwnerId"] = undefined /*out*/;
-            inputs["PrefixListId"] = undefined /*out*/;
-            inputs["PrefixListName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Version"] = undefined /*out*/;
+            inputs["addressFamily"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["entries"] = undefined /*out*/;
+            inputs["maxEntries"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
+            inputs["prefixListId"] = undefined /*out*/;
+            inputs["prefixListName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,21 +117,21 @@ export interface PrefixListArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
      */
-    readonly AddressFamily: pulumi.Input<string>;
+    readonly addressFamily: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
      */
-    readonly Entries?: pulumi.Input<pulumi.Input<inputs.EC2.PrefixListEntry>[]>;
+    readonly entries?: pulumi.Input<pulumi.Input<inputs.EC2.PrefixListEntry>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
      */
-    readonly MaxEntries: pulumi.Input<number>;
+    readonly maxEntries: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
      */
-    readonly PrefixListName: pulumi.Input<string>;
+    readonly prefixListName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

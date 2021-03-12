@@ -38,81 +38,81 @@ export class Environment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
      */
-    public readonly AirflowConfigurationOptions!: pulumi.Output<outputs.MWAA.EnvironmentAirflowConfigurationOptions | undefined>;
+    public readonly airflowConfigurationOptions!: pulumi.Output<outputs.MWAA.EnvironmentAirflowConfigurationOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
      */
-    public readonly AirflowVersion!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly CreatedAt!: pulumi.Output<string>;
+    public readonly airflowVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
      */
-    public readonly DagS3Path!: pulumi.Output<string | undefined>;
+    public readonly dagS3Path!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
      */
-    public readonly EnvironmentClass!: pulumi.Output<string | undefined>;
+    public readonly environmentClass!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
      */
-    public readonly ExecutionRoleArn!: pulumi.Output<string | undefined>;
+    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
      */
-    public readonly KmsKey!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly LastUpdate!: pulumi.Output<outputs.MWAA.EnvironmentLastUpdate>;
+    public readonly kmsKey!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lastUpdate!: pulumi.Output<outputs.MWAA.EnvironmentLastUpdate>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
      */
-    public readonly LoggingConfiguration!: pulumi.Output<outputs.MWAA.EnvironmentLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.MWAA.EnvironmentLoggingConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
      */
-    public readonly MaxWorkers!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly Name!: pulumi.Output<string>;
+    public readonly maxWorkers!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
      */
-    public readonly NetworkConfiguration!: pulumi.Output<outputs.MWAA.EnvironmentNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.MWAA.EnvironmentNetworkConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
      */
-    public readonly PluginsS3ObjectVersion!: pulumi.Output<string | undefined>;
+    public readonly pluginsS3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
      */
-    public readonly PluginsS3Path!: pulumi.Output<string | undefined>;
+    public readonly pluginsS3Path!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
      */
-    public readonly RequirementsS3ObjectVersion!: pulumi.Output<string | undefined>;
+    public readonly requirementsS3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
      */
-    public readonly RequirementsS3Path!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly ServiceRoleArn!: pulumi.Output<string>;
+    public readonly requirementsS3Path!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly serviceRoleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
      */
-    public readonly SourceBucketArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Status!: pulumi.Output<string>;
+    public readonly sourceBucketArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.MWAA.EnvironmentTagMap | undefined>;
+    public readonly tags!: pulumi.Output<outputs.MWAA.EnvironmentTagMap | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
      */
-    public readonly WebserverAccessMode!: pulumi.Output<string | undefined>;
+    public readonly webserverAccessMode!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
      */
-    public readonly WebserverUrl!: pulumi.Output<string | undefined>;
+    public readonly webserverUrl!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
      */
-    public readonly WeeklyMaintenanceWindowStart!: pulumi.Output<string | undefined>;
+    public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -124,55 +124,55 @@ export class Environment extends pulumi.CustomResource {
     constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["AirflowConfigurationOptions"] = args ? args.AirflowConfigurationOptions : undefined;
-            inputs["AirflowVersion"] = args ? args.AirflowVersion : undefined;
-            inputs["DagS3Path"] = args ? args.DagS3Path : undefined;
-            inputs["EnvironmentClass"] = args ? args.EnvironmentClass : undefined;
-            inputs["ExecutionRoleArn"] = args ? args.ExecutionRoleArn : undefined;
-            inputs["KmsKey"] = args ? args.KmsKey : undefined;
-            inputs["LoggingConfiguration"] = args ? args.LoggingConfiguration : undefined;
-            inputs["MaxWorkers"] = args ? args.MaxWorkers : undefined;
-            inputs["NetworkConfiguration"] = args ? args.NetworkConfiguration : undefined;
-            inputs["PluginsS3ObjectVersion"] = args ? args.PluginsS3ObjectVersion : undefined;
-            inputs["PluginsS3Path"] = args ? args.PluginsS3Path : undefined;
-            inputs["RequirementsS3ObjectVersion"] = args ? args.RequirementsS3ObjectVersion : undefined;
-            inputs["RequirementsS3Path"] = args ? args.RequirementsS3Path : undefined;
-            inputs["SourceBucketArn"] = args ? args.SourceBucketArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["WebserverAccessMode"] = args ? args.WebserverAccessMode : undefined;
-            inputs["WebserverUrl"] = args ? args.WebserverUrl : undefined;
-            inputs["WeeklyMaintenanceWindowStart"] = args ? args.WeeklyMaintenanceWindowStart : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreatedAt"] = undefined /*out*/;
-            inputs["LastUpdate"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["ServiceRoleArn"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["airflowConfigurationOptions"] = args ? args.airflowConfigurationOptions : undefined;
+            inputs["airflowVersion"] = args ? args.airflowVersion : undefined;
+            inputs["dagS3Path"] = args ? args.dagS3Path : undefined;
+            inputs["environmentClass"] = args ? args.environmentClass : undefined;
+            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            inputs["kmsKey"] = args ? args.kmsKey : undefined;
+            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            inputs["maxWorkers"] = args ? args.maxWorkers : undefined;
+            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            inputs["pluginsS3ObjectVersion"] = args ? args.pluginsS3ObjectVersion : undefined;
+            inputs["pluginsS3Path"] = args ? args.pluginsS3Path : undefined;
+            inputs["requirementsS3ObjectVersion"] = args ? args.requirementsS3ObjectVersion : undefined;
+            inputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
+            inputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
+            inputs["webserverUrl"] = args ? args.webserverUrl : undefined;
+            inputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["lastUpdate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["serviceRoleArn"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         } else {
-            inputs["AirflowConfigurationOptions"] = undefined /*out*/;
-            inputs["AirflowVersion"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreatedAt"] = undefined /*out*/;
-            inputs["DagS3Path"] = undefined /*out*/;
-            inputs["EnvironmentClass"] = undefined /*out*/;
-            inputs["ExecutionRoleArn"] = undefined /*out*/;
-            inputs["KmsKey"] = undefined /*out*/;
-            inputs["LastUpdate"] = undefined /*out*/;
-            inputs["LoggingConfiguration"] = undefined /*out*/;
-            inputs["MaxWorkers"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["NetworkConfiguration"] = undefined /*out*/;
-            inputs["PluginsS3ObjectVersion"] = undefined /*out*/;
-            inputs["PluginsS3Path"] = undefined /*out*/;
-            inputs["RequirementsS3ObjectVersion"] = undefined /*out*/;
-            inputs["RequirementsS3Path"] = undefined /*out*/;
-            inputs["ServiceRoleArn"] = undefined /*out*/;
-            inputs["SourceBucketArn"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["WebserverAccessMode"] = undefined /*out*/;
-            inputs["WebserverUrl"] = undefined /*out*/;
-            inputs["WeeklyMaintenanceWindowStart"] = undefined /*out*/;
+            inputs["airflowConfigurationOptions"] = undefined /*out*/;
+            inputs["airflowVersion"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["dagS3Path"] = undefined /*out*/;
+            inputs["environmentClass"] = undefined /*out*/;
+            inputs["executionRoleArn"] = undefined /*out*/;
+            inputs["kmsKey"] = undefined /*out*/;
+            inputs["lastUpdate"] = undefined /*out*/;
+            inputs["loggingConfiguration"] = undefined /*out*/;
+            inputs["maxWorkers"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkConfiguration"] = undefined /*out*/;
+            inputs["pluginsS3ObjectVersion"] = undefined /*out*/;
+            inputs["pluginsS3Path"] = undefined /*out*/;
+            inputs["requirementsS3ObjectVersion"] = undefined /*out*/;
+            inputs["requirementsS3Path"] = undefined /*out*/;
+            inputs["serviceRoleArn"] = undefined /*out*/;
+            inputs["sourceBucketArn"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["webserverAccessMode"] = undefined /*out*/;
+            inputs["webserverUrl"] = undefined /*out*/;
+            inputs["weeklyMaintenanceWindowStart"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -192,73 +192,73 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
      */
-    readonly AirflowConfigurationOptions?: pulumi.Input<inputs.MWAA.EnvironmentAirflowConfigurationOptions>;
+    readonly airflowConfigurationOptions?: pulumi.Input<inputs.MWAA.EnvironmentAirflowConfigurationOptions>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
      */
-    readonly AirflowVersion?: pulumi.Input<string>;
+    readonly airflowVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
      */
-    readonly DagS3Path?: pulumi.Input<string>;
+    readonly dagS3Path?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
      */
-    readonly EnvironmentClass?: pulumi.Input<string>;
+    readonly environmentClass?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
      */
-    readonly ExecutionRoleArn?: pulumi.Input<string>;
+    readonly executionRoleArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
      */
-    readonly KmsKey?: pulumi.Input<string>;
+    readonly kmsKey?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
      */
-    readonly LoggingConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentLoggingConfiguration>;
+    readonly loggingConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentLoggingConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
      */
-    readonly MaxWorkers?: pulumi.Input<number>;
+    readonly maxWorkers?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
      */
-    readonly NetworkConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentNetworkConfiguration>;
+    readonly networkConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentNetworkConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
      */
-    readonly PluginsS3ObjectVersion?: pulumi.Input<string>;
+    readonly pluginsS3ObjectVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
      */
-    readonly PluginsS3Path?: pulumi.Input<string>;
+    readonly pluginsS3Path?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
      */
-    readonly RequirementsS3ObjectVersion?: pulumi.Input<string>;
+    readonly requirementsS3ObjectVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
      */
-    readonly RequirementsS3Path?: pulumi.Input<string>;
+    readonly requirementsS3Path?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
      */
-    readonly SourceBucketArn?: pulumi.Input<string>;
+    readonly sourceBucketArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
      */
-    readonly Tags?: pulumi.Input<inputs.MWAA.EnvironmentTagMap>;
+    readonly tags?: pulumi.Input<inputs.MWAA.EnvironmentTagMap>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
      */
-    readonly WebserverAccessMode?: pulumi.Input<string>;
+    readonly webserverAccessMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
      */
-    readonly WebserverUrl?: pulumi.Input<string>;
+    readonly webserverUrl?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
      */
-    readonly WeeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    readonly weeklyMaintenanceWindowStart?: pulumi.Input<string>;
 }

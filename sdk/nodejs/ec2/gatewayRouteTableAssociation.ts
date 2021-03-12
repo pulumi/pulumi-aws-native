@@ -34,15 +34,15 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayRouteTableAssociation.__pulumiType;
     }
 
-    public /*out*/ readonly AssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
      */
-    public readonly GatewayId!: pulumi.Output<string>;
+    public readonly gatewayId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
      */
-    public readonly RouteTableId!: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
 
     /**
      * Create a GatewayRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -54,19 +54,19 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, args: GatewayRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.GatewayId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GatewayId'");
+            if ((!args || args.gatewayId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.RouteTableId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RouteTableId'");
+            if ((!args || args.routeTableId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'routeTableId'");
             }
-            inputs["GatewayId"] = args ? args.GatewayId : undefined;
-            inputs["RouteTableId"] = args ? args.RouteTableId : undefined;
-            inputs["AssociationId"] = undefined /*out*/;
+            inputs["gatewayId"] = args ? args.gatewayId : undefined;
+            inputs["routeTableId"] = args ? args.routeTableId : undefined;
+            inputs["associationId"] = undefined /*out*/;
         } else {
-            inputs["AssociationId"] = undefined /*out*/;
-            inputs["GatewayId"] = undefined /*out*/;
-            inputs["RouteTableId"] = undefined /*out*/;
+            inputs["associationId"] = undefined /*out*/;
+            inputs["gatewayId"] = undefined /*out*/;
+            inputs["routeTableId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -86,9 +86,9 @@ export interface GatewayRouteTableAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
      */
-    readonly GatewayId: pulumi.Input<string>;
+    readonly gatewayId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
      */
-    readonly RouteTableId: pulumi.Input<string>;
+    readonly routeTableId: pulumi.Input<string>;
 }

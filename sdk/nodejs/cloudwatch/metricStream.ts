@@ -35,34 +35,34 @@ export class MetricStream extends pulumi.CustomResource {
         return obj['__pulumiType'] === MetricStream.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly CreationDate!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
      */
-    public readonly ExcludeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
+    public readonly excludeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
      */
-    public readonly FirehoseArn!: pulumi.Output<string>;
+    public readonly firehoseArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
      */
-    public readonly IncludeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
-    public /*out*/ readonly LastUpdateDate!: pulumi.Output<string>;
+    public readonly includeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
+    public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
-    public /*out*/ readonly State!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MetricStream resource with the given unique name, arguments, and options.
@@ -74,33 +74,33 @@ export class MetricStream extends pulumi.CustomResource {
     constructor(name: string, args: MetricStreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.FirehoseArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FirehoseArn'");
+            if ((!args || args.firehoseArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'firehoseArn'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["ExcludeFilters"] = args ? args.ExcludeFilters : undefined;
-            inputs["FirehoseArn"] = args ? args.FirehoseArn : undefined;
-            inputs["IncludeFilters"] = args ? args.IncludeFilters : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreationDate"] = undefined /*out*/;
-            inputs["LastUpdateDate"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
+            inputs["excludeFilters"] = args ? args.excludeFilters : undefined;
+            inputs["firehoseArn"] = args ? args.firehoseArn : undefined;
+            inputs["includeFilters"] = args ? args.includeFilters : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["lastUpdateDate"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreationDate"] = undefined /*out*/;
-            inputs["ExcludeFilters"] = undefined /*out*/;
-            inputs["FirehoseArn"] = undefined /*out*/;
-            inputs["IncludeFilters"] = undefined /*out*/;
-            inputs["LastUpdateDate"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["excludeFilters"] = undefined /*out*/;
+            inputs["firehoseArn"] = undefined /*out*/;
+            inputs["includeFilters"] = undefined /*out*/;
+            inputs["lastUpdateDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -120,25 +120,25 @@ export interface MetricStreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
      */
-    readonly ExcludeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilter>[]>;
+    readonly excludeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilter>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
      */
-    readonly FirehoseArn: pulumi.Input<string>;
+    readonly firehoseArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
      */
-    readonly IncludeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilter>[]>;
+    readonly includeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilter>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

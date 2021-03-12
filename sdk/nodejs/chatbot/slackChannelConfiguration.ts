@@ -34,31 +34,31 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === SlackChannelConfiguration.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
      */
-    public readonly ConfigurationName!: pulumi.Output<string>;
+    public readonly configurationName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
      */
-    public readonly IamRoleArn!: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
      */
-    public readonly LoggingLevel!: pulumi.Output<string | undefined>;
+    public readonly loggingLevel!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
      */
-    public readonly SlackChannelId!: pulumi.Output<string>;
+    public readonly slackChannelId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
      */
-    public readonly SlackWorkspaceId!: pulumi.Output<string>;
+    public readonly slackWorkspaceId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
      */
-    public readonly SnsTopicArns!: pulumi.Output<string[] | undefined>;
+    public readonly snsTopicArns!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SlackChannelConfiguration resource with the given unique name, arguments, and options.
@@ -70,33 +70,33 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: SlackChannelConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ConfigurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ConfigurationName'");
+            if ((!args || args.configurationName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.IamRoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'IamRoleArn'");
+            if ((!args || args.iamRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.SlackChannelId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SlackChannelId'");
+            if ((!args || args.slackChannelId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'slackChannelId'");
             }
-            if ((!args || args.SlackWorkspaceId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SlackWorkspaceId'");
+            if ((!args || args.slackWorkspaceId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'slackWorkspaceId'");
             }
-            inputs["ConfigurationName"] = args ? args.ConfigurationName : undefined;
-            inputs["IamRoleArn"] = args ? args.IamRoleArn : undefined;
-            inputs["LoggingLevel"] = args ? args.LoggingLevel : undefined;
-            inputs["SlackChannelId"] = args ? args.SlackChannelId : undefined;
-            inputs["SlackWorkspaceId"] = args ? args.SlackWorkspaceId : undefined;
-            inputs["SnsTopicArns"] = args ? args.SnsTopicArns : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["configurationName"] = args ? args.configurationName : undefined;
+            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            inputs["loggingLevel"] = args ? args.loggingLevel : undefined;
+            inputs["slackChannelId"] = args ? args.slackChannelId : undefined;
+            inputs["slackWorkspaceId"] = args ? args.slackWorkspaceId : undefined;
+            inputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ConfigurationName"] = undefined /*out*/;
-            inputs["IamRoleArn"] = undefined /*out*/;
-            inputs["LoggingLevel"] = undefined /*out*/;
-            inputs["SlackChannelId"] = undefined /*out*/;
-            inputs["SlackWorkspaceId"] = undefined /*out*/;
-            inputs["SnsTopicArns"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["configurationName"] = undefined /*out*/;
+            inputs["iamRoleArn"] = undefined /*out*/;
+            inputs["loggingLevel"] = undefined /*out*/;
+            inputs["slackChannelId"] = undefined /*out*/;
+            inputs["slackWorkspaceId"] = undefined /*out*/;
+            inputs["snsTopicArns"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -116,25 +116,25 @@ export interface SlackChannelConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
      */
-    readonly ConfigurationName: pulumi.Input<string>;
+    readonly configurationName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
      */
-    readonly IamRoleArn: pulumi.Input<string>;
+    readonly iamRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
      */
-    readonly LoggingLevel?: pulumi.Input<string>;
+    readonly loggingLevel?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
      */
-    readonly SlackChannelId: pulumi.Input<string>;
+    readonly slackChannelId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
      */
-    readonly SlackWorkspaceId: pulumi.Input<string>;
+    readonly slackWorkspaceId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
      */
-    readonly SnsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
 }

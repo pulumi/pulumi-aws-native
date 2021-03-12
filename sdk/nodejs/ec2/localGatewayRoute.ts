@@ -37,17 +37,17 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
      */
-    public readonly DestinationCidrBlock!: pulumi.Output<string>;
+    public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
      */
-    public readonly LocalGatewayRouteTableId!: pulumi.Output<string>;
+    public readonly localGatewayRouteTableId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
      */
-    public readonly LocalGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
-    public /*out*/ readonly State!: pulumi.Output<string>;
-    public /*out*/ readonly Type!: pulumi.Output<string>;
+    public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRoute resource with the given unique name, arguments, and options.
@@ -59,26 +59,26 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
     constructor(name: string, args: LocalGatewayRouteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DestinationCidrBlock === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DestinationCidrBlock'");
+            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.LocalGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'LocalGatewayRouteTableId'");
+            if ((!args || args.localGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.LocalGatewayVirtualInterfaceGroupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'LocalGatewayVirtualInterfaceGroupId'");
+            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
-            inputs["DestinationCidrBlock"] = args ? args.DestinationCidrBlock : undefined;
-            inputs["LocalGatewayRouteTableId"] = args ? args.LocalGatewayRouteTableId : undefined;
-            inputs["LocalGatewayVirtualInterfaceGroupId"] = args ? args.LocalGatewayVirtualInterfaceGroupId : undefined;
-            inputs["State"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
+            inputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
+            inputs["state"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         } else {
-            inputs["DestinationCidrBlock"] = undefined /*out*/;
-            inputs["LocalGatewayRouteTableId"] = undefined /*out*/;
-            inputs["LocalGatewayVirtualInterfaceGroupId"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["destinationCidrBlock"] = undefined /*out*/;
+            inputs["localGatewayRouteTableId"] = undefined /*out*/;
+            inputs["localGatewayVirtualInterfaceGroupId"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,13 +98,13 @@ export interface LocalGatewayRouteArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
      */
-    readonly DestinationCidrBlock: pulumi.Input<string>;
+    readonly destinationCidrBlock: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
      */
-    readonly LocalGatewayRouteTableId: pulumi.Input<string>;
+    readonly localGatewayRouteTableId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
      */
-    readonly LocalGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
+    readonly localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
 }

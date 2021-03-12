@@ -37,20 +37,20 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
      */
-    public readonly Certificate!: pulumi.Output<string>;
+    public readonly certificate!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
      */
-    public readonly CertificateAuthorityArn!: pulumi.Output<string>;
+    public readonly certificateAuthorityArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
      */
-    public readonly CertificateChain!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly CompleteCertificateChain!: pulumi.Output<string>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly completeCertificateChain!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
      */
-    public readonly Status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CertificateAuthorityActivation resource with the given unique name, arguments, and options.
@@ -62,23 +62,23 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
     constructor(name: string, args: CertificateAuthorityActivationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Certificate === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Certificate'");
+            if ((!args || args.certificate === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.CertificateAuthorityArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'CertificateAuthorityArn'");
+            if ((!args || args.certificateAuthorityArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            inputs["Certificate"] = args ? args.Certificate : undefined;
-            inputs["CertificateAuthorityArn"] = args ? args.CertificateAuthorityArn : undefined;
-            inputs["CertificateChain"] = args ? args.CertificateChain : undefined;
-            inputs["Status"] = args ? args.Status : undefined;
-            inputs["CompleteCertificateChain"] = undefined /*out*/;
+            inputs["certificate"] = args ? args.certificate : undefined;
+            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            inputs["certificateChain"] = args ? args.certificateChain : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["completeCertificateChain"] = undefined /*out*/;
         } else {
-            inputs["Certificate"] = undefined /*out*/;
-            inputs["CertificateAuthorityArn"] = undefined /*out*/;
-            inputs["CertificateChain"] = undefined /*out*/;
-            inputs["CompleteCertificateChain"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["certificate"] = undefined /*out*/;
+            inputs["certificateAuthorityArn"] = undefined /*out*/;
+            inputs["certificateChain"] = undefined /*out*/;
+            inputs["completeCertificateChain"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,17 +98,17 @@ export interface CertificateAuthorityActivationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
      */
-    readonly Certificate: pulumi.Input<string>;
+    readonly certificate: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
      */
-    readonly CertificateAuthorityArn: pulumi.Input<string>;
+    readonly certificateAuthorityArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
      */
-    readonly CertificateChain?: pulumi.Input<string>;
+    readonly certificateChain?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
      */
-    readonly Status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string>;
 }

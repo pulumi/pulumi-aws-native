@@ -34,16 +34,16 @@ export class Session extends pulumi.CustomResource {
         return obj['__pulumiType'] === Session.__pulumiType;
     }
 
-    public /*out*/ readonly AwsAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
      */
-    public readonly FindingPublishingFrequency!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly ServiceRole!: pulumi.Output<string>;
+    public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly serviceRole!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
      */
-    public readonly Status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Session resource with the given unique name, arguments, and options.
@@ -55,15 +55,15 @@ export class Session extends pulumi.CustomResource {
     constructor(name: string, args?: SessionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["FindingPublishingFrequency"] = args ? args.FindingPublishingFrequency : undefined;
-            inputs["Status"] = args ? args.Status : undefined;
-            inputs["AwsAccountId"] = undefined /*out*/;
-            inputs["ServiceRole"] = undefined /*out*/;
+            inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["awsAccountId"] = undefined /*out*/;
+            inputs["serviceRole"] = undefined /*out*/;
         } else {
-            inputs["AwsAccountId"] = undefined /*out*/;
-            inputs["FindingPublishingFrequency"] = undefined /*out*/;
-            inputs["ServiceRole"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["awsAccountId"] = undefined /*out*/;
+            inputs["findingPublishingFrequency"] = undefined /*out*/;
+            inputs["serviceRole"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -83,9 +83,9 @@ export interface SessionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
      */
-    readonly FindingPublishingFrequency?: pulumi.Input<string>;
+    readonly findingPublishingFrequency?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
      */
-    readonly Status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string>;
 }

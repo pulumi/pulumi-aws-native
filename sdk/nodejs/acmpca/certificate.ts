@@ -35,28 +35,28 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly Certificate!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
      */
-    public readonly CertificateAuthorityArn!: pulumi.Output<string>;
+    public readonly certificateAuthorityArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
      */
-    public readonly CertificateSigningRequest!: pulumi.Output<string>;
+    public readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
      */
-    public readonly SigningAlgorithm!: pulumi.Output<string>;
+    public readonly signingAlgorithm!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
      */
-    public readonly TemplateArn!: pulumi.Output<string | undefined>;
+    public readonly templateArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
      */
-    public readonly Validity!: pulumi.Output<outputs.ACMPCA.CertificateValidity>;
+    public readonly validity!: pulumi.Output<outputs.ACMPCA.CertificateValidity>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -68,33 +68,33 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.CertificateAuthorityArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'CertificateAuthorityArn'");
+            if ((!args || args.certificateAuthorityArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.CertificateSigningRequest === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'CertificateSigningRequest'");
+            if ((!args || args.certificateSigningRequest === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'certificateSigningRequest'");
             }
-            if ((!args || args.SigningAlgorithm === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SigningAlgorithm'");
+            if ((!args || args.signingAlgorithm === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.Validity === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Validity'");
+            if ((!args || args.validity === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'validity'");
             }
-            inputs["CertificateAuthorityArn"] = args ? args.CertificateAuthorityArn : undefined;
-            inputs["CertificateSigningRequest"] = args ? args.CertificateSigningRequest : undefined;
-            inputs["SigningAlgorithm"] = args ? args.SigningAlgorithm : undefined;
-            inputs["TemplateArn"] = args ? args.TemplateArn : undefined;
-            inputs["Validity"] = args ? args.Validity : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Certificate"] = undefined /*out*/;
+            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            inputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
+            inputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
+            inputs["templateArn"] = args ? args.templateArn : undefined;
+            inputs["validity"] = args ? args.validity : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["certificate"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Certificate"] = undefined /*out*/;
-            inputs["CertificateAuthorityArn"] = undefined /*out*/;
-            inputs["CertificateSigningRequest"] = undefined /*out*/;
-            inputs["SigningAlgorithm"] = undefined /*out*/;
-            inputs["TemplateArn"] = undefined /*out*/;
-            inputs["Validity"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["certificate"] = undefined /*out*/;
+            inputs["certificateAuthorityArn"] = undefined /*out*/;
+            inputs["certificateSigningRequest"] = undefined /*out*/;
+            inputs["signingAlgorithm"] = undefined /*out*/;
+            inputs["templateArn"] = undefined /*out*/;
+            inputs["validity"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,21 +114,21 @@ export interface CertificateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
      */
-    readonly CertificateAuthorityArn: pulumi.Input<string>;
+    readonly certificateAuthorityArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
      */
-    readonly CertificateSigningRequest: pulumi.Input<string>;
+    readonly certificateSigningRequest: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
      */
-    readonly SigningAlgorithm: pulumi.Input<string>;
+    readonly signingAlgorithm: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
      */
-    readonly TemplateArn?: pulumi.Input<string>;
+    readonly templateArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
      */
-    readonly Validity: pulumi.Input<inputs.ACMPCA.CertificateValidity>;
+    readonly validity: pulumi.Input<inputs.ACMPCA.CertificateValidity>;
 }

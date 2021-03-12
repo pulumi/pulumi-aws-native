@@ -35,25 +35,25 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
-    public /*out*/ readonly ConnectionArn!: pulumi.Output<string>;
+    public /*out*/ readonly connectionArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
      */
-    public readonly ConnectionName!: pulumi.Output<string>;
-    public /*out*/ readonly ConnectionStatus!: pulumi.Output<string>;
+    public readonly connectionName!: pulumi.Output<string>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
      */
-    public readonly HostArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly OwnerAccountId!: pulumi.Output<string>;
+    public readonly hostArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
      */
-    public readonly ProviderType!: pulumi.Output<string | undefined>;
+    public readonly providerType!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -65,24 +65,24 @@ export class Connection extends pulumi.CustomResource {
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ConnectionName'");
+            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'connectionName'");
             }
-            inputs["ConnectionName"] = args ? args.ConnectionName : undefined;
-            inputs["HostArn"] = args ? args.HostArn : undefined;
-            inputs["ProviderType"] = args ? args.ProviderType : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["ConnectionArn"] = undefined /*out*/;
-            inputs["ConnectionStatus"] = undefined /*out*/;
-            inputs["OwnerAccountId"] = undefined /*out*/;
+            inputs["connectionName"] = args ? args.connectionName : undefined;
+            inputs["hostArn"] = args ? args.hostArn : undefined;
+            inputs["providerType"] = args ? args.providerType : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["connectionArn"] = undefined /*out*/;
+            inputs["connectionStatus"] = undefined /*out*/;
+            inputs["ownerAccountId"] = undefined /*out*/;
         } else {
-            inputs["ConnectionArn"] = undefined /*out*/;
-            inputs["ConnectionName"] = undefined /*out*/;
-            inputs["ConnectionStatus"] = undefined /*out*/;
-            inputs["HostArn"] = undefined /*out*/;
-            inputs["OwnerAccountId"] = undefined /*out*/;
-            inputs["ProviderType"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["connectionArn"] = undefined /*out*/;
+            inputs["connectionName"] = undefined /*out*/;
+            inputs["connectionStatus"] = undefined /*out*/;
+            inputs["hostArn"] = undefined /*out*/;
+            inputs["ownerAccountId"] = undefined /*out*/;
+            inputs["providerType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,17 +102,17 @@ export interface ConnectionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
      */
-    readonly ConnectionName: pulumi.Input<string>;
+    readonly connectionName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
      */
-    readonly HostArn?: pulumi.Input<string>;
+    readonly hostArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
      */
-    readonly ProviderType?: pulumi.Input<string>;
+    readonly providerType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

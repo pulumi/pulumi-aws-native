@@ -37,24 +37,24 @@ export class NamedQuery extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
      */
-    public readonly Database!: pulumi.Output<string>;
+    public readonly database!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly NamedQueryId!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly namedQueryId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
      */
-    public readonly QueryString!: pulumi.Output<string>;
+    public readonly queryString!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
      */
-    public readonly WorkGroup!: pulumi.Output<string | undefined>;
+    public readonly workGroup!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NamedQuery resource with the given unique name, arguments, and options.
@@ -66,25 +66,25 @@ export class NamedQuery extends pulumi.CustomResource {
     constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Database === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Database'");
+            if ((!args || args.database === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.QueryString === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'QueryString'");
+            if ((!args || args.queryString === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'queryString'");
             }
-            inputs["Database"] = args ? args.Database : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["QueryString"] = args ? args.QueryString : undefined;
-            inputs["WorkGroup"] = args ? args.WorkGroup : undefined;
-            inputs["NamedQueryId"] = undefined /*out*/;
+            inputs["database"] = args ? args.database : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["queryString"] = args ? args.queryString : undefined;
+            inputs["workGroup"] = args ? args.workGroup : undefined;
+            inputs["namedQueryId"] = undefined /*out*/;
         } else {
-            inputs["Database"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["NamedQueryId"] = undefined /*out*/;
-            inputs["QueryString"] = undefined /*out*/;
-            inputs["WorkGroup"] = undefined /*out*/;
+            inputs["database"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["namedQueryId"] = undefined /*out*/;
+            inputs["queryString"] = undefined /*out*/;
+            inputs["workGroup"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -104,21 +104,21 @@ export interface NamedQueryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
      */
-    readonly Database: pulumi.Input<string>;
+    readonly database: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
      */
-    readonly QueryString: pulumi.Input<string>;
+    readonly queryString: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
      */
-    readonly WorkGroup?: pulumi.Input<string>;
+    readonly workGroup?: pulumi.Input<string>;
 }

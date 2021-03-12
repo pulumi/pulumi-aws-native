@@ -35,15 +35,15 @@ export class TopicRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === TopicRule.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
      */
-    public readonly RuleName!: pulumi.Output<string | undefined>;
+    public readonly ruleName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
      */
-    public readonly TopicRulePayload!: pulumi.Output<outputs.IoT.TopicRuleTopicRulePayload>;
+    public readonly topicRulePayload!: pulumi.Output<outputs.IoT.TopicRuleTopicRulePayload>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -55,16 +55,16 @@ export class TopicRule extends pulumi.CustomResource {
     constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.TopicRulePayload === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TopicRulePayload'");
+            if ((!args || args.topicRulePayload === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'topicRulePayload'");
             }
-            inputs["RuleName"] = args ? args.RuleName : undefined;
-            inputs["TopicRulePayload"] = args ? args.TopicRulePayload : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["ruleName"] = args ? args.ruleName : undefined;
+            inputs["topicRulePayload"] = args ? args.topicRulePayload : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["RuleName"] = undefined /*out*/;
-            inputs["TopicRulePayload"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["ruleName"] = undefined /*out*/;
+            inputs["topicRulePayload"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -84,9 +84,9 @@ export interface TopicRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
      */
-    readonly RuleName?: pulumi.Input<string>;
+    readonly ruleName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
      */
-    readonly TopicRulePayload: pulumi.Input<inputs.IoT.TopicRuleTopicRulePayload>;
+    readonly topicRulePayload: pulumi.Input<inputs.IoT.TopicRuleTopicRulePayload>;
 }

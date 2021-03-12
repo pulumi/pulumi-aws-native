@@ -38,8 +38,8 @@ export class ResourceCollection extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
      */
-    public readonly ResourceCollectionFilter!: pulumi.Output<outputs.DevOpsGuru.ResourceCollectionResourceCollectionFilter>;
-    public /*out*/ readonly ResourceCollectionType!: pulumi.Output<string>;
+    public readonly resourceCollectionFilter!: pulumi.Output<outputs.DevOpsGuru.ResourceCollectionResourceCollectionFilter>;
+    public /*out*/ readonly resourceCollectionType!: pulumi.Output<string>;
 
     /**
      * Create a ResourceCollection resource with the given unique name, arguments, and options.
@@ -51,14 +51,14 @@ export class ResourceCollection extends pulumi.CustomResource {
     constructor(name: string, args: ResourceCollectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ResourceCollectionFilter === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ResourceCollectionFilter'");
+            if ((!args || args.resourceCollectionFilter === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'resourceCollectionFilter'");
             }
-            inputs["ResourceCollectionFilter"] = args ? args.ResourceCollectionFilter : undefined;
-            inputs["ResourceCollectionType"] = undefined /*out*/;
+            inputs["resourceCollectionFilter"] = args ? args.resourceCollectionFilter : undefined;
+            inputs["resourceCollectionType"] = undefined /*out*/;
         } else {
-            inputs["ResourceCollectionFilter"] = undefined /*out*/;
-            inputs["ResourceCollectionType"] = undefined /*out*/;
+            inputs["resourceCollectionFilter"] = undefined /*out*/;
+            inputs["resourceCollectionType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -78,5 +78,5 @@ export interface ResourceCollectionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
      */
-    readonly ResourceCollectionFilter: pulumi.Input<inputs.DevOpsGuru.ResourceCollectionResourceCollectionFilter>;
+    readonly resourceCollectionFilter: pulumi.Input<inputs.DevOpsGuru.ResourceCollectionResourceCollectionFilter>;
 }

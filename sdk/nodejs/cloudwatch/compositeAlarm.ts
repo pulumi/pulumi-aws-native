@@ -37,32 +37,32 @@ export class CompositeAlarm extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
      */
-    public readonly ActionsEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
      */
-    public readonly AlarmActions!: pulumi.Output<string[] | undefined>;
+    public readonly alarmActions!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
      */
-    public readonly AlarmDescription!: pulumi.Output<string | undefined>;
+    public readonly alarmDescription!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
      */
-    public readonly AlarmName!: pulumi.Output<string>;
+    public readonly alarmName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
      */
-    public readonly AlarmRule!: pulumi.Output<string>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public readonly alarmRule!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
      */
-    public readonly InsufficientDataActions!: pulumi.Output<string[] | undefined>;
+    public readonly insufficientDataActions!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
      */
-    public readonly OKActions!: pulumi.Output<string[] | undefined>;
+    public readonly oKActions!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -74,29 +74,29 @@ export class CompositeAlarm extends pulumi.CustomResource {
     constructor(name: string, args: CompositeAlarmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AlarmName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AlarmName'");
+            if ((!args || args.alarmName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'alarmName'");
             }
-            if ((!args || args.AlarmRule === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AlarmRule'");
+            if ((!args || args.alarmRule === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'alarmRule'");
             }
-            inputs["ActionsEnabled"] = args ? args.ActionsEnabled : undefined;
-            inputs["AlarmActions"] = args ? args.AlarmActions : undefined;
-            inputs["AlarmDescription"] = args ? args.AlarmDescription : undefined;
-            inputs["AlarmName"] = args ? args.AlarmName : undefined;
-            inputs["AlarmRule"] = args ? args.AlarmRule : undefined;
-            inputs["InsufficientDataActions"] = args ? args.InsufficientDataActions : undefined;
-            inputs["OKActions"] = args ? args.OKActions : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
+            inputs["alarmActions"] = args ? args.alarmActions : undefined;
+            inputs["alarmDescription"] = args ? args.alarmDescription : undefined;
+            inputs["alarmName"] = args ? args.alarmName : undefined;
+            inputs["alarmRule"] = args ? args.alarmRule : undefined;
+            inputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
+            inputs["oKActions"] = args ? args.oKActions : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["ActionsEnabled"] = undefined /*out*/;
-            inputs["AlarmActions"] = undefined /*out*/;
-            inputs["AlarmDescription"] = undefined /*out*/;
-            inputs["AlarmName"] = undefined /*out*/;
-            inputs["AlarmRule"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["InsufficientDataActions"] = undefined /*out*/;
-            inputs["OKActions"] = undefined /*out*/;
+            inputs["actionsEnabled"] = undefined /*out*/;
+            inputs["alarmActions"] = undefined /*out*/;
+            inputs["alarmDescription"] = undefined /*out*/;
+            inputs["alarmName"] = undefined /*out*/;
+            inputs["alarmRule"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["insufficientDataActions"] = undefined /*out*/;
+            inputs["oKActions"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -116,29 +116,29 @@ export interface CompositeAlarmArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
      */
-    readonly ActionsEnabled?: pulumi.Input<boolean>;
+    readonly actionsEnabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
      */
-    readonly AlarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
      */
-    readonly AlarmDescription?: pulumi.Input<string>;
+    readonly alarmDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
      */
-    readonly AlarmName: pulumi.Input<string>;
+    readonly alarmName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
      */
-    readonly AlarmRule: pulumi.Input<string>;
+    readonly alarmRule: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
      */
-    readonly InsufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
      */
-    readonly OKActions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly oKActions?: pulumi.Input<pulumi.Input<string>[]>;
 }

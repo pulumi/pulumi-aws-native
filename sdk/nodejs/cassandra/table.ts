@@ -38,27 +38,27 @@ export class Table extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
      */
-    public readonly BillingMode!: pulumi.Output<outputs.Cassandra.TableBillingMode | undefined>;
+    public readonly billingMode!: pulumi.Output<outputs.Cassandra.TableBillingMode | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
      */
-    public readonly ClusteringKeyColumns!: pulumi.Output<outputs.Cassandra.TableClusteringKeyColumn[] | undefined>;
+    public readonly clusteringKeyColumns!: pulumi.Output<outputs.Cassandra.TableClusteringKeyColumn[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
      */
-    public readonly KeyspaceName!: pulumi.Output<string>;
+    public readonly keyspaceName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
      */
-    public readonly PartitionKeyColumns!: pulumi.Output<outputs.Cassandra.TableColumn[]>;
+    public readonly partitionKeyColumns!: pulumi.Output<outputs.Cassandra.TableColumn[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
      */
-    public readonly RegularColumns!: pulumi.Output<outputs.Cassandra.TableColumn[] | undefined>;
+    public readonly regularColumns!: pulumi.Output<outputs.Cassandra.TableColumn[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
      */
-    public readonly TableName!: pulumi.Output<string | undefined>;
+    public readonly tableName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -70,25 +70,25 @@ export class Table extends pulumi.CustomResource {
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.KeyspaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'KeyspaceName'");
+            if ((!args || args.keyspaceName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'keyspaceName'");
             }
-            if ((!args || args.PartitionKeyColumns === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PartitionKeyColumns'");
+            if ((!args || args.partitionKeyColumns === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'partitionKeyColumns'");
             }
-            inputs["BillingMode"] = args ? args.BillingMode : undefined;
-            inputs["ClusteringKeyColumns"] = args ? args.ClusteringKeyColumns : undefined;
-            inputs["KeyspaceName"] = args ? args.KeyspaceName : undefined;
-            inputs["PartitionKeyColumns"] = args ? args.PartitionKeyColumns : undefined;
-            inputs["RegularColumns"] = args ? args.RegularColumns : undefined;
-            inputs["TableName"] = args ? args.TableName : undefined;
+            inputs["billingMode"] = args ? args.billingMode : undefined;
+            inputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
+            inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
+            inputs["partitionKeyColumns"] = args ? args.partitionKeyColumns : undefined;
+            inputs["regularColumns"] = args ? args.regularColumns : undefined;
+            inputs["tableName"] = args ? args.tableName : undefined;
         } else {
-            inputs["BillingMode"] = undefined /*out*/;
-            inputs["ClusteringKeyColumns"] = undefined /*out*/;
-            inputs["KeyspaceName"] = undefined /*out*/;
-            inputs["PartitionKeyColumns"] = undefined /*out*/;
-            inputs["RegularColumns"] = undefined /*out*/;
-            inputs["TableName"] = undefined /*out*/;
+            inputs["billingMode"] = undefined /*out*/;
+            inputs["clusteringKeyColumns"] = undefined /*out*/;
+            inputs["keyspaceName"] = undefined /*out*/;
+            inputs["partitionKeyColumns"] = undefined /*out*/;
+            inputs["regularColumns"] = undefined /*out*/;
+            inputs["tableName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -108,25 +108,25 @@ export interface TableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
      */
-    readonly BillingMode?: pulumi.Input<inputs.Cassandra.TableBillingMode>;
+    readonly billingMode?: pulumi.Input<inputs.Cassandra.TableBillingMode>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
      */
-    readonly ClusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableClusteringKeyColumn>[]>;
+    readonly clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableClusteringKeyColumn>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
      */
-    readonly KeyspaceName: pulumi.Input<string>;
+    readonly keyspaceName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
      */
-    readonly PartitionKeyColumns: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumn>[]>;
+    readonly partitionKeyColumns: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumn>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
      */
-    readonly RegularColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumn>[]>;
+    readonly regularColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumn>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
      */
-    readonly TableName?: pulumi.Input<string>;
+    readonly tableName?: pulumi.Input<string>;
 }

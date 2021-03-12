@@ -38,12 +38,12 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
      */
-    public readonly HealthCheckConfig!: pulumi.Output<any | string>;
-    public /*out*/ readonly HealthCheckId!: pulumi.Output<string>;
+    public readonly healthCheckConfig!: pulumi.Output<any | string>;
+    public /*out*/ readonly healthCheckId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    public readonly HealthCheckTags!: pulumi.Output<outputs.Route53.HealthCheckHealthCheckTag[] | undefined>;
+    public readonly healthCheckTags!: pulumi.Output<outputs.Route53.HealthCheckHealthCheckTag[] | undefined>;
 
     /**
      * Create a HealthCheck resource with the given unique name, arguments, and options.
@@ -55,16 +55,16 @@ export class HealthCheck extends pulumi.CustomResource {
     constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.HealthCheckConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'HealthCheckConfig'");
+            if ((!args || args.healthCheckConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'healthCheckConfig'");
             }
-            inputs["HealthCheckConfig"] = args ? args.HealthCheckConfig : undefined;
-            inputs["HealthCheckTags"] = args ? args.HealthCheckTags : undefined;
-            inputs["HealthCheckId"] = undefined /*out*/;
+            inputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
+            inputs["healthCheckTags"] = args ? args.healthCheckTags : undefined;
+            inputs["healthCheckId"] = undefined /*out*/;
         } else {
-            inputs["HealthCheckConfig"] = undefined /*out*/;
-            inputs["HealthCheckId"] = undefined /*out*/;
-            inputs["HealthCheckTags"] = undefined /*out*/;
+            inputs["healthCheckConfig"] = undefined /*out*/;
+            inputs["healthCheckId"] = undefined /*out*/;
+            inputs["healthCheckTags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -84,9 +84,9 @@ export interface HealthCheckArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
      */
-    readonly HealthCheckConfig: pulumi.Input<any | string>;
+    readonly healthCheckConfig: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    readonly HealthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTag>[]>;
+    readonly healthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTag>[]>;
 }

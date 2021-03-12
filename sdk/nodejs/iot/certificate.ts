@@ -34,28 +34,28 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
      */
-    public readonly CACertificatePem!: pulumi.Output<string | undefined>;
+    public readonly cACertificatePem!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
      */
-    public readonly CertificateMode!: pulumi.Output<string | undefined>;
+    public readonly certificateMode!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
      */
-    public readonly CertificatePem!: pulumi.Output<string | undefined>;
+    public readonly certificatePem!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
      */
-    public readonly CertificateSigningRequest!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly certificateSigningRequest!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
      */
-    public readonly Status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -67,24 +67,24 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Status === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Status'");
+            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'status'");
             }
-            inputs["CACertificatePem"] = args ? args.CACertificatePem : undefined;
-            inputs["CertificateMode"] = args ? args.CertificateMode : undefined;
-            inputs["CertificatePem"] = args ? args.CertificatePem : undefined;
-            inputs["CertificateSigningRequest"] = args ? args.CertificateSigningRequest : undefined;
-            inputs["Status"] = args ? args.Status : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["cACertificatePem"] = args ? args.cACertificatePem : undefined;
+            inputs["certificateMode"] = args ? args.certificateMode : undefined;
+            inputs["certificatePem"] = args ? args.certificatePem : undefined;
+            inputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CACertificatePem"] = undefined /*out*/;
-            inputs["CertificateMode"] = undefined /*out*/;
-            inputs["CertificatePem"] = undefined /*out*/;
-            inputs["CertificateSigningRequest"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["cACertificatePem"] = undefined /*out*/;
+            inputs["certificateMode"] = undefined /*out*/;
+            inputs["certificatePem"] = undefined /*out*/;
+            inputs["certificateSigningRequest"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -104,21 +104,21 @@ export interface CertificateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
      */
-    readonly CACertificatePem?: pulumi.Input<string>;
+    readonly cACertificatePem?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
      */
-    readonly CertificateMode?: pulumi.Input<string>;
+    readonly certificateMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
      */
-    readonly CertificatePem?: pulumi.Input<string>;
+    readonly certificatePem?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
      */
-    readonly CertificateSigningRequest?: pulumi.Input<string>;
+    readonly certificateSigningRequest?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
      */
-    readonly Status: pulumi.Input<string>;
+    readonly status: pulumi.Input<string>;
 }

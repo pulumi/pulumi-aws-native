@@ -35,35 +35,35 @@ export class PackagingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === PackagingConfiguration.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    public readonly CmafPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationCmafPackage | undefined>;
+    public readonly cmafPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationCmafPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    public readonly DashPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationDashPackage | undefined>;
+    public readonly dashPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationDashPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    public readonly HlsPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationHlsPackage | undefined>;
+    public readonly hlsPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationHlsPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
-    public readonly Id!: pulumi.Output<string>;
+    public readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
      */
-    public readonly MssPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationMssPackage | undefined>;
+    public readonly mssPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationMssPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
      */
-    public readonly PackagingGroupId!: pulumi.Output<string>;
+    public readonly packagingGroupId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PackagingConfiguration resource with the given unique name, arguments, and options.
@@ -75,29 +75,29 @@ export class PackagingConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: PackagingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Id'");
+            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'id'");
             }
-            if ((!args || args.PackagingGroupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PackagingGroupId'");
+            if ((!args || args.packagingGroupId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'packagingGroupId'");
             }
-            inputs["CmafPackage"] = args ? args.CmafPackage : undefined;
-            inputs["DashPackage"] = args ? args.DashPackage : undefined;
-            inputs["HlsPackage"] = args ? args.HlsPackage : undefined;
-            inputs["Id"] = args ? args.Id : undefined;
-            inputs["MssPackage"] = args ? args.MssPackage : undefined;
-            inputs["PackagingGroupId"] = args ? args.PackagingGroupId : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["cmafPackage"] = args ? args.cmafPackage : undefined;
+            inputs["dashPackage"] = args ? args.dashPackage : undefined;
+            inputs["hlsPackage"] = args ? args.hlsPackage : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["mssPackage"] = args ? args.mssPackage : undefined;
+            inputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CmafPackage"] = undefined /*out*/;
-            inputs["DashPackage"] = undefined /*out*/;
-            inputs["HlsPackage"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["MssPackage"] = undefined /*out*/;
-            inputs["PackagingGroupId"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["cmafPackage"] = undefined /*out*/;
+            inputs["dashPackage"] = undefined /*out*/;
+            inputs["hlsPackage"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["mssPackage"] = undefined /*out*/;
+            inputs["packagingGroupId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,29 +117,29 @@ export interface PackagingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    readonly CmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackage>;
+    readonly cmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    readonly DashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackage>;
+    readonly dashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    readonly HlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackage>;
+    readonly hlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
-    readonly Id: pulumi.Input<string>;
+    readonly id: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
      */
-    readonly MssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackage>;
+    readonly mssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
      */
-    readonly PackagingGroupId: pulumi.Input<string>;
+    readonly packagingGroupId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

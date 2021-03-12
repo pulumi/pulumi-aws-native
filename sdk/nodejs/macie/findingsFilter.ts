@@ -38,26 +38,26 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
      */
-    public readonly Action!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public readonly action!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
      */
-    public readonly FindingCriteria!: pulumi.Output<outputs.Macie.FindingsFilterFindingCriteria>;
-    public /*out*/ readonly FindingsFilterListItems!: pulumi.Output<outputs.Macie.FindingsFilterFindingsFilterListItem[]>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly findingCriteria!: pulumi.Output<outputs.Macie.FindingsFilterFindingCriteria>;
+    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.Macie.FindingsFilterFindingsFilterListItem[]>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
      */
-    public readonly Position!: pulumi.Output<number | undefined>;
+    public readonly position!: pulumi.Output<number | undefined>;
 
     /**
      * Create a FindingsFilter resource with the given unique name, arguments, and options.
@@ -69,29 +69,29 @@ export class FindingsFilter extends pulumi.CustomResource {
     constructor(name: string, args: FindingsFilterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.FindingCriteria === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FindingCriteria'");
+            if ((!args || args.findingCriteria === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'findingCriteria'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            inputs["Action"] = args ? args.Action : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["FindingCriteria"] = args ? args.FindingCriteria : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Position"] = args ? args.Position : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["FindingsFilterListItems"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["action"] = args ? args.action : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["findingCriteria"] = args ? args.findingCriteria : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["position"] = args ? args.position : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["findingsFilterListItems"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Action"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["FindingCriteria"] = undefined /*out*/;
-            inputs["FindingsFilterListItems"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Position"] = undefined /*out*/;
+            inputs["action"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["findingCriteria"] = undefined /*out*/;
+            inputs["findingsFilterListItems"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["position"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,21 +111,21 @@ export interface FindingsFilterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
      */
-    readonly Action?: pulumi.Input<string>;
+    readonly action?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
      */
-    readonly FindingCriteria: pulumi.Input<inputs.Macie.FindingsFilterFindingCriteria>;
+    readonly findingCriteria: pulumi.Input<inputs.Macie.FindingsFilterFindingCriteria>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
      */
-    readonly Position?: pulumi.Input<number>;
+    readonly position?: pulumi.Input<number>;
 }

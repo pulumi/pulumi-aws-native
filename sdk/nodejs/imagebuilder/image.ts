@@ -35,33 +35,33 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
      */
-    public readonly DistributionConfigurationArn!: pulumi.Output<string | undefined>;
+    public readonly distributionConfigurationArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
      */
-    public readonly EnhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly ImageId!: pulumi.Output<string>;
+    public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly imageId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
      */
-    public readonly ImageRecipeArn!: pulumi.Output<string>;
+    public readonly imageRecipeArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
-    public readonly ImageTestsConfiguration!: pulumi.Output<outputs.ImageBuilder.ImageImageTestsConfiguration | undefined>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.ImageBuilder.ImageImageTestsConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
      */
-    public readonly InfrastructureConfigurationArn!: pulumi.Output<string>;
-    public /*out*/ readonly Name!: pulumi.Output<string>;
+    public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
      */
-    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -73,31 +73,31 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ImageRecipeArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ImageRecipeArn'");
+            if ((!args || args.imageRecipeArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'imageRecipeArn'");
             }
-            if ((!args || args.InfrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'InfrastructureConfigurationArn'");
+            if ((!args || args.infrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
-            inputs["DistributionConfigurationArn"] = args ? args.DistributionConfigurationArn : undefined;
-            inputs["EnhancedImageMetadataEnabled"] = args ? args.EnhancedImageMetadataEnabled : undefined;
-            inputs["ImageRecipeArn"] = args ? args.ImageRecipeArn : undefined;
-            inputs["ImageTestsConfiguration"] = args ? args.ImageTestsConfiguration : undefined;
-            inputs["InfrastructureConfigurationArn"] = args ? args.InfrastructureConfigurationArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ImageId"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
+            inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
+            inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            inputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            inputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
+            inputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["imageId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["DistributionConfigurationArn"] = undefined /*out*/;
-            inputs["EnhancedImageMetadataEnabled"] = undefined /*out*/;
-            inputs["ImageId"] = undefined /*out*/;
-            inputs["ImageRecipeArn"] = undefined /*out*/;
-            inputs["ImageTestsConfiguration"] = undefined /*out*/;
-            inputs["InfrastructureConfigurationArn"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["distributionConfigurationArn"] = undefined /*out*/;
+            inputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
+            inputs["imageId"] = undefined /*out*/;
+            inputs["imageRecipeArn"] = undefined /*out*/;
+            inputs["imageTestsConfiguration"] = undefined /*out*/;
+            inputs["infrastructureConfigurationArn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,25 +117,25 @@ export interface ImageArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
      */
-    readonly DistributionConfigurationArn?: pulumi.Input<string>;
+    readonly distributionConfigurationArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
      */
-    readonly EnhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    readonly enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
      */
-    readonly ImageRecipeArn: pulumi.Input<string>;
+    readonly imageRecipeArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
-    readonly ImageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageImageTestsConfiguration>;
+    readonly imageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageImageTestsConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
      */
-    readonly InfrastructureConfigurationArn: pulumi.Input<string>;
+    readonly infrastructureConfigurationArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
      */
-    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

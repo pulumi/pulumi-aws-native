@@ -38,64 +38,64 @@ export class Association extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
      */
-    public readonly ApplyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly AssociationId!: pulumi.Output<string>;
+    public readonly applyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
      */
-    public readonly AssociationName!: pulumi.Output<string | undefined>;
+    public readonly associationName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
      */
-    public readonly AutomationTargetParameterName!: pulumi.Output<string | undefined>;
+    public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
      */
-    public readonly ComplianceSeverity!: pulumi.Output<string | undefined>;
+    public readonly complianceSeverity!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
      */
-    public readonly DocumentVersion!: pulumi.Output<string | undefined>;
+    public readonly documentVersion!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
      */
-    public readonly InstanceId!: pulumi.Output<string | undefined>;
+    public readonly instanceId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
      */
-    public readonly MaxConcurrency!: pulumi.Output<string | undefined>;
+    public readonly maxConcurrency!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
      */
-    public readonly MaxErrors!: pulumi.Output<string | undefined>;
+    public readonly maxErrors!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
      */
-    public readonly OutputLocation!: pulumi.Output<outputs.SSM.AssociationInstanceAssociationOutputLocation | undefined>;
+    public readonly outputLocation!: pulumi.Output<outputs.SSM.AssociationInstanceAssociationOutputLocation | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
-    public readonly Parameters!: pulumi.Output<{[key: string]: outputs.SSM.AssociationParameterValues} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.SSM.AssociationParameterValues} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
      */
-    public readonly ScheduleExpression!: pulumi.Output<string | undefined>;
+    public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
      */
-    public readonly SyncCompliance!: pulumi.Output<string | undefined>;
+    public readonly syncCompliance!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
      */
-    public readonly Targets!: pulumi.Output<outputs.SSM.AssociationTarget[] | undefined>;
+    public readonly targets!: pulumi.Output<outputs.SSM.AssociationTarget[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
      */
-    public readonly WaitForSuccessTimeoutSeconds!: pulumi.Output<number | undefined>;
+    public readonly waitForSuccessTimeoutSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -107,42 +107,42 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            inputs["ApplyOnlyAtCronInterval"] = args ? args.ApplyOnlyAtCronInterval : undefined;
-            inputs["AssociationName"] = args ? args.AssociationName : undefined;
-            inputs["AutomationTargetParameterName"] = args ? args.AutomationTargetParameterName : undefined;
-            inputs["ComplianceSeverity"] = args ? args.ComplianceSeverity : undefined;
-            inputs["DocumentVersion"] = args ? args.DocumentVersion : undefined;
-            inputs["InstanceId"] = args ? args.InstanceId : undefined;
-            inputs["MaxConcurrency"] = args ? args.MaxConcurrency : undefined;
-            inputs["MaxErrors"] = args ? args.MaxErrors : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["OutputLocation"] = args ? args.OutputLocation : undefined;
-            inputs["Parameters"] = args ? args.Parameters : undefined;
-            inputs["ScheduleExpression"] = args ? args.ScheduleExpression : undefined;
-            inputs["SyncCompliance"] = args ? args.SyncCompliance : undefined;
-            inputs["Targets"] = args ? args.Targets : undefined;
-            inputs["WaitForSuccessTimeoutSeconds"] = args ? args.WaitForSuccessTimeoutSeconds : undefined;
-            inputs["AssociationId"] = undefined /*out*/;
+            inputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
+            inputs["associationName"] = args ? args.associationName : undefined;
+            inputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
+            inputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
+            inputs["documentVersion"] = args ? args.documentVersion : undefined;
+            inputs["instanceId"] = args ? args.instanceId : undefined;
+            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            inputs["maxErrors"] = args ? args.maxErrors : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["outputLocation"] = args ? args.outputLocation : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            inputs["syncCompliance"] = args ? args.syncCompliance : undefined;
+            inputs["targets"] = args ? args.targets : undefined;
+            inputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
+            inputs["associationId"] = undefined /*out*/;
         } else {
-            inputs["ApplyOnlyAtCronInterval"] = undefined /*out*/;
-            inputs["AssociationId"] = undefined /*out*/;
-            inputs["AssociationName"] = undefined /*out*/;
-            inputs["AutomationTargetParameterName"] = undefined /*out*/;
-            inputs["ComplianceSeverity"] = undefined /*out*/;
-            inputs["DocumentVersion"] = undefined /*out*/;
-            inputs["InstanceId"] = undefined /*out*/;
-            inputs["MaxConcurrency"] = undefined /*out*/;
-            inputs["MaxErrors"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["OutputLocation"] = undefined /*out*/;
-            inputs["Parameters"] = undefined /*out*/;
-            inputs["ScheduleExpression"] = undefined /*out*/;
-            inputs["SyncCompliance"] = undefined /*out*/;
-            inputs["Targets"] = undefined /*out*/;
-            inputs["WaitForSuccessTimeoutSeconds"] = undefined /*out*/;
+            inputs["applyOnlyAtCronInterval"] = undefined /*out*/;
+            inputs["associationId"] = undefined /*out*/;
+            inputs["associationName"] = undefined /*out*/;
+            inputs["automationTargetParameterName"] = undefined /*out*/;
+            inputs["complianceSeverity"] = undefined /*out*/;
+            inputs["documentVersion"] = undefined /*out*/;
+            inputs["instanceId"] = undefined /*out*/;
+            inputs["maxConcurrency"] = undefined /*out*/;
+            inputs["maxErrors"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["outputLocation"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["scheduleExpression"] = undefined /*out*/;
+            inputs["syncCompliance"] = undefined /*out*/;
+            inputs["targets"] = undefined /*out*/;
+            inputs["waitForSuccessTimeoutSeconds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -162,61 +162,61 @@ export interface AssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
      */
-    readonly ApplyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    readonly applyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
      */
-    readonly AssociationName?: pulumi.Input<string>;
+    readonly associationName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
      */
-    readonly AutomationTargetParameterName?: pulumi.Input<string>;
+    readonly automationTargetParameterName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
      */
-    readonly ComplianceSeverity?: pulumi.Input<string>;
+    readonly complianceSeverity?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
      */
-    readonly DocumentVersion?: pulumi.Input<string>;
+    readonly documentVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
      */
-    readonly InstanceId?: pulumi.Input<string>;
+    readonly instanceId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
      */
-    readonly MaxConcurrency?: pulumi.Input<string>;
+    readonly maxConcurrency?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
      */
-    readonly MaxErrors?: pulumi.Input<string>;
+    readonly maxErrors?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
      */
-    readonly OutputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocation>;
+    readonly outputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocation>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
-    readonly Parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValues>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValues>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
      */
-    readonly ScheduleExpression?: pulumi.Input<string>;
+    readonly scheduleExpression?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
      */
-    readonly SyncCompliance?: pulumi.Input<string>;
+    readonly syncCompliance?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
      */
-    readonly Targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTarget>[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTarget>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
      */
-    readonly WaitForSuccessTimeoutSeconds?: pulumi.Input<number>;
+    readonly waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
 }

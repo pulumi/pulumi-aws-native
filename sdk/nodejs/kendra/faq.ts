@@ -35,36 +35,36 @@ export class Faq extends pulumi.CustomResource {
         return obj['__pulumiType'] === Faq.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
      */
-    public readonly FileFormat!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly fileFormat!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
      */
-    public readonly IndexId!: pulumi.Output<string>;
+    public readonly indexId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
      */
-    public readonly S3Path!: pulumi.Output<outputs.Kendra.FaqS3Path>;
+    public readonly s3Path!: pulumi.Output<outputs.Kendra.FaqS3Path>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Kendra.FaqTagList | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Kendra.FaqTagList | undefined>;
 
     /**
      * Create a Faq resource with the given unique name, arguments, and options.
@@ -76,37 +76,37 @@ export class Faq extends pulumi.CustomResource {
     constructor(name: string, args: FaqArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.IndexId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'IndexId'");
+            if ((!args || args.indexId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.S3Path === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'S3Path'");
+            if ((!args || args.s3Path === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 's3Path'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["FileFormat"] = args ? args.FileFormat : undefined;
-            inputs["IndexId"] = args ? args.IndexId : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["S3Path"] = args ? args.S3Path : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["fileFormat"] = args ? args.fileFormat : undefined;
+            inputs["indexId"] = args ? args.indexId : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["s3Path"] = args ? args.s3Path : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["FileFormat"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["IndexId"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["S3Path"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["fileFormat"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["indexId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["s3Path"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -126,29 +126,29 @@ export interface FaqArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
      */
-    readonly FileFormat?: pulumi.Input<string>;
+    readonly fileFormat?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
      */
-    readonly IndexId: pulumi.Input<string>;
+    readonly indexId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
      */
-    readonly S3Path: pulumi.Input<inputs.Kendra.FaqS3Path>;
+    readonly s3Path: pulumi.Input<inputs.Kendra.FaqS3Path>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
      */
-    readonly Tags?: pulumi.Input<inputs.Kendra.FaqTagList>;
+    readonly tags?: pulumi.Input<inputs.Kendra.FaqTagList>;
 }

@@ -37,11 +37,11 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
      */
-    public readonly InstanceAccessControlAttributeConfiguration!: pulumi.Output<any | string>;
+    public readonly instanceAccessControlAttributeConfiguration!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
      */
-    public readonly InstanceArn!: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
 
     /**
      * Create a InstanceAccessControlAttributeConfiguration resource with the given unique name, arguments, and options.
@@ -53,17 +53,17 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     constructor(name: string, args: InstanceAccessControlAttributeConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.InstanceAccessControlAttributeConfiguration === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'InstanceAccessControlAttributeConfiguration'");
+            if ((!args || args.instanceAccessControlAttributeConfiguration === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'instanceAccessControlAttributeConfiguration'");
             }
-            if ((!args || args.InstanceArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'InstanceArn'");
+            if ((!args || args.instanceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'instanceArn'");
             }
-            inputs["InstanceAccessControlAttributeConfiguration"] = args ? args.InstanceAccessControlAttributeConfiguration : undefined;
-            inputs["InstanceArn"] = args ? args.InstanceArn : undefined;
+            inputs["instanceAccessControlAttributeConfiguration"] = args ? args.instanceAccessControlAttributeConfiguration : undefined;
+            inputs["instanceArn"] = args ? args.instanceArn : undefined;
         } else {
-            inputs["InstanceAccessControlAttributeConfiguration"] = undefined /*out*/;
-            inputs["InstanceArn"] = undefined /*out*/;
+            inputs["instanceAccessControlAttributeConfiguration"] = undefined /*out*/;
+            inputs["instanceArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -83,9 +83,9 @@ export interface InstanceAccessControlAttributeConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
      */
-    readonly InstanceAccessControlAttributeConfiguration: pulumi.Input<any | string>;
+    readonly instanceAccessControlAttributeConfiguration: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
      */
-    readonly InstanceArn: pulumi.Input<string>;
+    readonly instanceArn: pulumi.Input<string>;
 }

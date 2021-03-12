@@ -35,23 +35,23 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
      */
-    public readonly DatabaseName!: pulumi.Output<string>;
+    public readonly databaseName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
      */
-    public readonly RetentionProperties!: pulumi.Output<any | string | undefined>;
+    public readonly retentionProperties!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename
      */
-    public readonly TableName!: pulumi.Output<string | undefined>;
+    public readonly tableName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -63,20 +63,20 @@ export class Table extends pulumi.CustomResource {
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DatabaseName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DatabaseName'");
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'databaseName'");
             }
-            inputs["DatabaseName"] = args ? args.DatabaseName : undefined;
-            inputs["RetentionProperties"] = args ? args.RetentionProperties : undefined;
-            inputs["TableName"] = args ? args.TableName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["retentionProperties"] = args ? args.retentionProperties : undefined;
+            inputs["tableName"] = args ? args.tableName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["DatabaseName"] = undefined /*out*/;
-            inputs["RetentionProperties"] = undefined /*out*/;
-            inputs["TableName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["databaseName"] = undefined /*out*/;
+            inputs["retentionProperties"] = undefined /*out*/;
+            inputs["tableName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -96,17 +96,17 @@ export interface TableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
      */
-    readonly DatabaseName: pulumi.Input<string>;
+    readonly databaseName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
      */
-    readonly RetentionProperties?: pulumi.Input<any | string>;
+    readonly retentionProperties?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename
      */
-    readonly TableName?: pulumi.Input<string>;
+    readonly tableName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

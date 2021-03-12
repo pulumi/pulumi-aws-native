@@ -34,34 +34,34 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomDataIdentifier.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly CreatedAt!: pulumi.Output<string>;
-    public /*out*/ readonly Deleted!: pulumi.Output<boolean>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly deleted!: pulumi.Output<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
      */
-    public readonly IgnoreWords!: pulumi.Output<string[] | undefined>;
+    public readonly ignoreWords!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
      */
-    public readonly Keywords!: pulumi.Output<string[] | undefined>;
+    public readonly keywords!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
      */
-    public readonly MaximumMatchDistance!: pulumi.Output<number | undefined>;
+    public readonly maximumMatchDistance!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
      */
-    public readonly Regex!: pulumi.Output<string>;
+    public readonly regex!: pulumi.Output<string>;
 
     /**
      * Create a CustomDataIdentifier resource with the given unique name, arguments, and options.
@@ -73,33 +73,33 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     constructor(name: string, args: CustomDataIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.Regex === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Regex'");
+            if ((!args || args.regex === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'regex'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["IgnoreWords"] = args ? args.IgnoreWords : undefined;
-            inputs["Keywords"] = args ? args.Keywords : undefined;
-            inputs["MaximumMatchDistance"] = args ? args.MaximumMatchDistance : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Regex"] = args ? args.Regex : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreatedAt"] = undefined /*out*/;
-            inputs["Deleted"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["ignoreWords"] = args ? args.ignoreWords : undefined;
+            inputs["keywords"] = args ? args.keywords : undefined;
+            inputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["regex"] = args ? args.regex : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["deleted"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreatedAt"] = undefined /*out*/;
-            inputs["Deleted"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["IgnoreWords"] = undefined /*out*/;
-            inputs["Keywords"] = undefined /*out*/;
-            inputs["MaximumMatchDistance"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Regex"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["deleted"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["ignoreWords"] = undefined /*out*/;
+            inputs["keywords"] = undefined /*out*/;
+            inputs["maximumMatchDistance"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["regex"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -119,25 +119,25 @@ export interface CustomDataIdentifierArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
      */
-    readonly IgnoreWords?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ignoreWords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
      */
-    readonly Keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly keywords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
      */
-    readonly MaximumMatchDistance?: pulumi.Input<number>;
+    readonly maximumMatchDistance?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
      */
-    readonly Regex: pulumi.Input<string>;
+    readonly regex: pulumi.Input<string>;
 }

@@ -35,22 +35,22 @@ export class UserGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroup.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
      */
-    public readonly Engine!: pulumi.Output<string>;
-    public /*out*/ readonly PendingChanges!: pulumi.Output<outputs.ElastiCache.UserGroupUserGroupPendingChanges>;
-    public /*out*/ readonly ReplicationGroupIds!: pulumi.Output<outputs.ElastiCache.UserGroupReplicationGroupIdList>;
-    public /*out*/ readonly Status!: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
+    public /*out*/ readonly pendingChanges!: pulumi.Output<outputs.ElastiCache.UserGroupUserGroupPendingChanges>;
+    public /*out*/ readonly replicationGroupIds!: pulumi.Output<outputs.ElastiCache.UserGroupReplicationGroupIdList>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
      */
-    public readonly UserGroupId!: pulumi.Output<string>;
+    public readonly userGroupId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    public readonly UserIds!: pulumi.Output<outputs.ElastiCache.UserGroupUserIdList | undefined>;
+    public readonly userIds!: pulumi.Output<outputs.ElastiCache.UserGroupUserIdList | undefined>;
 
     /**
      * Create a UserGroup resource with the given unique name, arguments, and options.
@@ -62,27 +62,27 @@ export class UserGroup extends pulumi.CustomResource {
     constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Engine === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Engine'");
+            if ((!args || args.engine === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.UserGroupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'UserGroupId'");
+            if ((!args || args.userGroupId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'userGroupId'");
             }
-            inputs["Engine"] = args ? args.Engine : undefined;
-            inputs["UserGroupId"] = args ? args.UserGroupId : undefined;
-            inputs["UserIds"] = args ? args.UserIds : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["PendingChanges"] = undefined /*out*/;
-            inputs["ReplicationGroupIds"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["engine"] = args ? args.engine : undefined;
+            inputs["userGroupId"] = args ? args.userGroupId : undefined;
+            inputs["userIds"] = args ? args.userIds : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["pendingChanges"] = undefined /*out*/;
+            inputs["replicationGroupIds"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Engine"] = undefined /*out*/;
-            inputs["PendingChanges"] = undefined /*out*/;
-            inputs["ReplicationGroupIds"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
-            inputs["UserGroupId"] = undefined /*out*/;
-            inputs["UserIds"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["engine"] = undefined /*out*/;
+            inputs["pendingChanges"] = undefined /*out*/;
+            inputs["replicationGroupIds"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["userGroupId"] = undefined /*out*/;
+            inputs["userIds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,13 +102,13 @@ export interface UserGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
      */
-    readonly Engine: pulumi.Input<string>;
+    readonly engine: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
      */
-    readonly UserGroupId: pulumi.Input<string>;
+    readonly userGroupId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    readonly UserIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdList>;
+    readonly userIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdList>;
 }

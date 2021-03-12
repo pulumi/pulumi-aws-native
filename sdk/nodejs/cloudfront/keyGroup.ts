@@ -35,12 +35,12 @@ export class KeyGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyGroup.__pulumiType;
     }
 
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
      */
-    public readonly KeyGroupConfig!: pulumi.Output<outputs.CloudFront.KeyGroupKeyGroupConfig>;
-    public /*out*/ readonly LastModifiedTime!: pulumi.Output<string>;
+    public readonly keyGroupConfig!: pulumi.Output<outputs.CloudFront.KeyGroupKeyGroupConfig>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
      * Create a KeyGroup resource with the given unique name, arguments, and options.
@@ -52,16 +52,16 @@ export class KeyGroup extends pulumi.CustomResource {
     constructor(name: string, args: KeyGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.KeyGroupConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'KeyGroupConfig'");
+            if ((!args || args.keyGroupConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'keyGroupConfig'");
             }
-            inputs["KeyGroupConfig"] = args ? args.KeyGroupConfig : undefined;
-            inputs["Id"] = undefined /*out*/;
-            inputs["LastModifiedTime"] = undefined /*out*/;
+            inputs["keyGroupConfig"] = args ? args.keyGroupConfig : undefined;
+            inputs["id"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["Id"] = undefined /*out*/;
-            inputs["KeyGroupConfig"] = undefined /*out*/;
-            inputs["LastModifiedTime"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["keyGroupConfig"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -81,5 +81,5 @@ export interface KeyGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
      */
-    readonly KeyGroupConfig: pulumi.Input<inputs.CloudFront.KeyGroupKeyGroupConfig>;
+    readonly keyGroupConfig: pulumi.Input<inputs.CloudFront.KeyGroupKeyGroupConfig>;
 }

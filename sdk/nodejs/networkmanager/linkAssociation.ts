@@ -37,15 +37,15 @@ export class LinkAssociation extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
      */
-    public readonly DeviceId!: pulumi.Output<string>;
+    public readonly deviceId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
      */
-    public readonly GlobalNetworkId!: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
      */
-    public readonly LinkId!: pulumi.Output<string>;
+    public readonly linkId!: pulumi.Output<string>;
 
     /**
      * Create a LinkAssociation resource with the given unique name, arguments, and options.
@@ -57,22 +57,22 @@ export class LinkAssociation extends pulumi.CustomResource {
     constructor(name: string, args: LinkAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DeviceId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DeviceId'");
+            if ((!args || args.deviceId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GlobalNetworkId'");
+            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.LinkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'LinkId'");
+            if ((!args || args.linkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'linkId'");
             }
-            inputs["DeviceId"] = args ? args.DeviceId : undefined;
-            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
-            inputs["LinkId"] = args ? args.LinkId : undefined;
+            inputs["deviceId"] = args ? args.deviceId : undefined;
+            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            inputs["linkId"] = args ? args.linkId : undefined;
         } else {
-            inputs["DeviceId"] = undefined /*out*/;
-            inputs["GlobalNetworkId"] = undefined /*out*/;
-            inputs["LinkId"] = undefined /*out*/;
+            inputs["deviceId"] = undefined /*out*/;
+            inputs["globalNetworkId"] = undefined /*out*/;
+            inputs["linkId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -92,13 +92,13 @@ export interface LinkAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
      */
-    readonly DeviceId: pulumi.Input<string>;
+    readonly deviceId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
      */
-    readonly GlobalNetworkId: pulumi.Input<string>;
+    readonly globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
      */
-    readonly LinkId: pulumi.Input<string>;
+    readonly linkId: pulumi.Input<string>;
 }

@@ -37,11 +37,11 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
      */
-    public readonly GlobalNetworkId!: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
      */
-    public readonly TransitGatewayArn!: pulumi.Output<string>;
+    public readonly transitGatewayArn!: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayRegistration resource with the given unique name, arguments, and options.
@@ -53,17 +53,17 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
     constructor(name: string, args: TransitGatewayRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GlobalNetworkId'");
+            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.TransitGatewayArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TransitGatewayArn'");
+            if ((!args || args.transitGatewayArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'transitGatewayArn'");
             }
-            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
-            inputs["TransitGatewayArn"] = args ? args.TransitGatewayArn : undefined;
+            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            inputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
         } else {
-            inputs["GlobalNetworkId"] = undefined /*out*/;
-            inputs["TransitGatewayArn"] = undefined /*out*/;
+            inputs["globalNetworkId"] = undefined /*out*/;
+            inputs["transitGatewayArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -83,9 +83,9 @@ export interface TransitGatewayRegistrationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
      */
-    readonly GlobalNetworkId: pulumi.Input<string>;
+    readonly globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
      */
-    readonly TransitGatewayArn: pulumi.Input<string>;
+    readonly transitGatewayArn: pulumi.Input<string>;
 }

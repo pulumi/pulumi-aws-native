@@ -37,15 +37,15 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
      */
-    public readonly Cluster!: pulumi.Output<string>;
+    public readonly cluster!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
      */
-    public readonly Service!: pulumi.Output<string>;
+    public readonly service!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
      */
-    public readonly TaskSetId!: pulumi.Output<string>;
+    public readonly taskSetId!: pulumi.Output<string>;
 
     /**
      * Create a PrimaryTaskSet resource with the given unique name, arguments, and options.
@@ -57,22 +57,22 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
     constructor(name: string, args: PrimaryTaskSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Cluster === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Cluster'");
+            if ((!args || args.cluster === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.Service === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Service'");
+            if ((!args || args.service === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.TaskSetId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TaskSetId'");
+            if ((!args || args.taskSetId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'taskSetId'");
             }
-            inputs["Cluster"] = args ? args.Cluster : undefined;
-            inputs["Service"] = args ? args.Service : undefined;
-            inputs["TaskSetId"] = args ? args.TaskSetId : undefined;
+            inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["service"] = args ? args.service : undefined;
+            inputs["taskSetId"] = args ? args.taskSetId : undefined;
         } else {
-            inputs["Cluster"] = undefined /*out*/;
-            inputs["Service"] = undefined /*out*/;
-            inputs["TaskSetId"] = undefined /*out*/;
+            inputs["cluster"] = undefined /*out*/;
+            inputs["service"] = undefined /*out*/;
+            inputs["taskSetId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -92,13 +92,13 @@ export interface PrimaryTaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
      */
-    readonly Cluster: pulumi.Input<string>;
+    readonly cluster: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
      */
-    readonly Service: pulumi.Input<string>;
+    readonly service: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
      */
-    readonly TaskSetId: pulumi.Input<string>;
+    readonly taskSetId: pulumi.Input<string>;
 }
