@@ -74,7 +74,7 @@ class ClientCertificate(pulumi.CustomResource):
         return ClientCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
@@ -82,7 +82,7 @@ class ClientCertificate(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-tags

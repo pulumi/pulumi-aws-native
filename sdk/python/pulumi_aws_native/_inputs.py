@@ -26,7 +26,7 @@ class TagArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
@@ -38,7 +38,7 @@ class TagArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value

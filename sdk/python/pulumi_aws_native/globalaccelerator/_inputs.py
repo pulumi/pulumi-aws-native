@@ -33,7 +33,7 @@ class EndpointGroupEndpointConfigurationArgs:
             pulumi.set(__self__, "weight", weight)
 
     @property
-    @pulumi.getter(name="EndpointId")
+    @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
@@ -45,7 +45,7 @@ class EndpointGroupEndpointConfigurationArgs:
         pulumi.set(self, "endpoint_id", value)
 
     @property
-    @pulumi.getter(name="ClientIPPreservationEnabled")
+    @pulumi.getter(name="clientIPPreservationEnabled")
     def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
@@ -57,7 +57,7 @@ class EndpointGroupEndpointConfigurationArgs:
         pulumi.set(self, "client_ip_preservation_enabled", value)
 
     @property
-    @pulumi.getter(name="Weight")
+    @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
@@ -83,7 +83,7 @@ class EndpointGroupPortOverrideArgs:
         pulumi.set(__self__, "listener_port", listener_port)
 
     @property
-    @pulumi.getter(name="EndpointPort")
+    @pulumi.getter(name="endpointPort")
     def endpoint_port(self) -> pulumi.Input[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
@@ -95,7 +95,7 @@ class EndpointGroupPortOverrideArgs:
         pulumi.set(self, "endpoint_port", value)
 
     @property
-    @pulumi.getter(name="ListenerPort")
+    @pulumi.getter(name="listenerPort")
     def listener_port(self) -> pulumi.Input[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
@@ -121,7 +121,7 @@ class ListenerPortRangeArgs:
         pulumi.set(__self__, "to_port", to_port)
 
     @property
-    @pulumi.getter(name="FromPort")
+    @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
@@ -133,7 +133,7 @@ class ListenerPortRangeArgs:
         pulumi.set(self, "from_port", value)
 
     @property
-    @pulumi.getter(name="ToPort")
+    @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport

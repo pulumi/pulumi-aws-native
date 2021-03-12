@@ -90,7 +90,7 @@ class FindingsFilter(pulumi.CustomResource):
         return FindingsFilter(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Action")
+    @pulumi.getter
     def action(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
@@ -98,12 +98,12 @@ class FindingsFilter(pulumi.CustomResource):
         return pulumi.get(self, "action")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
@@ -111,7 +111,7 @@ class FindingsFilter(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="FindingCriteria")
+    @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Output['outputs.FindingsFilterFindingCriteria']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
@@ -119,17 +119,17 @@ class FindingsFilter(pulumi.CustomResource):
         return pulumi.get(self, "finding_criteria")
 
     @property
-    @pulumi.getter(name="FindingsFilterListItems")
+    @pulumi.getter(name="findingsFilterListItems")
     def findings_filter_list_items(self) -> pulumi.Output[Sequence['outputs.FindingsFilterFindingsFilterListItem']]:
         return pulumi.get(self, "findings_filter_list_items")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
@@ -137,7 +137,7 @@ class FindingsFilter(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Position")
+    @pulumi.getter
     def position(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position

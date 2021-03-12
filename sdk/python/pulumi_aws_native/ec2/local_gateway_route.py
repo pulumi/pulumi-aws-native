@@ -83,7 +83,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
         return LocalGatewayRoute(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="DestinationCidrBlock")
+    @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
@@ -91,7 +91,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
         return pulumi.get(self, "destination_cidr_block")
 
     @property
-    @pulumi.getter(name="LocalGatewayRouteTableId")
+    @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
@@ -99,7 +99,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @property
-    @pulumi.getter(name="LocalGatewayVirtualInterfaceGroupId")
+    @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
     def local_gateway_virtual_interface_group_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
@@ -107,12 +107,12 @@ class LocalGatewayRoute(pulumi.CustomResource):
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
     @property
-    @pulumi.getter(name="State")
+    @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 

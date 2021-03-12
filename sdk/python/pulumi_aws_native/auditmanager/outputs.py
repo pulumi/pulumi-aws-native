@@ -80,21 +80,21 @@ class AssessmentAWSAccounts(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
     """
     def __init__(__self__, *,
-                 aws_accounts: Optional[Sequence['outputs.AssessmentAWSAccount']] = None):
+                 a_ws_accounts: Optional[Sequence['outputs.AssessmentAWSAccount']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-        :param Sequence['AssessmentAWSAccountArgs'] aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
+        :param Sequence['AssessmentAWSAccountArgs'] a_ws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
         """
-        if aws_accounts is not None:
-            pulumi.set(__self__, "aws_accounts", aws_accounts)
+        if a_ws_accounts is not None:
+            pulumi.set(__self__, "a_ws_accounts", a_ws_accounts)
 
     @property
-    @pulumi.getter(name="AWSAccounts")
-    def aws_accounts(self) -> Optional[Sequence['outputs.AssessmentAWSAccount']]:
+    @pulumi.getter(name="aWSAccounts")
+    def a_ws_accounts(self) -> Optional[Sequence['outputs.AssessmentAWSAccount']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
         """
-        return pulumi.get(self, "aws_accounts")
+        return pulumi.get(self, "a_ws_accounts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -132,21 +132,21 @@ class AssessmentAWSServices(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
     """
     def __init__(__self__, *,
-                 aws_services: Optional[Sequence['outputs.AssessmentAWSService']] = None):
+                 a_ws_services: Optional[Sequence['outputs.AssessmentAWSService']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-        :param Sequence['AssessmentAWSServiceArgs'] aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
+        :param Sequence['AssessmentAWSServiceArgs'] a_ws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
         """
-        if aws_services is not None:
-            pulumi.set(__self__, "aws_services", aws_services)
+        if a_ws_services is not None:
+            pulumi.set(__self__, "a_ws_services", a_ws_services)
 
     @property
-    @pulumi.getter(name="AWSServices")
-    def aws_services(self) -> Optional[Sequence['outputs.AssessmentAWSService']]:
+    @pulumi.getter(name="aWSServices")
+    def a_ws_services(self) -> Optional[Sequence['outputs.AssessmentAWSService']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
         """
-        return pulumi.get(self, "aws_services")
+        return pulumi.get(self, "a_ws_services")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -351,7 +351,7 @@ class AssessmentDelegations(dict):
             pulumi.set(__self__, "delegations", delegations)
 
     @property
-    @pulumi.getter(name="Delegations")
+    @pulumi.getter
     def delegations(self) -> Optional[Sequence['outputs.AssessmentDelegation']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
@@ -415,7 +415,7 @@ class AssessmentRoles(dict):
             pulumi.set(__self__, "roles", roles)
 
     @property
-    @pulumi.getter(name="Roles")
+    @pulumi.getter
     def roles(self) -> Optional[Sequence['outputs.AssessmentRole']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
@@ -479,7 +479,7 @@ class AssessmentTags(dict):
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags

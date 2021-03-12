@@ -89,17 +89,17 @@ class Project(pulumi.CustomResource):
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CreationTime")
+    @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
 
     @property
-    @pulumi.getter(name="ProjectArn")
+    @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "project_arn")
 
     @property
-    @pulumi.getter(name="ProjectDescription")
+    @pulumi.getter(name="projectDescription")
     def project_description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
@@ -107,12 +107,12 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "project_description")
 
     @property
-    @pulumi.getter(name="ProjectId")
+    @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "project_id")
 
     @property
-    @pulumi.getter(name="ProjectName")
+    @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
@@ -120,17 +120,17 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "project_name")
 
     @property
-    @pulumi.getter(name="ProjectStatus")
+    @pulumi.getter(name="projectStatus")
     def project_status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "project_status")
 
     @property
-    @pulumi.getter(name="ServiceCatalogProvisionedProductDetails")
+    @pulumi.getter(name="serviceCatalogProvisionedProductDetails")
     def service_catalog_provisioned_product_details(self) -> pulumi.Output[str]:
         return pulumi.get(self, "service_catalog_provisioned_product_details")
 
     @property
-    @pulumi.getter(name="ServiceCatalogProvisioningDetails")
+    @pulumi.getter(name="serviceCatalogProvisioningDetails")
     def service_catalog_provisioning_details(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
@@ -138,7 +138,7 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags

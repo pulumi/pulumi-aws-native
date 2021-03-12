@@ -56,7 +56,7 @@ class AuthorizerTagsArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
@@ -93,7 +93,7 @@ class ProvisioningTemplateProvisioningHookArgs:
             pulumi.set(__self__, "target_arn", target_arn)
 
     @property
-    @pulumi.getter(name="PayloadVersion")
+    @pulumi.getter(name="payloadVersion")
     def payload_version(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion
@@ -105,7 +105,7 @@ class ProvisioningTemplateProvisioningHookArgs:
         pulumi.set(self, "payload_version", value)
 
     @property
-    @pulumi.getter(name="TargetArn")
+    @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn
@@ -129,7 +129,7 @@ class ProvisioningTemplateTagsArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
@@ -217,7 +217,7 @@ class TopicRuleActionArgs:
             pulumi.set(__self__, "step_functions", step_functions)
 
     @property
-    @pulumi.getter(name="CloudwatchAlarm")
+    @pulumi.getter(name="cloudwatchAlarm")
     def cloudwatch_alarm(self) -> Optional[pulumi.Input['TopicRuleCloudwatchAlarmActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
@@ -229,7 +229,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "cloudwatch_alarm", value)
 
     @property
-    @pulumi.getter(name="CloudwatchMetric")
+    @pulumi.getter(name="cloudwatchMetric")
     def cloudwatch_metric(self) -> Optional[pulumi.Input['TopicRuleCloudwatchMetricActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
@@ -241,7 +241,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "cloudwatch_metric", value)
 
     @property
-    @pulumi.getter(name="DynamoDB")
+    @pulumi.getter(name="dynamoDB")
     def dynamo_db(self) -> Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
@@ -253,7 +253,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "dynamo_db", value)
 
     @property
-    @pulumi.getter(name="DynamoDBv2")
+    @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
@@ -265,7 +265,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "dynamo_d_bv2", value)
 
     @property
-    @pulumi.getter(name="Elasticsearch")
+    @pulumi.getter
     def elasticsearch(self) -> Optional[pulumi.Input['TopicRuleElasticsearchActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
@@ -277,7 +277,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "elasticsearch", value)
 
     @property
-    @pulumi.getter(name="Firehose")
+    @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['TopicRuleFirehoseActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
@@ -289,7 +289,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "firehose", value)
 
     @property
-    @pulumi.getter(name="Http")
+    @pulumi.getter
     def http(self) -> Optional[pulumi.Input['TopicRuleHttpActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
@@ -301,7 +301,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "http", value)
 
     @property
-    @pulumi.getter(name="IotAnalytics")
+    @pulumi.getter(name="iotAnalytics")
     def iot_analytics(self) -> Optional[pulumi.Input['TopicRuleIotAnalyticsActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
@@ -313,7 +313,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "iot_analytics", value)
 
     @property
-    @pulumi.getter(name="IotEvents")
+    @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional[pulumi.Input['TopicRuleIotEventsActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
@@ -325,7 +325,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "iot_events", value)
 
     @property
-    @pulumi.getter(name="IotSiteWise")
+    @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional[pulumi.Input['TopicRuleIotSiteWiseActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
@@ -337,7 +337,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "iot_site_wise", value)
 
     @property
-    @pulumi.getter(name="Kinesis")
+    @pulumi.getter
     def kinesis(self) -> Optional[pulumi.Input['TopicRuleKinesisActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
@@ -349,7 +349,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "kinesis", value)
 
     @property
-    @pulumi.getter(name="Lambda")
+    @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[pulumi.Input['TopicRuleLambdaActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
@@ -361,7 +361,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "lambda_", value)
 
     @property
-    @pulumi.getter(name="Republish")
+    @pulumi.getter
     def republish(self) -> Optional[pulumi.Input['TopicRuleRepublishActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
@@ -373,7 +373,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "republish", value)
 
     @property
-    @pulumi.getter(name="S3")
+    @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['TopicRuleS3ActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
@@ -385,7 +385,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "s3", value)
 
     @property
-    @pulumi.getter(name="Sns")
+    @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['TopicRuleSnsActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
@@ -397,7 +397,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "sns", value)
 
     @property
-    @pulumi.getter(name="Sqs")
+    @pulumi.getter
     def sqs(self) -> Optional[pulumi.Input['TopicRuleSqsActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
@@ -409,7 +409,7 @@ class TopicRuleActionArgs:
         pulumi.set(self, "sqs", value)
 
     @property
-    @pulumi.getter(name="StepFunctions")
+    @pulumi.getter(name="stepFunctions")
     def step_functions(self) -> Optional[pulumi.Input['TopicRuleStepFunctionsActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
@@ -436,7 +436,7 @@ class TopicRuleAssetPropertyTimestampArgs:
             pulumi.set(__self__, "offset_in_nanos", offset_in_nanos)
 
     @property
-    @pulumi.getter(name="TimeInSeconds")
+    @pulumi.getter(name="timeInSeconds")
     def time_in_seconds(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
@@ -448,7 +448,7 @@ class TopicRuleAssetPropertyTimestampArgs:
         pulumi.set(self, "time_in_seconds", value)
 
     @property
-    @pulumi.getter(name="OffsetInNanos")
+    @pulumi.getter(name="offsetInNanos")
     def offset_in_nanos(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
@@ -478,7 +478,7 @@ class TopicRuleAssetPropertyValueArgs:
             pulumi.set(__self__, "quality", quality)
 
     @property
-    @pulumi.getter(name="Timestamp")
+    @pulumi.getter
     def timestamp(self) -> pulumi.Input['TopicRuleAssetPropertyTimestampArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
@@ -490,7 +490,7 @@ class TopicRuleAssetPropertyValueArgs:
         pulumi.set(self, "timestamp", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input['TopicRuleAssetPropertyVariantArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
@@ -502,7 +502,7 @@ class TopicRuleAssetPropertyValueArgs:
         pulumi.set(self, "value", value)
 
     @property
-    @pulumi.getter(name="Quality")
+    @pulumi.getter
     def quality(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
@@ -538,7 +538,7 @@ class TopicRuleAssetPropertyVariantArgs:
             pulumi.set(__self__, "string_value", string_value)
 
     @property
-    @pulumi.getter(name="BooleanValue")
+    @pulumi.getter(name="booleanValue")
     def boolean_value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
@@ -550,7 +550,7 @@ class TopicRuleAssetPropertyVariantArgs:
         pulumi.set(self, "boolean_value", value)
 
     @property
-    @pulumi.getter(name="DoubleValue")
+    @pulumi.getter(name="doubleValue")
     def double_value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue
@@ -562,7 +562,7 @@ class TopicRuleAssetPropertyVariantArgs:
         pulumi.set(self, "double_value", value)
 
     @property
-    @pulumi.getter(name="IntegerValue")
+    @pulumi.getter(name="integerValue")
     def integer_value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue
@@ -574,7 +574,7 @@ class TopicRuleAssetPropertyVariantArgs:
         pulumi.set(self, "integer_value", value)
 
     @property
-    @pulumi.getter(name="StringValue")
+    @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
@@ -606,7 +606,7 @@ class TopicRuleCloudwatchAlarmActionArgs:
         pulumi.set(__self__, "state_value", state_value)
 
     @property
-    @pulumi.getter(name="AlarmName")
+    @pulumi.getter(name="alarmName")
     def alarm_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname
@@ -618,7 +618,7 @@ class TopicRuleCloudwatchAlarmActionArgs:
         pulumi.set(self, "alarm_name", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-rolearn
@@ -630,7 +630,7 @@ class TopicRuleCloudwatchAlarmActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="StateReason")
+    @pulumi.getter(name="stateReason")
     def state_reason(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statereason
@@ -642,7 +642,7 @@ class TopicRuleCloudwatchAlarmActionArgs:
         pulumi.set(self, "state_reason", value)
 
     @property
-    @pulumi.getter(name="StateValue")
+    @pulumi.getter(name="stateValue")
     def state_value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue
@@ -681,7 +681,7 @@ class TopicRuleCloudwatchMetricActionArgs:
             pulumi.set(__self__, "metric_timestamp", metric_timestamp)
 
     @property
-    @pulumi.getter(name="MetricName")
+    @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricname
@@ -693,7 +693,7 @@ class TopicRuleCloudwatchMetricActionArgs:
         pulumi.set(self, "metric_name", value)
 
     @property
-    @pulumi.getter(name="MetricNamespace")
+    @pulumi.getter(name="metricNamespace")
     def metric_namespace(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricnamespace
@@ -705,7 +705,7 @@ class TopicRuleCloudwatchMetricActionArgs:
         pulumi.set(self, "metric_namespace", value)
 
     @property
-    @pulumi.getter(name="MetricUnit")
+    @pulumi.getter(name="metricUnit")
     def metric_unit(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricunit
@@ -717,7 +717,7 @@ class TopicRuleCloudwatchMetricActionArgs:
         pulumi.set(self, "metric_unit", value)
 
     @property
-    @pulumi.getter(name="MetricValue")
+    @pulumi.getter(name="metricValue")
     def metric_value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricvalue
@@ -729,7 +729,7 @@ class TopicRuleCloudwatchMetricActionArgs:
         pulumi.set(self, "metric_value", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-rolearn
@@ -741,7 +741,7 @@ class TopicRuleCloudwatchMetricActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="MetricTimestamp")
+    @pulumi.getter(name="metricTimestamp")
     def metric_timestamp(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metrictimestamp
@@ -765,7 +765,7 @@ class TopicRuleDestinationHttpUrlDestinationSummaryArgs:
             pulumi.set(__self__, "confirmation_url", confirmation_url)
 
     @property
-    @pulumi.getter(name="ConfirmationUrl")
+    @pulumi.getter(name="confirmationUrl")
     def confirmation_url(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
@@ -801,7 +801,7 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
             pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
@@ -813,7 +813,7 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="SecurityGroups")
+    @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
@@ -825,7 +825,7 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
         pulumi.set(self, "security_groups", value)
 
     @property
-    @pulumi.getter(name="SubnetIds")
+    @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
@@ -837,7 +837,7 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
         pulumi.set(self, "subnet_ids", value)
 
     @property
-    @pulumi.getter(name="VpcId")
+    @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
@@ -889,7 +889,7 @@ class TopicRuleDynamoDBActionArgs:
             pulumi.set(__self__, "range_key_value", range_key_value)
 
     @property
-    @pulumi.getter(name="HashKeyField")
+    @pulumi.getter(name="hashKeyField")
     def hash_key_field(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield
@@ -901,7 +901,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "hash_key_field", value)
 
     @property
-    @pulumi.getter(name="HashKeyValue")
+    @pulumi.getter(name="hashKeyValue")
     def hash_key_value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue
@@ -913,7 +913,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "hash_key_value", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn
@@ -925,7 +925,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="TableName")
+    @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename
@@ -937,7 +937,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "table_name", value)
 
     @property
-    @pulumi.getter(name="HashKeyType")
+    @pulumi.getter(name="hashKeyType")
     def hash_key_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype
@@ -949,7 +949,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "hash_key_type", value)
 
     @property
-    @pulumi.getter(name="PayloadField")
+    @pulumi.getter(name="payloadField")
     def payload_field(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield
@@ -961,7 +961,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "payload_field", value)
 
     @property
-    @pulumi.getter(name="RangeKeyField")
+    @pulumi.getter(name="rangeKeyField")
     def range_key_field(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield
@@ -973,7 +973,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "range_key_field", value)
 
     @property
-    @pulumi.getter(name="RangeKeyType")
+    @pulumi.getter(name="rangeKeyType")
     def range_key_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype
@@ -985,7 +985,7 @@ class TopicRuleDynamoDBActionArgs:
         pulumi.set(self, "range_key_type", value)
 
     @property
-    @pulumi.getter(name="RangeKeyValue")
+    @pulumi.getter(name="rangeKeyValue")
     def range_key_value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue
@@ -1013,7 +1013,7 @@ class TopicRuleDynamoDBv2ActionArgs:
             pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="PutItem")
+    @pulumi.getter(name="putItem")
     def put_item(self) -> Optional[pulumi.Input['TopicRulePutItemInputArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
@@ -1025,7 +1025,7 @@ class TopicRuleDynamoDBv2ActionArgs:
         pulumi.set(self, "put_item", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
@@ -1060,7 +1060,7 @@ class TopicRuleElasticsearchActionArgs:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="Endpoint")
+    @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-endpoint
@@ -1072,7 +1072,7 @@ class TopicRuleElasticsearchActionArgs:
         pulumi.set(self, "endpoint", value)
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-id
@@ -1084,7 +1084,7 @@ class TopicRuleElasticsearchActionArgs:
         pulumi.set(self, "id", value)
 
     @property
-    @pulumi.getter(name="Index")
+    @pulumi.getter
     def index(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-index
@@ -1096,7 +1096,7 @@ class TopicRuleElasticsearchActionArgs:
         pulumi.set(self, "index", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-rolearn
@@ -1108,7 +1108,7 @@ class TopicRuleElasticsearchActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-type
@@ -1138,7 +1138,7 @@ class TopicRuleFirehoseActionArgs:
             pulumi.set(__self__, "separator", separator)
 
     @property
-    @pulumi.getter(name="DeliveryStreamName")
+    @pulumi.getter(name="deliveryStreamName")
     def delivery_stream_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
@@ -1150,7 +1150,7 @@ class TopicRuleFirehoseActionArgs:
         pulumi.set(self, "delivery_stream_name", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
@@ -1162,7 +1162,7 @@ class TopicRuleFirehoseActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="Separator")
+    @pulumi.getter
     def separator(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
@@ -1197,7 +1197,7 @@ class TopicRuleHttpActionArgs:
             pulumi.set(__self__, "headers", headers)
 
     @property
-    @pulumi.getter(name="Url")
+    @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
@@ -1209,7 +1209,7 @@ class TopicRuleHttpActionArgs:
         pulumi.set(self, "url", value)
 
     @property
-    @pulumi.getter(name="Auth")
+    @pulumi.getter
     def auth(self) -> Optional[pulumi.Input['TopicRuleHttpAuthorizationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
@@ -1221,7 +1221,7 @@ class TopicRuleHttpActionArgs:
         pulumi.set(self, "auth", value)
 
     @property
-    @pulumi.getter(name="ConfirmationUrl")
+    @pulumi.getter(name="confirmationUrl")
     def confirmation_url(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
@@ -1233,7 +1233,7 @@ class TopicRuleHttpActionArgs:
         pulumi.set(self, "confirmation_url", value)
 
     @property
-    @pulumi.getter(name="Headers")
+    @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
@@ -1259,7 +1259,7 @@ class TopicRuleHttpActionHeaderArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key
@@ -1271,7 +1271,7 @@ class TopicRuleHttpActionHeaderArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-value
@@ -1295,7 +1295,7 @@ class TopicRuleHttpAuthorizationArgs:
             pulumi.set(__self__, "sigv4", sigv4)
 
     @property
-    @pulumi.getter(name="Sigv4")
+    @pulumi.getter
     def sigv4(self) -> Optional[pulumi.Input['TopicRuleSigV4AuthorizationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
@@ -1321,7 +1321,7 @@ class TopicRuleIotAnalyticsActionArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="ChannelName")
+    @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
@@ -1333,7 +1333,7 @@ class TopicRuleIotAnalyticsActionArgs:
         pulumi.set(self, "channel_name", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
@@ -1363,7 +1363,7 @@ class TopicRuleIotEventsActionArgs:
             pulumi.set(__self__, "message_id", message_id)
 
     @property
-    @pulumi.getter(name="InputName")
+    @pulumi.getter(name="inputName")
     def input_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
@@ -1375,7 +1375,7 @@ class TopicRuleIotEventsActionArgs:
         pulumi.set(self, "input_name", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
@@ -1387,7 +1387,7 @@ class TopicRuleIotEventsActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="MessageId")
+    @pulumi.getter(name="messageId")
     def message_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
@@ -1413,7 +1413,7 @@ class TopicRuleIotSiteWiseActionArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="PutAssetPropertyValueEntries")
+    @pulumi.getter(name="putAssetPropertyValueEntries")
     def put_asset_property_value_entries(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
@@ -1425,7 +1425,7 @@ class TopicRuleIotSiteWiseActionArgs:
         pulumi.set(self, "put_asset_property_value_entries", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
@@ -1455,7 +1455,7 @@ class TopicRuleKinesisActionArgs:
             pulumi.set(__self__, "partition_key", partition_key)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-rolearn
@@ -1467,7 +1467,7 @@ class TopicRuleKinesisActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="StreamName")
+    @pulumi.getter(name="streamName")
     def stream_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-streamname
@@ -1479,7 +1479,7 @@ class TopicRuleKinesisActionArgs:
         pulumi.set(self, "stream_name", value)
 
     @property
-    @pulumi.getter(name="PartitionKey")
+    @pulumi.getter(name="partitionKey")
     def partition_key(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
@@ -1503,7 +1503,7 @@ class TopicRuleLambdaActionArgs:
             pulumi.set(__self__, "function_arn", function_arn)
 
     @property
-    @pulumi.getter(name="FunctionArn")
+    @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
@@ -1542,7 +1542,7 @@ class TopicRulePutAssetPropertyValueEntryArgs:
             pulumi.set(__self__, "property_id", property_id)
 
     @property
-    @pulumi.getter(name="PropertyValues")
+    @pulumi.getter(name="propertyValues")
     def property_values(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
@@ -1554,7 +1554,7 @@ class TopicRulePutAssetPropertyValueEntryArgs:
         pulumi.set(self, "property_values", value)
 
     @property
-    @pulumi.getter(name="AssetId")
+    @pulumi.getter(name="assetId")
     def asset_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
@@ -1566,7 +1566,7 @@ class TopicRulePutAssetPropertyValueEntryArgs:
         pulumi.set(self, "asset_id", value)
 
     @property
-    @pulumi.getter(name="EntryId")
+    @pulumi.getter(name="entryId")
     def entry_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
@@ -1578,7 +1578,7 @@ class TopicRulePutAssetPropertyValueEntryArgs:
         pulumi.set(self, "entry_id", value)
 
     @property
-    @pulumi.getter(name="PropertyAlias")
+    @pulumi.getter(name="propertyAlias")
     def property_alias(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
@@ -1590,7 +1590,7 @@ class TopicRulePutAssetPropertyValueEntryArgs:
         pulumi.set(self, "property_alias", value)
 
     @property
-    @pulumi.getter(name="PropertyId")
+    @pulumi.getter(name="propertyId")
     def property_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid
@@ -1613,7 +1613,7 @@ class TopicRulePutItemInputArgs:
         pulumi.set(__self__, "table_name", table_name)
 
     @property
-    @pulumi.getter(name="TableName")
+    @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
@@ -1643,7 +1643,7 @@ class TopicRuleRepublishActionArgs:
             pulumi.set(__self__, "qos", qos)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
@@ -1655,7 +1655,7 @@ class TopicRuleRepublishActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="Topic")
+    @pulumi.getter
     def topic(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
@@ -1667,7 +1667,7 @@ class TopicRuleRepublishActionArgs:
         pulumi.set(self, "topic", value)
 
     @property
-    @pulumi.getter(name="Qos")
+    @pulumi.getter
     def qos(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
@@ -1696,7 +1696,7 @@ class TopicRuleS3ActionArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
@@ -1708,7 +1708,7 @@ class TopicRuleS3ActionArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
@@ -1720,7 +1720,7 @@ class TopicRuleS3ActionArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
@@ -1749,7 +1749,7 @@ class TopicRuleSigV4AuthorizationArgs:
         pulumi.set(__self__, "signing_region", signing_region)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
@@ -1761,7 +1761,7 @@ class TopicRuleSigV4AuthorizationArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="ServiceName")
+    @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename
@@ -1773,7 +1773,7 @@ class TopicRuleSigV4AuthorizationArgs:
         pulumi.set(self, "service_name", value)
 
     @property
-    @pulumi.getter(name="SigningRegion")
+    @pulumi.getter(name="signingRegion")
     def signing_region(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion
@@ -1803,7 +1803,7 @@ class TopicRuleSnsActionArgs:
             pulumi.set(__self__, "message_format", message_format)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-rolearn
@@ -1815,7 +1815,7 @@ class TopicRuleSnsActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="TargetArn")
+    @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-targetarn
@@ -1827,7 +1827,7 @@ class TopicRuleSnsActionArgs:
         pulumi.set(self, "target_arn", value)
 
     @property
-    @pulumi.getter(name="MessageFormat")
+    @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-messageformat
@@ -1857,7 +1857,7 @@ class TopicRuleSqsActionArgs:
             pulumi.set(__self__, "use_base64", use_base64)
 
     @property
-    @pulumi.getter(name="QueueUrl")
+    @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
@@ -1869,7 +1869,7 @@ class TopicRuleSqsActionArgs:
         pulumi.set(self, "queue_url", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-rolearn
@@ -1881,7 +1881,7 @@ class TopicRuleSqsActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="UseBase64")
+    @pulumi.getter(name="useBase64")
     def use_base64(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-usebase64
@@ -1911,7 +1911,7 @@ class TopicRuleStepFunctionsActionArgs:
             pulumi.set(__self__, "execution_name_prefix", execution_name_prefix)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-rolearn
@@ -1923,7 +1923,7 @@ class TopicRuleStepFunctionsActionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="StateMachineName")
+    @pulumi.getter(name="stateMachineName")
     def state_machine_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-statemachinename
@@ -1935,7 +1935,7 @@ class TopicRuleStepFunctionsActionArgs:
         pulumi.set(self, "state_machine_name", value)
 
     @property
-    @pulumi.getter(name="ExecutionNamePrefix")
+    @pulumi.getter(name="executionNamePrefix")
     def execution_name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix
@@ -1976,7 +1976,7 @@ class TopicRuleTopicRulePayloadArgs:
             pulumi.set(__self__, "error_action", error_action)
 
     @property
-    @pulumi.getter(name="Actions")
+    @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
@@ -1988,7 +1988,7 @@ class TopicRuleTopicRulePayloadArgs:
         pulumi.set(self, "actions", value)
 
     @property
-    @pulumi.getter(name="RuleDisabled")
+    @pulumi.getter(name="ruleDisabled")
     def rule_disabled(self) -> pulumi.Input[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
@@ -2000,7 +2000,7 @@ class TopicRuleTopicRulePayloadArgs:
         pulumi.set(self, "rule_disabled", value)
 
     @property
-    @pulumi.getter(name="Sql")
+    @pulumi.getter
     def sql(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
@@ -2012,7 +2012,7 @@ class TopicRuleTopicRulePayloadArgs:
         pulumi.set(self, "sql", value)
 
     @property
-    @pulumi.getter(name="AwsIotSqlVersion")
+    @pulumi.getter(name="awsIotSqlVersion")
     def aws_iot_sql_version(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
@@ -2024,7 +2024,7 @@ class TopicRuleTopicRulePayloadArgs:
         pulumi.set(self, "aws_iot_sql_version", value)
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
@@ -2036,7 +2036,7 @@ class TopicRuleTopicRulePayloadArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="ErrorAction")
+    @pulumi.getter(name="errorAction")
     def error_action(self) -> Optional[pulumi.Input['TopicRuleActionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction

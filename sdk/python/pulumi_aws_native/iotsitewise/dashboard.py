@@ -91,12 +91,12 @@ class Dashboard(pulumi.CustomResource):
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="DashboardArn")
+    @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dashboard_arn")
 
     @property
-    @pulumi.getter(name="DashboardDefinition")
+    @pulumi.getter(name="dashboardDefinition")
     def dashboard_definition(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
@@ -104,7 +104,7 @@ class Dashboard(pulumi.CustomResource):
         return pulumi.get(self, "dashboard_definition")
 
     @property
-    @pulumi.getter(name="DashboardDescription")
+    @pulumi.getter(name="dashboardDescription")
     def dashboard_description(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
@@ -112,12 +112,12 @@ class Dashboard(pulumi.CustomResource):
         return pulumi.get(self, "dashboard_description")
 
     @property
-    @pulumi.getter(name="DashboardId")
+    @pulumi.getter(name="dashboardId")
     def dashboard_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dashboard_id")
 
     @property
-    @pulumi.getter(name="DashboardName")
+    @pulumi.getter(name="dashboardName")
     def dashboard_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
@@ -125,7 +125,7 @@ class Dashboard(pulumi.CustomResource):
         return pulumi.get(self, "dashboard_name")
 
     @property
-    @pulumi.getter(name="ProjectId")
+    @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
@@ -133,7 +133,7 @@ class Dashboard(pulumi.CustomResource):
         return pulumi.get(self, "project_id")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags

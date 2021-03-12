@@ -37,7 +37,7 @@ class DeviceLocation(dict):
             pulumi.set(__self__, "longitude", longitude)
 
     @property
-    @pulumi.getter(name="Address")
+    @pulumi.getter
     def address(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
@@ -45,7 +45,7 @@ class DeviceLocation(dict):
         return pulumi.get(self, "address")
 
     @property
-    @pulumi.getter(name="Latitude")
+    @pulumi.getter
     def latitude(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
@@ -53,7 +53,7 @@ class DeviceLocation(dict):
         return pulumi.get(self, "latitude")
 
     @property
-    @pulumi.getter(name="Longitude")
+    @pulumi.getter
     def longitude(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
@@ -83,7 +83,7 @@ class LinkBandwidth(dict):
             pulumi.set(__self__, "upload_speed", upload_speed)
 
     @property
-    @pulumi.getter(name="DownloadSpeed")
+    @pulumi.getter(name="downloadSpeed")
     def download_speed(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
@@ -91,7 +91,7 @@ class LinkBandwidth(dict):
         return pulumi.get(self, "download_speed")
 
     @property
-    @pulumi.getter(name="UploadSpeed")
+    @pulumi.getter(name="uploadSpeed")
     def upload_speed(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
@@ -125,7 +125,7 @@ class SiteLocation(dict):
             pulumi.set(__self__, "longitude", longitude)
 
     @property
-    @pulumi.getter(name="Address")
+    @pulumi.getter
     def address(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
@@ -133,7 +133,7 @@ class SiteLocation(dict):
         return pulumi.get(self, "address")
 
     @property
-    @pulumi.getter(name="Latitude")
+    @pulumi.getter
     def latitude(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
@@ -141,7 +141,7 @@ class SiteLocation(dict):
         return pulumi.get(self, "latitude")
 
     @property
-    @pulumi.getter(name="Longitude")
+    @pulumi.getter
     def longitude(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude

@@ -105,7 +105,7 @@ class FlowLog(pulumi.CustomResource):
         return FlowLog(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="DeliverLogsPermissionArn")
+    @pulumi.getter(name="deliverLogsPermissionArn")
     def deliver_logs_permission_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
@@ -113,12 +113,12 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "deliver_logs_permission_arn")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="LogDestination")
+    @pulumi.getter(name="logDestination")
     def log_destination(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
@@ -126,7 +126,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "log_destination")
 
     @property
-    @pulumi.getter(name="LogDestinationType")
+    @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
@@ -134,7 +134,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "log_destination_type")
 
     @property
-    @pulumi.getter(name="LogFormat")
+    @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
@@ -142,7 +142,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "log_format")
 
     @property
-    @pulumi.getter(name="LogGroupName")
+    @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
@@ -150,7 +150,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "log_group_name")
 
     @property
-    @pulumi.getter(name="MaxAggregationInterval")
+    @pulumi.getter(name="maxAggregationInterval")
     def max_aggregation_interval(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
@@ -158,7 +158,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "max_aggregation_interval")
 
     @property
-    @pulumi.getter(name="ResourceId")
+    @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
@@ -166,7 +166,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "resource_id")
 
     @property
-    @pulumi.getter(name="ResourceType")
+    @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
@@ -174,7 +174,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "resource_type")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
@@ -182,7 +182,7 @@ class FlowLog(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="TrafficType")
+    @pulumi.getter(name="trafficType")
     def traffic_type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype

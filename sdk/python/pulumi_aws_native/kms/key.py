@@ -96,12 +96,12 @@ class Key(pulumi.CustomResource):
         return Key(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
@@ -109,7 +109,7 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="EnableKeyRotation")
+    @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
@@ -117,7 +117,7 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "enable_key_rotation")
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
@@ -125,12 +125,12 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="KeyId")
+    @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "key_id")
 
     @property
-    @pulumi.getter(name="KeyPolicy")
+    @pulumi.getter(name="keyPolicy")
     def key_policy(self) -> pulumi.Output[Any]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
@@ -138,7 +138,7 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "key_policy")
 
     @property
-    @pulumi.getter(name="KeySpec")
+    @pulumi.getter(name="keySpec")
     def key_spec(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
@@ -146,7 +146,7 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "key_spec")
 
     @property
-    @pulumi.getter(name="KeyUsage")
+    @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
@@ -154,7 +154,7 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "key_usage")
 
     @property
-    @pulumi.getter(name="PendingWindowInDays")
+    @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
@@ -162,7 +162,7 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "pending_window_in_days")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags

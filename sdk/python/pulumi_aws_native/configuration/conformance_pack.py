@@ -88,7 +88,7 @@ class ConformancePack(pulumi.CustomResource):
         return ConformancePack(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ConformancePackInputParameters")
+    @pulumi.getter(name="conformancePackInputParameters")
     def conformance_pack_input_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ConformancePackConformancePackInputParameter']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
@@ -96,7 +96,7 @@ class ConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "conformance_pack_input_parameters")
 
     @property
-    @pulumi.getter(name="ConformancePackName")
+    @pulumi.getter(name="conformancePackName")
     def conformance_pack_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
@@ -104,7 +104,7 @@ class ConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "conformance_pack_name")
 
     @property
-    @pulumi.getter(name="DeliveryS3Bucket")
+    @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
@@ -112,7 +112,7 @@ class ConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "delivery_s3_bucket")
 
     @property
-    @pulumi.getter(name="DeliveryS3KeyPrefix")
+    @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
@@ -120,7 +120,7 @@ class ConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "delivery_s3_key_prefix")
 
     @property
-    @pulumi.getter(name="TemplateBody")
+    @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
@@ -128,7 +128,7 @@ class ConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "template_body")
 
     @property
-    @pulumi.getter(name="TemplateS3Uri")
+    @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri

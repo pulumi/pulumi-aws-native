@@ -85,17 +85,17 @@ class AccessPolicy(pulumi.CustomResource):
         return AccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AccessPolicyArn")
+    @pulumi.getter(name="accessPolicyArn")
     def access_policy_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "access_policy_arn")
 
     @property
-    @pulumi.getter(name="AccessPolicyId")
+    @pulumi.getter(name="accessPolicyId")
     def access_policy_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "access_policy_id")
 
     @property
-    @pulumi.getter(name="AccessPolicyIdentity")
+    @pulumi.getter(name="accessPolicyIdentity")
     def access_policy_identity(self) -> pulumi.Output['outputs.AccessPolicyAccessPolicyIdentity']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
@@ -103,7 +103,7 @@ class AccessPolicy(pulumi.CustomResource):
         return pulumi.get(self, "access_policy_identity")
 
     @property
-    @pulumi.getter(name="AccessPolicyPermission")
+    @pulumi.getter(name="accessPolicyPermission")
     def access_policy_permission(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
@@ -111,7 +111,7 @@ class AccessPolicy(pulumi.CustomResource):
         return pulumi.get(self, "access_policy_permission")
 
     @property
-    @pulumi.getter(name="AccessPolicyResource")
+    @pulumi.getter(name="accessPolicyResource")
     def access_policy_resource(self) -> pulumi.Output['outputs.AccessPolicyAccessPolicyResource']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource

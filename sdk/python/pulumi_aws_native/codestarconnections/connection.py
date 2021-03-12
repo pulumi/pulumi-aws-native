@@ -85,12 +85,12 @@ class Connection(pulumi.CustomResource):
         return Connection(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ConnectionArn")
+    @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "connection_arn")
 
     @property
-    @pulumi.getter(name="ConnectionName")
+    @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
@@ -98,12 +98,12 @@ class Connection(pulumi.CustomResource):
         return pulumi.get(self, "connection_name")
 
     @property
-    @pulumi.getter(name="ConnectionStatus")
+    @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "connection_status")
 
     @property
-    @pulumi.getter(name="HostArn")
+    @pulumi.getter(name="hostArn")
     def host_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
@@ -111,12 +111,12 @@ class Connection(pulumi.CustomResource):
         return pulumi.get(self, "host_arn")
 
     @property
-    @pulumi.getter(name="OwnerAccountId")
+    @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "owner_account_id")
 
     @property
-    @pulumi.getter(name="ProviderType")
+    @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
@@ -124,7 +124,7 @@ class Connection(pulumi.CustomResource):
         return pulumi.get(self, "provider_type")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags

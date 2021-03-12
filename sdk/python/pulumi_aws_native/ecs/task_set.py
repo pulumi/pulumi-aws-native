@@ -105,7 +105,7 @@ class TaskSet(pulumi.CustomResource):
         return TaskSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Cluster")
+    @pulumi.getter
     def cluster(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
@@ -113,7 +113,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "cluster")
 
     @property
-    @pulumi.getter(name="ExternalId")
+    @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
@@ -121,12 +121,12 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "external_id")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="LaunchType")
+    @pulumi.getter(name="launchType")
     def launch_type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
@@ -134,7 +134,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "launch_type")
 
     @property
-    @pulumi.getter(name="LoadBalancers")
+    @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetLoadBalancer']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
@@ -142,7 +142,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "load_balancers")
 
     @property
-    @pulumi.getter(name="NetworkConfiguration")
+    @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.TaskSetNetworkConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
@@ -150,7 +150,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "network_configuration")
 
     @property
-    @pulumi.getter(name="PlatformVersion")
+    @pulumi.getter(name="platformVersion")
     def platform_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
@@ -158,7 +158,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "platform_version")
 
     @property
-    @pulumi.getter(name="Scale")
+    @pulumi.getter
     def scale(self) -> pulumi.Output[Optional['outputs.TaskSetScale']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
@@ -166,7 +166,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "scale")
 
     @property
-    @pulumi.getter(name="Service")
+    @pulumi.getter
     def service(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
@@ -174,7 +174,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "service")
 
     @property
-    @pulumi.getter(name="ServiceRegistries")
+    @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetServiceRegistry']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
@@ -182,7 +182,7 @@ class TaskSet(pulumi.CustomResource):
         return pulumi.get(self, "service_registries")
 
     @property
-    @pulumi.getter(name="TaskDefinition")
+    @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition

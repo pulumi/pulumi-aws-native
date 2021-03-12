@@ -75,7 +75,7 @@ class ListenerActionArgs:
             pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
@@ -87,7 +87,7 @@ class ListenerActionArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="AuthenticateCognitoConfig")
+    @pulumi.getter(name="authenticateCognitoConfig")
     def authenticate_cognito_config(self) -> Optional[pulumi.Input['ListenerAuthenticateCognitoConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
@@ -99,7 +99,7 @@ class ListenerActionArgs:
         pulumi.set(self, "authenticate_cognito_config", value)
 
     @property
-    @pulumi.getter(name="AuthenticateOidcConfig")
+    @pulumi.getter(name="authenticateOidcConfig")
     def authenticate_oidc_config(self) -> Optional[pulumi.Input['ListenerAuthenticateOidcConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
@@ -111,7 +111,7 @@ class ListenerActionArgs:
         pulumi.set(self, "authenticate_oidc_config", value)
 
     @property
-    @pulumi.getter(name="FixedResponseConfig")
+    @pulumi.getter(name="fixedResponseConfig")
     def fixed_response_config(self) -> Optional[pulumi.Input['ListenerFixedResponseConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
@@ -123,7 +123,7 @@ class ListenerActionArgs:
         pulumi.set(self, "fixed_response_config", value)
 
     @property
-    @pulumi.getter(name="ForwardConfig")
+    @pulumi.getter(name="forwardConfig")
     def forward_config(self) -> Optional[pulumi.Input['ListenerForwardConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
@@ -135,7 +135,7 @@ class ListenerActionArgs:
         pulumi.set(self, "forward_config", value)
 
     @property
-    @pulumi.getter(name="Order")
+    @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-order
@@ -147,7 +147,7 @@ class ListenerActionArgs:
         pulumi.set(self, "order", value)
 
     @property
-    @pulumi.getter(name="RedirectConfig")
+    @pulumi.getter(name="redirectConfig")
     def redirect_config(self) -> Optional[pulumi.Input['ListenerRedirectConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
@@ -159,7 +159,7 @@ class ListenerActionArgs:
         pulumi.set(self, "redirect_config", value)
 
     @property
-    @pulumi.getter(name="TargetGroupArn")
+    @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
@@ -208,7 +208,7 @@ class ListenerAuthenticateCognitoConfigArgs:
             pulumi.set(__self__, "session_timeout", session_timeout)
 
     @property
-    @pulumi.getter(name="UserPoolArn")
+    @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolarn
@@ -220,7 +220,7 @@ class ListenerAuthenticateCognitoConfigArgs:
         pulumi.set(self, "user_pool_arn", value)
 
     @property
-    @pulumi.getter(name="UserPoolClientId")
+    @pulumi.getter(name="userPoolClientId")
     def user_pool_client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolclientid
@@ -232,7 +232,7 @@ class ListenerAuthenticateCognitoConfigArgs:
         pulumi.set(self, "user_pool_client_id", value)
 
     @property
-    @pulumi.getter(name="UserPoolDomain")
+    @pulumi.getter(name="userPoolDomain")
     def user_pool_domain(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpooldomain
@@ -244,7 +244,7 @@ class ListenerAuthenticateCognitoConfigArgs:
         pulumi.set(self, "user_pool_domain", value)
 
     @property
-    @pulumi.getter(name="AuthenticationRequestExtraParams")
+    @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-authenticationrequestextraparams
@@ -256,7 +256,7 @@ class ListenerAuthenticateCognitoConfigArgs:
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
-    @pulumi.getter(name="OnUnauthenticatedRequest")
+    @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-onunauthenticatedrequest
@@ -268,7 +268,7 @@ class ListenerAuthenticateCognitoConfigArgs:
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @property
-    @pulumi.getter(name="Scope")
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-scope
@@ -280,7 +280,7 @@ class ListenerAuthenticateCognitoConfigArgs:
         pulumi.set(self, "scope", value)
 
     @property
-    @pulumi.getter(name="SessionCookieName")
+    @pulumi.getter(name="sessionCookieName")
     def session_cookie_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessioncookiename
@@ -292,7 +292,7 @@ class ListenerAuthenticateCognitoConfigArgs:
         pulumi.set(self, "session_cookie_name", value)
 
     @property
-    @pulumi.getter(name="SessionTimeout")
+    @pulumi.getter(name="sessionTimeout")
     def session_timeout(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessiontimeout
@@ -350,7 +350,7 @@ class ListenerAuthenticateOidcConfigArgs:
             pulumi.set(__self__, "session_timeout", session_timeout)
 
     @property
-    @pulumi.getter(name="AuthorizationEndpoint")
+    @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-authorizationendpoint
@@ -362,7 +362,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "authorization_endpoint", value)
 
     @property
-    @pulumi.getter(name="ClientId")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-clientid
@@ -374,7 +374,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="ClientSecret")
+    @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-clientsecret
@@ -386,7 +386,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "client_secret", value)
 
     @property
-    @pulumi.getter(name="Issuer")
+    @pulumi.getter
     def issuer(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-issuer
@@ -398,7 +398,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "issuer", value)
 
     @property
-    @pulumi.getter(name="TokenEndpoint")
+    @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-tokenendpoint
@@ -410,7 +410,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "token_endpoint", value)
 
     @property
-    @pulumi.getter(name="UserInfoEndpoint")
+    @pulumi.getter(name="userInfoEndpoint")
     def user_info_endpoint(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-userinfoendpoint
@@ -422,7 +422,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "user_info_endpoint", value)
 
     @property
-    @pulumi.getter(name="AuthenticationRequestExtraParams")
+    @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-authenticationrequestextraparams
@@ -434,7 +434,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
-    @pulumi.getter(name="OnUnauthenticatedRequest")
+    @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-onunauthenticatedrequest
@@ -446,7 +446,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @property
-    @pulumi.getter(name="Scope")
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-scope
@@ -458,7 +458,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "scope", value)
 
     @property
-    @pulumi.getter(name="SessionCookieName")
+    @pulumi.getter(name="sessionCookieName")
     def session_cookie_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessioncookiename
@@ -470,7 +470,7 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "session_cookie_name", value)
 
     @property
-    @pulumi.getter(name="SessionTimeout")
+    @pulumi.getter(name="sessionTimeout")
     def session_timeout(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessiontimeout
@@ -494,7 +494,7 @@ class ListenerCertificateArgs:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
-    @pulumi.getter(name="CertificateArn")
+    @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
@@ -525,7 +525,7 @@ class ListenerFixedResponseConfigArgs:
             pulumi.set(__self__, "message_body", message_body)
 
     @property
-    @pulumi.getter(name="StatusCode")
+    @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-statuscode
@@ -537,7 +537,7 @@ class ListenerFixedResponseConfigArgs:
         pulumi.set(self, "status_code", value)
 
     @property
-    @pulumi.getter(name="ContentType")
+    @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-contenttype
@@ -549,7 +549,7 @@ class ListenerFixedResponseConfigArgs:
         pulumi.set(self, "content_type", value)
 
     @property
-    @pulumi.getter(name="MessageBody")
+    @pulumi.getter(name="messageBody")
     def message_body(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-messagebody
@@ -577,7 +577,7 @@ class ListenerForwardConfigArgs:
             pulumi.set(__self__, "target_groups", target_groups)
 
     @property
-    @pulumi.getter(name="TargetGroupStickinessConfig")
+    @pulumi.getter(name="targetGroupStickinessConfig")
     def target_group_stickiness_config(self) -> Optional[pulumi.Input['ListenerTargetGroupStickinessConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig
@@ -589,7 +589,7 @@ class ListenerForwardConfigArgs:
         pulumi.set(self, "target_group_stickiness_config", value)
 
     @property
-    @pulumi.getter(name="TargetGroups")
+    @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
@@ -632,7 +632,7 @@ class ListenerRedirectConfigArgs:
             pulumi.set(__self__, "query", query)
 
     @property
-    @pulumi.getter(name="StatusCode")
+    @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode
@@ -644,7 +644,7 @@ class ListenerRedirectConfigArgs:
         pulumi.set(self, "status_code", value)
 
     @property
-    @pulumi.getter(name="Host")
+    @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-host
@@ -656,7 +656,7 @@ class ListenerRedirectConfigArgs:
         pulumi.set(self, "host", value)
 
     @property
-    @pulumi.getter(name="Path")
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-path
@@ -668,7 +668,7 @@ class ListenerRedirectConfigArgs:
         pulumi.set(self, "path", value)
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-port
@@ -680,7 +680,7 @@ class ListenerRedirectConfigArgs:
         pulumi.set(self, "port", value)
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol
@@ -692,7 +692,7 @@ class ListenerRedirectConfigArgs:
         pulumi.set(self, "protocol", value)
 
     @property
-    @pulumi.getter(name="Query")
+    @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-query
@@ -743,7 +743,7 @@ class ListenerRuleActionArgs:
             pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-type
@@ -755,7 +755,7 @@ class ListenerRuleActionArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="AuthenticateCognitoConfig")
+    @pulumi.getter(name="authenticateCognitoConfig")
     def authenticate_cognito_config(self) -> Optional[pulumi.Input['ListenerRuleAuthenticateCognitoConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
@@ -767,7 +767,7 @@ class ListenerRuleActionArgs:
         pulumi.set(self, "authenticate_cognito_config", value)
 
     @property
-    @pulumi.getter(name="AuthenticateOidcConfig")
+    @pulumi.getter(name="authenticateOidcConfig")
     def authenticate_oidc_config(self) -> Optional[pulumi.Input['ListenerRuleAuthenticateOidcConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
@@ -779,7 +779,7 @@ class ListenerRuleActionArgs:
         pulumi.set(self, "authenticate_oidc_config", value)
 
     @property
-    @pulumi.getter(name="FixedResponseConfig")
+    @pulumi.getter(name="fixedResponseConfig")
     def fixed_response_config(self) -> Optional[pulumi.Input['ListenerRuleFixedResponseConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
@@ -791,7 +791,7 @@ class ListenerRuleActionArgs:
         pulumi.set(self, "fixed_response_config", value)
 
     @property
-    @pulumi.getter(name="ForwardConfig")
+    @pulumi.getter(name="forwardConfig")
     def forward_config(self) -> Optional[pulumi.Input['ListenerRuleForwardConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
@@ -803,7 +803,7 @@ class ListenerRuleActionArgs:
         pulumi.set(self, "forward_config", value)
 
     @property
-    @pulumi.getter(name="Order")
+    @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-order
@@ -815,7 +815,7 @@ class ListenerRuleActionArgs:
         pulumi.set(self, "order", value)
 
     @property
-    @pulumi.getter(name="RedirectConfig")
+    @pulumi.getter(name="redirectConfig")
     def redirect_config(self) -> Optional[pulumi.Input['ListenerRuleRedirectConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
@@ -827,7 +827,7 @@ class ListenerRuleActionArgs:
         pulumi.set(self, "redirect_config", value)
 
     @property
-    @pulumi.getter(name="TargetGroupArn")
+    @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
@@ -876,7 +876,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
             pulumi.set(__self__, "session_timeout", session_timeout)
 
     @property
-    @pulumi.getter(name="UserPoolArn")
+    @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpoolarn
@@ -888,7 +888,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         pulumi.set(self, "user_pool_arn", value)
 
     @property
-    @pulumi.getter(name="UserPoolClientId")
+    @pulumi.getter(name="userPoolClientId")
     def user_pool_client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpoolclientid
@@ -900,7 +900,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         pulumi.set(self, "user_pool_client_id", value)
 
     @property
-    @pulumi.getter(name="UserPoolDomain")
+    @pulumi.getter(name="userPoolDomain")
     def user_pool_domain(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpooldomain
@@ -912,7 +912,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         pulumi.set(self, "user_pool_domain", value)
 
     @property
-    @pulumi.getter(name="AuthenticationRequestExtraParams")
+    @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-authenticationrequestextraparams
@@ -924,7 +924,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
-    @pulumi.getter(name="OnUnauthenticatedRequest")
+    @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-onunauthenticatedrequest
@@ -936,7 +936,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @property
-    @pulumi.getter(name="Scope")
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-scope
@@ -948,7 +948,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         pulumi.set(self, "scope", value)
 
     @property
-    @pulumi.getter(name="SessionCookieName")
+    @pulumi.getter(name="sessionCookieName")
     def session_cookie_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-sessioncookiename
@@ -960,7 +960,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
         pulumi.set(self, "session_cookie_name", value)
 
     @property
-    @pulumi.getter(name="SessionTimeout")
+    @pulumi.getter(name="sessionTimeout")
     def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-sessiontimeout
@@ -1018,7 +1018,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
             pulumi.set(__self__, "session_timeout", session_timeout)
 
     @property
-    @pulumi.getter(name="AuthorizationEndpoint")
+    @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authorizationendpoint
@@ -1030,7 +1030,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "authorization_endpoint", value)
 
     @property
-    @pulumi.getter(name="ClientId")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-clientid
@@ -1042,7 +1042,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="ClientSecret")
+    @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-clientsecret
@@ -1054,7 +1054,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "client_secret", value)
 
     @property
-    @pulumi.getter(name="Issuer")
+    @pulumi.getter
     def issuer(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-issuer
@@ -1066,7 +1066,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "issuer", value)
 
     @property
-    @pulumi.getter(name="TokenEndpoint")
+    @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-tokenendpoint
@@ -1078,7 +1078,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "token_endpoint", value)
 
     @property
-    @pulumi.getter(name="UserInfoEndpoint")
+    @pulumi.getter(name="userInfoEndpoint")
     def user_info_endpoint(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-userinfoendpoint
@@ -1090,7 +1090,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "user_info_endpoint", value)
 
     @property
-    @pulumi.getter(name="AuthenticationRequestExtraParams")
+    @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authenticationrequestextraparams
@@ -1102,7 +1102,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
-    @pulumi.getter(name="OnUnauthenticatedRequest")
+    @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-onunauthenticatedrequest
@@ -1114,7 +1114,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "on_unauthenticated_request", value)
 
     @property
-    @pulumi.getter(name="Scope")
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-scope
@@ -1126,7 +1126,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "scope", value)
 
     @property
-    @pulumi.getter(name="SessionCookieName")
+    @pulumi.getter(name="sessionCookieName")
     def session_cookie_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessioncookiename
@@ -1138,7 +1138,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
         pulumi.set(self, "session_cookie_name", value)
 
     @property
-    @pulumi.getter(name="SessionTimeout")
+    @pulumi.getter(name="sessionTimeout")
     def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessiontimeout
@@ -1169,7 +1169,7 @@ class ListenerRuleFixedResponseConfigArgs:
             pulumi.set(__self__, "message_body", message_body)
 
     @property
-    @pulumi.getter(name="StatusCode")
+    @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listenerrule-fixedresponseconfig-statuscode
@@ -1181,7 +1181,7 @@ class ListenerRuleFixedResponseConfigArgs:
         pulumi.set(self, "status_code", value)
 
     @property
-    @pulumi.getter(name="ContentType")
+    @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listenerrule-fixedresponseconfig-contenttype
@@ -1193,7 +1193,7 @@ class ListenerRuleFixedResponseConfigArgs:
         pulumi.set(self, "content_type", value)
 
     @property
-    @pulumi.getter(name="MessageBody")
+    @pulumi.getter(name="messageBody")
     def message_body(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listenerrule-fixedresponseconfig-messagebody
@@ -1221,7 +1221,7 @@ class ListenerRuleForwardConfigArgs:
             pulumi.set(__self__, "target_groups", target_groups)
 
     @property
-    @pulumi.getter(name="TargetGroupStickinessConfig")
+    @pulumi.getter(name="targetGroupStickinessConfig")
     def target_group_stickiness_config(self) -> Optional[pulumi.Input['ListenerRuleTargetGroupStickinessConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
@@ -1233,7 +1233,7 @@ class ListenerRuleForwardConfigArgs:
         pulumi.set(self, "target_group_stickiness_config", value)
 
     @property
-    @pulumi.getter(name="TargetGroups")
+    @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
@@ -1257,7 +1257,7 @@ class ListenerRuleHostHeaderConfigArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-hostheaderconfig-values
@@ -1285,7 +1285,7 @@ class ListenerRuleHttpHeaderConfigArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="HttpHeaderName")
+    @pulumi.getter(name="httpHeaderName")
     def http_header_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-httpheadername
@@ -1297,7 +1297,7 @@ class ListenerRuleHttpHeaderConfigArgs:
         pulumi.set(self, "http_header_name", value)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-values
@@ -1321,7 +1321,7 @@ class ListenerRuleHttpRequestMethodConfigArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html#cfn-elasticloadbalancingv2-listenerrule-httprequestmethodconfig-values
@@ -1345,7 +1345,7 @@ class ListenerRulePathPatternConfigArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-values
@@ -1369,7 +1369,7 @@ class ListenerRuleQueryStringConfigArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
@@ -1397,7 +1397,7 @@ class ListenerRuleQueryStringKeyValueArgs:
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html#cfn-elasticloadbalancingv2-listenerrule-querystringkeyvalue-key
@@ -1409,7 +1409,7 @@ class ListenerRuleQueryStringKeyValueArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html#cfn-elasticloadbalancingv2-listenerrule-querystringkeyvalue-value
@@ -1452,7 +1452,7 @@ class ListenerRuleRedirectConfigArgs:
             pulumi.set(__self__, "query", query)
 
     @property
-    @pulumi.getter(name="StatusCode")
+    @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-statuscode
@@ -1464,7 +1464,7 @@ class ListenerRuleRedirectConfigArgs:
         pulumi.set(self, "status_code", value)
 
     @property
-    @pulumi.getter(name="Host")
+    @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-host
@@ -1476,7 +1476,7 @@ class ListenerRuleRedirectConfigArgs:
         pulumi.set(self, "host", value)
 
     @property
-    @pulumi.getter(name="Path")
+    @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-path
@@ -1488,7 +1488,7 @@ class ListenerRuleRedirectConfigArgs:
         pulumi.set(self, "path", value)
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-port
@@ -1500,7 +1500,7 @@ class ListenerRuleRedirectConfigArgs:
         pulumi.set(self, "port", value)
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-protocol
@@ -1512,7 +1512,7 @@ class ListenerRuleRedirectConfigArgs:
         pulumi.set(self, "protocol", value)
 
     @property
-    @pulumi.getter(name="Query")
+    @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-query
@@ -1564,7 +1564,7 @@ class ListenerRuleRuleConditionArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Field")
+    @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
@@ -1576,7 +1576,7 @@ class ListenerRuleRuleConditionArgs:
         pulumi.set(self, "field", value)
 
     @property
-    @pulumi.getter(name="HostHeaderConfig")
+    @pulumi.getter(name="hostHeaderConfig")
     def host_header_config(self) -> Optional[pulumi.Input['ListenerRuleHostHeaderConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
@@ -1588,7 +1588,7 @@ class ListenerRuleRuleConditionArgs:
         pulumi.set(self, "host_header_config", value)
 
     @property
-    @pulumi.getter(name="HttpHeaderConfig")
+    @pulumi.getter(name="httpHeaderConfig")
     def http_header_config(self) -> Optional[pulumi.Input['ListenerRuleHttpHeaderConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
@@ -1600,7 +1600,7 @@ class ListenerRuleRuleConditionArgs:
         pulumi.set(self, "http_header_config", value)
 
     @property
-    @pulumi.getter(name="HttpRequestMethodConfig")
+    @pulumi.getter(name="httpRequestMethodConfig")
     def http_request_method_config(self) -> Optional[pulumi.Input['ListenerRuleHttpRequestMethodConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
@@ -1612,7 +1612,7 @@ class ListenerRuleRuleConditionArgs:
         pulumi.set(self, "http_request_method_config", value)
 
     @property
-    @pulumi.getter(name="PathPatternConfig")
+    @pulumi.getter(name="pathPatternConfig")
     def path_pattern_config(self) -> Optional[pulumi.Input['ListenerRulePathPatternConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
@@ -1624,7 +1624,7 @@ class ListenerRuleRuleConditionArgs:
         pulumi.set(self, "path_pattern_config", value)
 
     @property
-    @pulumi.getter(name="QueryStringConfig")
+    @pulumi.getter(name="queryStringConfig")
     def query_string_config(self) -> Optional[pulumi.Input['ListenerRuleQueryStringConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
@@ -1636,7 +1636,7 @@ class ListenerRuleRuleConditionArgs:
         pulumi.set(self, "query_string_config", value)
 
     @property
-    @pulumi.getter(name="SourceIpConfig")
+    @pulumi.getter(name="sourceIpConfig")
     def source_ip_config(self) -> Optional[pulumi.Input['ListenerRuleSourceIpConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
@@ -1648,7 +1648,7 @@ class ListenerRuleRuleConditionArgs:
         pulumi.set(self, "source_ip_config", value)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
@@ -1672,7 +1672,7 @@ class ListenerRuleSourceIpConfigArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html#cfn-elasticloadbalancingv2-listenerrule-sourceipconfig-values
@@ -1700,7 +1700,7 @@ class ListenerRuleTargetGroupStickinessConfigArgs:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
-    @pulumi.getter(name="DurationSeconds")
+    @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-durationseconds
@@ -1712,7 +1712,7 @@ class ListenerRuleTargetGroupStickinessConfigArgs:
         pulumi.set(self, "duration_seconds", value)
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-enabled
@@ -1740,7 +1740,7 @@ class ListenerRuleTargetGroupTupleArgs:
             pulumi.set(__self__, "weight", weight)
 
     @property
-    @pulumi.getter(name="TargetGroupArn")
+    @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn
@@ -1752,7 +1752,7 @@ class ListenerRuleTargetGroupTupleArgs:
         pulumi.set(self, "target_group_arn", value)
 
     @property
-    @pulumi.getter(name="Weight")
+    @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-weight
@@ -1780,7 +1780,7 @@ class ListenerTargetGroupStickinessConfigArgs:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
-    @pulumi.getter(name="DurationSeconds")
+    @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-durationseconds
@@ -1792,7 +1792,7 @@ class ListenerTargetGroupStickinessConfigArgs:
         pulumi.set(self, "duration_seconds", value)
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-enabled
@@ -1820,7 +1820,7 @@ class ListenerTargetGroupTupleArgs:
             pulumi.set(__self__, "weight", weight)
 
     @property
-    @pulumi.getter(name="TargetGroupArn")
+    @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-targetgrouparn
@@ -1832,7 +1832,7 @@ class ListenerTargetGroupTupleArgs:
         pulumi.set(self, "target_group_arn", value)
 
     @property
-    @pulumi.getter(name="Weight")
+    @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-weight

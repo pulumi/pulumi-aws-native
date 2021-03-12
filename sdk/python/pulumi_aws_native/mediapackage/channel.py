@@ -82,12 +82,12 @@ class Channel(pulumi.CustomResource):
         return Channel(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
@@ -95,12 +95,12 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="HlsIngest")
+    @pulumi.getter(name="hlsIngest")
     def hls_ingest(self) -> pulumi.Output['outputs.ChannelHlsIngest']:
         return pulumi.get(self, "hls_ingest")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
@@ -108,7 +108,7 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags

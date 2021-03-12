@@ -116,7 +116,7 @@ class TaskDefinition(pulumi.CustomResource):
         return TaskDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ContainerDefinitions")
+    @pulumi.getter(name="containerDefinitions")
     def container_definitions(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionContainerDefinition']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
@@ -124,7 +124,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "container_definitions")
 
     @property
-    @pulumi.getter(name="Cpu")
+    @pulumi.getter
     def cpu(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
@@ -132,7 +132,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "cpu")
 
     @property
-    @pulumi.getter(name="ExecutionRoleArn")
+    @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
@@ -140,7 +140,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "execution_role_arn")
 
     @property
-    @pulumi.getter(name="Family")
+    @pulumi.getter
     def family(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
@@ -148,7 +148,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "family")
 
     @property
-    @pulumi.getter(name="InferenceAccelerators")
+    @pulumi.getter(name="inferenceAccelerators")
     def inference_accelerators(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionInferenceAccelerator']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
@@ -156,7 +156,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "inference_accelerators")
 
     @property
-    @pulumi.getter(name="IpcMode")
+    @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
@@ -164,7 +164,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "ipc_mode")
 
     @property
-    @pulumi.getter(name="Memory")
+    @pulumi.getter
     def memory(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
@@ -172,7 +172,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "memory")
 
     @property
-    @pulumi.getter(name="NetworkMode")
+    @pulumi.getter(name="networkMode")
     def network_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
@@ -180,7 +180,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "network_mode")
 
     @property
-    @pulumi.getter(name="PidMode")
+    @pulumi.getter(name="pidMode")
     def pid_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
@@ -188,7 +188,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "pid_mode")
 
     @property
-    @pulumi.getter(name="PlacementConstraints")
+    @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionTaskDefinitionPlacementConstraint']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
@@ -196,7 +196,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "placement_constraints")
 
     @property
-    @pulumi.getter(name="ProxyConfiguration")
+    @pulumi.getter(name="proxyConfiguration")
     def proxy_configuration(self) -> pulumi.Output[Optional['outputs.TaskDefinitionProxyConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
@@ -204,7 +204,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "proxy_configuration")
 
     @property
-    @pulumi.getter(name="RequiresCompatibilities")
+    @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
@@ -212,7 +212,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "requires_compatibilities")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
@@ -220,12 +220,12 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="TaskDefinitionArn")
+    @pulumi.getter(name="taskDefinitionArn")
     def task_definition_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "task_definition_arn")
 
     @property
-    @pulumi.getter(name="TaskRoleArn")
+    @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
@@ -233,7 +233,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "task_role_arn")
 
     @property
-    @pulumi.getter(name="Volumes")
+    @pulumi.getter
     def volumes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionVolume']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes

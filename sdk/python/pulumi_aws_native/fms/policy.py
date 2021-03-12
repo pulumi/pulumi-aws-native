@@ -113,12 +113,12 @@ class Policy(pulumi.CustomResource):
         return Policy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="DeleteAllPolicyResources")
+    @pulumi.getter(name="deleteAllPolicyResources")
     def delete_all_policy_resources(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
@@ -126,7 +126,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "delete_all_policy_resources")
 
     @property
-    @pulumi.getter(name="ExcludeMap")
+    @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> pulumi.Output[Optional['outputs.PolicyIEMap']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
@@ -134,7 +134,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "exclude_map")
 
     @property
-    @pulumi.getter(name="ExcludeResourceTags")
+    @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> pulumi.Output[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
@@ -142,12 +142,12 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "exclude_resource_tags")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="IncludeMap")
+    @pulumi.getter(name="includeMap")
     def include_map(self) -> pulumi.Output[Optional['outputs.PolicyIEMap']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
@@ -155,7 +155,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "include_map")
 
     @property
-    @pulumi.getter(name="PolicyName")
+    @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
@@ -163,7 +163,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "policy_name")
 
     @property
-    @pulumi.getter(name="RemediationEnabled")
+    @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> pulumi.Output[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
@@ -171,7 +171,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "remediation_enabled")
 
     @property
-    @pulumi.getter(name="ResourceTags")
+    @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyResourceTag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
@@ -179,7 +179,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "resource_tags")
 
     @property
-    @pulumi.getter(name="ResourceType")
+    @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
@@ -187,7 +187,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "resource_type")
 
     @property
-    @pulumi.getter(name="ResourceTypeList")
+    @pulumi.getter(name="resourceTypeList")
     def resource_type_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
@@ -195,7 +195,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "resource_type_list")
 
     @property
-    @pulumi.getter(name="SecurityServicePolicyData")
+    @pulumi.getter(name="securityServicePolicyData")
     def security_service_policy_data(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
@@ -203,7 +203,7 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "security_service_policy_data")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyPolicyTag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags

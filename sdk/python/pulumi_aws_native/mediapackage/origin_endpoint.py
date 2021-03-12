@@ -118,12 +118,12 @@ class OriginEndpoint(pulumi.CustomResource):
         return OriginEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Authorization")
+    @pulumi.getter
     def authorization(self) -> pulumi.Output[Optional['outputs.OriginEndpointAuthorization']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
@@ -131,7 +131,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "authorization")
 
     @property
-    @pulumi.getter(name="ChannelId")
+    @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
@@ -139,7 +139,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "channel_id")
 
     @property
-    @pulumi.getter(name="CmafPackage")
+    @pulumi.getter(name="cmafPackage")
     def cmaf_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointCmafPackage']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
@@ -147,7 +147,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "cmaf_package")
 
     @property
-    @pulumi.getter(name="DashPackage")
+    @pulumi.getter(name="dashPackage")
     def dash_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointDashPackage']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
@@ -155,7 +155,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "dash_package")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
@@ -163,7 +163,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="HlsPackage")
+    @pulumi.getter(name="hlsPackage")
     def hls_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointHlsPackage']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
@@ -171,7 +171,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "hls_package")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
@@ -179,7 +179,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="ManifestName")
+    @pulumi.getter(name="manifestName")
     def manifest_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
@@ -187,7 +187,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "manifest_name")
 
     @property
-    @pulumi.getter(name="MssPackage")
+    @pulumi.getter(name="mssPackage")
     def mss_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointMssPackage']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
@@ -195,7 +195,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "mss_package")
 
     @property
-    @pulumi.getter(name="Origination")
+    @pulumi.getter
     def origination(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
@@ -203,7 +203,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "origination")
 
     @property
-    @pulumi.getter(name="StartoverWindowSeconds")
+    @pulumi.getter(name="startoverWindowSeconds")
     def startover_window_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
@@ -211,7 +211,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "startover_window_seconds")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
@@ -219,7 +219,7 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="TimeDelaySeconds")
+    @pulumi.getter(name="timeDelaySeconds")
     def time_delay_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
@@ -227,12 +227,12 @@ class OriginEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "time_delay_seconds")
 
     @property
-    @pulumi.getter(name="Url")
+    @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "url")
 
     @property
-    @pulumi.getter(name="Whitelist")
+    @pulumi.getter
     def whitelist(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist

@@ -88,12 +88,12 @@ class Stream(pulumi.CustomResource):
         return Stream(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
@@ -101,7 +101,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="RetentionPeriodHours")
+    @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
@@ -109,7 +109,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "retention_period_hours")
 
     @property
-    @pulumi.getter(name="ShardCount")
+    @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Output[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
@@ -117,7 +117,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "shard_count")
 
     @property
-    @pulumi.getter(name="StreamEncryption")
+    @pulumi.getter(name="streamEncryption")
     def stream_encryption(self) -> pulumi.Output[Optional['outputs.StreamStreamEncryption']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
@@ -125,7 +125,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "stream_encryption")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags

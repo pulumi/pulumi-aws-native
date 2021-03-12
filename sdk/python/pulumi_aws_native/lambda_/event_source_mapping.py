@@ -125,7 +125,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return EventSourceMapping(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="BatchSize")
+    @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
@@ -133,7 +133,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "batch_size")
 
     @property
-    @pulumi.getter(name="BisectBatchOnFunctionError")
+    @pulumi.getter(name="bisectBatchOnFunctionError")
     def bisect_batch_on_function_error(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
@@ -141,7 +141,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "bisect_batch_on_function_error")
 
     @property
-    @pulumi.getter(name="DestinationConfig")
+    @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingDestinationConfig']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
@@ -149,7 +149,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "destination_config")
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
@@ -157,7 +157,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="EventSourceArn")
+    @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
@@ -165,7 +165,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "event_source_arn")
 
     @property
-    @pulumi.getter(name="FunctionName")
+    @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
@@ -173,7 +173,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "function_name")
 
     @property
-    @pulumi.getter(name="FunctionResponseTypes")
+    @pulumi.getter(name="functionResponseTypes")
     def function_response_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
@@ -181,12 +181,12 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "function_response_types")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="MaximumBatchingWindowInSeconds")
+    @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
@@ -194,7 +194,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
     @property
-    @pulumi.getter(name="MaximumRecordAgeInSeconds")
+    @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
@@ -202,7 +202,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
     @property
-    @pulumi.getter(name="MaximumRetryAttempts")
+    @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
@@ -210,7 +210,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "maximum_retry_attempts")
 
     @property
-    @pulumi.getter(name="ParallelizationFactor")
+    @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
@@ -218,7 +218,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "parallelization_factor")
 
     @property
-    @pulumi.getter(name="PartialBatchResponse")
+    @pulumi.getter(name="partialBatchResponse")
     def partial_batch_response(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
@@ -226,7 +226,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "partial_batch_response")
 
     @property
-    @pulumi.getter(name="Queues")
+    @pulumi.getter
     def queues(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
@@ -234,7 +234,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "queues")
 
     @property
-    @pulumi.getter(name="SelfManagedEventSource")
+    @pulumi.getter(name="selfManagedEventSource")
     def self_managed_event_source(self) -> pulumi.Output[Optional['outputs.EventSourceMappingSelfManagedEventSource']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
@@ -242,7 +242,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "self_managed_event_source")
 
     @property
-    @pulumi.getter(name="SourceAccessConfigurations")
+    @pulumi.getter(name="sourceAccessConfigurations")
     def source_access_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.EventSourceMappingSourceAccessConfiguration']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
@@ -250,7 +250,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "source_access_configurations")
 
     @property
-    @pulumi.getter(name="StartingPosition")
+    @pulumi.getter(name="startingPosition")
     def starting_position(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
@@ -258,7 +258,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "starting_position")
 
     @property
-    @pulumi.getter(name="Topics")
+    @pulumi.getter
     def topics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
@@ -266,7 +266,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "topics")
 
     @property
-    @pulumi.getter(name="TumblingWindowInSeconds")
+    @pulumi.getter(name="tumblingWindowInSeconds")
     def tumbling_window_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds

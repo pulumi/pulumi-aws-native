@@ -43,7 +43,7 @@ class CertificateAuthorityCrlConfiguration(dict):
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
 
     @property
-    @pulumi.getter(name="CustomCname")
+    @pulumi.getter(name="customCname")
     def custom_cname(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
@@ -51,7 +51,7 @@ class CertificateAuthorityCrlConfiguration(dict):
         return pulumi.get(self, "custom_cname")
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
@@ -59,7 +59,7 @@ class CertificateAuthorityCrlConfiguration(dict):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="ExpirationInDays")
+    @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
@@ -67,7 +67,7 @@ class CertificateAuthorityCrlConfiguration(dict):
         return pulumi.get(self, "expiration_in_days")
 
     @property
-    @pulumi.getter(name="S3BucketName")
+    @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
@@ -93,7 +93,7 @@ class CertificateAuthorityRevocationConfiguration(dict):
             pulumi.set(__self__, "crl_configuration", crl_configuration)
 
     @property
-    @pulumi.getter(name="CrlConfiguration")
+    @pulumi.getter(name="crlConfiguration")
     def crl_configuration(self) -> Optional['outputs.CertificateAuthorityCrlConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
@@ -171,7 +171,7 @@ class CertificateAuthoritySubject(dict):
             pulumi.set(__self__, "title", title)
 
     @property
-    @pulumi.getter(name="CommonName")
+    @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-commonname
@@ -179,7 +179,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "common_name")
 
     @property
-    @pulumi.getter(name="Country")
+    @pulumi.getter
     def country(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-country
@@ -187,7 +187,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "country")
 
     @property
-    @pulumi.getter(name="DistinguishedNameQualifier")
+    @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-distinguishednamequalifier
@@ -195,7 +195,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @property
-    @pulumi.getter(name="GenerationQualifier")
+    @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-generationqualifier
@@ -203,7 +203,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "generation_qualifier")
 
     @property
-    @pulumi.getter(name="GivenName")
+    @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-givenname
@@ -211,7 +211,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "given_name")
 
     @property
-    @pulumi.getter(name="Initials")
+    @pulumi.getter
     def initials(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-initials
@@ -219,7 +219,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "initials")
 
     @property
-    @pulumi.getter(name="Locality")
+    @pulumi.getter
     def locality(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-locality
@@ -227,7 +227,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "locality")
 
     @property
-    @pulumi.getter(name="Organization")
+    @pulumi.getter
     def organization(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organization
@@ -235,7 +235,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "organization")
 
     @property
-    @pulumi.getter(name="OrganizationalUnit")
+    @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organizationalunit
@@ -243,7 +243,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "organizational_unit")
 
     @property
-    @pulumi.getter(name="Pseudonym")
+    @pulumi.getter
     def pseudonym(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-pseudonym
@@ -251,7 +251,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "pseudonym")
 
     @property
-    @pulumi.getter(name="SerialNumber")
+    @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-serialnumber
@@ -259,7 +259,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "serial_number")
 
     @property
-    @pulumi.getter(name="State")
+    @pulumi.getter
     def state(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-state
@@ -267,7 +267,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="Surname")
+    @pulumi.getter
     def surname(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-surname
@@ -275,7 +275,7 @@ class CertificateAuthoritySubject(dict):
         return pulumi.get(self, "surname")
 
     @property
-    @pulumi.getter(name="Title")
+    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-title
@@ -303,7 +303,7 @@ class CertificateValidity(dict):
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
@@ -311,7 +311,7 @@ class CertificateValidity(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value

@@ -34,7 +34,7 @@ class TableBillingMode(dict):
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
 
     @property
-    @pulumi.getter(name="Mode")
+    @pulumi.getter
     def mode(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
@@ -42,7 +42,7 @@ class TableBillingMode(dict):
         return pulumi.get(self, "mode")
 
     @property
-    @pulumi.getter(name="ProvisionedThroughput")
+    @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional['outputs.TableProvisionedThroughput']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
@@ -71,7 +71,7 @@ class TableClusteringKeyColumn(dict):
             pulumi.set(__self__, "order_by", order_by)
 
     @property
-    @pulumi.getter(name="Column")
+    @pulumi.getter
     def column(self) -> 'outputs.TableColumn':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
@@ -79,7 +79,7 @@ class TableClusteringKeyColumn(dict):
         return pulumi.get(self, "column")
 
     @property
-    @pulumi.getter(name="OrderBy")
+    @pulumi.getter(name="orderBy")
     def order_by(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
@@ -107,7 +107,7 @@ class TableColumn(dict):
         pulumi.set(__self__, "column_type", column_type)
 
     @property
-    @pulumi.getter(name="ColumnName")
+    @pulumi.getter(name="columnName")
     def column_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname
@@ -115,7 +115,7 @@ class TableColumn(dict):
         return pulumi.get(self, "column_name")
 
     @property
-    @pulumi.getter(name="ColumnType")
+    @pulumi.getter(name="columnType")
     def column_type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype
@@ -143,7 +143,7 @@ class TableProvisionedThroughput(dict):
         pulumi.set(__self__, "write_capacity_units", write_capacity_units)
 
     @property
-    @pulumi.getter(name="ReadCapacityUnits")
+    @pulumi.getter(name="readCapacityUnits")
     def read_capacity_units(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
@@ -151,7 +151,7 @@ class TableProvisionedThroughput(dict):
         return pulumi.get(self, "read_capacity_units")
 
     @property
-    @pulumi.getter(name="WriteCapacityUnits")
+    @pulumi.getter(name="writeCapacityUnits")
     def write_capacity_units(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits

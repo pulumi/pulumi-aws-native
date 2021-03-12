@@ -46,7 +46,7 @@ class CanaryCode(dict):
             pulumi.set(__self__, "script", script)
 
     @property
-    @pulumi.getter(name="Handler")
+    @pulumi.getter
     def handler(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
@@ -54,7 +54,7 @@ class CanaryCode(dict):
         return pulumi.get(self, "handler")
 
     @property
-    @pulumi.getter(name="S3Bucket")
+    @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
@@ -62,7 +62,7 @@ class CanaryCode(dict):
         return pulumi.get(self, "s3_bucket")
 
     @property
-    @pulumi.getter(name="S3Key")
+    @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
@@ -70,7 +70,7 @@ class CanaryCode(dict):
         return pulumi.get(self, "s3_key")
 
     @property
-    @pulumi.getter(name="S3ObjectVersion")
+    @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
@@ -78,7 +78,7 @@ class CanaryCode(dict):
         return pulumi.get(self, "s3_object_version")
 
     @property
-    @pulumi.getter(name="Script")
+    @pulumi.getter
     def script(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
@@ -115,7 +115,7 @@ class CanaryRunConfig(dict):
             pulumi.set(__self__, "memory_in_mb", memory_in_mb)
 
     @property
-    @pulumi.getter(name="TimeoutInSeconds")
+    @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
@@ -123,7 +123,7 @@ class CanaryRunConfig(dict):
         return pulumi.get(self, "timeout_in_seconds")
 
     @property
-    @pulumi.getter(name="ActiveTracing")
+    @pulumi.getter(name="activeTracing")
     def active_tracing(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
@@ -131,7 +131,7 @@ class CanaryRunConfig(dict):
         return pulumi.get(self, "active_tracing")
 
     @property
-    @pulumi.getter(name="EnvironmentVariables")
+    @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
@@ -139,7 +139,7 @@ class CanaryRunConfig(dict):
         return pulumi.get(self, "environment_variables")
 
     @property
-    @pulumi.getter(name="MemoryInMB")
+    @pulumi.getter(name="memoryInMB")
     def memory_in_mb(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
@@ -168,7 +168,7 @@ class CanarySchedule(dict):
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
-    @pulumi.getter(name="Expression")
+    @pulumi.getter
     def expression(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
@@ -176,7 +176,7 @@ class CanarySchedule(dict):
         return pulumi.get(self, "expression")
 
     @property
-    @pulumi.getter(name="DurationInSeconds")
+    @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
@@ -208,7 +208,7 @@ class CanaryVPCConfig(dict):
             pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
-    @pulumi.getter(name="SecurityGroupIds")
+    @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
@@ -216,7 +216,7 @@ class CanaryVPCConfig(dict):
         return pulumi.get(self, "security_group_ids")
 
     @property
-    @pulumi.getter(name="SubnetIds")
+    @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
@@ -224,7 +224,7 @@ class CanaryVPCConfig(dict):
         return pulumi.get(self, "subnet_ids")
 
     @property
-    @pulumi.getter(name="VpcId")
+    @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid

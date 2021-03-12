@@ -138,7 +138,7 @@ class License(pulumi.CustomResource):
         return License(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Beneficiary")
+    @pulumi.getter
     def beneficiary(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
@@ -146,7 +146,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "beneficiary")
 
     @property
-    @pulumi.getter(name="ClientToken")
+    @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
@@ -154,7 +154,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "client_token")
 
     @property
-    @pulumi.getter(name="ConsumptionConfiguration")
+    @pulumi.getter(name="consumptionConfiguration")
     def consumption_configuration(self) -> pulumi.Output['outputs.LicenseConsumptionConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
@@ -162,7 +162,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "consumption_configuration")
 
     @property
-    @pulumi.getter(name="Entitlements")
+    @pulumi.getter
     def entitlements(self) -> pulumi.Output['outputs.LicenseEntitlementList']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
@@ -170,7 +170,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "entitlements")
 
     @property
-    @pulumi.getter(name="Filters")
+    @pulumi.getter
     def filters(self) -> pulumi.Output[Optional['outputs.LicenseFilterList']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
@@ -178,7 +178,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "filters")
 
     @property
-    @pulumi.getter(name="HomeRegion")
+    @pulumi.getter(name="homeRegion")
     def home_region(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
@@ -186,7 +186,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "home_region")
 
     @property
-    @pulumi.getter(name="Issuer")
+    @pulumi.getter
     def issuer(self) -> pulumi.Output['outputs.LicenseIssuerData']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
@@ -194,12 +194,12 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "issuer")
 
     @property
-    @pulumi.getter(name="LicenseArn")
+    @pulumi.getter(name="licenseArn")
     def license_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "license_arn")
 
     @property
-    @pulumi.getter(name="LicenseArns")
+    @pulumi.getter(name="licenseArns")
     def license_arns(self) -> pulumi.Output[Optional['outputs.LicenseArnList']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
@@ -207,7 +207,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "license_arns")
 
     @property
-    @pulumi.getter(name="LicenseMetadata")
+    @pulumi.getter(name="licenseMetadata")
     def license_metadata(self) -> pulumi.Output[Optional['outputs.LicenseMetadataList']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
@@ -215,7 +215,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "license_metadata")
 
     @property
-    @pulumi.getter(name="LicenseName")
+    @pulumi.getter(name="licenseName")
     def license_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
@@ -223,7 +223,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "license_name")
 
     @property
-    @pulumi.getter(name="MaxResults")
+    @pulumi.getter(name="maxResults")
     def max_results(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
@@ -231,7 +231,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "max_results")
 
     @property
-    @pulumi.getter(name="NextToken")
+    @pulumi.getter(name="nextToken")
     def next_token(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
@@ -239,7 +239,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "next_token")
 
     @property
-    @pulumi.getter(name="ProductName")
+    @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
@@ -247,7 +247,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "product_name")
 
     @property
-    @pulumi.getter(name="ProductSKU")
+    @pulumi.getter(name="productSKU")
     def product_sku(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
@@ -255,7 +255,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "product_sku")
 
     @property
-    @pulumi.getter(name="SourceVersion")
+    @pulumi.getter(name="sourceVersion")
     def source_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
@@ -263,7 +263,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "source_version")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
@@ -271,7 +271,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional['outputs.LicenseTagList']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
@@ -279,7 +279,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Validity")
+    @pulumi.getter
     def validity(self) -> pulumi.Output['outputs.LicenseValidityDateFormat']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
@@ -287,7 +287,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "validity")
 
     @property
-    @pulumi.getter(name="Version")
+    @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version

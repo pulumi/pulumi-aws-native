@@ -80,22 +80,22 @@ class ConnectionAlias(pulumi.CustomResource):
         return ConnectionAlias(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AliasId")
+    @pulumi.getter(name="aliasId")
     def alias_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "alias_id")
 
     @property
-    @pulumi.getter(name="Associations")
+    @pulumi.getter
     def associations(self) -> pulumi.Output[Sequence['outputs.ConnectionAliasConnectionAliasAssociation']]:
         return pulumi.get(self, "associations")
 
     @property
-    @pulumi.getter(name="ConnectionAliasState")
+    @pulumi.getter(name="connectionAliasState")
     def connection_alias_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "connection_alias_state")
 
     @property
-    @pulumi.getter(name="ConnectionString")
+    @pulumi.getter(name="connectionString")
     def connection_string(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
@@ -103,7 +103,7 @@ class ConnectionAlias(pulumi.CustomResource):
         return pulumi.get(self, "connection_string")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags

@@ -91,7 +91,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return OrganizationConformancePack(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ConformancePackInputParameters")
+    @pulumi.getter(name="conformancePackInputParameters")
     def conformance_pack_input_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationConformancePackConformancePackInputParameter']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
@@ -99,7 +99,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "conformance_pack_input_parameters")
 
     @property
-    @pulumi.getter(name="DeliveryS3Bucket")
+    @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
@@ -107,7 +107,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "delivery_s3_bucket")
 
     @property
-    @pulumi.getter(name="DeliveryS3KeyPrefix")
+    @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
@@ -115,7 +115,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "delivery_s3_key_prefix")
 
     @property
-    @pulumi.getter(name="ExcludedAccounts")
+    @pulumi.getter(name="excludedAccounts")
     def excluded_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
@@ -123,7 +123,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "excluded_accounts")
 
     @property
-    @pulumi.getter(name="OrganizationConformancePackName")
+    @pulumi.getter(name="organizationConformancePackName")
     def organization_conformance_pack_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
@@ -131,7 +131,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "organization_conformance_pack_name")
 
     @property
-    @pulumi.getter(name="TemplateBody")
+    @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
@@ -139,7 +139,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "template_body")
 
     @property
-    @pulumi.getter(name="TemplateS3Uri")
+    @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri

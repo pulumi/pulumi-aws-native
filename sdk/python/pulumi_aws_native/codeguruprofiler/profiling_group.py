@@ -88,7 +88,7 @@ class ProfilingGroup(pulumi.CustomResource):
         return ProfilingGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AgentPermissions")
+    @pulumi.getter(name="agentPermissions")
     def agent_permissions(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
@@ -96,7 +96,7 @@ class ProfilingGroup(pulumi.CustomResource):
         return pulumi.get(self, "agent_permissions")
 
     @property
-    @pulumi.getter(name="AnomalyDetectionNotificationConfiguration")
+    @pulumi.getter(name="anomalyDetectionNotificationConfiguration")
     def anomaly_detection_notification_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.ProfilingGroupChannel']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
@@ -104,12 +104,12 @@ class ProfilingGroup(pulumi.CustomResource):
         return pulumi.get(self, "anomaly_detection_notification_configuration")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ComputePlatform")
+    @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
@@ -117,7 +117,7 @@ class ProfilingGroup(pulumi.CustomResource):
         return pulumi.get(self, "compute_platform")
 
     @property
-    @pulumi.getter(name="ProfilingGroupName")
+    @pulumi.getter(name="profilingGroupName")
     def profiling_group_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
@@ -125,7 +125,7 @@ class ProfilingGroup(pulumi.CustomResource):
         return pulumi.get(self, "profiling_group_name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags

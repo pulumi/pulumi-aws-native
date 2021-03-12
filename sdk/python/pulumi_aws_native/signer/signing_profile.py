@@ -85,12 +85,12 @@ class SigningProfile(pulumi.CustomResource):
         return SigningProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="PlatformId")
+    @pulumi.getter(name="platformId")
     def platform_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
@@ -98,22 +98,22 @@ class SigningProfile(pulumi.CustomResource):
         return pulumi.get(self, "platform_id")
 
     @property
-    @pulumi.getter(name="ProfileName")
+    @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "profile_name")
 
     @property
-    @pulumi.getter(name="ProfileVersion")
+    @pulumi.getter(name="profileVersion")
     def profile_version(self) -> pulumi.Output[str]:
         return pulumi.get(self, "profile_version")
 
     @property
-    @pulumi.getter(name="ProfileVersionArn")
+    @pulumi.getter(name="profileVersionArn")
     def profile_version_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "profile_version_arn")
 
     @property
-    @pulumi.getter(name="SignatureValidityPeriod")
+    @pulumi.getter(name="signatureValidityPeriod")
     def signature_validity_period(self) -> pulumi.Output[Optional['outputs.SigningProfileSignatureValidityPeriod']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
@@ -121,7 +121,7 @@ class SigningProfile(pulumi.CustomResource):
         return pulumi.get(self, "signature_validity_period")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags

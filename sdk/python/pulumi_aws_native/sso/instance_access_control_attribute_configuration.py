@@ -76,7 +76,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
         return InstanceAccessControlAttributeConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="InstanceAccessControlAttributeConfiguration")
+    @pulumi.getter(name="instanceAccessControlAttributeConfiguration")
     def instance_access_control_attribute_configuration(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
@@ -84,7 +84,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "instance_access_control_attribute_configuration")
 
     @property
-    @pulumi.getter(name="InstanceArn")
+    @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn

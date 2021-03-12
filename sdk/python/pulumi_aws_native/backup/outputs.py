@@ -35,7 +35,7 @@ class BackupPlanAdvancedBackupSettingResourceType(dict):
         pulumi.set(__self__, "resource_type", resource_type)
 
     @property
-    @pulumi.getter(name="BackupOptions")
+    @pulumi.getter(name="backupOptions")
     def backup_options(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
@@ -43,7 +43,7 @@ class BackupPlanAdvancedBackupSettingResourceType(dict):
         return pulumi.get(self, "backup_options")
 
     @property
-    @pulumi.getter(name="ResourceType")
+    @pulumi.getter(name="resourceType")
     def resource_type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
@@ -75,7 +75,7 @@ class BackupPlanBackupPlanResourceType(dict):
             pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
 
     @property
-    @pulumi.getter(name="BackupPlanName")
+    @pulumi.getter(name="backupPlanName")
     def backup_plan_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
@@ -83,7 +83,7 @@ class BackupPlanBackupPlanResourceType(dict):
         return pulumi.get(self, "backup_plan_name")
 
     @property
-    @pulumi.getter(name="BackupPlanRule")
+    @pulumi.getter(name="backupPlanRule")
     def backup_plan_rule(self) -> Sequence['outputs.BackupPlanBackupRuleResourceType']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
@@ -91,7 +91,7 @@ class BackupPlanBackupPlanResourceType(dict):
         return pulumi.get(self, "backup_plan_rule")
 
     @property
-    @pulumi.getter(name="AdvancedBackupSettings")
+    @pulumi.getter(name="advancedBackupSettings")
     def advanced_backup_settings(self) -> Optional[Sequence['outputs.BackupPlanAdvancedBackupSettingResourceType']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
@@ -143,7 +143,7 @@ class BackupPlanBackupRuleResourceType(dict):
             pulumi.set(__self__, "start_window_minutes", start_window_minutes)
 
     @property
-    @pulumi.getter(name="RuleName")
+    @pulumi.getter(name="ruleName")
     def rule_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
@@ -151,7 +151,7 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "rule_name")
 
     @property
-    @pulumi.getter(name="TargetBackupVault")
+    @pulumi.getter(name="targetBackupVault")
     def target_backup_vault(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
@@ -159,7 +159,7 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "target_backup_vault")
 
     @property
-    @pulumi.getter(name="CompletionWindowMinutes")
+    @pulumi.getter(name="completionWindowMinutes")
     def completion_window_minutes(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
@@ -167,7 +167,7 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "completion_window_minutes")
 
     @property
-    @pulumi.getter(name="CopyActions")
+    @pulumi.getter(name="copyActions")
     def copy_actions(self) -> Optional[Sequence['outputs.BackupPlanCopyActionResourceType']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
@@ -175,7 +175,7 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "copy_actions")
 
     @property
-    @pulumi.getter(name="Lifecycle")
+    @pulumi.getter
     def lifecycle(self) -> Optional['outputs.BackupPlanLifecycleResourceType']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
@@ -183,7 +183,7 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "lifecycle")
 
     @property
-    @pulumi.getter(name="RecoveryPointTags")
+    @pulumi.getter(name="recoveryPointTags")
     def recovery_point_tags(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
@@ -191,7 +191,7 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "recovery_point_tags")
 
     @property
-    @pulumi.getter(name="ScheduleExpression")
+    @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
@@ -199,7 +199,7 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "schedule_expression")
 
     @property
-    @pulumi.getter(name="StartWindowMinutes")
+    @pulumi.getter(name="startWindowMinutes")
     def start_window_minutes(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
@@ -228,7 +228,7 @@ class BackupPlanCopyActionResourceType(dict):
             pulumi.set(__self__, "lifecycle", lifecycle)
 
     @property
-    @pulumi.getter(name="DestinationBackupVaultArn")
+    @pulumi.getter(name="destinationBackupVaultArn")
     def destination_backup_vault_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
@@ -236,7 +236,7 @@ class BackupPlanCopyActionResourceType(dict):
         return pulumi.get(self, "destination_backup_vault_arn")
 
     @property
-    @pulumi.getter(name="Lifecycle")
+    @pulumi.getter
     def lifecycle(self) -> Optional['outputs.BackupPlanLifecycleResourceType']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
@@ -266,7 +266,7 @@ class BackupPlanLifecycleResourceType(dict):
             pulumi.set(__self__, "move_to_cold_storage_after_days", move_to_cold_storage_after_days)
 
     @property
-    @pulumi.getter(name="DeleteAfterDays")
+    @pulumi.getter(name="deleteAfterDays")
     def delete_after_days(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
@@ -274,7 +274,7 @@ class BackupPlanLifecycleResourceType(dict):
         return pulumi.get(self, "delete_after_days")
 
     @property
-    @pulumi.getter(name="MoveToColdStorageAfterDays")
+    @pulumi.getter(name="moveToColdStorageAfterDays")
     def move_to_cold_storage_after_days(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
@@ -292,17 +292,17 @@ class BackupVaultNotificationObjectType(dict):
     """
     def __init__(__self__, *,
                  backup_vault_events: Sequence[str],
-                 sns_topic_arn: str):
+                 s_ns_topic_arn: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
         :param Sequence[str] backup_vault_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
-        :param str sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
+        :param str s_ns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
         """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        pulumi.set(__self__, "s_ns_topic_arn", s_ns_topic_arn)
 
     @property
-    @pulumi.getter(name="BackupVaultEvents")
+    @pulumi.getter(name="backupVaultEvents")
     def backup_vault_events(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
@@ -310,12 +310,12 @@ class BackupVaultNotificationObjectType(dict):
         return pulumi.get(self, "backup_vault_events")
 
     @property
-    @pulumi.getter(name="SNSTopicArn")
-    def sns_topic_arn(self) -> str:
+    @pulumi.getter(name="sNSTopicArn")
+    def s_ns_topic_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
         """
-        return pulumi.get(self, "sns_topic_arn")
+        return pulumi.get(self, "s_ns_topic_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

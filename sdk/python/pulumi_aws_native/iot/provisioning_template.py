@@ -94,7 +94,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         return ProvisioningTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
@@ -102,7 +102,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
@@ -110,7 +110,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="PreProvisioningHook")
+    @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> pulumi.Output[Optional['outputs.ProvisioningTemplateProvisioningHook']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
@@ -118,7 +118,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         return pulumi.get(self, "pre_provisioning_hook")
 
     @property
-    @pulumi.getter(name="ProvisioningRoleArn")
+    @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
@@ -126,7 +126,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional['outputs.ProvisioningTemplateTags']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
@@ -134,12 +134,12 @@ class ProvisioningTemplate(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="TemplateArn")
+    @pulumi.getter(name="templateArn")
     def template_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "template_arn")
 
     @property
-    @pulumi.getter(name="TemplateBody")
+    @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
@@ -147,7 +147,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         return pulumi.get(self, "template_body")
 
     @property
-    @pulumi.getter(name="TemplateName")
+    @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename

@@ -29,7 +29,7 @@ class CodeSigningConfigAllowedPublishersArgs:
         pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @property
-    @pulumi.getter(name="SigningProfileVersionArns")
+    @pulumi.getter(name="signingProfileVersionArns")
     def signing_profile_version_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
@@ -52,7 +52,7 @@ class CodeSigningConfigCodeSigningPoliciesArgs:
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
-    @pulumi.getter(name="UntrustedArtifactOnDeployment")
+    @pulumi.getter(name="untrustedArtifactOnDeployment")
     def untrusted_artifact_on_deployment(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
@@ -76,7 +76,7 @@ class EventSourceMappingDestinationConfigArgs:
             pulumi.set(__self__, "on_failure", on_failure)
 
     @property
-    @pulumi.getter(name="OnFailure")
+    @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['EventSourceMappingOnFailureArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
@@ -100,7 +100,7 @@ class EventSourceMappingEndpointsArgs:
             pulumi.set(__self__, "kafka_bootstrap_servers", kafka_bootstrap_servers)
 
     @property
-    @pulumi.getter(name="KafkaBootstrapServers")
+    @pulumi.getter(name="kafkaBootstrapServers")
     def kafka_bootstrap_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
@@ -124,7 +124,7 @@ class EventSourceMappingOnFailureArgs:
             pulumi.set(__self__, "destination", destination)
 
     @property
-    @pulumi.getter(name="Destination")
+    @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
@@ -148,7 +148,7 @@ class EventSourceMappingSelfManagedEventSourceArgs:
             pulumi.set(__self__, "endpoints", endpoints)
 
     @property
-    @pulumi.getter(name="Endpoints")
+    @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input['EventSourceMappingEndpointsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
@@ -164,19 +164,19 @@ class EventSourceMappingSelfManagedEventSourceArgs:
 class EventSourceMappingSourceAccessConfigurationArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
-                 uri: Optional[pulumi.Input[str]] = None):
+                 u_ri: Optional[pulumi.Input[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
         :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
-        :param pulumi.Input[str] uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
+        :param pulumi.Input[str] u_ri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+        if u_ri is not None:
+            pulumi.set(__self__, "u_ri", u_ri)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
@@ -188,15 +188,15 @@ class EventSourceMappingSourceAccessConfigurationArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="URI")
-    def uri(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="uRI")
+    def u_ri(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
         """
-        return pulumi.get(self, "uri")
+        return pulumi.get(self, "u_ri")
 
-    @uri.setter
-    def uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "uri", value)
+    @u_ri.setter
+    def u_ri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "u_ri", value)
 
 

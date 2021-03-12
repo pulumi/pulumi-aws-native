@@ -81,7 +81,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
         return SchemaVersionMetadata(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
@@ -89,7 +89,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="SchemaVersionId")
+    @pulumi.getter(name="schemaVersionId")
     def schema_version_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
@@ -97,7 +97,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
         return pulumi.get(self, "schema_version_id")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value

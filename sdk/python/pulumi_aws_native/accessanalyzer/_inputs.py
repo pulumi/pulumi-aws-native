@@ -27,7 +27,7 @@ class AnalyzerArchiveRuleArgs:
         pulumi.set(__self__, "rule_name", rule_name)
 
     @property
-    @pulumi.getter(name="Filter")
+    @pulumi.getter
     def filter(self) -> pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
@@ -39,7 +39,7 @@ class AnalyzerArchiveRuleArgs:
         pulumi.set(self, "filter", value)
 
     @property
-    @pulumi.getter(name="RuleName")
+    @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
@@ -78,7 +78,7 @@ class AnalyzerFilterArgs:
             pulumi.set(__self__, "neq", neq)
 
     @property
-    @pulumi.getter(name="Contains")
+    @pulumi.getter
     def contains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
@@ -90,7 +90,7 @@ class AnalyzerFilterArgs:
         pulumi.set(self, "contains", value)
 
     @property
-    @pulumi.getter(name="Eq")
+    @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
@@ -102,7 +102,7 @@ class AnalyzerFilterArgs:
         pulumi.set(self, "eq", value)
 
     @property
-    @pulumi.getter(name="Exists")
+    @pulumi.getter
     def exists(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
@@ -114,7 +114,7 @@ class AnalyzerFilterArgs:
         pulumi.set(self, "exists", value)
 
     @property
-    @pulumi.getter(name="Neq")
+    @pulumi.getter
     def neq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
@@ -126,7 +126,7 @@ class AnalyzerFilterArgs:
         pulumi.set(self, "neq", value)
 
     @property
-    @pulumi.getter(name="Property")
+    @pulumi.getter
     def property(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property

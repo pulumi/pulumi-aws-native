@@ -94,7 +94,7 @@ class ApiKey(pulumi.CustomResource):
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CustomerId")
+    @pulumi.getter(name="customerId")
     def customer_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
@@ -102,7 +102,7 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "customer_id")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description
@@ -110,7 +110,7 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
@@ -118,7 +118,7 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="GenerateDistinctId")
+    @pulumi.getter(name="generateDistinctId")
     def generate_distinct_id(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid
@@ -126,7 +126,7 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "generate_distinct_id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name
@@ -134,7 +134,7 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="StageKeys")
+    @pulumi.getter(name="stageKeys")
     def stage_keys(self) -> pulumi.Output[Optional[Sequence['outputs.ApiKeyStageKey']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
@@ -142,7 +142,7 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "stage_keys")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
@@ -150,7 +150,7 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value

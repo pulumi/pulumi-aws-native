@@ -76,7 +76,7 @@ class Alias(pulumi.CustomResource):
         return Alias(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AliasName")
+    @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
@@ -84,7 +84,7 @@ class Alias(pulumi.CustomResource):
         return pulumi.get(self, "alias_name")
 
     @property
-    @pulumi.getter(name="TargetKeyId")
+    @pulumi.getter(name="targetKeyId")
     def target_key_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid

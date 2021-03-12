@@ -80,27 +80,27 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         return ResolverQueryLoggingConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="AssociationCount")
+    @pulumi.getter(name="associationCount")
     def association_count(self) -> pulumi.Output[int]:
         return pulumi.get(self, "association_count")
 
     @property
-    @pulumi.getter(name="CreationTime")
+    @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
 
     @property
-    @pulumi.getter(name="CreatorRequestId")
+    @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creator_request_id")
 
     @property
-    @pulumi.getter(name="DestinationArn")
+    @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
@@ -108,12 +108,12 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         return pulumi.get(self, "destination_arn")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
@@ -121,17 +121,17 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="OwnerId")
+    @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "owner_id")
 
     @property
-    @pulumi.getter(name="ShareStatus")
+    @pulumi.getter(name="shareStatus")
     def share_status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "share_status")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 

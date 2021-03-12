@@ -99,7 +99,7 @@ class Link(pulumi.CustomResource):
         return Link(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Bandwidth")
+    @pulumi.getter
     def bandwidth(self) -> pulumi.Output['outputs.LinkBandwidth']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
@@ -107,7 +107,7 @@ class Link(pulumi.CustomResource):
         return pulumi.get(self, "bandwidth")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
@@ -115,7 +115,7 @@ class Link(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="GlobalNetworkId")
+    @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
@@ -123,17 +123,17 @@ class Link(pulumi.CustomResource):
         return pulumi.get(self, "global_network_id")
 
     @property
-    @pulumi.getter(name="LinkArn")
+    @pulumi.getter(name="linkArn")
     def link_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "link_arn")
 
     @property
-    @pulumi.getter(name="LinkId")
+    @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "link_id")
 
     @property
-    @pulumi.getter(name="Provider")
+    @pulumi.getter
     def provider(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
@@ -141,7 +141,7 @@ class Link(pulumi.CustomResource):
         return pulumi.get(self, "provider")
 
     @property
-    @pulumi.getter(name="SiteId")
+    @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
@@ -149,7 +149,7 @@ class Link(pulumi.CustomResource):
         return pulumi.get(self, "site_id")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
@@ -157,7 +157,7 @@ class Link(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type

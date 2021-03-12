@@ -81,12 +81,12 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         return DataflowEndpointGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="EndpointDetails")
+    @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Output[Sequence['outputs.DataflowEndpointGroupEndpointDetails']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
@@ -94,17 +94,17 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         return pulumi.get(self, "endpoint_details")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags

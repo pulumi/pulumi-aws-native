@@ -86,12 +86,12 @@ class Channel(pulumi.CustomResource):
         return Channel(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Authorized")
+    @pulumi.getter
     def authorized(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
@@ -99,12 +99,12 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "authorized")
 
     @property
-    @pulumi.getter(name="IngestEndpoint")
+    @pulumi.getter(name="ingestEndpoint")
     def ingest_endpoint(self) -> pulumi.Output[str]:
         return pulumi.get(self, "ingest_endpoint")
 
     @property
-    @pulumi.getter(name="LatencyMode")
+    @pulumi.getter(name="latencyMode")
     def latency_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
@@ -112,7 +112,7 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "latency_mode")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
@@ -120,12 +120,12 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="PlaybackUrl")
+    @pulumi.getter(name="playbackUrl")
     def playback_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "playback_url")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
@@ -133,7 +133,7 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type

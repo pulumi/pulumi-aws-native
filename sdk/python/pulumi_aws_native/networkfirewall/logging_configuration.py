@@ -81,7 +81,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         return LoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="FirewallArn")
+    @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
@@ -89,7 +89,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "firewall_arn")
 
     @property
-    @pulumi.getter(name="FirewallName")
+    @pulumi.getter(name="firewallName")
     def firewall_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
@@ -97,7 +97,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "firewall_name")
 
     @property
-    @pulumi.getter(name="LoggingConfiguration")
+    @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.LoggingConfigurationLoggingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration

@@ -30,7 +30,7 @@ class Canary(pulumi.CustomResource):
                  start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
+                 v_pc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,7 +50,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[bool] start_canary_after_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
         :param pulumi.Input[int] success_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-        :param pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']] vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+        :param pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']] v_pc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +94,7 @@ class Canary(pulumi.CustomResource):
             __props__['start_canary_after_creation'] = start_canary_after_creation
             __props__['success_retention_period'] = success_retention_period
             __props__['tags'] = tags
-            __props__['vpc_config'] = vpc_config
+            __props__['v_pc_config'] = v_pc_config
             __props__['id'] = None
             __props__['state'] = None
         super(Canary, __self__).__init__(
@@ -122,7 +122,7 @@ class Canary(pulumi.CustomResource):
         return Canary(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ArtifactS3Location")
+    @pulumi.getter(name="artifactS3Location")
     def artifact_s3_location(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
@@ -130,7 +130,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "artifact_s3_location")
 
     @property
-    @pulumi.getter(name="Code")
+    @pulumi.getter
     def code(self) -> pulumi.Output['outputs.CanaryCode']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
@@ -138,7 +138,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "code")
 
     @property
-    @pulumi.getter(name="ExecutionRoleArn")
+    @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
@@ -146,7 +146,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "execution_role_arn")
 
     @property
-    @pulumi.getter(name="FailureRetentionPeriod")
+    @pulumi.getter(name="failureRetentionPeriod")
     def failure_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
@@ -154,12 +154,12 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "failure_retention_period")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
@@ -167,7 +167,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="RunConfig")
+    @pulumi.getter(name="runConfig")
     def run_config(self) -> pulumi.Output[Optional['outputs.CanaryRunConfig']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
@@ -175,7 +175,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "run_config")
 
     @property
-    @pulumi.getter(name="RuntimeVersion")
+    @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
@@ -183,7 +183,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "runtime_version")
 
     @property
-    @pulumi.getter(name="Schedule")
+    @pulumi.getter
     def schedule(self) -> pulumi.Output['outputs.CanarySchedule']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
@@ -191,7 +191,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "schedule")
 
     @property
-    @pulumi.getter(name="StartCanaryAfterCreation")
+    @pulumi.getter(name="startCanaryAfterCreation")
     def start_canary_after_creation(self) -> pulumi.Output[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
@@ -199,12 +199,12 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "start_canary_after_creation")
 
     @property
-    @pulumi.getter(name="State")
+    @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="SuccessRetentionPeriod")
+    @pulumi.getter(name="successRetentionPeriod")
     def success_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
@@ -212,7 +212,7 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "success_retention_period")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
@@ -220,12 +220,12 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="VPCConfig")
-    def vpc_config(self) -> pulumi.Output[Optional['outputs.CanaryVPCConfig']]:
+    @pulumi.getter(name="vPCConfig")
+    def v_pc_config(self) -> pulumi.Output[Optional['outputs.CanaryVPCConfig']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
         """
-        return pulumi.get(self, "vpc_config")
+        return pulumi.get(self, "v_pc_config")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -88,7 +88,7 @@ class ListenerRule(pulumi.CustomResource):
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Actions")
+    @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleAction']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
@@ -96,7 +96,7 @@ class ListenerRule(pulumi.CustomResource):
         return pulumi.get(self, "actions")
 
     @property
-    @pulumi.getter(name="Conditions")
+    @pulumi.getter
     def conditions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleRuleCondition']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
@@ -104,7 +104,7 @@ class ListenerRule(pulumi.CustomResource):
         return pulumi.get(self, "conditions")
 
     @property
-    @pulumi.getter(name="ListenerArn")
+    @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
@@ -112,7 +112,7 @@ class ListenerRule(pulumi.CustomResource):
         return pulumi.get(self, "listener_arn")
 
     @property
-    @pulumi.getter(name="Priority")
+    @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority

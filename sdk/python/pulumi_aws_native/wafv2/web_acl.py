@@ -100,17 +100,17 @@ class WebACL(pulumi.CustomResource):
         return WebACL(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Capacity")
+    @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         return pulumi.get(self, "capacity")
 
     @property
-    @pulumi.getter(name="DefaultAction")
+    @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output['outputs.WebACLDefaultAction']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
@@ -118,7 +118,7 @@ class WebACL(pulumi.CustomResource):
         return pulumi.get(self, "default_action")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
@@ -126,12 +126,12 @@ class WebACL(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
@@ -139,7 +139,7 @@ class WebACL(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Rules")
+    @pulumi.getter
     def rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebACLRule']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
@@ -147,7 +147,7 @@ class WebACL(pulumi.CustomResource):
         return pulumi.get(self, "rules")
 
     @property
-    @pulumi.getter(name="Scope")
+    @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
@@ -155,7 +155,7 @@ class WebACL(pulumi.CustomResource):
         return pulumi.get(self, "scope")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
@@ -163,7 +163,7 @@ class WebACL(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="VisibilityConfig")
+    @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> pulumi.Output['outputs.WebACLVisibilityConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig

@@ -39,7 +39,7 @@ class ConnectionAliasConnectionAliasAssociation(dict):
             pulumi.set(__self__, "resource_id", resource_id)
 
     @property
-    @pulumi.getter(name="AssociatedAccountId")
+    @pulumi.getter(name="associatedAccountId")
     def associated_account_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associatedaccountid
@@ -47,7 +47,7 @@ class ConnectionAliasConnectionAliasAssociation(dict):
         return pulumi.get(self, "associated_account_id")
 
     @property
-    @pulumi.getter(name="AssociationStatus")
+    @pulumi.getter(name="associationStatus")
     def association_status(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associationstatus
@@ -55,7 +55,7 @@ class ConnectionAliasConnectionAliasAssociation(dict):
         return pulumi.get(self, "association_status")
 
     @property
-    @pulumi.getter(name="ConnectionIdentifier")
+    @pulumi.getter(name="connectionIdentifier")
     def connection_identifier(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-connectionidentifier
@@ -63,7 +63,7 @@ class ConnectionAliasConnectionAliasAssociation(dict):
         return pulumi.get(self, "connection_identifier")
 
     @property
-    @pulumi.getter(name="ResourceId")
+    @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid

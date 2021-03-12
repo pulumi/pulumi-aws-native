@@ -102,12 +102,12 @@ class MissionProfile(pulumi.CustomResource):
         return MissionProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ContactPostPassDurationSeconds")
+    @pulumi.getter(name="contactPostPassDurationSeconds")
     def contact_post_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
@@ -115,7 +115,7 @@ class MissionProfile(pulumi.CustomResource):
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
     @property
-    @pulumi.getter(name="ContactPrePassDurationSeconds")
+    @pulumi.getter(name="contactPrePassDurationSeconds")
     def contact_pre_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
@@ -123,7 +123,7 @@ class MissionProfile(pulumi.CustomResource):
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @property
-    @pulumi.getter(name="DataflowEdges")
+    @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> pulumi.Output[Sequence['outputs.MissionProfileDataflowEdge']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
@@ -131,12 +131,12 @@ class MissionProfile(pulumi.CustomResource):
         return pulumi.get(self, "dataflow_edges")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="MinimumViableContactDurationSeconds")
+    @pulumi.getter(name="minimumViableContactDurationSeconds")
     def minimum_viable_contact_duration_seconds(self) -> pulumi.Output[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
@@ -144,7 +144,7 @@ class MissionProfile(pulumi.CustomResource):
         return pulumi.get(self, "minimum_viable_contact_duration_seconds")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
@@ -152,12 +152,12 @@ class MissionProfile(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Region")
+    @pulumi.getter
     def region(self) -> pulumi.Output[str]:
         return pulumi.get(self, "region")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
@@ -165,7 +165,7 @@ class MissionProfile(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="TrackingConfigArn")
+    @pulumi.getter(name="trackingConfigArn")
     def tracking_config_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn

@@ -81,17 +81,17 @@ class PlaybackKeyPair(pulumi.CustomResource):
         return PlaybackKeyPair(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Fingerprint")
+    @pulumi.getter
     def fingerprint(self) -> pulumi.Output[str]:
         return pulumi.get(self, "fingerprint")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
@@ -99,7 +99,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="PublicKeyMaterial")
+    @pulumi.getter(name="publicKeyMaterial")
     def public_key_material(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
@@ -107,7 +107,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
         return pulumi.get(self, "public_key_material")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags

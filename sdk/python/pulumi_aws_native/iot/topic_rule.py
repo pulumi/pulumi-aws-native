@@ -77,12 +77,12 @@ class TopicRule(pulumi.CustomResource):
         return TopicRule(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="RuleName")
+    @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
@@ -90,7 +90,7 @@ class TopicRule(pulumi.CustomResource):
         return pulumi.get(self, "rule_name")
 
     @property
-    @pulumi.getter(name="TopicRulePayload")
+    @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> pulumi.Output['outputs.TopicRuleTopicRulePayload']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload

@@ -89,12 +89,12 @@ class Repository(pulumi.CustomResource):
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ImageScanningConfiguration")
+    @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
@@ -102,7 +102,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "image_scanning_configuration")
 
     @property
-    @pulumi.getter(name="ImageTagMutability")
+    @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
@@ -110,7 +110,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "image_tag_mutability")
 
     @property
-    @pulumi.getter(name="LifecyclePolicy")
+    @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> pulumi.Output[Optional['outputs.RepositoryLifecyclePolicy']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
@@ -118,7 +118,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "lifecycle_policy")
 
     @property
-    @pulumi.getter(name="RepositoryName")
+    @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
@@ -126,7 +126,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "repository_name")
 
     @property
-    @pulumi.getter(name="RepositoryPolicyText")
+    @pulumi.getter(name="repositoryPolicyText")
     def repository_policy_text(self) -> pulumi.Output[Optional[Any]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
@@ -134,7 +134,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "repository_policy_text")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags

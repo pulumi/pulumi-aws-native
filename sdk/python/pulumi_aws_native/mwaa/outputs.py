@@ -59,7 +59,7 @@ class EnvironmentLastUpdate(dict):
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="CreatedAt")
+    @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-createdat
@@ -67,7 +67,7 @@ class EnvironmentLastUpdate(dict):
         return pulumi.get(self, "created_at")
 
     @property
-    @pulumi.getter(name="Error")
+    @pulumi.getter
     def error(self) -> Optional['outputs.EnvironmentUpdateError']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-error
@@ -75,7 +75,7 @@ class EnvironmentLastUpdate(dict):
         return pulumi.get(self, "error")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-status
@@ -117,7 +117,7 @@ class EnvironmentLoggingConfiguration(dict):
             pulumi.set(__self__, "worker_logs", worker_logs)
 
     @property
-    @pulumi.getter(name="DagProcessingLogs")
+    @pulumi.getter(name="dagProcessingLogs")
     def dag_processing_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
@@ -125,7 +125,7 @@ class EnvironmentLoggingConfiguration(dict):
         return pulumi.get(self, "dag_processing_logs")
 
     @property
-    @pulumi.getter(name="SchedulerLogs")
+    @pulumi.getter(name="schedulerLogs")
     def scheduler_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
@@ -133,7 +133,7 @@ class EnvironmentLoggingConfiguration(dict):
         return pulumi.get(self, "scheduler_logs")
 
     @property
-    @pulumi.getter(name="TaskLogs")
+    @pulumi.getter(name="taskLogs")
     def task_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
@@ -141,7 +141,7 @@ class EnvironmentLoggingConfiguration(dict):
         return pulumi.get(self, "task_logs")
 
     @property
-    @pulumi.getter(name="WebserverLogs")
+    @pulumi.getter(name="webserverLogs")
     def webserver_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
@@ -149,7 +149,7 @@ class EnvironmentLoggingConfiguration(dict):
         return pulumi.get(self, "webserver_logs")
 
     @property
-    @pulumi.getter(name="WorkerLogs")
+    @pulumi.getter(name="workerLogs")
     def worker_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
@@ -183,7 +183,7 @@ class EnvironmentModuleLoggingConfiguration(dict):
             pulumi.set(__self__, "log_level", log_level)
 
     @property
-    @pulumi.getter(name="CloudWatchLogGroupArn")
+    @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
@@ -191,7 +191,7 @@ class EnvironmentModuleLoggingConfiguration(dict):
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
@@ -199,7 +199,7 @@ class EnvironmentModuleLoggingConfiguration(dict):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="LogLevel")
+    @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
@@ -229,7 +229,7 @@ class EnvironmentNetworkConfiguration(dict):
             pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
-    @pulumi.getter(name="SecurityGroupIds")
+    @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional['outputs.EnvironmentSecurityGroupList']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
@@ -237,7 +237,7 @@ class EnvironmentNetworkConfiguration(dict):
         return pulumi.get(self, "security_group_ids")
 
     @property
-    @pulumi.getter(name="SubnetIds")
+    @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional['outputs.EnvironmentSubnetList']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
@@ -263,7 +263,7 @@ class EnvironmentSecurityGroupList(dict):
             pulumi.set(__self__, "security_group_list", security_group_list)
 
     @property
-    @pulumi.getter(name="SecurityGroupList")
+    @pulumi.getter(name="securityGroupList")
     def security_group_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html#cfn-mwaa-environment-securitygrouplist-securitygrouplist
@@ -289,7 +289,7 @@ class EnvironmentSubnetList(dict):
             pulumi.set(__self__, "subnet_list", subnet_list)
 
     @property
-    @pulumi.getter(name="SubnetList")
+    @pulumi.getter(name="subnetList")
     def subnet_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html#cfn-mwaa-environment-subnetlist-subnetlist
@@ -334,7 +334,7 @@ class EnvironmentUpdateError(dict):
             pulumi.set(__self__, "error_message", error_message)
 
     @property
-    @pulumi.getter(name="ErrorCode")
+    @pulumi.getter(name="errorCode")
     def error_code(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html#cfn-mwaa-environment-updateerror-errorcode
@@ -342,7 +342,7 @@ class EnvironmentUpdateError(dict):
         return pulumi.get(self, "error_code")
 
     @property
-    @pulumi.getter(name="ErrorMessage")
+    @pulumi.getter(name="errorMessage")
     def error_message(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html#cfn-mwaa-environment-updateerror-errormessage

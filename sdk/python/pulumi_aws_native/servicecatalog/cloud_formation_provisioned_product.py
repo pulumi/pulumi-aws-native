@@ -110,7 +110,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return CloudFormationProvisionedProduct(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AcceptLanguage")
+    @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
@@ -118,12 +118,12 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "accept_language")
 
     @property
-    @pulumi.getter(name="CloudformationStackArn")
+    @pulumi.getter(name="cloudformationStackArn")
     def cloudformation_stack_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "cloudformation_stack_arn")
 
     @property
-    @pulumi.getter(name="NotificationArns")
+    @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
@@ -131,12 +131,12 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "notification_arns")
 
     @property
-    @pulumi.getter(name="Outputs")
+    @pulumi.getter
     def outputs(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "outputs")
 
     @property
-    @pulumi.getter(name="PathId")
+    @pulumi.getter(name="pathId")
     def path_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
@@ -144,7 +144,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "path_id")
 
     @property
-    @pulumi.getter(name="PathName")
+    @pulumi.getter(name="pathName")
     def path_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
@@ -152,7 +152,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "path_name")
 
     @property
-    @pulumi.getter(name="ProductId")
+    @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
@@ -160,7 +160,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "product_id")
 
     @property
-    @pulumi.getter(name="ProductName")
+    @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
@@ -168,12 +168,12 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "product_name")
 
     @property
-    @pulumi.getter(name="ProvisionedProductId")
+    @pulumi.getter(name="provisionedProductId")
     def provisioned_product_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioned_product_id")
 
     @property
-    @pulumi.getter(name="ProvisionedProductName")
+    @pulumi.getter(name="provisionedProductName")
     def provisioned_product_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
@@ -181,7 +181,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "provisioned_product_name")
 
     @property
-    @pulumi.getter(name="ProvisioningArtifactId")
+    @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
@@ -189,7 +189,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_artifact_id")
 
     @property
-    @pulumi.getter(name="ProvisioningArtifactName")
+    @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
@@ -197,7 +197,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_artifact_name")
 
     @property
-    @pulumi.getter(name="ProvisioningParameters")
+    @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.CloudFormationProvisionedProductProvisioningParameter']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
@@ -205,7 +205,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_parameters")
 
     @property
-    @pulumi.getter(name="ProvisioningPreferences")
+    @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> pulumi.Output[Optional['outputs.CloudFormationProvisionedProductProvisioningPreferences']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
@@ -213,12 +213,12 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_preferences")
 
     @property
-    @pulumi.getter(name="RecordId")
+    @pulumi.getter(name="recordId")
     def record_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "record_id")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags

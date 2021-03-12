@@ -116,12 +116,12 @@ class GameServerGroup(pulumi.CustomResource):
         return GameServerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AutoScalingGroupArn")
+    @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "auto_scaling_group_arn")
 
     @property
-    @pulumi.getter(name="AutoScalingPolicy")
+    @pulumi.getter(name="autoScalingPolicy")
     def auto_scaling_policy(self) -> pulumi.Output[Optional['outputs.GameServerGroupAutoScalingPolicy']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
@@ -129,7 +129,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "auto_scaling_policy")
 
     @property
-    @pulumi.getter(name="BalancingStrategy")
+    @pulumi.getter(name="balancingStrategy")
     def balancing_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
@@ -137,7 +137,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "balancing_strategy")
 
     @property
-    @pulumi.getter(name="DeleteOption")
+    @pulumi.getter(name="deleteOption")
     def delete_option(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
@@ -145,12 +145,12 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "delete_option")
 
     @property
-    @pulumi.getter(name="GameServerGroupArn")
+    @pulumi.getter(name="gameServerGroupArn")
     def game_server_group_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "game_server_group_arn")
 
     @property
-    @pulumi.getter(name="GameServerGroupName")
+    @pulumi.getter(name="gameServerGroupName")
     def game_server_group_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
@@ -158,7 +158,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "game_server_group_name")
 
     @property
-    @pulumi.getter(name="GameServerProtectionPolicy")
+    @pulumi.getter(name="gameServerProtectionPolicy")
     def game_server_protection_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
@@ -166,7 +166,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "game_server_protection_policy")
 
     @property
-    @pulumi.getter(name="InstanceDefinitions")
+    @pulumi.getter(name="instanceDefinitions")
     def instance_definitions(self) -> pulumi.Output['outputs.GameServerGroupInstanceDefinitions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
@@ -174,7 +174,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "instance_definitions")
 
     @property
-    @pulumi.getter(name="LaunchTemplate")
+    @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output['outputs.GameServerGroupLaunchTemplate']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
@@ -182,7 +182,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "launch_template")
 
     @property
-    @pulumi.getter(name="MaxSize")
+    @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[Optional[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
@@ -190,7 +190,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "max_size")
 
     @property
-    @pulumi.getter(name="MinSize")
+    @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
@@ -198,7 +198,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "min_size")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
@@ -206,7 +206,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional['outputs.GameServerGroupTags']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
@@ -214,7 +214,7 @@ class GameServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="VpcSubnets")
+    @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> pulumi.Output[Optional['outputs.GameServerGroupVpcSubnets']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets

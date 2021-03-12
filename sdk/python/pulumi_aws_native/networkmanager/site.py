@@ -86,7 +86,7 @@ class Site(pulumi.CustomResource):
         return Site(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
@@ -94,7 +94,7 @@ class Site(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="GlobalNetworkId")
+    @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
@@ -102,7 +102,7 @@ class Site(pulumi.CustomResource):
         return pulumi.get(self, "global_network_id")
 
     @property
-    @pulumi.getter(name="Location")
+    @pulumi.getter
     def location(self) -> pulumi.Output[Optional['outputs.SiteLocation']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
@@ -110,17 +110,17 @@ class Site(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="SiteArn")
+    @pulumi.getter(name="siteArn")
     def site_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "site_arn")
 
     @property
-    @pulumi.getter(name="SiteId")
+    @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "site_id")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags

@@ -69,7 +69,7 @@ class Keyspace(pulumi.CustomResource):
         return Keyspace(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="KeyspaceName")
+    @pulumi.getter(name="keyspaceName")
     def keyspace_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename

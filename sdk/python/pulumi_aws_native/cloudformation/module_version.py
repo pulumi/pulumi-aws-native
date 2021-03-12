@@ -82,27 +82,27 @@ class ModuleVersion(pulumi.CustomResource):
         return ModuleVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="DocumentationUrl")
+    @pulumi.getter(name="documentationUrl")
     def documentation_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "documentation_url")
 
     @property
-    @pulumi.getter(name="IsDefaultVersion")
+    @pulumi.getter(name="isDefaultVersion")
     def is_default_version(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "is_default_version")
 
     @property
-    @pulumi.getter(name="ModuleName")
+    @pulumi.getter(name="moduleName")
     def module_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
@@ -110,7 +110,7 @@ class ModuleVersion(pulumi.CustomResource):
         return pulumi.get(self, "module_name")
 
     @property
-    @pulumi.getter(name="ModulePackage")
+    @pulumi.getter(name="modulePackage")
     def module_package(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
@@ -118,22 +118,22 @@ class ModuleVersion(pulumi.CustomResource):
         return pulumi.get(self, "module_package")
 
     @property
-    @pulumi.getter(name="Schema")
+    @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         return pulumi.get(self, "schema")
 
     @property
-    @pulumi.getter(name="TimeCreated")
+    @pulumi.getter(name="timeCreated")
     def time_created(self) -> pulumi.Output[str]:
         return pulumi.get(self, "time_created")
 
     @property
-    @pulumi.getter(name="VersionId")
+    @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "version_id")
 
     @property
-    @pulumi.getter(name="Visibility")
+    @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
         return pulumi.get(self, "visibility")
 

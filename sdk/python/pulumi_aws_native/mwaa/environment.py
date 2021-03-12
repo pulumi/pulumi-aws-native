@@ -128,7 +128,7 @@ class Environment(pulumi.CustomResource):
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AirflowConfigurationOptions")
+    @pulumi.getter(name="airflowConfigurationOptions")
     def airflow_configuration_options(self) -> pulumi.Output[Optional['outputs.EnvironmentAirflowConfigurationOptions']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
@@ -136,7 +136,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "airflow_configuration_options")
 
     @property
-    @pulumi.getter(name="AirflowVersion")
+    @pulumi.getter(name="airflowVersion")
     def airflow_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
@@ -144,17 +144,17 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "airflow_version")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="CreatedAt")
+    @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created_at")
 
     @property
-    @pulumi.getter(name="DagS3Path")
+    @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
@@ -162,7 +162,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "dag_s3_path")
 
     @property
-    @pulumi.getter(name="EnvironmentClass")
+    @pulumi.getter(name="environmentClass")
     def environment_class(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
@@ -170,7 +170,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "environment_class")
 
     @property
-    @pulumi.getter(name="ExecutionRoleArn")
+    @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
@@ -178,7 +178,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "execution_role_arn")
 
     @property
-    @pulumi.getter(name="KmsKey")
+    @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
@@ -186,12 +186,12 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "kms_key")
 
     @property
-    @pulumi.getter(name="LastUpdate")
+    @pulumi.getter(name="lastUpdate")
     def last_update(self) -> pulumi.Output['outputs.EnvironmentLastUpdate']:
         return pulumi.get(self, "last_update")
 
     @property
-    @pulumi.getter(name="LoggingConfiguration")
+    @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.EnvironmentLoggingConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
@@ -199,7 +199,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "logging_configuration")
 
     @property
-    @pulumi.getter(name="MaxWorkers")
+    @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
@@ -207,12 +207,12 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "max_workers")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="NetworkConfiguration")
+    @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.EnvironmentNetworkConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
@@ -220,7 +220,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "network_configuration")
 
     @property
-    @pulumi.getter(name="PluginsS3ObjectVersion")
+    @pulumi.getter(name="pluginsS3ObjectVersion")
     def plugins_s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
@@ -228,7 +228,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "plugins_s3_object_version")
 
     @property
-    @pulumi.getter(name="PluginsS3Path")
+    @pulumi.getter(name="pluginsS3Path")
     def plugins_s3_path(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
@@ -236,7 +236,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "plugins_s3_path")
 
     @property
-    @pulumi.getter(name="RequirementsS3ObjectVersion")
+    @pulumi.getter(name="requirementsS3ObjectVersion")
     def requirements_s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
@@ -244,7 +244,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "requirements_s3_object_version")
 
     @property
-    @pulumi.getter(name="RequirementsS3Path")
+    @pulumi.getter(name="requirementsS3Path")
     def requirements_s3_path(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
@@ -252,12 +252,12 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "requirements_s3_path")
 
     @property
-    @pulumi.getter(name="ServiceRoleArn")
+    @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "service_role_arn")
 
     @property
-    @pulumi.getter(name="SourceBucketArn")
+    @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
@@ -265,12 +265,12 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "source_bucket_arn")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional['outputs.EnvironmentTagMap']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
@@ -278,7 +278,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="WebserverAccessMode")
+    @pulumi.getter(name="webserverAccessMode")
     def webserver_access_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
@@ -286,7 +286,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "webserver_access_mode")
 
     @property
-    @pulumi.getter(name="WebserverUrl")
+    @pulumi.getter(name="webserverUrl")
     def webserver_url(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
@@ -294,7 +294,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "webserver_url")
 
     @property
-    @pulumi.getter(name="WeeklyMaintenanceWindowStart")
+    @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart

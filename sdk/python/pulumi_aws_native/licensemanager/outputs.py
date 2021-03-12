@@ -50,7 +50,7 @@ class GrantAllowedOperationList(dict):
             pulumi.set(__self__, "allowed_operation_list", allowed_operation_list)
 
     @property
-    @pulumi.getter(name="AllowedOperationList")
+    @pulumi.getter(name="allowedOperationList")
     def allowed_operation_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html#cfn-licensemanager-grant-allowedoperationlist-allowedoperationlist
@@ -76,7 +76,7 @@ class GrantArnList(dict):
             pulumi.set(__self__, "arn_list", arn_list)
 
     @property
-    @pulumi.getter(name="ArnList")
+    @pulumi.getter(name="arnList")
     def arn_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html#cfn-licensemanager-grant-arnlist-arnlist
@@ -104,7 +104,7 @@ class GrantFilter(dict):
         pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-name
@@ -112,7 +112,7 @@ class GrantFilter(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> 'outputs.GrantStringList':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-values
@@ -138,7 +138,7 @@ class GrantFilterList(dict):
             pulumi.set(__self__, "filter_list", filter_list)
 
     @property
-    @pulumi.getter(name="FilterList")
+    @pulumi.getter(name="filterList")
     def filter_list(self) -> Optional[Sequence['outputs.GrantFilter']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
@@ -164,7 +164,7 @@ class GrantStringList(dict):
             pulumi.set(__self__, "string_list", string_list)
 
     @property
-    @pulumi.getter(name="StringList")
+    @pulumi.getter(name="stringList")
     def string_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-stringlist.html#cfn-licensemanager-grant-stringlist-stringlist
@@ -190,7 +190,7 @@ class GrantTagList(dict):
             pulumi.set(__self__, "tag_list", tag_list)
 
     @property
-    @pulumi.getter(name="TagList")
+    @pulumi.getter(name="tagList")
     def tag_list(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html#cfn-licensemanager-grant-taglist-taglist
@@ -216,7 +216,7 @@ class LicenseArnList(dict):
             pulumi.set(__self__, "arn_list", arn_list)
 
     @property
-    @pulumi.getter(name="ArnList")
+    @pulumi.getter(name="arnList")
     def arn_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html#cfn-licensemanager-license-arnlist-arnlist
@@ -244,7 +244,7 @@ class LicenseBorrowConfiguration(dict):
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
-    @pulumi.getter(name="AllowEarlyCheckIn")
+    @pulumi.getter(name="allowEarlyCheckIn")
     def allow_early_check_in(self) -> bool:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
@@ -252,7 +252,7 @@ class LicenseBorrowConfiguration(dict):
         return pulumi.get(self, "allow_early_check_in")
 
     @property
-    @pulumi.getter(name="MaxTimeToLiveInMinutes")
+    @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
@@ -286,7 +286,7 @@ class LicenseConsumptionConfiguration(dict):
             pulumi.set(__self__, "renew_type", renew_type)
 
     @property
-    @pulumi.getter(name="BorrowConfiguration")
+    @pulumi.getter(name="borrowConfiguration")
     def borrow_configuration(self) -> Optional['outputs.LicenseBorrowConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
@@ -294,7 +294,7 @@ class LicenseConsumptionConfiguration(dict):
         return pulumi.get(self, "borrow_configuration")
 
     @property
-    @pulumi.getter(name="ProvisionalConfiguration")
+    @pulumi.getter(name="provisionalConfiguration")
     def provisional_configuration(self) -> Optional['outputs.LicenseProvisionalConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
@@ -302,7 +302,7 @@ class LicenseConsumptionConfiguration(dict):
         return pulumi.get(self, "provisional_configuration")
 
     @property
-    @pulumi.getter(name="RenewType")
+    @pulumi.getter(name="renewType")
     def renew_type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
@@ -350,7 +350,7 @@ class LicenseEntitlement(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
@@ -358,7 +358,7 @@ class LicenseEntitlement(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Unit")
+    @pulumi.getter
     def unit(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
@@ -366,7 +366,7 @@ class LicenseEntitlement(dict):
         return pulumi.get(self, "unit")
 
     @property
-    @pulumi.getter(name="AllowCheckIn")
+    @pulumi.getter(name="allowCheckIn")
     def allow_check_in(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
@@ -374,7 +374,7 @@ class LicenseEntitlement(dict):
         return pulumi.get(self, "allow_check_in")
 
     @property
-    @pulumi.getter(name="CheckoutRules")
+    @pulumi.getter(name="checkoutRules")
     def checkout_rules(self) -> Optional['outputs.LicenseRuleList']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
@@ -382,7 +382,7 @@ class LicenseEntitlement(dict):
         return pulumi.get(self, "checkout_rules")
 
     @property
-    @pulumi.getter(name="MaxCount")
+    @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
@@ -390,7 +390,7 @@ class LicenseEntitlement(dict):
         return pulumi.get(self, "max_count")
 
     @property
-    @pulumi.getter(name="Overage")
+    @pulumi.getter
     def overage(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
@@ -398,7 +398,7 @@ class LicenseEntitlement(dict):
         return pulumi.get(self, "overage")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
@@ -424,7 +424,7 @@ class LicenseEntitlementList(dict):
             pulumi.set(__self__, "entitlement_list", entitlement_list)
 
     @property
-    @pulumi.getter(name="EntitlementList")
+    @pulumi.getter(name="entitlementList")
     def entitlement_list(self) -> Optional[Sequence['outputs.LicenseEntitlement']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
@@ -452,7 +452,7 @@ class LicenseFilter(dict):
         pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-name
@@ -460,7 +460,7 @@ class LicenseFilter(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> 'outputs.LicenseStringList':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-values
@@ -486,7 +486,7 @@ class LicenseFilterList(dict):
             pulumi.set(__self__, "filter_list", filter_list)
 
     @property
-    @pulumi.getter(name="FilterList")
+    @pulumi.getter(name="filterList")
     def filter_list(self) -> Optional[Sequence['outputs.LicenseFilter']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html#cfn-licensemanager-license-filterlist-filterlist
@@ -515,7 +515,7 @@ class LicenseIssuerData(dict):
             pulumi.set(__self__, "sign_key", sign_key)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
@@ -523,7 +523,7 @@ class LicenseIssuerData(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="SignKey")
+    @pulumi.getter(name="signKey")
     def sign_key(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
@@ -551,7 +551,7 @@ class LicenseMetadata(dict):
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
@@ -559,7 +559,7 @@ class LicenseMetadata(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
@@ -585,7 +585,7 @@ class LicenseMetadataList(dict):
             pulumi.set(__self__, "metadata_list", metadata_list)
 
     @property
-    @pulumi.getter(name="MetadataList")
+    @pulumi.getter(name="metadataList")
     def metadata_list(self) -> Optional[Sequence['outputs.LicenseMetadata']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html#cfn-licensemanager-license-metadatalist-metadatalist
@@ -610,7 +610,7 @@ class LicenseProvisionalConfiguration(dict):
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
-    @pulumi.getter(name="MaxTimeToLiveInMinutes")
+    @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
@@ -641,7 +641,7 @@ class LicenseRule(dict):
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-name
@@ -649,7 +649,7 @@ class LicenseRule(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Unit")
+    @pulumi.getter
     def unit(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-unit
@@ -657,7 +657,7 @@ class LicenseRule(dict):
         return pulumi.get(self, "unit")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-value
@@ -683,7 +683,7 @@ class LicenseRuleList(dict):
             pulumi.set(__self__, "rule_list", rule_list)
 
     @property
-    @pulumi.getter(name="RuleList")
+    @pulumi.getter(name="ruleList")
     def rule_list(self) -> Optional[Sequence['outputs.LicenseRule']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html#cfn-licensemanager-license-rulelist-rulelist
@@ -709,7 +709,7 @@ class LicenseStringList(dict):
             pulumi.set(__self__, "string_list", string_list)
 
     @property
-    @pulumi.getter(name="StringList")
+    @pulumi.getter(name="stringList")
     def string_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html#cfn-licensemanager-license-stringlist-stringlist
@@ -735,7 +735,7 @@ class LicenseTagList(dict):
             pulumi.set(__self__, "tag_list", tag_list)
 
     @property
-    @pulumi.getter(name="TagList")
+    @pulumi.getter(name="tagList")
     def tag_list(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
@@ -763,7 +763,7 @@ class LicenseValidityDateFormat(dict):
         pulumi.set(__self__, "end", end)
 
     @property
-    @pulumi.getter(name="Begin")
+    @pulumi.getter
     def begin(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
@@ -771,7 +771,7 @@ class LicenseValidityDateFormat(dict):
         return pulumi.get(self, "begin")
 
     @property
-    @pulumi.getter(name="End")
+    @pulumi.getter
     def end(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end

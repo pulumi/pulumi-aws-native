@@ -25,7 +25,7 @@ class UserGroupUserIdListArgs:
             pulumi.set(__self__, "user_id_list", user_id_list)
 
     @property
-    @pulumi.getter(name="UserIdList")
+    @pulumi.getter(name="userIdList")
     def user_id_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
@@ -49,7 +49,7 @@ class UserPasswordListArgs:
             pulumi.set(__self__, "password_list", password_list)
 
     @property
-    @pulumi.getter(name="PasswordList")
+    @pulumi.getter(name="passwordList")
     def password_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist

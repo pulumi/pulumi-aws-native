@@ -57,7 +57,7 @@ class AssetEgressEndpoint(dict):
         pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter(name="PackagingConfigurationId")
+    @pulumi.getter(name="packagingConfigurationId")
     def packaging_configuration_id(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
@@ -65,7 +65,7 @@ class AssetEgressEndpoint(dict):
         return pulumi.get(self, "packaging_configuration_id")
 
     @property
-    @pulumi.getter(name="Url")
+    @pulumi.getter
     def url(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
@@ -129,7 +129,7 @@ class ChannelIngestEndpoint(dict):
             pulumi.set(__self__, "username", username)
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-id
@@ -137,7 +137,7 @@ class ChannelIngestEndpoint(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Password")
+    @pulumi.getter
     def password(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-password
@@ -145,7 +145,7 @@ class ChannelIngestEndpoint(dict):
         return pulumi.get(self, "password")
 
     @property
-    @pulumi.getter(name="Url")
+    @pulumi.getter
     def url(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-url
@@ -153,7 +153,7 @@ class ChannelIngestEndpoint(dict):
         return pulumi.get(self, "url")
 
     @property
-    @pulumi.getter(name="Username")
+    @pulumi.getter
     def username(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
@@ -181,7 +181,7 @@ class OriginEndpointAuthorization(dict):
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
 
     @property
-    @pulumi.getter(name="CdnIdentifierSecret")
+    @pulumi.getter(name="cdnIdentifierSecret")
     def cdn_identifier_secret(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
@@ -189,7 +189,7 @@ class OriginEndpointAuthorization(dict):
         return pulumi.get(self, "cdn_identifier_secret")
 
     @property
-    @pulumi.getter(name="SecretsRoleArn")
+    @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
@@ -218,7 +218,7 @@ class OriginEndpointCmafEncryption(dict):
             pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> 'outputs.OriginEndpointSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
@@ -226,7 +226,7 @@ class OriginEndpointCmafEncryption(dict):
         return pulumi.get(self, "speke_key_provider")
 
     @property
-    @pulumi.getter(name="KeyRotationIntervalSeconds")
+    @pulumi.getter(name="keyRotationIntervalSeconds")
     def key_rotation_interval_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
@@ -268,7 +268,7 @@ class OriginEndpointCmafPackage(dict):
             pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.OriginEndpointCmafEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
@@ -276,7 +276,7 @@ class OriginEndpointCmafPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="HlsManifests")
+    @pulumi.getter(name="hlsManifests")
     def hls_manifests(self) -> Optional[Sequence['outputs.OriginEndpointHlsManifest']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
@@ -284,7 +284,7 @@ class OriginEndpointCmafPackage(dict):
         return pulumi.get(self, "hls_manifests")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
@@ -292,7 +292,7 @@ class OriginEndpointCmafPackage(dict):
         return pulumi.get(self, "segment_duration_seconds")
 
     @property
-    @pulumi.getter(name="SegmentPrefix")
+    @pulumi.getter(name="segmentPrefix")
     def segment_prefix(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
@@ -300,7 +300,7 @@ class OriginEndpointCmafPackage(dict):
         return pulumi.get(self, "segment_prefix")
 
     @property
-    @pulumi.getter(name="StreamSelection")
+    @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional['outputs.OriginEndpointStreamSelection']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
@@ -329,7 +329,7 @@ class OriginEndpointDashEncryption(dict):
             pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> 'outputs.OriginEndpointSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
@@ -337,7 +337,7 @@ class OriginEndpointDashEncryption(dict):
         return pulumi.get(self, "speke_key_provider")
 
     @property
-    @pulumi.getter(name="KeyRotationIntervalSeconds")
+    @pulumi.getter(name="keyRotationIntervalSeconds")
     def key_rotation_interval_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
@@ -411,7 +411,7 @@ class OriginEndpointDashPackage(dict):
             pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
 
     @property
-    @pulumi.getter(name="AdTriggers")
+    @pulumi.getter(name="adTriggers")
     def ad_triggers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
@@ -419,7 +419,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "ad_triggers")
 
     @property
-    @pulumi.getter(name="AdsOnDeliveryRestrictions")
+    @pulumi.getter(name="adsOnDeliveryRestrictions")
     def ads_on_delivery_restrictions(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
@@ -427,7 +427,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.OriginEndpointDashEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
@@ -435,7 +435,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="ManifestLayout")
+    @pulumi.getter(name="manifestLayout")
     def manifest_layout(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
@@ -443,7 +443,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "manifest_layout")
 
     @property
-    @pulumi.getter(name="ManifestWindowSeconds")
+    @pulumi.getter(name="manifestWindowSeconds")
     def manifest_window_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
@@ -451,7 +451,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "manifest_window_seconds")
 
     @property
-    @pulumi.getter(name="MinBufferTimeSeconds")
+    @pulumi.getter(name="minBufferTimeSeconds")
     def min_buffer_time_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
@@ -459,7 +459,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "min_buffer_time_seconds")
 
     @property
-    @pulumi.getter(name="MinUpdatePeriodSeconds")
+    @pulumi.getter(name="minUpdatePeriodSeconds")
     def min_update_period_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
@@ -467,7 +467,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "min_update_period_seconds")
 
     @property
-    @pulumi.getter(name="PeriodTriggers")
+    @pulumi.getter(name="periodTriggers")
     def period_triggers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
@@ -475,7 +475,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "period_triggers")
 
     @property
-    @pulumi.getter(name="Profile")
+    @pulumi.getter
     def profile(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
@@ -483,7 +483,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "profile")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
@@ -491,7 +491,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "segment_duration_seconds")
 
     @property
-    @pulumi.getter(name="SegmentTemplateFormat")
+    @pulumi.getter(name="segmentTemplateFormat")
     def segment_template_format(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
@@ -499,7 +499,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "segment_template_format")
 
     @property
-    @pulumi.getter(name="StreamSelection")
+    @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional['outputs.OriginEndpointStreamSelection']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
@@ -507,7 +507,7 @@ class OriginEndpointDashPackage(dict):
         return pulumi.get(self, "stream_selection")
 
     @property
-    @pulumi.getter(name="SuggestedPresentationDelaySeconds")
+    @pulumi.getter(name="suggestedPresentationDelaySeconds")
     def suggested_presentation_delay_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
@@ -548,7 +548,7 @@ class OriginEndpointHlsEncryption(dict):
             pulumi.set(__self__, "repeat_ext_x_key", repeat_ext_x_key)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> 'outputs.OriginEndpointSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
@@ -556,7 +556,7 @@ class OriginEndpointHlsEncryption(dict):
         return pulumi.get(self, "speke_key_provider")
 
     @property
-    @pulumi.getter(name="ConstantInitializationVector")
+    @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
@@ -564,7 +564,7 @@ class OriginEndpointHlsEncryption(dict):
         return pulumi.get(self, "constant_initialization_vector")
 
     @property
-    @pulumi.getter(name="EncryptionMethod")
+    @pulumi.getter(name="encryptionMethod")
     def encryption_method(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
@@ -572,7 +572,7 @@ class OriginEndpointHlsEncryption(dict):
         return pulumi.get(self, "encryption_method")
 
     @property
-    @pulumi.getter(name="KeyRotationIntervalSeconds")
+    @pulumi.getter(name="keyRotationIntervalSeconds")
     def key_rotation_interval_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
@@ -580,7 +580,7 @@ class OriginEndpointHlsEncryption(dict):
         return pulumi.get(self, "key_rotation_interval_seconds")
 
     @property
-    @pulumi.getter(name="RepeatExtXKey")
+    @pulumi.getter(name="repeatExtXKey")
     def repeat_ext_x_key(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
@@ -641,7 +641,7 @@ class OriginEndpointHlsManifest(dict):
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-id
@@ -649,7 +649,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="AdMarkers")
+    @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
@@ -657,7 +657,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "ad_markers")
 
     @property
-    @pulumi.getter(name="AdTriggers")
+    @pulumi.getter(name="adTriggers")
     def ad_triggers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adtriggers
@@ -665,7 +665,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "ad_triggers")
 
     @property
-    @pulumi.getter(name="AdsOnDeliveryRestrictions")
+    @pulumi.getter(name="adsOnDeliveryRestrictions")
     def ads_on_delivery_restrictions(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adsondeliveryrestrictions
@@ -673,7 +673,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @property
-    @pulumi.getter(name="IncludeIframeOnlyStream")
+    @pulumi.getter(name="includeIframeOnlyStream")
     def include_iframe_only_stream(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-includeiframeonlystream
@@ -681,7 +681,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "include_iframe_only_stream")
 
     @property
-    @pulumi.getter(name="ManifestName")
+    @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-manifestname
@@ -689,7 +689,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "manifest_name")
 
     @property
-    @pulumi.getter(name="PlaylistType")
+    @pulumi.getter(name="playlistType")
     def playlist_type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlisttype
@@ -697,7 +697,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "playlist_type")
 
     @property
-    @pulumi.getter(name="PlaylistWindowSeconds")
+    @pulumi.getter(name="playlistWindowSeconds")
     def playlist_window_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlistwindowseconds
@@ -705,7 +705,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "playlist_window_seconds")
 
     @property
-    @pulumi.getter(name="ProgramDateTimeIntervalSeconds")
+    @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-programdatetimeintervalseconds
@@ -713,7 +713,7 @@ class OriginEndpointHlsManifest(dict):
         return pulumi.get(self, "program_date_time_interval_seconds")
 
     @property
-    @pulumi.getter(name="Url")
+    @pulumi.getter
     def url(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-url
@@ -779,7 +779,7 @@ class OriginEndpointHlsPackage(dict):
             pulumi.set(__self__, "use_audio_rendition_group", use_audio_rendition_group)
 
     @property
-    @pulumi.getter(name="AdMarkers")
+    @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
@@ -787,7 +787,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "ad_markers")
 
     @property
-    @pulumi.getter(name="AdTriggers")
+    @pulumi.getter(name="adTriggers")
     def ad_triggers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
@@ -795,7 +795,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "ad_triggers")
 
     @property
-    @pulumi.getter(name="AdsOnDeliveryRestrictions")
+    @pulumi.getter(name="adsOnDeliveryRestrictions")
     def ads_on_delivery_restrictions(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
@@ -803,7 +803,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.OriginEndpointHlsEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
@@ -811,7 +811,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="IncludeIframeOnlyStream")
+    @pulumi.getter(name="includeIframeOnlyStream")
     def include_iframe_only_stream(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
@@ -819,7 +819,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "include_iframe_only_stream")
 
     @property
-    @pulumi.getter(name="PlaylistType")
+    @pulumi.getter(name="playlistType")
     def playlist_type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
@@ -827,7 +827,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "playlist_type")
 
     @property
-    @pulumi.getter(name="PlaylistWindowSeconds")
+    @pulumi.getter(name="playlistWindowSeconds")
     def playlist_window_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
@@ -835,7 +835,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "playlist_window_seconds")
 
     @property
-    @pulumi.getter(name="ProgramDateTimeIntervalSeconds")
+    @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
@@ -843,7 +843,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "program_date_time_interval_seconds")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
@@ -851,7 +851,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "segment_duration_seconds")
 
     @property
-    @pulumi.getter(name="StreamSelection")
+    @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional['outputs.OriginEndpointStreamSelection']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
@@ -859,7 +859,7 @@ class OriginEndpointHlsPackage(dict):
         return pulumi.get(self, "stream_selection")
 
     @property
-    @pulumi.getter(name="UseAudioRenditionGroup")
+    @pulumi.getter(name="useAudioRenditionGroup")
     def use_audio_rendition_group(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
@@ -884,7 +884,7 @@ class OriginEndpointMssEncryption(dict):
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> 'outputs.OriginEndpointSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
@@ -922,7 +922,7 @@ class OriginEndpointMssPackage(dict):
             pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.OriginEndpointMssEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
@@ -930,7 +930,7 @@ class OriginEndpointMssPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="ManifestWindowSeconds")
+    @pulumi.getter(name="manifestWindowSeconds")
     def manifest_window_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
@@ -938,7 +938,7 @@ class OriginEndpointMssPackage(dict):
         return pulumi.get(self, "manifest_window_seconds")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
@@ -946,7 +946,7 @@ class OriginEndpointMssPackage(dict):
         return pulumi.get(self, "segment_duration_seconds")
 
     @property
-    @pulumi.getter(name="StreamSelection")
+    @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional['outputs.OriginEndpointStreamSelection']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
@@ -984,7 +984,7 @@ class OriginEndpointSpekeKeyProvider(dict):
             pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
-    @pulumi.getter(name="ResourceId")
+    @pulumi.getter(name="resourceId")
     def resource_id(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
@@ -992,7 +992,7 @@ class OriginEndpointSpekeKeyProvider(dict):
         return pulumi.get(self, "resource_id")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
@@ -1000,7 +1000,7 @@ class OriginEndpointSpekeKeyProvider(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="SystemIds")
+    @pulumi.getter(name="systemIds")
     def system_ids(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
@@ -1008,7 +1008,7 @@ class OriginEndpointSpekeKeyProvider(dict):
         return pulumi.get(self, "system_ids")
 
     @property
-    @pulumi.getter(name="Url")
+    @pulumi.getter
     def url(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
@@ -1016,7 +1016,7 @@ class OriginEndpointSpekeKeyProvider(dict):
         return pulumi.get(self, "url")
 
     @property
-    @pulumi.getter(name="CertificateArn")
+    @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
@@ -1050,7 +1050,7 @@ class OriginEndpointStreamSelection(dict):
             pulumi.set(__self__, "stream_order", stream_order)
 
     @property
-    @pulumi.getter(name="MaxVideoBitsPerSecond")
+    @pulumi.getter(name="maxVideoBitsPerSecond")
     def max_video_bits_per_second(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
@@ -1058,7 +1058,7 @@ class OriginEndpointStreamSelection(dict):
         return pulumi.get(self, "max_video_bits_per_second")
 
     @property
-    @pulumi.getter(name="MinVideoBitsPerSecond")
+    @pulumi.getter(name="minVideoBitsPerSecond")
     def min_video_bits_per_second(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
@@ -1066,7 +1066,7 @@ class OriginEndpointStreamSelection(dict):
         return pulumi.get(self, "min_video_bits_per_second")
 
     @property
-    @pulumi.getter(name="StreamOrder")
+    @pulumi.getter(name="streamOrder")
     def stream_order(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
@@ -1091,7 +1091,7 @@ class PackagingConfigurationCmafEncryption(dict):
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> Any:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
@@ -1124,7 +1124,7 @@ class PackagingConfigurationCmafPackage(dict):
             pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
 
     @property
-    @pulumi.getter(name="HlsManifests")
+    @pulumi.getter(name="hlsManifests")
     def hls_manifests(self) -> Sequence['outputs.PackagingConfigurationHlsManifest']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
@@ -1132,7 +1132,7 @@ class PackagingConfigurationCmafPackage(dict):
         return pulumi.get(self, "hls_manifests")
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.PackagingConfigurationCmafEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
@@ -1140,7 +1140,7 @@ class PackagingConfigurationCmafPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
@@ -1165,7 +1165,7 @@ class PackagingConfigurationDashEncryption(dict):
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> Any:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
@@ -1207,7 +1207,7 @@ class PackagingConfigurationDashManifest(dict):
             pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
-    @pulumi.getter(name="ManifestLayout")
+    @pulumi.getter(name="manifestLayout")
     def manifest_layout(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
@@ -1215,7 +1215,7 @@ class PackagingConfigurationDashManifest(dict):
         return pulumi.get(self, "manifest_layout")
 
     @property
-    @pulumi.getter(name="ManifestName")
+    @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
@@ -1223,7 +1223,7 @@ class PackagingConfigurationDashManifest(dict):
         return pulumi.get(self, "manifest_name")
 
     @property
-    @pulumi.getter(name="MinBufferTimeSeconds")
+    @pulumi.getter(name="minBufferTimeSeconds")
     def min_buffer_time_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
@@ -1231,7 +1231,7 @@ class PackagingConfigurationDashManifest(dict):
         return pulumi.get(self, "min_buffer_time_seconds")
 
     @property
-    @pulumi.getter(name="Profile")
+    @pulumi.getter
     def profile(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
@@ -1239,7 +1239,7 @@ class PackagingConfigurationDashManifest(dict):
         return pulumi.get(self, "profile")
 
     @property
-    @pulumi.getter(name="StreamSelection")
+    @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional['outputs.PackagingConfigurationStreamSelection']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
@@ -1280,7 +1280,7 @@ class PackagingConfigurationDashPackage(dict):
             pulumi.set(__self__, "segment_template_format", segment_template_format)
 
     @property
-    @pulumi.getter(name="DashManifests")
+    @pulumi.getter(name="dashManifests")
     def dash_manifests(self) -> Sequence['outputs.PackagingConfigurationDashManifest']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
@@ -1288,7 +1288,7 @@ class PackagingConfigurationDashPackage(dict):
         return pulumi.get(self, "dash_manifests")
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.PackagingConfigurationDashEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
@@ -1296,7 +1296,7 @@ class PackagingConfigurationDashPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="PeriodTriggers")
+    @pulumi.getter(name="periodTriggers")
     def period_triggers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
@@ -1304,7 +1304,7 @@ class PackagingConfigurationDashPackage(dict):
         return pulumi.get(self, "period_triggers")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
@@ -1312,7 +1312,7 @@ class PackagingConfigurationDashPackage(dict):
         return pulumi.get(self, "segment_duration_seconds")
 
     @property
-    @pulumi.getter(name="SegmentTemplateFormat")
+    @pulumi.getter(name="segmentTemplateFormat")
     def segment_template_format(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
@@ -1345,7 +1345,7 @@ class PackagingConfigurationHlsEncryption(dict):
             pulumi.set(__self__, "encryption_method", encryption_method)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> Any:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
@@ -1353,7 +1353,7 @@ class PackagingConfigurationHlsEncryption(dict):
         return pulumi.get(self, "speke_key_provider")
 
     @property
-    @pulumi.getter(name="ConstantInitializationVector")
+    @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
@@ -1361,7 +1361,7 @@ class PackagingConfigurationHlsEncryption(dict):
         return pulumi.get(self, "constant_initialization_vector")
 
     @property
-    @pulumi.getter(name="EncryptionMethod")
+    @pulumi.getter(name="encryptionMethod")
     def encryption_method(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
@@ -1407,7 +1407,7 @@ class PackagingConfigurationHlsManifest(dict):
             pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
-    @pulumi.getter(name="AdMarkers")
+    @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers
@@ -1415,7 +1415,7 @@ class PackagingConfigurationHlsManifest(dict):
         return pulumi.get(self, "ad_markers")
 
     @property
-    @pulumi.getter(name="IncludeIframeOnlyStream")
+    @pulumi.getter(name="includeIframeOnlyStream")
     def include_iframe_only_stream(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-includeiframeonlystream
@@ -1423,7 +1423,7 @@ class PackagingConfigurationHlsManifest(dict):
         return pulumi.get(self, "include_iframe_only_stream")
 
     @property
-    @pulumi.getter(name="ManifestName")
+    @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname
@@ -1431,7 +1431,7 @@ class PackagingConfigurationHlsManifest(dict):
         return pulumi.get(self, "manifest_name")
 
     @property
-    @pulumi.getter(name="ProgramDateTimeIntervalSeconds")
+    @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds
@@ -1439,7 +1439,7 @@ class PackagingConfigurationHlsManifest(dict):
         return pulumi.get(self, "program_date_time_interval_seconds")
 
     @property
-    @pulumi.getter(name="RepeatExtXKey")
+    @pulumi.getter(name="repeatExtXKey")
     def repeat_ext_x_key(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey
@@ -1447,7 +1447,7 @@ class PackagingConfigurationHlsManifest(dict):
         return pulumi.get(self, "repeat_ext_x_key")
 
     @property
-    @pulumi.getter(name="StreamSelection")
+    @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional['outputs.PackagingConfigurationStreamSelection']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
@@ -1484,7 +1484,7 @@ class PackagingConfigurationHlsPackage(dict):
             pulumi.set(__self__, "use_audio_rendition_group", use_audio_rendition_group)
 
     @property
-    @pulumi.getter(name="HlsManifests")
+    @pulumi.getter(name="hlsManifests")
     def hls_manifests(self) -> Sequence['outputs.PackagingConfigurationHlsManifest']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
@@ -1492,7 +1492,7 @@ class PackagingConfigurationHlsPackage(dict):
         return pulumi.get(self, "hls_manifests")
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.PackagingConfigurationHlsEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
@@ -1500,7 +1500,7 @@ class PackagingConfigurationHlsPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
@@ -1508,7 +1508,7 @@ class PackagingConfigurationHlsPackage(dict):
         return pulumi.get(self, "segment_duration_seconds")
 
     @property
-    @pulumi.getter(name="UseAudioRenditionGroup")
+    @pulumi.getter(name="useAudioRenditionGroup")
     def use_audio_rendition_group(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
@@ -1533,7 +1533,7 @@ class PackagingConfigurationMssEncryption(dict):
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
-    @pulumi.getter(name="SpekeKeyProvider")
+    @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> Any:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
@@ -1563,7 +1563,7 @@ class PackagingConfigurationMssManifest(dict):
             pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
-    @pulumi.getter(name="ManifestName")
+    @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
@@ -1571,7 +1571,7 @@ class PackagingConfigurationMssManifest(dict):
         return pulumi.get(self, "manifest_name")
 
     @property
-    @pulumi.getter(name="StreamSelection")
+    @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional['outputs.PackagingConfigurationStreamSelection']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
@@ -1604,7 +1604,7 @@ class PackagingConfigurationMssPackage(dict):
             pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
 
     @property
-    @pulumi.getter(name="MssManifests")
+    @pulumi.getter(name="mssManifests")
     def mss_manifests(self) -> Sequence['outputs.PackagingConfigurationMssManifest']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
@@ -1612,7 +1612,7 @@ class PackagingConfigurationMssPackage(dict):
         return pulumi.get(self, "mss_manifests")
 
     @property
-    @pulumi.getter(name="Encryption")
+    @pulumi.getter
     def encryption(self) -> Optional['outputs.PackagingConfigurationMssEncryption']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
@@ -1620,7 +1620,7 @@ class PackagingConfigurationMssPackage(dict):
         return pulumi.get(self, "encryption")
 
     @property
-    @pulumi.getter(name="SegmentDurationSeconds")
+    @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
@@ -1654,7 +1654,7 @@ class PackagingConfigurationStreamSelection(dict):
             pulumi.set(__self__, "stream_order", stream_order)
 
     @property
-    @pulumi.getter(name="MaxVideoBitsPerSecond")
+    @pulumi.getter(name="maxVideoBitsPerSecond")
     def max_video_bits_per_second(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
@@ -1662,7 +1662,7 @@ class PackagingConfigurationStreamSelection(dict):
         return pulumi.get(self, "max_video_bits_per_second")
 
     @property
-    @pulumi.getter(name="MinVideoBitsPerSecond")
+    @pulumi.getter(name="minVideoBitsPerSecond")
     def min_video_bits_per_second(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
@@ -1670,7 +1670,7 @@ class PackagingConfigurationStreamSelection(dict):
         return pulumi.get(self, "min_video_bits_per_second")
 
     @property
-    @pulumi.getter(name="StreamOrder")
+    @pulumi.getter(name="streamOrder")
     def stream_order(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
@@ -1698,7 +1698,7 @@ class PackagingGroupAuthorization(dict):
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
 
     @property
-    @pulumi.getter(name="CdnIdentifierSecret")
+    @pulumi.getter(name="cdnIdentifierSecret")
     def cdn_identifier_secret(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
@@ -1706,7 +1706,7 @@ class PackagingGroupAuthorization(dict):
         return pulumi.get(self, "cdn_identifier_secret")
 
     @property
-    @pulumi.getter(name="SecretsRoleArn")
+    @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn

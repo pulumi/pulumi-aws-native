@@ -85,7 +85,7 @@ class Analyzer(pulumi.CustomResource):
         return Analyzer(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AnalyzerName")
+    @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
@@ -93,7 +93,7 @@ class Analyzer(pulumi.CustomResource):
         return pulumi.get(self, "analyzer_name")
 
     @property
-    @pulumi.getter(name="ArchiveRules")
+    @pulumi.getter(name="archiveRules")
     def archive_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AnalyzerArchiveRule']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
@@ -101,12 +101,12 @@ class Analyzer(pulumi.CustomResource):
         return pulumi.get(self, "archive_rules")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
@@ -114,7 +114,7 @@ class Analyzer(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type

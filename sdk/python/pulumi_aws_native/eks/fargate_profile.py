@@ -95,12 +95,12 @@ class FargateProfile(pulumi.CustomResource):
         return FargateProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ClusterName")
+    @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
@@ -108,7 +108,7 @@ class FargateProfile(pulumi.CustomResource):
         return pulumi.get(self, "cluster_name")
 
     @property
-    @pulumi.getter(name="FargateProfileName")
+    @pulumi.getter(name="fargateProfileName")
     def fargate_profile_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
@@ -116,7 +116,7 @@ class FargateProfile(pulumi.CustomResource):
         return pulumi.get(self, "fargate_profile_name")
 
     @property
-    @pulumi.getter(name="PodExecutionRoleArn")
+    @pulumi.getter(name="podExecutionRoleArn")
     def pod_execution_role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
@@ -124,7 +124,7 @@ class FargateProfile(pulumi.CustomResource):
         return pulumi.get(self, "pod_execution_role_arn")
 
     @property
-    @pulumi.getter(name="Selectors")
+    @pulumi.getter
     def selectors(self) -> pulumi.Output[Sequence['outputs.FargateProfileSelector']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
@@ -132,7 +132,7 @@ class FargateProfile(pulumi.CustomResource):
         return pulumi.get(self, "selectors")
 
     @property
-    @pulumi.getter(name="Subnets")
+    @pulumi.getter
     def subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
@@ -140,7 +140,7 @@ class FargateProfile(pulumi.CustomResource):
         return pulumi.get(self, "subnets")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags

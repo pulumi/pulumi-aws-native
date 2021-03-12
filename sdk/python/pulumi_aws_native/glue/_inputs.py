@@ -30,7 +30,7 @@ class SchemaRegistryArgs:
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
@@ -42,7 +42,7 @@ class SchemaRegistryArgs:
         pulumi.set(self, "arn", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
@@ -70,7 +70,7 @@ class SchemaSchemaVersionArgs:
             pulumi.set(__self__, "version_number", version_number)
 
     @property
-    @pulumi.getter(name="IsLatest")
+    @pulumi.getter(name="isLatest")
     def is_latest(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
@@ -82,7 +82,7 @@ class SchemaSchemaVersionArgs:
         pulumi.set(self, "is_latest", value)
 
     @property
-    @pulumi.getter(name="VersionNumber")
+    @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
@@ -114,7 +114,7 @@ class SchemaVersionSchemaArgs:
             pulumi.set(__self__, "schema_name", schema_name)
 
     @property
-    @pulumi.getter(name="RegistryName")
+    @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
@@ -126,7 +126,7 @@ class SchemaVersionSchemaArgs:
         pulumi.set(self, "registry_name", value)
 
     @property
-    @pulumi.getter(name="SchemaArn")
+    @pulumi.getter(name="schemaArn")
     def schema_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
@@ -138,7 +138,7 @@ class SchemaVersionSchemaArgs:
         pulumi.set(self, "schema_arn", value)
 
     @property
-    @pulumi.getter(name="SchemaName")
+    @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname

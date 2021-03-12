@@ -103,12 +103,12 @@ class Stream(pulumi.CustomResource):
         return Stream(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ExclusiveEndTime")
+    @pulumi.getter(name="exclusiveEndTime")
     def exclusive_end_time(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
@@ -116,12 +116,12 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "exclusive_end_time")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="InclusiveStartTime")
+    @pulumi.getter(name="inclusiveStartTime")
     def inclusive_start_time(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
@@ -129,7 +129,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "inclusive_start_time")
 
     @property
-    @pulumi.getter(name="KinesisConfiguration")
+    @pulumi.getter(name="kinesisConfiguration")
     def kinesis_configuration(self) -> pulumi.Output['outputs.StreamKinesisConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
@@ -137,7 +137,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "kinesis_configuration")
 
     @property
-    @pulumi.getter(name="LedgerName")
+    @pulumi.getter(name="ledgerName")
     def ledger_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
@@ -145,7 +145,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "ledger_name")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
@@ -153,7 +153,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="StreamName")
+    @pulumi.getter(name="streamName")
     def stream_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
@@ -161,7 +161,7 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "stream_name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags

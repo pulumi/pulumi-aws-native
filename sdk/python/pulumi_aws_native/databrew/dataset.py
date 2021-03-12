@@ -84,7 +84,7 @@ class Dataset(pulumi.CustomResource):
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="FormatOptions")
+    @pulumi.getter(name="formatOptions")
     def format_options(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
@@ -92,7 +92,7 @@ class Dataset(pulumi.CustomResource):
         return pulumi.get(self, "format_options")
 
     @property
-    @pulumi.getter(name="Input")
+    @pulumi.getter
     def input(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
@@ -100,7 +100,7 @@ class Dataset(pulumi.CustomResource):
         return pulumi.get(self, "input")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
@@ -108,7 +108,7 @@ class Dataset(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags

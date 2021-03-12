@@ -86,7 +86,7 @@ class NamedQuery(pulumi.CustomResource):
         return NamedQuery(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Database")
+    @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
@@ -94,7 +94,7 @@ class NamedQuery(pulumi.CustomResource):
         return pulumi.get(self, "database")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
@@ -102,7 +102,7 @@ class NamedQuery(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
@@ -110,12 +110,12 @@ class NamedQuery(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="NamedQueryId")
+    @pulumi.getter(name="namedQueryId")
     def named_query_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "named_query_id")
 
     @property
-    @pulumi.getter(name="QueryString")
+    @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
@@ -123,7 +123,7 @@ class NamedQuery(pulumi.CustomResource):
         return pulumi.get(self, "query_string")
 
     @property
-    @pulumi.getter(name="WorkGroup")
+    @pulumi.getter(name="workGroup")
     def work_group(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup

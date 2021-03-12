@@ -96,7 +96,7 @@ class User(pulumi.CustomResource):
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AccessString")
+    @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
@@ -104,17 +104,17 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "access_string")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Authentication")
+    @pulumi.getter
     def authentication(self) -> pulumi.Output['outputs.UserAuthentication']:
         return pulumi.get(self, "authentication")
 
     @property
-    @pulumi.getter(name="Engine")
+    @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
@@ -122,7 +122,7 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "engine")
 
     @property
-    @pulumi.getter(name="NoPasswordRequired")
+    @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
@@ -130,7 +130,7 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "no_password_required")
 
     @property
-    @pulumi.getter(name="Passwords")
+    @pulumi.getter
     def passwords(self) -> pulumi.Output[Optional['outputs.UserPasswordList']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
@@ -138,17 +138,17 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "passwords")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="UserGroupIds")
+    @pulumi.getter(name="userGroupIds")
     def user_group_ids(self) -> pulumi.Output['outputs.UserUserGroupIdList']:
         return pulumi.get(self, "user_group_ids")
 
     @property
-    @pulumi.getter(name="UserId")
+    @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
@@ -156,7 +156,7 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "user_id")
 
     @property
-    @pulumi.getter(name="UserName")
+    @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username

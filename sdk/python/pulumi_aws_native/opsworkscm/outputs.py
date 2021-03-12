@@ -31,7 +31,7 @@ class ServerEngineAttribute(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
@@ -39,7 +39,7 @@ class ServerEngineAttribute(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-value

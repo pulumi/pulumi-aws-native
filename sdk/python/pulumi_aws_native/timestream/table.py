@@ -83,12 +83,12 @@ class Table(pulumi.CustomResource):
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="DatabaseName")
+    @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
@@ -96,7 +96,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "database_name")
 
     @property
-    @pulumi.getter(name="RetentionProperties")
+    @pulumi.getter(name="retentionProperties")
     def retention_properties(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
@@ -104,7 +104,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "retention_properties")
 
     @property
-    @pulumi.getter(name="TableName")
+    @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename
@@ -112,7 +112,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "table_name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tags

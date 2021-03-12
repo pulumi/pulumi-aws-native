@@ -22,7 +22,7 @@ class Flow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_flow_config_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
-                 kms_arn: Optional[pulumi.Input[str]] = None,
+                 k_ms_arn: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]]] = None,
@@ -38,7 +38,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]] destination_flow_config_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
         :param pulumi.Input[str] flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        :param pulumi.Input[str] kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
         :param pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']] source_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
@@ -68,7 +68,7 @@ class Flow(pulumi.CustomResource):
             if flow_name is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_name'")
             __props__['flow_name'] = flow_name
-            __props__['kms_arn'] = kms_arn
+            __props__['k_ms_arn'] = k_ms_arn
             if source_flow_config is None and not opts.urn:
                 raise TypeError("Missing required property 'source_flow_config'")
             __props__['source_flow_config'] = source_flow_config
@@ -105,7 +105,7 @@ class Flow(pulumi.CustomResource):
         return Flow(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
@@ -113,7 +113,7 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="DestinationFlowConfigList")
+    @pulumi.getter(name="destinationFlowConfigList")
     def destination_flow_config_list(self) -> pulumi.Output[Sequence['outputs.FlowDestinationFlowConfig']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
@@ -121,12 +121,12 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "destination_flow_config_list")
 
     @property
-    @pulumi.getter(name="FlowArn")
+    @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "flow_arn")
 
     @property
-    @pulumi.getter(name="FlowName")
+    @pulumi.getter(name="flowName")
     def flow_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
@@ -134,15 +134,15 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "flow_name")
 
     @property
-    @pulumi.getter(name="KMSArn")
-    def kms_arn(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="kMSArn")
+    def k_ms_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
         """
-        return pulumi.get(self, "kms_arn")
+        return pulumi.get(self, "k_ms_arn")
 
     @property
-    @pulumi.getter(name="SourceFlowConfig")
+    @pulumi.getter(name="sourceFlowConfig")
     def source_flow_config(self) -> pulumi.Output['outputs.FlowSourceFlowConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
@@ -150,7 +150,7 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "source_flow_config")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
@@ -158,7 +158,7 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Tasks")
+    @pulumi.getter
     def tasks(self) -> pulumi.Output[Sequence['outputs.FlowTask']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
@@ -166,7 +166,7 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "tasks")
 
     @property
-    @pulumi.getter(name="TriggerConfig")
+    @pulumi.getter(name="triggerConfig")
     def trigger_config(self) -> pulumi.Output['outputs.FlowTriggerConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig

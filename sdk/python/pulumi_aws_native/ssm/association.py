@@ -116,7 +116,7 @@ class Association(pulumi.CustomResource):
         return Association(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ApplyOnlyAtCronInterval")
+    @pulumi.getter(name="applyOnlyAtCronInterval")
     def apply_only_at_cron_interval(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
@@ -124,12 +124,12 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "apply_only_at_cron_interval")
 
     @property
-    @pulumi.getter(name="AssociationId")
+    @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "association_id")
 
     @property
-    @pulumi.getter(name="AssociationName")
+    @pulumi.getter(name="associationName")
     def association_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
@@ -137,7 +137,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "association_name")
 
     @property
-    @pulumi.getter(name="AutomationTargetParameterName")
+    @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
@@ -145,7 +145,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "automation_target_parameter_name")
 
     @property
-    @pulumi.getter(name="ComplianceSeverity")
+    @pulumi.getter(name="complianceSeverity")
     def compliance_severity(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
@@ -153,7 +153,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "compliance_severity")
 
     @property
-    @pulumi.getter(name="DocumentVersion")
+    @pulumi.getter(name="documentVersion")
     def document_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
@@ -161,7 +161,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "document_version")
 
     @property
-    @pulumi.getter(name="InstanceId")
+    @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
@@ -169,7 +169,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "instance_id")
 
     @property
-    @pulumi.getter(name="MaxConcurrency")
+    @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
@@ -177,7 +177,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "max_concurrency")
 
     @property
-    @pulumi.getter(name="MaxErrors")
+    @pulumi.getter(name="maxErrors")
     def max_errors(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
@@ -185,7 +185,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "max_errors")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
@@ -193,7 +193,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="OutputLocation")
+    @pulumi.getter(name="outputLocation")
     def output_location(self) -> pulumi.Output[Optional['outputs.AssociationInstanceAssociationOutputLocation']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
@@ -201,7 +201,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "output_location")
 
     @property
-    @pulumi.getter(name="Parameters")
+    @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.AssociationParameterValues']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
@@ -209,7 +209,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "parameters")
 
     @property
-    @pulumi.getter(name="ScheduleExpression")
+    @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
@@ -217,7 +217,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "schedule_expression")
 
     @property
-    @pulumi.getter(name="SyncCompliance")
+    @pulumi.getter(name="syncCompliance")
     def sync_compliance(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
@@ -225,7 +225,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "sync_compliance")
 
     @property
-    @pulumi.getter(name="Targets")
+    @pulumi.getter
     def targets(self) -> pulumi.Output[Optional[Sequence['outputs.AssociationTarget']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
@@ -233,7 +233,7 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "targets")
 
     @property
-    @pulumi.getter(name="WaitForSuccessTimeoutSeconds")
+    @pulumi.getter(name="waitForSuccessTimeoutSeconds")
     def wait_for_success_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds

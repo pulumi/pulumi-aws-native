@@ -34,7 +34,7 @@ class FindingsFilterFindingCriteriaArgs:
             pulumi.set(__self__, "criterion", criterion)
 
     @property
-    @pulumi.getter(name="Criterion")
+    @pulumi.getter
     def criterion(self) -> Optional[pulumi.Input['FindingsFilterCriterionArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion

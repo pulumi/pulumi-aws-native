@@ -76,7 +76,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         return TransitGatewayRegistration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="GlobalNetworkId")
+    @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
@@ -84,7 +84,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         return pulumi.get(self, "global_network_id")
 
     @property
-    @pulumi.getter(name="TransitGatewayArn")
+    @pulumi.getter(name="transitGatewayArn")
     def transit_gateway_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn

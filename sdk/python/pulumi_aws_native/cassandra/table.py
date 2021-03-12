@@ -90,7 +90,7 @@ class Table(pulumi.CustomResource):
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="BillingMode")
+    @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional['outputs.TableBillingMode']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
@@ -98,7 +98,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "billing_mode")
 
     @property
-    @pulumi.getter(name="ClusteringKeyColumns")
+    @pulumi.getter(name="clusteringKeyColumns")
     def clustering_key_columns(self) -> pulumi.Output[Optional[Sequence['outputs.TableClusteringKeyColumn']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
@@ -106,7 +106,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "clustering_key_columns")
 
     @property
-    @pulumi.getter(name="KeyspaceName")
+    @pulumi.getter(name="keyspaceName")
     def keyspace_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
@@ -114,7 +114,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "keyspace_name")
 
     @property
-    @pulumi.getter(name="PartitionKeyColumns")
+    @pulumi.getter(name="partitionKeyColumns")
     def partition_key_columns(self) -> pulumi.Output[Sequence['outputs.TableColumn']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
@@ -122,7 +122,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "partition_key_columns")
 
     @property
-    @pulumi.getter(name="RegularColumns")
+    @pulumi.getter(name="regularColumns")
     def regular_columns(self) -> pulumi.Output[Optional[Sequence['outputs.TableColumn']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
@@ -130,7 +130,7 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "regular_columns")
 
     @property
-    @pulumi.getter(name="TableName")
+    @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename

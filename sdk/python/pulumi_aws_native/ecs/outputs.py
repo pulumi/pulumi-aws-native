@@ -80,7 +80,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
             pulumi.set(__self__, "managed_termination_protection", managed_termination_protection)
 
     @property
-    @pulumi.getter(name="AutoScalingGroupArn")
+    @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
@@ -88,7 +88,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         return pulumi.get(self, "auto_scaling_group_arn")
 
     @property
-    @pulumi.getter(name="ManagedScaling")
+    @pulumi.getter(name="managedScaling")
     def managed_scaling(self) -> Optional['outputs.CapacityProviderManagedScaling']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
@@ -96,7 +96,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         return pulumi.get(self, "managed_scaling")
 
     @property
-    @pulumi.getter(name="ManagedTerminationProtection")
+    @pulumi.getter(name="managedTerminationProtection")
     def managed_termination_protection(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
@@ -134,7 +134,7 @@ class CapacityProviderManagedScaling(dict):
             pulumi.set(__self__, "target_capacity", target_capacity)
 
     @property
-    @pulumi.getter(name="MaximumScalingStepSize")
+    @pulumi.getter(name="maximumScalingStepSize")
     def maximum_scaling_step_size(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
@@ -142,7 +142,7 @@ class CapacityProviderManagedScaling(dict):
         return pulumi.get(self, "maximum_scaling_step_size")
 
     @property
-    @pulumi.getter(name="MinimumScalingStepSize")
+    @pulumi.getter(name="minimumScalingStepSize")
     def minimum_scaling_step_size(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
@@ -150,7 +150,7 @@ class CapacityProviderManagedScaling(dict):
         return pulumi.get(self, "minimum_scaling_step_size")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
@@ -158,7 +158,7 @@ class CapacityProviderManagedScaling(dict):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="TargetCapacity")
+    @pulumi.getter(name="targetCapacity")
     def target_capacity(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
@@ -192,7 +192,7 @@ class ClusterCapacityProviderStrategyItem(dict):
             pulumi.set(__self__, "weight", weight)
 
     @property
-    @pulumi.getter(name="Base")
+    @pulumi.getter
     def base(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-base
@@ -200,7 +200,7 @@ class ClusterCapacityProviderStrategyItem(dict):
         return pulumi.get(self, "base")
 
     @property
-    @pulumi.getter(name="CapacityProvider")
+    @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-capacityprovider
@@ -208,7 +208,7 @@ class ClusterCapacityProviderStrategyItem(dict):
         return pulumi.get(self, "capacity_provider")
 
     @property
-    @pulumi.getter(name="Weight")
+    @pulumi.getter
     def weight(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-weight
@@ -238,7 +238,7 @@ class ClusterClusterSettings(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-name
@@ -246,7 +246,7 @@ class ClusterClusterSettings(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-value
@@ -280,7 +280,7 @@ class ServiceAwsVpcConfiguration(dict):
             pulumi.set(__self__, "subnets", subnets)
 
     @property
-    @pulumi.getter(name="AssignPublicIp")
+    @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
@@ -288,7 +288,7 @@ class ServiceAwsVpcConfiguration(dict):
         return pulumi.get(self, "assign_public_ip")
 
     @property
-    @pulumi.getter(name="SecurityGroups")
+    @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
@@ -296,7 +296,7 @@ class ServiceAwsVpcConfiguration(dict):
         return pulumi.get(self, "security_groups")
 
     @property
-    @pulumi.getter(name="Subnets")
+    @pulumi.getter
     def subnets(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
@@ -330,7 +330,7 @@ class ServiceCapacityProviderStrategyItem(dict):
             pulumi.set(__self__, "weight", weight)
 
     @property
-    @pulumi.getter(name="Base")
+    @pulumi.getter
     def base(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-base
@@ -338,7 +338,7 @@ class ServiceCapacityProviderStrategyItem(dict):
         return pulumi.get(self, "base")
 
     @property
-    @pulumi.getter(name="CapacityProvider")
+    @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-capacityprovider
@@ -346,7 +346,7 @@ class ServiceCapacityProviderStrategyItem(dict):
         return pulumi.get(self, "capacity_provider")
 
     @property
-    @pulumi.getter(name="Weight")
+    @pulumi.getter
     def weight(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-weight
@@ -374,7 +374,7 @@ class ServiceDeploymentCircuitBreaker(dict):
         pulumi.set(__self__, "rollback", rollback)
 
     @property
-    @pulumi.getter(name="Enable")
+    @pulumi.getter
     def enable(self) -> bool:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
@@ -382,7 +382,7 @@ class ServiceDeploymentCircuitBreaker(dict):
         return pulumi.get(self, "enable")
 
     @property
-    @pulumi.getter(name="Rollback")
+    @pulumi.getter
     def rollback(self) -> bool:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
@@ -416,7 +416,7 @@ class ServiceDeploymentConfiguration(dict):
             pulumi.set(__self__, "minimum_healthy_percent", minimum_healthy_percent)
 
     @property
-    @pulumi.getter(name="DeploymentCircuitBreaker")
+    @pulumi.getter(name="deploymentCircuitBreaker")
     def deployment_circuit_breaker(self) -> Optional['outputs.ServiceDeploymentCircuitBreaker']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
@@ -424,7 +424,7 @@ class ServiceDeploymentConfiguration(dict):
         return pulumi.get(self, "deployment_circuit_breaker")
 
     @property
-    @pulumi.getter(name="MaximumPercent")
+    @pulumi.getter(name="maximumPercent")
     def maximum_percent(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
@@ -432,7 +432,7 @@ class ServiceDeploymentConfiguration(dict):
         return pulumi.get(self, "maximum_percent")
 
     @property
-    @pulumi.getter(name="MinimumHealthyPercent")
+    @pulumi.getter(name="minimumHealthyPercent")
     def minimum_healthy_percent(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
@@ -458,7 +458,7 @@ class ServiceDeploymentController(dict):
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
@@ -496,7 +496,7 @@ class ServiceLoadBalancer(dict):
             pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
-    @pulumi.getter(name="ContainerName")
+    @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
@@ -504,7 +504,7 @@ class ServiceLoadBalancer(dict):
         return pulumi.get(self, "container_name")
 
     @property
-    @pulumi.getter(name="ContainerPort")
+    @pulumi.getter(name="containerPort")
     def container_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
@@ -512,7 +512,7 @@ class ServiceLoadBalancer(dict):
         return pulumi.get(self, "container_port")
 
     @property
-    @pulumi.getter(name="LoadBalancerName")
+    @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername
@@ -520,7 +520,7 @@ class ServiceLoadBalancer(dict):
         return pulumi.get(self, "load_balancer_name")
 
     @property
-    @pulumi.getter(name="TargetGroupArn")
+    @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
@@ -546,7 +546,7 @@ class ServiceNetworkConfiguration(dict):
             pulumi.set(__self__, "awsvpc_configuration", awsvpc_configuration)
 
     @property
-    @pulumi.getter(name="AwsvpcConfiguration")
+    @pulumi.getter(name="awsvpcConfiguration")
     def awsvpc_configuration(self) -> Optional['outputs.ServiceAwsVpcConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
@@ -575,7 +575,7 @@ class ServicePlacementConstraint(dict):
             pulumi.set(__self__, "expression", expression)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-type
@@ -583,7 +583,7 @@ class ServicePlacementConstraint(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Expression")
+    @pulumi.getter
     def expression(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-expression
@@ -612,7 +612,7 @@ class ServicePlacementStrategy(dict):
             pulumi.set(__self__, "field", field)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-type
@@ -620,7 +620,7 @@ class ServicePlacementStrategy(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Field")
+    @pulumi.getter
     def field(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-field
@@ -658,7 +658,7 @@ class ServiceServiceRegistry(dict):
             pulumi.set(__self__, "registry_arn", registry_arn)
 
     @property
-    @pulumi.getter(name="ContainerName")
+    @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containername
@@ -666,7 +666,7 @@ class ServiceServiceRegistry(dict):
         return pulumi.get(self, "container_name")
 
     @property
-    @pulumi.getter(name="ContainerPort")
+    @pulumi.getter(name="containerPort")
     def container_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containerport
@@ -674,7 +674,7 @@ class ServiceServiceRegistry(dict):
         return pulumi.get(self, "container_port")
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-port
@@ -682,7 +682,7 @@ class ServiceServiceRegistry(dict):
         return pulumi.get(self, "port")
 
     @property
-    @pulumi.getter(name="RegistryArn")
+    @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-registryarn
@@ -860,7 +860,7 @@ class TaskDefinitionContainerDefinition(dict):
             pulumi.set(__self__, "working_directory", working_directory)
 
     @property
-    @pulumi.getter(name="Command")
+    @pulumi.getter
     def command(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
@@ -868,7 +868,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "command")
 
     @property
-    @pulumi.getter(name="Cpu")
+    @pulumi.getter
     def cpu(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
@@ -876,7 +876,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "cpu")
 
     @property
-    @pulumi.getter(name="DependsOn")
+    @pulumi.getter(name="dependsOn")
     def depends_on(self) -> Optional[Sequence['outputs.TaskDefinitionContainerDependency']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
@@ -884,7 +884,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "depends_on")
 
     @property
-    @pulumi.getter(name="DisableNetworking")
+    @pulumi.getter(name="disableNetworking")
     def disable_networking(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
@@ -892,7 +892,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "disable_networking")
 
     @property
-    @pulumi.getter(name="DnsSearchDomains")
+    @pulumi.getter(name="dnsSearchDomains")
     def dns_search_domains(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
@@ -900,7 +900,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "dns_search_domains")
 
     @property
-    @pulumi.getter(name="DnsServers")
+    @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
@@ -908,7 +908,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "dns_servers")
 
     @property
-    @pulumi.getter(name="DockerLabels")
+    @pulumi.getter(name="dockerLabels")
     def docker_labels(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
@@ -916,7 +916,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "docker_labels")
 
     @property
-    @pulumi.getter(name="DockerSecurityOptions")
+    @pulumi.getter(name="dockerSecurityOptions")
     def docker_security_options(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
@@ -924,7 +924,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "docker_security_options")
 
     @property
-    @pulumi.getter(name="EntryPoint")
+    @pulumi.getter(name="entryPoint")
     def entry_point(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
@@ -932,7 +932,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "entry_point")
 
     @property
-    @pulumi.getter(name="Environment")
+    @pulumi.getter
     def environment(self) -> Optional[Sequence['outputs.TaskDefinitionKeyValuePair']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
@@ -940,7 +940,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "environment")
 
     @property
-    @pulumi.getter(name="EnvironmentFiles")
+    @pulumi.getter(name="environmentFiles")
     def environment_files(self) -> Optional[Sequence['outputs.TaskDefinitionEnvironmentFile']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
@@ -948,7 +948,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "environment_files")
 
     @property
-    @pulumi.getter(name="Essential")
+    @pulumi.getter
     def essential(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
@@ -956,7 +956,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "essential")
 
     @property
-    @pulumi.getter(name="ExtraHosts")
+    @pulumi.getter(name="extraHosts")
     def extra_hosts(self) -> Optional[Sequence['outputs.TaskDefinitionHostEntry']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
@@ -964,7 +964,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "extra_hosts")
 
     @property
-    @pulumi.getter(name="FirelensConfiguration")
+    @pulumi.getter(name="firelensConfiguration")
     def firelens_configuration(self) -> Optional['outputs.TaskDefinitionFirelensConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
@@ -972,7 +972,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "firelens_configuration")
 
     @property
-    @pulumi.getter(name="HealthCheck")
+    @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional['outputs.TaskDefinitionHealthCheck']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
@@ -980,7 +980,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "health_check")
 
     @property
-    @pulumi.getter(name="Hostname")
+    @pulumi.getter
     def hostname(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
@@ -988,7 +988,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "hostname")
 
     @property
-    @pulumi.getter(name="Image")
+    @pulumi.getter
     def image(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
@@ -996,7 +996,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "image")
 
     @property
-    @pulumi.getter(name="Interactive")
+    @pulumi.getter
     def interactive(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
@@ -1004,7 +1004,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "interactive")
 
     @property
-    @pulumi.getter(name="Links")
+    @pulumi.getter
     def links(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
@@ -1012,7 +1012,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "links")
 
     @property
-    @pulumi.getter(name="LinuxParameters")
+    @pulumi.getter(name="linuxParameters")
     def linux_parameters(self) -> Optional['outputs.TaskDefinitionLinuxParameters']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
@@ -1020,7 +1020,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "linux_parameters")
 
     @property
-    @pulumi.getter(name="LogConfiguration")
+    @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.TaskDefinitionLogConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
@@ -1028,7 +1028,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "log_configuration")
 
     @property
-    @pulumi.getter(name="Memory")
+    @pulumi.getter
     def memory(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
@@ -1036,7 +1036,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "memory")
 
     @property
-    @pulumi.getter(name="MemoryReservation")
+    @pulumi.getter(name="memoryReservation")
     def memory_reservation(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
@@ -1044,7 +1044,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "memory_reservation")
 
     @property
-    @pulumi.getter(name="MountPoints")
+    @pulumi.getter(name="mountPoints")
     def mount_points(self) -> Optional[Sequence['outputs.TaskDefinitionMountPoint']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
@@ -1052,7 +1052,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "mount_points")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
@@ -1060,7 +1060,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="PortMappings")
+    @pulumi.getter(name="portMappings")
     def port_mappings(self) -> Optional[Sequence['outputs.TaskDefinitionPortMapping']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
@@ -1068,7 +1068,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "port_mappings")
 
     @property
-    @pulumi.getter(name="Privileged")
+    @pulumi.getter
     def privileged(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
@@ -1076,7 +1076,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "privileged")
 
     @property
-    @pulumi.getter(name="PseudoTerminal")
+    @pulumi.getter(name="pseudoTerminal")
     def pseudo_terminal(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
@@ -1084,7 +1084,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "pseudo_terminal")
 
     @property
-    @pulumi.getter(name="ReadonlyRootFilesystem")
+    @pulumi.getter(name="readonlyRootFilesystem")
     def readonly_root_filesystem(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
@@ -1092,7 +1092,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "readonly_root_filesystem")
 
     @property
-    @pulumi.getter(name="RepositoryCredentials")
+    @pulumi.getter(name="repositoryCredentials")
     def repository_credentials(self) -> Optional['outputs.TaskDefinitionRepositoryCredentials']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
@@ -1100,7 +1100,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "repository_credentials")
 
     @property
-    @pulumi.getter(name="ResourceRequirements")
+    @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> Optional[Sequence['outputs.TaskDefinitionResourceRequirement']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
@@ -1108,7 +1108,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "resource_requirements")
 
     @property
-    @pulumi.getter(name="Secrets")
+    @pulumi.getter
     def secrets(self) -> Optional[Sequence['outputs.TaskDefinitionSecret']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
@@ -1116,7 +1116,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "secrets")
 
     @property
-    @pulumi.getter(name="StartTimeout")
+    @pulumi.getter(name="startTimeout")
     def start_timeout(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
@@ -1124,7 +1124,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "start_timeout")
 
     @property
-    @pulumi.getter(name="StopTimeout")
+    @pulumi.getter(name="stopTimeout")
     def stop_timeout(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
@@ -1132,7 +1132,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "stop_timeout")
 
     @property
-    @pulumi.getter(name="SystemControls")
+    @pulumi.getter(name="systemControls")
     def system_controls(self) -> Optional[Sequence['outputs.TaskDefinitionSystemControl']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
@@ -1140,7 +1140,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "system_controls")
 
     @property
-    @pulumi.getter(name="Ulimits")
+    @pulumi.getter
     def ulimits(self) -> Optional[Sequence['outputs.TaskDefinitionUlimit']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
@@ -1148,7 +1148,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "ulimits")
 
     @property
-    @pulumi.getter(name="User")
+    @pulumi.getter
     def user(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
@@ -1156,7 +1156,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "user")
 
     @property
-    @pulumi.getter(name="VolumesFrom")
+    @pulumi.getter(name="volumesFrom")
     def volumes_from(self) -> Optional[Sequence['outputs.TaskDefinitionVolumeFrom']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
@@ -1164,7 +1164,7 @@ class TaskDefinitionContainerDefinition(dict):
         return pulumi.get(self, "volumes_from")
 
     @property
-    @pulumi.getter(name="WorkingDirectory")
+    @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
@@ -1194,7 +1194,7 @@ class TaskDefinitionContainerDependency(dict):
             pulumi.set(__self__, "container_name", container_name)
 
     @property
-    @pulumi.getter(name="Condition")
+    @pulumi.getter
     def condition(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
@@ -1202,7 +1202,7 @@ class TaskDefinitionContainerDependency(dict):
         return pulumi.get(self, "condition")
 
     @property
-    @pulumi.getter(name="ContainerName")
+    @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
@@ -1236,7 +1236,7 @@ class TaskDefinitionDevice(dict):
             pulumi.set(__self__, "permissions", permissions)
 
     @property
-    @pulumi.getter(name="ContainerPath")
+    @pulumi.getter(name="containerPath")
     def container_path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-containerpath
@@ -1244,7 +1244,7 @@ class TaskDefinitionDevice(dict):
         return pulumi.get(self, "container_path")
 
     @property
-    @pulumi.getter(name="HostPath")
+    @pulumi.getter(name="hostPath")
     def host_path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-hostpath
@@ -1252,7 +1252,7 @@ class TaskDefinitionDevice(dict):
         return pulumi.get(self, "host_path")
 
     @property
-    @pulumi.getter(name="Permissions")
+    @pulumi.getter
     def permissions(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-permissions
@@ -1294,7 +1294,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
             pulumi.set(__self__, "scope", scope)
 
     @property
-    @pulumi.getter(name="Autoprovision")
+    @pulumi.getter
     def autoprovision(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
@@ -1302,7 +1302,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
         return pulumi.get(self, "autoprovision")
 
     @property
-    @pulumi.getter(name="Driver")
+    @pulumi.getter
     def driver(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
@@ -1310,7 +1310,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
         return pulumi.get(self, "driver")
 
     @property
-    @pulumi.getter(name="DriverOpts")
+    @pulumi.getter(name="driverOpts")
     def driver_opts(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
@@ -1318,7 +1318,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
         return pulumi.get(self, "driver_opts")
 
     @property
-    @pulumi.getter(name="Labels")
+    @pulumi.getter
     def labels(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
@@ -1326,7 +1326,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
         return pulumi.get(self, "labels")
 
     @property
-    @pulumi.getter(name="Scope")
+    @pulumi.getter
     def scope(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
@@ -1367,7 +1367,7 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
             pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
 
     @property
-    @pulumi.getter(name="FilesystemId")
+    @pulumi.getter(name="filesystemId")
     def filesystem_id(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
@@ -1375,7 +1375,7 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
         return pulumi.get(self, "filesystem_id")
 
     @property
-    @pulumi.getter(name="AuthorizationConfig")
+    @pulumi.getter(name="authorizationConfig")
     def authorization_config(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
@@ -1383,7 +1383,7 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
         return pulumi.get(self, "authorization_config")
 
     @property
-    @pulumi.getter(name="RootDirectory")
+    @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
@@ -1391,7 +1391,7 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
         return pulumi.get(self, "root_directory")
 
     @property
-    @pulumi.getter(name="TransitEncryption")
+    @pulumi.getter(name="transitEncryption")
     def transit_encryption(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
@@ -1399,7 +1399,7 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
         return pulumi.get(self, "transit_encryption")
 
     @property
-    @pulumi.getter(name="TransitEncryptionPort")
+    @pulumi.getter(name="transitEncryptionPort")
     def transit_encryption_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
@@ -1429,7 +1429,7 @@ class TaskDefinitionEnvironmentFile(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-type
@@ -1437,7 +1437,7 @@ class TaskDefinitionEnvironmentFile(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value
@@ -1467,7 +1467,7 @@ class TaskDefinitionFirelensConfiguration(dict):
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="Options")
+    @pulumi.getter
     def options(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
@@ -1475,7 +1475,7 @@ class TaskDefinitionFirelensConfiguration(dict):
         return pulumi.get(self, "options")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
@@ -1517,7 +1517,7 @@ class TaskDefinitionHealthCheck(dict):
             pulumi.set(__self__, "timeout", timeout)
 
     @property
-    @pulumi.getter(name="Command")
+    @pulumi.getter
     def command(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
@@ -1525,7 +1525,7 @@ class TaskDefinitionHealthCheck(dict):
         return pulumi.get(self, "command")
 
     @property
-    @pulumi.getter(name="Interval")
+    @pulumi.getter
     def interval(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval
@@ -1533,7 +1533,7 @@ class TaskDefinitionHealthCheck(dict):
         return pulumi.get(self, "interval")
 
     @property
-    @pulumi.getter(name="Retries")
+    @pulumi.getter
     def retries(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries
@@ -1541,7 +1541,7 @@ class TaskDefinitionHealthCheck(dict):
         return pulumi.get(self, "retries")
 
     @property
-    @pulumi.getter(name="StartPeriod")
+    @pulumi.getter(name="startPeriod")
     def start_period(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod
@@ -1549,7 +1549,7 @@ class TaskDefinitionHealthCheck(dict):
         return pulumi.get(self, "start_period")
 
     @property
-    @pulumi.getter(name="Timeout")
+    @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout
@@ -1579,7 +1579,7 @@ class TaskDefinitionHostEntry(dict):
             pulumi.set(__self__, "ip_address", ip_address)
 
     @property
-    @pulumi.getter(name="Hostname")
+    @pulumi.getter
     def hostname(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
@@ -1587,7 +1587,7 @@ class TaskDefinitionHostEntry(dict):
         return pulumi.get(self, "hostname")
 
     @property
-    @pulumi.getter(name="IpAddress")
+    @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-ipaddress
@@ -1613,7 +1613,7 @@ class TaskDefinitionHostVolumeProperties(dict):
             pulumi.set(__self__, "source_path", source_path)
 
     @property
-    @pulumi.getter(name="SourcePath")
+    @pulumi.getter(name="sourcePath")
     def source_path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
@@ -1643,7 +1643,7 @@ class TaskDefinitionInferenceAccelerator(dict):
             pulumi.set(__self__, "device_type", device_type)
 
     @property
-    @pulumi.getter(name="DeviceName")
+    @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
@@ -1651,7 +1651,7 @@ class TaskDefinitionInferenceAccelerator(dict):
         return pulumi.get(self, "device_name")
 
     @property
-    @pulumi.getter(name="DeviceType")
+    @pulumi.getter(name="deviceType")
     def device_type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
@@ -1681,7 +1681,7 @@ class TaskDefinitionKernelCapabilities(dict):
             pulumi.set(__self__, "drop", drop)
 
     @property
-    @pulumi.getter(name="Add")
+    @pulumi.getter
     def add(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
@@ -1689,7 +1689,7 @@ class TaskDefinitionKernelCapabilities(dict):
         return pulumi.get(self, "add")
 
     @property
-    @pulumi.getter(name="Drop")
+    @pulumi.getter
     def drop(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop
@@ -1719,7 +1719,7 @@ class TaskDefinitionKeyValuePair(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-name
@@ -1727,7 +1727,7 @@ class TaskDefinitionKeyValuePair(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-value
@@ -1777,7 +1777,7 @@ class TaskDefinitionLinuxParameters(dict):
             pulumi.set(__self__, "tmpfs", tmpfs)
 
     @property
-    @pulumi.getter(name="Capabilities")
+    @pulumi.getter
     def capabilities(self) -> Optional['outputs.TaskDefinitionKernelCapabilities']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
@@ -1785,7 +1785,7 @@ class TaskDefinitionLinuxParameters(dict):
         return pulumi.get(self, "capabilities")
 
     @property
-    @pulumi.getter(name="Devices")
+    @pulumi.getter
     def devices(self) -> Optional[Sequence['outputs.TaskDefinitionDevice']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
@@ -1793,7 +1793,7 @@ class TaskDefinitionLinuxParameters(dict):
         return pulumi.get(self, "devices")
 
     @property
-    @pulumi.getter(name="InitProcessEnabled")
+    @pulumi.getter(name="initProcessEnabled")
     def init_process_enabled(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
@@ -1801,7 +1801,7 @@ class TaskDefinitionLinuxParameters(dict):
         return pulumi.get(self, "init_process_enabled")
 
     @property
-    @pulumi.getter(name="MaxSwap")
+    @pulumi.getter(name="maxSwap")
     def max_swap(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
@@ -1809,7 +1809,7 @@ class TaskDefinitionLinuxParameters(dict):
         return pulumi.get(self, "max_swap")
 
     @property
-    @pulumi.getter(name="SharedMemorySize")
+    @pulumi.getter(name="sharedMemorySize")
     def shared_memory_size(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
@@ -1817,7 +1817,7 @@ class TaskDefinitionLinuxParameters(dict):
         return pulumi.get(self, "shared_memory_size")
 
     @property
-    @pulumi.getter(name="Swappiness")
+    @pulumi.getter
     def swappiness(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
@@ -1825,7 +1825,7 @@ class TaskDefinitionLinuxParameters(dict):
         return pulumi.get(self, "swappiness")
 
     @property
-    @pulumi.getter(name="Tmpfs")
+    @pulumi.getter
     def tmpfs(self) -> Optional[Sequence['outputs.TaskDefinitionTmpfs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
@@ -1858,7 +1858,7 @@ class TaskDefinitionLogConfiguration(dict):
             pulumi.set(__self__, "secret_options", secret_options)
 
     @property
-    @pulumi.getter(name="LogDriver")
+    @pulumi.getter(name="logDriver")
     def log_driver(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
@@ -1866,7 +1866,7 @@ class TaskDefinitionLogConfiguration(dict):
         return pulumi.get(self, "log_driver")
 
     @property
-    @pulumi.getter(name="Options")
+    @pulumi.getter
     def options(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
@@ -1874,7 +1874,7 @@ class TaskDefinitionLogConfiguration(dict):
         return pulumi.get(self, "options")
 
     @property
-    @pulumi.getter(name="SecretOptions")
+    @pulumi.getter(name="secretOptions")
     def secret_options(self) -> Optional[Sequence['outputs.TaskDefinitionSecret']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
@@ -1908,7 +1908,7 @@ class TaskDefinitionMountPoint(dict):
             pulumi.set(__self__, "source_volume", source_volume)
 
     @property
-    @pulumi.getter(name="ContainerPath")
+    @pulumi.getter(name="containerPath")
     def container_path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-containerpath
@@ -1916,7 +1916,7 @@ class TaskDefinitionMountPoint(dict):
         return pulumi.get(self, "container_path")
 
     @property
-    @pulumi.getter(name="ReadOnly")
+    @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-readonly
@@ -1924,7 +1924,7 @@ class TaskDefinitionMountPoint(dict):
         return pulumi.get(self, "read_only")
 
     @property
-    @pulumi.getter(name="SourceVolume")
+    @pulumi.getter(name="sourceVolume")
     def source_volume(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-sourcevolume
@@ -1958,7 +1958,7 @@ class TaskDefinitionPortMapping(dict):
             pulumi.set(__self__, "protocol", protocol)
 
     @property
-    @pulumi.getter(name="ContainerPort")
+    @pulumi.getter(name="containerPort")
     def container_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
@@ -1966,7 +1966,7 @@ class TaskDefinitionPortMapping(dict):
         return pulumi.get(self, "container_port")
 
     @property
-    @pulumi.getter(name="HostPort")
+    @pulumi.getter(name="hostPort")
     def host_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly
@@ -1974,7 +1974,7 @@ class TaskDefinitionPortMapping(dict):
         return pulumi.get(self, "host_port")
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume
@@ -2007,7 +2007,7 @@ class TaskDefinitionProxyConfiguration(dict):
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="ContainerName")
+    @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
@@ -2015,7 +2015,7 @@ class TaskDefinitionProxyConfiguration(dict):
         return pulumi.get(self, "container_name")
 
     @property
-    @pulumi.getter(name="ProxyConfigurationProperties")
+    @pulumi.getter(name="proxyConfigurationProperties")
     def proxy_configuration_properties(self) -> Optional[Sequence['outputs.TaskDefinitionKeyValuePair']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
@@ -2023,7 +2023,7 @@ class TaskDefinitionProxyConfiguration(dict):
         return pulumi.get(self, "proxy_configuration_properties")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
@@ -2049,7 +2049,7 @@ class TaskDefinitionRepositoryCredentials(dict):
             pulumi.set(__self__, "credentials_parameter", credentials_parameter)
 
     @property
-    @pulumi.getter(name="CredentialsParameter")
+    @pulumi.getter(name="credentialsParameter")
     def credentials_parameter(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
@@ -2077,7 +2077,7 @@ class TaskDefinitionResourceRequirement(dict):
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-type
@@ -2085,7 +2085,7 @@ class TaskDefinitionResourceRequirement(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-value
@@ -2113,7 +2113,7 @@ class TaskDefinitionSecret(dict):
         pulumi.set(__self__, "value_from", value_from)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-name
@@ -2121,7 +2121,7 @@ class TaskDefinitionSecret(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="ValueFrom")
+    @pulumi.getter(name="valueFrom")
     def value_from(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-valuefrom
@@ -2151,7 +2151,7 @@ class TaskDefinitionSystemControl(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Namespace")
+    @pulumi.getter
     def namespace(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
@@ -2159,7 +2159,7 @@ class TaskDefinitionSystemControl(dict):
         return pulumi.get(self, "namespace")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value
@@ -2188,7 +2188,7 @@ class TaskDefinitionTaskDefinitionPlacementConstraint(dict):
             pulumi.set(__self__, "expression", expression)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-type
@@ -2196,7 +2196,7 @@ class TaskDefinitionTaskDefinitionPlacementConstraint(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Expression")
+    @pulumi.getter
     def expression(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-expression
@@ -2229,7 +2229,7 @@ class TaskDefinitionTmpfs(dict):
             pulumi.set(__self__, "mount_options", mount_options)
 
     @property
-    @pulumi.getter(name="Size")
+    @pulumi.getter
     def size(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
@@ -2237,7 +2237,7 @@ class TaskDefinitionTmpfs(dict):
         return pulumi.get(self, "size")
 
     @property
-    @pulumi.getter(name="ContainerPath")
+    @pulumi.getter(name="containerPath")
     def container_path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
@@ -2245,7 +2245,7 @@ class TaskDefinitionTmpfs(dict):
         return pulumi.get(self, "container_path")
 
     @property
-    @pulumi.getter(name="MountOptions")
+    @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
@@ -2276,7 +2276,7 @@ class TaskDefinitionUlimit(dict):
         pulumi.set(__self__, "soft_limit", soft_limit)
 
     @property
-    @pulumi.getter(name="HardLimit")
+    @pulumi.getter(name="hardLimit")
     def hard_limit(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
@@ -2284,7 +2284,7 @@ class TaskDefinitionUlimit(dict):
         return pulumi.get(self, "hard_limit")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-name
@@ -2292,7 +2292,7 @@ class TaskDefinitionUlimit(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="SoftLimit")
+    @pulumi.getter(name="softLimit")
     def soft_limit(self) -> int:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-softlimit
@@ -2310,27 +2310,27 @@ class TaskDefinitionVolume(dict):
     """
     def __init__(__self__, *,
                  docker_volume_configuration: Optional['outputs.TaskDefinitionDockerVolumeConfiguration'] = None,
-                 efs_volume_configuration: Optional['outputs.TaskDefinitionEFSVolumeConfiguration'] = None,
+                 e_fs_volume_configuration: Optional['outputs.TaskDefinitionEFSVolumeConfiguration'] = None,
                  host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
                  name: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
         :param 'TaskDefinitionDockerVolumeConfigurationArgs' docker_volume_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
-        :param 'TaskDefinitionEFSVolumeConfigurationArgs' efs_volume_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
+        :param 'TaskDefinitionEFSVolumeConfigurationArgs' e_fs_volume_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
         :param 'TaskDefinitionHostVolumePropertiesArgs' host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
         """
         if docker_volume_configuration is not None:
             pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
-        if efs_volume_configuration is not None:
-            pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
+        if e_fs_volume_configuration is not None:
+            pulumi.set(__self__, "e_fs_volume_configuration", e_fs_volume_configuration)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="DockerVolumeConfiguration")
+    @pulumi.getter(name="dockerVolumeConfiguration")
     def docker_volume_configuration(self) -> Optional['outputs.TaskDefinitionDockerVolumeConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
@@ -2338,15 +2338,15 @@ class TaskDefinitionVolume(dict):
         return pulumi.get(self, "docker_volume_configuration")
 
     @property
-    @pulumi.getter(name="EFSVolumeConfiguration")
-    def efs_volume_configuration(self) -> Optional['outputs.TaskDefinitionEFSVolumeConfiguration']:
+    @pulumi.getter(name="eFSVolumeConfiguration")
+    def e_fs_volume_configuration(self) -> Optional['outputs.TaskDefinitionEFSVolumeConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
         """
-        return pulumi.get(self, "efs_volume_configuration")
+        return pulumi.get(self, "e_fs_volume_configuration")
 
     @property
-    @pulumi.getter(name="Host")
+    @pulumi.getter
     def host(self) -> Optional['outputs.TaskDefinitionHostVolumeProperties']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
@@ -2354,7 +2354,7 @@ class TaskDefinitionVolume(dict):
         return pulumi.get(self, "host")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
@@ -2384,7 +2384,7 @@ class TaskDefinitionVolumeFrom(dict):
             pulumi.set(__self__, "source_container", source_container)
 
     @property
-    @pulumi.getter(name="ReadOnly")
+    @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
@@ -2392,7 +2392,7 @@ class TaskDefinitionVolumeFrom(dict):
         return pulumi.get(self, "read_only")
 
     @property
-    @pulumi.getter(name="SourceContainer")
+    @pulumi.getter(name="sourceContainer")
     def source_container(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
@@ -2425,7 +2425,7 @@ class TaskSetAwsVpcConfiguration(dict):
             pulumi.set(__self__, "security_groups", security_groups)
 
     @property
-    @pulumi.getter(name="Subnets")
+    @pulumi.getter
     def subnets(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-subnets
@@ -2433,7 +2433,7 @@ class TaskSetAwsVpcConfiguration(dict):
         return pulumi.get(self, "subnets")
 
     @property
-    @pulumi.getter(name="AssignPublicIp")
+    @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
@@ -2441,7 +2441,7 @@ class TaskSetAwsVpcConfiguration(dict):
         return pulumi.get(self, "assign_public_ip")
 
     @property
-    @pulumi.getter(name="SecurityGroups")
+    @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-securitygroups
@@ -2479,7 +2479,7 @@ class TaskSetLoadBalancer(dict):
             pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
-    @pulumi.getter(name="ContainerName")
+    @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containername
@@ -2487,7 +2487,7 @@ class TaskSetLoadBalancer(dict):
         return pulumi.get(self, "container_name")
 
     @property
-    @pulumi.getter(name="ContainerPort")
+    @pulumi.getter(name="containerPort")
     def container_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containerport
@@ -2495,7 +2495,7 @@ class TaskSetLoadBalancer(dict):
         return pulumi.get(self, "container_port")
 
     @property
-    @pulumi.getter(name="LoadBalancerName")
+    @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-loadbalancername
@@ -2503,7 +2503,7 @@ class TaskSetLoadBalancer(dict):
         return pulumi.get(self, "load_balancer_name")
 
     @property
-    @pulumi.getter(name="TargetGroupArn")
+    @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-targetgrouparn
@@ -2529,7 +2529,7 @@ class TaskSetNetworkConfiguration(dict):
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
 
     @property
-    @pulumi.getter(name="AwsVpcConfiguration")
+    @pulumi.getter(name="awsVpcConfiguration")
     def aws_vpc_configuration(self) -> Optional['outputs.TaskSetAwsVpcConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
@@ -2559,7 +2559,7 @@ class TaskSetScale(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Unit")
+    @pulumi.getter
     def unit(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit
@@ -2567,7 +2567,7 @@ class TaskSetScale(dict):
         return pulumi.get(self, "unit")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-value
@@ -2605,7 +2605,7 @@ class TaskSetServiceRegistry(dict):
             pulumi.set(__self__, "registry_arn", registry_arn)
 
     @property
-    @pulumi.getter(name="ContainerName")
+    @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containername
@@ -2613,7 +2613,7 @@ class TaskSetServiceRegistry(dict):
         return pulumi.get(self, "container_name")
 
     @property
-    @pulumi.getter(name="ContainerPort")
+    @pulumi.getter(name="containerPort")
     def container_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containerport
@@ -2621,7 +2621,7 @@ class TaskSetServiceRegistry(dict):
         return pulumi.get(self, "container_port")
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-port
@@ -2629,7 +2629,7 @@ class TaskSetServiceRegistry(dict):
         return pulumi.get(self, "port")
 
     @property
-    @pulumi.getter(name="RegistryArn")
+    @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-registryarn

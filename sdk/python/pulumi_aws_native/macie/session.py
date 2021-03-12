@@ -74,12 +74,12 @@ class Session(pulumi.CustomResource):
         return Session(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AwsAccountId")
+    @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "aws_account_id")
 
     @property
-    @pulumi.getter(name="FindingPublishingFrequency")
+    @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
@@ -87,12 +87,12 @@ class Session(pulumi.CustomResource):
         return pulumi.get(self, "finding_publishing_frequency")
 
     @property
-    @pulumi.getter(name="ServiceRole")
+    @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[str]:
         return pulumi.get(self, "service_role")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status

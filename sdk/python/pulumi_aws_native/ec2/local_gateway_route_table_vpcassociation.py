@@ -86,12 +86,12 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
         return LocalGatewayRouteTableVPCAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="LocalGatewayId")
+    @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "local_gateway_id")
 
     @property
-    @pulumi.getter(name="LocalGatewayRouteTableId")
+    @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
@@ -99,17 +99,17 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @property
-    @pulumi.getter(name="LocalGatewayRouteTableVpcAssociationId")
+    @pulumi.getter(name="localGatewayRouteTableVpcAssociationId")
     def local_gateway_route_table_vpc_association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "local_gateway_route_table_vpc_association_id")
 
     @property
-    @pulumi.getter(name="State")
+    @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional['outputs.LocalGatewayRouteTableVPCAssociationTags']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
@@ -117,7 +117,7 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="VpcId")
+    @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid

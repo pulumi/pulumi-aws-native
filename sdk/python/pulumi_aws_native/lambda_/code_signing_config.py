@@ -81,7 +81,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         return CodeSigningConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AllowedPublishers")
+    @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Output['outputs.CodeSigningConfigAllowedPublishers']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
@@ -89,17 +89,17 @@ class CodeSigningConfig(pulumi.CustomResource):
         return pulumi.get(self, "allowed_publishers")
 
     @property
-    @pulumi.getter(name="CodeSigningConfigArn")
+    @pulumi.getter(name="codeSigningConfigArn")
     def code_signing_config_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "code_signing_config_arn")
 
     @property
-    @pulumi.getter(name="CodeSigningConfigId")
+    @pulumi.getter(name="codeSigningConfigId")
     def code_signing_config_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "code_signing_config_id")
 
     @property
-    @pulumi.getter(name="CodeSigningPolicies")
+    @pulumi.getter(name="codeSigningPolicies")
     def code_signing_policies(self) -> pulumi.Output[Optional['outputs.CodeSigningConfigCodeSigningPolicies']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
@@ -107,7 +107,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         return pulumi.get(self, "code_signing_policies")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description

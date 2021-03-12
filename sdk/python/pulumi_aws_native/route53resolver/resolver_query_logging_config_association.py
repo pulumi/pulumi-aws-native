@@ -77,27 +77,27 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         return ResolverQueryLoggingConfigAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CreationTime")
+    @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
 
     @property
-    @pulumi.getter(name="Error")
+    @pulumi.getter
     def error(self) -> pulumi.Output[str]:
         return pulumi.get(self, "error")
 
     @property
-    @pulumi.getter(name="ErrorMessage")
+    @pulumi.getter(name="errorMessage")
     def error_message(self) -> pulumi.Output[str]:
         return pulumi.get(self, "error_message")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="ResolverQueryLogConfigId")
+    @pulumi.getter(name="resolverQueryLogConfigId")
     def resolver_query_log_config_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
@@ -105,7 +105,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         return pulumi.get(self, "resolver_query_log_config_id")
 
     @property
-    @pulumi.getter(name="ResourceId")
+    @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
@@ -113,7 +113,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         return pulumi.get(self, "resource_id")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 

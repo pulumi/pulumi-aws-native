@@ -31,7 +31,7 @@ class AssociationInstanceAssociationOutputLocation(dict):
             pulumi.set(__self__, "s3_location", s3_location)
 
     @property
-    @pulumi.getter(name="S3Location")
+    @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.AssociationS3OutputLocation']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
@@ -57,7 +57,7 @@ class AssociationParameterValues(dict):
             pulumi.set(__self__, "parameter_values", parameter_values)
 
     @property
-    @pulumi.getter(name="ParameterValues")
+    @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
@@ -91,7 +91,7 @@ class AssociationS3OutputLocation(dict):
             pulumi.set(__self__, "output_s3_region", output_s3_region)
 
     @property
-    @pulumi.getter(name="OutputS3BucketName")
+    @pulumi.getter(name="outputS3BucketName")
     def output_s3_bucket_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
@@ -99,7 +99,7 @@ class AssociationS3OutputLocation(dict):
         return pulumi.get(self, "output_s3_bucket_name")
 
     @property
-    @pulumi.getter(name="OutputS3KeyPrefix")
+    @pulumi.getter(name="outputS3KeyPrefix")
     def output_s3_key_prefix(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
@@ -107,7 +107,7 @@ class AssociationS3OutputLocation(dict):
         return pulumi.get(self, "output_s3_key_prefix")
 
     @property
-    @pulumi.getter(name="OutputS3Region")
+    @pulumi.getter(name="outputS3Region")
     def output_s3_region(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
@@ -135,7 +135,7 @@ class AssociationTarget(dict):
         pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
@@ -143,7 +143,7 @@ class AssociationTarget(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values

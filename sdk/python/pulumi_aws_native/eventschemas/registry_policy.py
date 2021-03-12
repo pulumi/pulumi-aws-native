@@ -80,12 +80,12 @@ class RegistryPolicy(pulumi.CustomResource):
         return RegistryPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Policy")
+    @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
@@ -93,7 +93,7 @@ class RegistryPolicy(pulumi.CustomResource):
         return pulumi.get(self, "policy")
 
     @property
-    @pulumi.getter(name="RegistryName")
+    @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
@@ -101,7 +101,7 @@ class RegistryPolicy(pulumi.CustomResource):
         return pulumi.get(self, "registry_name")
 
     @property
-    @pulumi.getter(name="RevisionId")
+    @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid

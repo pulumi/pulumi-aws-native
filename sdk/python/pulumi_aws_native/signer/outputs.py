@@ -31,7 +31,7 @@ class SigningProfileSignatureValidityPeriod(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-type
@@ -39,7 +39,7 @@ class SigningProfileSignatureValidityPeriod(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-value

@@ -108,7 +108,7 @@ class Firewall(pulumi.CustomResource):
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="DeleteProtection")
+    @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
@@ -116,7 +116,7 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "delete_protection")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
@@ -124,22 +124,22 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="EndpointIds")
+    @pulumi.getter(name="endpointIds")
     def endpoint_ids(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "endpoint_ids")
 
     @property
-    @pulumi.getter(name="FirewallArn")
+    @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "firewall_arn")
 
     @property
-    @pulumi.getter(name="FirewallId")
+    @pulumi.getter(name="firewallId")
     def firewall_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "firewall_id")
 
     @property
-    @pulumi.getter(name="FirewallName")
+    @pulumi.getter(name="firewallName")
     def firewall_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
@@ -147,7 +147,7 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "firewall_name")
 
     @property
-    @pulumi.getter(name="FirewallPolicyArn")
+    @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
@@ -155,7 +155,7 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "firewall_policy_arn")
 
     @property
-    @pulumi.getter(name="FirewallPolicyChangeProtection")
+    @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
@@ -163,7 +163,7 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @property
-    @pulumi.getter(name="SubnetChangeProtection")
+    @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
@@ -171,7 +171,7 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "subnet_change_protection")
 
     @property
-    @pulumi.getter(name="SubnetMappings")
+    @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Output[Sequence['outputs.FirewallSubnetMapping']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
@@ -179,7 +179,7 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "subnet_mappings")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
@@ -187,7 +187,7 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="VpcId")
+    @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid

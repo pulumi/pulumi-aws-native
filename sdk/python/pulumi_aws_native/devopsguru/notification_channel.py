@@ -74,7 +74,7 @@ class NotificationChannel(pulumi.CustomResource):
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Config")
+    @pulumi.getter
     def config(self) -> pulumi.Output['outputs.NotificationChannelNotificationChannelConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
@@ -82,7 +82,7 @@ class NotificationChannel(pulumi.CustomResource):
         return pulumi.get(self, "config")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 

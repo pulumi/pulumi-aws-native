@@ -75,17 +75,17 @@ class PublicKey(pulumi.CustomResource):
         return PublicKey(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CreatedTime")
+    @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created_time")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="PublicKeyConfig")
+    @pulumi.getter(name="publicKeyConfig")
     def public_key_config(self) -> pulumi.Output['outputs.PublicKeyPublicKeyConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig

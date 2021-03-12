@@ -30,7 +30,7 @@ class ConformancePackConformancePackInputParameter(dict):
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
-    @pulumi.getter(name="ParameterName")
+    @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
@@ -38,7 +38,7 @@ class ConformancePackConformancePackInputParameter(dict):
         return pulumi.get(self, "parameter_name")
 
     @property
-    @pulumi.getter(name="ParameterValue")
+    @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
@@ -66,7 +66,7 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
-    @pulumi.getter(name="ParameterName")
+    @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
@@ -74,7 +74,7 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
         return pulumi.get(self, "parameter_name")
 
     @property
-    @pulumi.getter(name="ParameterValue")
+    @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue

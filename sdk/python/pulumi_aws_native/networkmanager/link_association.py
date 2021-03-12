@@ -81,7 +81,7 @@ class LinkAssociation(pulumi.CustomResource):
         return LinkAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="DeviceId")
+    @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
@@ -89,7 +89,7 @@ class LinkAssociation(pulumi.CustomResource):
         return pulumi.get(self, "device_id")
 
     @property
-    @pulumi.getter(name="GlobalNetworkId")
+    @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
@@ -97,7 +97,7 @@ class LinkAssociation(pulumi.CustomResource):
         return pulumi.get(self, "global_network_id")
 
     @property
-    @pulumi.getter(name="LinkId")
+    @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid

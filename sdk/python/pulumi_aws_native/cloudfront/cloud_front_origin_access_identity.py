@@ -74,7 +74,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         return CloudFrontOriginAccessIdentity(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CloudFrontOriginAccessIdentityConfig")
+    @pulumi.getter(name="cloudFrontOriginAccessIdentityConfig")
     def cloud_front_origin_access_identity_config(self) -> pulumi.Output['outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
@@ -82,7 +82,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
 
     @property
-    @pulumi.getter(name="S3CanonicalUserId")
+    @pulumi.getter(name="s3CanonicalUserId")
     def s3_canonical_user_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "s3_canonical_user_id")
 

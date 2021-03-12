@@ -101,17 +101,17 @@ class Asset(pulumi.CustomResource):
         return Asset(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="CreatedAt")
+    @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created_at")
 
     @property
-    @pulumi.getter(name="EgressEndpoints")
+    @pulumi.getter(name="egressEndpoints")
     def egress_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.AssetEgressEndpoint']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
@@ -119,7 +119,7 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "egress_endpoints")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
@@ -127,7 +127,7 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="PackagingGroupId")
+    @pulumi.getter(name="packagingGroupId")
     def packaging_group_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
@@ -135,7 +135,7 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "packaging_group_id")
 
     @property
-    @pulumi.getter(name="ResourceId")
+    @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
@@ -143,7 +143,7 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "resource_id")
 
     @property
-    @pulumi.getter(name="SourceArn")
+    @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
@@ -151,7 +151,7 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "source_arn")
 
     @property
-    @pulumi.getter(name="SourceRoleArn")
+    @pulumi.getter(name="sourceRoleArn")
     def source_role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
@@ -159,7 +159,7 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "source_role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags

@@ -101,12 +101,12 @@ class ImageRecipe(pulumi.CustomResource):
         return ImageRecipe(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="BlockDeviceMappings")
+    @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.ImageRecipeInstanceBlockDeviceMapping']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
@@ -114,7 +114,7 @@ class ImageRecipe(pulumi.CustomResource):
         return pulumi.get(self, "block_device_mappings")
 
     @property
-    @pulumi.getter(name="Components")
+    @pulumi.getter
     def components(self) -> pulumi.Output[Sequence['outputs.ImageRecipeComponentConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
@@ -122,7 +122,7 @@ class ImageRecipe(pulumi.CustomResource):
         return pulumi.get(self, "components")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
@@ -130,7 +130,7 @@ class ImageRecipe(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
@@ -138,7 +138,7 @@ class ImageRecipe(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="ParentImage")
+    @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
@@ -146,7 +146,7 @@ class ImageRecipe(pulumi.CustomResource):
         return pulumi.get(self, "parent_image")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
@@ -154,7 +154,7 @@ class ImageRecipe(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Version")
+    @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
@@ -162,7 +162,7 @@ class ImageRecipe(pulumi.CustomResource):
         return pulumi.get(self, "version")
 
     @property
-    @pulumi.getter(name="WorkingDirectory")
+    @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory

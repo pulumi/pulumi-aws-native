@@ -88,12 +88,12 @@ class RepositoryAssociation(pulumi.CustomResource):
         return RepositoryAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AssociationArn")
+    @pulumi.getter(name="associationArn")
     def association_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "association_arn")
 
     @property
-    @pulumi.getter(name="ConnectionArn")
+    @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
@@ -101,7 +101,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         return pulumi.get(self, "connection_arn")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
@@ -109,7 +109,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Owner")
+    @pulumi.getter
     def owner(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
@@ -117,7 +117,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         return pulumi.get(self, "owner")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
@@ -125,7 +125,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
