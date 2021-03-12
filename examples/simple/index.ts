@@ -42,6 +42,7 @@ const taskDefinition = new aws_native.ecs.TaskDefinition("app-task", {
 
 const service = new aws_native.ecs.Service("app-svc", {
     ServiceName: "app-svc-cloud-api",
+    ServiceArn: "arn:aws:ecs:us-west-2:616138583583:service/cloud-api-cluster/app-svc-cloud-api", // this is currently required, otherwise creation fails
     Cluster: cluster.Arn,
     DesiredCount: 3,
     LaunchType: "FARGATE",
