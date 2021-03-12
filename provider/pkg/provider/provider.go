@@ -26,6 +26,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/cloudformation"
 	"github.com/aws/aws-sdk-go/service/ec2"
@@ -436,7 +437,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	glog.V(9).Infof("%s.GetResource %q id %q", label, resourceType, id)
 	outputs, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "reading resource state")
 	}
 
 	// Store both outputs and inputs into the state.
@@ -475,6 +476,10 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	}
 	newState, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
+		if httpErr, ok := err.(awserr.Error); ok && httpErr.Code() == cloudformation.ErrCodeResourceNotFoundException {
+			// ResourceNotFound means that the resource was deleted.
+			return &pulumirpc.ReadResponse{Id: ""}, nil
+		}
 		return nil, err
 	}
 
@@ -586,7 +591,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 	outputs, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "reading resource state")
 	}
 
 	// Read the inputs to persist them into state.
@@ -630,6 +635,9 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 		TypeName:    aws.String(resourceType),
 		Identifier:  aws.String(id),
 	})
+	if err != nil {
+		return nil, err
+	}
 	if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
 		return nil, err
 	}
@@ -705,7 +713,7 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 		Identifier: aws.String(identifier),
 	})
 	if err != nil {
-		return nil, errors.Wrapf(err, "reading resource state")
+		return nil, err
 	}
 
 	resourceModel := aws.StringValue(getRes.ResourceDescription.ResourceModel)
