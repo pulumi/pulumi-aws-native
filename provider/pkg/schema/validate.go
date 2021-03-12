@@ -154,6 +154,7 @@ func validateProperty(schema CloudFormationSchema, spec PropertySpec, resourceTy
 func validateProperties(schema CloudFormationSchema, spec PropertyTypeSpec, resourceType, path string, properties resource.PropertyMap) ([]ValidationFailure, error) {
 	// Do a schema-directed check first.
 	var failures []ValidationFailure
+	remainingProperties := properties.Mappable()
 	for k, propertySpec := range spec.Properties {
 		var propertyPath string
 		if path == "" {
@@ -161,24 +162,24 @@ func validateProperties(schema CloudFormationSchema, spec PropertyTypeSpec, reso
 		} else {
 			propertyPath = fmt.Sprintf("%s.%s", path, k)
 		}
-		fs, err := validateProperty(schema, propertySpec, resourceType, propertyPath, properties[resource.PropertyKey(k)])
+		sdkName := ToPropertyName(k)
+		fs, err := validateProperty(schema, propertySpec, resourceType, propertyPath, properties[resource.PropertyKey(sdkName)])
 		if err != nil {
 			return nil, err
 		}
+		delete(remainingProperties, sdkName)
 		failures = append(failures, fs...)
 	}
 
 	// Now check for unexpected properties.
-	for k := range properties {
-		if _, has := spec.Properties[string(k)]; !has {
-			var propertyPath string
-			if path == "" {
-				propertyPath = string(k)
-			} else {
-				propertyPath = fmt.Sprintf("%s.%s", path, k)
-			}
-			failures = append(failures, ValidationFailure{Path: propertyPath, Reason: fmt.Sprintf("unknown property %v", propertyPath)})
+	for k := range remainingProperties {
+		var propertyPath string
+		if path == "" {
+			propertyPath = string(k)
+		} else {
+			propertyPath = fmt.Sprintf("%s.%s", path, k)
 		}
+		failures = append(failures, ValidationFailure{Path: propertyPath, Reason: fmt.Sprintf("unknown property %v", propertyPath)})
 	}
 
 	return failures, nil

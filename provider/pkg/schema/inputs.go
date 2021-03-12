@@ -12,8 +12,9 @@ func GetInputsFromState(schema CloudFormationSchema, resourceType string, state 
 	}
 
 	inputs := resource.NewPropertyMapFromMap(map[string]interface{}{})
-	for k, v := range state {
-		if _, ok := resourceSpec.Properties[string(k)]; ok {
+	for n := range resourceSpec.Properties {
+		k := resource.PropertyKey(ToPropertyName(n))
+		if v, ok := state[k]; ok {
 			inputs[k] = v
 		}
 	}

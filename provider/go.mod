@@ -13,6 +13,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v2 v2.16.1
 	github.com/pulumi/pulumi/sdk/v2 v2.16.1
+	github.com/stretchr/testify v1.6.1
 	github.com/zclconf/go-cty v1.3.1
 )
 

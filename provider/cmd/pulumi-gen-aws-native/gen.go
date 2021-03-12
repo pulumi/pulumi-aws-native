@@ -138,12 +138,13 @@ func (ctx *context) propertyTypeSpec(resourceScope, itemType, primitiveItemType,
 func (ctx *context) gatherPropertyType(resourceScope string, spec schema.PropertyTypeSpec) pschema.ComplexTypeSpec {
 	properties, required := map[string]pschema.PropertySpec{}, []string{}
 	for name, spec := range spec.Properties {
-		properties[name] = pschema.PropertySpec{
+		sdkName := schema.ToPropertyName(name)
+		properties[sdkName] = pschema.PropertySpec{
 			TypeSpec:    ctx.propertyTypeSpec(resourceScope, spec.ItemType, spec.PrimitiveItemType, spec.PrimitiveType, spec.Type),
 			Description: spec.Documentation,
 		}
 		if spec.Required {
-			required = append(required, name)
+			required = append(required, sdkName)
 		}
 	}
 	sort.Strings(required)
@@ -161,11 +162,11 @@ func (ctx *context) gatherPropertyType(resourceScope string, spec schema.Propert
 func (ctx *context) gatherAttributesType(resourceScope string, attributes map[string]schema.AttributeSpec) pschema.ComplexTypeSpec {
 	properties, required := map[string]pschema.PropertySpec{}, []string{}
 	for name, spec := range attributes {
-		name = strings.Replace(name, ".", "", -1)
-		properties[name] = pschema.PropertySpec{
+		sdkName := schema.ToPropertyName(strings.Replace(name, ".", "", -1))
+		properties[sdkName] = pschema.PropertySpec{
 			TypeSpec: ctx.propertyTypeSpec(resourceScope, spec.ItemType, spec.PrimitiveItemType, spec.PrimitiveType, spec.Type),
 		}
-		required = append(required, name)
+		required = append(required, sdkName)
 	}
 	sort.Strings(required)
 
@@ -196,11 +197,12 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 				}),
 			}
 		}
-		properties[prop] = propertySpec
-		inputProperties[prop] = propertySpec
+		sdkName := schema.ToPropertyName(prop)
+		properties[sdkName] = propertySpec
+		inputProperties[sdkName] = propertySpec
 		if spec.Required {
-			required = append(required, prop)
-			requiredInputs = append(requiredInputs, prop)
+			required = append(required, sdkName)
+			requiredInputs = append(requiredInputs, sdkName)
 		}
 	}
 	sort.Strings(required)
@@ -217,8 +219,9 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 				}),
 			}
 		}
-		properties[attr] = propertySpec
-		required = append(required, attr)
+		sdkName := schema.ToPropertyName(attr)
+		properties[sdkName] = propertySpec
+		required = append(required, sdkName)
 	}
 	sort.Strings(required)
 

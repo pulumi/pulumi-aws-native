@@ -53,8 +53,8 @@ const rpa = new aws.iam.RolePolicyAttachment("task-exec-policy", {
 });
 
 export const albArn = alb.arn;
+export const albDnsName = alb.dnsName;
 export const atgArn = atg.arn;
 export const roleArn = role.arn;
-export const albDnsName = alb.dnsName;
 export const subnetIds = defaultVpcSubnets.ids;
 export const securityGroupId = group.id;
